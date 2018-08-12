@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-12T09:11:01.894Z</updated>
+  <updated>2018-08-12T09:34:31.657Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Markdown教程</title>
+    <link href="https://zxpgo.github.io/2018/08/12/Markdown%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/12/Markdown教程/</id>
+    <published>2018-08-12T09:24:24.000Z</published>
+    <updated>2018-08-12T09:34:31.657Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Markdown" scheme="https://zxpgo.github.io/tag/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo搭建属于自己的博客</title>
     <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-12T09:11:01.894Z</updated>
+    <updated>2018-08-12T09:23:59.425Z</updated>
     
     <summary type="html">
     

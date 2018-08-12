@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://i.imgur.com/m3HfCIE.png">
 <meta property="og:image" content="https://i.imgur.com/RPLwY5K.png">
 <meta property="og:image" content="https://i.imgur.com/RPI4qld.png">
-<meta property="og:updated_time" content="2018-08-12T09:11:01.894Z">
+<meta property="og:updated_time" content="2018-08-12T09:23:59.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建属于自己的博客">
 <meta name="twitter:description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
@@ -215,7 +215,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li></ul>
                     </div>
                 </section>
                 
@@ -333,23 +333,22 @@
       
           
         <p>本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。<a id="more"></a></p>
-<p>#准备：</p>
-<p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<h1 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h1><p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
 <p>Nodejs:<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
 <p>Github账号，并创建新仓库</p>
 <p>新建仓库如下：<br><img src="https://i.imgur.com/Qt2pUjV.png" alt=""><br><img src="https://i.imgur.com/FSsJniC.png" alt=""></p>
-<p>#安装Nodejs：<br>一路next即可</p>
-<p>#安装git<br>安装一路next，重点在配置</p>
+<h1 id="安装Nodejs："><a href="#安装Nodejs：" class="headerlink" title="安装Nodejs："></a>安装Nodejs：</h1><p>一路next即可</p>
+<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><p>安装一路next，重点在配置</p>
 <p>首先将安装目录添加进环境变量</p>
 <p>然后设置用户名和邮箱</p>
 <pre><code>$ git config --global user.name &quot;John Doe&quot;
 $ git config --global user.email johndoe@example.com
-</code></pre><p>#安装hexo<br>在所要存放博客文件的文件夹下右键，点击git bash</p>
+</code></pre><h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><p>在所要存放博客文件的文件夹下右键，点击git bash</p>
 <p>输入如下命令：</p>
 <pre><code>npm install -g hexo-cli
-</code></pre><p>#创建hexo文件夹<br>    hexo init </p>
-<p>#安装依赖依赖包<br>    npm install</p>
-<p>#站点配置<br>在博客目录下找到_config.yml,修改如下内容</p>
+</code></pre><h1 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h1><pre><code>hexo init 
+</code></pre><h1 id="安装依赖依赖包"><a href="#安装依赖依赖包" class="headerlink" title="安装依赖依赖包"></a>安装依赖依赖包</h1><pre><code>npm install
+</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容</p>
 <pre><code># Site
 title: 平步青云win
 subtitle:
@@ -367,37 +366,38 @@ deploy:
 </code></pre><p>博客仓库地址见本文开头第二张图片内的地址</p>
 <p>注意：<strong>：之后必须添加一个空格再添加内容</strong></p>
 <p>否则会有如下错误：<br><img src="https://i.imgur.com/Z9xaVfN.png" alt=""></p>
-<p>#本地站点生成</p>
-<p>##生成文件</p>
-<pre><code>hexo g
+<h1 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h1><pre><code>hexo new &quot;文章名字&quot;
+</code></pre><h1 id="本地站点生成"><a href="#本地站点生成" class="headerlink" title="本地站点生成"></a>本地站点生成</h1><h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><pre><code>hexo g
 </code></pre><p>显示如下信息，表示成功</p>
 <p><img src="https://i.imgur.com/UpMYKme.png" alt=""></p>
-<p>##启动服务<br>    hexo s<br>显示如下信息，表示成功：</p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre><code>hexo s
+</code></pre><p>显示如下信息，表示成功：</p>
 <p><img src="https://i.imgur.com/ENe7sIs.png" alt=""></p>
 <p>到此本地的配置结束</p>
 <p>打开浏览器，输入localhost:4000查看</p>
-<p>#部署Github<br>    hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
-<pre><code>hexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。（个人习惯，非必需）
+<h1 id="部署Github"><a href="#部署Github" class="headerlink" title="部署Github"></a>部署Github</h1><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
+
+hexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。（个人习惯，非必需）
 hexo g #生成静态文件，每次改动之后都需要执行以下这个命令。
 hexo d #这个才是真正的部署命令，这里用的都是简写形式
-</code></pre><p>##问题一<br>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p>
+</code></pre><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p>
 <p>设置Git的user name和email：（前面以及设置）<br>    git config –global user.name “aqiongbei” #改成你的注册Github的用户名<br>    git config –global user.email “<a href="mailto:aqiongbei@gmail.com" target="_blank" rel="noopener">aqiongbei@gmail.com</a>“ #改成你的注册Github的邮箱</p>
-<p>##生成SSH密钥：<br>生存密钥：</p>
+<h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;aqiongbei@gmail.com&quot; #改成你注册Github的邮箱
 </code></pre><p>返回提示如下：</p>
 <p><img src="https://i.imgur.com/ONTwjSc.png" alt=""></p>
 <p>然后会提示，不用理，直接按回车，一共三次。<br>在C:\Users\Neckpain.ssh得到 id_rsa 和 id_rsa.pub 文件，说明生成成功</p>
-<p>##添加密钥到 Github<br>打开 Github，登录自己的账号后<br>点击自己的头像-&gt;settings-&gt;SSH Keys-&gt;Add SSH key<br>将本地 id_rsa.pub 中的内容粘贴到 Key 文本框中，随意输入一个 title，点击 Add Key 即可。</p>
-<p>##测试<br>Git里面继续输入</p>
+<h2 id="添加密钥到-Github"><a href="#添加密钥到-Github" class="headerlink" title="添加密钥到 Github"></a>添加密钥到 Github</h2><p>打开 Github，登录自己的账号后<br>点击自己的头像-&gt;settings-&gt;SSH Keys-&gt;Add SSH key<br>将本地 id_rsa.pub 中的内容粘贴到 Key 文本框中，随意输入一个 title，点击 Add Key 即可。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>Git里面继续输入</p>
 <pre><code>ssh -T git@github.com
 </code></pre><p>返回</p>
 <p><img src="https://i.imgur.com/ztaoOqM.png" alt=""></p>
 <p>则说明验证成功。</p>
-<p>##问题二<br>ERROR Deployer not found: git</p>
+<h2 id="问题一-1"><a href="#问题一-1" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>ERROR Deployer not found: git</p>
 <p><img src="https://i.imgur.com/g0NwgIs.png" alt=""></p>
 <p>解决方案如下：</p>
 <pre><code>npm install --save hexo-deployer-git
-</code></pre><p>##添加域名<br>首先购买域名，博主在阿里云购买，记得实名认证</p>
+</code></pre><h2 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h2><p>首先购买域名，博主在阿里云购买，记得实名认证</p>
 <p>首先在域名控制台添加记录，</p>
 <p><img src="https://i.imgur.com/KvOvo9Q.png" alt=""></p>
 <p><img src="https://i.imgur.com/m3HfCIE.png" alt=""></p>
@@ -408,13 +408,13 @@ hexo d #这个才是真正的部署命令，这里用的都是简写形式
 <pre><code>www.zxpblog.cn
 zxpblog.cn
 </code></pre><p>最后还得在setting中的Custom domain处添加域名，必须加www, 如下</p>
-<p>#主题修改<br>在本地博客目录下打开git bash</p>
+<h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>在本地博客目录下打开git bash</p>
 <pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next
 </code></pre><p>在_config.yml中找到theme修改为下载的主题名</p>
 <p><img src="https://i.imgur.com/RPI4qld.png" alt=""></p>
 <p>重新部署到github即可</p>
 <pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre><p>#底部添加访问量统计<br>部分主题自带访问量统计，不用配置<br>打开\themes\主题名字\layout_partials\footer.swig文件,不同具体footer文件的后缀可能不同，在顶部添加如下代码：</p>
+</code></pre><h1 id="底部添加访问量统计"><a href="#底部添加访问量统计" class="headerlink" title="底部添加访问量统计"></a>底部添加访问量统计</h1><p>部分主题自带访问量统计，不用配置<br>打开\themes\主题名字\layout_partials\footer.swig文件,不同具体footer文件的后缀可能不同，在顶部添加如下代码：</p>
 <pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>接着在合适的地方添加需要显示的统计数字代码（同上文件）：</p>
 <pre><code>&lt;div class=&quot;powered-by&quot;&gt;
@@ -432,8 +432,7 @@ zxpblog.cn
 <li>  <span id="busuanzi_container_site_uv"><pre><code>本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次
 </code></pre>  </span></li>
 </ul>
-<p>#添加RSS</p>
-<p>首先安装 hexo-generator-feed包</p>
+<h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>首先安装 hexo-generator-feed包</p>
 <pre><code>npm install hexo-generator-feed
 </code></pre><p>在配置文件中添加如下代码：</p>
 <pre><code>#RSS配置
@@ -457,7 +456,7 @@ feed:
         <p><span>本文标题:</span><a href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-12, 17:11:01</p>
+        <p><span>最后更新:</span>2018-08-12, 17:23:59</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/11/Hexo搭建博客/" title="Hexo搭建属于自己的博客">https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/Hexo搭建博客/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -471,6 +470,12 @@ feed:
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/08/12/Markdown教程/">
+                    Markdown教程
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -487,7 +492,7 @@ feed:
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Nodejs："><span class="toc-number">2.</span> <span class="toc-text">安装Nodejs：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装git"><span class="toc-number">3.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">4.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">5.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖依赖包"><span class="toc-number">6.</span> <span class="toc-text">安装依赖依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#站点配置"><span class="toc-number">7.</span> <span class="toc-text">站点配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发布博客"><span class="toc-number">8.</span> <span class="toc-text">发布博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地站点生成"><span class="toc-number">9.</span> <span class="toc-text">本地站点生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成文件"><span class="toc-number">9.1.</span> <span class="toc-text">生成文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">9.2.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署Github"><span class="toc-number">10.</span> <span class="toc-text">部署Github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一"><span class="toc-number">10.1.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成SSH密钥："><span class="toc-number">10.2.</span> <span class="toc-text">生成SSH密钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加密钥到-Github"><span class="toc-number">10.3.</span> <span class="toc-text">添加密钥到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">10.4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一-1"><span class="toc-number">10.5.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加域名"><span class="toc-number">10.6.</span> <span class="toc-text">添加域名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题修改"><span class="toc-number">11.</span> <span class="toc-text">主题修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#底部添加访问量统计"><span class="toc-number">12.</span> <span class="toc-text">底部添加访问量统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">13.</span> <span class="toc-text">添加RSS</span></a></li></ol>
         
     </div>
     <style>
@@ -565,7 +570,9 @@ feed:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/08/12/Markdown教程/" title="上一篇: Markdown教程">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -577,7 +584,7 @@ feed:
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 
