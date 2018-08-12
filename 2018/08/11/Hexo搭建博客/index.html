@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://i.imgur.com/m3HfCIE.png">
 <meta property="og:image" content="https://i.imgur.com/RPLwY5K.png">
 <meta property="og:image" content="https://i.imgur.com/RPI4qld.png">
-<meta property="og:updated_time" content="2018-08-12T09:43:59.599Z">
+<meta property="og:updated_time" content="2018-08-12T14:10:02.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建属于自己的博客">
 <meta name="twitter:description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
@@ -318,8 +318,8 @@
   
 
       </header>
-      
 	  
+      
       <div class="article-info article-info-post">
         
 
@@ -328,14 +328,16 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Hexo/">Hexo</a></li></ul>
     </div>
 
-		<span id="busuanzi_container_page_pv">
-		 阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
+		<span id="busuanzi_container_page_pv" style ="display:block">
+  |阅读量(<span id="busuanzi_value_page_pv"></span>)
+</span>
         <div class="clearfix"></div>
       </div>
       
     
+	
     <div class="article-entry" itemprop="articleBody">
+	
       
           
         <p>本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。<a id="more"></a></p>
@@ -456,7 +458,20 @@ feed:
 <h1 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h1><p>方法一：在需要显示的摘要之后添加如下代码：</p>
 <pre><code>&lt;!--more--&gt;
 </code></pre><p>方法二： 自动截取方法<br>转自：<a href="https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/" target="_blank" rel="noopener">https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/</a></p>
-
+<h1 id="添加文章访问量统计"><a href="#添加文章访问量统计" class="headerlink" title="添加文章访问量统计"></a>添加文章访问量统计</h1><p>themes\yelee\layout_partial\footer.ejs中添加如下代码：</p>
+<pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>在article.ejs中&lt;%- partial(‘post/tag’) %&gt;后添加如下代码：</p>
+<pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot; style =&quot;display:block&quot;&gt;
+     |阅读量(&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;)
+&lt;/span&gt;
+</code></pre><p>在theme/source/css/style.styl文件中设置格式</p>
+<pre><code>#busuanzi_container_page_pv
+{display:block  !important;
+padding-top:4px;
+color: #bebebe;
+//margin-left:200px;
+}
+</code></pre>
       
     </div>
     
@@ -467,7 +482,7 @@ feed:
         <p><span>本文标题:</span><a href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-12, 17:43:59</p>
+        <p><span>最后更新:</span>2018-08-12, 22:10:02</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/11/Hexo搭建博客/" title="Hexo搭建属于自己的博客">https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/Hexo搭建博客/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -483,17 +498,11 @@ feed:
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/12/Markdown教程/">
-                    Markdown教程
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
                 <a href="/2018/08/11/Linux介绍/">
                     Linux介绍
                 </a>
             </div>
+        
         
     </nav>
 
@@ -564,7 +573,7 @@ feed:
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Nodejs："><span class="toc-number">2.</span> <span class="toc-text">安装Nodejs：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装git"><span class="toc-number">3.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">4.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">5.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖依赖包"><span class="toc-number">6.</span> <span class="toc-text">安装依赖依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#站点配置"><span class="toc-number">7.</span> <span class="toc-text">站点配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发布博客"><span class="toc-number">8.</span> <span class="toc-text">发布博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地站点生成"><span class="toc-number">9.</span> <span class="toc-text">本地站点生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成文件"><span class="toc-number">9.1.</span> <span class="toc-text">生成文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">9.2.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署Github"><span class="toc-number">10.</span> <span class="toc-text">部署Github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一"><span class="toc-number">10.1.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成SSH密钥："><span class="toc-number">10.2.</span> <span class="toc-text">生成SSH密钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加密钥到-Github"><span class="toc-number">10.3.</span> <span class="toc-text">添加密钥到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">10.4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一-1"><span class="toc-number">10.5.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加域名"><span class="toc-number">10.6.</span> <span class="toc-text">添加域名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题修改"><span class="toc-number">11.</span> <span class="toc-text">主题修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#底部添加访问量统计"><span class="toc-number">12.</span> <span class="toc-text">底部添加访问量统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">13.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yelee主题"><span class="toc-number">14.</span> <span class="toc-text">Yelee主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo中的Yelee主题，首页不显示文章摘要"><span class="toc-number">15.</span> <span class="toc-text">Hexo中的Yelee主题，首页不显示文章摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#首页显示文章摘要"><span class="toc-number">16.</span> <span class="toc-text">首页显示文章摘要</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Nodejs："><span class="toc-number">2.</span> <span class="toc-text">安装Nodejs：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装git"><span class="toc-number">3.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">4.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">5.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖依赖包"><span class="toc-number">6.</span> <span class="toc-text">安装依赖依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#站点配置"><span class="toc-number">7.</span> <span class="toc-text">站点配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发布博客"><span class="toc-number">8.</span> <span class="toc-text">发布博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地站点生成"><span class="toc-number">9.</span> <span class="toc-text">本地站点生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成文件"><span class="toc-number">9.1.</span> <span class="toc-text">生成文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">9.2.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署Github"><span class="toc-number">10.</span> <span class="toc-text">部署Github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一"><span class="toc-number">10.1.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成SSH密钥："><span class="toc-number">10.2.</span> <span class="toc-text">生成SSH密钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加密钥到-Github"><span class="toc-number">10.3.</span> <span class="toc-text">添加密钥到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">10.4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一-1"><span class="toc-number">10.5.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加域名"><span class="toc-number">10.6.</span> <span class="toc-text">添加域名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题修改"><span class="toc-number">11.</span> <span class="toc-text">主题修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#底部添加访问量统计"><span class="toc-number">12.</span> <span class="toc-text">底部添加访问量统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">13.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yelee主题"><span class="toc-number">14.</span> <span class="toc-text">Yelee主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo中的Yelee主题，首页不显示文章摘要"><span class="toc-number">15.</span> <span class="toc-text">Hexo中的Yelee主题，首页不显示文章摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#首页显示文章摘要"><span class="toc-number">16.</span> <span class="toc-text">首页显示文章摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加文章访问量统计"><span class="toc-number">17.</span> <span class="toc-text">添加文章访问量统计</span></a></li></ol>
         
     </div>
     <style>
@@ -620,7 +629,7 @@ feed:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/12/Markdown教程/" title="上一篇: Markdown教程">
+            <a href="/2018/08/11/Linux介绍/" title="上一篇: Linux介绍">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -628,13 +637,11 @@ feed:
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/11/Linux介绍/" title="下一篇: Linux介绍">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
 
 
 

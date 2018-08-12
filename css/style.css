@@ -231,6 +231,11 @@ a {
   height: 200px;
   height: 200px;
 }
+#busuanzi_container_page_pv {
+  display: block !important;
+  padding-top: 4px;
+  color: #bebebe;
+}
 @media screen and (max-width: 1040px) {
   .inner {
     width: 100%;
