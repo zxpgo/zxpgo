@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-12T09:36:04.477Z</updated>
+  <updated>2018-08-12T09:36:29.837Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,40 +21,16 @@
     <link href="https://zxpgo.github.io/2018/08/12/Markdown%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/12/Markdown教程/</id>
     <published>2018-08-12T09:24:24.000Z</published>
-    <updated>2018-08-12T09:36:04.477Z</updated>
+    <updated>2018-08-12T09:36:29.837Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;Markdown安装，升级，以及语法介绍
     
     </summary>
     
     
       <category term="Markdown" scheme="https://zxpgo.github.io/tag/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建属于自己的博客</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
-    <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-12T09:23:59.425Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
     
   </entry>
   
@@ -73,6 +49,24 @@
     
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建属于自己的博客</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
+    <published>2018-08-11T14:28:50.000Z</published>
+    <updated>2018-08-12T09:43:59.599Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
     
   </entry>
   
