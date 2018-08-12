@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-12T03:20:41.187Z</updated>
+  <updated>2018-08-12T03:23:19.688Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-12T03:20:41.187Z</updated>
+    <updated>2018-08-12T03:23:19.688Z</updated>
     
     <summary type="html">
     
@@ -30,7 +30,7 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://zxpgo.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
     
   </entry>
   
@@ -48,7 +48,7 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://zxpgo.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
