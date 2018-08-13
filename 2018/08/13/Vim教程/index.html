@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="zxp" />
+
+
+
+<meta name="description" content="本文介绍linux中的编辑器vim操作,以及基本命令操作">
+<meta name="keywords" content="Linux,vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim教程">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/13/Vim教程/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="本文介绍linux中的编辑器vim操作,以及基本命令操作">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-13T14:17:30.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim教程">
+<meta name="twitter:description" content="本文介绍linux中的编辑器vim操作,以及基本命令操作">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Vim教程 | 平步青云win</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">zxp</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
+                            
+                                <a class="fa LinkedIn" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于编程语言和Linux</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">zxp</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">zxp</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Vim教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/13/Vim教程/" class="article-date">
+      <time datetime="2018-08-13T09:24:24.000Z" itemprop="datePublished">2018-08-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vim教程
+    </h1>
+  
+
+      </header>
+	  
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Vim教程/">Vim教程</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vim/">vim</a></li></ul>
+    </div>
+
+		<span id="busuanzi_container_page_pv" style ="display:block">
+  |阅读量(<span id="busuanzi_value_page_pv"></span>)
+</span>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <p>本文介绍linux中的编辑器vim操作,以及基本命令操作<a id="more"></a></p>
+<h1 id="Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式："><a href="#Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式：" class="headerlink" title="Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式："></a>Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式：</h1><ul>
+<li>普通模式(Normal mode)</li>
+</ul>
+<p>在普通模式中，用的编辑器命令，比如移动光标，删除文本等等。这也是Vim启动后的默认模式。这正好和许多新用户期待的操作方式相反（大多数编辑器默认模式为插入模式）。</p>
+<p>Vim强大的编辑能来自于其普通模式命令。普通模式命令往往需要一个操作符结尾。例如普通模式命令dd删除当前行，但是第一个”d”的后面可以跟另外的移动命令来代替第二个d，比如用移动到下一行的”j”键就可以删除当前行和下一行。另外还可以指定命令重复次数，2dd（重复dd两次），和dj的效果是一样的。用户学习了各种各样的文本间移动／跳转的命令和其他的普通模式的编辑命令，并且能够灵活组合使用的话，能够比那些没有模式的编辑器更加高效地进行文本编辑。</p>
+<p>在普通模式中，有很多方法可以进入插入模式。比较普通的方式是按a（append／追加）键或者i（insert／插入）键。</p>
+<ul>
+<li>插入模式(Insert mode)</li>
+</ul>
+<p>在这个模式中，大多数按键都会向文本缓冲中插入文本。大多数新用户希望文本编辑器编辑过程中一直保持这个模式。</p>
+<p>在插入模式中，可以按ESC键回到普通模式。</p>
+<p>可视模式(Visual mode)<br>这个模式与普通模式比较相似。但是移动命令会扩大高亮的文本区域。高亮区域可以是字符、行或者是一块文本。当执行一个非移动命令时，命令会被执行到这块高亮的区域上。Vim的”文本对象”也能和移动命令一样用在这个模式中。</p>
+<ul>
+<li>选择模式(Select mode)<br>这个模式和无模式编辑器的行为比较相似（Windows标准文本控件的方式）。这个模式中，可以用鼠标或者光标键高亮选择文本，不过输入任何字符的话，Vim会用这个字符替换选择的高亮文本块，并且自动进入插入模式。</li>
+</ul>
+<ul>
+<li>命令行模式(Command line mode)<br>在命令行模式中可以输入会被解释成并执行的文本。例如执行命令（:键），搜索（/和?键）或者过滤命令（!键）。在命令执行之后，Vim返回到命令行模式之前的模式，通常是普通模式。</li>
+</ul>
+<ul>
+<li>Ex模式(Ex mode)<br>这和命令行模式比较相似，在使用:visual命令离开Ex模式前，可以一次执行多条命令。</li>
+</ul>
+<p>这其中我们常用到就是普通模式、插入模式和命令</p>
+<pre><code>vim  文件名 //如果文件名不存在，会自动创建文件并打开
+vim nginx.conf //进入普通模式
+a 或 i  //进入插入模式
+Esc  //退出插入模式，进入普通模式
+： //退出普通模式，进入命令行模式
+命令行模式下： wq保存退出
+</code></pre><h1 id="游标移动"><a href="#游标移动" class="headerlink" title="游标移动"></a>游标移动</h1><p>按Esc进入普通模式，在该模式下使用方向键或者h,j,k,l键可以移动游标。</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右（小写L）</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>w</td>
+<td>移动到下一个单词</td>
+</tr>
+<tr>
+<td>b</td>
+<td>移动到上一个单词</td>
+</tr>
+</tbody>
+</table>
+<h1 id="从普通模式进入插入模式"><a href="#从普通模式进入插入模式" class="headerlink" title="从普通模式进入插入模式"></a>从普通模式进入插入模式</h1><p>按Esc进入普通模式，在该模式下使用方向键或者h,j,k,l键可以移动游标。</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右（小写L）</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>w</td>
+<td>移动到下一个单词</td>
+</tr>
+<tr>
+<td>b</td>
+<td>移动到上一个单词</td>
+</tr>
+</tbody>
+</table>
+<h1 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h1><pre><code>:w 文件名 //可以将文档另存为其他文件名或存到其它路径下
+
+:w //保存文件
+:w test //另存为test文件
+</code></pre><h1 id="退出vim"><a href="#退出vim" class="headerlink" title="退出vim"></a>退出vim</h1><p>命令行模式下退出vim<br>从普通模式输入:进入命令行模式，输入wq回车，保存并退出编辑</p>
+<p>以下为其它几种退出方式：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:q!</td>
+<td>强制退出，不保存</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>:wq!</td>
+<td>强制保存并退出</td>
+</tr>
+<tr>
+<td>:w &lt;文件路径&gt;</td>
+<td>另存为</td>
+</tr>
+<tr>
+<td>:saveas 文件路径</td>
+<td>另存为</td>
+</tr>
+<tr>
+<td>:x</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+</tbody>
+</table>
+<p>普通模式下退出vim<br>普通模式下输入Shift+zz即可保存退出vim</p>
+<h1 id="普通模式下删除vim文本信息"><a href="#普通模式下删除vim文本信息" class="headerlink" title="普通模式下删除vim文本信息"></a>普通模式下删除vim文本信息</h1><p>进入普通模式，使用下列命令可以进行文本快速删除：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>删除游标所在的字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除游标所在前一个字符</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>同x</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除一个单词（不适用中文）</td>
+</tr>
+<tr>
+<td>d$或D</td>
+<td>删除至行尾</td>
+</tr>
+<tr>
+<td>d^</td>
+<td>删除至行首</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>删除到文档结尾处</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td>删至文档首部</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vim重复命令（普通模式下）"><a href="#vim重复命令（普通模式下）" class="headerlink" title="vim重复命令（普通模式下）"></a>vim重复命令（普通模式下）</h1><pre><code>. 表示重复执行上次命令  //向输入x删除第一个字符，再输入.接着删除一个字符
+10x 表示删除10连续个字符
+3dd 表示删除3行文本
+dw或daw 删除一个单词
+dNw 删除N个单词
+</code></pre><p>#游标快速跳转</p>
+<h2 id="行间跳转"><a href="#行间跳转" class="headerlink" title="行间跳转."></a>行间跳转.</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nG(n Shift+g)</td>
+<td>游标移动到第 n 行(如果默认没有显示行号，请先进入命令模式，输入:set nu以显示行号)</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>游标移动到到第一行</td>
+</tr>
+<tr>
+<td>G(Shift+g)</td>
+<td>到最后一行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="行内跳转"><a href="#行内跳转" class="headerlink" title="行内跳转"></a>行内跳转</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td>到下一个单词的开头</td>
+</tr>
+<tr>
+<td>e</td>
+<td>到当前单词的结尾</td>
+</tr>
+<tr>
+<td>b</td>
+<td>到前一个单词的开头</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>到前一个单词的结尾</td>
+</tr>
+<tr>
+<td>0或^</td>
+<td>到行头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>到行尾</td>
+</tr>
+<tr>
+<td>f&lt;字母&gt;</td>
+<td>向后搜索&lt;字母&gt;并跳转到第一个匹配的位置(非常实用)</td>
+</tr>
+<tr>
+<td>F&lt;字母&gt;</td>
+<td>向前搜索&lt;字母&gt;并跳转到第一个匹配的位置</td>
+</tr>
+<tr>
+<td>t&lt;字母&gt;</td>
+<td>向后搜索&lt;字母&gt;并跳转到第一个匹配位置之前的一个字母(不常用)</td>
+</tr>
+<tr>
+<td>T&lt;字母&gt;</td>
+<td>向前搜索&lt;字母&gt;并跳转到第一个匹配位置之后的一个字母(不常用)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="复制粘贴和剪切"><a href="#复制粘贴和剪切" class="headerlink" title="复制粘贴和剪切"></a>复制粘贴和剪切</h1><h2 id="复制及粘贴"><a href="#复制及粘贴" class="headerlink" title="复制及粘贴"></a>复制及粘贴</h2><p>普通模式中使用y复制</p>
+<p>普通模式中，yy复制游标所在的整行（3yy表示复制3行）</p>
+<p>普通模式中，y^ 复制至行首，或y0。不含光标所在处字符。</p>
+<p>普通模式中，y$ 复制至行尾。含光标所在处字符。</p>
+<p>普通模式中，yw 复制一个单词。</p>
+<p>普通模式中，y2w 复制两个单词。</p>
+<p>普通模式中，yG 复制至文本末。</p>
+<p>普通模式中，y1G 复制至文本开头。</p>
+<p>普通模式中使用 p 粘贴</p>
+<p>普通模式中，p(小写)代表粘贴至光标后（下）<br>普通模式中，P(大写)代表粘贴至光标前（上）</p>
+<h2 id="剪切及粘贴"><a href="#剪切及粘贴" class="headerlink" title="剪切及粘贴"></a>剪切及粘贴</h2><p>dd删除命令其实是剪切，每次dd删除文档内容后，使用p来粘贴，这样可以实现—-交换上下行</p>
+<h1 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h1><h2 id="字符的替换及撤销操作"><a href="#字符的替换及撤销操作" class="headerlink" title="字符的替换及撤销操作"></a>字符的替换及撤销操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r+&lt;待替换字母&gt;</td>
+<td>将游标所在字母替换为指定字母</td>
+</tr>
+<tr>
+<td>R</td>
+<td>连续替换，直到按下Esc</td>
+</tr>
+<tr>
+<td>cc</td>
+<td>替换整行，即删除游标所在行，并进入插入模式</td>
+</tr>
+<tr>
+<td>cw</td>
+<td>替换一个单词，即删除一个单词，并进入插入模式</td>
+</tr>
+<tr>
+<td>C(大写)</td>
+<td>替换游标以后至行末</td>
+</tr>
+<tr>
+<td>~</td>
+<td>反转游标所在字母大小写</td>
+</tr>
+<tr>
+<td>u{n}</td>
+<td>撤销一次或n次操作</td>
+</tr>
+<tr>
+<td>U(大写)</td>
+<td>撤销当前行的所有修改</td>
+</tr>
+<tr>
+<td>Ctrl+r</td>
+<td>redo，即撤销undo的操作</td>
+</tr>
+</tbody>
+</table>
+<h2 id="快速缩进"><a href="#快速缩进" class="headerlink" title="快速缩进"></a>快速缩进</h2><p>普通模式下操作 </p>
+<pre><code>&gt;&gt; 整行向右缩进
+&lt;&lt; 整行向左回退
+</code></pre><p>普通模式下，对shftwidth值进行设置，可以控制缩进和回退e字符数</p>
+<pre><code>:set shiftwidth? //查看当前缩进字符数
+:set shiftwidth=10 //设置缩进字符数为10
+</code></pre><p>shiftwidthn可以简写为sw</p>
+<h2 id="调整文本位置"><a href="#调整文本位置" class="headerlink" title="调整文本位置"></a>调整文本位置</h2><p>命令行模式下，操作光标所在的行</p>
+<pre><code>:ce //本行内容剧中
+:ri //本行内容靠右
+:le //本行内容靠左
+</code></pre><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>普通模式下，输入 <em>/</em>, 然后输入需要查找的字符串，按回车即可进行查找。 <em>? </em>功能与 <em>/</em> 功能相同，只不过 <em>?</em>向下查找。进入查找之后，在字符串之后输入<em>n</em>和<em>N</em> 可以继续查找，<em>n</em>表示继续查找，<em>N</em>表示方向查找</p>
+<h2 id="高级查找"><a href="#高级查找" class="headerlink" title="高级查找"></a>高级查找</h2><p>普通模式下输入*寻找游标所在处的单词<br><br>普通模式下输入#同上，但 # 是向前（上）找，*则是向后（下）找<br><br>普通模式下输入g*同* ，但部分符合该单词即可<br><br>普通模式下输入g#同# ，但部分符合该单词即可<br></p>
+<h1 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h1><h2 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h2><h3 id="vim编辑多个文件"><a href="#vim编辑多个文件" class="headerlink" title="vim编辑多个文件"></a>vim编辑多个文件</h3><pre><code>vim 1.txt 2.txt
+</code></pre><p>默认进入<em>1.txt</em>文件的编辑界面<br></p>
+<ul>
+<li>命令行模式下输入<em> :n </em>编辑 <em>2.txt </em>文件，可以加<em> ! </em>即<em> :n! </em>强制切换，之前一个文件的输入没有保存，仅仅切换到另一个文件<br></li>
+</ul>
+<ul>
+<li>命令行模式下输入<em> :N </em>编辑 <em>1.txt </em>文件，可以加<br><em>! </em>即 <em>:N!</em> 强制切换，之前文件内的输入没有保存，仅仅是切换到另一个文件</li>
+</ul>
+<h3 id="进入vim后打开新文件"><a href="#进入vim后打开新文件" class="headerlink" title="进入vim后打开新文件"></a>进入vim后打开新文件</h3><ul>
+<li>命令行模式下输入<code>:e 3.txt</code> 打开新文件<code>3.txt</code></li>
+<li>命令行模式下输入<code>:e#</code>回到前一个文件</li>
+<li>命令行模式下输入<code>:ls</code>可以列出以前编辑过的文档</li>
+<li>命令行模式下输入<code>:b 2.txt</code>（或者编号）可以直接进入文件2.txt编辑</li>
+<li>命令行模式下输入<code>:bd 2.txt</code>（或者编号）可以删除以前编辑过的列表中的文件项目</li>
+<li>命令行模式下输入<code>:e! 4.txt</code>，新打开文件<code>4.txt</code>，放弃正在编辑的文件</li>
+<li>命令行模式下输入<code>:f</code> 显示正在编辑的文件名</li>
+<li>命令行模式下输入<code>:f new.txt</code>，改变正在编辑的文件名字为<code>new.txt</code></li>
+</ul>
+<h3 id="恢复文件"><a href="#恢复文件" class="headerlink" title="恢复文件"></a>恢复文件</h3><p>如果因为断电等原因造成文档没有保存，可以采用恢复方式，<code>vim -r</code>进入文档后，输入<code>:ewcover 1.txt</code>来恢复</p>
+<pre><code>vim -r 1.txt
+</code></pre><h2 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h2><h3 id="可视模式命令简介"><a href="#可视模式命令简介" class="headerlink" title="可视模式命令简介"></a>可视模式命令简介</h3><ul>
+<li>在普通模式下输入 v（小写），进入字符选择模式，就可以移动光标，光标走过的地方就会选取。再次按下v会后就会取消选取。</li>
+<li>在普通模式下输入 Shift+v（小写），进入行选择模式，按下V之后就会把整行选取，您可以上下移动光标选更多的行，同样，再按一次 Shift+v 就可以取消选取。</li>
+<li>在普通模式下输入 Ctrl+v（小写），这是区域选择模式，可以进行矩形区域选择，再按一次 Ctrl+v 取消选取。</li>
+<li>在可视模式下输入 d 删除选取区域内容<br>在可视模式下输入y复制选取区域内容<h3 id="可视模式命令练习"><a href="#可视模式命令练习" class="headerlink" title="可视模式命令练习"></a>可视模式命令练习</h3></li>
+<li>在普通模式下9G跳转到第9行,输入Shift+v（小写V），进入可视模式进行行选择，选中5行，按下&gt;&gt;缩进，将5行整体缩进一个shiftwidth</li>
+<li>在普通模式下输入 Ctrl+v（小写V），进入可视模式进行矩形区域选择，选中第一列字符然后x删除整列</li>
+</ul>
+<h2 id="视窗操作"><a href="#视窗操作" class="headerlink" title="视窗操作"></a>视窗操作</h2><p>vim 可以在一个界面里打开多个窗口进行编辑，这些编辑窗口称为 vim 的视窗。 打开方法有很多种，例如可以使用在命令行模式下输入 :new 打开一个新的 vim 视窗，并进入视窗编辑一个新文件（普通模式下输入 Ctrl+w也可以），除了 :new 命令，下述列举的多种方法也可以在命令模式或普通模式下打开新的视窗：</p>
+<p><strong>注意：快捷键可能会与浏览器的快捷键冲突，可换为 IE 浏览器进行实验或者在浏览器设置里禁用浏览器快捷键。
+</strong></p>
+<ul>
+<li>命令行模式下输入:sp 1.txt 打开新的水平分屏视窗来编辑1.txt</li>
+<li>命令行模式下输入:vsp 2.txt 打开新的垂直分屏视窗来编辑2.txt</li>
+<li>普通模式下Ctrl+w s 将当前窗口分割成两个水平的窗口</li>
+<li>普通模式下Ctrl+w v 将当前窗口分割成两个垂直的窗口</li>
+<li>普通模式下Ctrl+w q 即 :q 结束分割出来的视窗。如果在新视窗中有输入需要使用强制符！即:q!</li>
+<li>普通模式下Ctrl+w o 打开一个视窗并且隐藏之前的所有视窗</li>
+<li>普通模式下Ctrl+w j 移至下面视窗</li>
+<li>普通模式下Ctrl+w k 移至上面视窗</li>
+<li>普通模式下Ctrl+w h 移至左边视窗</li>
+<li>普通模式下Ctrl+w l 移至右边视窗</li>
+<li>普通模式下Ctrl+w J 将当前视窗移至下面</li>
+<li>普通模式下Ctrl+w K 将当前视窗移至上面</li>
+<li>普通模式下Ctrl+w H 将当前视窗移至左边</li>
+<li>普通模式下Ctrl+w L 将当前视窗移至右边</li>
+<li>普通模式下Ctrl+w 减小视窗的高度</li>
+<li>普通模式下Ctrl+w + 增加视窗的高度</li>
+</ul>
+<h2 id="创建加密文档"><a href="#创建加密文档" class="headerlink" title="创建加密文档"></a>创建加密文档</h2><pre><code>vim -x nginx.conf
+</code></pre><p>根据提示输入密码，下次打开文件时，需要输入密码</p>
+<h2 id="vim执行外部命令"><a href="#vim执行外部命令" class="headerlink" title="vim执行外部命令"></a>vim执行外部命令</h2><p>在命令行模式中输入!可以执行外部的shell命令</p>
+<ul>
+<li><code>:!ls</code> 用于显示当前目录的内容</li>
+<li><code>:!rm FILENAME</code>用于删除名为 FILENAME 的文件</li>
+<li><code>:w FILENAME</code>可将当前 VIM 中正在编辑的文件另存为 FILENAME 文件</li>
+</ul>
+<h2 id="vim中查看帮助"><a href="#vim中查看帮助" class="headerlink" title="vim中查看帮助"></a>vim中查看帮助</h2><ul>
+<li>普通模式下按F1打开vim自己预设的帮助文档</li>
+<li>命令行模式下输入:h shiftwidth 打开名为shiftwidth的帮助文件</li>
+<li>命令行模式下输入:ver 显示版本及参数</li>
+</ul>
+<h2 id="功能设定"><a href="#功能设定" class="headerlink" title="功能设定"></a>功能设定</h2><h3 id="vim的功能设定"><a href="#vim的功能设定" class="headerlink" title="vim的功能设定"></a>vim的功能设定</h3><p>可以在编辑文件的时候进行功能设定，如命令行模式下输入:set nu（显示行数），设定值退出vim后不会保存。要永久保存配置需要修改vim配置文件。 vim的配置文件~/.vimrc(实验楼环境中配置文件在/etc/vim/vimrc)，可以打开文件进行修改，不过务必小心不要影响vim正常使用</p>
+<h3 id="获取目前的设定"><a href="#获取目前的设定" class="headerlink" title="获取目前的设定"></a>获取目前的设定</h3><ul>
+<li>命令行模式下输入:set或者:se显示所有修改过的配置</li>
+<li>命令行模式下输入:set all 显示所有的设定值</li>
+<li>命令行模式下输入:set option? 显示option的设定值</li>
+<li>命令行模式下输入:set nooption 取消当前设定值<h3 id="set功能的说明"><a href="#set功能的说明" class="headerlink" title="set功能的说明"></a>set功能的说明</h3></li>
+<li>命令行模式下输入:set autoindent(ai) 设置自动缩进</li>
+<li>命令行模式下输入:set autowrite(aw) 设置自动存档，默认未打开</li>
+<li>命令行模式下输入:set background=dark或light，设置背景风格</li>
+<li>命令行模式下输入:set backup(bk) 设置自动备份，默认未打开</li>
+<li>命令行模式下输入: set cindent(cin) 设置C语言风格缩进<br>-<br>以上内容来自<a href="https://www.shiyanlou.com/courses/2" title="实验楼" target="_blank" rel="noopener">https://www.shiyanlou.com/courses/2</a>，为作者边学习，边摘抄和总计的内容</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/08/13/Vim教程/">Vim教程</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
+        <p><span>发布时间:</span>2018-08-13, 17:24:24</p>
+        <p><span>最后更新:</span>2018-08-13, 22:17:30</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/13/Vim教程/" title="Vim教程">https://zxpgo.github.io/2018/08/13/Vim教程/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/13/Vim教程/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/08/13/VPN安装后无法连接互联网/">
+                    VPN安装后无法连接到互联网
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/12/Markdown教程/">
+                    Markdown教程
+                </a>
+            </div>
+        
+    </nav>
+
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 支付宝打赏图案 -->
+        <img src="/img/Alipay.jpg" alt="支付宝打赏">
+        <!-- 微信打赏图案 -->
+        <img src="/img/WeChatpay.jpg" alt="微信打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+	
+	
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式："><span class="toc-number">1.</span> <span class="toc-text">Vim具有6种基本模式和5种派生模式，我们这里只简单介绍下6种基本模式：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#游标移动"><span class="toc-number">2.</span> <span class="toc-text">游标移动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从普通模式进入插入模式"><span class="toc-number">3.</span> <span class="toc-text">从普通模式进入插入模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#保存文件"><span class="toc-number">4.</span> <span class="toc-text">保存文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#退出vim"><span class="toc-number">5.</span> <span class="toc-text">退出vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通模式下删除vim文本信息"><span class="toc-number">6.</span> <span class="toc-text">普通模式下删除vim文本信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim重复命令（普通模式下）"><span class="toc-number">7.</span> <span class="toc-text">vim重复命令（普通模式下）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#行间跳转"><span class="toc-number">7.1.</span> <span class="toc-text">行间跳转.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行内跳转"><span class="toc-number">7.2.</span> <span class="toc-text">行内跳转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复制粘贴和剪切"><span class="toc-number">8.</span> <span class="toc-text">复制粘贴和剪切</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制及粘贴"><span class="toc-number">8.1.</span> <span class="toc-text">复制及粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剪切及粘贴"><span class="toc-number">8.2.</span> <span class="toc-text">剪切及粘贴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查找替换"><span class="toc-number">9.</span> <span class="toc-text">查找替换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符的替换及撤销操作"><span class="toc-number">9.1.</span> <span class="toc-text">字符的替换及撤销操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速缩进"><span class="toc-number">9.2.</span> <span class="toc-text">快速缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调整文本位置"><span class="toc-number">9.3.</span> <span class="toc-text">调整文本位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找"><span class="toc-number">9.4.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级查找"><span class="toc-number">9.5.</span> <span class="toc-text">高级查找</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高级功能"><span class="toc-number">10.</span> <span class="toc-text">高级功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多文件编辑"><span class="toc-number">10.1.</span> <span class="toc-text">多文件编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim编辑多个文件"><span class="toc-number">10.1.1.</span> <span class="toc-text">vim编辑多个文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入vim后打开新文件"><span class="toc-number">10.1.2.</span> <span class="toc-text">进入vim后打开新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#恢复文件"><span class="toc-number">10.1.3.</span> <span class="toc-text">恢复文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视模式"><span class="toc-number">10.2.</span> <span class="toc-text">可视模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可视模式命令简介"><span class="toc-number">10.2.1.</span> <span class="toc-text">可视模式命令简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可视模式命令练习"><span class="toc-number">10.2.2.</span> <span class="toc-text">可视模式命令练习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视窗操作"><span class="toc-number">10.3.</span> <span class="toc-text">视窗操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建加密文档"><span class="toc-number">10.4.</span> <span class="toc-text">创建加密文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim执行外部命令"><span class="toc-number">10.5.</span> <span class="toc-text">vim执行外部命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim中查看帮助"><span class="toc-number">10.6.</span> <span class="toc-text">vim中查看帮助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能设定"><span class="toc-number">10.7.</span> <span class="toc-text">功能设定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim的功能设定"><span class="toc-number">10.7.1.</span> <span class="toc-text">vim的功能设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取目前的设定"><span class="toc-number">10.7.2.</span> <span class="toc-text">获取目前的设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set功能的说明"><span class="toc-number">10.7.3.</span> <span class="toc-text">set功能的说明</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Vim教程　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/08/13/VPN安装后无法连接互联网/" title="上一篇: VPN安装后无法连接到互联网">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/12/Markdown教程/" title="下一篇: Markdown教程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 zxp
+            </div>
+           <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

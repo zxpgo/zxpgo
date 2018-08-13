@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-12T14:10:10.534Z</updated>
+  <updated>2018-08-13T14:24:29.607Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPN资源</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:24:29.607Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;VPN资源：赛风和兰灯
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VPN安装后无法连接到互联网</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:30:51.471Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:17:30.846Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
+    
+    </summary>
+    
+      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown教程</title>
@@ -35,24 +101,6 @@
   </entry>
   
   <entry>
-    <title>Linux介绍</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
-    <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-12T02:26:01.663Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo搭建属于自己的博客</title>
     <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
@@ -67,6 +115,24 @@
     
     
       <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux介绍</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
+    <published>2018-08-11T14:28:50.000Z</published>
+    <updated>2018-08-12T02:26:01.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
