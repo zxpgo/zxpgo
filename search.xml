@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>VPN安装后无法连接到互联网</title>
+      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
+      <content type="html"><![CDATA[<p> VPN安装后无法连接到互联网问题解决方案<a id="more"></a><br>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> VPN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>VPN资源</title>
       <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
       <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
@@ -14,21 +29,6 @@
             <tag> VPN </tag>
             
             <tag> 资源 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>VPN安装后无法连接到互联网</title>
-      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
-      <content type="html"><![CDATA[<p>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> VPN </tag>
             
         </tags>
       
