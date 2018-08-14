@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-13T14:39:25.557Z</updated>
+  <updated>2018-08-14T13:29:54.853Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序开发前言</title>
+    <link href="https://zxpgo.github.io/2018/08/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91-%E5%89%8D%E8%A8%80/"/>
+    <id>https://zxpgo.github.io/2018/08/14/微信小程序开发-前言/</id>
+    <published>2018-08-14T09:24:24.000Z</published>
+    <updated>2018-08-14T13:29:54.853Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在这里，将介绍开发小程序的前期准备，和开发框架的了解
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>VPN安装后无法连接到互联网</title>
