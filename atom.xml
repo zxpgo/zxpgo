@@ -77,6 +77,36 @@
   </entry>
   
   <entry>
+    <title>环境变量与文件查找</title>
+    <link href="https://zxpgo.github.io/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
+    <id>https://zxpgo.github.io/2018/08/13/环境变量与文件查找/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-14T14:15:56.797Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Linux教程" scheme="https://zxpgo.github.io/categories/Linux%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vim教程</title>
     <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
@@ -92,11 +122,11 @@
       <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
@@ -115,6 +145,26 @@
     
     
       <category term="Markdown" scheme="https://zxpgo.github.io/tag/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建属于自己的博客</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Git%20+%20TortoiseGit%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Git + TortoiseGit安装教程/</id>
+    <published>2018-08-11T14:28:50.000Z</published>
+    <updated>2018-08-15T12:58:09.675Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于程序员而言，版本管理是不可缺少的一部分，利用Gitlab或Github对代码进行管理大大提高的效率，本文介绍如何搭建环境。
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   

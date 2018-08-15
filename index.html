@@ -210,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li></ul>
                     </div>
                 </section>
                 
@@ -504,6 +504,83 @@
 
 
   
+    <article id="post-环境变量与文件查找" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/13/环境变量与文件查找/" class="article-date">
+      <time datetime="2018-08-13T09:24:24.000Z" itemprop="datePublished">2018-08-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/13/环境变量与文件查找/">环境变量与文件查找</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <p>介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。&lt;!–more&gt;</p>
+<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>要解释环境变量，得先明白变量是什么，准确的说应该是 Shell 变量，所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。为了便于运算和处理，大部分的编程语言会区分变量的类型，用于分别记录数值、字符或者字符串等等数据类型。Shell 中的变量也基本如此，有不同类型（但不用专门指定类型名），可以参与运算，有作用域限定。<br><code>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</code></p>
+<p>shell创建变量</p>
+<pre><code>declare tmp
+</code></pre><p>shell变量复制</p>
+<pre><code>temp=zxp
+</code></pre><p>输出变量</p>
+<pre><code>echo $temp
+</code></pre><p><strong>注意</strong>：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且<strong>不能以数字</strong>作为开头</p>
+<h2 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux教程/">Linux教程</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Vim教程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -626,6 +703,75 @@
       
         <p class="article-more-link">
           <a href="/2018/08/12/Markdown教程/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Git + TortoiseGit安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/11/Git + TortoiseGit安装教程/" class="article-date">
+      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/Git + TortoiseGit安装教程/">Hexo搭建属于自己的博客</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+              <p>对于程序员而言，版本管理是不可缺少的一部分，利用Gitlab或Github对代码进行管理大大提高的效率，本文介绍如何搭建环境。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/11/Git + TortoiseGit安装教程/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

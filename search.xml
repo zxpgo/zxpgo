@@ -58,6 +58,31 @@
     </entry>
     
     <entry>
+      <title>环境变量与文件查找</title>
+      <link href="/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
+      <url>/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
+      <content type="html"><![CDATA[<p>介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。&lt;!–more&gt;</p><h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>要解释环境变量，得先明白变量是什么，准确的说应该是 Shell 变量，所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。为了便于运算和处理，大部分的编程语言会区分变量的类型，用于分别记录数值、字符或者字符串等等数据类型。Shell 中的变量也基本如此，有不同类型（但不用专门指定类型名），可以参与运算，有作用域限定。<br><code>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</code></p><p>shell创建变量</p><pre><code>declare tmp</code></pre><p>shell变量复制</p><pre><code>temp=zxp</code></pre><p>输出变量</p><pre><code>echo $temp</code></pre><p><strong>注意</strong>：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且<strong>不能以数字</strong>作为开头</p><h2 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h2>]]></content>
+      
+      <categories>
+          
+          <category> Linux教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> vim </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Vim教程</title>
       <link href="/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
       <url>/2018/08/13/Vim%E6%95%99%E7%A8%8B/</url>
@@ -72,11 +97,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 教程 </tag>
             
             <tag> vim </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -92,6 +117,23 @@
         <tags>
             
             <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hexo搭建属于自己的博客</title>
+      <link href="/2018/08/11/Git%20+%20TortoiseGit%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+      <url>/2018/08/11/Git%20+%20TortoiseGit%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>对于程序员而言，版本管理是不可缺少的一部分，利用Gitlab或Github对代码进行管理大大提高的效率，本文介绍如何搭建环境。<a id="more"></a></p><p>工作模式： 生成公私钥对，将公钥部署到github上，然后利用保存在本地的私钥去连接github</p><p>第一步: 下载Git: <a href="https://git-scm.com/downloads" title="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p><p>第二步： 下载TortoiseGit: <a href="https://tortoisegit.org/download/" target="_blank" rel="noopener">https://tortoisegit.org/download/</a></p><p>第三步： 安装以上两个软件，如果英语不ok的，可以安装tortoisegit语言包（<a href="https://download.tortoisegit.org/tgit/2.6.0.0/TortoiseGit-LanguagePack-2.6.0.0-64bit-zh_CN.msi" target="_blank" rel="noopener">简体中文语言包</a>）</p><p>在安装TortoiseGit后，第一次配置时，选择语言</p><p><img src="https://i.imgur.com/9eXOV7H.png" alt=""></p><p>或者在TortoiseGit的设置进行设置，如下：<br><br>首先鼠标右键，移到TortoiseGit上，点击Setting,进入如下页面，即可进行设置</p><p><img src="https://i.imgur.com/x8bqPCu.png" alt=""></p><p>第三步： 密钥生成及部署</p><p>在电脑搜索栏输入PuTTygen，打开软件</p><p><img src="https://i.imgur.com/bpnbfmw.png" alt=""></p><p>点击Generate</p><p><img src="https://i.imgur.com/DuP2F0a.png" alt=""></p><p>在红色方框内不停移动鼠标，10秒左右，进入如下页面：</p><p><img src="https://i.imgur.com/DXOtW6Q.png" alt=""></p><p>点击Save private key,将私钥保存到本地：</p><p><img src="https://i.imgur.com/hFAjehH.png" alt=""></p><p>点击是，并输入私钥文件名</p><p>接着将公钥填到Github或Gitlab中，这里以github为例，gitLab相同：<br> 首页点击右上角的头像，并选择点击setting</p><p><img src="https://i.imgur.com/NIuRTsI.png" alt=""></p><p>然后点击 SSH Keys</p><p><img src="https://i.imgur.com/FcQBKu3.png" alt=""></p><p>接着点击创建一个ssh Key, 并将复制的公钥填入Key一栏中：</p><p><img src="https://i.imgur.com/Hef7aPM.png" alt=""></p><p>第四步： 利用本地的私钥去连接Github，并克隆（clone）代码包到本地</p><p>在需要存放代码的目录下，点击右键，并点击 git clone（git 克隆），进入如下页面：</p><p><img src="https://i.imgur.com/2LnKwQI.png" alt=""></p><p>根据图中指示填好，然后点击ok，即可将代码克隆到本地</p><p>其中的URL在Github上保存的代码包顶部右地址：</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
