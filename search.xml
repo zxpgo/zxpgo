@@ -26,6 +26,21 @@
     </entry>
     
     <entry>
+      <title>VPN安装后无法连接到互联网</title>
+      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
+      <content type="html"><![CDATA[<p> VPN安装后无法连接到互联网问题解决方案<a id="more"></a><br>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> VPN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>VPN资源</title>
       <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
       <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
@@ -43,25 +58,10 @@
     </entry>
     
     <entry>
-      <title>VPN安装后无法连接到互联网</title>
-      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
-      <content type="html"><![CDATA[<p> VPN安装后无法连接到互联网问题解决方案<a id="more"></a><br>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> VPN </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>环境变量与文件查找</title>
       <link href="/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
       <url>/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
-      <content type="html"><![CDATA[<p>介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。&lt;!–more&gt;</p><h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>要解释环境变量，得先明白变量是什么，准确的说应该是 Shell 变量，所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。为了便于运算和处理，大部分的编程语言会区分变量的类型，用于分别记录数值、字符或者字符串等等数据类型。Shell 中的变量也基本如此，有不同类型（但不用专门指定类型名），可以参与运算，有作用域限定。<br><code>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</code></p><p>shell创建变量</p><pre><code>declare tmp</code></pre><p>shell变量复制</p><pre><code>temp=zxp</code></pre><p>输出变量</p><pre><code>echo $temp</code></pre><p><strong>注意</strong>：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且<strong>不能以数字</strong>作为开头</p><h2 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h2>]]></content>
+      <content type="html"><![CDATA[<p>介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。<a id="more"></a></p><h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>要解释环境变量，得先明白变量是什么，准确的说应该是 Shell 变量，所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。为了便于运算和处理，大部分的编程语言会区分变量的类型，用于分别记录数值、字符或者字符串等等数据类型。Shell 中的变量也基本如此，有不同类型（但不用专门指定类型名），可以参与运算，有作用域限定。<br><code>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</code></p><p>shell创建变量</p><pre><code>declare tmp</code></pre><p>shell变量复制</p><pre><code>temp=zxp</code></pre><p>输出变量</p><pre><code>echo $temp</code></pre><p><strong>注意</strong>：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且<strong>不能以数字</strong>作为开头</p><h2 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h2>]]></content>
       
       <categories>
           
@@ -74,9 +74,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> vim </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> vim </tag>
             
         </tags>
       
@@ -99,9 +99,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> vim </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> vim </tag>
             
         </tags>
       
@@ -140,21 +140,6 @@
     </entry>
     
     <entry>
-      <title>Hexo搭建属于自己的博客</title>
-      <link href="/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<p>本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。<a id="more"></a></p><h1 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h1><p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p><p>Nodejs:<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p><p>Github账号，并创建新仓库</p><p>新建仓库如下：<br><img src="https://i.imgur.com/Qt2pUjV.png" alt=""><br><img src="https://i.imgur.com/FSsJniC.png" alt=""></p><h1 id="安装Nodejs："><a href="#安装Nodejs：" class="headerlink" title="安装Nodejs："></a>安装Nodejs：</h1><p>一路next即可</p><h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><p>安装一路next，重点在配置</p><p>首先将安装目录添加进环境变量</p><p>然后设置用户名和邮箱</p><pre><code>$ git config --global user.name &quot;John Doe&quot;$ git config --global user.email johndoe@example.com</code></pre><h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><p>在所要存放博客文件的文件夹下右键，点击git bash</p><p>输入如下命令：</p><pre><code>npm install -g hexo-cli</code></pre><h1 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h1><pre><code>hexo init </code></pre><h1 id="安装依赖依赖包"><a href="#安装依赖依赖包" class="headerlink" title="安装依赖依赖包"></a>安装依赖依赖包</h1><pre><code>npm install</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容</p><pre><code># Sitetitle: 平步青云winsubtitle:description: 建站 Linux Python C++ 编程语言keywords: 建站 Linux Python C++ 编程语言author: zxplanguage: zh-Hanstimezone:deploy:  type: git  repository: https://github.com/zxpgo/blog.git# 博客仓库地址 #repository: https://github.com/xxx/xxx.github.io.git </code></pre><p>博客仓库地址见本文开头第二张图片内的地址</p><p>注意：<strong>：之后必须添加一个空格再添加内容</strong></p><p>否则会有如下错误：<br><img src="https://i.imgur.com/Z9xaVfN.png" alt=""></p><h1 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h1><pre><code>hexo new &quot;文章名字&quot;</code></pre><h1 id="本地站点生成"><a href="#本地站点生成" class="headerlink" title="本地站点生成"></a>本地站点生成</h1><h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><pre><code>hexo g</code></pre><p>显示如下信息，表示成功</p><p><img src="https://i.imgur.com/UpMYKme.png" alt=""></p><h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre><code>hexo s</code></pre><p>显示如下信息，表示成功：</p><p><img src="https://i.imgur.com/ENe7sIs.png" alt=""></p><p>到此本地的配置结束</p><p>打开浏览器，输入localhost:4000查看</p><h1 id="部署Github"><a href="#部署Github" class="headerlink" title="部署Github"></a>部署Github</h1><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo dhexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。（个人习惯，非必需）hexo g #生成静态文件，每次改动之后都需要执行以下这个命令。hexo d #这个才是真正的部署命令，这里用的都是简写形式</code></pre><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p><p>设置Git的user name和email：（前面以及设置）<br>    git config –global user.name “aqiongbei” #改成你的注册Github的用户名<br>    git config –global user.email “<a href="mailto:aqiongbei@gmail.com" target="_blank" rel="noopener">aqiongbei@gmail.com</a>“ #改成你的注册Github的邮箱</p><h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p><pre><code>ssh-keygen -t rsa -C &quot;aqiongbei@gmail.com&quot; #改成你注册Github的邮箱</code></pre><p>返回提示如下：</p><p><img src="https://i.imgur.com/ONTwjSc.png" alt=""></p><p>然后会提示，不用理，直接按回车，一共三次。<br>在C:\Users\Neckpain.ssh得到 id_rsa 和 id_rsa.pub 文件，说明生成成功</p><h2 id="添加密钥到-Github"><a href="#添加密钥到-Github" class="headerlink" title="添加密钥到 Github"></a>添加密钥到 Github</h2><p>打开 Github，登录自己的账号后<br>点击自己的头像-&gt;settings-&gt;SSH Keys-&gt;Add SSH key<br>将本地 id_rsa.pub 中的内容粘贴到 Key 文本框中，随意输入一个 title，点击 Add Key 即可。</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>Git里面继续输入</p><pre><code>ssh -T git@github.com</code></pre><p>返回</p><p><img src="https://i.imgur.com/ztaoOqM.png" alt=""></p><p>则说明验证成功。</p><h2 id="问题一-1"><a href="#问题一-1" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>ERROR Deployer not found: git</p><p><img src="https://i.imgur.com/g0NwgIs.png" alt=""></p><p>解决方案如下：</p><pre><code>npm install --save hexo-deployer-git</code></pre><h2 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h2><p>首先购买域名，博主在阿里云购买，记得实名认证</p><p>首先在域名控制台添加记录，</p><p><img src="https://i.imgur.com/KvOvo9Q.png" alt=""></p><p><img src="https://i.imgur.com/m3HfCIE.png" alt=""></p><p>记录一般添加两条，具体如下:</p><p><img src="https://i.imgur.com/RPLwY5K.png" alt=""></p><p>然后在github的博客代码处添加一个CNMAE文件，不要后缀</p><p>内容为申请的域名</p><pre><code>www.zxpblog.cnzxpblog.cn</code></pre><p>最后还得在setting中的Custom domain处添加域名，必须加www, 如下</p><h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>在本地博客目录下打开git bash</p><pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></pre><p>在_config.yml中找到theme修改为下载的主题名</p><p><img src="https://i.imgur.com/RPI4qld.png" alt=""></p><p>重新部署到github即可</p><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><h1 id="底部添加访问量统计"><a href="#底部添加访问量统计" class="headerlink" title="底部添加访问量统计"></a>底部添加访问量统计</h1><p>部分主题自带访问量统计，不用配置<br>打开\themes\主题名字\layout_partials\footer.swig文件,不同具体footer文件的后缀可能不同，在顶部添加如下代码：</p><pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>接着在合适的地方添加需要显示的统计数字代码（同上文件）：</p><pre><code>&lt;div class=&quot;powered-by&quot;&gt;&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;</code></pre><p>两种统计方式：</p><ul><li>同一用户连续点击n篇文章，记录n次访问量</li><li>  <span id="busuanzi_container_site_pv"><br>  本站总访问量<span id="busuanzi_value_site_pv"></span>次<br>  </span></li></ul><ul><li>同一用户连续点击n篇文章，记录1次访问量</li><li>  <span id="busuanzi_container_site_uv"><pre><code>本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次</code></pre>  </span></li></ul><h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>首先安装 hexo-generator-feed包</p><pre><code>npm install hexo-generator-feed</code></pre><p>在配置文件中添加如下代码：</p><pre><code>#RSS配置feed:    type: atom    path: atom.xml    limit: 20    hub:    content:    content_limit:       content_limit_delim: &apos; &apos;</code></pre><p>主题不同，添加方式可能不同，NEXT主题 _CONFIG.YML文件中有个 RSS的配置，直接设置为 TRUE就可以了 </p><h1 id="Yelee主题"><a href="#Yelee主题" class="headerlink" title="Yelee主题"></a>Yelee主题</h1><p><a href="http://moxfive.coding.me/yelee/" target="_blank" rel="noopener">http://moxfive.coding.me/yelee/</a></p><h1 id="Hexo中的Yelee主题，首页不显示文章摘要"><a href="#Hexo中的Yelee主题，首页不显示文章摘要" class="headerlink" title="Hexo中的Yelee主题，首页不显示文章摘要"></a>Hexo中的Yelee主题，首页不显示文章摘要</h1><p>转自：<a href="https://blog.csdn.net/youshaoduo/article/details/78709160" target="_blank" rel="noopener">https://blog.csdn.net/youshaoduo/article/details/78709160</a></p><h1 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h1><p>方法一：在需要显示的摘要之后添加如下代码：</p><pre><code>&lt;!--more--&gt;</code></pre><p>方法二： 自动截取方法<br>转自：<a href="https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/" target="_blank" rel="noopener">https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/</a></p><h1 id="添加文章访问量统计"><a href="#添加文章访问量统计" class="headerlink" title="添加文章访问量统计"></a>添加文章访问量统计</h1><p>themes\yelee\layout_partial\footer.ejs中添加如下代码：</p><pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>在article.ejs中&lt;%- partial(‘post/tag’) %&gt;后添加如下代码：</p><pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot; style =&quot;display:block&quot;&gt;     |阅读量(&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;)&lt;/span&gt;</code></pre><p>在theme/source/css/style.styl文件中设置格式</p><pre><code>#busuanzi_container_page_pv{display:block  !important;padding-top:4px;color: #bebebe;//margin-left:200px;}</code></pre>]]></content>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Linux介绍</title>
       <link href="/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
       <url>/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/</url>
@@ -164,6 +149,21 @@
         <tags>
             
             <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hexo搭建属于自己的博客</title>
+      <link href="/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p>本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。<a id="more"></a></p><h1 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h1><p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p><p>Nodejs:<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p><p>Github账号，并创建新仓库</p><p>新建仓库如下：<br><img src="https://i.imgur.com/Qt2pUjV.png" alt=""><br><img src="https://i.imgur.com/FSsJniC.png" alt=""></p><h1 id="安装Nodejs："><a href="#安装Nodejs：" class="headerlink" title="安装Nodejs："></a>安装Nodejs：</h1><p>一路next即可</p><h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><p>安装一路next，重点在配置</p><p>首先将安装目录添加进环境变量</p><p>然后设置用户名和邮箱</p><pre><code>$ git config --global user.name &quot;John Doe&quot;$ git config --global user.email johndoe@example.com</code></pre><h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><p>在所要存放博客文件的文件夹下右键，点击git bash</p><p>输入如下命令：</p><pre><code>npm install -g hexo-cli</code></pre><h1 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h1><pre><code>hexo init </code></pre><h1 id="安装依赖依赖包"><a href="#安装依赖依赖包" class="headerlink" title="安装依赖依赖包"></a>安装依赖依赖包</h1><pre><code>npm install</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容</p><pre><code># Sitetitle: 平步青云winsubtitle:description: 建站 Linux Python C++ 编程语言keywords: 建站 Linux Python C++ 编程语言author: zxplanguage: zh-Hanstimezone:deploy:  type: git  repository: https://github.com/zxpgo/blog.git# 博客仓库地址 #repository: https://github.com/xxx/xxx.github.io.git </code></pre><p>博客仓库地址见本文开头第二张图片内的地址</p><p>注意：<strong>：之后必须添加一个空格再添加内容</strong></p><p>否则会有如下错误：<br><img src="https://i.imgur.com/Z9xaVfN.png" alt=""></p><h1 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h1><pre><code>hexo new &quot;文章名字&quot;</code></pre><h1 id="本地站点生成"><a href="#本地站点生成" class="headerlink" title="本地站点生成"></a>本地站点生成</h1><h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><pre><code>hexo g</code></pre><p>显示如下信息，表示成功</p><p><img src="https://i.imgur.com/UpMYKme.png" alt=""></p><h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre><code>hexo s</code></pre><p>显示如下信息，表示成功：</p><p><img src="https://i.imgur.com/ENe7sIs.png" alt=""></p><p>到此本地的配置结束</p><p>打开浏览器，输入localhost:4000查看</p><h1 id="部署Github"><a href="#部署Github" class="headerlink" title="部署Github"></a>部署Github</h1><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo dhexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。（个人习惯，非必需）hexo g #生成静态文件，每次改动之后都需要执行以下这个命令。hexo d #这个才是真正的部署命令，这里用的都是简写形式</code></pre><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p><p>设置Git的user name和email：（前面以及设置）<br>    git config –global user.name “aqiongbei” #改成你的注册Github的用户名<br>    git config –global user.email “<a href="mailto:aqiongbei@gmail.com" target="_blank" rel="noopener">aqiongbei@gmail.com</a>“ #改成你的注册Github的邮箱</p><h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p><pre><code>ssh-keygen -t rsa -C &quot;aqiongbei@gmail.com&quot; #改成你注册Github的邮箱</code></pre><p>返回提示如下：</p><p><img src="https://i.imgur.com/ONTwjSc.png" alt=""></p><p>然后会提示，不用理，直接按回车，一共三次。<br>在C:\Users\Neckpain.ssh得到 id_rsa 和 id_rsa.pub 文件，说明生成成功</p><h2 id="添加密钥到-Github"><a href="#添加密钥到-Github" class="headerlink" title="添加密钥到 Github"></a>添加密钥到 Github</h2><p>打开 Github，登录自己的账号后<br>点击自己的头像-&gt;settings-&gt;SSH Keys-&gt;Add SSH key<br>将本地 id_rsa.pub 中的内容粘贴到 Key 文本框中，随意输入一个 title，点击 Add Key 即可。</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>Git里面继续输入</p><pre><code>ssh -T git@github.com</code></pre><p>返回</p><p><img src="https://i.imgur.com/ztaoOqM.png" alt=""></p><p>则说明验证成功。</p><h2 id="问题一-1"><a href="#问题一-1" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>ERROR Deployer not found: git</p><p><img src="https://i.imgur.com/g0NwgIs.png" alt=""></p><p>解决方案如下：</p><pre><code>npm install --save hexo-deployer-git</code></pre><h2 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h2><p>首先购买域名，博主在阿里云购买，记得实名认证</p><p>首先在域名控制台添加记录，</p><p><img src="https://i.imgur.com/KvOvo9Q.png" alt=""></p><p><img src="https://i.imgur.com/m3HfCIE.png" alt=""></p><p>记录一般添加两条，具体如下:</p><p><img src="https://i.imgur.com/RPLwY5K.png" alt=""></p><p>然后在github的博客代码处添加一个CNMAE文件，不要后缀</p><p>内容为申请的域名</p><pre><code>www.zxpblog.cnzxpblog.cn</code></pre><p>最后还得在setting中的Custom domain处添加域名，必须加www, 如下</p><h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>在本地博客目录下打开git bash</p><pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></pre><p>在_config.yml中找到theme修改为下载的主题名</p><p><img src="https://i.imgur.com/RPI4qld.png" alt=""></p><p>重新部署到github即可</p><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><h1 id="底部添加访问量统计"><a href="#底部添加访问量统计" class="headerlink" title="底部添加访问量统计"></a>底部添加访问量统计</h1><p>部分主题自带访问量统计，不用配置<br>打开\themes\主题名字\layout_partials\footer.swig文件,不同具体footer文件的后缀可能不同，在顶部添加如下代码：</p><pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>接着在合适的地方添加需要显示的统计数字代码（同上文件）：</p><pre><code>&lt;div class=&quot;powered-by&quot;&gt;&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;</code></pre><p>两种统计方式：</p><ul><li>同一用户连续点击n篇文章，记录n次访问量</li><li>  <span id="busuanzi_container_site_pv"><br>  本站总访问量<span id="busuanzi_value_site_pv"></span>次<br>  </span></li></ul><ul><li>同一用户连续点击n篇文章，记录1次访问量</li><li>  <span id="busuanzi_container_site_uv"><pre><code>本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次</code></pre>  </span></li></ul><h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>首先安装 hexo-generator-feed包</p><pre><code>npm install hexo-generator-feed</code></pre><p>在配置文件中添加如下代码：</p><pre><code>#RSS配置feed:    type: atom    path: atom.xml    limit: 20    hub:    content:    content_limit:       content_limit_delim: &apos; &apos;</code></pre><p>主题不同，添加方式可能不同，NEXT主题 _CONFIG.YML文件中有个 RSS的配置，直接设置为 TRUE就可以了 </p><h1 id="Yelee主题"><a href="#Yelee主题" class="headerlink" title="Yelee主题"></a>Yelee主题</h1><p><a href="http://moxfive.coding.me/yelee/" target="_blank" rel="noopener">http://moxfive.coding.me/yelee/</a></p><h1 id="Hexo中的Yelee主题，首页不显示文章摘要"><a href="#Hexo中的Yelee主题，首页不显示文章摘要" class="headerlink" title="Hexo中的Yelee主题，首页不显示文章摘要"></a>Hexo中的Yelee主题，首页不显示文章摘要</h1><p>转自：<a href="https://blog.csdn.net/youshaoduo/article/details/78709160" target="_blank" rel="noopener">https://blog.csdn.net/youshaoduo/article/details/78709160</a></p><h1 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h1><p>方法一：在需要显示的摘要之后添加如下代码：</p><pre><code>&lt;!--more--&gt;</code></pre><p>方法二： 自动截取方法<br>转自：<a href="https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/" target="_blank" rel="noopener">https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/</a></p><h1 id="添加文章访问量统计"><a href="#添加文章访问量统计" class="headerlink" title="添加文章访问量统计"></a>添加文章访问量统计</h1><p>themes\yelee\layout_partial\footer.ejs中添加如下代码：</p><pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>在article.ejs中&lt;%- partial(‘post/tag’) %&gt;后添加如下代码：</p><pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot; style =&quot;display:block&quot;&gt;     |阅读量(&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;)&lt;/span&gt;</code></pre><p>在theme/source/css/style.styl文件中设置格式</p><pre><code>#busuanzi_container_page_pv{display:block  !important;padding-top:4px;color: #bebebe;//margin-left:200px;}</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
