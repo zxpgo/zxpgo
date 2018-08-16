@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-15T13:09:07.099Z</updated>
+  <updated>2018-08-16T14:48:22.866Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>环境变量与文件查找</title>
+    <link href="https://zxpgo.github.io/2018/08/16/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
+    <id>https://zxpgo.github.io/2018/08/16/环境变量与文件查找/</id>
+    <published>2018-08-16T12:24:24.000Z</published>
+    <updated>2018-08-16T14:48:22.866Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。
+    
+    </summary>
+    
+      <category term="Linux教程" scheme="https://zxpgo.github.io/categories/Linux%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现：用位运算符实现加法，不允许使用 “+”</title>
+    <link href="https://zxpgo.github.io/2018/08/16/Python%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%94%A8%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E5%AE%9E%E7%8E%B0%E5%8A%A0%E6%B3%95%EF%BC%8C%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%20%E2%80%9C+%E2%80%9D/"/>
+    <id>https://zxpgo.github.io/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:25:25.384Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算两个整数a、b的和，但是不能使用“+”操作符。
+    
+    </summary>
+    
+      <category term="Python" scheme="https://zxpgo.github.io/categories/Python/"/>
+    
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Git + TortoiseGit安装教程和环境部署</title>
@@ -30,9 +78,9 @@
     </summary>
     
     
-      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
     
   </entry>
   
@@ -59,20 +107,48 @@
   </entry>
   
   <entry>
-    <title>VPN安装后无法连接到互联网</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
+    <title>手机抓包软件：charles安装及教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/手机抓包软件：charles安装及教程/</id>
     <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:39:25.557Z</updated>
+    <updated>2018-08-16T14:48:18.184Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
+      &lt;p&gt;手机app或微信小程序开发过程中，解决数据传输过程中的问题，抓包软件必不可少
     
     </summary>
     
+      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+      <category term="手机抓包" scheme="https://zxpgo.github.io/tag/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-14T13:32:48.881Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
+    
+    </summary>
+    
+      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
@@ -97,50 +173,20 @@
   </entry>
   
   <entry>
-    <title>环境变量与文件查找</title>
-    <link href="https://zxpgo.github.io/2018/08/13/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
-    <id>https://zxpgo.github.io/2018/08/13/环境变量与文件查找/</id>
+    <title>VPN安装后无法连接到互联网</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
     <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-15T13:04:44.465Z</updated>
+    <updated>2018-08-13T14:39:25.557Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。
+      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
     
     </summary>
     
-      <category term="Linux教程" scheme="https://zxpgo.github.io/categories/Linux%E6%95%99%E7%A8%8B/"/>
     
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim教程</title>
-    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-14T13:32:48.881Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
-    
-    </summary>
-    
-      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
     
   </entry>
   

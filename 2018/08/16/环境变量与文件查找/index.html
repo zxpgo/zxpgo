@@ -15,31 +15,18 @@
 
 
 
-<meta name="description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。">
+<meta name="keywords" content="Linux,教程,vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建属于自己的博客">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/11/Hexo搭建博客/index.html">
+<meta property="og:title" content="环境变量与文件查找">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/16/环境变量与文件查找/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
+<meta property="og:description" content="介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/Qt2pUjV.png">
-<meta property="og:image" content="https://i.imgur.com/FSsJniC.png">
-<meta property="og:image" content="https://i.imgur.com/Z9xaVfN.png">
-<meta property="og:image" content="https://i.imgur.com/UpMYKme.png">
-<meta property="og:image" content="https://i.imgur.com/ENe7sIs.png">
-<meta property="og:image" content="https://i.imgur.com/ONTwjSc.png">
-<meta property="og:image" content="https://i.imgur.com/ztaoOqM.png">
-<meta property="og:image" content="https://i.imgur.com/g0NwgIs.png">
-<meta property="og:image" content="https://i.imgur.com/KvOvo9Q.png">
-<meta property="og:image" content="https://i.imgur.com/m3HfCIE.png">
-<meta property="og:image" content="https://i.imgur.com/RPLwY5K.png">
-<meta property="og:image" content="https://i.imgur.com/RPI4qld.png">
-<meta property="og:updated_time" content="2018-08-12T14:10:02.095Z">
+<meta property="og:updated_time" content="2018-08-16T14:48:22.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建属于自己的博客">
-<meta name="twitter:description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
-<meta name="twitter:image" content="https://i.imgur.com/Qt2pUjV.png">
+<meta name="twitter:title" content="环境变量与文件查找">
+<meta name="twitter:description" content="介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -71,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hexo搭建属于自己的博客 | 平步青云win</title>
+<title>环境变量与文件查找 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -300,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-环境变量与文件查找" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/11/Hexo搭建博客/" class="article-date">
-      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
+      <a href="/2018/08/16/环境变量与文件查找/" class="article-date">
+      <time datetime="2018-08-16T12:24:24.000Z" itemprop="datePublished">2018-08-16</time>
 </a>
 
 
@@ -319,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo搭建属于自己的博客
+      环境变量与文件查找
     </h1>
   
 
@@ -328,10 +315,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux教程/">Linux教程</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vim/">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv" style ="display:block">
@@ -346,138 +337,138 @@
 	
       
           
-        <p>本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。<a id="more"></a></p>
-<h1 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h1><p>Git：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<p>Nodejs:<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
-<p>Github账号，并创建新仓库</p>
-<p>新建仓库如下：<br><img src="https://i.imgur.com/Qt2pUjV.png" alt=""><br><img src="https://i.imgur.com/FSsJniC.png" alt=""></p>
-<h1 id="安装Nodejs："><a href="#安装Nodejs：" class="headerlink" title="安装Nodejs："></a>安装Nodejs：</h1><p>一路next即可</p>
-<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><p>安装一路next，重点在配置</p>
-<p>首先将安装目录添加进环境变量</p>
-<p>然后设置用户名和邮箱</p>
-<pre><code>$ git config --global user.name &quot;John Doe&quot;
-$ git config --global user.email johndoe@example.com
-</code></pre><h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><p>在所要存放博客文件的文件夹下右键，点击git bash</p>
-<p>输入如下命令：</p>
-<pre><code>npm install -g hexo-cli
-</code></pre><h1 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h1><pre><code>hexo init 
-</code></pre><h1 id="安装依赖依赖包"><a href="#安装依赖依赖包" class="headerlink" title="安装依赖依赖包"></a>安装依赖依赖包</h1><pre><code>npm install
-</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容</p>
-<pre><code># Site
-title: 平步青云win
-subtitle:
-description: 建站 Linux Python C++ 编程语言
-keywords: 建站 Linux Python C++ 编程语言
-author: zxp
-language: zh-Hans
-timezone:
-
-
-deploy:
-  type: git
-  repository: https://github.com/zxpgo/blog.git# 博客仓库地址
- #repository: https://github.com/xxx/xxx.github.io.git 
-</code></pre><p>博客仓库地址见本文开头第二张图片内的地址</p>
-<p>注意：<strong>：之后必须添加一个空格再添加内容</strong></p>
-<p>否则会有如下错误：<br><img src="https://i.imgur.com/Z9xaVfN.png" alt=""></p>
-<h1 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h1><pre><code>hexo new &quot;文章名字&quot;
-</code></pre><h1 id="本地站点生成"><a href="#本地站点生成" class="headerlink" title="本地站点生成"></a>本地站点生成</h1><h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><pre><code>hexo g
-</code></pre><p>显示如下信息，表示成功</p>
-<p><img src="https://i.imgur.com/UpMYKme.png" alt=""></p>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><pre><code>hexo s
-</code></pre><p>显示如下信息，表示成功：</p>
-<p><img src="https://i.imgur.com/ENe7sIs.png" alt=""></p>
-<p>到此本地的配置结束</p>
-<p>打开浏览器，输入localhost:4000查看</p>
-<h1 id="部署Github"><a href="#部署Github" class="headerlink" title="部署Github"></a>部署Github</h1><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-
-hexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。（个人习惯，非必需）
-hexo g #生成静态文件，每次改动之后都需要执行以下这个命令。
-hexo d #这个才是真正的部署命令，这里用的都是简写形式
-</code></pre><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p>
-<p>设置Git的user name和email：（前面以及设置）<br>    git config –global user.name “aqiongbei” #改成你的注册Github的用户名<br>    git config –global user.email “<a href="mailto:aqiongbei@gmail.com" target="_blank" rel="noopener">aqiongbei@gmail.com</a>“ #改成你的注册Github的邮箱</p>
-<h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p>
-<pre><code>ssh-keygen -t rsa -C &quot;aqiongbei@gmail.com&quot; #改成你注册Github的邮箱
-</code></pre><p>返回提示如下：</p>
-<p><img src="https://i.imgur.com/ONTwjSc.png" alt=""></p>
-<p>然后会提示，不用理，直接按回车，一共三次。<br>在C:\Users\Neckpain.ssh得到 id_rsa 和 id_rsa.pub 文件，说明生成成功</p>
-<h2 id="添加密钥到-Github"><a href="#添加密钥到-Github" class="headerlink" title="添加密钥到 Github"></a>添加密钥到 Github</h2><p>打开 Github，登录自己的账号后<br>点击自己的头像-&gt;settings-&gt;SSH Keys-&gt;Add SSH key<br>将本地 id_rsa.pub 中的内容粘贴到 Key 文本框中，随意输入一个 title，点击 Add Key 即可。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>Git里面继续输入</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>返回</p>
-<p><img src="https://i.imgur.com/ztaoOqM.png" alt=""></p>
-<p>则说明验证成功。</p>
-<h2 id="问题一-1"><a href="#问题一-1" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>ERROR Deployer not found: git</p>
-<p><img src="https://i.imgur.com/g0NwgIs.png" alt=""></p>
-<p>解决方案如下：</p>
-<pre><code>npm install --save hexo-deployer-git
-</code></pre><h2 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h2><p>首先购买域名，博主在阿里云购买，记得实名认证</p>
-<p>首先在域名控制台添加记录，</p>
-<p><img src="https://i.imgur.com/KvOvo9Q.png" alt=""></p>
-<p><img src="https://i.imgur.com/m3HfCIE.png" alt=""></p>
-<p>记录一般添加两条，具体如下:</p>
-<p><img src="https://i.imgur.com/RPLwY5K.png" alt=""></p>
-<p>然后在github的博客代码处添加一个CNMAE文件，不要后缀</p>
-<p>内容为申请的域名</p>
-<pre><code>www.zxpblog.cn
-zxpblog.cn
-</code></pre><p>最后还得在setting中的Custom domain处添加域名，必须加www, 如下</p>
-<h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>在本地博客目录下打开git bash</p>
-<pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next
-</code></pre><p>在_config.yml中找到theme修改为下载的主题名</p>
-<p><img src="https://i.imgur.com/RPI4qld.png" alt=""></p>
-<p>重新部署到github即可</p>
-<pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre><h1 id="底部添加访问量统计"><a href="#底部添加访问量统计" class="headerlink" title="底部添加访问量统计"></a>底部添加访问量统计</h1><p>部分主题自带访问量统计，不用配置<br>打开\themes\主题名字\layout_partials\footer.swig文件,不同具体footer文件的后缀可能不同，在顶部添加如下代码：</p>
-<pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>接着在合适的地方添加需要显示的统计数字代码（同上文件）：</p>
-<pre><code>&lt;div class=&quot;powered-by&quot;&gt;
-&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;
-  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;
-&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p>两种统计方式：</p>
+        <p>介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。<a id="more"></a></p>
+<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>要解释环境变量，得先明白变量是什么，准确的说应该是 Shell 变量，所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。为了便于运算和处理，大部分的编程语言会区分变量的类型，用于分别记录数值、字符或者字符串等等数据类型。Shell 中的变量也基本如此，有不同类型（但不用专门指定类型名），可以参与运算，有作用域限定。<br><code>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</code></p>
+<p>shell创建变量</p>
+<pre><code>declare tmp
+</code></pre><p>shell变量复制</p>
+<pre><code>temp=zxp
+</code></pre><p>输出变量</p>
+<pre><code>echo $temp
+</code></pre><p><strong>注意</strong>：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且<strong>不能以数字</strong>作为开头</p>
+<h2 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h2><p>环境变量的作用域比自定义变量的要大，如 Shell 的环境变量作用于自身和它的子进程。在所有的 UNIX 和类 UNIX 系统中，每个进程都有其各自的环境变量设置，且默认情况下，当一个进程被创建时，除了创建过程中明确指定的话，它将继承其父进程的绝大部分环境设置。Shell 程序也作为一个进程运行在操作系统之上，而我们在 Shell 中运行的大部分命令都将以 Shell 的子进程的方式运行。</p>
+<p>通常我们会涉及到的变量类型有三种：</p>
 <ul>
-<li>同一用户连续点击n篇文章，记录n次访问量</li>
-<li>  <span id="busuanzi_container_site_pv"><br>  本站总访问量<span id="busuanzi_value_site_pv"></span>次<br>  </span></li>
+<li>当前 Shell 进程私有用户自定义变量，如上面我们创建的 tmp 变量，只在当前 Shell 中有效。</li>
+<li>Shell 本身内建的变量。</li>
+<li>从自定义变量导出的环境变量。<br>也有三个与上述三种环境变量相关的命令：set，env，export。这三个命令很相似，都是用于打印环境变量信息，区别在于涉及的变量范围不同。详见下表：</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>命 令</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set</td>
+<td>显示当前 Shell 所有变量，包括其内建环境变量（与 Shell 外观等相关），用户自定义变量及导出的环境变量。</td>
+</tr>
+<tr>
+<td>env</td>
+<td>显示与当前用户相关的环境变量，还可以让命令在指定环境中运行。</td>
+</tr>
+<tr>
+<td>export</td>
+<td>显示从 Shell 中导出成环境变量的变量，也能通过它将自定义变量导出为环境变量。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="环境变量永久生效"><a href="#环境变量永久生效" class="headerlink" title="环境变量永久生效"></a>环境变量永久生效</h3><p>按变量的生存周期来划分，Linux 变量可分为两类：</p>
 <ul>
-<li>同一用户连续点击n篇文章，记录1次访问量</li>
-<li>  <span id="busuanzi_container_site_uv"><pre><code>本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次
-</code></pre>  </span></li>
+<li><p>永久的：需要修改配置文件，变量永久生效；</p>
+</li>
+<li><p>临时的：使用 export 命令行声明即可，变量在关闭 shell 时失效。</p>
+</li>
 </ul>
-<h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>首先安装 hexo-generator-feed包</p>
-<pre><code>npm install hexo-generator-feed
-</code></pre><p>在配置文件中添加如下代码：</p>
-<pre><code>#RSS配置
-feed:
-    type: atom
-    path: atom.xml
-    limit: 20
-    hub:
-    content:
-    content_limit:
-       content_limit_delim: &apos; &apos;
-</code></pre><p>主题不同，添加方式可能不同，NEXT主题 _CONFIG.YML文件中有个 RSS的配置，直接设置为 TRUE就可以了 </p>
-<h1 id="Yelee主题"><a href="#Yelee主题" class="headerlink" title="Yelee主题"></a>Yelee主题</h1><p><a href="http://moxfive.coding.me/yelee/" target="_blank" rel="noopener">http://moxfive.coding.me/yelee/</a></p>
-<h1 id="Hexo中的Yelee主题，首页不显示文章摘要"><a href="#Hexo中的Yelee主题，首页不显示文章摘要" class="headerlink" title="Hexo中的Yelee主题，首页不显示文章摘要"></a>Hexo中的Yelee主题，首页不显示文章摘要</h1><p>转自：<a href="https://blog.csdn.net/youshaoduo/article/details/78709160" target="_blank" rel="noopener">https://blog.csdn.net/youshaoduo/article/details/78709160</a></p>
-<h1 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h1><p>方法一：在需要显示的摘要之后添加如下代码：</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><p>方法二： 自动截取方法<br>转自：<a href="https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/" target="_blank" rel="noopener">https://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/</a></p>
-<h1 id="添加文章访问量统计"><a href="#添加文章访问量统计" class="headerlink" title="添加文章访问量统计"></a>添加文章访问量统计</h1><p>themes\yelee\layout_partial\footer.ejs中添加如下代码：</p>
-<pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>在article.ejs中&lt;%- partial(‘post/tag’) %&gt;后添加如下代码：</p>
-<pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot; style =&quot;display:block&quot;&gt;
-     |阅读量(&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;)
-&lt;/span&gt;
-</code></pre><p>在theme/source/css/style.styl文件中设置格式</p>
-<pre><code>#busuanzi_container_page_pv
-{display:block  !important;
-padding-top:4px;
-color: #bebebe;
-//margin-left:200px;
+<p>介绍两个重要文件 /etc/bashrc（有的 Linux 没有这个文件） 和 /etc/profile ，它们分别存放的是 shell 变量和环境变量。还有要注意区别的是每个用户目录下的一个隐藏文件： .profile 只对当前用户永久生效。而写在 /etc/profile 里面的是对所有用户永久生效，所以如果想要添加一个永久生效的环境变量，只需要打开 /etc/profile，在最后加上你想添加的环境变量就好啦。<br>查看每个用户的永久生效的环境变量：</p>
+<pre><code>cd /home/用户名
+ls -a
+</code></pre><h2 id="命令查找路径与顺序"><a href="#命令查找路径与顺序" class="headerlink" title="命令查找路径与顺序"></a>命令查找路径与顺序</h2><p>Shell 是怎么知道去哪找到这个命令然后执行的呢？这是通过环境变量 PATH 来进行搜索的，熟悉 Windows 的用户可能知道 Windows 中的也是有这么一个 PATH 环境变量。这个 PATH 里面就保存了 Shell 中执行的命令的搜索路径。</p>
+<p>查看PATH环境变量路径：</p>
+<pre><code>echo $PATH
+</code></pre><p>其中给出的路径存放可执行文件，当在shell中执行命令时，系统就会安装PATH中设定的路径依次到目录中查找，如果找到同名文件，则执行先找到的文件。</p>
+<h3 id="创建Shell脚本"><a href="#创建Shell脚本" class="headerlink" title="创建Shell脚本"></a>创建Shell脚本</h3><p>创建脚本文件，并打开<br>    gedit hello_world.sh</p>
+<p>在打开的文本中输入：</p>
+<pre><code>#！ /bin/bash   //该行不是注释，不能少
+for((i=0; i&lt;10; i++));do
+    echo &quot;hello world&quot;
+done
+
+exit 0
+</code></pre><p>为文件添加可执行权限</p>
+<pre><code>chmod 755 hello_shell.sh
+</code></pre><p>执行脚本</p>
+<pre><code>./hello_shell.sh
+</code></pre><h2 id="创建C语言程序"><a href="#创建C语言程序" class="headerlink" title="创建C语言程序"></a>创建C语言程序</h2><p>创建并打开一个文件</p>
+<pre><code>gidit hello_world.c
+</code></pre><p>在文本中输入</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+     printf(&quot;hello world&quot;);
+    return 0;
 }
-</code></pre>
+</code></pre><p>保存后，使用gcc生成可执行文件：</p>
+<pre><code>gcc -o hello_world hello_world.c
+</code></pre><p><em>gcc生成二进制文件默认具有可执行文件，不需修改</em></p>
+<p>在/当前目录修创建一个目录<code>mybin</code>,并将上述文件移动到其中<br>    mkdir mybin<br>    mv hello_shell.sh hello_world mybin/</p>
+<p>并进入<code>mybin</code>目录，运行上述两个程序：</p>
+<pre><code>cd mybin
+./hello_shell.sh
+./hello_world
+</code></pre><p>回到上一级目录，再运行程序，则发现提示命令找不到，除非加上命令的完整路径，但比较麻烦，可以进该路径添加到PATH环境变量。</p>
+<h2 id="添加自定义路径到“PATH”环境变量"><a href="#添加自定义路径到“PATH”环境变量" class="headerlink" title="添加自定义路径到“PATH”环境变量"></a>添加自定义路径到“PATH”环境变量</h2><pre><code>PATH=$PATH:/home/shiyanlou/mybin
+</code></pre><p><strong><code>=</code>之前之后不能添加空格，否则会提示变量不存在</strong><br><br>注意：路径必须是绝对路径</p>
+<p>这样在任意目录中，都可以执行上述两个文件，直接输入文件名即可执行。<br>到此，如果退出终端，再打开则会发现失效，可以添加一种自动执行的方式：<br>在每个用户的 home 目录中有一个 Shell 每次启动时会默认执行一个配置脚本，以初始化环境，包括添加一些用户自定义环境变量等等。zsh 的配置文件是 <code>.zshrc</code>，相应 Bash 的配置文件为<code>.bashrc</code>。它们在 <code>etc</code> 下还都有一个或多个全局的配置文件，不过我们一般只修改用户目录下的配置文件。</p>
+<pre><code>echo &quot;PATH=$PATH:/home/shiyanlou/mybin&quot; &gt;&gt; .zshrc
+</code></pre><p>上述命令中 &gt;&gt; 表示将标准输出以追加的方式重定向到一个文件中，注意前面用到的 &gt; 是以覆盖的方式重定向到一个文件中，使用的时候一定要注意分辨。在指定文件不存在的情况下都会创建新的文件。</p>
+<h2 id="变量修改和删除"><a href="#变量修改和删除" class="headerlink" title="变量修改和删除"></a>变量修改和删除</h2><p>变量的修改有以下几种方式：</p>
+<table>
+<thead>
+<tr>
+<th>变量设置方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${变量名#匹配字串}</td>
+<td>从头向后开始匹配，删除符合匹配字串的最短数据</td>
+</tr>
+<tr>
+<td>${变量名##匹配字串}</td>
+<td>从头向后开始匹配，删除符合匹配字串的最长数据</td>
+</tr>
+<tr>
+<td>${变量名%匹配字串}</td>
+<td>从尾向前开始匹配，删除符合匹配字串的最短数据</td>
+</tr>
+<tr>
+<td>${变量名%%匹配字串}</td>
+<td>从尾向前开始匹配，删除符合匹配字串的最长数据</td>
+</tr>
+<tr>
+<td>${变量名/旧的字串/新的字串}</td>
+<td>将符合旧字串的第一个字串替换为新的字串</td>
+</tr>
+<tr>
+<td>${变量名//旧的字串/新的字串}</td>
+<td>将符合旧字串的全部字串替换为新的字串</td>
+</tr>
+</tbody>
+</table>
+<h2 id="变量删除"><a href="#变量删除" class="headerlink" title="变量删除"></a>变量删除</h2><pre><code>unset temp
+</code></pre><h2 id="环境变量立即-生效"><a href="#环境变量立即-生效" class="headerlink" title="环境变量立即 生效"></a>环境变量立即 生效</h2><p>在 Shell 中修改了一个配置脚本文件之后（比如 zsh 的配置文件 home 目录下的 .zshrc），每次都要退出终端重新打开甚至重启主机之后其才能生效，很是麻烦，我们可以使用 source 命令来让其立即生效，如：</p>
+<pre><code>source .zshrcc
+</code></pre><p><code>source</code>命令还有一个别名就是 <code>.</code>，注意与表示当前路径的那个点区分开，虽然形式不一样，但作用和使用方式一样，上面的命令如果替换成<code>.</code>的方式就该是:</p>
+<pre><code>. ./.zshrc
+</code></pre><p>注意第一个点之后必须有个空格，而且后面的文件必须指定完整的绝对或相对路径名，source 则不需要。</p>
+<h1 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h1><p>与搜索相关的命令常用的有 whereis，which，find 和 locate 。</p>
+<p>以上内容来自:<a href="https://www.shiyanlou.com" target="_blank" rel="noopener">实验楼</a></p>
+
       
     </div>
     
@@ -485,13 +476,13 @@ color: #bebebe;
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-12, 22:10:02</p>
+        <p><span>发布时间:</span>2018-08-16, 20:24:24</p>
+        <p><span>最后更新:</span>2018-08-16, 22:48:22</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/11/Hexo搭建博客/" title="Hexo搭建属于自己的博客">https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/Hexo搭建博客/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/16/环境变量与文件查找/" title="环境变量与文件查找">https://zxpgo.github.io/2018/08/16/环境变量与文件查找/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/16/环境变量与文件查找/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -503,16 +494,10 @@ color: #bebebe;
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/12/Markdown教程/">
-                    Markdown教程
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/11/Linux介绍/">
-                    Linux介绍
+                <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">
+                    Python实现：用位运算符实现加法，不允许使用 “+”
                 </a>
             </div>
         
@@ -585,7 +570,7 @@ color: #bebebe;
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备："><span class="toc-number">1.</span> <span class="toc-text">准备：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Nodejs："><span class="toc-number">2.</span> <span class="toc-text">安装Nodejs：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装git"><span class="toc-number">3.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">4.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建hexo文件夹"><span class="toc-number">5.</span> <span class="toc-text">创建hexo文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖依赖包"><span class="toc-number">6.</span> <span class="toc-text">安装依赖依赖包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#站点配置"><span class="toc-number">7.</span> <span class="toc-text">站点配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#发布博客"><span class="toc-number">8.</span> <span class="toc-text">发布博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地站点生成"><span class="toc-number">9.</span> <span class="toc-text">本地站点生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成文件"><span class="toc-number">9.1.</span> <span class="toc-text">生成文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-number">9.2.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部署Github"><span class="toc-number">10.</span> <span class="toc-text">部署Github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一"><span class="toc-number">10.1.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成SSH密钥："><span class="toc-number">10.2.</span> <span class="toc-text">生成SSH密钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加密钥到-Github"><span class="toc-number">10.3.</span> <span class="toc-text">添加密钥到 Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">10.4.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一-1"><span class="toc-number">10.5.</span> <span class="toc-text">问题一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加域名"><span class="toc-number">10.6.</span> <span class="toc-text">添加域名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题修改"><span class="toc-number">11.</span> <span class="toc-text">主题修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#底部添加访问量统计"><span class="toc-number">12.</span> <span class="toc-text">底部添加访问量统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">13.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yelee主题"><span class="toc-number">14.</span> <span class="toc-text">Yelee主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo中的Yelee主题，首页不显示文章摘要"><span class="toc-number">15.</span> <span class="toc-text">Hexo中的Yelee主题，首页不显示文章摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#首页显示文章摘要"><span class="toc-number">16.</span> <span class="toc-text">首页显示文章摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加文章访问量统计"><span class="toc-number">17.</span> <span class="toc-text">添加文章访问量统计</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境变量"><span class="toc-number">1.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量-1"><span class="toc-number">1.2.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量永久生效"><span class="toc-number">1.2.1.</span> <span class="toc-text">环境变量永久生效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令查找路径与顺序"><span class="toc-number">1.3.</span> <span class="toc-text">命令查找路径与顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Shell脚本"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建Shell脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建C语言程序"><span class="toc-number">1.4.</span> <span class="toc-text">创建C语言程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加自定义路径到“PATH”环境变量"><span class="toc-number">1.5.</span> <span class="toc-text">添加自定义路径到“PATH”环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量修改和删除"><span class="toc-number">1.6.</span> <span class="toc-text">变量修改和删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量删除"><span class="toc-number">1.7.</span> <span class="toc-text">变量删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量立即-生效"><span class="toc-number">1.8.</span> <span class="toc-text">环境变量立即 生效</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索文件"><span class="toc-number">2.</span> <span class="toc-text">搜索文件</span></a></li></ol>
         
     </div>
     <style>
@@ -621,7 +606,7 @@ color: #bebebe;
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hexo搭建属于自己的博客　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"环境变量与文件查找　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -641,15 +626,13 @@ color: #bebebe;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/12/Markdown教程/" title="上一篇: Markdown教程">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/11/Linux介绍/" title="下一篇: Linux介绍">
+            <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/" title="下一篇: Python实现：用位运算符实现加法，不允许使用 “+”">
                 <i class="fa fa-angle-right"></i>
             </a>
         
