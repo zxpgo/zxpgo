@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-16T14:48:22.866Z">
+<meta property="og:image" content="https://i.imgur.com/QHit5bQ.png">
+<meta property="og:updated_time" content="2018-08-17T15:29:04.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="环境变量与文件查找">
 <meta name="twitter:description" content="介绍环境变量的作用与用法，及几种搜索文件的方法。学会这些技巧可以高效地使用 Linux 。">
+<meta name="twitter:image" content="https://i.imgur.com/QHit5bQ.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -467,6 +469,50 @@ int main(void)
 <pre><code>. ./.zshrc
 </code></pre><p>注意第一个点之后必须有个空格，而且后面的文件必须指定完整的绝对或相对路径名，source 则不需要。</p>
 <h1 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h1><p>与搜索相关的命令常用的有 whereis，which，find 和 locate 。</p>
+<h2 id="whereis简单快捷"><a href="#whereis简单快捷" class="headerlink" title="whereis简单快捷"></a>whereis简单快捷<br></h2><pre><code>whereis find
+</code></pre><p><img src="https://i.imgur.com/QHit5bQ.png" alt=""></p>
+<p>找到了三个路径，两个可执行文件路径和一个 man 在线帮助文件所在路径，这个搜索很快，因为它并没有从硬盘中依次查找，而是直接从数据库中查询。whereis 只能搜索二进制文件(-b)，man 帮助文件(-m)和源代码文件(-s)。如果想要获得更全面的搜索结果可以使用 locate 命令。</p>
+<h2 id="locate快而全"><a href="#locate快而全" class="headerlink" title="locate快而全"></a>locate快而全</h2><p>通过“ /var/lib/mlocate/mlocate.db ”数据库查找，不过这个数据库也不是实时更新的，系统会使用定时任务每天自动执行 updatedb 命令更新一次，所以有时候你刚添加的文件，它可能会找不到，需要手动执行一次 updatedb 命令（在我们的环境中必须先执行一次该命令）。</p>
+<pre><code>locate 文件名
+</code></pre><p>安装软件包：<code>yum install mlocate</code></p>
+<h2 id="which小而精"><a href="#which小而精" class="headerlink" title="which小而精"></a>which小而精</h2><p><code>which</code>本身是 <code>Shell</code> 内建的一个命令，通常使用 <code>which</code>来确定是否安装了某个指定的软件，因为它只从 PATH 环境变量指定的路径中去搜索命令：</p>
+<pre><code>which man
+</code></pre><h2 id="find精而细"><a href="#find精而细" class="headerlink" title="find精而细"></a>find精而细<br></h2><p>find 应该是这几个命令中最强大的了，它不但可以通过文件类型、文件名进行查找而且可以根据文件的属性（如文件的时间戳，文件的权限等）进行搜索。</p>
+<pre><code>find / -name 文件名  //w文件名查找
+find /etc/ -name interfaces  //表示去 /etc/ 目录下面 ，搜索名字叫做 interfaces 的文件或者目录。
+</code></pre><p><strong><br>注意</strong> find 命令的路径是作为第一个参数的， 基本命令格式为 <code>find [path] [option] [action]</code> 。</p>
+<p>与时间相关的命令参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-atime</td>
+<td>最后访问时间</td>
+</tr>
+<tr>
+<td>-ctime</td>
+<td>最后修改文件内容的时间</td>
+</tr>
+<tr>
+<td>-mtime</td>
+<td>最后修改文件属性的时间</td>
+</tr>
+</tbody>
+</table>
+<p>下面以 -mtime 参数举例：</p>
+<ul>
+<li><code>-mtime n：n</code> 为数字，表示为在 n 天之前的“一天之内”修改过的文件</li>
+<li><code>-mtime +n</code>：列出在 n 天之前（不包含 n 天本身）被修改过的文件</li>
+<li><code>-mtime -n</code>：列出在 n 天之内（包含 n 天本身）被修改过的文件</li>
+<li><p><code>-newer file</code>：file 为一个已存在的文件，列出比 file 还要新的文件名<br></p>
+<p>  find ~ -mtime 0 //查找当天(24小时之内)右改动的文件<br>  find ~ -newer /home/shiyanlou/Code  //列出目录下比 Code 文件夹新的文件</p>
+</li>
+</ul>
 <p>以上内容来自:<a href="https://www.shiyanlou.com" target="_blank" rel="noopener">实验楼</a></p>
 
       
@@ -479,7 +525,7 @@ int main(void)
         <p><span>本文标题:</span><a href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-16, 20:24:24</p>
-        <p><span>最后更新:</span>2018-08-16, 22:48:22</p>
+        <p><span>最后更新:</span>2018-08-17, 23:29:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/16/环境变量与文件查找/" title="环境变量与文件查找">https://zxpgo.github.io/2018/08/16/环境变量与文件查找/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/16/环境变量与文件查找/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -502,8 +548,8 @@ int main(void)
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">
-                    Python实现：用位运算符实现加法，不允许使用 “+”
+                <a href="/2018/08/16/小程序开发工具调试/">
+                    小程序开发工具调试
                 </a>
             </div>
         
@@ -576,7 +622,7 @@ int main(void)
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境变量"><span class="toc-number">1.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量-1"><span class="toc-number">1.2.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量永久生效"><span class="toc-number">1.2.1.</span> <span class="toc-text">环境变量永久生效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令查找路径与顺序"><span class="toc-number">1.3.</span> <span class="toc-text">命令查找路径与顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Shell脚本"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建Shell脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建C语言程序"><span class="toc-number">1.4.</span> <span class="toc-text">创建C语言程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加自定义路径到“PATH”环境变量"><span class="toc-number">1.5.</span> <span class="toc-text">添加自定义路径到“PATH”环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量修改和删除"><span class="toc-number">1.6.</span> <span class="toc-text">变量修改和删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量删除"><span class="toc-number">1.7.</span> <span class="toc-text">变量删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量立即-生效"><span class="toc-number">1.8.</span> <span class="toc-text">环境变量立即 生效</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索文件"><span class="toc-number">2.</span> <span class="toc-text">搜索文件</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境变量"><span class="toc-number">1.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量-1"><span class="toc-number">1.2.</span> <span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量永久生效"><span class="toc-number">1.2.1.</span> <span class="toc-text">环境变量永久生效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令查找路径与顺序"><span class="toc-number">1.3.</span> <span class="toc-text">命令查找路径与顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Shell脚本"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建Shell脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建C语言程序"><span class="toc-number">1.4.</span> <span class="toc-text">创建C语言程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加自定义路径到“PATH”环境变量"><span class="toc-number">1.5.</span> <span class="toc-text">添加自定义路径到“PATH”环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量修改和删除"><span class="toc-number">1.6.</span> <span class="toc-text">变量修改和删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量删除"><span class="toc-number">1.7.</span> <span class="toc-text">变量删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量立即-生效"><span class="toc-number">1.8.</span> <span class="toc-text">环境变量立即 生效</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索文件"><span class="toc-number">2.</span> <span class="toc-text">搜索文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#whereis简单快捷"><span class="toc-number">2.1.</span> <span class="toc-text">whereis简单快捷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#locate快而全"><span class="toc-number">2.2.</span> <span class="toc-text">locate快而全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#which小而精"><span class="toc-number">2.3.</span> <span class="toc-text">which小而精</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find精而细"><span class="toc-number">2.4.</span> <span class="toc-text">find精而细</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -640,13 +686,13 @@ int main(void)
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/" title="下一篇: Python实现：用位运算符实现加法，不允许使用 “+”">
+            <a href="/2018/08/16/小程序开发工具调试/" title="下一篇: 小程序开发工具调试">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 
@@ -679,7 +725,7 @@ int main(void)
                     <span>| </span>
                 
                 
-                    <span id="busuanzi_container_page_pv" style='display:none'>
+                    <span id="busuanzi_container_page_pv">
                         <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
