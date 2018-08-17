@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Mock模拟数据生成接口</title>
+      <link href="/2018/08/17/Mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3/"/>
+      <url>/2018/08/17/Mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3/</url>
+      <content type="html"><![CDATA[<p>Easy Mock是一个可视化，并且能快速生成模拟数据的服务。<a id="more"></a></p><h1 id="Mock解决的问题"><a href="#Mock解决的问题" class="headerlink" title="Mock解决的问题"></a>Mock解决的问题</h1><p><br><br>开发时，后端还没完成数据输出，前端只好写静态模拟数据。<br><br>数据太长了，将数据写在js文件里，完成后挨个改url。<br><br>某些逻辑复杂的代码，加入或去除模拟数据时得小心翼翼。<br><br>想要尽可能还原真实的数据，要么编写更多代码，要么手动修改模拟数据。<br><br>特殊的格式，例如IP,随机数，图片，地址，需要去收集。<br></p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p>官方地址：<a href="https://easy-mock.com/login" title="Easy Mock" target="_blank" rel="noopener">https://easy-mock.com/login</a></p><p>直接输入账号，密码，如果未注册，会直接注册。<br>进入如下页面，按图操作<br><img src="https://i.imgur.com/T7ZlKQu.png" alt=""></p><p><br><br>文档中给出了基本教程<br><br><img src="https://i.imgur.com/EFCIDDm.png" alt=""></p>]]></content>
+      
+      <categories>
+          
+          <category> 小程序开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mock数据模拟 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>环境变量与文件查找</title>
       <link href="/2018/08/16/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
       <url>/2018/08/16/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
@@ -84,9 +107,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -110,46 +133,6 @@
             <tag> 教程 </tag>
             
             <tag> 小程序 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>VPN资源</title>
-      <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
-      <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
-      <content type="html"><![CDATA[<p>VPN资源：赛风和兰灯<a id="more"></a></p><p>赛风：<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" title="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>兰灯：<a href="http://pan.bcoderss.com/?dir=lan" title="http://pan.bcoderss.com/?dir=lan" target="_blank" rel="noopener">http://pan.bcoderss.com/?dir=lan</a>  (包括安卓、windows、mac和linux端资源)</p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> VPN </tag>
-            
-            <tag> 资源 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>手机抓包软件：charles安装及教程</title>
-      <link href="/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
-      <url>/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<p>手机app或微信小程序开发过程中，解决数据传输过程中的问题，抓包软件必不可少<a id="more"></a></p><h1 id="0、准备："><a href="#0、准备：" class="headerlink" title="0、准备："></a>0、准备：</h1><p>电脑关闭防火墙、其他代理或者翻墙软件</p><h1 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h1><p>最新版地址：<a href="https://www.charlesproxy.com/latest-release/download.do#" target="_blank" rel="noopener">charles</a></p><p>本教程使用v4.2.6</p><p>安装一路next即可</p><h1 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h1><p><strong>第一步</strong>： 查看本机IP</p><p>  方法一：运行-&gt;输入cmd-&gt;在命令行中输入：ipconfig<br><br>  方法二：在charles中点击Help-&gt;Local IP Adress</p><p><img src="https://i.imgur.com/8cxacvx.png" alt=""><br><br>第一行为本地IP,后面两行为虚拟IP</p><p><strong>第二步</strong>： 查看端口</p><p><img src="https://i.imgur.com/vZ8LWDH.png" alt=""></p><p><strong>第三步</strong>：手机上设置代理</p><p>安装证书</p><p> 复制<a href="http://charlesproxy.com/getssl或http://www.charlesproxy.com/ssl.zip" target="_blank" rel="noopener">http://charlesproxy.com/getssl或http://www.charlesproxy.com/ssl.zip</a> 到手机浏览器打开，点击 here 下载，安装，信任；</p><p>手机和电脑连接到同一局域网，在wifi中设置代理，ios如下：</p><p><img src="https://i.imgur.com/FVD46mi.png" alt="">  <img src="https://i.imgur.com/YS5YY45.png" alt=""></p><p>电脑端弹出connction from “IP”,点击allow</p><p><strong>第四步</strong>： 电脑端安装证书</p><p>点击help-&gt;SSL Proxying-&gt; install Charles root certificate</p><p><img src="https://i.imgur.com/A1lKaZK.png" alt=""></p><p>一路next即可安装</p><p>第五步：设置SSL代理</p><p>点击proxying-&gt;ssl proxying settings</p><p><img src="https://i.imgur.com/Y2fKZVp.png" alt=""></p><p>点击Add</p><p> <img src="https://i.imgur.com/2TIvQNX.png" alt=""></p><p>在host中填入：*通配符<br>在port中填入：443</p><h1 id="字段说明"><a href="#字段说明" class="headerlink" title="字段说明"></a>字段说明</h1><ul><li>Structure：树状结构显示，将网络请求按访问的域名分类；</li><li>Sequence：水平结构显示，将网络请求按访问的时间排序</li><li>垃圾桶图标 ： 功能是clear，清理掉所有请求显示信息</li><li>Filter ： 过滤，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求</li><li>Overview ： 查看这次请求的详细内容，例如耗时详细列车了请求开始时间、结束时间，响应开始时间、结束时间，总耗时、DNS耗时、网络延时等。 </li><li><p>对于Size也详细列出了请求头大小、响应头大小、压缩比例等内容。 </p></li><li><p>URL：进行网络请求的链接；</p></li><li>Status：当前状态，complete表示请求完成；</li><li>Responce Code：返回码。不同的接口，不同的请求结果，返回码都不同；</li><li>Protocol：使用的协议；</li><li>Method：请求方式，如GET请求，POST请求等；</li><li>Kept Alive：判断当前是否正在链接（活跃）；</li><li>Content-Type:发送的内容类型，如这里用的是XML文本，以UTF8的方式发送；</li><li>Client Address：客户端的IP地址；</li><li>Remote Address：远程服务器的IP；</li><li>Timing: <ul><li>Request Start Time：请求开始的时间；</li><li>Request End Time：请求结束的时间；</li><li>Response Start Time：返回开始的时间；</li><li>Response End Time : 返回结束的时间；</li><li>Duration : 总时间；</li></ul></li><li>Size: <ul><li>Request Header ：请求的头部大小；</li><li>Response Header：返回的头部大小；</li><li>Request : 请求发送的大小；</li><li>Response：返回数据的大小；</li><li>Total：所有数据大小；</li><li>Request Compression : 请求压缩；</li><li>Response Compression : 返回压缩；</li></ul></li><li>Request ： 查看请求内容（底下的Headers，Query String， Cookies，Raw。） <ul><li>Headers：发送请求的头部信息； </li><li>Query String : 发送参数列表；</li><li>Cookies： 浏览器缓存；</li><li>Raw：发送的原生数据，包括了头部和参数；</li></ul></li><li>Reponse : 查看响应内容 <ul><li>Headers：是返回的头部信息；</li><li>Text：返回信息（除去头部）后的文本； </li><li>Hex：返回信息的16进制表示；</li><li>XML：我返回的数据是XML。如果你返回的是JSON，这里就会显示JSON；</li><li>XML Text：如果你返回JSON，这里会显示JSON Text；</li><li>Raw：返回的所有原生数据，包括头部；</li></ul></li><li>Summary: 查看发送数据的一些简要信息（主机，状态码，数据的类型，header和body大下，加载时间，总时间）</li><li>Chart: Summary中简要信息以图表形式展示</li><li>Notes: 其他信息</li></ul><p>转自：<a href="https://blog.csdn.net/zhangxiang_1102/article/details/77855548" target="_blank" rel="noopener">更多详细内容见此</a></p>]]></content>
-      
-      <categories>
-          
-          <category> 教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 教程 </tag>
-            
-            <tag> 手机抓包 </tag>
             
         </tags>
       
@@ -190,6 +173,46 @@
         <tags>
             
             <tag> VPN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>VPN资源</title>
+      <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
+      <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
+      <content type="html"><![CDATA[<p>VPN资源：赛风和兰灯<a id="more"></a></p><p>赛风：<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" title="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>兰灯：<a href="http://pan.bcoderss.com/?dir=lan" title="http://pan.bcoderss.com/?dir=lan" target="_blank" rel="noopener">http://pan.bcoderss.com/?dir=lan</a>  (包括安卓、windows、mac和linux端资源)</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> VPN </tag>
+            
+            <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>手机抓包软件：charles安装及教程</title>
+      <link href="/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
+      <url>/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>手机app或微信小程序开发过程中，解决数据传输过程中的问题，抓包软件必不可少<a id="more"></a></p><h1 id="0、准备："><a href="#0、准备：" class="headerlink" title="0、准备："></a>0、准备：</h1><p>电脑关闭防火墙、其他代理或者翻墙软件</p><h1 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h1><p>最新版地址：<a href="https://www.charlesproxy.com/latest-release/download.do#" target="_blank" rel="noopener">charles</a></p><p>本教程使用v4.2.6</p><p>安装一路next即可</p><h1 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h1><p><strong>第一步</strong>： 查看本机IP</p><p>  方法一：运行-&gt;输入cmd-&gt;在命令行中输入：ipconfig<br><br>  方法二：在charles中点击Help-&gt;Local IP Adress</p><p><img src="https://i.imgur.com/8cxacvx.png" alt=""><br><br>第一行为本地IP,后面两行为虚拟IP</p><p><strong>第二步</strong>： 查看端口</p><p><img src="https://i.imgur.com/vZ8LWDH.png" alt=""></p><p><strong>第三步</strong>：手机上设置代理</p><p>安装证书</p><p> 复制<a href="http://charlesproxy.com/getssl或http://www.charlesproxy.com/ssl.zip" target="_blank" rel="noopener">http://charlesproxy.com/getssl或http://www.charlesproxy.com/ssl.zip</a> 到手机浏览器打开，点击 here 下载，安装，信任；</p><p>手机和电脑连接到同一局域网，在wifi中设置代理，ios如下：</p><p><img src="https://i.imgur.com/FVD46mi.png" alt="">  <img src="https://i.imgur.com/YS5YY45.png" alt=""></p><p>电脑端弹出connction from “IP”,点击allow</p><p><strong>第四步</strong>： 电脑端安装证书</p><p>点击help-&gt;SSL Proxying-&gt; install Charles root certificate</p><p><img src="https://i.imgur.com/A1lKaZK.png" alt=""></p><p>一路next即可安装</p><p>第五步：设置SSL代理</p><p>点击proxying-&gt;ssl proxying settings</p><p><img src="https://i.imgur.com/Y2fKZVp.png" alt=""></p><p>点击Add</p><p> <img src="https://i.imgur.com/2TIvQNX.png" alt=""></p><p>在host中填入：*通配符<br>在port中填入：443</p><h1 id="字段说明"><a href="#字段说明" class="headerlink" title="字段说明"></a>字段说明</h1><ul><li>Structure：树状结构显示，将网络请求按访问的域名分类；</li><li>Sequence：水平结构显示，将网络请求按访问的时间排序</li><li>垃圾桶图标 ： 功能是clear，清理掉所有请求显示信息</li><li>Filter ： 过滤，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求</li><li>Overview ： 查看这次请求的详细内容，例如耗时详细列车了请求开始时间、结束时间，响应开始时间、结束时间，总耗时、DNS耗时、网络延时等。 </li><li><p>对于Size也详细列出了请求头大小、响应头大小、压缩比例等内容。 </p></li><li><p>URL：进行网络请求的链接；</p></li><li>Status：当前状态，complete表示请求完成；</li><li>Responce Code：返回码。不同的接口，不同的请求结果，返回码都不同；</li><li>Protocol：使用的协议；</li><li>Method：请求方式，如GET请求，POST请求等；</li><li>Kept Alive：判断当前是否正在链接（活跃）；</li><li>Content-Type:发送的内容类型，如这里用的是XML文本，以UTF8的方式发送；</li><li>Client Address：客户端的IP地址；</li><li>Remote Address：远程服务器的IP；</li><li>Timing: <ul><li>Request Start Time：请求开始的时间；</li><li>Request End Time：请求结束的时间；</li><li>Response Start Time：返回开始的时间；</li><li>Response End Time : 返回结束的时间；</li><li>Duration : 总时间；</li></ul></li><li>Size: <ul><li>Request Header ：请求的头部大小；</li><li>Response Header：返回的头部大小；</li><li>Request : 请求发送的大小；</li><li>Response：返回数据的大小；</li><li>Total：所有数据大小；</li><li>Request Compression : 请求压缩；</li><li>Response Compression : 返回压缩；</li></ul></li><li>Request ： 查看请求内容（底下的Headers，Query String， Cookies，Raw。） <ul><li>Headers：发送请求的头部信息； </li><li>Query String : 发送参数列表；</li><li>Cookies： 浏览器缓存；</li><li>Raw：发送的原生数据，包括了头部和参数；</li></ul></li><li>Reponse : 查看响应内容 <ul><li>Headers：是返回的头部信息；</li><li>Text：返回信息（除去头部）后的文本； </li><li>Hex：返回信息的16进制表示；</li><li>XML：我返回的数据是XML。如果你返回的是JSON，这里就会显示JSON；</li><li>XML Text：如果你返回JSON，这里会显示JSON Text；</li><li>Raw：返回的所有原生数据，包括头部；</li></ul></li><li>Summary: 查看发送数据的一些简要信息（主机，状态码，数据的类型，header和body大下，加载时间，总时间）</li><li>Chart: Summary中简要信息以图表形式展示</li><li>Notes: 其他信息</li></ul><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>You may need to configure your browser or application to trust the Charles Root Certificate<br><br>由于手机虽然安装了证书，但是未信任</p><p>解决方案：<br><br>设置-&gt;通用-&gt;关于本机-&gt;证书信任设置-&gt; 找到charles proxy custom root certificate然后信任该证书即可.</p><p>转自：<a href="https://blog.csdn.net/zhangxiang_1102/article/details/77855548" target="_blank" rel="noopener">更多详细内容见此</a></p>]]></content>
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 手机抓包 </tag>
             
         </tags>
       

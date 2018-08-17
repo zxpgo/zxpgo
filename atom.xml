@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-16T14:48:22.866Z</updated>
+  <updated>2018-08-17T13:41:15.779Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mock模拟数据生成接口</title>
+    <link href="https://zxpgo.github.io/2018/08/17/Mock%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3/"/>
+    <id>https://zxpgo.github.io/2018/08/17/Mock模拟数据生成接口/</id>
+    <published>2018-08-17T11:23:24.000Z</published>
+    <updated>2018-08-17T13:41:15.779Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Easy Mock是一个可视化，并且能快速生成模拟数据的服务。
+    
+    </summary>
+    
+      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Mock数据模拟" scheme="https://zxpgo.github.io/tag/Mock%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>环境变量与文件查找</title>
@@ -100,9 +122,9 @@
     </summary>
     
     
-      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
     
   </entry>
   
@@ -125,48 +147,6 @@
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPN资源</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:24:29.607Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;VPN资源：赛风和兰灯
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
-    
-      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手机抓包软件：charles安装及教程</title>
-    <link href="https://zxpgo.github.io/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/13/手机抓包软件：charles安装及教程/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-16T14:48:18.184Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;手机app或微信小程序开发过程中，解决数据传输过程中的问题，抓包软件必不可少
-    
-    </summary>
-    
-      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="手机抓包" scheme="https://zxpgo.github.io/tag/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/"/>
     
   </entry>
   
@@ -209,6 +189,48 @@
     
     
       <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VPN资源</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:24:29.607Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;VPN资源：赛风和兰灯
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手机抓包软件：charles安装及教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/手机抓包软件：charles安装及教程/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-17T13:30:06.497Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;手机app或微信小程序开发过程中，解决数据传输过程中的问题，抓包软件必不可少
+    
+    </summary>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="手机抓包" scheme="https://zxpgo.github.io/tag/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/"/>
     
   </entry>
   
