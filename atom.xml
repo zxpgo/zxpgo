@@ -32,9 +32,9 @@
       <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Mock数据模拟" scheme="https://zxpgo.github.io/tag/Mock%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Mock数据模拟" scheme="https://zxpgo.github.io/tag/Mock%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
@@ -122,9 +122,9 @@
     </summary>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
@@ -147,30 +147,6 @@
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim教程</title>
-    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-14T13:32:48.881Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
-    
-    </summary>
-    
-      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
@@ -231,6 +207,30 @@
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="手机抓包" scheme="https://zxpgo.github.io/tag/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-14T13:32:48.881Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
+    
+    </summary>
+    
+      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
