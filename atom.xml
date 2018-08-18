@@ -43,7 +43,7 @@
     <link href="https://zxpgo.github.io/2018/08/16/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
     <id>https://zxpgo.github.io/2018/08/16/环境变量与文件查找/</id>
     <published>2018-08-16T12:24:24.000Z</published>
-    <updated>2018-08-17T15:29:04.557Z</updated>
+    <updated>2018-08-18T01:53:02.836Z</updated>
     
     <summary type="html">
     
@@ -51,36 +51,14 @@
     
     </summary>
     
-      <category term="Linux教程" scheme="https://zxpgo.github.io/categories/Linux%E6%95%99%E7%A8%8B/"/>
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序开发工具调试</title>
-    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
-    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
-    <published>2018-08-16T09:24:24.000Z</published>
-    <updated>2018-08-16T14:55:07.834Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
-    
-    </summary>
-    
-      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
@@ -105,6 +83,28 @@
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
       <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序开发工具调试</title>
+    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
+    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:55:07.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
+    
+    </summary>
+    
+      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -195,7 +195,7 @@
     <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
     <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-14T13:32:48.881Z</updated>
+    <updated>2018-08-18T01:52:52.139Z</updated>
     
     <summary type="html">
     
@@ -203,12 +203,12 @@
     
     </summary>
     
-      <category term="Vim教程" scheme="https://zxpgo.github.io/categories/Vim%E6%95%99%E7%A8%8B/"/>
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
@@ -253,6 +253,24 @@
   </entry>
   
   <entry>
+    <title>Linux介绍</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
+    <published>2018-08-11T14:28:50.000Z</published>
+    <updated>2018-08-12T02:26:01.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo搭建属于自己的博客</title>
     <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
@@ -271,17 +289,19 @@
   </entry>
   
   <entry>
-    <title>Linux介绍</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
+    <title>Linux常用的压缩/解压工具：zip和tar</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-12T02:26:01.663Z</updated>
+    <updated>2018-08-18T03:03:32.062Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
+      &lt;p&gt;知识点：zip命令、tar命令、压缩与解压常用组合
     
     </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
