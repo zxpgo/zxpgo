@@ -364,10 +364,10 @@
 
 
   
-    <article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/11/Python实现8种排序算法/" class="article-date">
+      <a href="/2018/08/11/Linux介绍/" class="article-date">
       <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
@@ -383,7 +383,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/11/Python实现8种排序算法/">Python实现：8种排序算法</a>
+      <a class="article-title" href="/2018/08/11/Linux介绍/">Linux介绍</a>
     </h1>
   
 
@@ -396,195 +396,7 @@
 	
       
           
-        <ul>
-<li>选择排序-简单选择排序</li>
-<li>选择排序-堆排序</li>
-<li>插入排序-直接插入排序</li>
-<li>插入排序-希尔排序</li>
-<li>交换评选-快速排序</li>
-<li>交换排序-冒泡排序</li>
-<li>递归排序</li>
-<li>桶排序/基数排序</li>
-</ul>
-<h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><p>每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。</p>
-<p>例子：<br><br>[4, 2, 3] 找出最小的：2,与第一个元素交换<br><br>[2, 4, 3] 找出最小的：3，与第二个元素交换<br><br>[2, 3, 4] <br><br><strong>算法实现</strong></p>
-<pre><code>def j_sort(a):
-      l = len(a)
-      temp = 0
-
-      for j in range(0,l-1):
-            count = j  #记录最小元素下标
-            #每次找出最小元素
-            for i in range(j,l-1):
-                  if a[count] &gt; a[i+1]:
-                        count = i+1
-            #交换最小元素和待排序元素中最前一个
-            &apos;&apos;&apos;if count != j:
-                  temp = a[j]
-                  a[j] = a[count]
-                  a[count] = temp &apos;&apos;&apos;
-            a[j], a[count] = a[count], a[j] #实现跟上述代码一样
-      for i in range(0,l):
-            print(a[i])
-
-if __name__ == &quot;__main__&quot;:
-      a = [10, 2, 5, 1, 3, 7, 3]
-      j_sort(a)
-</code></pre><h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>堆排序的基本思想是：将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。将其与末尾元素进行交换，此时末尾就为最大值。然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了</p>
-<p>堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。首先简单了解下堆结构。</p>
-<p><strong>堆</strong><br><br>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。如下图：</p>
-<p><img src="https://i.imgur.com/JpLbFCa.png" alt=""></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def d_sort(arr):
-      l = len(arr)
-      for i in range(int(l/2-1), -1, -1):
-            adjustHead(arr,i,l)
-      # 交换堆顶和最后一个元素，并调整堆结构
-      for j in range(l-1, 0, -1):
-            arr[0], arr[j] = arr[j], arr[0] #将堆顶元素和末尾元素进行交换
-            adjustHead(arr, 0, j) #重新对对进行调整
-      for k in range(0,l):
-            print(arr[k])
-
-#构造大顶堆            
-def adjustHead(a, i, l):
-      temp = a[i] #取出当前元素
-      k = 2*i + 1 #从左子节点开始，即2*i+1
-      while k &lt; l:
-            if k+1 &lt; l &amp; a[k] &lt; a[k+1]: #若果左子节点小于右子节点，k指向右子节点
-                  k=k+1
-            if a[k] &gt; temp: #如果子节点大于父节点，将子节点赋值给父节点，并将子节点下标记录下来，后面将父节点值赋值给该子节点
-                  a[i] = a[k]
-                  i = k
-            else:
-                  break
-            k = 2*k + 1 #把该节点当作父节点，继续操作
-      a[i] = temp #将父节点值赋值给该子节点
-
-if __name__ == &quot;__main__&quot;:
-      a = [10,2,4,5]
-      d_sort(a)
-</code></pre><h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序思想：每一趟将一个待排序元素，按其排序码大小插入到前面已经排好序的一组元素的适当位置上，直到所有待排序元素元素全部插入为止</p>
-<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>直接插入排序是假定前i个构成的子序列是处于已排序的情况下进行排序的，然后将第i个元素与前i个构成的子序列逆序进行比较，如果是要升序排序，则比较第i个元素是否比j=i-1(i-1需要&gt;=0)的元素大，如果是则第i个元素的位置（即j+1的位置上）保持不动，反之则将j=i-1的元素放置到i的位置，再进行第i个元素与j=i-2(i-2需要&gt;=0)的,依次进行，如果第i个元素刚好比j=i-3大，则将第i个元素插入到j=i-2（即j+1的位置）上！</p>
-<p><strong>算法实现</strong></p>
-<pre><code>def zc_sort(a):
-      l = len(a)
-      j=0
-      for i in range(1,l):
-            temp = a[i]
-            for j in range(i-1, -1, -1):
-                  if  temp &lt; a[j]:  #如果第i个元素大于前i个元素中的第j个
-                        a[j+1] = a[j] #则第j个元素先后移1位
-                  else:   #如果第i个元素小于等于前i个元素中的第j个则结束循环
-                        break
-            a[j+1] = temp #将i个元素赋值给空着的位置
-      for i in range(0,l):
-            print(a[i])
-
-if __name__ == &quot;__main__&quot;:
-      a = [1, 10, 5, 2, 6, 7, 2]
-      zc_sort(a)
-</code></pre><h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>转自：<a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengxiao/p/6104371.html</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def shell_sort(a):
-     l = int(len(a)/2)
-     #生成增量列表
-     gap_list = []
-     while l &gt; 0:
-          gap_list.append(l)
-          l = int(l/2)
-     print(gap_list)
-     for gap in gap_list:#增量gap，并逐步缩小增量 
-          #print(gap)
-          for i in range(gap, len(a)):#从第gap个元素，逐个对其所在组进行直接插入排序操作
-               j = i
-               while j -gap &gt;= 0 and a[j-gap] &gt; a[j]:
-                    swap(a, j, j-gap)  #交换两个元素
-                    j = j - gap
-
-     for i in range(0,len(a)):
-          print(a[i])
-
-def swap(arr, a, b):
-     arr[a] = arr[a] + arr[b]
-     arr[b] = arr[a] - arr[b]
-     arr[a] = arr[a] - arr[b]
-
-
-if __name__== &quot;__main__&quot;:
-      a = [1,0,4,-1,2,7,9,8,10, 3,6,5,18]
-      shell_sort(a)
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-文件系统操作与磁盘管理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/11/文件系统操作与磁盘管理/" class="article-date">
-      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p><code>df</code>,<code>du</code>,<code>mount</code>命令的使用，以及磁盘相关知识学习。
+              <p>Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
           
       
     </div>
@@ -592,10 +404,6 @@ if __name__== &quot;__main__&quot;:
     <div class="article-info article-info-index">
       
       
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
-    </div>
-
 
       
     <div class="article-tag tagcloud">
@@ -604,7 +412,7 @@ if __name__== &quot;__main__&quot;:
 
       
         <p class="article-more-link">
-          <a href="/2018/08/11/文件系统操作与磁盘管理/#more">阅读全文 >></a>
+          <a href="/2018/08/11/Linux介绍/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -684,6 +492,81 @@ if __name__== &quot;__main__&quot;:
       
         <p class="article-more-link">
           <a href="/2018/08/11/Linux常用的压缩解压工具zip和tar/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-文件系统操作与磁盘管理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/11/文件系统操作与磁盘管理/" class="article-date">
+      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+              <p><code>df</code>,<code>du</code>,<code>mount</code>命令的使用，以及磁盘相关知识学习。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/08/11/文件系统操作与磁盘管理/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -811,10 +694,10 @@ if __name__== &quot;__main__&quot;:
 
 
   
-    <article id="post-Linux介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/11/Linux介绍/" class="article-date">
+      <a href="/2018/08/11/Python实现8种排序算法/" class="article-date">
       <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
@@ -830,7 +713,7 @@ if __name__== &quot;__main__&quot;:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/11/Linux介绍/">Linux介绍</a>
+      <a class="article-title" href="/2018/08/11/Python实现8种排序算法/">Python实现：8种排序算法</a>
     </h1>
   
 
@@ -843,7 +726,7 @@ if __name__== &quot;__main__&quot;:
 	
       
           
-              <p>Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
+              <p>介绍8中排序算法，包括算法的基本思路和算法的python实现。
           
       
     </div>
@@ -851,15 +734,19 @@ if __name__== &quot;__main__&quot;:
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2018/08/11/Linux介绍/#more">阅读全文 >></a>
+          <a href="/2018/08/11/Python实现8种排序算法/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
