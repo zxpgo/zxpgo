@@ -15,26 +15,28 @@
 
 
 
-<meta name="description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="keywords" content="教程,小程序">
+<meta name="description" content="df,du,mount命令的使用，以及磁盘相关知识学习。">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序开发工具调试">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/16/小程序开发工具调试/index.html">
+<meta property="og:title" content="文件系统操作与磁盘管理">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
+<meta property="og:description" content="df,du,mount命令的使用，以及磁盘相关知识学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/ACdgBOh.png">
-<meta property="og:image" content="https://i.imgur.com/D59w6ea.png">
-<meta property="og:image" content="https://i.imgur.com/tZKGrVq.png">
-<meta property="og:image" content="https://i.imgur.com/Mv5G61K.png">
-<meta property="og:image" content="https://i.imgur.com/fIZSVCX.png">
-<meta property="og:image" content="https://i.imgur.com/bFqe8vy.png">
-<meta property="og:image" content="https://i.imgur.com/Row1z1q.png">
-<meta property="og:updated_time" content="2018-08-16T14:55:07.834Z">
+<meta property="og:image" content="https://i.imgur.com/aDgUG9N.png">
+<meta property="og:image" content="https://i.imgur.com/81DFdeQ.png">
+<meta property="og:image" content="https://i.imgur.com/ACPF222.png">
+<meta property="og:image" content="https://i.imgur.com/G0psdj4.png">
+<meta property="og:image" content="https://i.imgur.com/ziq3dEE.png">
+<meta property="og:image" content="https://i.imgur.com/QsmEmnJ.png">
+<meta property="og:image" content="https://i.imgur.com/0VTliSx.png">
+<meta property="og:image" content="https://i.imgur.com/w7hlBSI.png">
+<meta property="og:image" content="https://i.imgur.com/m8upwZ1.png">
+<meta property="og:updated_time" content="2018-08-18T15:06:08.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序开发工具调试">
-<meta name="twitter:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="twitter:image" content="https://i.imgur.com/ACdgBOh.png">
+<meta name="twitter:title" content="文件系统操作与磁盘管理">
+<meta name="twitter:description" content="df,du,mount命令的使用，以及磁盘相关知识学习。">
+<meta name="twitter:image" content="https://i.imgur.com/aDgUG9N.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +68,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>小程序开发工具调试 | 平步青云win</title>
+<title>文件系统操作与磁盘管理 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +297,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-小程序开发工具调试" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-文件系统操作与磁盘管理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/16/小程序开发工具调试/" class="article-date">
-      <time datetime="2018-08-16T09:24:24.000Z" itemprop="datePublished">2018-08-16</time>
+      <a href="/2018/08/11/文件系统操作与磁盘管理/" class="article-date">
+      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
 
@@ -314,7 +316,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小程序开发工具调试
+      文件系统操作与磁盘管理
     </h1>
   
 
@@ -324,13 +326,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/小程序开发/">小程序开发</a>
+    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/小程序/">小程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -345,18 +347,79 @@
 	
       
           
-        <p>小程序开发过程中，调试是让程序跑起来的关键。<a id="more"></a><br>第一步：点击调试器</p>
-<p><img src="https://i.imgur.com/ACdgBOh.png" alt=""></p>
-<p>第二步：点击sources</p>
-<p><img src="https://i.imgur.com/D59w6ea.png" alt=""></p>
-<p>第三步：在目录中找到需要调试的js文件，打开图中文件，注意不是后缀为js的文件，而是js？[sm]的文件</p>
-<p><img src="https://i.imgur.com/tZKGrVq.png" alt=""></p>
-<p>第四步： 在文件中设置断点<br><br>将鼠标移到文件最左侧，点击即可设置断点</p>
-<p><img src="https://i.imgur.com/Mv5G61K.png" alt=""><br><strong>快捷键ctrl+b进入调试</strong><br><br>第五步：点击红色箭头按钮，继续执行到下一个断点<br><br>点击蓝色按钮，继续执行&lt;/r.<br>点击黄色按钮，单步调试<br><img src="https://i.imgur.com/fIZSVCX.png" alt=""></p>
-<p>第六步：查看变量值<br><br>方法一： 鼠标放在变量上，即可显示变量值<br><img src="https://i.imgur.com/bFqe8vy.png" alt=""></p>
-<p>方法二：在调试器窗口，点开Scope标签，然后再点开相应变量</p>
-<p><img src="https://i.imgur.com/Row1z1q.png" alt=""></p>
-<p>方法三：使用console.log(options);打印出来，在console窗口可以查看</p>
+        <p><code>df</code>,<code>du</code>,<code>mount</code>命令的使用，以及磁盘相关知识学习。<a id="more"></a></p>
+<h1 id="查看磁盘和目录的容量"><a href="#查看磁盘和目录的容量" class="headerlink" title="查看磁盘和目录的容量"></a>查看磁盘和目录的容量</h1><pre><code>df
+</code></pre><p><img src="https://i.imgur.com/aDgUG9N.png" alt=""></p>
+<p>dev/sda1：是对应这主力硬盘的分区，后面的数字表示分区号，数字前面的字母a表示第几块硬盘（也可能是可移动磁盘）。如果主机上有多快磁盘，可能会出现/dev/sdb,/dev/sdc，这些磁盘设备都会放在/dev目录下以文件的存在形式。</p>
+<p>1k.块：表示磁盘块大小的方式显示容量，后面为相应的以块大小表示的已用容量和可用容量。</p>
+<p>接下来的命令，显示结果一目了然：</p>
+<pre><code>df -h
+</code></pre><p><img src="https://i.imgur.com/81DFdeQ.png" alt=""></p>
+<h1 id="du查看目录容量"><a href="#du查看目录容量" class="headerlink" title="du查看目录容量"></a>du查看目录容量</h1><pre><code>du  //默认以块的大小展示
+du -h  //以更易读的方式展示
+</code></pre><p><code>-d</code>参数指定查看目录的深度</p>
+<pre><code>du -h -d 0 ~ //只查看1级目录的深度
+du -h -d 1 ~ //查看2级
+</code></pre><p>常用参数：<br>    du -h //以k,M,G为单位，提高信息的可读性<br>    du -a //同-aall,显示目录中所有文件的大小<br>    du s  //同–summarize 仅仅显示终极，只列出最后加总的值</p>
+<font color="red" size="5" face="黑体">下面涉及的命令具有一定的危险性，操作不当可能会丢失你的个人数据，初学者建议在虚拟环境中进行操作</font>
+
+<h1 id="创建虚拟磁盘"><a href="#创建虚拟磁盘" class="headerlink" title="创建虚拟磁盘"></a>创建虚拟磁盘</h1><p><code>dd</code>命令简介</p>
+<p><code>dd</code>命令用于转换和复制文件，不过它的复制不同于<code>cp</code>。Linux中，<strong>一切即文件</strong>，硬件的设备驱动（如硬盘）和特殊设备文件（如/dev/zero和/dev/random）都像普通文件一样，主持在各自的驱动程序中实现了对应的功能，<code>dd</code>也可以读取文件或写入这些文件。于是<code>dd</code>也可以用在备份硬件的引导扇区、获取一定数量的随机数据或者空数据等任务中。<code>dd</code>程序也可以在复制时处理数据，例如转换字节序、或在ASCII与EBCDIC编码间互换。</p>
+<p><code>dd</code>命令行语句与其他的Linux程序不同，因为它的命令选项格式为<code>选项=值</code>，而不是标准的<code>--选项 值</code>或<code>-选项=值</code>。<code>dd</code>默认从标准输入中读取，并写入到标准输出中，但可以用选项<code>if</code>（input file输入文件）和<code>of</code>(output file输出文件)改变。</p>
+<pre><code>//输出到文件
+dd of=test bs=10 count=1    
+dd if=/dev/stdin of=test bs=10 count=1
+//输出到标准输出
+dd if=/dev/stdin of=/dev/stdout bs=10 count=1
+//在打完这个命令后，继续在终端打字，作为你的输入
+</code></pre><p>上述命令从标准输入设备读入用户输入（缺省值，所以可省略）然后输出到 test 文件，bs（block size）用于指定块大小（缺省单位为 Byte，也可为其指定如’K’，’M’，’G’等单位），count用于指定块数量。如上图所示，我指定只读取总共 10 个字节的数据，当我输入了“hello shiyanlou”之后加上空格回车总共 16 个字节（一个英文字符占一个字节）内容，显然超过了设定大小。使用du和cat命令看到的写入完成文件实际内容确实只有 10 个字节（那个黑底百分号表示这里没有换行符）,而其他的多余输入将被截取并保留在标准输入。</p>
+<p><code>dd</code>在拷贝的同时可以实现数据转换，例子：将输出的英文字符转换为大写在输入文件：</p>
+<pre><code>dd if=/dev/stdin of=test bs=10 count=1 conv=ucase
+</code></pre><p><img src="https://i.imgur.com/ACPF222.png" alt=""></p>
+<p><code>dd</code>命令创建虚拟镜像文件</p>
+<p><code>dd</code>完成创建虚拟磁盘的步骤<br>第一步:从/dev/zero设置创建一个容量为265M的空文件</p>
+<pre><code>dd if=/dev/zero of=virtual.img bs=1M count=256
+du -h virtual.img
+</code></pre><p><img src="https://i.imgur.com/G0psdj4.png" alt=""></p>
+<p>第二步：将上述创建文件格式化（写入文件系统）</p>
+<p><strong>使用mkfs命令格式化磁盘</strong></p>
+<p>可以在命令行输入<code>sudo mkfs</code> 然后按下<code>tab</code>键，可以看到多个以mkfs为前缀的命令，这些不同的后缀其实就是表示着不同的文件系统，可以用 mkfs 格式化成的文件系统。</p>
+<pre><code>sudo mkfs.ext4 virtual.img
+</code></pre><p><img src="https://i.imgur.com/ziq3dEE.png" alt=""></p>
+<p><strong>ext4</strong>：EXT4是第四代扩展文件系统（英语：Fourth extended filesystem，缩写为 ext4）是Linux系统下的日志文件系统，是ext3文件系统的后继版本。<br><br>可以看到实际 mkfs.ext4 是使用 mke2fs 来完成格式化工作的。mke2fs 的参数很多，不过我们也不会经常格式化磁盘来玩，所以就掌握这基本用法吧，等你有特殊需求时，再查看 man 文档解决。</p>
+<p>第三步： 使用<code>count</code>命令挂载磁盘到目录树</p>
+<p>用户在 Linux/UNIX 的机器上打开一个文件以前，包含该文件的文件系统必须先进行挂载的动作，此时用户要对该文件系统执行 mount 的指令以进行挂载。该指令通常是使用在 USB 或其他可移除存储设备上，而根目录则需要始终保持挂载的状态。又因为 Linux/UNIX 文件系统可以对应一个文件而不一定要是硬件设备，所以可以挂载一个包含文件系统的文件到目录树。</p>
+<p>Linux/UNIX 命令行的 mount 指令是告诉操作系统，对应的文件系统已经准备好，可以使用了，而该文件系统会对应到一个特定的点（称为挂载点）。挂载好的文件、目录、设备以及特殊文件即可提供用户使用。</p>
+<p>查看主机已经挂载的文件系统：</p>
+<pre><code>sudo mount
+</code></pre><p><img src="https://i.imgur.com/QsmEmnJ.png" alt=""></p>
+<p>输出的结果中每一行表示一个设备或虚拟设备,每一行最前面是设备名，然后是 on 后面是挂载点，type 后面表示文件系统类型，再后面是挂载选项（比如可以在挂载时设定以只读方式挂载等等）。</p>
+<p>挂在磁盘到目录树,<code>mount</code>命令的一般格式为:</p>
+<pre><code>mount 【optons】 [source] [directory]
+</code></pre><p>以下常用操作：</p>
+<pre><code>mount [-o [操作选项]] [-t 文件系统类型] [-w|--rw|--ro[文件系统源]]] [挂载点]
+</code></pre><p>将创建的磁盘镜像挂载到/mnt目录：</p>
+<pre><code>mount -o loop -t ext4 virtual.img /mnt 
+//也可以省略挂载类型，很多时候 mount 会自动识别
+
+/以只读方式挂载
+mount -o loop --ro virtual.img /mnt
+//或者mount -o loop,ro virtual.img /mnt
+</code></pre><p><img src="https://i.imgur.com/0VTliSx.png" alt=""></p>
+<p>使用umount命令卸载已挂载磁盘</p>
+<pre><code>命令格式 sudo umount 已挂载设备名或者挂载点，如：
+sudo umount /mnt
+</code></pre><p><strong><code>fdisk</code>为磁盘分区</strong></p>
+<p>查看磁盘分区表信息</p>
+<pre><code>sudo fdisk -l
+</code></pre><p><img src="https://i.imgur.com/w7hlBSI.png" alt=""></p>
+<pre><code>sudo fdisk virtual.img
+
+m：为帮助手册
+n: 创建新分区，接着输入分区号，分区起始和结尾，两个相减为分区大小
+w: 写入新建分区
+p: 查看现有分区
+</code></pre><p><img src="https://i.imgur.com/m8upwZ1.png" alt=""></p>
 
       
     </div>
@@ -365,13 +428,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-16, 17:24:24</p>
-        <p><span>最后更新:</span>2018-08-16, 22:55:07</p>
+        <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-08-18, 23:06:08</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/16/小程序开发工具调试/" title="小程序开发工具调试">https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/16/小程序开发工具调试/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/11/文件系统操作与磁盘管理/" title="文件系统操作与磁盘管理">https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -384,15 +447,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">
-                    Python实现：用位运算符实现加法，不允许使用 “+”
+                <a href="/2018/08/11/文件系统概念/">
+                    文件系统概念
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/15/Git + TortoiseGit安装教程/">
-                    Git + TortoiseGit安装教程和环境部署
+                <a href="/2018/08/11/Hexo搭建博客/">
+                    Hexo搭建属于自己的博客
                 </a>
             </div>
         
@@ -465,7 +528,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看磁盘和目录的容量"><span class="toc-number">1.</span> <span class="toc-text">查看磁盘和目录的容量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#du查看目录容量"><span class="toc-number">2.</span> <span class="toc-text">du查看目录容量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建虚拟磁盘"><span class="toc-number">3.</span> <span class="toc-text">创建虚拟磁盘</span></a></li></ol>
         
     </div>
     <style>
@@ -501,7 +564,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"小程序开发工具调试　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"文件系统操作与磁盘管理　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -521,7 +584,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/" title="上一篇: Python实现：用位运算符实现加法，不允许使用 “+”">
+            <a href="/2018/08/11/文件系统概念/" title="上一篇: 文件系统概念">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -529,7 +592,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/15/Git + TortoiseGit安装教程/" title="下一篇: Git + TortoiseGit安装教程和环境部署">
+            <a href="/2018/08/11/Hexo搭建博客/" title="下一篇: Hexo搭建属于自己的博客">
                 <i class="fa fa-angle-right"></i>
             </a>
         

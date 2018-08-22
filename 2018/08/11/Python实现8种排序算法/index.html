@@ -15,26 +15,20 @@
 
 
 
-<meta name="description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="keywords" content="教程,小程序">
+<meta name="description" content="选择排序-简单选择排序 选择排序-堆排序 插入排序-直接插入排序 插入排序-希尔排序 交换评选-快速排序 交换排序-冒泡排序 递归排序 桶排序/基数排序  简单选择排序每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。 例子：[4, 2, 3] 找出最小的：2,与第一个元素交换[2, 4, 3] 找出最小的：3，与第二个元素交换[2,">
+<meta name="keywords" content="Python,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序开发工具调试">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/16/小程序开发工具调试/index.html">
+<meta property="og:title" content="Python实现：8种排序算法">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/11/Python实现8种排序算法/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
+<meta property="og:description" content="选择排序-简单选择排序 选择排序-堆排序 插入排序-直接插入排序 插入排序-希尔排序 交换评选-快速排序 交换排序-冒泡排序 递归排序 桶排序/基数排序  简单选择排序每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。 例子：[4, 2, 3] 找出最小的：2,与第一个元素交换[2, 4, 3] 找出最小的：3，与第二个元素交换[2,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/ACdgBOh.png">
-<meta property="og:image" content="https://i.imgur.com/D59w6ea.png">
-<meta property="og:image" content="https://i.imgur.com/tZKGrVq.png">
-<meta property="og:image" content="https://i.imgur.com/Mv5G61K.png">
-<meta property="og:image" content="https://i.imgur.com/fIZSVCX.png">
-<meta property="og:image" content="https://i.imgur.com/bFqe8vy.png">
-<meta property="og:image" content="https://i.imgur.com/Row1z1q.png">
-<meta property="og:updated_time" content="2018-08-16T14:55:07.834Z">
+<meta property="og:image" content="https://i.imgur.com/JpLbFCa.png">
+<meta property="og:updated_time" content="2018-08-21T15:19:20.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序开发工具调试">
-<meta name="twitter:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="twitter:image" content="https://i.imgur.com/ACdgBOh.png">
+<meta name="twitter:title" content="Python实现：8种排序算法">
+<meta name="twitter:description" content="选择排序-简单选择排序 选择排序-堆排序 插入排序-直接插入排序 插入排序-希尔排序 交换评选-快速排序 交换排序-冒泡排序 递归排序 桶排序/基数排序  简单选择排序每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。 例子：[4, 2, 3] 找出最小的：2,与第一个元素交换[2, 4, 3] 找出最小的：3，与第二个元素交换[2,">
+<meta name="twitter:image" content="https://i.imgur.com/JpLbFCa.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>小程序开发工具调试 | 平步青云win</title>
+<title>Python实现：8种排序算法 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-小程序开发工具调试" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/16/小程序开发工具调试/" class="article-date">
-      <time datetime="2018-08-16T09:24:24.000Z" itemprop="datePublished">2018-08-16</time>
+      <a href="/2018/08/11/Python实现8种排序算法/" class="article-date">
+      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
 
@@ -314,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小程序开发工具调试
+      Python实现：8种排序算法
     </h1>
   
 
@@ -324,13 +318,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/小程序开发/">小程序开发</a>
+    <a class="article-category-link" href="/categories/算法/">算法</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/小程序/">小程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -345,19 +339,125 @@
 	
       
           
-        <p>小程序开发过程中，调试是让程序跑起来的关键。<a id="more"></a><br>第一步：点击调试器</p>
-<p><img src="https://i.imgur.com/ACdgBOh.png" alt=""></p>
-<p>第二步：点击sources</p>
-<p><img src="https://i.imgur.com/D59w6ea.png" alt=""></p>
-<p>第三步：在目录中找到需要调试的js文件，打开图中文件，注意不是后缀为js的文件，而是js？[sm]的文件</p>
-<p><img src="https://i.imgur.com/tZKGrVq.png" alt=""></p>
-<p>第四步： 在文件中设置断点<br><br>将鼠标移到文件最左侧，点击即可设置断点</p>
-<p><img src="https://i.imgur.com/Mv5G61K.png" alt=""><br><strong>快捷键ctrl+b进入调试</strong><br><br>第五步：点击红色箭头按钮，继续执行到下一个断点<br><br>点击蓝色按钮，继续执行&lt;/r.<br>点击黄色按钮，单步调试<br><img src="https://i.imgur.com/fIZSVCX.png" alt=""></p>
-<p>第六步：查看变量值<br><br>方法一： 鼠标放在变量上，即可显示变量值<br><img src="https://i.imgur.com/bFqe8vy.png" alt=""></p>
-<p>方法二：在调试器窗口，点开Scope标签，然后再点开相应变量</p>
-<p><img src="https://i.imgur.com/Row1z1q.png" alt=""></p>
-<p>方法三：使用console.log(options);打印出来，在console窗口可以查看</p>
+        <ul>
+<li>选择排序-简单选择排序</li>
+<li>选择排序-堆排序</li>
+<li>插入排序-直接插入排序</li>
+<li>插入排序-希尔排序</li>
+<li>交换评选-快速排序</li>
+<li>交换排序-冒泡排序</li>
+<li>递归排序</li>
+<li>桶排序/基数排序</li>
+</ul>
+<h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><p>每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。</p>
+<p>例子：<br><br>[4, 2, 3] 找出最小的：2,与第一个元素交换<br><br>[2, 4, 3] 找出最小的：3，与第二个元素交换<br><br>[2, 3, 4] <br><br><strong>算法实现</strong></p>
+<pre><code>def j_sort(a):
+      l = len(a)
+      temp = 0
 
+      for j in range(0,l-1):
+            count = j  #记录最小元素下标
+            #每次找出最小元素
+            for i in range(j,l-1):
+                  if a[count] &gt; a[i+1]:
+                        count = i+1
+            #交换最小元素和待排序元素中最前一个
+            &apos;&apos;&apos;if count != j:
+                  temp = a[j]
+                  a[j] = a[count]
+                  a[count] = temp &apos;&apos;&apos;
+            a[j], a[count] = a[count], a[j] #实现跟上述代码一样
+      for i in range(0,l):
+            print(a[i])
+
+if __name__ == &quot;__main__&quot;:
+      a = [10, 2, 5, 1, 3, 7, 3]
+      j_sort(a)
+</code></pre><h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>堆排序的基本思想是：将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。将其与末尾元素进行交换，此时末尾就为最大值。然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了</p>
+<p>堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。首先简单了解下堆结构。</p>
+<p><strong>堆</strong><br><br>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。如下图：</p>
+<p><img src="https://i.imgur.com/JpLbFCa.png" alt=""></p>
+<p><strong>算法实现</strong></p>
+<pre><code>def d_sort(arr):
+      l = len(arr)
+      for i in range(int(l/2-1), -1, -1):
+            adjustHead(arr,i,l)
+      # 交换堆顶和最后一个元素，并调整堆结构
+      for j in range(l-1, 0, -1):
+            arr[0], arr[j] = arr[j], arr[0] #将堆顶元素和末尾元素进行交换
+            adjustHead(arr, 0, j) #重新对对进行调整
+      for k in range(0,l):
+            print(arr[k])
+
+#构造大顶堆            
+def adjustHead(a, i, l):
+      temp = a[i] #取出当前元素
+      k = 2*i + 1 #从左子节点开始，即2*i+1
+      while k &lt; l:
+            if k+1 &lt; l &amp; a[k] &lt; a[k+1]: #若果左子节点小于右子节点，k指向右子节点
+                  k=k+1
+            if a[k] &gt; temp: #如果子节点大于父节点，将子节点赋值给父节点，并将子节点下标记录下来，后面将父节点值赋值给该子节点
+                  a[i] = a[k]
+                  i = k
+            else:
+                  break
+            k = 2*k + 1 #把该节点当作父节点，继续操作
+      a[i] = temp #将父节点值赋值给该子节点
+
+if __name__ == &quot;__main__&quot;:
+      a = [10,2,4,5]
+      d_sort(a)
+</code></pre><h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序思想：每一趟将一个待排序元素，按其排序码大小插入到前面已经排好序的一组元素的适当位置上，直到所有待排序元素元素全部插入为止</p>
+<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>直接插入排序是假定前i个构成的子序列是处于已排序的情况下进行排序的，然后将第i个元素与前i个构成的子序列逆序进行比较，如果是要升序排序，则比较第i个元素是否比j=i-1(i-1需要&gt;=0)的元素大，如果是则第i个元素的位置（即j+1的位置上）保持不动，反之则将j=i-1的元素放置到i的位置，再进行第i个元素与j=i-2(i-2需要&gt;=0)的,依次进行，如果第i个元素刚好比j=i-3大，则将第i个元素插入到j=i-2（即j+1的位置）上！</p>
+<p><strong>算法实现</strong></p>
+<pre><code>def zc_sort(a):
+      l = len(a)
+      j=0
+      for i in range(1,l):
+            temp = a[i]
+            for j in range(i-1, -1, -1):
+                  if  temp &lt; a[j]:  #如果第i个元素大于前i个元素中的第j个
+                        a[j+1] = a[j] #则第j个元素先后移1位
+                  else:   #如果第i个元素小于等于前i个元素中的第j个则结束循环
+                        break
+            a[j+1] = temp #将i个元素赋值给空着的位置
+      for i in range(0,l):
+            print(a[i])
+
+if __name__ == &quot;__main__&quot;:
+      a = [1, 10, 5, 2, 6, 7, 2]
+      zc_sort(a)
+</code></pre><h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>转自：<a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengxiao/p/6104371.html</a></p>
+<p><strong>算法实现</strong></p>
+<pre><code>def shell_sort(a):
+     l = int(len(a)/2)
+     #生成增量列表
+     gap_list = []
+     while l &gt; 0:
+          gap_list.append(l)
+          l = int(l/2)
+     print(gap_list)
+     for gap in gap_list:#增量gap，并逐步缩小增量 
+          #print(gap)
+          for i in range(gap, len(a)):#从第gap个元素，逐个对其所在组进行直接插入排序操作
+               j = i
+               while j -gap &gt;= 0 and a[j-gap] &gt; a[j]:
+                    swap(a, j, j-gap)  #交换两个元素
+                    j = j - gap
+
+     for i in range(0,len(a)):
+          print(a[i])
+
+def swap(arr, a, b):
+     arr[a] = arr[a] + arr[b]
+     arr[b] = arr[a] - arr[b]
+     arr[a] = arr[a] - arr[b]
+
+
+if __name__== &quot;__main__&quot;:
+      a = [1,0,4,-1,2,7,9,8,10, 3,6,5,18]
+      shell_sort(a)
+</code></pre>
       
     </div>
     
@@ -365,13 +465,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/11/Python实现8种排序算法/">Python实现：8种排序算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-16, 17:24:24</p>
-        <p><span>最后更新:</span>2018-08-16, 22:55:07</p>
+        <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-08-21, 23:19:20</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/16/小程序开发工具调试/" title="小程序开发工具调试">https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/16/小程序开发工具调试/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/11/Python实现8种排序算法/" title="Python实现：8种排序算法">https://zxpgo.github.io/2018/08/11/Python实现8种排序算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/Python实现8种排序算法/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -384,15 +484,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">
-                    Python实现：用位运算符实现加法，不允许使用 “+”
+                <a href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">
+                    Linux常用的压缩/解压工具：zip和tar
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/15/Git + TortoiseGit安装教程/">
-                    Git + TortoiseGit安装教程和环境部署
+                <a href="/2018/08/11/Linux介绍/">
+                    Linux介绍
                 </a>
             </div>
         
@@ -465,7 +565,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简单选择排序"><span class="toc-number">1.</span> <span class="toc-text">简单选择排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆排序"><span class="toc-number">2.</span> <span class="toc-text">堆排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入排序"><span class="toc-number">3.</span> <span class="toc-text">插入排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接插入排序"><span class="toc-number">3.1.</span> <span class="toc-text">直接插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-number">3.2.</span> <span class="toc-text">希尔排序</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -501,7 +601,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"小程序开发工具调试　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python实现：8种排序算法　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -521,7 +621,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/" title="上一篇: Python实现：用位运算符实现加法，不允许使用 “+”">
+            <a href="/2018/08/11/Linux常用的压缩解压工具zip和tar/" title="上一篇: Linux常用的压缩/解压工具：zip和tar">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -529,7 +629,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/15/Git + TortoiseGit安装教程/" title="下一篇: Git + TortoiseGit安装教程和环境部署">
+            <a href="/2018/08/11/Linux介绍/" title="下一篇: Linux介绍">
                 <i class="fa fa-angle-right"></i>
             </a>
         

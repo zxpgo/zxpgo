@@ -15,26 +15,18 @@
 
 
 
-<meta name="description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="keywords" content="教程,小程序">
+<meta name="description" content="文件系统：是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构；即在存储设备上组织文件的方法。&amp;lt;！–more–&amp;gt;从系统角度来看，文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。">
+<meta name="keywords" content="Linux,硬盘分区">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序开发工具调试">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/16/小程序开发工具调试/index.html">
+<meta property="og:title" content="文件系统概念">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/11/文件系统概念/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
+<meta property="og:description" content="文件系统：是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构；即在存储设备上组织文件的方法。&amp;lt;！–more–&amp;gt;从系统角度来看，文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/ACdgBOh.png">
-<meta property="og:image" content="https://i.imgur.com/D59w6ea.png">
-<meta property="og:image" content="https://i.imgur.com/tZKGrVq.png">
-<meta property="og:image" content="https://i.imgur.com/Mv5G61K.png">
-<meta property="og:image" content="https://i.imgur.com/fIZSVCX.png">
-<meta property="og:image" content="https://i.imgur.com/bFqe8vy.png">
-<meta property="og:image" content="https://i.imgur.com/Row1z1q.png">
-<meta property="og:updated_time" content="2018-08-16T14:55:07.834Z">
+<meta property="og:updated_time" content="2018-08-18T14:53:21.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序开发工具调试">
-<meta name="twitter:description" content="小程序开发过程中，调试是让程序跑起来的关键。">
-<meta name="twitter:image" content="https://i.imgur.com/ACdgBOh.png">
+<meta name="twitter:title" content="文件系统概念">
+<meta name="twitter:description" content="文件系统：是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构；即在存储设备上组织文件的方法。&amp;lt;！–more–&amp;gt;从系统角度来看，文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>小程序开发工具调试 | 平步青云win</title>
+<title>文件系统概念 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-小程序开发工具调试" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-文件系统概念" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/16/小程序开发工具调试/" class="article-date">
-      <time datetime="2018-08-16T09:24:24.000Z" itemprop="datePublished">2018-08-16</time>
+      <a href="/2018/08/11/文件系统概念/" class="article-date">
+      <time datetime="2018-08-11T14:28:50.000Z" itemprop="datePublished">2018-08-11</time>
 </a>
 
 
@@ -314,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小程序开发工具调试
+      文件系统概念
     </h1>
   
 
@@ -324,13 +316,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/小程序开发/">小程序开发</a>
+    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/小程序/">小程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/教程/">教程</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -345,18 +337,41 @@
 	
       
           
-        <p>小程序开发过程中，调试是让程序跑起来的关键。<a id="more"></a><br>第一步：点击调试器</p>
-<p><img src="https://i.imgur.com/ACdgBOh.png" alt=""></p>
-<p>第二步：点击sources</p>
-<p><img src="https://i.imgur.com/D59w6ea.png" alt=""></p>
-<p>第三步：在目录中找到需要调试的js文件，打开图中文件，注意不是后缀为js的文件，而是js？[sm]的文件</p>
-<p><img src="https://i.imgur.com/tZKGrVq.png" alt=""></p>
-<p>第四步： 在文件中设置断点<br><br>将鼠标移到文件最左侧，点击即可设置断点</p>
-<p><img src="https://i.imgur.com/Mv5G61K.png" alt=""><br><strong>快捷键ctrl+b进入调试</strong><br><br>第五步：点击红色箭头按钮，继续执行到下一个断点<br><br>点击蓝色按钮，继续执行&lt;/r.<br>点击黄色按钮，单步调试<br><img src="https://i.imgur.com/fIZSVCX.png" alt=""></p>
-<p>第六步：查看变量值<br><br>方法一： 鼠标放在变量上，即可显示变量值<br><img src="https://i.imgur.com/bFqe8vy.png" alt=""></p>
-<p>方法二：在调试器窗口，点开Scope标签，然后再点开相应变量</p>
-<p><img src="https://i.imgur.com/Row1z1q.png" alt=""></p>
-<p>方法三：使用console.log(options);打印出来，在console窗口可以查看</p>
+        <p><strong>文件系统</strong>：是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构；即在存储设备上组织文件的方法。&lt;！–more–&gt;<br>从系统角度来看，文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。</p>
+<p><strong>硬盘分区</strong>：实质上是对硬盘的一种格式化。当我们创建分区时，就已经设置好了硬盘的各项物理参数，指定了硬盘主引导记录(即Master Boot Record，一般简称为MBR)和引导记录备份的存放位置。而对于文件系统以及其他操作系统管理硬盘所需要的信息则是通过之后的高级格式化，即Format命令来实现。</p>
+<p><strong>簇</strong>：是指可分配的用来保存文件的最小磁盘空间，操作系统规定一个簇中只能放置一个文件的内容，因此文件所占用的空间，只能是簇的整数倍；而如果文件实际大小小于一簇，它也要占一簇的空间。所以,簇越小，保存信息的效率就越高。</p>
+<p><strong>主引导记录</strong>：（MBR，Main Boot Record）是位于磁盘最前边的一段引导（Loader）代码。它负责磁盘操作系统(DOS)对磁盘进行读写时分区合法性的判别、分区引导信息的定位，它由磁盘操作系统(DOS)在对硬盘进行初始化时产生的。</p>
+<p><strong>硬盘大小</strong>： 实际中，给硬盘分区时，按照1G=1024M来设置，但是显示的结果都不是整数。比如：将分区设置为10G,显示的确实9.XXG。原因是：<br><br>正确计算公式</p>
+<pre><code>(N-1)*4+1024*N
+式中N为想要的大小，单位为GB。最终计算出来的结果为MB.
+</code></pre><p>例如：想要设置分区为2G,则<br>（2-1）<em>4+1024</em>2=2052M<br>设置分区时应该为2052M</p>
+<h1 id="分区状态"><a href="#分区状态" class="headerlink" title="分区状态"></a>分区状态</h1><p>三种：主分区、扩展分区和逻辑分区</p>
+<p>主分区：是一个比较单纯的分区，通常位于硬盘的最前面一块区域中，构成逻辑C磁盘。其中的主引导程序是它的一部分，此段程序主要用于检测硬盘分区的正确性，并确定活动分区，负责把引导权移交给活动分区的DOS或其他操作系统。此段程序损坏将无法从硬盘引导，但从软驱或光驱引导之后可对硬盘进行读写。</p>
+<p>扩展分区：仅仅是一个指向下一个分区的指针，这种指针结构将形成一个单向链表。这样在主引导扇区中除了主分区外，仅需要存储一个被称为扩展分区的分区数据，通过这个扩展分区的数据可以找到下一个分区(实际上也就是下一个逻辑磁盘)的起始位置，以此起始位置类推可以找到所有的分区。无论系统中建立多少个逻辑磁盘，在主引导扇区中通过一个扩展分区的参数就可以逐个找到每一个逻辑磁盘。</p>
+<p><strong>三者解释：</strong><br><br>主分区能够激活，通常用来引导系统。扩展分区本身并不能直接用来存放数据，逻辑分区是扩展分区进一步分割出来的区块，通常用来存储数据。如果将逻辑分区比作房间，那么扩展分区就好比客房区(包括若干个房间)</p>
+<p><strong>主分区和活动分区：</strong><br><br>主分区也被称为主磁盘分区，是磁盘分区的一中类型，其主要作用是用来安装操作系统。一个硬盘最多可创建4个主分区。活动分区是基于主分区的，磁盘分区中的任意主分区都可以设置为活动分区。如果电脑上4个主分区都安装了不同的系统，那被标记为活动分区的主分区将用于初始引导，即启动活动分区内安装的系统。</p>
+<p><strong>逻辑分区和扩展分区：</strong><br><br>因为主分区最多可以创建4个，我们需要使用扩展分区打破4的限制。在磁盘上可以创建多个逻辑分区而创建的这些逻辑分区都被称为扩展分区，您可以用主分区和逻辑分区中储存数据，但是不能用扩展分区储存，因为扩展分区是我们对逻辑分区的总称，只是一中称呼。</p>
+<p><strong>例子</strong>：通常我们会先在硬盘上划分一个主分区，就是我们常说的C分区，用于安装操作系统，然后将其他的空间全部作为扩展分区，并根据需要，将扩展分区分成几个逻辑分区，即D、E等分区。</p>
+<h1 id="分区格式"><a href="#分区格式" class="headerlink" title="分区格式"></a>分区格式</h1><p>windows:FAT16、FAT32、NTFS、exFAT<br>Linux: ext2、ext3、Linux swap、VFAT、ext4、</p>
+<p><strong>FAT和NNTFS区别</strong><br><br>FAT32：随着大容量硬盘的出现，从Windows 98开始，FAT32开始流行。它是FAT16的增强版本，可以支持大到2TB（2048GB)的分区。FAT32使用的簇比FAT16小，从而有效地节约了硬盘空间。<br><br>NTFS：微软Windows NT内核的系列操作系统支持的、一个特别为网络和磁盘配额、文件加密等管理安全特性设计的磁盘格式。随着以NT为内核的Windows 2000/XP的普及，很多个人用户开始用到了NTFS。NTFS也是以簇为单位来存储数据文件，但NTFS中簇的大小并不依赖于磁盘或分区的大小。簇尺寸的缩小不但降低了磁盘空间的浪费，还减少了产生磁盘碎片的可能。NTFS支持文件加密管理功能，可为用户提供更高层次的安全保证。<br><br>其实白话说就是FAT格式的分区单个文件夹文件不支持大于4G的文件，NTFS可以支持无限大的，不过相对FAT格式不稳定是真的，xp一般系统是FAT格式的，现在的分区一般都选测NTFS格式的了，文件存储大了</p>
+<h1 id="分区表类型"><a href="#分区表类型" class="headerlink" title="分区表类型"></a>分区表类型</h1><p><strong>GPT分区</strong>: GUID磁盘分区表（GUIDPartition Table，缩写：GPT）是一个实体硬盘的分区表的结构布局的标准。至少可以划分128个主分区。gtp不在有分区的概念。</p>
+<p><strong>MBR分区</strong>：只能划分四个分区，最多支持2T的磁盘</p>
+<p><strong>两者区别</strong>：</p>
+<ul>
+<li><p>内存支持：mbr最多支持2T，而gpt理论上是无限制的。</p>
+</li>
+<li><p>在MBR硬盘中，分区信息直接存储于主引导记录（MBR）中（主引导记录中还存储着系统的引导程序）。但在GPT硬盘中，分区表的位置信息储存在GPT头中。但出于兼容性考虑，硬盘的第一个扇区仍然用作MBR，之后才是GPT头。</p>
+</li>
+<li><p>分区：mbr最多支持四个主分区，gpt没有限制。如果你想跑多系统，mbr最多4个而gpt没有限制。</p>
+</li>
+<li><p>系统：win7只能用mbr分区（也可以但是很麻烦，不建议），从Win8开始微软建议你使用gpt。</p>
+</li>
+<li><p>其它：gpt是由uefi启动的，而uefi是后来才提出的概念，兼容性和稳定性不如bios+mbr。</p>
+</li>
+<li>对于总容量大于2TB的硬盘，必须选择GPT分区表，才能识别所有的硬盘容量。MBR分区表由于自身设计的局限性，最大只能支持2TB的地址空间。对于超过2TB的大硬盘，如果使用MBR分区表，将无法识别和使用2TB后的空间。</li>
+</ul>
+<p>BIOS是英文”Basic Input Output System”的缩略词，直译过来后中文名称就是”基本输入输出系统”。用于加载电脑最基本的程序代码，担负着初始化硬件，检测硬件功能以及引导操作系统的任务。只支持MBR分区。</p>
+<p>UEFI全称Unified Extensible Firmware Interface，即“统一的可扩展固件接口”，是一种详细描述全新类型接口的标准，是适用于电脑的标准固件接口，旨在代替BIOS（基本输入/输出系统），UEFI旨在提高软件互操作性和解决BIOS的局限性。这种接口用于操作系统自动从预启动的操作环境，加载到一种操作系统上，从而达到开机程序化繁为简节省时间的目的。只支持GPT分区。</p>
 
       
     </div>
@@ -365,13 +380,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/11/文件系统概念/">文件系统概念</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-16, 17:24:24</p>
-        <p><span>最后更新:</span>2018-08-16, 22:55:07</p>
+        <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-08-18, 22:53:21</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/16/小程序开发工具调试/" title="小程序开发工具调试">https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/16/小程序开发工具调试/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/11/文件系统概念/" title="文件系统概念">https://zxpgo.github.io/2018/08/11/文件系统概念/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/文件系统概念/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -384,15 +399,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">
-                    Python实现：用位运算符实现加法，不允许使用 “+”
+                <a href="/2018/08/11/Linux介绍/">
+                    Linux介绍
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/15/Git + TortoiseGit安装教程/">
-                    Git + TortoiseGit安装教程和环境部署
+                <a href="/2018/08/11/文件系统操作与磁盘管理/">
+                    文件系统操作与磁盘管理
                 </a>
             </div>
         
@@ -465,7 +480,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分区状态"><span class="toc-number">1.</span> <span class="toc-text">分区状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分区格式"><span class="toc-number">2.</span> <span class="toc-text">分区格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分区表类型"><span class="toc-number">3.</span> <span class="toc-text">分区表类型</span></a></li></ol>
         
     </div>
     <style>
@@ -501,7 +516,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"小程序开发工具调试　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"文件系统概念　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -521,7 +536,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/" title="上一篇: Python实现：用位运算符实现加法，不允许使用 “+”">
+            <a href="/2018/08/11/Linux介绍/" title="上一篇: Linux介绍">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -529,7 +544,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/15/Git + TortoiseGit安装教程/" title="下一篇: Git + TortoiseGit安装教程和环境部署">
+            <a href="/2018/08/11/文件系统操作与磁盘管理/" title="下一篇: 文件系统操作与磁盘管理">
                 <i class="fa fa-angle-right"></i>
             </a>
         
