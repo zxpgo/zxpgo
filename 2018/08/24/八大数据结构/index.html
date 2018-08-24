@@ -15,21 +15,26 @@
 
 
 
-<meta name="description" content="介绍8中排序算法，包括算法的基本思路和算法的python实现。">
-<meta name="keywords" content="算法,Python">
+<meta name="description" content="算法+数据结构=编程">
+<meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python实现：8种排序算法">
-<meta property="og:url" content="https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/index.html">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/24/八大数据结构/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="介绍8中排序算法，包括算法的基本思路和算法的python实现。">
+<meta property="og:description" content="算法+数据结构=编程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/JpLbFCa.png">
-<meta property="og:image" content="https://i.imgur.com/XVIjAFa.jpg">
-<meta property="og:updated_time" content="2018-08-23T15:18:58.377Z">
+<meta property="og:image" content="https://i.imgur.com/hUYJfsC.jpg">
+<meta property="og:image" content="https://i.imgur.com/bWUcIYF.jpg">
+<meta property="og:image" content="https://i.imgur.com/Zr2ydAS.jpg">
+<meta property="og:image" content="https://i.imgur.com/qcRYa9G.jpg">
+<meta property="og:image" content="https://i.imgur.com/wAMjjBW.jpg">
+<meta property="og:image" content="https://i.imgur.com/gNIj2Md.jpg">
+<meta property="og:image" content="https://i.imgur.com/xlEJuB7.jpg">
+<meta property="og:updated_time" content="2018-08-24T15:01:27.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现：8种排序算法">
-<meta name="twitter:description" content="介绍8中排序算法，包括算法的基本思路和算法的python实现。">
-<meta name="twitter:image" content="https://i.imgur.com/JpLbFCa.png">
+<meta name="twitter:description" content="算法+数据结构=编程">
+<meta name="twitter:image" content="https://i.imgur.com/hUYJfsC.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -290,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-八大数据结构" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/22/Python实现8种排序算法/" class="article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
+      <a href="/2018/08/24/八大数据结构/" class="article-date">
+      <time datetime="2018-08-24T14:28:50.000Z" itemprop="datePublished">2018-08-24</time>
 </a>
 
 
@@ -325,7 +330,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -340,238 +345,164 @@
 	
       
           
-        <p>介绍8中排序算法，包括算法的基本思路和算法的python实现。<a id="more"></a></p>
+        <p>算法+数据结构=编程<a id="more"></a></p>
+<p>转自：<a href="https://mp.weixin.qq.com/s?__biz=MjM5MTQzNzU2NA==&amp;mid=2651662400&amp;idx=1&amp;sn=01bc405903147ee4b21134f59dff9b06&amp;chksm=bd4c0fd38a3b86c5f82d32adf653e799a1cee631cb6821b857d6771687d93831271fde52a700&amp;mpshare=1&amp;scene=23&amp;srcid=0819ZBXPPG2xl22aKHLdKwb4#rd" target="_blank" rel="noopener">大数据文摘公众号</a></p>
 <ul>
-<li>选择排序-简单选择排序</li>
-<li>选择排序-堆排序</li>
-<li>插入排序-直接插入排序</li>
-<li>插入排序-希尔排序</li>
-<li>交换排序-快速排序</li>
-<li>交换排序-冒泡排序</li>
-<li>归并排序</li>
-<li>桶排序/基数排序</li>
+<li>数组（列表）</li>
+<li>栈</li>
+<li>队列</li>
+<li>链表</li>
+<li>树</li>
+<li>图</li>
+<li>字典树（这是一种高效的树形结构，但值得单独说明）</li>
+<li>散列表（哈希表）</li>
+<li>字典</li>
+<li>元组</li>
 </ul>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2><p>每一趟从待排序的数据元素中选出最小（最大）的元素，顺序放在待排序的数列最前，直到全部待排序的数据元素全部排完。</p>
-<p>例子：<br><br>[4, 2, 3] 找出最小的：2,与第一个元素交换<br><br>[2, 4, 3] 找出最小的：3，与第二个元素交换<br><br>[2, 3, 4] <br></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">简单选择排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def j_sort(a):
-      l = len(a)
-      temp = 0
-
-      for j in range(0,l-1):
-            count = j  #记录最小元素下标
-            #每次找出最小元素
-            for i in range(j,l-1):
-                  if a[count] &gt; a[i+1]:
-                        count = i+1
-            #交换最小元素和待排序元素中最前一个
-            &apos;&apos;&apos;if count != j:
-                  temp = a[j]
-                  a[j] = a[count]
-                  a[count] = temp &apos;&apos;&apos;
-            a[j], a[count] = a[count], a[j] #实现跟上述代码一样
-      for i in range(0,l):
-            print(a[i])
-
-if __name__ == &quot;__main__&quot;:
-      a = [10, 2, 5, 1, 3, 7, 3]
-      j_sort(a)
-</code></pre><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆排序的基本思想是：将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。将其与末尾元素进行交换，此时末尾就为最大值。然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了</p>
-<p>堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。首先简单了解下堆结构。</p>
-<p><strong>堆</strong><br><br>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。如下图：</p>
-<p><img src="https://i.imgur.com/JpLbFCa.png" alt=""></p>
-<p>转自：<a href="https://www.cnblogs.com/chengxiao/p/6129630.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengxiao/p/6129630.html</a></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%A0%86%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">堆排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def d_sort(arr):
-      l = len(arr)
-      for i in range(int(l/2-1), -1, -1):
-            adjustHead(arr,i,l)
-      # 交换堆顶和最后一个元素，并调整堆结构
-      for j in range(l-1, 0, -1):
-            arr[0], arr[j] = arr[j], arr[0] #将堆顶元素和末尾元素进行交换
-            adjustHead(arr, 0, j) #重新对对进行调整
-      for k in range(0,l):
-            print(arr[k])
-
-#构造大顶堆            
-def adjustHead(a, i, l):
-      temp = a[i] #取出当前元素
-      k = 2*i + 1 #从左子节点开始，即2*i+1
-      while k &lt; l:
-            if k+1 &lt; l &amp; a[k] &lt; a[k+1]: #若果左子节点小于右子节点，k指向右子节点
-                  k=k+1
-            if a[k] &gt; temp: #如果子节点大于父节点，将子节点赋值给父节点，并将子节点下标记录下来，后面将父节点值赋值给该子节点
-                  a[i] = a[k]
-                  i = k
-            else:
-                  break
-            k = 2*k + 1 #把该节点当作父节点，继续操作
-      a[i] = temp #将父节点值赋值给该子节点
-
-if __name__ == &quot;__main__&quot;:
-      a = [10,2,4,5]
-      d_sort(a)
-</code></pre><h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序思想：每一趟将一个待排序元素，按其排序码大小插入到前面已经排好序的一组元素的适当位置上，直到所有待排序元素元素全部插入为止</p>
-<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>直接插入排序是假定前i个构成的子序列是处于已排序的情况下进行排序的，然后将第i个元素与前i个构成的子序列逆序进行比较，如果是要升序排序，则比较第i个元素是否比j=i-1(i-1需要&gt;=0)的元素大，如果是则第i个元素的位置（即j+1的位置上）保持不动，反之则将j=i-1的元素放置到i的位置，再进行第i个元素与j=i-2(i-2需要&gt;=0)的,依次进行，如果第i个元素刚好比j=i-3大，则将第i个元素插入到j=i-2（即j+1的位置）上！</p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">直接插入排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def zc_sort(a):
-      l = len(a)
-      j=0
-      for i in range(1,l):
-            temp = a[i]
-            for j in range(i-1, -1, -1):
-                  if  temp &lt; a[j]:  #如果第i个元素大于前i个元素中的第j个
-                        a[j+1] = a[j] #则第j个元素先后移1位
-                  else:   #如果第i个元素小于等于前i个元素中的第j个则结束循环
-                        break
-            a[j+1] = temp #将i个元素赋值给空着的位置
-      for i in range(0,l):
-            print(a[i])
-
-if __name__ == &quot;__main__&quot;:
-      a = [1, 10, 5, 2, 6, 7, 2]
-      zc_sort(a)
-</code></pre><h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>转自：<a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengxiao/p/6104371.html</a></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">希尔排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def shell_sort(a):
-     l = int(len(a)/2)
-     #生成增量列表
-     gap_list = []
-     while l &gt; 0:
-          gap_list.append(l)
-          l = int(l/2)
-     print(gap_list)
-     for gap in gap_list:#增量gap，并逐步缩小增量 
-          #print(gap)
-          for i in range(gap, len(a)):#从第gap个元素，逐个对其所在组进行直接插入排序操作
-               j = i
-               while j -gap &gt;= 0 and a[j-gap] &gt; a[j]:
-                    swap(a, j, j-gap)  #交换两个元素
-                    j = j - gap
-
-     for i in range(0,len(a)):
-          print(a[i])
-
-def swap(arr, a, b):
-     arr[a] = arr[a] + arr[b]
-     arr[b] = arr[a] - arr[b]
-     arr[a] = arr[a] - arr[b]
-
-
-if __name__== &quot;__main__&quot;:
-      a = [1,0,4,-1,2,7,9,8,10, 3,6,5,18]
-      shell_sort(a)
-</code></pre><h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>任意选取一个数据（通常选用数组的第一个数）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。<br><br>一趟快速排序的算法是：<br><br>1）设置两个变量i、j，排序开始的时候：i=0，j=N-1；<br><br>2）以第一个数组元素作为关键数据，赋值给key，即key=A[0];<br><br>3）从j开始向前搜索，即由后开始向前搜索(j–)，找到第一个小于key的值A[j]，将A[j]和A[i]互换；<br><br>4）从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于key的A[i]，将A[i]和A[j]互换；<br><br>5）重复第3、4步，直到i=j； (3,4步中，没找到符合条件的值，即3中A[j]不小于key,4中A[i]不大于key的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i， j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）。</p>
-<p><strong>注意：快速排序不是一种稳定的排序算法，也就是说，多个相同的值的相对位置也许会在算法结束时产生变动。</strong></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95?fromtitle=%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&amp;fromid=2084344" target="_blank" rel="noopener">快速排序</a></p>
-<p><strong>算法实现</strong><br>递归</p>
-<pre><code>def quick_sort(arr, low, high):
-     #temp = a[0]
-     i = low
-     j = high
-     if i &gt;= j:
-          return arr
-     temp = arr[i]
-     while i &lt; j:
-          while i &lt; j and arr[j] &gt;= temp:
-               j = j-1
-          arr[i] = arr[j]
-          while i &lt; j and arr[i] &lt;= temp:
-               i = i + 1
-          arr[j] = arr[i]
-     arr[i] = temp
-     quick_sort(arr, low, i-1)
-     quick_sort(arr, j+1, high)
-     return arr
-
-
-if __name__ == &quot;__main__&quot;:
-     a = [10, 3, -3, 6, 0, 1, 4, 5, 11, 8]
-     quick_sort(a, 0, len(a)-1)
-     print(a)
-</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序算法的原理如下：</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组是最简单、也是使用最广泛的数据结构。栈、队列等其他数据结构均由数组演变而来。下图是一个包含元素（1，2，3和4）的简单数组，数组长度为4。</p>
+<p><img src="https://i.imgur.com/hUYJfsC.jpg" alt=""></p>
+<p>每个数据元素都关联一个正数值，我们称之为索引，它表明数组中每个元素所在的位置。大部分语言将初始索引定义为零。</p>
+<p>以下是数组的两种类型：</p>
 <ul>
-<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
-<li>对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
-<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
-<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</li>
+<li>一维数组（如上所示）</li>
+<li>多维数组（数组的数组）</li>
 </ul>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">冒泡排序</a></p>
-<pre><code>def bubble_sort(arr):
-     length = len(arr)
-     while length &gt; 0:   
-          for i in range(length-1):
-               if arr[i] &gt; a[i+1]:
-                    arr[i] = arr[i] + arr[i+1]
-                    arr[i+1] = arr[i] - arr[i+1]
-                    arr[i] = arr[i] - arr[i+1]
-          length -= 1
-
-if __name__ == &quot;__main__&quot;:
-     a = [10, 3, -3, 6, 0, 1, 4, 5, 11, 8]
-     bubble_sort(a)
-     print(a)
-</code></pre><h1 id="归并排序（递归）"><a href="#归并排序（递归）" class="headerlink" title="归并排序（递归）"></a>归并排序（递归）</h1><p>本文中的<strong>快速排序</strong>就是一种递归排序<br><br>先递归，在排序<br>首先考虑下如何将将二个有序数列合并。这个非常简单，只要从比较二个数列的第一个数，谁小就先取谁，取了后就在对应数列中删除这个数。然后再进行比较，如果有数列为空，那直接将另一个数列的数据依次取出即可。</p>
-<p>解决了上面的合并有序数列问题，再来看归并排序，其的基本思路就是将数组分成二组A，B，如果这二组组内的数据都是有序的，那么就可以很方便的将这二组数据进行排序。如何让这二组组内数据有序了？</p>
-<p>可以将A，B组各自再分成二组。依次类推，当分出来的小组只有一个数据时，可以认为这个小组组内已经达到了有序，然后再合并相邻的二个小组就可以了。这样通过先递归的分解数列，再合并数列就完成了归并排序。</p>
-<p>转自：<a href="https://www.cnblogs.com/lulushow/p/6820727.html" target="_blank" rel="noopener">https://www.cnblogs.com/lulushow/p/6820727.html</a></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/1639015" target="_blank" rel="noopener">归并排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>def Merge_Sort(lists):
-    if len(lists) &lt;= 1:
-        return lists
-    num = int(len(lists)/2)
-    left = Merge_Sort(lists[:num]) #将列表从中间分为两部分
-    right = Merge_Sort(lists[num:])
-    return Merge(left, right) #合并两个列表
-
-def Merge(left,right):
-    r, l=0, 0
-    result=[]
-    while l&lt;len(left) and r&lt;len(right):
-        if left[l] &lt; right[r]:
-            result.append(left[l])
-            l += 1
-        else:
-            result.append(right[r])
-            r += 1
-    result += left[l:]
-    result += right[r:]
-    return result
-
-if __name__ == &quot;__main__&quot;:
-     a = [10, 7, 4, 2, 8, 5, 1, 3]
-     a = Merge_Sort(a)
-     print(a)
-</code></pre><h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>基数排序又称为“桶子法”，从低位开始将待排序的数按照这一位的值放到相应的编号为0~9的桶中。等到低位排完得到一个子序列，再将这个序列按照次低位的大小进入相应的桶中，一直排到最高位为止，数组排序完成。</p>
-<p><img src="https://i.imgur.com/XVIjAFa.jpg" alt=""></p>
-<p>转：<a href="https://blog.csdn.net/double_happiness/article/details/72452243" target="_blank" rel="noopener">https://blog.csdn.net/double_happiness/article/details/72452243</a></p>
-<p>百度百科： <a href="https://baike.baidu.com/item/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/7875498?fr=aladdin" target="_blank" rel="noopener">基数排序</a></p>
-<p><strong>算法实现</strong></p>
-<pre><code>import math
-
-def radix_sort(arr):
-     radix = 10 #基数
-     k = int(math.ceil(math.log(max(arr),radix)))#k可以表示任意整数
-     #math.log对arr中最大的数取对数，log(max(arr),10),并对其取整得到最大值的位数
-     bucket =[[] for i in range(radix)] 
-     for i in range(1, k+1): 
-          for  value in arr:
-               bucket[int(value%(radix**i)/(radix**(i-1)))].append(value) #析取整数第k位数字（从低到高）10**2位10的二次方
-          del arr[:]
-          for each in bucket:
-               arr.extend(each) #桶合并
-          bucket = [[]for i in range(radix)]
-
-if __name__ == &quot;__main__&quot;:
-     a = [10, 2, 13, 44, 22, 33, 100, 612, 333, 262]
-     radix_sort(a)
-     print(a)
-</code></pre>
+<h2 id="数组的基本操作"><a href="#数组的基本操作" class="headerlink" title="数组的基本操作"></a>数组的基本操作</h2><ul>
+<li>Insert——在指定索引位置插入一个元素</li>
+<li>Get——返回指定索引位置的元素</li>
+<li>Delete——删除指定索引位置的元素</li>
+<li>Size——得到数组所有元素的数量</li>
+</ul>
+<h2 id="面试中关于数组的常见问题"><a href="#面试中关于数组的常见问题" class="headerlink" title="面试中关于数组的常见问题"></a>面试中关于数组的常见问题</h2><ul>
+<li>寻找数组中第二小的元素</li>
+<li>找到数组中第一个不重复出现的整数</li>
+<li>合并两个有序数组</li>
+<li>重新排列数组中的正值和负值</li>
+</ul>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>著名的撤销操作几乎遍布任意一个应用。但你有没有思考过它是如何工作的呢？这个问题的解决思路是按照将最后的状态排列在先的顺序，在内存中存储历史工作状态（当然，它会受限于一定的数量）。这没办法用数组实现。但有了栈，这就变得非常方便了。</p>
+<p>可以把栈想象成一列垂直堆放的书。为了拿到中间的书，你需要移除放置在这上面的所有书。这就是LIFO（后进先出）的工作原理。</p>
+<p>下图是包含三个数据元素（1，2和3）的栈，其中顶部的3将被最先移除：</p>
+<p><img src="https://i.imgur.com/bWUcIYF.jpg" alt=""></p>
+<h2 id="栈的基本操作"><a href="#栈的基本操作" class="headerlink" title="栈的基本操作"></a>栈的基本操作</h2><ul>
+<li>Push——在顶部插入一个元素</li>
+<li>Pop——返回并移除栈顶元素</li>
+<li>isEmpty——如果栈为空，则返回true</li>
+<li>Top——返回顶部元素，但并不移除它</li>
+</ul>
+<h2 id="面试中关于栈的常见问题"><a href="#面试中关于栈的常见问题" class="headerlink" title="面试中关于栈的常见问题"></a>面试中关于栈的常见问题</h2><ul>
+<li>使用栈计算后缀表达式</li>
+<li>对栈的元素进行排序</li>
+<li>判断表达式是否括号平衡</li>
+</ul>
+<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>与栈相似，队列是另一种顺序存储元素的线性数据结构。栈与队列的最大差别在于栈是LIFO（后进先出），而队列是FIFO，即先进先出。</p>
+<p>一个完美的队列现实例子：售票亭排队队伍。如果有新人加入，他需要到队尾去排队，而非队首——排在前面的人会先拿到票，然后离开队伍。</p>
+<p>下图是包含四个元素（1，2，3和4）的队列，其中在顶部的1将被最先移除：</p>
+<p><img src="https://i.imgur.com/Zr2ydAS.jpg" div="" align="center"></p>
+<p>移除先入队的元素、插入新元素</p>
+<h2 id="队列的基本操作"><a href="#队列的基本操作" class="headerlink" title="队列的基本操作"></a>队列的基本操作</h2><ul>
+<li>Enqueue() —— 在队列尾部插入元素</li>
+<li>Dequeue() ——移除队列头部的元素</li>
+<li>isEmpty()——如果队列为空，则返回true</li>
+<li>Top() ——返回队列的第一个元素</li>
+</ul>
+<h2 id="面试中关于队列的常见问题"><a href="#面试中关于队列的常见问题" class="headerlink" title="面试中关于队列的常见问题"></a>面试中关于队列的常见问题</h2><ul>
+<li>使用队列表示栈</li>
+<li>对队列的前k个元素倒序</li>
+<li>使用队列生成从1到n的二进制数</li>
+</ul>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><p>链表是另一个重要的线性数据结构，乍一看可能有点像数组，但在内存分配、内部结构以及数据插入和删除的基本操作方面均有所不同。</p>
+<p>链表就像一个节点链，其中每个节点包含着数据和指向后续节点的指针。 链表还包含一个头指针，它指向链表的第一个元素，但当列表为空时，它指向null或无具体内容。</p>
+<p>链表一般用于实现文件系统、哈希表和邻接表。</p>
+<p>这是链表内部结构的展示：</p>
+<p>链表包括以下类型：</p>
+<p>单链表（单向）<br>双向链表（双向）</p>
+<h2 id="链表的基本操作："><a href="#链表的基本操作：" class="headerlink" title="链表的基本操作："></a>链表的基本操作：</h2><ul>
+<li>InsertAtEnd 在链表的末尾插入指定元素</li>
+<li>InsertAtHead 在链接列表的开头/头部插入指定元素</li>
+<li>Delete  从链接列表中删除指定元素</li>
+<li>DeleteAtHead 删除链接列表的第一个元素</li>
+<li>Search  从链表中返回指定元素</li>
+<li>isEmpty 如果链表为空，则返回true</li>
+</ul>
+<h2 id="面试中关于链表的常见问题"><a href="#面试中关于链表的常见问题" class="headerlink" title="面试中关于链表的常见问题"></a>面试中关于链表的常见问题</h2><ul>
+<li>反转链表</li>
+<li>检测链表中的循环</li>
+<li>返回链表倒数第N个节点</li>
+<li>删除链表中的重复项</li>
+</ul>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><p>图是一组以网络形式相互连接的节点。节点也称为顶点。 一对节点（x，y）称为边（edge），表示顶点x连接到顶点y。边可以包含权重/成本，显示从顶点x到y所需的成本。</p>
+<p><img src="https://i.imgur.com/qcRYa9G.jpg" alt=""></p>
+<h2 id="图的类型"><a href="#图的类型" class="headerlink" title="图的类型"></a>图的类型</h2><ul>
+<li>无向图</li>
+<li>有向图</li>
+</ul>
+<h2 id="在程序语言中，图可以用两种形式表示："><a href="#在程序语言中，图可以用两种形式表示：" class="headerlink" title="在程序语言中，图可以用两种形式表示："></a>在程序语言中，图可以用两种形式表示：</h2><ul>
+<li>邻接矩阵</li>
+<li>邻接表</li>
+</ul>
+<h2 id="常见图遍历算法"><a href="#常见图遍历算法" class="headerlink" title="常见图遍历算法"></a>常见图遍历算法</h2><ul>
+<li>广度优先搜索</li>
+<li>深度优先搜索</li>
+</ul>
+<h2 id="面试中关于图的常见问题"><a href="#面试中关于图的常见问题" class="headerlink" title="面试中关于图的常见问题"></a>面试中关于图的常见问题</h2><ul>
+<li>实现广度和深度优先搜索</li>
+<li>检查图是否为树</li>
+<li>计算图的边数</li>
+<li>找到两个顶点之间的最短路径</li>
+</ul>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树形结构是一种层级式的数据结构，由顶点（节点）和连接它们的边组成。 树类似于图，但区分树和图的重要特征是树中不存在环路。</p>
+<p>树形结构被广泛应用于人工智能和复杂算法，它可以提供解决问题的有效存储机制。</p>
+<p>这是一个简单树的示意图，以及树数据结构中使用的基本术语：<br><img src="https://i.imgur.com/wAMjjBW.jpg" alt=""></p>
+<ul>
+<li>Root 根节点</li>
+<li>Parent 父节点</li>
+<li>Child 子节点</li>
+<li>Leaf 叶子节点</li>
+<li>Sibling 兄弟节点</li>
+</ul>
+<h2 id="以下是树形结构的主要类型："><a href="#以下是树形结构的主要类型：" class="headerlink" title="以下是树形结构的主要类型："></a>以下是树形结构的主要类型：</h2><ul>
+<li>N元树</li>
+<li>平衡树</li>
+<li>二叉树</li>
+<li>二叉搜索树</li>
+<li>AVL树</li>
+<li>红黑树</li>
+<li>2-3树</li>
+</ul>
+<p>其中，二叉树和二叉搜索树是最常用的树。</p>
+<h2 id="面试中关于树结构的常见问题："><a href="#面试中关于树结构的常见问题：" class="headerlink" title="面试中关于树结构的常见问题："></a>面试中关于树结构的常见问题：</h2><ul>
+<li>求二叉树的高度</li>
+<li>在二叉搜索树中查找第k个最大值</li>
+<li>查找与根节点距离k的节点</li>
+<li>在二叉树中查找给定节点的祖先节点</li>
+</ul>
+<h1 id="字典树（Trie）"><a href="#字典树（Trie）" class="headerlink" title="字典树（Trie）"></a>字典树（Trie）</h1><p>字典树，也称为“前缀树”，是一种特殊的树状数据结构，对于解决字符串相关问题非常有效。它能够提供快速检索，主要用于搜索字典中的单词，在搜索引擎中自动提供建议，甚至被用于IP的路由。</p>
+<p>以下是在字典树中存储三个单词“top”，“so”和“their”的例子：</p>
+<p><img src="https://i.imgur.com/gNIj2Md.jpg" alt=""></p>
+<p>这些单词以顶部到底部的方式存储，其中绿色节点“p”，“s”和“r”分别表示“top”，“thus”和“theirs”的底部。</p>
+<h2 id="面试中关于字典树的常见问题"><a href="#面试中关于字典树的常见问题" class="headerlink" title="面试中关于字典树的常见问题"></a>面试中关于字典树的常见问题</h2><ul>
+<li>计算字典树中的总单词数</li>
+<li>打印存储在字典树中的所有单词</li>
+<li>使用字典树对数组的元素进行排序</li>
+<li>使用字典树从字典中形成单词</li>
+<li>构建T9字典（字典树+ DFS ）</li>
+</ul>
+<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>哈希法（Hashing）是一个用于唯一标识对象并将每个对象存储在一些预先计算的唯一索引（称为“键（key）”）中的过程。因此，对象以键值对的形式存储，这些键值对的集合被称为“字典”。可以使用键搜索每个对象。基于哈希法有很多不同的数据结构，但最常用的数据结构是哈希表。</p>
+<p>哈希表通常使用数组实现。</p>
+<h2 id="散列数据结构的性能取决于以下三个因素："><a href="#散列数据结构的性能取决于以下三个因素：" class="headerlink" title="散列数据结构的性能取决于以下三个因素："></a>散列数据结构的性能取决于以下三个因素：</h2><ul>
+<li>哈希函数</li>
+<li>哈希表的大小</li>
+<li>碰撞处理方法</li>
+</ul>
+<p>下图为如何在数组中映射哈希键值对的说明。该数组的索引是通过哈希函数计算的。</p>
+<p><img src="https://i.imgur.com/xlEJuB7.jpg" alt=""></p>
+<h2 id="面试中关于哈希结构的常见问题："><a href="#面试中关于哈希结构的常见问题：" class="headerlink" title="面试中关于哈希结构的常见问题："></a>面试中关于哈希结构的常见问题：</h2><ul>
+<li>在数组中查找对称键值对</li>
+<li>追踪遍历的完整路径</li>
+<li>查找数组是否是另一个数组的子集</li>
+<li>检查给定的数组是否不相交</li>
+</ul>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1>
       
     </div>
     
@@ -579,13 +510,13 @@ if __name__ == &quot;__main__&quot;:
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/24/八大数据结构/">Python实现：8种排序算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2019-08-22, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-23, 23:18:58</p>
+        <p><span>发布时间:</span>2018-08-24, 22:28:50</p>
+        <p><span>最后更新:</span>2018-08-24, 23:01:27</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/22/Python实现8种排序算法/" title="Python实现：8种排序算法">https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/24/八大数据结构/" title="Python实现：8种排序算法">https://zxpgo.github.io/2018/08/24/八大数据结构/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/24/八大数据结构/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -597,10 +528,16 @@ if __name__ == &quot;__main__&quot;:
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/08/22/Python实现8种排序算法/">
+                    Python实现：8种排序算法
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/24/八大数据结构/">
-                    Python实现：8种排序算法
+                <a href="/2018/08/19/文件系统概念/">
+                    文件系统概念
                 </a>
             </div>
         
@@ -673,7 +610,7 @@ if __name__ == &quot;__main__&quot;:
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#选择排序"><span class="toc-number">1.</span> <span class="toc-text">选择排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单选择排序"><span class="toc-number">1.1.</span> <span class="toc-text">简单选择排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆排序"><span class="toc-number">1.2.</span> <span class="toc-text">堆排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入排序"><span class="toc-number">2.</span> <span class="toc-text">插入排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接插入排序"><span class="toc-number">2.1.</span> <span class="toc-text">直接插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-number">2.2.</span> <span class="toc-text">希尔排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#交换排序"><span class="toc-number">3.</span> <span class="toc-text">交换排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序"><span class="toc-number">3.1.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-number">3.2.</span> <span class="toc-text">冒泡排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#归并排序（递归）"><span class="toc-number">4.</span> <span class="toc-text">归并排序（递归）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基数排序"><span class="toc-number">5.</span> <span class="toc-text">基数排序</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的基本操作"><span class="toc-number">1.1.</span> <span class="toc-text">数组的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于数组的常见问题"><span class="toc-number">1.2.</span> <span class="toc-text">面试中关于数组的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈的基本操作"><span class="toc-number">2.1.</span> <span class="toc-text">栈的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于栈的常见问题"><span class="toc-number">2.2.</span> <span class="toc-text">面试中关于栈的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#队列的基本操作"><span class="toc-number">3.1.</span> <span class="toc-text">队列的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于队列的常见问题"><span class="toc-number">3.2.</span> <span class="toc-text">面试中关于队列的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链表"><span class="toc-number">4.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#链表的基本操作："><span class="toc-number">4.1.</span> <span class="toc-text">链表的基本操作：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于链表的常见问题"><span class="toc-number">4.2.</span> <span class="toc-text">面试中关于链表的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图"><span class="toc-number">5.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#图的类型"><span class="toc-number">5.1.</span> <span class="toc-text">图的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在程序语言中，图可以用两种形式表示："><span class="toc-number">5.2.</span> <span class="toc-text">在程序语言中，图可以用两种形式表示：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见图遍历算法"><span class="toc-number">5.3.</span> <span class="toc-text">常见图遍历算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于图的常见问题"><span class="toc-number">5.4.</span> <span class="toc-text">面试中关于图的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树"><span class="toc-number">6.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#以下是树形结构的主要类型："><span class="toc-number">6.1.</span> <span class="toc-text">以下是树形结构的主要类型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于树结构的常见问题："><span class="toc-number">6.2.</span> <span class="toc-text">面试中关于树结构的常见问题：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字典树（Trie）"><span class="toc-number">7.</span> <span class="toc-text">字典树（Trie）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于字典树的常见问题"><span class="toc-number">7.1.</span> <span class="toc-text">面试中关于字典树的常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#哈希表"><span class="toc-number">8.</span> <span class="toc-text">哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#散列数据结构的性能取决于以下三个因素："><span class="toc-number">8.1.</span> <span class="toc-text">散列数据结构的性能取决于以下三个因素：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试中关于哈希结构的常见问题："><span class="toc-number">8.2.</span> <span class="toc-text">面试中关于哈希结构的常见问题：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字典"><span class="toc-number">9.</span> <span class="toc-text">字典</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元组"><span class="toc-number">10.</span> <span class="toc-text">元组</span></a></li></ol>
         
     </div>
     <style>
@@ -729,13 +666,15 @@ if __name__ == &quot;__main__&quot;:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/24/八大数据结构/" title="下一篇: Python实现：8种排序算法">
+            <a href="/2018/08/19/文件系统概念/" title="下一篇: 文件系统概念">
                 <i class="fa fa-angle-right"></i>
             </a>
         
