@@ -39,6 +39,30 @@
   </entry>
   
   <entry>
+    <title>Linux中的帮助命令</title>
+    <link href="https://zxpgo.github.io/2018/08/25/Linux%E4%B8%AD%E7%9A%84%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/"/>
+    <id>https://zxpgo.github.io/2018/08/25/Linux中的帮助命令/</id>
+    <published>2018-08-25T15:20:50.000Z</published>
+    <updated>2018-08-25T15:21:09.824Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转自：&lt;a href=&quot;https://www.shiyanlou.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;实验楼&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实验知识点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内建命令与外部命令之分&lt;/li&gt;
+&lt;li&gt;help , man , info命令的使用以及区别
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>十大数据结构</title>
     <link href="https://zxpgo.github.io/2018/08/24/%E5%85%AB%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>https://zxpgo.github.io/2018/08/24/八大数据结构/</id>
@@ -217,6 +241,24 @@
   </entry>
   
   <entry>
+    <title>VPN安装后无法连接到互联网</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:39:25.557Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+  </entry>
+  
+  <entry>
     <title>手机抓包软件：charles安装及教程</title>
     <link href="https://zxpgo.github.io/2018/08/13/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E8%BD%AF%E4%BB%B6%EF%BC%9Acharles%E5%AE%89%E8%A3%85%E5%8F%8A%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/13/手机抓包软件：charles安装及教程/</id>
@@ -259,24 +301,6 @@
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPN安装后无法连接到互联网</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:39:25.557Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
     
   </entry>
   
@@ -339,24 +363,6 @@
   </entry>
   
   <entry>
-    <title>Hexo搭建属于自己的博客</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
-    <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-23T14:47:26.043Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>文件系统操作与磁盘管理</title>
     <link href="https://zxpgo.github.io/2018/08/11/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E4%B8%8E%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
     <id>https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/</id>
@@ -395,28 +401,20 @@
   </entry>
   
   <entry>
-    <title>Linux中的帮助命令</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%B8%AD%E7%9A%84%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Linux中的帮助命令/</id>
+    <title>Hexo搭建属于自己的博客</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-25T15:19:31.610Z</updated>
+    <updated>2018-08-23T14:47:26.043Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。
     
     </summary>
     
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
     
   </entry>
   
