@@ -26,6 +26,36 @@
     </entry>
     
     <entry>
+      <title>Python2.7和Python3.6安装以及文件解决</title>
+      <link href="/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+      <url>/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      <content type="html"><![CDATA[<h2 id="Python2-7和Python3-6并存"><a href="#Python2-7和Python3-6并存" class="headerlink" title="Python2.7和Python3.6并存"></a>Python2.7和Python3.6并存</h2><p>在环境变量中添加Python两个版本的值即可，具体如下：</p><p>右键我的电脑，按下图操作：<br><img src="https://i.imgur.com/XR3VI7D.png" alt=""></p><p>添加值：</p><p><img src="https://i.imgur.com/85ex4wA.png" alt=""></p><p>在环境变量中添加：</p><pre><code>C:\Python27C:\Python27\Scripts    C:\Python36C:\Python36\Scripts</code></pre><p>打开CMD,切换Python2.7和Python3.6</p><pre><code>py -2 切换至python2.7py -3 </code></pre><p><img src="https://i.imgur.com/LtX3Wxy.png" alt=""></p><p>Ctrl+C或 输入<code>exit()</code>退出Python环境</p><p>在具体py文件中，使用</p><pre><code>#! python2# coding: utf-8</code></pre><p>可以指定解释器版本，这时只需py test.py，无需带-2或-3这种参数</p><h2 id="IDLE打开方式"><a href="#IDLE打开方式" class="headerlink" title="IDLE打开方式"></a>IDLE打开方式</h2><p>可以尝试在搜索栏中输入IDLE，然后双击，如果找不到，尝试如下方法：<br>找到<code>C:\Python27\Lib\idlelib</code>下的<code>idle.bat</code>文件，双击即可打开IDLE</p><h2 id="Python2-7的IDLE无法打开问题解决"><a href="#Python2-7的IDLE无法打开问题解决" class="headerlink" title="Python2.7的IDLE无法打开问题解决"></a>Python2.7的IDLE无法打开问题解决</h2><p>打开运行，输入如下代码：</p><pre><code>%USERPROFILE%\.idlerc</code></pre><p>会自动大量如下文件夹：</p><p><img src="https://i.imgur.com/9YIypTY.png" alt=""></p><p>删除文件夹中的三个文件</p><h2 id="pip安装第三方库"><a href="#pip安装第三方库" class="headerlink" title="pip安装第三方库"></a>pip安装第三方库</h2><pre><code>pip2.7 install numpy#仅为python2.7安装numpy库pip3.6 install numpy#仅为python3.6安装numpy库</code></pre><p><img src="https://i.imgur.com/I9XDzyO.png" alt=""></p><p>第三方库安装目录：<code>C:\Python27\Lib\site-packages</code></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> -Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Python2.x和Python3.x的版本区别</title>
+      <link href="/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
+      <url>/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/</url>
+      <content type="html"><![CDATA[<p>Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。&lt;！–more–&gt;</p><p>为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Python 3.0的迁移，允许使用部分Python 3.0的语法与函数。</p><p>目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。大多数第三方库都正在努力地相容Python 3.0版本。即使无法立即使用Python 3.0，也建议编写相容Python 3.0版本的程式，然后使用Python 2.6, Python 2.7来执行。</p><h2 id="print"><a href="#print" class="headerlink" title="print"></a>print</h2><p>python 3.0 中使用print()函数来输出，而不再使用print语句。</p><pre><code>print(&quot;zxp&quot;) #python3.0print &quot;zxp&quot; #python3.0不再支持</code></pre><p>在python2.6和python2.7中，三种形式等价：</p><pre><code>print(&quot;zxp&quot;)# print不能带任何参数print (&quot;zxp&quot;) #print后有空格print &quot;zxp&quot;</code></pre><p>python2.6实际已经支持print()语法：</p><pre><code>seq = &apos;hello&apos;print(&apos;zxp&apos;,&apos;panda&apos;,seq)</code></pre><h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>python2中有ASCII str()类型，unicode()是单独的，不是byte类型。<a id="more"></a><br>python3中有Unicode(utf-8)字符串，以及一个字节类：byte和bytearrays。</p><p>python3.x源码文件默认使用utf-8:</p><pre><code>&gt;&gt;&gt;中国 = “china”&gt;&gt;&gt;print(中国)china</code></pre><p>而在python2.x中是语法错误<br></p><p>python2.x</p><pre><code>&gt;&gt;&gt; 中国 = &quot;china&quot;SyntaxError: invalid syntax&gt;&gt;&gt; str = &quot;我是霸王&quot;&gt;&gt;&gt; str&apos;\xce\xd2\xca\xc7\xb0\xd4\xcd\xf5&apos;&gt;&gt;&gt; print str我是霸王&gt;&gt;&gt; str = u&apos;我是霸王&apos;&gt;&gt;&gt; stru&apos;\u6211\u662f\u9738\u738b&apos;</code></pre><p>python3.x</p><pre><code>&gt;&gt;&gt; str = &quot;我是霸王&quot;&gt;&gt;&gt; str&apos;我是霸王&apos;&gt;&gt;&gt; print(str)我是霸王</code></pre><h2 id="除法运算"><a href="#除法运算" class="headerlink" title="除法运算"></a>除法运算</h2><p>python中除法包括两个运算符，<code>/</code>和<code>//</code></p><p>python2.x中的<code>/</code>除法，跟java、c相同，整数相除结果是一个整数，把小数忽略掉。浮点数的除法会保留小数部分，得到一个浮点数结果。</p><p>python3.x中<code>/</code>除法对于整数之间相除，结果也会是浮点数</p><p>python2.x</p><pre><code>&gt;&gt;&gt; 3/21</code></pre><p>python3.x</p><pre><code>&gt;&gt;&gt; 3/21.5</code></pre><p>而对于<code>//</code>除法，被称为floor除法(python3.x中的floor)，会对除法的结果自动进行一个floor操作，在python2.x和python3.x中是一致的</p><pre><code>&gt;&gt;&gt; 5//31</code></pre><p>python3.x中floor操作：向下取整，小数不存在</p><pre><code>&gt;&gt;&gt; import math&gt;&gt;&gt; math.floor(2.2)2</code></pre><p>python2.x中floor操作：向下取整，小数存在，仍然是浮点数</p><pre><code>&gt;&gt;&gt; math.floor(3.2)3.0</code></pre><p>如果需要取整，需要<code>trunc</code>函数</p><pre><code>&gt;&gt;&gt; import math&gt;&gt;&gt; math.trunc(5/3)1</code></pre><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>在 Python 3 中我们现在使用 as 作为关键词。捕获异常的语法由 except exc, var 改为 except exc as var。</p><p>使用语法except (exc1, exc2) as var可以同时捕获多种类别的异常。 Python 2.6已经支持这两种语法。</p><p>转自：<a href="http://www.runoob.com/python/python-2x-3x.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-2x-3x.html</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Linux中的帮助命令</title>
       <link href="/2018/08/25/Linux%E4%B8%AD%E7%9A%84%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/"/>
       <url>/2018/08/25/Linux%E4%B8%AD%E7%9A%84%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4/</url>
@@ -229,15 +259,17 @@
     </entry>
     
     <entry>
-      <title>VPN安装后无法连接到互联网</title>
-      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
-      <content type="html"><![CDATA[<p> VPN安装后无法连接到互联网问题解决方案<a id="more"></a><br>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
+      <title>VPN资源</title>
+      <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
+      <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
+      <content type="html"><![CDATA[<p>VPN资源：赛风和兰灯<a id="more"></a></p><p>赛风：<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" title="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>兰灯：<a href="http://pan.bcoderss.com/?dir=lan" title="http://pan.bcoderss.com/?dir=lan" target="_blank" rel="noopener">http://pan.bcoderss.com/?dir=lan</a>  (包括安卓、windows、mac和linux端资源)</p>]]></content>
       
       
         <tags>
             
             <tag> VPN </tag>
+            
+            <tag> 资源 </tag>
             
         </tags>
       
@@ -267,6 +299,21 @@
     </entry>
     
     <entry>
+      <title>VPN安装后无法连接到互联网</title>
+      <link href="/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+      <url>/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/</url>
+      <content type="html"><![CDATA[<p> VPN安装后无法连接到互联网问题解决方案<a id="more"></a><br>赛风（psiphon）下载地址<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>使用vpn时，出现浏览器无法连接到互联网问题解决：</p><p><img src="https://i.imgur.com/J1OUsRC.png" alt=""></p><p>原因是浏览器开启了局域网代理：</p><p><img src="https://i.imgur.com/73gPHHW.png" alt=""></p><p><img src="https://i.imgur.com/wKG7Mte.png" alt=""></p><p><img src="https://i.imgur.com/Q1iTRqq.png" alt=""></p><p><img src="https://i.imgur.com/D5vuZFK.png" alt=""></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> VPN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Vim教程</title>
       <link href="/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
       <url>/2018/08/13/Vim%E6%95%99%E7%A8%8B/</url>
@@ -286,23 +333,6 @@
             <tag> Linux </tag>
             
             <tag> vim </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>VPN资源</title>
-      <link href="/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
-      <url>/2018/08/13/VPN%E8%B5%84%E6%BA%90md/</url>
-      <content type="html"><![CDATA[<p>VPN资源：赛风和兰灯<a id="more"></a></p><p>赛风：<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" title="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct</a></p><p>兰灯：<a href="http://pan.bcoderss.com/?dir=lan" title="http://pan.bcoderss.com/?dir=lan" target="_blank" rel="noopener">http://pan.bcoderss.com/?dir=lan</a>  (包括安卓、windows、mac和linux端资源)</p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> VPN </tag>
-            
-            <tag> 资源 </tag>
             
         </tags>
       
@@ -360,16 +390,10 @@
     </entry>
     
     <entry>
-      <title>Linux常用的压缩/解压工具：zip和tar</title>
-      <link href="/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/"/>
-      <url>/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/</url>
-      <content type="html"><![CDATA[<p>知识点：zip命令、tar命令、压缩与解压常用组合<a id="more"></a></p><h1 id="常用压缩包格式"><a href="#常用压缩包格式" class="headerlink" title="常用压缩包格式"></a>常用压缩包格式</h1><table><thead><tr><th>文件后缀名</th><th>说明</th></tr></thead><tbody><tr><td>*.zip</td><td>zip 程序打包压缩的文件</td></tr><tr><td>*.rar</td><td>rar 程序压缩的文件</td></tr><tr><td>*.7z</td><td>7zip 程序压缩的文件</td></tr><tr><td>*.tar</td><td>tar 程序打包，未压缩的文件</td></tr><tr><td>*.gz</td><td>gzip 程序（GNU zip）压缩的文件</td></tr><tr><td>*.xz</td><td>xz 程序压缩的文件</td></tr><tr><td>*.bz2</td><td>bzip2 程序压缩的文件</td></tr><tr><td>*.tar.gz</td><td>tar 打包，gzip 程序压缩的文件</td></tr><tr><td>*.tar.xz</td><td>tar 打包，xz 程序压缩的文件</td></tr><tr><td>*tar.bz2</td><td>tar 打包，bzip2 程序压缩的文件</td></tr><tr><td>*.tar.7z</td><td>tar 打包，7z 程序压缩的文件</td></tr></tbody></table><h1 id="zip压缩"><a href="#zip压缩" class="headerlink" title="zip压缩"></a>zip压缩</h1><pre><code>zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop</code></pre><p>将Desktop目录下的子文件打包成shiyanlou.zip压缩文件，<code>-r</code>表示递归打包包含子目录的全部内容，<code>-q</code>表示安静模式，不向屏幕显示内容，<code>-o</code>表示输出文件，须在其后紧跟打包输出文件名（shiyanlou.zip）。</p><pre><code>du -h shiyanlou.zip </code></pre><p><code>du</code>命令查看打包文件的大小。<code>-h</code>表示文件大小可读，<code>-d</code>表示查看所查文件的深度，打印在屏幕上。</p><p>加密创建zip包：<br><br>使用<code>-e</code>参数</p><pre><code>zip -r -e -o shiyanlou_e.zip /home/shiyanlou/Desktop</code></pre><p>跟着屏幕提示输入密码</p><p><strong>注意</strong>：： 关于<code>zip</code>命令，因为 Windows 系统与 Linux/Unix 在文本文件格式上的一些兼容问题，比如换行符（为不可见字符），在 Windows 为 CR+LF（Carriage-Return+Line-Feed：回车加换行），而在 Linux/Unix 上为 LF（换行），所以如果在不加处理的情况下，在 Linux 上编辑的文本，在 Windows 系统上打开可能看起来是没有换行的。如果你想让你在 Linux 创建的 zip 压缩文件在 Windows 上解压后没有任何问题，那么你还需要对命令做一些修改：</p><pre><code>zip -r -l -o shiyanlou.zip /home/shiyanlou/Desktop</code></pre><h1 id="unzip解压zip文件"><a href="#unzip解压zip文件" class="headerlink" title="unzip解压zip文件"></a>unzip解压zip文件</h1><pre><code>unzip shiyanlou.zip</code></pre><p>u使用安静模式,将文件解压到指定目录：</p><pre><code>unzip -q shiyanlou.zip -d ziptest</code></pre><p>上述目录不存在，将会自动创建，如果不想解压只想查看压缩包的内容，可以使用<code>-l</code>参数：</p><pre><code>unzip -l shiyanlou.zip</code></pre><p><strong>注意</strong>：中文的兼容性问题，windows系统创建的压缩文件，如果有中文文档或文件名为中文，默认采用GBK或其他编码，而Linux上默认使用的是UTF-8编码。</p><p>使用<code>-o</code>参数指定编码类型：</p><pre><code>unzip -o GBK 中文压缩文件.zip</code></pre><h1 id="tar打包工具"><a href="#tar打包工具" class="headerlink" title="tar打包工具"></a>tar打包工具</h1><p>tar 原本只是一个打包工具，只是同时还是实现了对 7z、gzip、xz、bzip2 等工具的支持，这些压缩工具本身只能实现对文件或目录（单独压缩目录中的文件）的压缩，没有实现对文件的打包压缩，所以我们也无需再单独去学习其他几个工具，tar 的解压和压缩都是同一个命令，只需参数不同，使用比较方便。</p><p><strong>创建一个tar包：</strong></p><pre><code>tar -cf shiyanlou.tar home/shiyanlou/Desktop</code></pre><p><img src="https://i.imgur.com/t43P6f3.png" alt=""><br>不能使用相对路径，不然会提示图中问题</p><p>上面命令中，<code>-c</code>表示创建一个tar包文件，<code>-f</code>用户指定创建的文件，注意文件名必须紧跟在<code>-f</code>参数之后，比如不能写出<code>tar -fc shiiyanlou.tar</code>,可以写成<code>tar -f shiyanlou.tar -c</code>。<br><br><code>-v</code>参数以可视的方式输出打包的文件，</p><p><strong>解压一个tar包：</strong><br><br>解压参数：<code>-x</code><br><br>指定已存在的目录： <code>-C</code><br></p><pre><code>tar -xf shiyanlou.tar -C tardir</code></pre><p><strong>只查看不解包文件：</strong><br><br>参数： -t</p><pre><code>tar -tf shiyanlou.tar</code></pre><p>保留文件属性和跟随链接（符号链接或软链接），有时候我们使用 tar 备份文件当你在其他主机还原时希望保留文件的属性（<code>-p</code> 参数）和备份链接指向的源文件而不是链接本身（<code>-h</code> 参数）：<br>    tar -cphf etc.tar /etc</p><p><strong>使用gzip来压缩文件</strong></p><p>添加<code>-z</code>参数</p><pre><code>tar -czf shiyanlou.tar.gz home/shiyanlou/Desktop</code></pre><p><strong>解压<code>*.tar.gz</code>文件</strong></p><pre><code>tar -xzf shiyanlou.tar.gz</code></pre><p>要使用其它的压缩工具创建或解压相应文件只需要更改一个参数即可：</p><table><thead><tr><th>压缩文件格式</th><th>参数</th></tr></thead><tbody><tr><td>*.tar.gz</td><td>-z</td></tr><tr><td>*.tar.xz</td><td>-J</td></tr><tr><td>*tar.bz2</td><td>-j</td></tr></tbody></table><p>tar 命令的参数很多，不过常用的就是上述这些，需要了解更多你可以查看 man 手册获取帮助。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>常用命令：</p><ul><li>zip：<ul><li>打包 ：zip something.zip something （目录请加 -r 参数）</li><li>解包：unzip something.zip</li><li>指定路径：-d 参数</li></ul></li><li>tar：<ul><li>打包：tar -cf something.tar something</li><li>解包：tar -xf something.tar</li><li>指定路径：-C 参数</li></ul></li></ul>]]></content>
-      
-      <categories>
-          
-          <category> 实验楼学习笔记之Linux </category>
-          
-      </categories>
+      <title>Linux介绍</title>
+      <link href="/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<p>Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，<a id="more"></a>但是由于 Linux 的 用户管理 和 权限机制，不同用户不可以轻易地查看、修改彼此的文件。</p>]]></content>
       
       
         <tags>
@@ -381,10 +405,16 @@
     </entry>
     
     <entry>
-      <title>Linux介绍</title>
-      <link href="/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
-      <url>/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/</url>
-      <content type="html"><![CDATA[<p>Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，<a id="more"></a>但是由于 Linux 的 用户管理 和 权限机制，不同用户不可以轻易地查看、修改彼此的文件。</p>]]></content>
+      <title>Linux常用的压缩/解压工具：zip和tar</title>
+      <link href="/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/"/>
+      <url>/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/</url>
+      <content type="html"><![CDATA[<p>知识点：zip命令、tar命令、压缩与解压常用组合<a id="more"></a></p><h1 id="常用压缩包格式"><a href="#常用压缩包格式" class="headerlink" title="常用压缩包格式"></a>常用压缩包格式</h1><table><thead><tr><th>文件后缀名</th><th>说明</th></tr></thead><tbody><tr><td>*.zip</td><td>zip 程序打包压缩的文件</td></tr><tr><td>*.rar</td><td>rar 程序压缩的文件</td></tr><tr><td>*.7z</td><td>7zip 程序压缩的文件</td></tr><tr><td>*.tar</td><td>tar 程序打包，未压缩的文件</td></tr><tr><td>*.gz</td><td>gzip 程序（GNU zip）压缩的文件</td></tr><tr><td>*.xz</td><td>xz 程序压缩的文件</td></tr><tr><td>*.bz2</td><td>bzip2 程序压缩的文件</td></tr><tr><td>*.tar.gz</td><td>tar 打包，gzip 程序压缩的文件</td></tr><tr><td>*.tar.xz</td><td>tar 打包，xz 程序压缩的文件</td></tr><tr><td>*tar.bz2</td><td>tar 打包，bzip2 程序压缩的文件</td></tr><tr><td>*.tar.7z</td><td>tar 打包，7z 程序压缩的文件</td></tr></tbody></table><h1 id="zip压缩"><a href="#zip压缩" class="headerlink" title="zip压缩"></a>zip压缩</h1><pre><code>zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop</code></pre><p>将Desktop目录下的子文件打包成shiyanlou.zip压缩文件，<code>-r</code>表示递归打包包含子目录的全部内容，<code>-q</code>表示安静模式，不向屏幕显示内容，<code>-o</code>表示输出文件，须在其后紧跟打包输出文件名（shiyanlou.zip）。</p><pre><code>du -h shiyanlou.zip </code></pre><p><code>du</code>命令查看打包文件的大小。<code>-h</code>表示文件大小可读，<code>-d</code>表示查看所查文件的深度，打印在屏幕上。</p><p>加密创建zip包：<br><br>使用<code>-e</code>参数</p><pre><code>zip -r -e -o shiyanlou_e.zip /home/shiyanlou/Desktop</code></pre><p>跟着屏幕提示输入密码</p><p><strong>注意</strong>：： 关于<code>zip</code>命令，因为 Windows 系统与 Linux/Unix 在文本文件格式上的一些兼容问题，比如换行符（为不可见字符），在 Windows 为 CR+LF（Carriage-Return+Line-Feed：回车加换行），而在 Linux/Unix 上为 LF（换行），所以如果在不加处理的情况下，在 Linux 上编辑的文本，在 Windows 系统上打开可能看起来是没有换行的。如果你想让你在 Linux 创建的 zip 压缩文件在 Windows 上解压后没有任何问题，那么你还需要对命令做一些修改：</p><pre><code>zip -r -l -o shiyanlou.zip /home/shiyanlou/Desktop</code></pre><h1 id="unzip解压zip文件"><a href="#unzip解压zip文件" class="headerlink" title="unzip解压zip文件"></a>unzip解压zip文件</h1><pre><code>unzip shiyanlou.zip</code></pre><p>u使用安静模式,将文件解压到指定目录：</p><pre><code>unzip -q shiyanlou.zip -d ziptest</code></pre><p>上述目录不存在，将会自动创建，如果不想解压只想查看压缩包的内容，可以使用<code>-l</code>参数：</p><pre><code>unzip -l shiyanlou.zip</code></pre><p><strong>注意</strong>：中文的兼容性问题，windows系统创建的压缩文件，如果有中文文档或文件名为中文，默认采用GBK或其他编码，而Linux上默认使用的是UTF-8编码。</p><p>使用<code>-o</code>参数指定编码类型：</p><pre><code>unzip -o GBK 中文压缩文件.zip</code></pre><h1 id="tar打包工具"><a href="#tar打包工具" class="headerlink" title="tar打包工具"></a>tar打包工具</h1><p>tar 原本只是一个打包工具，只是同时还是实现了对 7z、gzip、xz、bzip2 等工具的支持，这些压缩工具本身只能实现对文件或目录（单独压缩目录中的文件）的压缩，没有实现对文件的打包压缩，所以我们也无需再单独去学习其他几个工具，tar 的解压和压缩都是同一个命令，只需参数不同，使用比较方便。</p><p><strong>创建一个tar包：</strong></p><pre><code>tar -cf shiyanlou.tar home/shiyanlou/Desktop</code></pre><p><img src="https://i.imgur.com/t43P6f3.png" alt=""><br>不能使用相对路径，不然会提示图中问题</p><p>上面命令中，<code>-c</code>表示创建一个tar包文件，<code>-f</code>用户指定创建的文件，注意文件名必须紧跟在<code>-f</code>参数之后，比如不能写出<code>tar -fc shiiyanlou.tar</code>,可以写成<code>tar -f shiyanlou.tar -c</code>。<br><br><code>-v</code>参数以可视的方式输出打包的文件，</p><p><strong>解压一个tar包：</strong><br><br>解压参数：<code>-x</code><br><br>指定已存在的目录： <code>-C</code><br></p><pre><code>tar -xf shiyanlou.tar -C tardir</code></pre><p><strong>只查看不解包文件：</strong><br><br>参数： -t</p><pre><code>tar -tf shiyanlou.tar</code></pre><p>保留文件属性和跟随链接（符号链接或软链接），有时候我们使用 tar 备份文件当你在其他主机还原时希望保留文件的属性（<code>-p</code> 参数）和备份链接指向的源文件而不是链接本身（<code>-h</code> 参数）：<br>    tar -cphf etc.tar /etc</p><p><strong>使用gzip来压缩文件</strong></p><p>添加<code>-z</code>参数</p><pre><code>tar -czf shiyanlou.tar.gz home/shiyanlou/Desktop</code></pre><p><strong>解压<code>*.tar.gz</code>文件</strong></p><pre><code>tar -xzf shiyanlou.tar.gz</code></pre><p>要使用其它的压缩工具创建或解压相应文件只需要更改一个参数即可：</p><table><thead><tr><th>压缩文件格式</th><th>参数</th></tr></thead><tbody><tr><td>*.tar.gz</td><td>-z</td></tr><tr><td>*.tar.xz</td><td>-J</td></tr><tr><td>*tar.bz2</td><td>-j</td></tr></tbody></table><p>tar 命令的参数很多，不过常用的就是上述这些，需要了解更多你可以查看 man 手册获取帮助。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>常用命令：</p><ul><li>zip：<ul><li>打包 ：zip something.zip something （目录请加 -r 参数）</li><li>解包：unzip something.zip</li><li>指定路径：-d 参数</li></ul></li><li>tar：<ul><li>打包：tar -cf something.tar something</li><li>解包：tar -xf something.tar</li><li>指定路径：-C 参数</li></ul></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 实验楼学习笔记之Linux </category>
+          
+      </categories>
       
       
         <tags>
