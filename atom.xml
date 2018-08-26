@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-23T15:18:58.377Z</updated>
+  <updated>2018-08-26T03:46:12.605Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Python实现：8种排序算法</title>
-    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-23T15:18:58.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
-    
-    </summary>
-    
-      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-  </entry>
   
   <entry>
     <title>Python2.7和Python3.6安装以及文件解决</title>
@@ -59,6 +37,28 @@
     
     
       <category term="-Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现：8种排序算法</title>
+    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-23T15:18:58.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
+    
+    </summary>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
   </entry>
   
@@ -208,28 +208,6 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
   </entry>
   
   <entry>
-    <title>小程序开发工具调试</title>
-    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
-    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
-    <published>2018-08-16T09:24:24.000Z</published>
-    <updated>2018-08-16T14:55:07.834Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
-    
-    </summary>
-    
-      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python实现：用位运算符实现加法，不允许使用 “+”</title>
     <link href="https://zxpgo.github.io/2018/08/16/Python%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%94%A8%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E5%AE%9E%E7%8E%B0%E5%8A%A0%E6%B3%95%EF%BC%8C%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%20%E2%80%9C+%E2%80%9D/"/>
     <id>https://zxpgo.github.io/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/</id>
@@ -250,6 +228,28 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
       <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序开发工具调试</title>
+    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
+    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:55:07.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
+    
+    </summary>
+    
+      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -296,6 +296,24 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
   </entry>
   
   <entry>
+    <title>VPN安装后无法连接到互联网</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:39:25.557Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VPN资源</title>
     <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
     <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
@@ -334,24 +352,6 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="手机抓包" scheme="https://zxpgo.github.io/tag/%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPN安装后无法连接到互联网</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:39:25.557Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
     
   </entry>
   
@@ -436,17 +436,19 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
   </entry>
   
   <entry>
-    <title>Linux介绍</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
+    <title>Linux常用的压缩/解压工具：zip和tar</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-18T03:23:31.029Z</updated>
+    <updated>2018-08-18T03:59:52.147Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
+      &lt;p&gt;知识点：zip命令、tar命令、压缩与解压常用组合
     
     </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
