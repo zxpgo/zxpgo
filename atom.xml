@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-26T03:46:12.605Z</updated>
+  <updated>2018-08-26T14:11:19.773Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,42 +21,14 @@
     <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T03:46:12.605Z</updated>
+    <updated>2018-08-26T14:11:19.773Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;Python2-7和Python3-6并存&quot;&gt;&lt;a href=&quot;#Python2-7和Python3-6并存&quot; class=&quot;headerlink&quot; title=&quot;Python2.7和Python3.6并存&quot;&gt;&lt;/a&gt;Python2.7和Python3.6并存&lt;/h2&gt;&lt;p&gt;在环境变量中添加Python两个版本的值即可，具体如下：
     
     </summary>
     
-    
-      <category term="-Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python实现：8种排序算法</title>
-    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-23T15:18:58.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
-    
-    </summary>
-    
-      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
@@ -67,7 +39,7 @@
     <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
     <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T04:57:47.671Z</updated>
+    <updated>2018-08-26T12:25:56.176Z</updated>
     
     <summary type="html">
     
@@ -88,6 +60,46 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
     
     </summary>
     
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进制介绍以及相互转换</title>
+    <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:11:01.367Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://zxpgo.github.io/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现：8种排序算法</title>
+    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-23T15:18:58.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
+    
+    </summary>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
@@ -177,9 +189,9 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
       <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Mock数据模拟" scheme="https://zxpgo.github.io/tag/Mock%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
@@ -199,33 +211,11 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序开发工具调试</title>
-    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
-    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
-    <published>2018-08-16T09:24:24.000Z</published>
-    <updated>2018-08-16T14:55:07.834Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
-    
-    </summary>
-    
-      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
@@ -254,11 +244,33 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
   </entry>
   
   <entry>
+    <title>小程序开发工具调试</title>
+    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
+    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:55:07.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
+    
+    </summary>
+    
+      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git + TortoiseGit安装教程和环境部署</title>
     <link href="https://zxpgo.github.io/2018/08/15/Git%20+%20TortoiseGit%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/15/Git + TortoiseGit安装教程/</id>
     <published>2018-08-15T14:28:50.000Z</published>
-    <updated>2018-08-15T13:09:07.099Z</updated>
+    <updated>2018-08-26T14:36:03.955Z</updated>
     
     <summary type="html">
     
@@ -267,9 +279,9 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
     </summary>
     
     
-      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
     
   </entry>
   
@@ -353,9 +365,9 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
@@ -402,7 +414,7 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
     <link href="https://zxpgo.github.io/2018/08/11/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-23T14:47:26.043Z</updated>
+    <updated>2018-08-26T14:18:50.112Z</updated>
     
     <summary type="html">
     
@@ -416,39 +428,17 @@ print(&amp;apos;zxp&amp;apos;,&amp;apos;panda&amp;apos;,seq)
   </entry>
   
   <entry>
-    <title>文件系统操作与磁盘管理</title>
-    <link href="https://zxpgo.github.io/2018/08/11/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E4%B8%8E%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/</id>
+    <title>Linux介绍</title>
+    <link href="https://zxpgo.github.io/2018/08/11/Linux%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://zxpgo.github.io/2018/08/11/Linux介绍/</id>
     <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-18T15:06:08.819Z</updated>
+    <updated>2018-08-18T03:23:31.029Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;df&lt;/code&gt;,&lt;code&gt;du&lt;/code&gt;,&lt;code&gt;mount&lt;/code&gt;命令的使用，以及磁盘相关知识学习。
+      &lt;p&gt;Liunx支持多用户登陆，共享一些主机的资源,但他们也分别有自己的用户空间,用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，
     
     </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用的压缩/解压工具：zip和tar</title>
-    <link href="https://zxpgo.github.io/2018/08/11/Linux%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7zip%E5%92%8Ctar/"/>
-    <id>https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/</id>
-    <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-18T03:59:52.147Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;知识点：zip命令、tar命令、压缩与解压常用组合
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>

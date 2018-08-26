@@ -33,10 +33,11 @@
 <meta property="og:image" content="https://i.imgur.com/g0NwgIs.png">
 <meta property="og:image" content="https://i.imgur.com/KvOvo9Q.png">
 <meta property="og:image" content="https://i.imgur.com/m3HfCIE.png">
+<meta property="og:image" content="https://i.imgur.com/KiuLQXH.png">
 <meta property="og:image" content="https://i.imgur.com/ZbIj49r.png">
 <meta property="og:image" content="https://i.imgur.com/RPLwY5K.png">
 <meta property="og:image" content="https://i.imgur.com/RPI4qld.png">
-<meta property="og:updated_time" content="2018-08-23T14:47:26.043Z">
+<meta property="og:updated_time" content="2018-08-26T14:18:50.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建属于自己的博客">
 <meta name="twitter:description" content="本文将介绍利用Hexo搭建博客的教程，包括其中遇到问题的解决方案，包括：添加域名等等内容，本人亲自实践过，希望对您有所帮助，如果遇到其他问题，可联系本人。">
@@ -220,7 +221,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">-Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
                     </div>
                 </section>
                 
@@ -363,7 +364,7 @@ $ git config --global user.email johndoe@example.com
 <pre><code>npm install -g hexo-cli
 </code></pre><h1 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h1><pre><code>hexo init 
 </code></pre><h1 id="安装依赖依赖包"><a href="#安装依赖依赖包" class="headerlink" title="安装依赖依赖包"></a>安装依赖依赖包</h1><pre><code>npm install
-</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容</p>
+</code></pre><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>在博客目录下找到_config.yml,修改如下内容<br><br><strong>在修改配置文件时，建议使用Notepad++进行编辑，原因是缩进和空格会影响代码能否成功提交</strong></p>
 <pre><code># Site
 title: 平步青云win
 subtitle:
@@ -396,8 +397,10 @@ hexo clean #清除缓存文件 (db.json) 和已生成的静态文件 (public)。
 hexo g #生成静态文件，每次改动之后都需要执行以下这个命令。
 hexo d #这个才是真正的部署命令，这里用的都是简写形式
 </code></pre><h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a><font color="#f00">问题一</font></h2><p>运行时出错，由于还没有添加sshkey，具体教程如下：<br>打开Git Bash</p>
-<p>设置Git的user name和email：（前面以及设置）<br>    git config –global user.name “aqiongbei” #改成你的注册Github的用户名<br>    git config –global user.email “<a href="mailto:aqiongbei@gmail.com" target="_blank" rel="noopener">aqiongbei@gmail.com</a>“ #改成你的注册Github的邮箱</p>
-<h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p>
+<p>设置Git的user name和email：（前面以及设置）</p>
+<pre><code>git config --global user.name &quot;aqiongbei&quot; #改成你的注册Github的用户名
+git config --global user.email &quot;aqiongbei@gmail.com&quot; #改成你的注册Github的邮箱
+</code></pre><h2 id="生成SSH密钥："><a href="#生成SSH密钥：" class="headerlink" title="生成SSH密钥："></a>生成SSH密钥：</h2><p>生存密钥：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;aqiongbei@gmail.com&quot; #改成你注册Github的邮箱
 </code></pre><p>返回提示如下：</p>
 <p><img src="https://i.imgur.com/ONTwjSc.png" alt=""></p>
@@ -417,7 +420,10 @@ hexo d #这个才是真正的部署命令，这里用的都是简写形式
 <p><img src="https://i.imgur.com/KvOvo9Q.png" alt=""></p>
 <p>记录一般添加两条，具体如下:</p>
 <p><img src="https://i.imgur.com/m3HfCIE.png" alt=""></p>
-<p>其中的ip通过ping命令获取github服务器ip,参考：<br><a href="https://blog.csdn.net/dongdong9223/article/details/52634354" target="_blank" rel="noopener">https://blog.csdn.net/dongdong9223/article/details/52634354</a></p>
+<p>其中的ip通过ping命令获取github服务器ip,其中仓库的URL为：</p>
+<pre><code>github&apos;用户名&apos;.github.io
+</code></pre><p>具体可见下图：</p>
+<p><img src="https://i.imgur.com/KiuLQXH.png" alt=""></p>
 <p>然后在github的博客代码处添加一个CNMAE文件，不要后缀，或者在本地的source文件（所有提交的文件都放在该目录下）中添加该文件，并提交，</p>
 <p>内容为申请的域名</p>
 <pre><code>www.zxpblog.cn
@@ -460,7 +466,7 @@ feed:
     content:
     content_limit:
        content_limit_delim: &apos; &apos;
-</code></pre><p>主题不同，添加方式可能不同，NEXT主题 _CONFIG.YML文件中有个 RSS的配置，直接设置为 TRUE就可以了 </p>
+</code></pre><p>主题不同，添加方式可能不同，NEXT主题 _<br>CONFIG.YML文件中有个 RSS的配置，直接设置为 TRUE就可以了 </p>
 <h1 id="Yelee主题"><a href="#Yelee主题" class="headerlink" title="Yelee主题"></a>Yelee主题</h1><p><a href="http://moxfive.coding.me/yelee/" target="_blank" rel="noopener">http://moxfive.coding.me/yelee/</a></p>
 <h1 id="Hexo中的Yelee主题，首页不显示文章摘要"><a href="#Hexo中的Yelee主题，首页不显示文章摘要" class="headerlink" title="Hexo中的Yelee主题，首页不显示文章摘要"></a>Hexo中的Yelee主题，首页不显示文章摘要</h1><p>转自：<a href="https://blog.csdn.net/youshaoduo/article/details/78709160" target="_blank" rel="noopener">https://blog.csdn.net/youshaoduo/article/details/78709160</a></p>
 <h1 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h1><p>方法一：在需要显示的摘要之后添加如下代码：</p>
@@ -490,7 +496,7 @@ color: #bebebe;
         <p><span>本文标题:</span><a href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-23, 22:47:26</p>
+        <p><span>最后更新:</span>2018-08-26, 22:18:50</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/11/Hexo搭建博客/" title="Hexo搭建属于自己的博客">https://zxpgo.github.io/2018/08/11/Hexo搭建博客/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/11/Hexo搭建博客/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -513,8 +519,8 @@ color: #bebebe;
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/11/文件系统操作与磁盘管理/">
-                    文件系统操作与磁盘管理
+                <a href="/2018/08/11/Linux介绍/">
+                    Linux介绍
                 </a>
             </div>
         
@@ -651,13 +657,13 @@ color: #bebebe;
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/11/文件系统操作与磁盘管理/" title="下一篇: 文件系统操作与磁盘管理">
+            <a href="/2018/08/11/Linux介绍/" title="下一篇: Linux介绍">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li></ul>
 
 
 
