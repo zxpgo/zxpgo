@@ -293,77 +293,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-python2.7和python3.6安装以及问题解决" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" class="article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <h2 id="Python2-7和Python3-6并存"><a href="#Python2-7和Python3-6并存" class="headerlink" title="Python2.7和Python3.6并存"></a>Python2.7和Python3.6并存</h2><p>在环境变量中添加Python两个版本的值即可，具体如下：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-python2.x和python3.x版本区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -396,20 +325,7 @@
 	
       
           
-              <p>Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。&lt;！–more–&gt;</p>
-<p>为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Python 3.0的迁移，允许使用部分Python 3.0的语法与函数。</p>
-<p>目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。大多数第三方库都正在努力地相容Python 3.0版本。即使无法立即使用Python 3.0，也建议编写相容Python 3.0版本的程式，然后使用Python 2.6, Python 2.7来执行。</p>
-<h2 id="print"><a href="#print" class="headerlink" title="print"></a>print</h2><p>python 3.0 中使用print()函数来输出，而不再使用print语句。</p>
-<pre><code>print(&quot;zxp&quot;) #python3.0
-print &quot;zxp&quot; #python3.0不再支持
-</code></pre><p>在python2.6和python2.7中，三种形式等价：</p>
-<pre><code>print(&quot;zxp&quot;)# print不能带任何参数
-print (&quot;zxp&quot;) #print后有空格
-print &quot;zxp&quot;
-</code></pre><p>python2.6实际已经支持print()语法：</p>
-<pre><code>seq = &apos;hello&apos;
-print(&apos;zxp&apos;,&apos;panda&apos;,seq)
-</code></pre><h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>python2中有ASCII str()类型，unicode()是单独的，不是byte类型。
+              <p>Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
           
       
     </div>
@@ -426,6 +342,81 @@ print(&apos;zxp&apos;,&apos;panda&apos;,seq)
       
         <p class="article-more-link">
           <a href="/2019/08/22/python2.x和python3.x版本区别/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/22/Python实现8种排序算法/" class="article-date">
+      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+              <p>介绍8中排序算法，包括算法的基本思路和算法的python实现。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/08/22/Python实现8种排序算法/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -519,10 +510,10 @@ print(&apos;zxp&apos;,&apos;panda&apos;,seq)
 
 
   
-    <article id="post-Python实现8种排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python2.7和python3.6安装以及问题解决" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/22/Python实现8种排序算法/" class="article-date">
+      <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" class="article-date">
       <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
 </a>
 
@@ -538,7 +529,7 @@ print(&apos;zxp&apos;,&apos;panda&apos;,seq)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a>
+      <a class="article-title" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a>
     </h1>
   
 
@@ -551,7 +542,7 @@ print(&apos;zxp&apos;,&apos;panda&apos;,seq)
 	
       
           
-              <p>介绍8中排序算法，包括算法的基本思路和算法的python实现。
+              <p>在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
           
       
     </div>
@@ -559,19 +550,15 @@ print(&apos;zxp&apos;,&apos;panda&apos;,seq)
     <div class="article-info article-info-index">
       
       
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-    </div>
-
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2019/08/22/Python实现8种排序算法/#more">阅读全文 >></a>
+          <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
