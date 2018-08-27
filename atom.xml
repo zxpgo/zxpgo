@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-26T14:44:55.229Z</updated>
+  <updated>2018-08-23T15:18:58.377Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Python2.x和Python3.x的版本区别</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:44:55.229Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-  </entry>
   
   <entry>
     <title>Python实现：8种排序算法</title>
@@ -50,9 +32,9 @@
       <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -75,6 +57,24 @@
   </entry>
   
   <entry>
+    <title>Python2.x和Python3.x的版本区别</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:44:55.229Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python2.7和Python3.6安装以及文件解决</title>
     <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
@@ -89,6 +89,26 @@
     
     
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux任务计划crontab</title>
+    <link href="https://zxpgo.github.io/2018/08/27/Linux%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92crontab/"/>
+    <id>https://zxpgo.github.io/2018/08/27/Linux任务计划crontab/</id>
+    <published>2018-08-27T14:23:14.000Z</published>
+    <updated>2018-08-27T14:23:47.106Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
@@ -198,35 +218,11 @@
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python实现：用位运算符实现加法，不允许使用 “+”</title>
-    <link href="https://zxpgo.github.io/2018/08/16/Python%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%94%A8%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E5%AE%9E%E7%8E%B0%E5%8A%A0%E6%B3%95%EF%BC%8C%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%20%E2%80%9C+%E2%80%9D/"/>
-    <id>https://zxpgo.github.io/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/</id>
-    <published>2018-08-16T09:24:24.000Z</published>
-    <updated>2018-08-16T14:25:25.384Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;计算两个整数a、b的和，但是不能使用“+”操作符。
-    
-    </summary>
-    
-      <category term="Python" scheme="https://zxpgo.github.io/categories/Python/"/>
-    
-    
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
@@ -249,6 +245,30 @@
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现：用位运算符实现加法，不允许使用 “+”</title>
+    <link href="https://zxpgo.github.io/2018/08/16/Python%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%94%A8%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E5%AE%9E%E7%8E%B0%E5%8A%A0%E6%B3%95%EF%BC%8C%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%20%E2%80%9C+%E2%80%9D/"/>
+    <id>https://zxpgo.github.io/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:25:25.384Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算两个整数a、b的和，但是不能使用“+”操作符。
+    
+    </summary>
+    
+      <category term="Python" scheme="https://zxpgo.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
@@ -295,50 +315,6 @@
   </entry>
   
   <entry>
-    <title>Vim教程</title>
-    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-18T01:52:52.139Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPN资源</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:24:29.607Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;VPN资源：赛风和兰灯
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
-    
-      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>VPN安装后无法连接到互联网</title>
     <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
     <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
@@ -379,6 +355,50 @@
   </entry>
   
   <entry>
+    <title>Vim教程</title>
+    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-18T01:52:52.139Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VPN资源</title>
+    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
+    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
+    <published>2018-08-13T09:24:24.000Z</published>
+    <updated>2018-08-13T14:24:29.607Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;VPN资源：赛风和兰灯
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Markdown教程</title>
     <link href="https://zxpgo.github.io/2018/08/12/Markdown%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/12/Markdown教程/</id>
@@ -393,26 +413,6 @@
     
     
       <category term="Markdown" scheme="https://zxpgo.github.io/tag/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文件系统操作与磁盘管理</title>
-    <link href="https://zxpgo.github.io/2018/08/11/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E4%B8%8E%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/08/11/文件系统操作与磁盘管理/</id>
-    <published>2018-08-11T14:28:50.000Z</published>
-    <updated>2018-08-18T15:06:08.819Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;df&lt;/code&gt;,&lt;code&gt;du&lt;/code&gt;,&lt;code&gt;mount&lt;/code&gt;命令的使用，以及磁盘相关知识学习。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
