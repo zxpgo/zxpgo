@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-23T15:18:58.377Z</updated>
+  <updated>2018-08-26T14:43:47.693Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python2.7和Python3.6安装以及文件解决</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:43:47.693Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python实现：8种排序算法</title>
@@ -75,20 +93,46 @@
   </entry>
   
   <entry>
-    <title>Python2.7和Python3.6安装以及文件解决</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:43:47.693Z</updated>
+    <title>网络与信息安全研究方向</title>
+    <link href="https://zxpgo.github.io/2018/08/29/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/"/>
+    <id>https://zxpgo.github.io/2018/08/29/网络与信息安全研究方向/</id>
+    <published>2018-08-29T08:55:14.000Z</published>
+    <updated>2018-08-29T08:55:12.217Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
     
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+      <category term="研究方向" scheme="https://zxpgo.github.io/tag/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>预备知识</title>
+    <link href="https://zxpgo.github.io/2018/08/29/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/"/>
+    <id>https://zxpgo.github.io/2018/08/29/预备知识/</id>
+    <published>2018-08-29T06:33:14.000Z</published>
+    <updated>2018-08-29T08:39:04.344Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍C++的一些基本概念，起源，以及如何编译执行。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   
@@ -113,15 +157,15 @@
   </entry>
   
   <entry>
-    <title>命令执行顺序控制与管道</title>
-    <link href="https://zxpgo.github.io/2018/08/28/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E7%AE%A1%E9%81%93/"/>
-    <id>https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/</id>
+    <title>Linux不同版本以及程序包安装</title>
+    <link href="https://zxpgo.github.io/2018/08/28/Linux%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E4%BB%A5%E5%8F%8A%E7%A8%8B%E5%BA%8F%E5%8C%85%E5%AE%89%E8%A3%85/"/>
+    <id>https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/</id>
     <published>2018-08-28T14:23:14.000Z</published>
-    <updated>2018-08-28T23:59:16.927Z</updated>
+    <updated>2018-08-28T14:17:34.245Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;顺序执行、选择执行、管道、cut 命令、grep 命令、wc 命令、sort 命令等，高效率使用 Linux 的技巧。
+      &lt;p&gt;Linux版本介绍，以及程序包安装命令介绍
     
     </summary>
     
@@ -133,15 +177,15 @@
   </entry>
   
   <entry>
-    <title>Linux不同版本以及程序包安装</title>
-    <link href="https://zxpgo.github.io/2018/08/28/Linux%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E4%BB%A5%E5%8F%8A%E7%A8%8B%E5%BA%8F%E5%8C%85%E5%AE%89%E8%A3%85/"/>
-    <id>https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/</id>
+    <title>命令执行顺序控制与管道</title>
+    <link href="https://zxpgo.github.io/2018/08/28/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E7%AE%A1%E9%81%93/"/>
+    <id>https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/</id>
     <published>2018-08-28T14:23:14.000Z</published>
-    <updated>2018-08-28T14:17:34.245Z</updated>
+    <updated>2018-08-28T23:59:16.927Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Linux版本介绍，以及程序包安装命令介绍
+      &lt;p&gt;顺序执行、选择执行、管道、cut 命令、grep 命令、wc 命令、sort 命令等，高效率使用 Linux 的技巧。
     
     </summary>
     
@@ -278,33 +322,11 @@
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序开发工具调试</title>
-    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
-    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
-    <published>2018-08-16T09:24:24.000Z</published>
-    <updated>2018-08-16T14:55:07.834Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
-    
-    </summary>
-    
-      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -329,6 +351,28 @@
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
       <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序开发工具调试</title>
+    <link href="https://zxpgo.github.io/2018/08/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95/"/>
+    <id>https://zxpgo.github.io/2018/08/16/小程序开发工具调试/</id>
+    <published>2018-08-16T09:24:24.000Z</published>
+    <updated>2018-08-16T14:55:07.834Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
+    
+    </summary>
+    
+      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -375,44 +419,6 @@
   </entry>
   
   <entry>
-    <title>VPN安装后无法连接到互联网</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN安装后无法连接互联网/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:39:25.557Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; VPN安装后无法连接到互联网问题解决方案
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPN资源</title>
-    <link href="https://zxpgo.github.io/2018/08/13/VPN%E8%B5%84%E6%BA%90md/"/>
-    <id>https://zxpgo.github.io/2018/08/13/VPN资源md/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-13T14:24:29.607Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;VPN资源：赛风和兰灯
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
-    
-      <category term="资源" scheme="https://zxpgo.github.io/tag/%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Vim教程</title>
     <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
@@ -428,9 +434,9 @@
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
