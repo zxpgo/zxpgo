@@ -27,7 +27,10 @@
 <meta property="og:image" content="https://i.imgur.com/GGm5mRq.png">
 <meta property="og:image" content="https://i.imgur.com/Xok3vW8.png">
 <meta property="og:image" content="https://i.imgur.com/9CWHENm.png">
-<meta property="og:updated_time" content="2018-08-28T14:29:31.680Z">
+<meta property="og:image" content="https://i.imgur.com/hoq5qaT.png">
+<meta property="og:image" content="https://i.imgur.com/GPmxfoO.png">
+<meta property="og:image" content="https://i.imgur.com/3uPB6JI.png">
+<meta property="og:updated_time" content="2018-08-28T23:59:16.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命令执行顺序控制与管道">
 <meta name="twitter:description" content="顺序执行、选择执行、管道、cut 命令、grep 命令、wc 命令、sort 命令等，高效率使用 Linux 的技巧。">
@@ -402,10 +405,12 @@ $ wc -c /etc/passwd
 $ wc -m /etc/passwd
 # 最长行字节数
 $ wc -L /etc/passwd
-</code></pre><p><img src="https://i.imgur.com/9CWHENm.png" alt=""><br>注意：对于西文字符来说，一个字符就是一个字节，但对于中文字符一个汉字是大于2个字节的，具体数目是由字符编码决定的</p>
+</code></pre><p><img src="https://i.imgur.com/9CWHENm.png" alt=""></p>
+<p>注意：对于西文字符来说，一个字符就是一个字节，但对于中文字符一个汉字是大于2个字节的，具体数目是由字符编码决定的</p>
 <p>结合管道来操作，统计<code>/etc</code>下面所有目录数：</p>
 <pre><code>ls -dl /etc/*/ | wc -l
-</code></pre><h2 id="sort排序命令"><a href="#sort排序命令" class="headerlink" title="sort排序命令"></a>sort排序命令</h2><p>该命令功能很简单就是将输入按照一定方式排序，然后再输出,它支持的排序有按字典排序,数字排序，按月份排序，随机排序，反转排序，指定特定字段进行排序等等。</p>
+</code></pre><p><img src="https://i.imgur.com/hoq5qaT.png" alt=""></p>
+<h2 id="sort排序命令"><a href="#sort排序命令" class="headerlink" title="sort排序命令"></a>sort排序命令</h2><p>该命令功能很简单就是将输入按照一定方式排序，然后再输出,它支持的排序有按字典排序,数字排序，按月份排序，随机排序，反转排序，指定特定字段进行排序等等。</p>
 <p>默认为字典排序：</p>
 <pre><code>cat /etc/passwd | sort
 </code></pre><p>反转排序：</p>
@@ -414,14 +419,16 @@ $ wc -L /etc/passwd
 <pre><code>cat /etc/passwd | sort -t&apos;:&apos; -k 3
 </code></pre><p>上面的-t参数用于指定字段的分隔符，这里是以”:”作为分隔符；-k 字段号用于指定对哪一个字段进行排序。这里/etc/passwd文件的第三个字段为数字，默认情况下是以字典序排序的，如果要按照数字排序就要加上-n参数：</p>
 <pre><code>cat /etc/passwd | sort -t&apos;:&apos; -k 3 -n
-</code></pre><h2 id="uniq去重复命令"><a href="#uniq去重复命令" class="headerlink" title="uniq去重复命令"></a>uniq去重复命令</h2><p><code>uniq</code>命令可以用于过滤或者输出重复行。</p>
+</code></pre><p><img src="https://i.imgur.com/GPmxfoO.png" alt=""></p>
+<h2 id="uniq去重复命令"><a href="#uniq去重复命令" class="headerlink" title="uniq去重复命令"></a>uniq去重复命令</h2><p><code>uniq</code>命令可以用于过滤或者输出重复行。</p>
 <p><strong>过滤行</strong></p>
 <p>使用history命令查看最近执行过的命令（实际为读取${SHELL}_history文件,如我们环境中的~/.zsh_history文件），不过你可能只想查看使用了哪个命令而不需要知道具体干了什么，那么你可能就会要想去掉命令后面的参数然后去掉重复的命令：</p>
 <pre><code>history | cut -c 8- | cut -d &apos; &apos; -f 1 | uniq
 </code></pre><p>然后经过层层过滤，你会发现确是只输出了执行的命令那一列，不过去重效果好像不明显，仔细看你会发现它确实去重了，只是不那么明显，之所以不明显是因为uniq命令只能去连续重复的行，不是全文去重，所以要达到预期效果，我们先排序：</p>
 <pre><code>history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq
 # 或者 history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort -u
-</code></pre><p>这就是 Linux/UNIX 哲学吸引人的地方，大繁至简，一个命令只干一件事却能干到最好。</p>
+</code></pre><p><img src="https://i.imgur.com/3uPB6JI.png" alt=""></p>
+<p>这就是 Linux/UNIX 哲学吸引人的地方，大繁至简，一个命令只干一件事却能干到最好。</p>
 <p><strong>输出重复行</strong></p>
 <pre><code># 输出重复过的行（重复的只输出一个）及重复次数
 $ history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq -dc
@@ -438,7 +445,7 @@ $ history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq -D
         <p><span>本文标题:</span><a href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-28, 22:23:14</p>
-        <p><span>最后更新:</span>2018-08-28, 22:29:31</p>
+        <p><span>最后更新:</span>2018-08-29, 07:59:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/28/命令执行顺序控制与管道/" title="命令执行顺序控制与管道">https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -454,15 +461,15 @@ $ history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq -D
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/28/Linux不同版本以及程序包安装/">
-                    Linux不同版本以及程序包安装
+                <a href="/2018/08/29/简单的文本处理/">
+                    简单的文本处理
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/27/Linux任务计划crontab/">
-                    Linux任务计划crontab
+                <a href="/2018/08/28/Linux不同版本以及程序包安装/">
+                    Linux不同版本以及程序包安装
                 </a>
             </div>
         
@@ -591,7 +598,7 @@ $ history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq -D
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/28/Linux不同版本以及程序包安装/" title="上一篇: Linux不同版本以及程序包安装">
+            <a href="/2018/08/29/简单的文本处理/" title="上一篇: 简单的文本处理">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -599,13 +606,13 @@ $ history | cut -c 8- | cut -d &apos; &apos; -f 1 | sort | uniq -D
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/27/Linux任务计划crontab/" title="下一篇: Linux任务计划crontab">
+            <a href="/2018/08/28/Linux不同版本以及程序包安装/" title="下一篇: Linux不同版本以及程序包安装">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 
