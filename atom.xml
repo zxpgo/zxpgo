@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-26T14:43:47.693Z</updated>
+  <updated>2018-08-23T15:18:58.377Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Python2.7和Python3.6安装以及文件解决</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:43:47.693Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-  </entry>
   
   <entry>
     <title>Python实现：8种排序算法</title>
@@ -89,6 +71,44 @@
     
     
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python2.7和Python3.6安装以及文件解决</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:43:47.693Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>预备知识</title>
+    <link href="https://zxpgo.github.io/2018/08/31/%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0C++/"/>
+    <id>https://zxpgo.github.io/2018/08/31/开始学习C++/</id>
+    <published>2018-08-31T06:33:14.000Z</published>
+    <updated>2018-09-01T06:23:24.233Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C++基本语法介绍
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   
@@ -322,9 +342,9 @@
       <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
@@ -415,30 +435,6 @@
       <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
     
       <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim教程</title>
-    <link href="https://zxpgo.github.io/2018/08/13/Vim%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/13/Vim教程/</id>
-    <published>2018-08-13T09:24:24.000Z</published>
-    <updated>2018-08-18T01:52:52.139Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文介绍linux中的编辑器vim操作,以及基本命令操作
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="vim" scheme="https://zxpgo.github.io/tag/vim/"/>
     
   </entry>
   
