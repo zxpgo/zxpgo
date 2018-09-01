@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-08-26T14:11:01.367Z</updated>
+  <updated>2018-08-26T14:44:55.229Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,20 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>进制介绍以及相互转换</title>
-    <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
-    <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
+    <title>Python2.x和Python3.x的版本区别</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:11:01.367Z</updated>
+    <updated>2018-08-26T14:44:55.229Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。
+      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
     
     </summary>
     
     
-      <category term="数据结构" scheme="https://zxpgo.github.io/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
   </entry>
   
@@ -53,20 +53,20 @@
   </entry>
   
   <entry>
-    <title>Python2.x和Python3.x的版本区别</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
+    <title>进制介绍以及相互转换</title>
+    <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:44:55.229Z</updated>
+    <updated>2018-08-26T14:11:01.367Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
+      &lt;p&gt;进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。
     
     </summary>
     
     
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+      <category term="数据结构" scheme="https://zxpgo.github.io/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -93,6 +93,26 @@
   </entry>
   
   <entry>
+    <title>Linux数据流重定向</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-01T13:05:43.636Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++ Primer Plus--开始学习（二）</title>
     <link href="https://zxpgo.github.io/2018/08/31/%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0C++/"/>
     <id>https://zxpgo.github.io/2018/08/31/开始学习C++/</id>
@@ -102,6 +122,26 @@
     <summary type="html">
     
       &lt;p&gt;C++基本语法介绍
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--数据处理（三）</title>
+    <link href="https://zxpgo.github.io/2018/08/31/C++%20Primer%20Plus%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    <id>https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</id>
+    <published>2018-08-31T06:33:14.000Z</published>
+    <updated>2018-09-01T07:55:31.518Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍C++变量的命名规则，以及数据类型
     
     </summary>
     
@@ -384,48 +424,6 @@
     <summary type="html">
     
       &lt;p&gt;小程序开发过程中，调试是让程序跑起来的关键。
-    
-    </summary>
-    
-      <category term="小程序开发" scheme="https://zxpgo.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="小程序" scheme="https://zxpgo.github.io/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git + TortoiseGit安装教程和环境部署</title>
-    <link href="https://zxpgo.github.io/2018/08/15/Git%20+%20TortoiseGit%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/08/15/Git + TortoiseGit安装教程/</id>
-    <published>2018-08-15T14:28:50.000Z</published>
-    <updated>2018-08-26T14:36:03.955Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对于程序员而言，版本管理是不可缺少的一部分，利用Gitlab或Github对代码进行管理大大提高的效率，本文介绍如何搭建环境。
-    
-    </summary>
-    
-    
-      <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
-    
-      <category term="教程" scheme="https://zxpgo.github.io/tag/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序开发前言</title>
-    <link href="https://zxpgo.github.io/2018/08/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91-%E5%89%8D%E8%A8%80/"/>
-    <id>https://zxpgo.github.io/2018/08/14/微信小程序开发-前言/</id>
-    <published>2018-08-14T09:24:24.000Z</published>
-    <updated>2018-08-14T13:36:54.116Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在这里，将介绍开发小程序的前期准备，和开发框架的了解
     
     </summary>
     

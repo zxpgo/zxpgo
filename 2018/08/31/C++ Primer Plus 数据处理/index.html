@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Linux版本介绍，以及程序包安装命令介绍">
-<meta name="keywords" content="Linux">
+<meta name="description" content="介绍C++变量的命名规则，以及数据类型">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux不同版本以及程序包安装">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/index.html">
+<meta property="og:title" content="C++ Primer Plus--数据处理（三）">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="Linux版本介绍，以及程序包安装命令介绍">
+<meta property="og:description" content="介绍C++变量的命名规则，以及数据类型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T14:17:34.245Z">
+<meta property="og:updated_time" content="2018-09-01T07:55:31.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux不同版本以及程序包安装">
-<meta name="twitter:description" content="Linux版本介绍，以及程序包安装命令介绍">
+<meta name="twitter:title" content="C++ Primer Plus--数据处理（三）">
+<meta name="twitter:description" content="介绍C++变量的命名规则，以及数据类型">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux不同版本以及程序包安装 | 平步青云win</title>
+<title>C++ Primer Plus--数据处理（三） | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Linux不同版本以及程序包安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C++ Primer Plus 数据处理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/28/Linux不同版本以及程序包安装/" class="article-date">
-      <time datetime="2018-08-28T14:23:14.000Z" itemprop="datePublished">2018-08-28</time>
+      <a href="/2018/08/31/C++ Primer Plus 数据处理/" class="article-date">
+      <time datetime="2018-08-31T06:33:14.000Z" itemprop="datePublished">2018-08-31</time>
 </a>
 
 
@@ -306,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux不同版本以及程序包安装
+      C++ Primer Plus--数据处理（三）
     </h1>
   
 
@@ -316,13 +316,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
+    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -337,37 +337,39 @@
 	
       
           
-        <p>Linux版本介绍，以及程序包安装命令介绍<a id="more"></a></p>
-<h2 id="Linux系统版本"><a href="#Linux系统版本" class="headerlink" title="Linux系统版本"></a>Linux系统版本</h2><ul>
-<li>RedHat(红帽)系列： Redhat、Centos、Fedora等</li>
-<li>Debian(得比恩)系列： Debian、Ubuantu等</li>
-</ul>
-<h2 id="程序包安装"><a href="#程序包安装" class="headerlink" title="程序包安装"></a>程序包安装</h2><h3 id="RedHat系列"><a href="#RedHat系列" class="headerlink" title="RedHat系列"></a>RedHat系列</h3><ul>
-<li>常见的安装包格式rpm包，安装rpm包的命令是”rpm -参数”</li>
-<li>包管理工具yum</li>
-<li>支持tar包</li>
-</ul>
-<h3 id="Debian系列"><a href="#Debian系列" class="headerlink" title="Debian系列"></a>Debian系列</h3><ul>
-<li>常见的安装包格式deb包，安装deb包的命令是”dpkg -参数”</li>
-<li>包管理工具apt-get</li>
-<li>支持tar包</li>
-</ul>
-<p>tar 只是一种压缩文件格式，所以，它只是把文件压缩打包而已。</p>
-<p>rpm 相当于windows中的安装文件，它会自动处理软件包之间的依赖关系。优缺点来说，rpm一般都是预先编译好的文件，它可能已经绑定到某种CPU或者发行版上面了。</p>
-<h2 id="yum安装命令"><a href="#yum安装命令" class="headerlink" title="yum安装命令"></a>yum安装命令</h2><p>YUM（Yellow dog Updater, Modified ）是Yellow Dog Linux开发的。 Yellow Dog Linux原本是一套完全源于Red Hat但运作于先前使用IBM PPC平台的MAC机器，原本以为这个版本已经消失，没想到最新消息是他们推出了在Sony PS3上面运作的版本。 CentOS及Fedora的基本预设安装中即将YUM列入其内。 </p>
-<p>使用方法：</p>
+        <p>介绍C++变量的命名规则，以及数据类型<a id="more"></a></p>
+<h2 id="简单变量"><a href="#简单变量" class="headerlink" title="简单变量"></a>简单变量</h2><pre><code>int a;
+a = 5;
+</code></pre><p>上述语句告诉程序，它正在存储整数，并使用名称a来表示该整数的值。实际上，程序将找到一块能够存储整数的内存，将该内存单元标记为a,并将5复制到该内存单元中，然后，可以在程序中使用a来访问该内存单元。可以通过<code>&amp;</code>运算符来检索a的内存地址。</p>
+<h3 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h3><p>C++提倡使用有一定含义的变量名，如果表示差旅费，应将其命名为cost_of_trip或costOfTrip，而不要命名为a或x等。必须遵循几种简单的C++命名规则：</p>
 <ul>
-<li>编辑/etc/yum.conf档案详细设定请参考： <a href="http://linux.vbird.org/linux_server/0450apt.php" target="_blank" rel="noopener">简易APT/YUM伺服器设定</a></li>
-<li>基本指令： （如果yum在工作过程中需要使用者回应，可加上-y参数直接回答yes ）</li>
+<li>在名称中只能使用字母字符、数字和下划线(_);</li>
+<li>名称的第一个字符不能是数字；</li>
+<li>区分大小写</li>
+<li>不能将C++关键字用作名称</li>
+<li>以两个下划线或下划线和大写字母开头的名称被保留给实现（编译器及其使用的资源）使用，以一个下划线开头的名称被保留给实现，用作全局标识符；</li>
+<li>C++对于名称的长度无限制，名称中所有的字符都有意义。</li>
 </ul>
-<p>| yum install softwarename1 [softwarename2…..] | 安装套件 |<br>| yum update [softwarename 1 softwarename2…] | 更新套件，不指定套件名则更新所有可更新的套件 |<br>| yum list | 列出目前在yum server 上面有的套件 |<br>| yum info | 类似rpm -qi |<br>| yum clean | 移除下载到本机的packages 或headers |<br>| yum remove softwarename1 [softwarename2…..]    | 移除已经安装的套件 | </p>
-<p>注1：Red Hat近年来致力于将一个设定档切割成很多小设定档。 以yum.conf为例，Red Hat将其分割成xxx.repo档放置在/etc/yum.repos.d这个目录下。 并在yum.conf档里增加一行注解： PUT YOUR REPOS HERE OR IN separate files named file.repo in /etc/yum.repos.d。 个人可视喜好决定。</p>
-<h2 id="apt安装命令"><a href="#apt安装命令" class="headerlink" title="apt安装命令"></a>apt安装命令</h2><p>Debian开发，目前也有porting到其他版本，要在Red Hat系的Fedora或CentOS使用也是可以的。</p>
-<p>使用方法：</p>
-<p>编辑/etc/apt/sources.list ，设定所选用的版本，如stable，testing，unstable及套件来源站台或装置。 档案详细设定请参考： 了解Debian系统的哲学</p>
-<p>基本指令：</p>
-<p>| apt-setup    | 设定/etc/apt/souces.list |<br>| apt-get update    | 软体资料库同步 |<br>| apt-get install softwarename1 [softwarename2…..]    | 安装软体 |<br>| apt-get remove softwarename 1 [softwarename 2…]    |  移除软体(保留设定档） |<br>| apt-get –purge remove softwarename 1 [softwarename 2…]    |  移除软体(不保留设定档） |<br>| apt-cache search softwarename    | 列出所有sofrwarename的套件 |<br>| apt-upgrade [softwarename 1 softwarename2…]    |  更新套件，不指定套件名则更新所有可更新的套件 |<br>| apt-get clean(autoclean)    | 删除系统暂存的deb(autoclean只会将比目前系统旧版的套件删除) |<br>| apt-get dist-upgrade    |  转换系统的版本（需在/etc/apt/sources.list指定stable，testing或unstable） | </p>
-<p>转自：<a href="https://www.cnblogs.com/zhangfeionline/p/5893748.html" target="_blank" rel="noopener">张飞在线</a></p>
+<p>最后两点和前几点不同，因为使用_time_stop或_Donut或__time这样的名称不会导致编译器错误，而会导致不确定性。即，不知道结果将是什么，不出现编译错误的原因是，这样的名称不是非法的，但是要保留给现实使用。全局名称指的是名称被声明的位置。</p>
+<p><strong>命名方案</strong></p>
+<p>在给变量命名时，可能在变量名中加入其他信息，即描述变量类型或内容的前缀，例如，可以将整型变量命名myWeight命名为intMyWeight或nMyWeight,这样，在阅读代码时，一目了然，每个变量的意义和类型。常以这种方式使用的前缀用：str或sz（表示以空字符结束的字符串）、b（表示布尔值）、p (表示指针)、c（表示单个字符）。</p>
+<h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><p>整型是没有小数部分的数字，比如：98，-86，0。C++提供了好几种整型来存储整数。使用的内存越大，可以表示的整数值范围也越大。另外，有的类型（符号类型）可以表示正值和负值，而有的类型（无符号类型）不能表示负值。术语宽度用户描述存储整数时使用的内存量，使用的内存越多，则越宽。C++的基本整型（按照宽度递增的顺序排序）：</p>
+<ul>
+<li>char:该类型有一些特殊属性，常用来表示字符，而不是数字</li>
+<li>short</li>
+<li>int</li>
+<li>long</li>
+<li>long long</li>
+</ul>
+<p>计算机内存由一些叫做位（bit）的单元组成。C++中short、int、long和long long类型都是通过使用不同数目的位来存储值。</p>
+<p>在不同的系统中，每种的类型的宽度都不一样，C++提供了一种灵活的标准，确保了最小长度（从C语言借鉴而来），如下：</p>
+<ul>
+<li>short至少16位</li>
+<li>int至少与short一样长</li>
+<li>long至少32位，且至少与int一样长</li>
+<li>long long至少64位，且至少与long一样长</li>
+</ul>
+<p><strong>位与字节</strong></p>
 
       
     </div>
@@ -376,13 +378,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-28, 22:23:14</p>
-        <p><span>最后更新:</span>2018-08-28, 22:17:34</p>
+        <p><span>发布时间:</span>2018-08-31, 14:33:14</p>
+        <p><span>最后更新:</span>2018-09-01, 15:55:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/28/Linux不同版本以及程序包安装/" title="Linux不同版本以及程序包安装">https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/31/C++ Primer Plus 数据处理/" title="C++ Primer Plus--数据处理（三）">https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -395,15 +397,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/29/简单的文本处理/">
-                    简单的文本处理
+                <a href="/2018/08/31/开始学习C++/">
+                    C++ Primer Plus--开始学习（二）
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/28/命令执行顺序控制与管道/">
-                    命令执行顺序控制与管道
+                <a href="/2018/08/29/网络与信息安全研究方向/">
+                    网络与信息安全研究方向
                 </a>
             </div>
         
@@ -476,7 +478,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux系统版本"><span class="toc-number">1.</span> <span class="toc-text">Linux系统版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序包安装"><span class="toc-number">2.</span> <span class="toc-text">程序包安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RedHat系列"><span class="toc-number">2.1.</span> <span class="toc-text">RedHat系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debian系列"><span class="toc-number">2.2.</span> <span class="toc-text">Debian系列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yum安装命令"><span class="toc-number">3.</span> <span class="toc-text">yum安装命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt安装命令"><span class="toc-number">4.</span> <span class="toc-text">apt安装命令</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单变量"><span class="toc-number">1.</span> <span class="toc-text">简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量名"><span class="toc-number">1.1.</span> <span class="toc-text">变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">1.2.</span> <span class="toc-text">整型</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -512,7 +514,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux不同版本以及程序包安装　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--数据处理（三）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -532,7 +534,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/29/简单的文本处理/" title="上一篇: 简单的文本处理">
+            <a href="/2018/08/31/开始学习C++/" title="上一篇: C++ Primer Plus--开始学习（二）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -540,7 +542,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/28/命令执行顺序控制与管道/" title="下一篇: 命令执行顺序控制与管道">
+            <a href="/2018/08/29/网络与信息安全研究方向/" title="下一篇: 网络与信息安全研究方向">
                 <i class="fa fa-angle-right"></i>
             </a>
         

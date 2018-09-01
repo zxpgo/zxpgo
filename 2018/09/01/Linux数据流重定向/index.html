@@ -15,18 +15,32 @@
 
 
 
-<meta name="description" content="Linux版本介绍，以及程序包安装命令介绍">
+<meta name="description" content="你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux不同版本以及程序包安装">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/index.html">
+<meta property="og:title" content="Linux数据流重定向">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/01/Linux数据流重定向/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="Linux版本介绍，以及程序包安装命令介绍">
+<meta property="og:description" content="你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T14:17:34.245Z">
+<meta property="og:image" content="https://i.imgur.com/llngSgM.png">
+<meta property="og:image" content="https://i.imgur.com/qXfT6xI.png">
+<meta property="og:image" content="https://i.imgur.com/z7peKkU.png">
+<meta property="og:image" content="https://i.imgur.com/pSNOE2h.png">
+<meta property="og:image" content="https://i.imgur.com/7aDwgCP.png">
+<meta property="og:image" content="https://i.imgur.com/62lQw3N.png">
+<meta property="og:image" content="https://i.imgur.com/gNJmXCQ.png">
+<meta property="og:image" content="https://i.imgur.com/UxYABqL.png">
+<meta property="og:image" content="https://i.imgur.com/ewhmvXI.png">
+<meta property="og:image" content="https://i.imgur.com/AjSlCTY.png">
+<meta property="og:image" content="https://i.imgur.com/6ylRo5r.png">
+<meta property="og:image" content="https://i.imgur.com/LVQ1iRr.png">
+<meta property="og:image" content="https://i.imgur.com/NXaTkqH.png">
+<meta property="og:updated_time" content="2018-09-01T13:05:43.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux不同版本以及程序包安装">
-<meta name="twitter:description" content="Linux版本介绍，以及程序包安装命令介绍">
+<meta name="twitter:title" content="Linux数据流重定向">
+<meta name="twitter:description" content="你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。">
+<meta name="twitter:image" content="https://i.imgur.com/llngSgM.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +72,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux不同版本以及程序包安装 | 平步青云win</title>
+<title>Linux数据流重定向 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +301,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Linux不同版本以及程序包安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linux数据流重定向" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/28/Linux不同版本以及程序包安装/" class="article-date">
-      <time datetime="2018-08-28T14:23:14.000Z" itemprop="datePublished">2018-08-28</time>
+      <a href="/2018/09/01/Linux数据流重定向/" class="article-date">
+      <time datetime="2018-09-01T07:57:50.000Z" itemprop="datePublished">2018-09-01</time>
 </a>
 
 
@@ -306,7 +320,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux不同版本以及程序包安装
+      Linux数据流重定向
     </h1>
   
 
@@ -337,37 +351,112 @@
 	
       
           
-        <p>Linux版本介绍，以及程序包安装命令介绍<a id="more"></a></p>
-<h2 id="Linux系统版本"><a href="#Linux系统版本" class="headerlink" title="Linux系统版本"></a>Linux系统版本</h2><ul>
-<li>RedHat(红帽)系列： Redhat、Centos、Fedora等</li>
-<li>Debian(得比恩)系列： Debian、Ubuantu等</li>
-</ul>
-<h2 id="程序包安装"><a href="#程序包安装" class="headerlink" title="程序包安装"></a>程序包安装</h2><h3 id="RedHat系列"><a href="#RedHat系列" class="headerlink" title="RedHat系列"></a>RedHat系列</h3><ul>
-<li>常见的安装包格式rpm包，安装rpm包的命令是”rpm -参数”</li>
-<li>包管理工具yum</li>
-<li>支持tar包</li>
-</ul>
-<h3 id="Debian系列"><a href="#Debian系列" class="headerlink" title="Debian系列"></a>Debian系列</h3><ul>
-<li>常见的安装包格式deb包，安装deb包的命令是”dpkg -参数”</li>
-<li>包管理工具apt-get</li>
-<li>支持tar包</li>
-</ul>
-<p>tar 只是一种压缩文件格式，所以，它只是把文件压缩打包而已。</p>
-<p>rpm 相当于windows中的安装文件，它会自动处理软件包之间的依赖关系。优缺点来说，rpm一般都是预先编译好的文件，它可能已经绑定到某种CPU或者发行版上面了。</p>
-<h2 id="yum安装命令"><a href="#yum安装命令" class="headerlink" title="yum安装命令"></a>yum安装命令</h2><p>YUM（Yellow dog Updater, Modified ）是Yellow Dog Linux开发的。 Yellow Dog Linux原本是一套完全源于Red Hat但运作于先前使用IBM PPC平台的MAC机器，原本以为这个版本已经消失，没想到最新消息是他们推出了在Sony PS3上面运作的版本。 CentOS及Fedora的基本预设安装中即将YUM列入其内。 </p>
-<p>使用方法：</p>
-<ul>
-<li>编辑/etc/yum.conf档案详细设定请参考： <a href="http://linux.vbird.org/linux_server/0450apt.php" target="_blank" rel="noopener">简易APT/YUM伺服器设定</a></li>
-<li>基本指令： （如果yum在工作过程中需要使用者回应，可加上-y参数直接回答yes ）</li>
-</ul>
-<p>| yum install softwarename1 [softwarename2…..] | 安装套件 |<br>| yum update [softwarename 1 softwarename2…] | 更新套件，不指定套件名则更新所有可更新的套件 |<br>| yum list | 列出目前在yum server 上面有的套件 |<br>| yum info | 类似rpm -qi |<br>| yum clean | 移除下载到本机的packages 或headers |<br>| yum remove softwarename1 [softwarename2…..]    | 移除已经安装的套件 | </p>
-<p>注1：Red Hat近年来致力于将一个设定档切割成很多小设定档。 以yum.conf为例，Red Hat将其分割成xxx.repo档放置在/etc/yum.repos.d这个目录下。 并在yum.conf档里增加一行注解： PUT YOUR REPOS HERE OR IN separate files named file.repo in /etc/yum.repos.d。 个人可视喜好决定。</p>
-<h2 id="apt安装命令"><a href="#apt安装命令" class="headerlink" title="apt安装命令"></a>apt安装命令</h2><p>Debian开发，目前也有porting到其他版本，要在Red Hat系的Fedora或CentOS使用也是可以的。</p>
-<p>使用方法：</p>
-<p>编辑/etc/apt/sources.list ，设定所选用的版本，如stable，testing，unstable及套件来源站台或装置。 档案详细设定请参考： 了解Debian系统的哲学</p>
-<p>基本指令：</p>
-<p>| apt-setup    | 设定/etc/apt/souces.list |<br>| apt-get update    | 软体资料库同步 |<br>| apt-get install softwarename1 [softwarename2…..]    | 安装软体 |<br>| apt-get remove softwarename 1 [softwarename 2…]    |  移除软体(保留设定档） |<br>| apt-get –purge remove softwarename 1 [softwarename 2…]    |  移除软体(不保留设定档） |<br>| apt-cache search softwarename    | 列出所有sofrwarename的套件 |<br>| apt-upgrade [softwarename 1 softwarename2…]    |  更新套件，不指定套件名则更新所有可更新的套件 |<br>| apt-get clean(autoclean)    | 删除系统暂存的deb(autoclean只会将比目前系统旧版的套件删除) |<br>| apt-get dist-upgrade    |  转换系统的版本（需在/etc/apt/sources.list指定stable，testing或unstable） | </p>
-<p>转自：<a href="https://www.cnblogs.com/zhangfeionline/p/5893748.html" target="_blank" rel="noopener">张飞在线</a></p>
+        <p>你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&gt;或&gt;&gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。<a id="more"></a></p>
+<p>常用重定向操作：</p>
+<pre><code>echo &apos;hello shiyanlou&apos; &gt; redirect 
+echo &apos;www.shiyanlou.com&apos; &gt;&gt; redirect
+cat redirect
+</code></pre><p><img src="https://i.imgur.com/llngSgM.png" alt=""></p>
+<h2 id="简单的重定向"><a href="#简单的重定向" class="headerlink" title="简单的重定向"></a>简单的重定向</h2><p>Linux 默认提供了三个特殊设备，用于终端的显示和输出，分别为stdin（标准输入,对应于你在终端的输入），stdout（标准输出，对应于终端的输出），stderr（标准错误输出，对应于终端的输出）。</p>
+<table>
+<thead>
+<tr>
+<th>文件描述符</th>
+<th>设备文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>/dev/stdin</td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>1</td>
+<td>/dev/stdout</td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td>2</td>
+<td>/dev/stderr</td>
+<td>标准错误</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>文件描述符：文件描述符在形式上是一个非负整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于 UNIX、Linux 这样的操作系统。 </p>
+</blockquote>
+<p>将cat的连续输出（heredoc方式）重定向到一个文件：</p>
+<pre><code>cat &gt; test.cpp &lt;&lt; EOF
+</code></pre><p>输入需要存入test.cpp文件的内容，输入EOF结束</p>
+<p><img src="https://i.imgur.com/qXfT6xI.png" alt=""></p>
+<p>将一个文件作为命令的输入，标准输出作为命令的输出：</p>
+<pre><code>cat test.cpp
+</code></pre><p><img src="https://i.imgur.com/z7peKkU.png" alt=""></p>
+<p>将echo命令通过管道传过来的数据作为cat命令的输入，将标准输出作为命令的输出：</p>
+<pre><code>echo &apos;hi&apos; | cat
+</code></pre><p><img src="https://i.imgur.com/pSNOE2h.png" alt=""></p>
+<p>将echo命令的输出从默认的标准输出重定向到一个普通文件：</p>
+<pre><code>echo &quot;hello world&quot; &gt; redirect
+cat redirect
+</code></pre><p><img src="https://i.imgur.com/7aDwgCP.png" alt=""></p>
+<h2 id="标准错误重定向"><a href="#标准错误重定向" class="headerlink" title="标准错误重定向"></a>标准错误重定向</h2><p>重定向标准输出到文件，这是一个很实用的操作，另一个很实用的操作是将标准错误重定向，标准输出和标准错误都被指向伪终端的屏幕显示，所以我们经常看到的一个命令的输出通常是同时包含了标准输出和标准错误的结果的。比如下面的操作：</p>
+<pre><code>#使用cat同时读取两个文件，其中一个存在，一个不存在
+cat test.c hello.c
+#可以看到上述命令，输出第一个文件的内容，还在末尾处出现了一条错误信息
+#下面将输出重定向到一个文件
+cat test.cpp hello.cpp &gt; somefile
+</code></pre><p><img src="https://i.imgur.com/62lQw3N.png" alt=""></p>
+<p>遗憾的是，这里依然出现了那条错误信息，这正是因为如我上面说的那样，标准输出和标准错误虽然都指向终端屏幕，实际它们并不一样。那有的时候我们就是要隐藏某些错误或者警告，那又该怎么做呢。这就需要用到我们前面讲的文件描述符了：</p>
+<pre><code>#将标准错误重定向到标准输出(2&gt;&amp;1)，再将标准输出重定向到文件，注意要将重定向文件写到前面,2表示标准错误，1表示标准输出，
+cat test.cpp hello.cpp &gt; somefile 2&gt;&amp;1
+#或者只用bash提供的特殊的重定向符号`&amp;`将标准错误和标准输出同时重定向到文件
+cat test.cpp hello.cpp &amp;&gt;somefilehell
+</code></pre><p><strong>注意</strong>你应该在输出重定向文件描述符前加上&amp;,否则shell会当做重定向到一个文件名为1的文件中</p>
+<p><img src="https://i.imgur.com/gNJmXCQ.png" alt=""></p>
+<h2 id="使用tee命令同时重定向到多个文件"><a href="#使用tee命令同时重定向到多个文件" class="headerlink" title="使用tee命令同时重定向到多个文件"></a>使用tee命令同时重定向到多个文件</h2><p>除了需要将输出重定向到文件,也需要将信息打印在终端。那么你可以使用tee命令来实现：</p>
+<pre><code>echo &quot;hello world;&quot; | tee hello
+</code></pre><p><img src="https://i.imgur.com/UxYABqL.png" alt=""></p>
+<h2 id="永久重定向"><a href="#永久重定向" class="headerlink" title="永久重定向"></a>永久重定向</h2><p>前面的重定向操作都只是临时性的，即对当前命令有效，如何做到重定向对所有命令都有效呢？比如在一个脚本中，仅需要某一部分的命令全部进行重定向，难道要在每个命令上面加上临时重定向的操作吗？当然不需要，可以使用<code>exec</code>命令实现“永久”重定向。<code>exec</code>命令的作用是使用指定的命令替换当前的shell，即使用一个进程替换当前进程，或者指定新的重定向。</p>
+<pre><code>#先开启一个子shell
+zsh
+#使用exec替换当前进程的重定向，将标准输出重定向到一个文件
+exec 1&gt;somefile
+#下面执行的命令的输出都将重定向到文件中，直到你退出当前shell，或取消exec的重定向
+ls
+ll
+exit
+cat somefile
+</code></pre><p><img src="https://i.imgur.com/ewhmvXI.png" alt=""></p>
+<h2 id="创建输出文件描述符"><a href="#创建输出文件描述符" class="headerlink" title="创建输出文件描述符"></a>创建输出文件描述符</h2><p>在shell中有9个文件描述符，前面介绍和使用了默认提供的0、1、2文件描述符。另外还可以使用3-8的文件描述符，只是它们默认没有打开而已。</p>
+<p>使用如下命令查看当前shell进程中打开的文件描述符：</p>
+<pre><code>cd /dev/fd/; ls -Al
+</code></pre><p><img src="https://i.imgur.com/AjSlCTY.png" alt=""></p>
+<p>同样，可以使用<code>exec</code>命令创建新的文件描述符：</p>
+<pre><code>zsh
+exec 3&gt;somefile
+#先进入目录，在查看，否则可能不能得到正确的结果，然后再回到上一次的目录
+cd /dev/fd/;ls -Al; cd -
+#注意下面的命令&gt;和&amp;之间不应该有空格，如果有空格则会报错
+echo &quot;this a test&quot; &gt;&amp;3
+cat somefile
+exit
+</code></pre><p><img src="https://i.imgur.com/6ylRo5r.png" alt=""></p>
+<h2 id="关闭文件描述符"><a href="#关闭文件描述符" class="headerlink" title="关闭文件描述符"></a>关闭文件描述符</h2><p>上面打开了3号文件描述符，可以使用如下操作将其关闭：</p>
+<pre><code>exec 3&gt;&amp;-
+cd /dev/fd;ls -Al;cd -
+</code></pre><p><img src="https://i.imgur.com/LVQ1iRr.png" alt=""></p>
+<h2 id="完全屏蔽命令的输出"><a href="#完全屏蔽命令的输出" class="headerlink" title="完全屏蔽命令的输出"></a>完全屏蔽命令的输出</h2><p>在Linux中有一个被称为“黑洞”的设备文件，所以导入它的数据都将被“吞噬”。</p>
+<p>在类 UNIX 系统中，/dev/null，或称空设备，是一个特殊的设备文件，它通常被用于丢弃不需要的输出流，或作为用于输入流的空文件，这些操作通常由重定向完成。读取它则会立即得到一个EOF。</p>
+<p>可以实利用<code>/dev/null</code>屏蔽命令的输出：</p>
+<pre><code>cat test.cpp hello.cpp 1&gt;/dev/null 2&gt;&amp;1
+</code></pre><p>上面这样的操作将使你得不到任何输出结果。</p>
+<h2 id="使用xargs分割参数列表"><a href="#使用xargs分割参数列表" class="headerlink" title="使用xargs分割参数列表"></a>使用xargs分割参数列表</h2><p>xargs 是一条 UNIX 和类 UNIX 操作系统的常用命令。它的作用是将参数列表转换成小块分段传递给其他命令，以避免参数列表过长的问题</p>
+<p>这个命令在有些时候十分有用，特别是当用来处理产生大量输出结果的命令如 find，locate 和 grep 的结果，详细用法请参看 man 文档。</p>
+<pre><code>cut -d: -f1 &lt; /etc/passwd | sprt | xargs echo
+</code></pre><p>上面这个命令用于将/etc/passwd文件按:分割取第一个字段排序后，使用echo命令生成一个列表。</p>
+<p><img src="https://i.imgur.com/NXaTkqH.png" alt=""></p>
 
       
     </div>
@@ -376,13 +465,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-28, 22:23:14</p>
-        <p><span>最后更新:</span>2018-08-28, 22:17:34</p>
+        <p><span>发布时间:</span>2018-09-01, 15:57:50</p>
+        <p><span>最后更新:</span>2018-09-01, 21:05:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/28/Linux不同版本以及程序包安装/" title="Linux不同版本以及程序包安装">https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/01/Linux数据流重定向/" title="Linux数据流重定向">https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/01/Linux数据流重定向/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -395,15 +484,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/29/简单的文本处理/">
-                    简单的文本处理
+                <a href="/2019/08/22/Python实现8种排序算法/">
+                    Python实现：8种排序算法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/28/命令执行顺序控制与管道/">
-                    命令执行顺序控制与管道
+                <a href="/2018/08/31/开始学习C++/">
+                    C++ Primer Plus--开始学习（二）
                 </a>
             </div>
         
@@ -476,7 +565,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux系统版本"><span class="toc-number">1.</span> <span class="toc-text">Linux系统版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序包安装"><span class="toc-number">2.</span> <span class="toc-text">程序包安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RedHat系列"><span class="toc-number">2.1.</span> <span class="toc-text">RedHat系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debian系列"><span class="toc-number">2.2.</span> <span class="toc-text">Debian系列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yum安装命令"><span class="toc-number">3.</span> <span class="toc-text">yum安装命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt安装命令"><span class="toc-number">4.</span> <span class="toc-text">apt安装命令</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的重定向"><span class="toc-number">1.</span> <span class="toc-text">简单的重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准错误重定向"><span class="toc-number">2.</span> <span class="toc-text">标准错误重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用tee命令同时重定向到多个文件"><span class="toc-number">3.</span> <span class="toc-text">使用tee命令同时重定向到多个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#永久重定向"><span class="toc-number">4.</span> <span class="toc-text">永久重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建输出文件描述符"><span class="toc-number">5.</span> <span class="toc-text">创建输出文件描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭文件描述符"><span class="toc-number">6.</span> <span class="toc-text">关闭文件描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完全屏蔽命令的输出"><span class="toc-number">7.</span> <span class="toc-text">完全屏蔽命令的输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用xargs分割参数列表"><span class="toc-number">8.</span> <span class="toc-text">使用xargs分割参数列表</span></a></li></ol>
         
     </div>
     <style>
@@ -512,7 +601,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux不同版本以及程序包安装　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux数据流重定向　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -532,7 +621,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/29/简单的文本处理/" title="上一篇: 简单的文本处理">
+            <a href="/2019/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -540,7 +629,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/28/命令执行顺序控制与管道/" title="下一篇: 命令执行顺序控制与管道">
+            <a href="/2018/08/31/开始学习C++/" title="下一篇: C++ Primer Plus--开始学习（二）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
