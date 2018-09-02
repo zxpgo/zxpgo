@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="zxp" />
+
+
+
+<meta name="description" content="介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。">
+<meta name="keywords" content="Linux,正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式基础">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/01/正则表达式基础/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/lxmDrMs.png">
+<meta property="og:image" content="https://i.imgur.com/0yauqRa.png">
+<meta property="og:image" content="https://i.imgur.com/AFrutHC.png">
+<meta property="og:image" content="https://i.imgur.com/XPbf0jn.png">
+<meta property="og:image" content="https://i.imgur.com/i3jDsyH.png">
+<meta property="og:image" content="https://i.imgur.com/oqIBw5Z.png">
+<meta property="og:image" content="https://i.imgur.com/rsEeFmm.png">
+<meta property="og:image" content="https://i.imgur.com/wp4CVrc.png">
+<meta property="og:image" content="https://i.imgur.com/BQNSaoo.png">
+<meta property="og:image" content="https://i.imgur.com/sBRTNbn.png">
+<meta property="og:image" content="https://i.imgur.com/3DVhZlj.png">
+<meta property="og:image" content="https://i.imgur.com/ZwgDOrO.png">
+<meta property="og:image" content="https://i.imgur.com/crQqo4i.png">
+<meta property="og:image" content="https://i.imgur.com/sdHzSiw.png">
+<meta property="og:updated_time" content="2018-09-02T08:33:18.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式基础">
+<meta name="twitter:description" content="介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。">
+<meta name="twitter:image" content="https://i.imgur.com/lxmDrMs.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>正则表达式基础 | 平步青云win</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">zxp</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
+                            
+                                <a class="fa LinkedIn" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://blog.csdn.net/qq_25774883">CSDN</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于编程语言、建站和Linux</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">zxp</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">zxp</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-正则表达式基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/01/正则表达式基础/" class="article-date">
+      <time datetime="2018-09-01T07:57:50.000Z" itemprop="datePublished">2018-09-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式基础
+    </h1>
+  
+
+      </header>
+	  
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/正则表达式/">正则表达式</a></li></ul>
+    </div>
+
+		<span id="busuanzi_container_page_pv_top" style ="display:block">
+  |阅读量(<span id="busuanzi_value_page_pv"></span>)
+</span>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <p>介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。<a id="more"></a></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>正则表达式，又被正规表示式、正规表示法、针对表达式、规格表达式、常规表达法（Regular Expression,或regex、regexp、RE）。正则表达式使用单个字符来描述、匹配一系列符合某个句法规则的字符串。在很多编辑器里，正则表达式通常用来检索、替换那些符合某个模式的文本。</p>
+<p>注意区分正则表达式与通配符的差别。</p>
+<ul>
+<li>在文本过滤工具里，都是用正则表达式，比如像awk，sed，等，是针对文件的内容的</li>
+<li>而通配符多用在文件名上，比如查找find，ls，cp，等等</li>
+</ul>
+<p>具体内容对比，可以参考：<a href="https://blog.csdn.net/zgqxiexie/article/details/51184602" target="_blank" rel="noopener">https://blog.csdn.net/zgqxiexie/article/details/51184602</a></p>
+<p>例子：</p>
+<p>一个文件中，包含“shiyanlou”和“shilouyan”这两个字符，同样一个表达式：</p>
+<pre><code>shi*
+</code></pre><p>如果上述表达式作为正则表达式，它将只能匹配shi；而如果不是正则表达式，而是作为一个通配符，则将同时匹配两个字符串。</p>
+<p>原因：在正则表达式中，<code>*</code>表示匹配前面的子表达式零次或多次，比如它可以匹配”sh”,”shi”,”shii”,”shishi”等等，而作为通配符<code>*</code>表示匹配通配符后面任意多个字符，所以可以匹配文本中的字符串。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>一个正则表达式通常被称为一个模式（pattern），为用来描述或者匹配一系列符合某个句法规则的字符串。</p>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><p><code>|</code>表示分割，比如： <code>boy | gril</code>可以匹配“boy”或者“girl”</p>
+<h3 id="数量限定"><a href="#数量限定" class="headerlink" title="数量限定"></a>数量限定</h3><p>数量限定出了上面讲过的<code>*</code>，还有<code>+</code>和<code>?</code>,如果在一个模式中不加数量限定符则表示出现一次且仅出现一次：</p>
+<ul>
+<li><code>+</code>表示前面的字符必须出现至少一次（一次或多次），例如，”goo+gle”可以匹配‘goooogle’,’gooooogle’等；</li>
+<li><code>?</code>表示前面的字符最多出现一次（零次或一次），例如，“colou?r”可以匹配‘colour’和‘color’；</li>
+<li><code>*</code>表示前面的字符可以不出现，也出现一次或者多次，例如，‘0*42’可以匹配42，042，0042，00042等等。</li>
+</ul>
+<h3 id="范围和优先级"><a href="#范围和优先级" class="headerlink" title="范围和优先级"></a>范围和优先级</h3><p><code>()</code>圆括号可以用来定义模式字符串的范围和优先级，可以简单的理解位是否将括号内的模式串作为一个整体。例如，”gr(a|r)y”等价于gray|grey；”(grand)?father”匹配father和grandfather。</p>
+<h3 id="语法部分"><a href="#语法部分" class="headerlink" title="语法部分"></a>语法部分</h3><p>正则表达式有多种不同的风格，下面举例一下常用的作为PCRE子集的适合于<code>perl</code>和<code>python</code>编程语言及<code>grep</code>或<code>egrep</code>的正则表达式匹配规则。</p>
+<blockquote>
+<p>PCRE（Perl Compatible Regular Expressions中文含义：perl语言兼容正则表达式）是一个用 C 语言编写的正则表达式函数库，由菲利普.海泽(Philip Hazel)编写。PCRE是一个轻量级的函数库，比Boost 之类的正则表达式库小得多。PCRE 十分易用，同时功能也很强大，性能超过了 POSIX 正则表达式库和一些经典的正则表达式库。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>建一个字符标记为一个特殊字符，或一个原义字符，比如，”n”匹配字符“n”, “/n”匹配一个换行符，序列”\“匹配”\”而“(”匹配”(“。</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配输入字符串的开始位置</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配输入字符串的结束位置</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n是一个非负整数，匹配确定的n次，例如：”o{2}”不能匹配“Bob”种的“o”,但是能匹配“book”种的两个”o”</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>n是一个非负整数，至少匹配n次，例如：“o{2,}“不能匹配‘bob’，但可以匹配”foooood“种的所有‘o’, <code>&quot;o{1,}&quot;等价于”o+“,&quot;o{0,}&quot;等价于”o*“</code></td>
+</tr>
+<tr>
+<td>{n,m }</td>
+<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次，比如“o{1，3}”将匹配“fooooodv”种的前三个o</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式零次或多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式一次或多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前面的子表达式零次或一次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>当该字符紧跟在任何一个其他限制符（*,+,?，{n}，{n,}，{n,m}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“oooo”，“o+?”将匹配单个“o”，而“o+”将匹配所有“o”。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除了”\n“之外的任何单个字符，要匹配包括“\n”在内的任何字符，请使用像“(.｜\n)”的模式。</td>
+</tr>
+<tr>
+<td>（pattern）</td>
+<td>匹配pattern并获取这一匹配的子字符串。该子字符串用户向后引用。要匹配圆括号字符，请使用“(”或“)”。</td>
+</tr>
+<tr>
+<td>x竖线y</td>
+<td>匹配x或y。 例如”z竖线food“能匹配”z“或”food”.”(z竖线f)oood”则匹配”zood“或”food“。</td>
+</tr>
+<tr>
+<td>[xyz]</td>
+<td>字符集合（character class）。匹配所包含的任意一个字符。例如，”[abc]“可以匹配”plain“中的”a”。其中特殊字符仅有反斜线\保持特殊含义，用于转义字符。其它特殊字符如星号、加号、各种括号等均作为普通字符。脱字符^如果出现在首位则表示负值字符集合；如果出现在字符串中间就仅作为普通字符。连字符 - 如果出现在字符串中间表示字符范围描述；如果如果出现在首位则仅作为普通字符。</td>
+</tr>
+<tr>
+<td>[^xyz]</td>
+<td>排除型（negate）字符集合。匹配未列出的任意字符。例如，“[^abc]”可以匹配“plain”中的“plin”。</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：由于markdown的语法问题，表格中的竖线无法显示，会被编译成表格的一列，所以在表格中使用竖线（’|‘）的地方，写成了中文的“竖线”</p>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>优先级为从上到下从左到右，依次降低：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>转义符</td>
+</tr>
+<tr>
+<td>(), (?:), (?=), []</td>
+<td>括号和中括号</td>
+</tr>
+<tr>
+<td>*、+、?、{n}、{n,}、{n,m}</td>
+<td>限定符</td>
+</tr>
+<tr>
+<td>^、$、\任何元字符</td>
+<td>定位点和序列</td>
+</tr>
+<tr>
+<td><code>｜</code></td>
+<td>选择</td>
+</tr>
+</tbody>
+</table>
+<h2 id="grep模式匹配命令"><a href="#grep模式匹配命令" class="headerlink" title="grep模式匹配命令"></a>grep模式匹配命令</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>grep</code>命令用户打印输出文本中匹配的模式串，它使用正则表达式作为模式匹配的条件。<code>grep</code>支持三种正则表达式引擎，分别用三个参数指定：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-E</td>
+<td>POSIX扩展正则表达式，ERE</td>
+</tr>
+<tr>
+<td>-G</td>
+<td>POSIX基本正则表达式，BRE</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>Perl正则表达式，PCRE</td>
+</tr>
+</tbody>
+</table>
+<p>在通过<code>grep</code>命令使用正则表达式之前，先介绍一下它的常用参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>将二进制文件作为文本来进行匹配</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>统计以模式匹配的数目</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示匹配文本所在行的行号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>反选，输出不匹配行的内容</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归匹配查找</td>
+</tr>
+<tr>
+<td>-A n</td>
+<td>n为正整数，表示after的意思，除了列出匹配行之外，还列出后面的n行</td>
+</tr>
+<tr>
+<td>-B n</td>
+<td>n为正整数，表示before的意思，除了列出匹配行之外，还列出前面的n行</td>
+</tr>
+<tr>
+<td>–color=auto</td>
+<td>将输出中的匹配项设置为自动颜色显示</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.imgur.com/lxmDrMs.png" alt=""></p>
+<h3 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h3><h4 id="使用基本正则表达式：BRE"><a href="#使用基本正则表达式：BRE" class="headerlink" title="使用基本正则表达式：BRE"></a>使用基本正则表达式：BRE</h4><ul>
+<li>位置</li>
+</ul>
+<p>查找<code>/etc/group</code>文件中以”shiyanlou“为开头的行</p>
+<pre><code>grep &apos;shiyanlou&apos; /etc/group
+grep &apos;^shiyanlou&apos; /etc/group
+</code></pre><p><img src="https://i.imgur.com/0yauqRa.png" alt=""></p>
+<ul>
+<li>数量</li>
+</ul>
+<pre><code>#匹配以‘z’开头以‘o’结尾的所有字符串
+echo &apos;zero\nzo\nzoo&apos; |  grep &apos;z.*o&apos;
+#匹配以‘z’开头以‘o’结尾，中间包含一个任意字符的字符串
+echo &apos;zero\nzo\nzoo&apos; | grep &apos;z.o&apos;
+#匹配以‘z’开头，以任意多个‘o’结尾的字符串
+echo &apos;zero\nzo\nzoo&apos; | grep &apos;zo*&apos;
+</code></pre><p><img src="https://i.imgur.com/AFrutHC.png" alt=""></p>
+<ul>
+<li>选择</li>
+</ul>
+<pre><code>#grep默认区分大小写，这里将匹配所有的小写字母
+echo &apos;1234\nabcd&apos; | greap &apos;[a-z]&apos;
+#将匹配所有的数字
+echo &apos;1234\nabcd&apos; | greap &apos;[0-9]&apos;
+#匹配所有数字
+echo &apos;1234\nabcd&apos; | greap &apos;[[:digit]]&apos;
+#匹配所有小写字母
+echo &apos;1234\nabcd&apos; | greap &apos;[[:lower:]]&apos;
+#匹配所有大写字母
+echo &apos;1234\nabcd\nABCD&apos; | greap &apos;[[:upper:]]&apos;
+#匹配所有的数字和字母，包括：0-9，a-z,A-Z
+echo &apos;1234\nabcd\nABCD&apos; | greap &apos;[[:alnum:]]&apos;
+#匹配所有的字母
+echo &apos;1234\nabcd\nABCD&apos; | greap &apos;[[:alpha:]]&apos;
+</code></pre><p><img src="https://i.imgur.com/XPbf0jn.png" alt=""></p>
+<p>下面包含完整的特殊符号及说明：</p>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td>代表英文大小写字母及数字，亦即 0-9, A-Z, a-z</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>代表任何英文大小写字母，亦即 A-Z, a-z</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>代表空白键与 [Tab] 按键两者</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>代表键盘上面的控制按键，亦即包括 CR, LF, Tab, Del.. 等等</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>代表数字而已，亦即 0-9</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>除了空白字节 (空白键与 [Tab] 按键) 外的其他所有按键</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>代表小写字母，亦即 a-z</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>代表任何可以被列印出来的字符</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>代表标点符号 (punctuation symbol)，亦即：” ‘ ? ! ; : # $…</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>代表大写字母，亦即 A-Z</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>任何会产生空白的字符，包括空白键, [Tab], CR 等等</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>代表 16 进位的数字类型，因此包括： 0-9, A-F, a-f 的数字与字节</td>
+</tr>
+</tbody>
+</table>
+<pre><code># 排除字符
+echo &apos;geek\ngood&apos; | grep &apos;[^o]&apos;
+</code></pre><p><img src="https://i.imgur.com/i3jDsyH.png" alt=""></p>
+<h3 id="使用扩展正则表达式"><a href="#使用扩展正则表达式" class="headerlink" title="使用扩展正则表达式"></a>使用扩展正则表达式</h3><p>要通过<code>grep</code>使用扩展正则表达式需要加上<code>-E</code>参数，或使用<code>egrep</code>。</p>
+<ul>
+<li>数量</li>
+</ul>
+<pre><code>#只匹配”zo“
+echo &apos;zero\nzo\nzoo&apos; | grep -E &apos;zo{1}&apos;
+#匹配以&apos;zo&apos;开头的所有单词
+echo &apos;zero\nzo\nzoo&apos; | grep -E &apos;zo{1,}&apos;
+</code></pre><p>注意：推荐掌握{n,m}即可，+,?,*，这几个不太直观，且容易弄混淆。</p>
+<p><img src="https://i.imgur.com/oqIBw5Z.png" alt=""></p>
+<ul>
+<li>选择</li>
+</ul>
+<pre><code># 匹配&quot;www.shiyanlou.com&quot;和&quot;www.google.com&quot;
+$ echo &apos;www.shiyanlou.com\nwww.baidu.com\nwww.google.com&apos; | grep -E &apos;www\.(shiyanlou|google)\.com&apos;
+# 或者匹配不包含&quot;baidu&quot;的内容
+$ echo &apos;www.shiyanlou.com\nwww.baidu.com\nwww.google.com&apos; | grep -Ev &apos;www\.baidu\.com&apos;
+</code></pre><p><img src="https://i.imgur.com/rsEeFmm.png" alt=""></p>
+<h2 id="sed流编辑器"><a href="#sed流编辑器" class="headerlink" title="sed流编辑器"></a>sed流编辑器</h2><p><code>sed</code>工具在 man 手册里面的全名为”sed - stream editor for filtering and transforming text “，意即，用于过滤和转换文本的流编辑器。</p>
+<p>在 Linux/UNIX 的世界里敢称为编辑器的工具，大都非等闲之辈，比如前面的”vi/vim(编辑器之神)”,”emacs(神的编辑器)”,”gedit”这些个编辑器。sed与上述的最大不同之处在于它是一个非交互式的编辑器。</p>
+<h3 id="sed常用参数介绍"><a href="#sed常用参数介绍" class="headerlink" title="sed常用参数介绍"></a>sed常用参数介绍</h3><p>sed命令基本格式</p>
+<pre><code>sed [参数] [执行命令] [输入文件] ...
+#形如
+sed -i &apos;s/ad/happy&apos; test #表示将test文件中的&quot;sad&quot;替换成happy
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>安静模式，只打印受影响的行，默认打印输入数据的全部内容</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>用于在脚本中添加多个执行命令一次执行，在命令行中多个命令通过需要加该参数</td>
+</tr>
+<tr>
+<td>-f filename</td>
+<td>指定执行filename文件中的命令</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>使用扩展正则表达式，默认为标准正则表达式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>直接修改输入文件内容，而不是打印到输出标准设备</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sed编译器的执行命令"><a href="#sed编译器的执行命令" class="headerlink" title="sed编译器的执行命令"></a>sed编译器的执行命令</h3><p>sed 执行格式：</p>
+<pre><code>[n1][,n2]command
+[n1][~step]command
+# 其中一些命令可以在后面加上作用范围，形如：
+$ sed -i &apos;s/sad/happy/g&apos; test # g表示全局范围
+$ sed -i &apos;s/sad/happy/4&apos; test # 4表示指定行中的第四个匹配字符串
+</code></pre><p>其中n1,n2表示输入内容的行号，它们之间为,逗号则表示从n1到n2行，如果为～波浪号则表示从n1开始以step为步进的所有行；command为执行动作，下面为一些常用动作指令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>行内替换</td>
+</tr>
+<tr>
+<td>c</td>
+<td>整行替换</td>
+</tr>
+<tr>
+<td>a</td>
+<td>插入到指定行的后面</td>
+</tr>
+<tr>
+<td>i</td>
+<td>插入到指定行的前面</td>
+</tr>
+<tr>
+<td>p</td>
+<td>打印指定行，通常与-n参数配合使用</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除指定行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sed操作举例"><a href="#sed操作举例" class="headerlink" title="sed操作举例"></a>sed操作举例</h3><h4 id="打印指定行"><a href="#打印指定行" class="headerlink" title="打印指定行"></a>打印指定行</h4><pre><code>#打印2-5行
+nl passwd | sed -n &apos;2,5p&apos;
+#打印奇数行
+nl passwd | sed -n &apos;1~2p&apos;
+</code></pre><p><img src="https://i.imgur.com/wp4CVrc.png" alt=""></p>
+<p>注意：nl 可以将输出的文件内容自动的加上行号</p>
+<h4 id="行内替换"><a href="#行内替换" class="headerlink" title="行内替换"></a>行内替换</h4><pre><code>#文本中”shiyanlou“全局替换成’hehe‘，并纸打印替换的那一行，注意这里不能省略最后的”p“命令
+sed -n &apos;s/shiyanlou/hehe/gp&apos; passwd
+</code></pre><p>注意： 行内替换可以结合正则表达式使用。</p>
+<p><img src="https://i.imgur.com/BQNSaoo.png" alt=""></p>
+<h4 id="行间替换"><a href="#行间替换" class="headerlink" title="行间替换"></a>行间替换</h4><pre><code>nl passwd | grep &apos;shiyanlou&apos;
+#删除第21行
+sed -n &apos;21c\www.shiyanlou.com&apos; passwd
+（这里我们只把要删的行打印出来了，并没有真正的删除，如果要删除的话，请使用-i参数）
+</code></pre><p><img src="https://i.imgur.com/sBRTNbn.png" alt=""></p>
+<h2 id="awk文本处理语言"><a href="#awk文本处理语言" class="headerlink" title="awk文本处理语言"></a>awk文本处理语言</h2><p>AWK是一种优良的文本处理工具，Linux及Unix环境中现有的功能最强大的数据处理引擎之一.其名称得自于它的创始人Alfred Aho（阿尔佛雷德·艾侯）、Peter Jay Weinberger（彼得·温伯格）和Brian Wilson Kernighan（布莱恩·柯林汉)姓氏的首个字母.AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。最简单地说，AWK是一种用于处理文本的编程语言工具。</p>
+<p>在大多数linux发行版上面，实际我们使用的是gawk（GNU awk，awk的GNU版本）。</p>
+<p>nawk： 在 20 世纪 80 年代中期，对 awk语言进行了更新，并不同程度地使用一种称为 nawk(new awk) 的增强版本对其进行了替换。许多系统中仍然存在着旧的awk 解释器，但通常将其安装为 oawk (old awk) 命令，而 nawk 解释器则安装为主要的 awk 命令，也可以使用 nawk 命令。Dr. Kernighan 仍然在对 nawk 进行维护，与 gawk 一样，它也是开放源代码的，并且可以免费获得; gawk： 是 GNU Project 的awk解释器的开放源代码实现。尽管早期的 GAWK 发行版是旧的 AWK 的替代程序，但不断地对其进行了更新，以包含 NAWK 的特性; mawk 也是awk编程语言的一种解释器，mawk遵循 POSIX 1003.2 （草案 11.3）定义的 AWK 语言，包含了一些没有在AWK 手册中提到的特色，同时 mawk 提供一小部分扩展,另外据说mawk是实现最快的awk。</p>
+<h3 id="awk的基础概念"><a href="#awk的基础概念" class="headerlink" title="awk的基础概念"></a>awk的基础概念</h3><p>awk所有的操作都是基于pattern（模式）—action(动作)对来完成的，如下面的形式：</p>
+<pre><code>pattern {action}
+</code></pre><p>它将所有的动作操作用一对{}花括号包围起来。其中pattern通常是表示用于匹配输入的文本的“关系式”或“正则表达式”，action则是表示匹配后将执行的动作。在一个完整awk操作中，这两者可以只有其中一个，如果没有pattern则默认匹配输入的全部文本，如果没有action则默认为打印匹配内容到屏幕。</p>
+<p>awk处理文本的方式，是将文本分割成一些“字段”，然后再对这些字段进行处理，默认情况下，awk以空格作为一个字段的分割符，不过这不是固定的，你可以任意指定分隔符。</p>
+<h4 id="awk命令基本格式"><a href="#awk命令基本格式" class="headerlink" title="awk命令基本格式"></a>awk命令基本格式</h4><pre><code>awk [-F fs] [-v var=value] [-f prog-file] | &apos;program text&apos;] [file...]
+</code></pre><p>其中<code>-F</code>参数用于预先指定前面提高的字段分隔符（还有其他指定字段的方式），<code>-v</code>用户预先为<code>awk</code>程序指定变量，<code>-f</code>参数用户指定<code>awk</code>命令要执行的程序文件，或者在不加’-f’参数的情况下直接间程序语句放在这里。最后为<code>awk</code>需要处理的文本输入，且可以同时输入多个文本文件。</p>
+<h3 id="awk操作体验"><a href="#awk操作体验" class="headerlink" title="awk操作体验"></a>awk操作体验</h3><pre><code>vim test
+#输入文本
+cat test
+</code></pre><h4 id="使用swk将文本打印到终端"><a href="#使用swk将文本打印到终端" class="headerlink" title="使用swk将文本打印到终端"></a>使用swk将文本打印到终端</h4><pre><code>awk &apos;{
+print
+}&apos; test
+#或者写成一行
+awk &apos;{print}&apos; test
+</code></pre><p>说明:在这个操作中我是省略了pattern，所以awk会默认匹配输入文本的全部内容，然后在”{}”花括号中执行动作，即print打印所有匹配项，这里是全部文本内容</p>
+<p><img src="https://i.imgur.com/3DVhZlj.png" alt=""></p>
+<h4 id="将test的第一行中的每个字段单独显示为一行"><a href="#将test的第一行中的每个字段单独显示为一行" class="headerlink" title="将test的第一行中的每个字段单独显示为一行"></a>将test的第一行中的每个字段单独显示为一行</h4><pre><code>$ awk &apos;{
+&gt; if(NR==1){
+&gt; print $1 &quot;\n&quot; $2 &quot;\n&quot; $3
+&gt; } else {
+&gt; print}
+&gt; }&apos; test
+
+# 或者
+$ awk &apos;{
+&gt; if(NR==1){
+&gt; OFS=&quot;\n&quot;
+&gt; print $1, $2, $3
+&gt; } else {
+&gt; print}
+&gt; }&apos; test
+</code></pre><p><img src="https://i.imgur.com/ZwgDOrO.png" alt=""></p>
+<p>说明:你首先应该注意的是，这里我使用了awk语言的分支选择语句if,它的使用和很多高级语言如C/C++语言基本一致，如果你有这些语言的基础，这里将很好理解。另一个你需要注意的是<code>NR</code>与<code>OFS</code>，这两个是awk内建的变量，<code>NR</code>表示当前读入的记录数，你可以简单的理解为当前处理的行数，<code>OFS</code>表示输出时的字段分隔符，默认为” “空格，如上图所见，我们将字段分隔符设置为<code>\n</code>换行符，所以第一行原本以空格为字段分隔的内容就分别输出到单独一行了。然后是<code>$N</code>其中N为相应的字段号，这也是awk的内建变量，它表示引用相应的字段，因为我们这里第一行只有三个字段，所以只引用到了<code>$3</code>。除此之外另一个这里没有出现的<code>$0</code>，它表示引用当前记录（当前行）的全部内容。</p>
+<h4 id="将test的第行以点为分段的字段换成以空格为风格"><a href="#将test的第行以点为分段的字段换成以空格为风格" class="headerlink" title="将test的第行以点为分段的字段换成以空格为风格"></a>将test的第行以点为分段的字段换成以空格为风格</h4><pre><code>$ awk -F&apos;.&apos; &apos;{
+&gt; if(NR==2){
+&gt; print $1 &quot;\t&quot; $2 &quot;\t&quot; $3
+&gt; }}&apos; test
+
+# 或者
+$ awk &apos;
+&gt; BEGIN{
+&gt; FS=&quot;.&quot;
+&gt; OFS=&quot;\t&quot;  # 如果写为一行，两个动作语句之间应该以&quot;;&quot;号分开  
+&gt; }{
+&gt; if(NR==2){
+&gt; print $1, $2, $3
+&gt; }}&apos; test
+</code></pre><p><img src="https://i.imgur.com/crQqo4i.png" alt=""> <img src="https://i.imgur.com/sdHzSiw.png" alt=""></p>
+<p>说明：这里的<code>-F</code>参数，前面已经介绍过，它是用来预先指定待处理记录的字段分隔符。我们需要注意的是除了指定<code>OFS</code>我们还可以在<code>print</code> 语句中直接打印特殊符号如这里的<code>\t</code>，<code>print</code>打印的非变量内容都需要用””一对引号包围起来。上面另一个版本，展示了实现预先指定变量分隔符的另一种方式，即使用<code>BEGIN</code>，就这个表达式指示了，其后的动作将在所有动作之前执行，这里是<code>FS</code>赋值了新的”.”点号代替默认的” “空格</p>
+<h3 id="awk常用的内置变量"><a href="#awk常用的内置变量" class="headerlink" title="awk常用的内置变量"></a>awk常用的内置变量</h3><table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FILENAME</td>
+<td>当前输入文件名，若有多个文件，则只表示第一个。如果输入是来自标准输入，则为空字符串</td>
+</tr>
+<tr>
+<td>$0</td>
+<td>当前记录的内容</td>
+</tr>
+<tr>
+<td>$N</td>
+<td>N表示字段号，最大值为NF变量的值</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>字段分隔符，由正则表达式表示，默认为” “空格</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>输入记录分隔符，默认为”\n”，即一行为一个记录</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>当前记录字段数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>已经读入的记录数</td>
+</tr>
+<tr>
+<td>FNR</td>
+<td>当前输入文件的记录数，请注意它与NR的区别</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>输出字段分隔符，默认为” “空格</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>输出记录分隔符，默认为”\n”</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/09/01/正则表达式基础/">正则表达式基础</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
+        <p><span>发布时间:</span>2018-09-01, 15:57:50</p>
+        <p><span>最后更新:</span>2018-09-02, 16:33:18</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/01/正则表达式基础/" title="正则表达式基础">https://zxpgo.github.io/2018/09/01/正则表达式基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/01/正则表达式基础/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/09/02/2016百度校招面试题/">
+                    2016百度校招面试题
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/09/01/Linux数据流重定向/">
+                    Linux数据流重定向
+                </a>
+            </div>
+        
+    </nav>
+
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 支付宝打赏图案 -->
+        <img src="/img/Alipay.jpg" alt="支付宝打赏">
+        <!-- 微信打赏图案 -->
+        <img src="/img/WeChatpay.jpg" alt="微信打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+	
+	
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择"><span class="toc-number">2.1.</span> <span class="toc-text">选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数量限定"><span class="toc-number">2.2.</span> <span class="toc-text">数量限定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#范围和优先级"><span class="toc-number">2.3.</span> <span class="toc-text">范围和优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法部分"><span class="toc-number">2.4.</span> <span class="toc-text">语法部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优先级"><span class="toc-number">2.5.</span> <span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep模式匹配命令"><span class="toc-number">3.</span> <span class="toc-text">grep模式匹配命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作"><span class="toc-number">3.1.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用正则表达式"><span class="toc-number">3.2.</span> <span class="toc-text">使用正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用基本正则表达式：BRE"><span class="toc-number">3.2.1.</span> <span class="toc-text">使用基本正则表达式：BRE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用扩展正则表达式"><span class="toc-number">3.3.</span> <span class="toc-text">使用扩展正则表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed流编辑器"><span class="toc-number">4.</span> <span class="toc-text">sed流编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sed常用参数介绍"><span class="toc-number">4.1.</span> <span class="toc-text">sed常用参数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed编译器的执行命令"><span class="toc-number">4.2.</span> <span class="toc-text">sed编译器的执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed操作举例"><span class="toc-number">4.3.</span> <span class="toc-text">sed操作举例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打印指定行"><span class="toc-number">4.3.1.</span> <span class="toc-text">打印指定行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内替换"><span class="toc-number">4.3.2.</span> <span class="toc-text">行内替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行间替换"><span class="toc-number">4.3.3.</span> <span class="toc-text">行间替换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk文本处理语言"><span class="toc-number">5.</span> <span class="toc-text">awk文本处理语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#awk的基础概念"><span class="toc-number">5.1.</span> <span class="toc-text">awk的基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#awk命令基本格式"><span class="toc-number">5.1.1.</span> <span class="toc-text">awk命令基本格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk操作体验"><span class="toc-number">5.2.</span> <span class="toc-text">awk操作体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用swk将文本打印到终端"><span class="toc-number">5.2.1.</span> <span class="toc-text">使用swk将文本打印到终端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将test的第一行中的每个字段单独显示为一行"><span class="toc-number">5.2.2.</span> <span class="toc-text">将test的第一行中的每个字段单独显示为一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将test的第行以点为分段的字段换成以空格为风格"><span class="toc-number">5.2.3.</span> <span class="toc-text">将test的第行以点为分段的字段换成以空格为风格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk常用的内置变量"><span class="toc-number">5.3.</span> <span class="toc-text">awk常用的内置变量</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"正则表达式基础　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/09/02/2016百度校招面试题/" title="上一篇: 2016百度校招面试题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/09/01/Linux数据流重定向/" title="下一篇: Linux数据流重定向">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 zxp
+            </div>
+           <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv">
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
