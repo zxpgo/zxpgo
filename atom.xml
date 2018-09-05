@@ -39,6 +39,26 @@
   </entry>
   
   <entry>
+    <title>LeetCode算法题目</title>
+    <link href="https://zxpgo.github.io/2019/08/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/"/>
+    <id>https://zxpgo.github.io/2019/08/22/LeetCode算法题目/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-09-05T12:49:05.726Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;leetcode是个&lt;a href=&quot;https://leetcode-cn.com/problemset/all/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。
+    
+    </summary>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>进制介绍以及相互转换</title>
     <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
     <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
@@ -173,46 +193,6 @@
   </entry>
   
   <entry>
-    <title>Linux数据流重定向</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-01T13:05:43.636Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下软件安装</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux下软件安装/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-04T08:33:49.356Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在此简单介绍Linux下软件安装，更多可见：&lt;a href=&quot;https://www.zxpblog.cn/2018/08/28/Linux不同版本以及程序包安装/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux不同版本以及程序包安装&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux 进程概念</title>
     <link href="https://zxpgo.github.io/2018/09/01/Linux%20%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
     <id>https://zxpgo.github.io/2018/09/01/Linux 进程概念/</id>
@@ -255,22 +235,42 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--数据处理（三）</title>
-    <link href="https://zxpgo.github.io/2018/08/31/C++%20Primer%20Plus%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</id>
-    <published>2018-08-31T06:33:14.000Z</published>
-    <updated>2018-09-03T12:26:02.786Z</updated>
+    <title>Linux数据流重定向</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-01T13:05:43.636Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍C++变量的命名规则，以及数据类型
+      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
     
     </summary>
     
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
     
     
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下软件安装</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Linux%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Linux下软件安装/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-04T08:33:49.356Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在此简单介绍Linux下软件安装，更多可见：&lt;a href=&quot;https://www.zxpblog.cn/2018/08/28/Linux不同版本以及程序包安装/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux不同版本以及程序包安装&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
@@ -284,6 +284,26 @@
     <summary type="html">
     
       &lt;p&gt;C++基本语法介绍
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--数据处理（三）</title>
+    <link href="https://zxpgo.github.io/2018/08/31/C++%20Primer%20Plus%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    <id>https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</id>
+    <published>2018-08-31T06:33:14.000Z</published>
+    <updated>2018-09-03T12:26:02.786Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍C++变量的命名规则，以及数据类型
     
     </summary>
     
@@ -359,26 +379,6 @@
   </entry>
   
   <entry>
-    <title>命令执行顺序控制与管道</title>
-    <link href="https://zxpgo.github.io/2018/08/28/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E7%AE%A1%E9%81%93/"/>
-    <id>https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/</id>
-    <published>2018-08-28T14:23:14.000Z</published>
-    <updated>2018-08-28T23:59:16.927Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;顺序执行、选择执行、管道、cut 命令、grep 命令、wc 命令、sort 命令等，高效率使用 Linux 的技巧。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux不同版本以及程序包安装</title>
     <link href="https://zxpgo.github.io/2018/08/28/Linux%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E4%BB%A5%E5%8F%8A%E7%A8%8B%E5%BA%8F%E5%8C%85%E5%AE%89%E8%A3%85/"/>
     <id>https://zxpgo.github.io/2018/08/28/Linux不同版本以及程序包安装/</id>
@@ -399,15 +399,15 @@
   </entry>
   
   <entry>
-    <title>Linux任务计划crontab</title>
-    <link href="https://zxpgo.github.io/2018/08/27/Linux%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92crontab/"/>
-    <id>https://zxpgo.github.io/2018/08/27/Linux任务计划crontab/</id>
-    <published>2018-08-27T14:23:14.000Z</published>
-    <updated>2018-08-27T14:23:47.106Z</updated>
+    <title>命令执行顺序控制与管道</title>
+    <link href="https://zxpgo.github.io/2018/08/28/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E7%AE%A1%E9%81%93/"/>
+    <id>https://zxpgo.github.io/2018/08/28/命令执行顺序控制与管道/</id>
+    <published>2018-08-28T14:23:14.000Z</published>
+    <updated>2018-08-28T23:59:16.927Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具
+      &lt;p&gt;顺序执行、选择执行、管道、cut 命令、grep 命令、wc 命令、sort 命令等，高效率使用 Linux 的技巧。
     
     </summary>
     
