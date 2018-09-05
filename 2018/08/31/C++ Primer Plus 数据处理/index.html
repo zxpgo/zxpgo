@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="介绍C++变量的命名规则，以及数据类型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T06:27:36.087Z">
+<meta property="og:updated_time" content="2018-09-03T12:26:02.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--数据处理（三）">
 <meta name="twitter:description" content="介绍C++变量的命名规则，以及数据类型">
@@ -374,7 +374,109 @@ a = 5;
 <p>计算机内存的基本单元时位（bit）,字节（byte）通常指的是8位的内存单元。从这个意义上说，字节指的就是描述计算机内存量的度量单位，1KB等于1024字节，1MB等于1024KB。</p>
 <p>8位的内存块可以设置出256种不同的组合，因为每一位由两种设置（0和1）,所以8位的总组合位：2^8-256。因此8位单元可以表示0-255或-128到127。每增加一位，组合数变加倍。</p>
 <p>C++中对字节的定义与此不同，C++字节由至少能够容纳实现的基本字符集的相邻位组成，也就是说可能取值的数目必须等于或超过字符数目。在美国，基本字符集通过是ASCII和EBCDIC集，它们都可以用8位来容纳，所以在使用这两种字符集的系统中，C++通常包括8位。然而，国际编程可能需要使用更大的字符集，如Uunicode,因此有些实现可能使用16位甚至32位的字符。</p>
-
+<p>C++中检测类型的长度，sizeof运算符返回类型或变量的长度，单位为字节。 比如：sizeof(int),或者 对一个变量利用sizeof，如：<code>sizeof n_short</code> (short n_short;)。</p>
+<p>在头文件climits（旧版本limits.h）中包含了关于整型限制的信息。具体地说，它定义了表示各种显示的符合名称。比如：INT_MAX 为int的最大值，CHAR_BIT为字节的位数。 SHRT_MAX为short的最大值，LLONG_MAX为long long的最大值，LONG_MAX为long的最大值。INT_MIN为int的最小值。这里只给出了部分，详细的可以查看书籍P41。</p>
+<p><strong> 符号常量–预处理方式</strong></p>
+<p>climits文件中包含于下面类似的语句行：</p>
+<pre><code>#define INT_MAX 32767
+</code></pre><p>在C++编译过程中，首先将源代码传给预处理器。在这里，#define和#include一样，也是一个预处理编译指令。该编译指令告诉预处理器：在程序中查找INT_MAX，并将所有的INT_MAX替换为32767。</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>初始化将复制和声明合并在一起。如下：</p>
+<pre><code>int n_int = INT_MAX;
+</code></pre><p>可以将变量初始化为另一个变量，条件是后者是已经定义过，甚至可以使用表达式来初始化变量，条件是当程序执行到该声明时，表达式中的所有值都已经定义过：</p>
+<pre><code>int uncles = 5;
+int aunts = uncles;
+int chairs = aunts + uncles + 4;
+</code></pre><p>前面的初始化继承自C语言，C++还有另一个C语言没有的初始化语法：</p>
+<pre><code>int wrens(432);
+</code></pre><p>注意： 如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。这意味着该变量的值将是它被创建之前，相应内存单元保存的值。</p>
+<p>在变量声明时对它进行初始化，可避免以后忘记给它赋值的情况发生。</p>
+<h4 id="C-11初始化方式"><a href="#C-11初始化方式" class="headerlink" title="C++11初始化方式"></a>C++11初始化方式</h4><p>另一种初始化方式，这种方式用户数组和结构，但在C++98中，也可以用于单值变量：</p>
+<pre><code>int hamburgers = {24};
+</code></pre><p>将大括号初始化器用于单值变量的情形不多，但在C++标准使得这种情形更多了。首先，采用这种方式时，可以使用等号（=）,也可以不使用：</p>
+<pre><code>int emus{7};
+int rheas = {12}
+</code></pre><p>其次，大括号可以为空，即变量被初始化为零：</p>
+<pre><code>int rocs = {};
+int psychis{};
+</code></pre><h3 id="无符号类型"><a href="#无符号类型" class="headerlink" title="无符号类型"></a>无符号类型</h3><p>前面介绍的4种整数都有一种不能存储负数值的无符号变体。其优点是可以增大变量能够存储的最大值。例如：如果short表示的范围为-32768到32767，则无符号版本的表示范围为0-65535。当然，仅当数值不会为负时才应该使用无符号类型，如人口、件数等。创建无符号版本的基本整性，只需要使用关键词unsigned来修改：</p>
+<pre><code>unsigned short change;
+unsigned long long lang_lang;
+</code></pre><p>注意：unsigned 本身是 unsigned int 的缩写。</p>
+<p>对于一个short变量，取short的最大值（32767），对于符号整型，对最大值加一，则该值将变为-32768。对于无符号整型，对最大值加一，则该值将变为：32768。如果将无符号整数0，减一则该值会变成65535。</p>
+<p>可以看出，这些整型变量的行为就像里程表，如果超越了限制，其值将为范围另一端的取值。</p>
+<h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>int被设置为对目标计算机而言最为“自然”的长度。自然长度指的是计算机处理起来效率最高的长度。如果没有其他要求，则应该使用int。</p>
+<p>如果知道变量可能表示的整数值大于16位整数的最大可能值，则使用32位。即使系统上int为32位，也应该这样。如果存储的值大于20亿，可使用long long。</p>
+<p>如果short比int小，则使用short可以节省内存。通常，仅当有大型整型数组时，才有必要使用short。如果节省内存很重要，则应使用short而不是int，即使它们的长度一样。例如，如果将程序从int为16位的系统移植到int为32的系统，则用户存储int数组的内存量将加倍，但short不会受影响。</p>
+<p>如果只需要使用一个字节，可使用char。</p>
+<h3 id="整型字面量"><a href="#整型字面量" class="headerlink" title="整型字面量"></a>整型字面量</h3><p>整型字面量（常量）是显式地书写常量，如212或1776。C++能够以三种不同的计数方式来书写整型：基数为10、8和16。如果第一位为1~9，则基数为10（十进制）；如果第一位为0，第二位1~7，则基数为8（八进制）；如果前两位为0X或0x，则基数为16（十六进制）。具体进制问题：<a href="https://www.zxpblog.cn/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" target="_blank" rel="noopener">转</a></p>
+<p>在默认情况下，cout以十进制格式显示整数，而不管这些整数在程序中如何书写，如：</p>
+<pre><code>int waits = 0X42;
+cout &lt;&lt; waits; 
+//输出结果为66
+</code></pre><p>这些表达方式仅仅是为了表达上的方便。例如：如果CGA视频内存段为十六进制B000，则不必在程序中使用之前将它转换为十进制45056，而只需使用0xB000。但是不管把值书写为10、012还是0xA，都将以相同的方式存储在计算机中—被存储为二进制。</p>
+<p>如果要以十六进制或八进制方式显示值，则可以使用cout的一些特殊特性。头文件iostream提供了控制符endl,用于指示cout重起一行。同样，它还提供了控制符dec、hex和oct,分别表示用于指示cout以十进制、十六进制和八进制格式显示整数。</p>
+<pre><code>using namespace std;
+int chest = 42;
+cout &lt;&lt; hex;
+cout &lt;&lt; chest; //输出2a
+cout &lt;&lt; oct;
+cout &lt;&lt; chest; //输出52
+</code></pre><p>诸如cout&lt;&lt;hex;等代码不会显示在屏幕上显示任何内容，而只是修改cout显示整数的方式。因此，控制符，hex实际上是一条消息，告诉cout采取何种行为。</p>
+<h3 id="C-如何确定常量的类型"><a href="#C-如何确定常量的类型" class="headerlink" title="C++如何确定常量的类型"></a>C++如何确定常量的类型</h3><p>程序的声明中将特定的整型变量的类型告诉了C++编译器，但编译器是如何确定常量的类型呢？假设在程序中使用一个常量表示一个数字：</p>
+<pre><code>cout &lt;&lt; &quot;Year = &quot; &lt;&lt; 2018 &lt;&lt; endl;
+</code></pre><p>程序将1492存储为int、long还是其他类型呢？答案是，除非有理由存储为其他类型（如使用了特殊的后缀来表示特定的类型，或者值太大，不能存储为int），否则C++将整型存储为int。</p>
+<p>关于后缀，后缀是放在常量后面的字母，用于表示类型。具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>后缀</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>l或L</td>
+<td>long常量</td>
+</tr>
+<tr>
+<td>ul</td>
+<td>unsigned long常量</td>
+</tr>
+<tr>
+<td>ll或LL</td>
+<td>long long常量</td>
+</tr>
+<tr>
+<td>LU或UL</td>
+<td>ungigned long常量</td>
+</tr>
+<tr>
+<td>ull或Ull或uLL或ULL</td>
+<td>unsigned long long 常量</td>
+</tr>
+</tbody>
+</table>
+<p>对于长度，C++中不同进制，采用存储整型的规则不同：</p>
+<table>
+<thead>
+<tr>
+<th>进制</th>
+<th>存储类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十进制</td>
+<td>使用后面能过存储该数的最小类型来表示： int、long 、long long</td>
+</tr>
+<tr>
+<td>八进制和十六进制</td>
+<td>使用后面几种类型中能过存储该数的最小类型来表示： int、unsigned int、long、unsigned long、long long 、unsigned long long</td>
+</tr>
+</tbody>
+</table>
+<p>十六进制数0x9C40（40000）将被表示为unsigned int，这是因为十六进制常用来表示内存地址，而内存地址没有符号。</p>
+<h3 id="char类型：字符和小整数"><a href="#char类型：字符和小整数" class="headerlink" title="char类型：字符和小整数"></a>char类型：字符和小整数</h3>
       
     </div>
     
@@ -385,7 +487,7 @@ a = 5;
         <p><span>本文标题:</span><a href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-31, 14:33:14</p>
-        <p><span>最后更新:</span>2018-09-02, 14:27:36</p>
+        <p><span>最后更新:</span>2018-09-03, 20:26:02</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/31/C++ Primer Plus 数据处理/" title="C++ Primer Plus--数据处理（三）">https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -401,15 +503,15 @@ a = 5;
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/31/开始学习C++/">
-                    C++ Primer Plus--开始学习（二）
+                <a href="/2018/09/01/正则表达式基础/">
+                    正则表达式基础
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/29/网络与信息安全研究方向/">
-                    网络与信息安全研究方向
+                <a href="/2018/08/31/开始学习C++/">
+                    C++ Primer Plus--开始学习（二）
                 </a>
             </div>
         
@@ -482,7 +584,7 @@ a = 5;
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单变量"><span class="toc-number">1.</span> <span class="toc-text">简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量名"><span class="toc-number">1.1.</span> <span class="toc-text">变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">1.2.</span> <span class="toc-text">整型</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单变量"><span class="toc-number">1.</span> <span class="toc-text">简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量名"><span class="toc-number">1.1.</span> <span class="toc-text">变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">1.2.</span> <span class="toc-text">整型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化"><span class="toc-number">1.2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-11初始化方式"><span class="toc-number">1.2.2.</span> <span class="toc-text">C++11初始化方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号类型"><span class="toc-number">1.3.</span> <span class="toc-text">无符号类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择整型类型"><span class="toc-number">1.4.</span> <span class="toc-text">选择整型类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型字面量"><span class="toc-number">1.5.</span> <span class="toc-text">整型字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-如何确定常量的类型"><span class="toc-number">1.6.</span> <span class="toc-text">C++如何确定常量的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char类型：字符和小整数"><span class="toc-number">1.7.</span> <span class="toc-text">char类型：字符和小整数</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -538,7 +640,7 @@ a = 5;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/31/开始学习C++/" title="上一篇: C++ Primer Plus--开始学习（二）">
+            <a href="/2018/09/01/正则表达式基础/" title="上一篇: 正则表达式基础">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -546,13 +648,13 @@ a = 5;
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/29/网络与信息安全研究方向/" title="下一篇: 网络与信息安全研究方向">
+            <a href="/2018/08/31/开始学习C++/" title="下一篇: C++ Primer Plus--开始学习（二）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 

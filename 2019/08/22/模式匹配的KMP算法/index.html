@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
-<meta name="keywords" content="C++">
+<meta name="description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ Primer Plus--预备知识（一）">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/29/预备知识/index.html">
+<meta property="og:title" content="模式匹配的KMP算法">
+<meta property="og:url" content="https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
+<meta property="og:description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-01T06:38:16.843Z">
+<meta property="og:updated_time" content="2018-09-05T10:23:19.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ Primer Plus--预备知识（一）">
-<meta name="twitter:description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
+<meta name="twitter:title" content="模式匹配的KMP算法">
+<meta name="twitter:description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>C++ Primer Plus--预备知识（一） | 平步青云win</title>
+<title>模式匹配的KMP算法 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-预备知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-模式匹配的KMP算法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/29/预备知识/" class="article-date">
-      <time datetime="2018-08-29T06:33:14.000Z" itemprop="datePublished">2018-08-29</time>
+      <a href="/2019/08/22/模式匹配的KMP算法/" class="article-date">
+      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
 </a>
 
 
@@ -306,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++ Primer Plus--预备知识（一）
+      模式匹配的KMP算法
     </h1>
   
 
@@ -316,13 +316,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
+    <a class="article-category-link" href="/categories/算法/">算法</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -337,39 +337,86 @@
 	
       
           
-        <p>介绍C++的一些基本概念，起源，以及如何编译执行。<a id="more"></a></p>
-<h2 id="C-简介"><a href="#C-简介" class="headerlink" title="C++简介"></a>C++简介</h2><p>C++融合了3种不同的编程方式：</p>
-<ul>
-<li>C语言代表的过程性语言</li>
-<li>C++在C语言的基础上添加的类代表面向对象语言</li>
-<li>C++模板支持的泛型编程</li>
-</ul>
-<h2 id="c演员编程原理"><a href="#c演员编程原理" class="headerlink" title="c演员编程原理"></a>c演员编程原理</h2><p>计算机语言要处理两个概念–算法和数据，数据是程序使用和处理的信息，而算法是程序使用的方法。</p>
-<p>C语言强调的是编程的算法方面，C语言的设计是自顶向下的，其理念是将大型程序分解成小型、便于管理的任务。程序员可以开发程序党单元(函数)来表示各个任务的模块，根据执行的操作来构思一个程序。C语言具有使用结构化编程的特性，比如：while、if、for等语句。</p>
-<h2 id="面向对象编程-OOP"><a href="#面向对象编程-OOP" class="headerlink" title="面向对象编程(OOP)"></a>面向对象编程(OOP)</h2><p>OOP强调的是数据，OOP不想过程性编程那样，试图使问题满足语言的过程性，而是试图让语言来满足问题的要求。其理念是设计与问题的本质特性相对应的数据格式。</p>
-<p>C++中，类是一种规范，描述了这种新型数据格式，对象是根据这种规范（类）构造的特定数据结构。比如：类可以描述公司管理人员的基本特征（姓名，工资，职位等），而对象则代表特定的管理人员（zxp, 1000000,董事长）。</p>
-<p>类规定了可使用哪些数据表示对象，以及可以对这些数据执行哪些操作（方法，即函数）。比如：绘制矩形的计算机绘图程序种，定义的数据包括：矩形的顶点位置，长，宽，颜色等，定义的操作可以包括：移动，改变大小，改变颜色等等。当使用该程序绘图时，需要根据类创建一个对象，该对象保存了描述矩形的所有数据值，因此可以使用类方法来修改矩阵。</p>
-<p>OOP程序设计，首先设计类，它们准确的表达了程序需要处理的内容。然后，设计一个使用这些类的对象程序。从低级组织（如：类）到高级组织（如：程序）的处理过程叫做自下而上（bottom-up）的编程。</p>
-<p>OOP编程不仅仅可以将数据和方法合并成类，还可以创建可重用的代码，多态可以让运算符和函数创建多个定义等。</p>
-<h2 id="泛型编程"><a href="#泛型编程" class="headerlink" title="泛型编程"></a>泛型编程</h2><p><strong>泛型</strong>指的是创建独立类型的代码。C++中的数据表示类型包括：整数，小数，字符，字符串，用户定义等等。如果对不同类型的数据进行排序，通常需要为每种类型创建一个排序函数。泛型编程需要对语言进行扩展，以便可以只编写一个泛型（即不是特定类型的）函数，将其用户各种实际类型。C++模板提供了这种任务的机制。</p>
-<p>泛型编程（generic programming）与OOP的目标相同，即使重用代码和抽象通用概念的技术更简单。不过OOP强调的是编程的数据方面，而泛型编程强调的是独立于特定数据类型。OOP是一个管理大型项目的工具，而泛型编程提成了执行常见任务（如对数据排序和合并）的工具。</p>
-<h2 id="起源（了解）"><a href="#起源（了解）" class="headerlink" title="起源（了解）"></a>起源（了解）</h2><p>C和C++都起源于贝尔实验室。Bjarne Sroustrup于20世纪80年代开发了C++。</p>
-<p>名称C++来自C语言中的递增运算符++,该运算符将变量加1。名称表明C++是C的扩展版本。</p>
-<h2 id="程序创建过程"><a href="#程序创建过程" class="headerlink" title="程序创建过程"></a>程序创建过程</h2><ul>
-<li>使用文本编辑器编写程序，将其保存为文件，这个文件就是源代码；</li>
-<li>编译源代码。这意味着运行一个程序，将源代码翻译为主机使用的内部语言—机器语言。包含了翻译后的程序的文件就是程序的目标代码。</li>
-<li>将目标代码与其他代码链接起来。例如：C++程序通常使用库，C++库包含一系列计算机例程（被称为函数）的目标代码，这些函数可以执行诸如在屏幕显示信息或计算平方根等任务。链接指的是将目标代码同使用的函数的目标代码以及一些标准的启动代码组合起来，生成程序的运行阶段版本。包含该最终产品的文件被称为可执行代码。</li>
-</ul>
-<h2 id="创建源代码文件"><a href="#创建源代码文件" class="headerlink" title="创建源代码文件"></a>创建源代码文件</h2><p>在unix系统上，可以使用vi等编辑器编辑，其中只能实现编译和链接，执行程序，要求在系统命令行输入命令。<br>在windows系统中，可以edlIn、edit或其他编辑器</p>
-<p>给源文件命名时，必须使用正确的后缀，将文件表示为C++文件，不仅可以表示该文件是C++源代码，还将这种信息告知编译器。</p>
-<p>Unix中，区分大小写，C程序使用：c(小写)，C++程序使用：C(大写)，还可以使用cc、cxx表示C++源代码。</p>
-<h2 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h2><p><strong>Linuxg编译和链接</strong></p>
-<p>编译test.cpp文件，生成a.out可执行文件：</p>
-<pre><code>g++ test.cpp
-</code></pre><p>运行可执行文件：</p>
-<pre><code>./a.out
-</code></pre><p>linux安装gcc:</p>
-<pre><code>yum install gcc-c++
+        <p>简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。<a id="more"></a></p>
+<p>模式匹配：设有两个串S和P,称在串中S中找串P的过程为模式匹配。S为主串，P为字串。</p>
+<p>KMP算法的关键是$j$回溯到什么位置，实现KMP算法的关键是求出模式串$P$的每个字符的最大$k$值，$k$是失配时$j$需要向前回溯的最少位置。下一趟比较就可以从$S[i]$和$P[k]$开始。设主串为$S=”s_0s_1{\cdots}s_{n-1}”$，模式串为$P=”p_0p_1{\cdots}p_{m-1}”$，并设在$s_i \neq p_j$处失配。考察P串，如果发现：</p>
+<p>$$p_0p_1{\cdots}p_{k-1} = p_{j-k}p_{j-k+1}{\cdots}p_{j-1}\tag{1-1} $$</p>
+<p>是失配点前的串$p_0p_1{\cdots}p_{j-1}$中“最长的相同的前缀子串和后缀子串”，其中，$p_0p_1{\cdots}p_{k-1}$是$p_0p_1{\cdots}p_{j-1}$的前缀子串，$p_{j-k}p_{j-k+1}{\cdots}p_{j-1}$是$p_0p_1{\cdots}p_{j-1}$的后缀子串。那么，由于匹配在$s_i \neq p_j$处失败，所以必有：</p>
+<p>$$p_{j-k}{\cdots}p_{j-2}p_{j-1} = s_{i-k}{\cdots}p_{i-2}p_{i-1}\tag{1-2} $$  </p>
+<p>综合式（1-1）和式（1-2）,可得式（1-3）：</p>
+<p>$$p_0{\cdots}p_{k-2}p_{k-1} = s_{i-k}{\cdots}s_{i-2}s_{i-1}\tag{1-3} $$   </p>
+<p>式（1-3）说明，下一趟匹配过程从$s_i$和$p_k$开始，即将模式串中$k$位置的字符和主串中$i$位置的字符对齐后开始下一趟比较。</p>
+<h3 id="1-失败函数f"><a href="#1-失败函数f" class="headerlink" title="1.失败函数f"></a>1.失败函数f</h3><p>设长度为$m$的模式串$P=“p_0p_1{\cdots}p_{m-1}”$，$k$为相同的前、后缀子串长，失败函数定义为：</p>
+<p>$$f(j) =\begin{cases}<br>-1 &amp; j=0\ |<br>\max  \left (k | 0&lt;k&lt;j 且 p_0p_1{\cdots}p_{k-1} = p_{j-k}p_{j-k+1}{\cdots}p_{j-1}\right )\ |<br>0 &amp; other\<br>\end{cases}\tag{1-4}<br>$$</p>
+<p>从式（1-4）可以看出，失败函数$f(j)$被定义为相同的前、后缀子串长的最大值，其含义为：当匹配在$s_i \neq p_j$处失败，$j$应该回溯的的位置$f(j)$。$f(j) \geq or \ge 0$表示下趟匹配过程从$s_i$和$p_{f(j)}$开始；$f(j)=-1$表示从下趟匹配过程从$s_{i+1}$和$p_0$开始。</p>
+<table>
+<thead>
+<tr>
+<th>j</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>a</td>
+<td>b</td>
+<td>b</td>
+<td>a</td>
+<td>c</td>
+</tr>
+<tr>
+<td>$f(j)$</td>
+<td>-1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>$f(j)$的取决于模式串$P$自身的特性。一种特殊的情况，$P$中没有相同的字符出现，或头尾相同，其余不同，则除了$f(0)=-1$外，其他得$f(j)$均为0。也就是说，当到达失配点，$P$均回到第1个字符a_0开始下一趟匹配。</p>
+<h3 id="2-KMP算法的C-程序"><a href="#2-KMP算法的C-程序" class="headerlink" title="2. KMP算法的C++程序"></a>2. KMP算法的C++程序</h3><p>设串P的f值已求得</p>
+<pre><code>int FindKMP(int i, String &amp;P)
+{
+    if (i&lt;0 || i&gt;n-1){
+        cout &lt;&lt; &quot;Out of bounds!&quot; &lt;&lt;endl;
+        return -1;
+    }
+
+    int j=0, m=P.n;
+    while(i&lt;n &amp;&amp; j&lt;m)
+    {
+        if( j==-1 || str[i] == P.str[j])
+        {
+            i++; j++;
+        }
+        else j=P.f[j];
+    return ( (j==m)?i-m:-1)
+    }
+}
 </code></pre>
       
     </div>
@@ -378,13 +425,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-29, 14:33:14</p>
-        <p><span>最后更新:</span>2018-09-01, 14:38:16</p>
+        <p><span>发布时间:</span>2019-08-22, 22:28:50</p>
+        <p><span>最后更新:</span>2018-09-05, 18:23:19</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/29/预备知识/" title="C++ Primer Plus--预备知识（一）">https://zxpgo.github.io/2018/08/29/预备知识/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/29/预备知识/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/22/模式匹配的KMP算法/" title="模式匹配的KMP算法">https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -397,15 +444,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/29/网络与信息安全研究方向/">
-                    网络与信息安全研究方向
+                <a href="/2019/08/22/进制相互转换/">
+                    进制介绍以及相互转换
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/29/简单的文本处理/">
-                    简单的文本处理
+                <a href="/2019/08/22/python2.x和python3.x版本区别/">
+                    Python2.x和Python3.x的版本区别
                 </a>
             </div>
         
@@ -478,7 +525,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-简介"><span class="toc-number">1.</span> <span class="toc-text">C++简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c演员编程原理"><span class="toc-number">2.</span> <span class="toc-text">c演员编程原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程-OOP"><span class="toc-number">3.</span> <span class="toc-text">面向对象编程(OOP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型编程"><span class="toc-number">4.</span> <span class="toc-text">泛型编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#起源（了解）"><span class="toc-number">5.</span> <span class="toc-text">起源（了解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序创建过程"><span class="toc-number">6.</span> <span class="toc-text">程序创建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建源代码文件"><span class="toc-number">7.</span> <span class="toc-text">创建源代码文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译和链接"><span class="toc-number">8.</span> <span class="toc-text">编译和链接</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-失败函数f"><span class="toc-number">1.</span> <span class="toc-text">1.失败函数f</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-KMP算法的C-程序"><span class="toc-number">2.</span> <span class="toc-text">2. KMP算法的C++程序</span></a></li></ol>
         
     </div>
     <style>
@@ -514,7 +561,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--预备知识（一）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"模式匹配的KMP算法　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -534,7 +581,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/29/网络与信息安全研究方向/" title="上一篇: 网络与信息安全研究方向">
+            <a href="/2019/08/22/进制相互转换/" title="上一篇: 进制介绍以及相互转换">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -542,7 +589,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/29/简单的文本处理/" title="下一篇: 简单的文本处理">
+            <a href="/2019/08/22/python2.x和python3.x版本区别/" title="下一篇: Python2.x和Python3.x的版本区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         

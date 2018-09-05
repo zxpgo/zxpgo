@@ -15,18 +15,26 @@
 
 
 
-<meta name="description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
-<meta name="keywords" content="C++">
+<meta name="description" content="介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ Primer Plus--预备知识（一）">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/29/预备知识/index.html">
+<meta property="og:title" content="Linux 进程管理">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/05/Linux 进程管理/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
+<meta property="og:description" content="介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-01T06:38:16.843Z">
+<meta property="og:image" content="https://i.imgur.com/YwMabFK.png">
+<meta property="og:image" content="https://i.imgur.com/xETapiv.png">
+<meta property="og:image" content="https://i.imgur.com/qTY8rOh.png">
+<meta property="og:image" content="https://i.imgur.com/TiG1vzW.png">
+<meta property="og:image" content="https://i.imgur.com/ofoWvjb.png">
+<meta property="og:image" content="https://i.imgur.com/iaul5wL.png">
+<meta property="og:image" content="https://i.imgur.com/iYxWfM0.png">
+<meta property="og:updated_time" content="2018-09-05T03:06:10.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ Primer Plus--预备知识（一）">
-<meta name="twitter:description" content="介绍C++的一些基本概念，起源，以及如何编译执行。">
+<meta name="twitter:title" content="Linux 进程管理">
+<meta name="twitter:description" content="介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。">
+<meta name="twitter:image" content="https://i.imgur.com/YwMabFK.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +66,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>C++ Primer Plus--预备知识（一） | 平步青云win</title>
+<title>Linux 进程管理 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-预备知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linux 进程管理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/29/预备知识/" class="article-date">
-      <time datetime="2018-08-29T06:33:14.000Z" itemprop="datePublished">2018-08-29</time>
+      <a href="/2018/09/05/Linux 进程管理/" class="article-date">
+      <time datetime="2018-09-05T00:30:50.000Z" itemprop="datePublished">2018-09-05</time>
 </a>
 
 
@@ -306,7 +314,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++ Primer Plus--预备知识（一）
+      Linux 进程管理
     </h1>
   
 
@@ -316,13 +324,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
+    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -337,40 +345,450 @@
 	
       
           
-        <p>介绍C++的一些基本概念，起源，以及如何编译执行。<a id="more"></a></p>
-<h2 id="C-简介"><a href="#C-简介" class="headerlink" title="C++简介"></a>C++简介</h2><p>C++融合了3种不同的编程方式：</p>
+        <p>介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。<a id="more"></a></p>
+<h2 id="一、进程查看"><a href="#一、进程查看" class="headerlink" title="一、进程查看"></a>一、进程查看</h2><ul>
+<li><code>top</code>:实时的查看进程的状态</li>
+<li><code>ps</code>:静态查看当前的进程信息</li>
+<li><code>pstree</code>:查看当前活跃进程的属性结构</li>
+</ul>
+<h3 id="1-1-top工具的使用"><a href="#1-1-top工具的使用" class="headerlink" title="1.1 top工具的使用"></a>1.1 top工具的使用</h3><p>top工具是常用的一个查看工具，能实时的查看系统的一些关键信息：</p>
+<pre><code>top
+</code></pre><p><img src="https://i.imgur.com/YwMabFK.png" alt=""></p>
+<p>top是一个在前台执行的程序，所以执行后变进入到这样的一个交互界面，正因交互界面我们才可以实时的获取到系统于进程的信息，在交互界面我们eyi通过一些指令来操作和筛选，在此之前想了解显示的内容：</p>
+<p>看到top显示的第一排：</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top</td>
+<td>表示当前的程序名称</td>
+</tr>
+<tr>
+<td>09：12：35</td>
+<td>表示当前的系统时间</td>
+</tr>
+<tr>
+<td>up 16 days, 1:09</td>
+<td>表示当前机器已经启动了多长时间</td>
+</tr>
+<tr>
+<td>1 user</td>
+<td>表示当前系统中只有一个用户</td>
+</tr>
+<tr>
+<td>load average: 0.86,0.14,0.19</td>
+<td>分别对应1，5，15分钟内cpu的评价负载</td>
+</tr>
+</tbody>
+</table>
+<p>load average 在 wikipedia 中的解释是 the system load is a measure of the amount of work that a computer system is doing 也就是对当前 CPU 工作量的度量，具体来说也就是指运行队列的平均长度，也就是等待 CPU 的平均进程数相关的一个计算值。</p>
+<p>我们该如何看待这个load average 数据呢？</p>
+<p>假设我们的系统是单 CPU、单内核的，把它比喻成是一条单向的桥，把CPU任务比作汽车。</p>
 <ul>
-<li>C语言代表的过程性语言</li>
-<li>C++在C语言的基础上添加的类代表面向对象语言</li>
-<li>C++模板支持的泛型编程</li>
+<li>load = 0 的时候意味着这个桥上并没有车，cpu 没有任何任务；</li>
+<li>load &lt; 1 的时候意味着桥上的车并不多，一切都还是很流畅的，cpu 的任务并不多，资源还很充足；</li>
+<li>load = 1 的时候就意味着桥已经被车给沾满了，没有一点空隙，cpu 的已经在全力工作了，所有的资源都被用完了，当然还好，这还在能力范围之内，只是有点慢而已；</li>
+<li>load &gt; 1 的时候就意味着不仅仅是桥上已经被车占满了，就连桥外都被占满了，cpu 已经在全力的工作了，系统资源的用完了，但是还是有大量的进程在请求，在等待。若是这个值大于２，大于３，超过 CPU 工作能力的 2，３。而若是这个值 &gt; 5 说明系统已经在超负荷运作了</li>
 </ul>
-<h2 id="c演员编程原理"><a href="#c演员编程原理" class="headerlink" title="c演员编程原理"></a>c演员编程原理</h2><p>计算机语言要处理两个概念–算法和数据，数据是程序使用和处理的信息，而算法是程序使用的方法。</p>
-<p>C语言强调的是编程的算法方面，C语言的设计是自顶向下的，其理念是将大型程序分解成小型、便于管理的任务。程序员可以开发程序党单元(函数)来表示各个任务的模块，根据执行的操作来构思一个程序。C语言具有使用结构化编程的特性，比如：while、if、for等语句。</p>
-<h2 id="面向对象编程-OOP"><a href="#面向对象编程-OOP" class="headerlink" title="面向对象编程(OOP)"></a>面向对象编程(OOP)</h2><p>OOP强调的是数据，OOP不想过程性编程那样，试图使问题满足语言的过程性，而是试图让语言来满足问题的要求。其理念是设计与问题的本质特性相对应的数据格式。</p>
-<p>C++中，类是一种规范，描述了这种新型数据格式，对象是根据这种规范（类）构造的特定数据结构。比如：类可以描述公司管理人员的基本特征（姓名，工资，职位等），而对象则代表特定的管理人员（zxp, 1000000,董事长）。</p>
-<p>类规定了可使用哪些数据表示对象，以及可以对这些数据执行哪些操作（方法，即函数）。比如：绘制矩形的计算机绘图程序种，定义的数据包括：矩形的顶点位置，长，宽，颜色等，定义的操作可以包括：移动，改变大小，改变颜色等等。当使用该程序绘图时，需要根据类创建一个对象，该对象保存了描述矩形的所有数据值，因此可以使用类方法来修改矩阵。</p>
-<p>OOP程序设计，首先设计类，它们准确的表达了程序需要处理的内容。然后，设计一个使用这些类的对象程序。从低级组织（如：类）到高级组织（如：程序）的处理过程叫做自下而上（bottom-up）的编程。</p>
-<p>OOP编程不仅仅可以将数据和方法合并成类，还可以创建可重用的代码，多态可以让运算符和函数创建多个定义等。</p>
-<h2 id="泛型编程"><a href="#泛型编程" class="headerlink" title="泛型编程"></a>泛型编程</h2><p><strong>泛型</strong>指的是创建独立类型的代码。C++中的数据表示类型包括：整数，小数，字符，字符串，用户定义等等。如果对不同类型的数据进行排序，通常需要为每种类型创建一个排序函数。泛型编程需要对语言进行扩展，以便可以只编写一个泛型（即不是特定类型的）函数，将其用户各种实际类型。C++模板提供了这种任务的机制。</p>
-<p>泛型编程（generic programming）与OOP的目标相同，即使重用代码和抽象通用概念的技术更简单。不过OOP强调的是编程的数据方面，而泛型编程强调的是独立于特定数据类型。OOP是一个管理大型项目的工具，而泛型编程提成了执行常见任务（如对数据排序和合并）的工具。</p>
-<h2 id="起源（了解）"><a href="#起源（了解）" class="headerlink" title="起源（了解）"></a>起源（了解）</h2><p>C和C++都起源于贝尔实验室。Bjarne Sroustrup于20世纪80年代开发了C++。</p>
-<p>名称C++来自C语言中的递增运算符++,该运算符将变量加1。名称表明C++是C的扩展版本。</p>
-<h2 id="程序创建过程"><a href="#程序创建过程" class="headerlink" title="程序创建过程"></a>程序创建过程</h2><ul>
-<li>使用文本编辑器编写程序，将其保存为文件，这个文件就是源代码；</li>
-<li>编译源代码。这意味着运行一个程序，将源代码翻译为主机使用的内部语言—机器语言。包含了翻译后的程序的文件就是程序的目标代码。</li>
-<li>将目标代码与其他代码链接起来。例如：C++程序通常使用库，C++库包含一系列计算机例程（被称为函数）的目标代码，这些函数可以执行诸如在屏幕显示信息或计算平方根等任务。链接指的是将目标代码同使用的函数的目标代码以及一些标准的启动代码组合起来，生成程序的运行阶段版本。包含该最终产品的文件被称为可执行代码。</li>
+<p>这是单个 CPU 单核的情况，而实际生活中我们需要将得到的这个值除以我们的核数来看。我们可以通过一下的命令来查看 CPU 的个数与核心数</p>
+<pre><code>#查看物理cpu的个数
+cat /proc/cpuinfo | grep &quot;physical id&quot; | sort | uniq | wc -l
+#每个cpu的核心数
+cat /proc/cpuinfo | grep &quot;physical id&quot; | grep &quot;0&quot; | wc -l
+</code></pre><p><img src="https://i.imgur.com/xETapiv.png" alt=""></p>
+<p>通过上面的指数我们可以得知 load 的临界值为 1 ，但是在实际生活中，比较有经验的运维或者系统管理员会将临界值定为0.7。这里的指数都是除以核心数以后的值，不要混淆了</p>
+<ul>
+<li>若是 load &lt; 0.7 并不会去关注他；</li>
+<li>若是 0.7&lt; load &lt; 1 的时候我们就需要稍微关注一下了，虽然还可以应付但是这个值已经离临界不远了；</li>
+<li>若是 load = 1 的时候我们就需要警惕了，因为这个时候已经没有更多的资源的了，已经在全力以赴了；</li>
+<li>若是 load &gt; 5 的时候系统已经快不行了，这个时候你需要加班解决问题了</li>
 </ul>
-<h2 id="创建源代码文件"><a href="#创建源代码文件" class="headerlink" title="创建源代码文件"></a>创建源代码文件</h2><p>在unix系统上，可以使用vi等编辑器编辑，其中只能实现编译和链接，执行程序，要求在系统命令行输入命令。<br>在windows系统中，可以edlIn、edit或其他编辑器</p>
-<p>给源文件命名时，必须使用正确的后缀，将文件表示为C++文件，不仅可以表示该文件是C++源代码，还将这种信息告知编译器。</p>
-<p>Unix中，区分大小写，C程序使用：c(小写)，C++程序使用：C(大写)，还可以使用cc、cxx表示C++源代码。</p>
-<h2 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h2><p><strong>Linuxg编译和链接</strong></p>
-<p>编译test.cpp文件，生成a.out可执行文件：</p>
-<pre><code>g++ test.cpp
-</code></pre><p>运行可执行文件：</p>
-<pre><code>./a.out
-</code></pre><p>linux安装gcc:</p>
-<pre><code>yum install gcc-c++
-</code></pre>
+<p>通常我们都会先看 15 分钟的值来看这个大体的趋势，然后再看 5 分钟的值对比来看是否有下降的趋势。</p>
+<p>top 的第二行数据，基本上第二行是进程的一个情况统计</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tasks: 28 total</td>
+<td>进程总数</td>
+<td>　</td>
+</tr>
+<tr>
+<td>1 running</td>
+<td>1个正在运行的进程数</td>
+</tr>
+<tr>
+<td>26 sleeping</td>
+<td>25个睡眠的进程数</td>
+</tr>
+<tr>
+<td>1 stopped    　</td>
+<td>没有停止的进程数</td>
+</tr>
+<tr>
+<td>0 zombie</td>
+<td>没有僵尸进程数</td>
+</tr>
+</tbody>
+</table>
+<p>top 的第三行数据，这一行基本上是 CPU 的一个使用情况的统计</p>
+<p>| 内容    | 解释 |<br>| Cpu(s): 0.6us    | 用户空间进程占用CPU百分比（0.6%）|<br>| 0.2 sy    | 内核空间运行占用CPU百分比（0.2%） |<br>| 0.0 ni    | 用户进程空间内改变过优先级的进程占用CPU百分比（0.0%） |<br>| 98.6 id    | 空闲CPU百分比 |<br>| 0.6 wa    | 等待输入输出的CPU时间百分比 |<br>| 0.0 hi    | 硬中断(Hardware IRQ)占用CPU的百分比 |<br>| 0.0 si    | 软中断(Software IRQ)占用CPU的百分比 |<br>| 0.0 st    | (Steal time) 是 hypervisor 等虚拟服务中，虚拟 CPU 等待实际 CPU 的时间的百分比 | </p>
+<p>CPU 利用率是对一个时间段内 CPU 使用状况的统计，通过这个指标可以看出在某一个时间段内 CPU 被占用的情况，而 Load Average 是 CPU 的 Load，它所包含的信息不是 CPU 的使用率状况，而是在一段时间内 CPU 正在处理以及等待 CPU 处理的进程数情况统计信息，这两个指标并不一样。</p>
+<p>top的第四行数据，这一行基本是内存的一个使用情况的统计</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8175596 total</td>
+<td>物理内存总量</td>
+</tr>
+<tr>
+<td>1677840 free</td>
+<td>空间的物理内存总量</td>
+</tr>
+<tr>
+<td>1806640 used</td>
+<td>使用的物理内存总量</td>
+</tr>
+<tr>
+<td>4691116 buff/cache</td>
+<td>用作内存缓存的内存量</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：系统中可用的物理内存最大值并不是 free 这个单一的值，而是 free + buffers + swap 中的 cached 的和</p>
+</blockquote>
+<p> top 的第五行数据，这一行基本上是交换区的一个使用情况的统计</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 total</td>
+<td>交换区总量</td>
+</tr>
+<tr>
+<td>0 free</td>
+<td>空闲的交换区总量</td>
+</tr>
+<tr>
+<td>0 used</td>
+<td>使用的交换区总量</td>
+</tr>
+<tr>
+<td>60208884 avail Mem</td>
+<td>可用交换区总量</td>
+</tr>
+</tbody>
+</table>
+<p>再下面就是进程的一个情况：</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>进程id</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>该进程的所属用户</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>该进程执行的优先级 priority 值</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>该进程的 nice 值</td>
+</tr>
+<tr>
+<td>VIRT</td>
+<td>该进程任务所使用的虚拟内存的总数</td>
+</tr>
+<tr>
+<td>RES</td>
+<td>该进程所使用的物理内存数，也称之为驻留内存数</td>
+</tr>
+<tr>
+<td>SHR</td>
+<td>该进程共享内存的大小</td>
+</tr>
+<tr>
+<td>S</td>
+<td>该进程进程的状态: S=sleep R=running Z=zombie</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>该进程CPU的利用率</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>该进程内存的利用率</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td>该进程活跃的总时间</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>该进程运行的名字</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<blockquote>
+<p>NICE 值叫做静态优先级，是用户空间的一个优先级值，其取值范围是-20至19。这个值越小，表示进程”优先级”越高，而值越大“优先级”越低。nice值中的 -20 到 19，中 -20 优先级最高， 0 是默认的值，而 19 优先级最低</p>
+</blockquote>
+<blockquote>
+<p>PR 值表示 Priority 值叫动态优先级，是进程在内核中实际的优先级值，进程优先级的取值范围是通过一个宏定义的，这个宏的名称是 MAX_PRIO，它的值为 140。Linux 实际上实现了 140 个优先级范围，取值范围是从 0-139，这个值越小，优先级越高。而这其中的 0 - 99 是实时进程的值，而 100 - 139 是给用户的。</p>
+</blockquote>
+<blockquote>
+<p>其中 PR 中的 100 to 139 值部分有这么一个对应 PR = 20 + (-20 to +19)，这里的 -20 to +19 便是nice值，所以说两个虽然都是优先级，而且有千丝万缕的关系，但是他们的值，他们的作用范围并不相同</p>
+</blockquote>
+<blockquote>
+<p><strong> VIRT </strong>任务所使用的虚拟内存的总数，其中包含所有的代码，数据，共享库和被换出 swap空间的页面等所占据空间的总数 </p>
+</blockquote>
+<p>top是一个前台程序，所以是一个可以交互的：</p>
+<table>
+<thead>
+<tr>
+<th>常用交互命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>q</td>
+<td>退出程序</td>
+</tr>
+<tr>
+<td>I</td>
+<td>切换显示平均负载和启动时间的信息</td>
+</tr>
+<tr>
+<td>P</td>
+<td>根据CPU使用百分比大小进行排序</td>
+</tr>
+<tr>
+<td>M</td>
+<td>根据驻留内存大小进行排序</td>
+</tr>
+<tr>
+<td>i</td>
+<td>忽略闲置和僵死的进程，这是一个开关式命令</td>
+</tr>
+<tr>
+<td>k</td>
+<td>终止一个进程，系统提示输入 PID 及发送的信号值。一般终止进程用 15 信号，不能正常结束则使用 9 信号。安全模式下该命令被屏蔽。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-ps工具的使用"><a href="#1-2-ps工具的使用" class="headerlink" title="1.2 ps工具的使用"></a>1.2 ps工具的使用</h3><p>ps也是常用查看进程的工具之一，罗列出所有信息如下：</p>
+<pre><code>ps aux
+</code></pre><p><img src="https://i.imgur.com/qTY8rOh.png" alt=""></p>
+<p>还可以在查看时，将连同部分的进程呈树状显示出来<br>    ps axjf</p>
+<p><img src="https://i.imgur.com/TiG1vzW.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>进程的标志（process flags），当 flags 值为 1 则表示此子程序只是 fork 但没有执行 exec，为 4 表示此程序使用超级管理员root权限</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>进程的拥有用户</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>进程的 ID</td>
+</tr>
+<tr>
+<td>PPID</td>
+<td>其父进程的 PID</td>
+</tr>
+<tr>
+<td>SID</td>
+<td>session 的 ID</td>
+</tr>
+<tr>
+<td>TPGID</td>
+<td>前台进程组的 ID</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>进程占用的 CPU 百分比</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>占用内存的百分比</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>进程的 NICE 值</td>
+</tr>
+<tr>
+<td>VSZ</td>
+<td>进程使用虚拟内存大小</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>驻留内存中页的大小</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>终端 ID</td>
+</tr>
+<tr>
+<td>S or STAT</td>
+<td>进程状态</td>
+</tr>
+<tr>
+<td>WCHAN</td>
+<td>正在等待的进程资源</td>
+</tr>
+<tr>
+<td>START 　</td>
+<td>启动进程的时间</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>进程消耗CPU的时间</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>命令的名称和参数　</td>
+</tr>
+</tbody>
+</table>
+<p>TPGID栏写着-1的都是没有控制终端的进程，也就是守护进程</p>
+<p>STAT表示进程的状态，而进程的状态有很多，如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>Running.运行中</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Interruptible Sleep.等待调用</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Uninterruptible Sleep.不可中断睡眠</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Stoped.暂停或者跟踪状态</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Dead.即将被撤销</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Zombie.僵尸进程</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Paging.内存交换</td>
+</tr>
+<tr>
+<td>N</td>
+<td>优先级低的进程</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>优先级高的进程</td>
+</tr>
+<tr>
+<td>s</td>
+<td>进程的领导者</td>
+</tr>
+<tr>
+<td>L</td>
+<td>锁定状态</td>
+</tr>
+<tr>
+<td>l</td>
+<td>多线程状态</td>
+</tr>
+<tr>
+<td>+</td>
+<td>前台进程</td>
+</tr>
+</tbody>
+</table>
+<p>使用 -l 参数可以显示自己这次登陆的 bash 相关的进程信息罗列出来</p>
+<pre><code>ps -l
+</code></pre><p>若是查找其中的某个进程的话，我们还可以配合着 grep 和正则表达式一起使用</p>
+<pre><code>ps aux | grep zsh
+</code></pre><p>当然如果觉得使用这样的此时没有把你想要的信息放在一起，我们也可以是用这样的命令，来自定义我们所需要的参数显示</p>
+<pre><code>ps -afxo user,ppid,pid,pgid,command
+</code></pre><h3 id="1-3-pstree工具的使用"><a href="#1-3-pstree工具的使用" class="headerlink" title="1.3 pstree工具的使用"></a>1.3 pstree工具的使用</h3><p>通过 pstree 可以很直接的看到相同的进程数量，最主要的还是我们可以看到所有进程之间的相关性。</p>
+<pre><code>pstree
+</code></pre><p><img src="https://i.imgur.com/ofoWvjb.png" alt=""></p>
+<pre><code>pstree -up
+
+#参数选择：
+#-A  ：各程序树之间以 ASCII 字元來連接；
+#-p  ：同时列出每个 process 的 PID；
+#-u  ：同时列出每个 process 的所屬账户名称。
+</code></pre><p><img src="https://i.imgur.com/iaul5wL.png" alt=""></p>
+<h2 id="二、-进程管理"><a href="#二、-进程管理" class="headerlink" title="二、 进程管理"></a>二、 进程管理</h2><h3 id="2-1-kill命令"><a href="#2-1-kill命令" class="headerlink" title="2.1 kill命令"></a>2.1 kill命令</h3><p>当一个进程结束的时候或者要异常结束的时候，会向其父进程返回一个或者接收一个 SIGHUP 信号而做出的结束进程或者其他的操作，这个 SIGHUP 信号不仅可以由系统发送，我们可以使用 kill 来发送这个信号来操作进程的结束或者重启等等。</p>
+<p>前面使用 kill 命令来管理一些 job，这里将尝试用 kill 来操作下一些不属于 job 范畴的进程</p>
+<pre><code>#使用9这个信号强制结束 gedit 进程
+kill -9 1608
+</code></pre><h3 id="2-2-进程的控制顺序"><a href="#2-2-进程的控制顺序" class="headerlink" title="2.2 进程的控制顺序"></a>2.2 进程的控制顺序</h3><p>在使用 ps 命令的时候可以看到大部分的进程都是处于休眠的状态，如果这些进程都被唤醒，那么该谁最先享受 CPU 的服务，后面的进程又该是一个什么样的顺序呢？进程调度的队列又该如何去排列呢？</p>
+<p>当然就是靠该进程的优先级值来判定进程调度的优先级，而优先级的值就是上文所提到的 PR 与 nice 来控制与体现了</p>
+<p>而 nice 的值我们是可以通过 nice 命令来修改的，而需要注意的是 nice 值可以调整的范围是 -20 ~ 19，其中 root 有着至高无上的权力，既可以调整自己的进程也可以调整其他用户的程序，并且是所有的值都可以用，而普通用户只可以调制属于自己的进程，并且其使用的范围只能是 0 ~ 19，因为系统为了避免一般用户抢占系统资源而设置的一个限制</p>
+<pre><code>#打开一个程序放在后台，或者用图形界面打开
+nice -n -5 vim &amp;
+
+#用 ps 查看其优先级
+ps -afxo user,ppid,pid,stat,pri,ni,time,command | grep vim
+</code></pre><p>还可以用 renice 来修改已经存在的进程的优先级，同样因为权限的原因在实验环境中无法尝试</p>
+<pre><code>renice -5 pid
+</code></pre><p><img src="https://i.imgur.com/iYxWfM0.png" alt=""></p>
+
       
     </div>
     
@@ -378,13 +796,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-29, 14:33:14</p>
-        <p><span>最后更新:</span>2018-09-01, 14:38:16</p>
+        <p><span>发布时间:</span>2018-09-05, 08:30:50</p>
+        <p><span>最后更新:</span>2018-09-05, 11:06:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/29/预备知识/" title="C++ Primer Plus--预备知识（一）">https://zxpgo.github.io/2018/08/29/预备知识/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/29/预备知识/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/05/Linux 进程管理/" title="Linux 进程管理">https://zxpgo.github.io/2018/09/05/Linux 进程管理/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/05/Linux 进程管理/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -397,15 +815,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/29/网络与信息安全研究方向/">
-                    网络与信息安全研究方向
+                <a href="/2018/09/05/Linux 日志系统/">
+                    Linux 日志系统
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/29/简单的文本处理/">
-                    简单的文本处理
+                <a href="/2018/09/02/2016百度校招面试题/">
+                    2016百度校招面试题
                 </a>
             </div>
         
@@ -478,7 +896,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-简介"><span class="toc-number">1.</span> <span class="toc-text">C++简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c演员编程原理"><span class="toc-number">2.</span> <span class="toc-text">c演员编程原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象编程-OOP"><span class="toc-number">3.</span> <span class="toc-text">面向对象编程(OOP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型编程"><span class="toc-number">4.</span> <span class="toc-text">泛型编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#起源（了解）"><span class="toc-number">5.</span> <span class="toc-text">起源（了解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序创建过程"><span class="toc-number">6.</span> <span class="toc-text">程序创建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建源代码文件"><span class="toc-number">7.</span> <span class="toc-text">创建源代码文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译和链接"><span class="toc-number">8.</span> <span class="toc-text">编译和链接</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、进程查看"><span class="toc-number">1.</span> <span class="toc-text">一、进程查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-top工具的使用"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 top工具的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-ps工具的使用"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 ps工具的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-pstree工具的使用"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 pstree工具的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-进程管理"><span class="toc-number">2.</span> <span class="toc-text">二、 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-kill命令"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 kill命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-进程的控制顺序"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 进程的控制顺序</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -514,7 +932,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--预备知识（一）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux 进程管理　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -534,7 +952,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/29/网络与信息安全研究方向/" title="上一篇: 网络与信息安全研究方向">
+            <a href="/2018/09/05/Linux 日志系统/" title="上一篇: Linux 日志系统">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -542,7 +960,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/29/简单的文本处理/" title="下一篇: 简单的文本处理">
+            <a href="/2018/09/02/2016百度校招面试题/" title="下一篇: 2016百度校招面试题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
