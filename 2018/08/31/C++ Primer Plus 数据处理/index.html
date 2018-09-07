@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="介绍C++变量的命名规则，以及数据类型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T12:26:02.786Z">
+<meta property="og:updated_time" content="2018-09-07T02:58:22.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--数据处理（三）">
 <meta name="twitter:description" content="介绍C++变量的命名规则，以及数据类型">
@@ -206,7 +206,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/通信协议/">通信协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
                     </div>
                 </section>
                 
@@ -476,7 +476,48 @@ cout &lt;&lt; chest; //输出52
 </tbody>
 </table>
 <p>十六进制数0x9C40（40000）将被表示为unsigned int，这是因为十六进制常用来表示内存地址，而内存地址没有符号。</p>
-<h3 id="char类型：字符和小整数"><a href="#char类型：字符和小整数" class="headerlink" title="char类型：字符和小整数"></a>char类型：字符和小整数</h3>
+<h3 id="char类型：字符和小整数"><a href="#char类型：字符和小整数" class="headerlink" title="char类型：字符和小整数"></a>char类型：字符和小整数</h3><p>char类型是专门为存储字符而设计的。编程语言通过使用字母的数值编码来存储字符。因此char类型是另一种整型。它足够长，能过表示计算机系统中的所有字符—字母、数字、标点符号等等。实际上，很多系统支持的字符不操作128个，因此用一个字节就可以表示所有的符号。虽然，char最常用来处理字符，但也可以将它用做比short更小的整型。</p>
+<p>在美国，最常用的符号集是ASCII字符集。例如，字符A的编码是65，字母M的编码为77。</p>
+<pre><code>char ch;
+cout &lt;&lt; &quot;Enter a chararcter: &quot; &lt;&lt; endl;
+cin &gt;&gt; ch;
+cout &lt;&lt; &quot;Thank you for the &quot; &lt;&lt; ch &lt;&lt; &quot; character&quot; &lt;&lt; endl;
+</code></pre><p>输入M,结果输出为 Thank you for the M character.程序打印的是M,而不是77。通过查看内存可知，77是存储在变量ch中的值。这种神奇的力量来自cin和cout,而不是char，这些工具完成了转换工作。输入时，cin将键盘输入的M转换为77；输出是cout将77转换为M。</p>
+<p>如果将77存储在int变量中，则cout将把它显示为77(也就是说cout显示两个字符7)。C++中书写字符字面量：将字符用单引号括起来。如’M’。（注意：C++对字符用单引号对字符串使用双引号，这两者差别比较大）。cout引入一项新特性–cout.put()函数，该函数显示一个字符。</p>
+<pre><code>char ch = &apos;M&apos;; 
+int i = ch;
+cout &lt;&lt; i; //结果为77
+ch = ch + 1;
+i = ch;
+cout &lt;&lt; i //结果为78
+cout.put(ch); //结果为N
+</code></pre><p>上面程序中，ch存储的实际上是整数，因此可以对其使用整数操作，如加一。</p>
+<pre><code>char ch;
+cin &gt;&gt; ch; //输入5，实际上ch存储的整数53（5的ASCII编码）
+</code></pre><p>上述代码将读取字符“5”.并将其对应的字符编码存储到ch变量中。</p>
+<pre><code>int n;
+cin &gt;&gt; n; //输入5
+</code></pre><p>上述代码获取字符“5”，并将其转换为对应的数字5，并存储到n变量中。</p>
+<h4 id="成员函数cout-put"><a href="#成员函数cout-put" class="headerlink" title="成员函数cout.put()"></a>成员函数cout.put()</h4><p>cout.put()成员函数提供了一种显示字符的方法，可以代替&lt;&lt;运算符。cout.put存在的必要性：在c++的Release2.0之前，cout将字符变量显示为字符，而将字符常量（如‘M’和‘N’）显示为数字。问题是，C++早期版本将字符常量存储为int类型。也就是说，‘M’的编码将被存储在一个16或32为单元中。而char变量一般占8位。下面的语句从常量“M”中赋值左边的8位到变ch中：</p>
+<pre><code>char ch = &apos;M&apos;
+</code></pre><p>遗憾的是，对于cout来说，‘M’和ch看上去有天壤之别，虽然存储的值一样。下面的语句将打印字符M的ASCII码，而不是字符M:</p>
+<pre><code>cout &lt;&lt; &apos;M&apos;;
+</code></pre><p>但是下面打印字符M:</p>
+<pre><code>cout.put(&apos;M&apos;);
+</code></pre><p>C++Release2.0之后，将字符常量存储位char类型，而不是int,意味着cout现在可以正确处理字符常量。</p>
+<h4 id="char字面值"><a href="#char字面值" class="headerlink" title="char字面值"></a>char字面值</h4><p>在C++中，书写字符常量的方式有多种，对于常规字符（字母，数字和标点符号），最简单的方法是将字符用单引号括起来。这种表示法代表的是字符的数字编码。例如，ASCII系统中的对应情况如下：</p>
+<ul>
+<li>‘A’为65，即字符A的ASCII</li>
+<li>‘a’为97</li>
+<li>‘0’为48</li>
+<li>‘ ‘为32</li>
+<li>‘!’为33</li>
+</ul>
+<p>这种表示法优于数值编码，更加清晰，而不需要知道编码方。如果系统使用的是EBCDIC,则A的编码值不是65，但’A‘表示的仍然是字符A。</p>
+<p>转义字符： 有些字符不能之间通过键盘输入到程序中，比如：回车等。C++提供了一种特殊的表示方法–转义字符。例如：\”将双引号作为常规字符，\t表示水平制表符等等。</p>
+<p>将转移字符作为字符常量时，应用单引号括起来；将他放在字符串中不要使用单引号。</p>
+<p>基于字符八进制和十六进制编码来使用转义字符。例如，Ctrl+Z的ASCII码为26，对应的八进制编码为032，十六进制编码为0X1a。可以使用下面的转义字符来表示该字符： \032或\x1a。</p>
+
       
     </div>
     
@@ -487,7 +528,7 @@ cout &lt;&lt; chest; //输出52
         <p><span>本文标题:</span><a href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-08-31, 14:33:14</p>
-        <p><span>最后更新:</span>2018-09-03, 20:26:02</p>
+        <p><span>最后更新:</span>2018-09-07, 10:58:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/31/C++ Primer Plus 数据处理/" title="C++ Primer Plus--数据处理（三）">https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -503,15 +544,15 @@ cout &lt;&lt; chest; //输出52
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/31/开始学习C++/">
-                    C++ Primer Plus--开始学习（二）
+                <a href="/2018/09/01/正则表达式基础/">
+                    正则表达式基础
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/29/网络与信息安全研究方向/">
-                    网络与信息安全研究方向
+                <a href="/2018/08/31/开始学习C++/">
+                    C++ Primer Plus--开始学习（二）
                 </a>
             </div>
         
@@ -584,7 +625,7 @@ cout &lt;&lt; chest; //输出52
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单变量"><span class="toc-number">1.</span> <span class="toc-text">简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量名"><span class="toc-number">1.1.</span> <span class="toc-text">变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">1.2.</span> <span class="toc-text">整型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化"><span class="toc-number">1.2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-11初始化方式"><span class="toc-number">1.2.2.</span> <span class="toc-text">C++11初始化方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号类型"><span class="toc-number">1.3.</span> <span class="toc-text">无符号类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择整型类型"><span class="toc-number">1.4.</span> <span class="toc-text">选择整型类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型字面量"><span class="toc-number">1.5.</span> <span class="toc-text">整型字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-如何确定常量的类型"><span class="toc-number">1.6.</span> <span class="toc-text">C++如何确定常量的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char类型：字符和小整数"><span class="toc-number">1.7.</span> <span class="toc-text">char类型：字符和小整数</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单变量"><span class="toc-number">1.</span> <span class="toc-text">简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量名"><span class="toc-number">1.1.</span> <span class="toc-text">变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型"><span class="toc-number">1.2.</span> <span class="toc-text">整型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化"><span class="toc-number">1.2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-11初始化方式"><span class="toc-number">1.2.2.</span> <span class="toc-text">C++11初始化方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无符号类型"><span class="toc-number">1.3.</span> <span class="toc-text">无符号类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择整型类型"><span class="toc-number">1.4.</span> <span class="toc-text">选择整型类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整型字面量"><span class="toc-number">1.5.</span> <span class="toc-text">整型字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-如何确定常量的类型"><span class="toc-number">1.6.</span> <span class="toc-text">C++如何确定常量的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#char类型：字符和小整数"><span class="toc-number">1.7.</span> <span class="toc-text">char类型：字符和小整数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#成员函数cout-put"><span class="toc-number">1.7.1.</span> <span class="toc-text">成员函数cout.put()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#char字面值"><span class="toc-number">1.7.2.</span> <span class="toc-text">char字面值</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -640,7 +681,7 @@ cout &lt;&lt; chest; //输出52
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/31/开始学习C++/" title="上一篇: C++ Primer Plus--开始学习（二）">
+            <a href="/2018/09/01/正则表达式基础/" title="上一篇: 正则表达式基础">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -648,13 +689,13 @@ cout &lt;&lt; chest; //输出52
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/29/网络与信息安全研究方向/" title="下一篇: 网络与信息安全研究方向">
+            <a href="/2018/08/31/开始学习C++/" title="下一篇: C++ Primer Plus--开始学习（二）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 

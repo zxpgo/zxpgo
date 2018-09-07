@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="leetcode是个题库，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T12:51:27.970Z">
+<meta property="og:updated_time" content="2018-09-06T14:05:04.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode算法题目">
 <meta name="twitter:description" content="leetcode是个题库，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。">
@@ -206,7 +206,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/通信协议/">通信协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
                     </div>
                 </section>
                 
@@ -416,7 +416,79 @@ class Solution:
 </code></pre><p><strong>算法分析：</strong></p>
 <p>时间复杂度：O(n)， 我们只遍历了包含有 nn 个元素的列表一次。在表中进行的每次查找只花费 O(1)O(1) 的时间。</p>
 <p>空间复杂度：O(n)， 所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储 nn 个元素。</p>
+<h2 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h2><p>给定一个字符串，找出不含有重复字符的最长子串的长度。</p>
+<p>示例 1:</p>
+<p>输入: “abcabcbb”<br>输出: 3<br>解释: 无重复字符的最长子串是 “abc”，其长度为 3。<br>示例 2:</p>
+<p>输入: “bbbbb”<br>输出: 1<br>解释: 无重复字符的最长子串是 “b”，其长度为 1。<br>示例 3:</p>
+<p>输入: “pwwkew”<br>输出: 3<br>解释: 无重复字符的最长子串是 “wke”，其长度为 3。<br>     请注意，答案必须是一个子串，”pwke” 是一个子序列 而不是子串。</p>
+<h3 id="方法一：暴力法"><a href="#方法一：暴力法" class="headerlink" title="方法一：暴力法"></a>方法一：暴力法</h3><p>思路</p>
+<p>逐个检查所有的子字符串，看它是否不含有重复的字符。</p>
+<p>算法</p>
+<p>假设我们有一个函数 boolean allUnique(String substring) ，如果子字符串中的字符都是唯一的，它会返回true，否则会返回false。 我们可以遍历给定字符串 s 的所有可能的子字符串并调用函数 allUnique。 如果事实证明返回值为true，那么我们将会更新无重复字符子串的最大长度的答案。</p>
+<p>现在让我们填补缺少的部分：</p>
+<p>为了枚举给定字符串的所有子字符串，我们需要枚举它们开始和结束的索引。假设开始和结束的索引分别为i和j。那么我们有 0≤i&lt;j≤n （这里的结束索引 j 是按惯例排除的）。因此，使用 i 从0到 n−1 以及 jj 从 i+1 到 n 这两个嵌套的循环，我们可以枚举出 s 的所有子字符串。</p>
+<p>要检查一个字符串是否有重复字符，我们可以使用集合。我们遍历字符串中的所有字符，并将它们逐个放入 set 中。在放置一个字符之前，我们检查该集合是否已经包含它。如果包含，我们会返回 false。循环结束后，我们返回 true。</p>
+<p><strong>代码：</strong></p>
+<pre><code>class Solution:
+    def lengthOfLongestSubstring(self, s):
+        &quot;&quot;&quot;
+        :type s: str
+        :rtype: int
+        &quot;&quot;&quot;
 
+        def allUnique(s, start, end):
+            st = set()
+            for i in range(start,end):
+                if s[i] in st:
+                    return 0
+                st.add(s[i])
+            return 1
+
+        l = len(s)
+        ans = 0
+        for i in range(0, l):
+            for j in range(i+1, l+1):
+                if(allUnique(s,i,j)):
+                    ans = max(ans, j-i)
+        return ans
+</code></pre><h3 id="方法二：滑动窗口"><a href="#方法二：滑动窗口" class="headerlink" title="方法二：滑动窗口"></a>方法二：滑动窗口</h3><p><strong>代码：</strong></p>
+<pre><code>class Solution:    
+    def lengthOfLongestSubstring(self, s):
+        &quot;&quot;&quot;
+        :type s: str
+        :rtype: int
+        &quot;&quot;&quot;
+        n = len(s)
+        ans = i = j = 0
+        st = set()
+        while i &lt; n and j &lt; n:
+            if s[j] in st:
+                st.remove(s[i])
+                i = i+1 
+            else:
+                st.add(s[j])
+                j = j + 1
+                ans = max(ans, j-i)
+        return ans
+</code></pre><h3 id="方法三：优化的滑动窗口"><a href="#方法三：优化的滑动窗口" class="headerlink" title="方法三：优化的滑动窗口"></a>方法三：优化的滑动窗口</h3><p><strong>代码：</strong></p>
+<pre><code>class Solution:    
+def lengthOfLongestSubstring(self, s):
+    &quot;&quot;&quot;
+    :type s: str
+    :rtype: int
+    &quot;&quot;&quot;
+    n = len(s)
+    ans = i = j = 0
+    d = {} #将存放
+    st = set()
+    while j &lt; n:
+        if s[j] in d.keys():
+            i = max(i, d.get(s[j]))
+        ans = max(ans, j-i+1)
+        d[s[j]] = j + 1
+        j = j + 1
+    return ans                
+</code></pre>
       
     </div>
     
@@ -427,7 +499,7 @@ class Solution:
         <p><span>本文标题:</span><a href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2019-08-22, 22:28:50</p>
-        <p><span>最后更新:</span>2018-09-05, 20:51:27</p>
+        <p><span>最后更新:</span>2018-09-06, 22:05:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/22/LeetCode算法题目/" title="LeetCode算法题目">https://zxpgo.github.io/2019/08/22/LeetCode算法题目/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/08/22/LeetCode算法题目/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -442,10 +514,16 @@ class Solution:
 
     <nav id="article-nav">
         
-        
-            <div id="article-nav-older" class="article-nav-title">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2019/08/22/Python实现8种排序算法/">
                     Python实现：8种排序算法
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/22/进制相互转换/">
+                    进制介绍以及相互转换
                 </a>
             </div>
         
@@ -518,7 +596,7 @@ class Solution:
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两数之和"><span class="toc-number">1.</span> <span class="toc-text">两数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两数相加"><span class="toc-number">2.</span> <span class="toc-text">两数相加</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两数之和"><span class="toc-number">1.</span> <span class="toc-text">两数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两数相加"><span class="toc-number">2.</span> <span class="toc-text">两数相加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无重复字符的最长子串"><span class="toc-number">3.</span> <span class="toc-text">无重复字符的最长子串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：暴力法"><span class="toc-number">3.1.</span> <span class="toc-text">方法一：暴力法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：滑动窗口"><span class="toc-number">3.2.</span> <span class="toc-text">方法二：滑动窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：优化的滑动窗口"><span class="toc-number">3.3.</span> <span class="toc-text">方法三：优化的滑动窗口</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -574,19 +652,21 @@ class Solution:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/22/Python实现8种排序算法/" title="下一篇: Python实现：8种排序算法">
+            <a href="/2019/08/22/进制相互转换/" title="下一篇: 进制介绍以及相互转换">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 
