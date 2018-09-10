@@ -15,21 +15,20 @@
 
 
 
-<meta name="description" content="时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具">
-<meta name="keywords" content="Linux">
+<meta name="description" content="论文一">
+<meta name="keywords" content="论文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux任务计划crontab">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/27/Linux任务计划crontab/index.html">
+<meta property="og:title" content="DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具">
+<meta property="og:description" content="论文一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/T6DV5Oj.png">
-<meta property="og:image" content="https://i.imgur.com/u9iyxSl.png">
-<meta property="og:updated_time" content="2018-08-27T14:23:47.106Z">
+<meta property="og:image" content="https://i.imgur.com/9RQMEbR.png">
+<meta property="og:updated_time" content="2018-09-10T14:53:30.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux任务计划crontab">
-<meta name="twitter:description" content="时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具">
-<meta name="twitter:image" content="https://i.imgur.com/T6DV5Oj.png">
+<meta name="twitter:title" content="DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems">
+<meta name="twitter:description" content="论文一">
+<meta name="twitter:image" content="https://i.imgur.com/9RQMEbR.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux任务计划crontab | 平步青云win</title>
+<title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -290,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Linux任务计划crontab" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/27/Linux任务计划crontab/" class="article-date">
-      <time datetime="2018-08-27T14:23:14.000Z" itemprop="datePublished">2018-08-27</time>
+      <a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/" class="article-date">
+      <time datetime="2018-09-06T08:28:50.000Z" itemprop="datePublished">2018-09-06</time>
 </a>
 
 
@@ -309,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux任务计划crontab
+      DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems
     </h1>
   
 
@@ -319,13 +318,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
+    <a class="article-category-link" href="/categories/论文/">论文</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/论文/">论文</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -340,51 +339,41 @@
 	
       
           
-        <p>时常会有一些定期定时的任务，如周期性的清理一下／tmp，周期性的去备份一次数据库，周期性的分析日志等等。而且有时候因为某些因素的限制，执行该任务的时间会很尴尬。本文将带你很好的利用 Linux 系统的计划工具<a id="more"></a></p>
-<p>crontab 命令常见于 Unix 和类 Unix 的操作系统之中（Linux 就属于类 Unix 操作系统），用于设置周期性被执行的指令。</p>
-<h2 id="Crontab简介"><a href="#Crontab简介" class="headerlink" title="Crontab简介"></a>Crontab简介</h2><p><code>Crontab</code>命令从输入设备读取指令，并将其存于<code>crontab</code>文件中，以供之后读取和执行。crontab存储的指令在守护进程激活，crond为其守护进程，每一分钟会检查一次是否预定的作业需要执行。</p>
-<p>通过 crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell　script 脚本。时间间隔的单位可以是分钟、小时、日、月、周的任意组合。</p>
-<pre><code># Example of job definition:
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  * user-name command to be executed
-</code></pre><h2 id="crontab使用"><a href="#crontab使用" class="headerlink" title="crontab使用"></a>crontab使用</h2><p>运行如下命令，添加一个集合任务：</p>
-<pre><code>crontab -e
-</code></pre><p>详细的格式可以使用<code>man</code>命令查看：</p>
-<pre><code>man crontab
-</code></pre><p>给出一个例子来完成一个任务的添加，该任务是每分钟在/home/zxp目录下创建一个以当前年月日时分秒为名字的空文件：</p>
-<pre><code>*/1 * * * * touch /home/zxp/$(date + /%H/%m/%d/%H/%M/%S)
-</code></pre><blockquote>
-<p>注意 “ % ” 在 crontab 文件中，有结束命令行、换行、重定向的作用，前面加 ” \ ” 符号转义，否则，“ % ” 符号将执行其结束命令行或者换行的作用，并且其后的内容会被做为标准输入发送给前面的命令。</p>
-</blockquote>
-<p><img src="https://i.imgur.com/T6DV5Oj.png" alt=""></p>
-<p>查看添加的任务：</p>
-<pre><code>crontab -l
-</code></pre><p>默认cron是自动启动的，可以通过如下命令查看是否启动:</p>
-<pre><code>ps aux | grep cron
-
-pgrep cron
-</code></pre><p>启动crontab:</p>
-<pre><code>sudo cron -f &amp;
-</code></pre><p>当不再需要这个任务时，可以使用如下命令：</p>
-<pre><code>crontab -r
-</code></pre><h2 id="crontab深入"><a href="#crontab深入" class="headerlink" title="crontab深入"></a>crontab深入</h2><p>每个用户使用 crontab -e 添加计划任务，都会在 <code>/var/spool/cron[/crontabs]</code> 中添加一个该用户自己的任务文档，这样目的是为了隔离。</p>
-<p>如果是系统级别的定时任务，应该如何处理？只需要以 sudo 权限编辑 /etc/crontab 文件就可以。</p>
-<p>cron 服务监测时间最小单位是分钟，所以 cron 会每分钟去读取一次 /etc/crontab 与 /var/spool/cron/crontabs 里面的內容。</p>
-<p>在/etc下，cron相关的文件和目录有：</p>
-<p><img src="https://i.imgur.com/u9iyxSl.png" alt=""></p>
-<p>每个目录的作用：</p>
+        <p>论文一<a id="more"></a></p>
+<h1 id="多权威云存储系统的有效数据访问控制"><a href="#多权威云存储系统的有效数据访问控制" class="headerlink" title="多权威云存储系统的有效数据访问控制"></a>多权威云存储系统的有效数据访问控制</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>数据访问控制是确保云上数据安全的有效方法。然而，由于数据外包和不可信的云服务器，在云存储系统中，数据访问控制成为了一个挑战性问题。现有的访问控制方案不再适合云存储系统，因为它们针对相同的数据生成多个加密副本，并且要求云服务器完全可信。基于密文策略的属性加密（CP-ABE），对于加密数据的访问策略，是个比较好的技术。但是，由于低效的解密和撤销，现有的CP-ABE方案不能直接应用来构造一个适合多权威中心的云存储系统的访问控制方案。在本文，作者提出了针对多权威云存储系统的访问控制（DAC-MACS）,其是一个高效安全的访问控制方案，并且解密和撤销效率高。另外，作者构造了一个新的多权威（CP-ABE）方案，解密效率高，同时设计一个有效的属性撤销方法，可是保证前向安全和后向安全。进一步，作者给出了一个扩展数据访问控制方案（EDAC-MACS）,其在一个弱安全假设下是安全的。</p>
+<h2 id="一、介绍（Introduction）"><a href="#一、介绍（Introduction）" class="headerlink" title="一、介绍（Introduction）"></a>一、介绍（Introduction）</h2><p>云存储是云计算一个重要的服务。它允许数据拥有者上传数据到云服务器，利用云服务器先用户提供数据访问。数据访问控制是保证数据安全的有效方法。然而由于数据外包，云服务器可能无法完全被信任来提供数据访问控制服务，这意味着存在的基于服务的访问控制方法不再适应于云存储。为了实现不可信服务器的数据访问控制，传统方案经常加密数据并只有用户拥有密码来解密。尽管这种方案可以提供安全访问控制，但是当系统用户变多，密钥管理非常复杂。数据拥有者不得不保持在线来发送密钥给新的用户。甚至，对于每一个数据，存在多个密文副本对于拥有不同密钥的用户，这将因此巨大的存储开销。</p>
+<p>基于密文策略的属性加密（CP-ABE）[2-6]是一种最适合于云存储系统数据访问控制的技术之一，由于它使数据拥有者可以直接的控制访问策略，并不要求数据拥有者去分发密钥。在CP-ABE方案中，有一个权威机构来负责密钥的分发和属性管理。权威中心可以是一个大学的注册办公室，公司的人力部门等等。根据属性每个用户被分配一个私钥。每个用户仅可以解密其属性满足访问策略的密文。</p>
+<p>在云存储系统中，一个用户可能拥有多个权威中心分配的属性，数据拥有者与不同权威机构管理的用户共享数据。例如：在一个电子医疗系统中，医疗数据可能仅分享给被医院分发有“医生”属性的用户，和被医院研究中心分发有“医药研究元”属性的用户。一些CP-ABE方案[7-10]被提出针对多权威系统。然而，由于计算量较大，他们无法直接应用来构造数据访问控制方案。主要，在访问控制中，加密和解密操作要求计算量小。</p>
+<p><em>用户撤销</em>：在云存储系统中，数据访问不是静态的，正如员工的雇佣和解聘，升职和降职，改变用户的属性是非常有必要的。为了保证用户撤销的安全性，满足如下两个要求：1）<strong>后向安全</strong>：撤销用户（其属性被撤销）不能解密新的密文，解密新的密文需要被撤销的属性。2）<strong>前向安全</strong>：新加入的拥有足够属性的用户能过解密以前发布的密文。为了实现者两个要求，一个普通的方法市重新加密所有数据。当数据量非常大时，计算开销也是巨大的。这促使我们去研究一种新的方法，可以高效地处理用户的属性撤销。</p>
+<p><em>解密效率</em>：在CP-ABE系统中，用户需要使用自己的私钥去解密数据。不过，现在，用户通常使用移动设备（比如：智能手机、笔记本等等）来获取云数据，移动设备的计算能力不想PC一样强大。这促使我们去外包主要的解密计算量给云服务器，同时保证云服务器无法获取数据。</p>
+<p>本文，我们首先构造了一个新的多权威CP-ABE方法，解密效率高，并为其提出了高效的属性撤销方案。然后，我们运用它来为多权威云存储系统设计一个高效的访问控制方法。本文的主要贡献可以总结如下：</p>
+<p>1）提出了DAC-MACS（多权威云存储系统的数据访问控制），其是针对多权威中心的云存储系统的，一个高效地，安全地数据访问控制方案。其在预言机模型中是安全的，并且性能优于现有的方案。</p>
+<p>2）构造了一个新的多权威CP-ABE方案，解密效率高。尤其，我们通过使用基于令牌的解密方法来外包解密过程的大部分计算量。</p>
+<p>3）针对多权威CP-ABE方案，设计了一个高效及时的属性撤销方案，可以实现前向安全和后向安全。甚至，在属性撤销过程的通信开销和计算量大大降低。</p>
+<p>与之前的方案[11]相比，我们大大提高了DAC-MACS的安全性，使其更适合于多权威中心的云存储系统。尤其，我们主要研究了由未撤销用户和被破坏用户AA之间共谋引起的安全问题。首先，通过一个安全假设，即未撤销用户不会将其收到的更新密钥发送给撤销用户，来给出一个简单的解决方案。进一步，我们抛弃上面的假设，提出了一种扩展数据访问控制方案（EDAC-MACS），其可以实现同样的安全性能。在EDAC-MACS方案中，即使在任意破坏用户AA帮助下e，撤销用户也无法获取非法的数据访问。没有上面的假设，EDAC-MACS是更符实际的来运用到云存储系统。同时，我们也给出了EDAC-MACS方案的安全分析，证明其在弱安全假设下是安全的。</p>
+<p>论文余下部分内容如下：在第二节，我们定义了系统模型，方案架构以及安全模型。在第三节，我们提出了一种新的多权威CP-ABE方案，具有高效的解密和撤销，并被运用来构造DAC-MACS。在第四节，就安全和性能，我们分析了DAC-MACS。第五节，进一步提出了扩展DAC-MACS方案来保证弱假设下的安全性。第六节，给出了相关工作总结。最后，在第七节，给出了结论。详细地安全证明在附录中给出。</p>
+<h2 id="二、系统模型和安全模型"><a href="#二、系统模型和安全模型" class="headerlink" title="二、系统模型和安全模型"></a>二、系统模型和安全模型</h2><h3 id="A-系统模型"><a href="#A-系统模型" class="headerlink" title="A. 系统模型"></a>A. 系统模型</h3><p>考虑到一个云存储系统有多个权威中心，正如图1所示。系统模型包括五部分：全局证书机构（CA）、属性权威中心（AAs）、云服务器（server）、数据拥有着（owners）、数据使用者（users）。</p>
+<p><img src="https://i.imgur.com/9RQMEbR.png" alt=""></p>
+<p><strong>CA.</strong>在系统种，CA是一个全局被信任的证书颁发机构。它建立系统，并接受系统种所有用户和AAs的注册。对于每个合法用户，对于每个合法的用户，CA分配一个全局唯一身份标识给他，同时生成一个公私钥对给该用户。然后，CA不参与任何属性管理和任何与属性有关私钥的生成。</p>
+<p><strong>AA.</strong>每一个AA是一个独立的属性权威中心，负责根据用户的角色和身份来分发、撤销和更新用户的属性。每一个AA负责为每个其管理的属性生成一个公开属性密钥，并为他们属性所对应的每个用户生成一个私钥。</p>
+<p><strong>Server.</strong>云服务器存储数据拥有着的数据，并向用户提供数据访问控制服务。它也帮助用户进行解密密文，其是通过生成一个解密符合实现。同时，当存在一个属性撤销时，云服务器也帮助用户更新密文。</p>
+<p><strong>Owners.</strong>在外包数据之前，每个数据拥有者通过对称加密技术使用内容密钥（content keys）来加密数据。然后，数据拥有者针对多个AAs的属性定义一个访问控制策略，并在该策略下加密内容密钥。数据拥有者不信任服务器来做数据访问控制。相反，在系统种，他们假设服务器可能将数据给所有用户。但是，访问控制发现生在加密内部。只有当用户属性满足在密文中定义的访问策略，用户才能解密密文。</p>
+<p><strong>Users.</strong>每个用户被分配有一个来自CS的全局用户身份，可以自由地查询来自服务器的密文。为了解密密文，每个用户提交有某些AAs一起发布给它的私钥和全部公钥给云服务器，来请求一个解密令牌。然后，用户使用收到的解密令牌和自己的全局公钥来解密密文。仅仅当用户属性满足在密文中定义的访问策略时，服务器才会生成正确的解密令牌。私钥和用户的全部公钥可以存储在服务器中，随后，如果没有更新密钥用于进一步的解密令牌生成，则用户不需要提交任何密钥。</p>
+<h3 id="B-框架"><a href="#B-框架" class="headerlink" title="B. 框架"></a>B. 框架</h3><p><em>定义1（DAC-MACS）:</em>DAC-MACS架构包括如下几个步骤：</p>
+<p>步骤一：系统初始化：该阶段包括如下算法：</p>
 <ul>
-<li>/etc/cron.daily，目录下的脚本会每天执行一次，在每天的6点25分时运行；</li>
-<li>/etc/cron.hourly，目录下的脚本会每个小时执行一次，在每小时的17分钟时运行；</li>
-<li>/etc/cron.monthly，目录下的脚本会每月执行一次，在每月1号的6点52分时运行；</li>
-<li>/etc/cron.weekly，目录下的脚本会每周执行一次，在每周第七天的6点47分时运行；<br>系统默认执行时间可以根据需求进行修改。</li>
+<li>$CASetup(1^\lambda)\rightarrow (MSK, SP, (sk_{CA},vk_{CA}))$. CA初始化算法的输入仅仅为隐式安全参数$\lambda$。输出为主密钥MSK，系统系数SP,以及一对CA的签名和验证密钥$key(sk_{CA},vk_{CA})$。</li>
+<li>$UserReg(SP,sk_{CA},Info_u) /rightarrow (uid,GPK_{(uid)},GSK_{(uid)},Cert_{(uid)})$.用户注册算法以系统参数SP，CA的签名密钥$sk_CA$和用户信息$Info_u$（即名字、生日等等）作为输入。它验证用户身份，并分配一个全局唯一用户标识$uid$给该用户。其输出用户的标识$uid$,公私钥对$\lbrace GPK_{uid},GSK_{uid} \lbrace$和一个由CA签发的证书$Cert(uid)$。</li>
+<li>$AAReg(Info_{AA}) \rightarrow (aid)$. 属性权威注册算法将属性权威信息作为输入。它验证AA并输出一个全局权威标识$aid$给该AA。</li>
+<li>$AASetup(SP, aid) \rightarrow (SK_{aid}, PK_{aid}, VK_{x_{uid}}, PK_{x_{uid}})$.属性权威初始化算法以系统参数SP和全局权威标识$aid$作为输入。输出一私\公权威密钥对$(SK_{aid},PK_{aid})$,每个属性$x$的版本密钥和公权威密钥集合$\lbrace VK_{x_{aid}},PK_{x_{aid}} \lbrace$。</li>
 </ul>
-<p>转自：<a href="https://www.shiyanlou.com" target="_blank" rel="noopener">实验楼</a></p>
+<p>步骤二：密钥生成</p>
+<p>-$SKeyGen(SK_{aid},SP,{P_{x_{aid}}},S_{uid,aid},Cert(uid)) \rightarrow SK_{uid,aid}$.私钥生成算法以权威私钥$SK_{aid}$，系统参数$SP$,属性公钥集合%(PK_{x——{aid}})%，描述密钥的属性集合$S_{uid,aid}$和用户的证书$uid$。其输出针对用户$uid$的密钥$SK_{uid,aid}$。</p>
+<p>步骤三： 数据加密</p>
+<ul>
+<li>$Encrypt(SP, \lbrace PK_{k} \rbrace_{k \in I_{A}} \lbrace, PK_{x_k} \rbrace)^{k \in I_A}_{x_{k} \in S_{A_k}},m, alpha) \rightarrow CT$.加密算法以系统参数$SP$、来自相关权威集合$I_{A}$的公钥集合$\lbrace PK_{k} \rbrace_{k \in I_{A}}, \lbrace$、属性公钥$\lbrace, PK_{x_k} \rbrace)^{k \in I_A}_{x_{k} \in S_{A_k}}$、数据$m$和一个来自相关AAs中所有的被选属性的访问结构$alpha$。首先，该算法利用内容密钥$\kappa$使用对称加密方案加密数据$m$；然后，在访问结构$alpha$下加密内容密钥，并输出一个密文$CT$。假设密文隐含地包含访问结构。</li>
+</ul>
+<p>步骤四：数据解密</p>
 
       
     </div>
@@ -393,13 +382,13 @@ pgrep cron
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-27, 22:23:14</p>
-        <p><span>最后更新:</span>2018-08-27, 22:23:47</p>
+        <p><span>发布时间:</span>2018-09-06, 16:28:50</p>
+        <p><span>最后更新:</span>2018-09-10, 22:53:30</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/27/Linux任务计划crontab/" title="Linux任务计划crontab">https://zxpgo.github.io/2018/08/27/Linux任务计划crontab/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/27/Linux任务计划crontab/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/" title="DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems">https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -412,15 +401,15 @@ pgrep cron
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/28/命令执行顺序控制与管道/">
-                    命令执行顺序控制与管道
+                <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/">
+                    Python2.7和Python3.6安装以及文件解决
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/25/Linux中的帮助命令/">
-                    Linux中的帮助命令
+                <a href="/2018/09/05/Linux 日志系统/">
+                    Linux 日志系统
                 </a>
             </div>
         
@@ -493,7 +482,7 @@ pgrep cron
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Crontab简介"><span class="toc-number">1.</span> <span class="toc-text">Crontab简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab使用"><span class="toc-number">2.</span> <span class="toc-text">crontab使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab深入"><span class="toc-number">3.</span> <span class="toc-text">crontab深入</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多权威云存储系统的有效数据访问控制"><span class="toc-number">1.</span> <span class="toc-text">多权威云存储系统的有效数据访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍（Introduction）"><span class="toc-number">1.2.</span> <span class="toc-text">一、介绍（Introduction）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、系统模型和安全模型"><span class="toc-number">1.3.</span> <span class="toc-text">二、系统模型和安全模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-系统模型"><span class="toc-number">1.3.1.</span> <span class="toc-text">A. 系统模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-框架"><span class="toc-number">1.3.2.</span> <span class="toc-text">B. 框架</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -529,7 +518,7 @@ pgrep cron
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux任务计划crontab　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -549,7 +538,7 @@ pgrep cron
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/28/命令执行顺序控制与管道/" title="上一篇: 命令执行顺序控制与管道">
+            <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" title="上一篇: Python2.7和Python3.6安装以及文件解决">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -557,7 +546,7 @@ pgrep cron
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/25/Linux中的帮助命令/" title="下一篇: Linux中的帮助命令">
+            <a href="/2018/09/05/Linux 日志系统/" title="下一篇: Linux 日志系统">
                 <i class="fa fa-angle-right"></i>
             </a>
         
