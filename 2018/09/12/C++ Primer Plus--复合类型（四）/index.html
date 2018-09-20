@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="复合类型介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T09:06:08.527Z">
+<meta property="og:updated_time" content="2018-09-20T07:55:09.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--复合类型（四）">
 <meta name="twitter:description" content="复合类型介绍">
@@ -345,7 +345,353 @@
 <li>数组名</li>
 <li>数组种的元素数</li>
 </ul>
-<h2 id="4-2-字符串"><a href="#4-2-字符串" class="headerlink" title="4.2 字符串"></a>4.2 字符串</h2><h2 id="4-3-string类简介"><a href="#4-3-string类简介" class="headerlink" title="4.3 string类简介"></a>4.3 string类简介</h2><h2 id="4-4-结构简介"><a href="#4-4-结构简介" class="headerlink" title="4.4 结构简介"></a>4.4 结构简介</h2><h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5 共用体"></a>4.5 共用体</h2><h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6 枚举"></a>4.6 枚举</h2><h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h2><h2 id="4-8-指针、数组和指针算术"><a href="#4-8-指针、数组和指针算术" class="headerlink" title="4.8 指针、数组和指针算术"></a>4.8 指针、数组和指针算术</h2><h2 id="4-0-类型组合"><a href="#4-0-类型组合" class="headerlink" title="4.0 类型组合"></a>4.0 类型组合</h2><h2 id="4-10-数组的替代品"><a href="#4-10-数组的替代品" class="headerlink" title="4.10 数组的替代品"></a>4.10 数组的替代品</h2><h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>
+<p>C++中，可以通过修改简单变量的声明，添加中括号来完成数组声明。例如，下面的声明创建一个名为months的数组，该数组有12个元素，每个元素都可以存储一个short类型的值:</p>
+<pre><code>short months[12]
+</code></pre><p>事实上，可以将数组中的每个元素看作一个简单变量。声明数组的通用格式如下：</p>
+<pre><code>typename arrayName[arraySize];
+</code></pre><p>表达式arraySize指定元素数目，它必须是整型或const值，也可以是常量表达式（如：8*sizeof(int)）,即其中所有的值在编译时都是已知的。具体说，arraySize不能时变量，变量的值时程序运行时设置。稍后，介绍如何使用new运算符来避免这种限制。</p>
+<p>数组之所以称之为复合类型，是因为它是可以使用其他类型来创建的。不能仅仅将某种东西声明为数组，它必须是特定类型的数组。没有通用的数组类型，当存在很多特定的数组类型，如char类型或long数组。例如：</p>
+<pre><code>float loans[20];
+</code></pre><p>loans的类型不是“数组”，而是“float数组”。这强调loans数组是使用float类型创建的。</p>
+<p>数组的很多用途都是基于这样一个事实：可以单独访问数组的元素。方法是使用下标或索引来对元素进行编号。C++数组从0开始编号。C++使用带索引的括号表示法来指定数组的元素。例如，months[0]是months数组的第一个元素，months[11]是最后一个元素。注意最后一个元素的索引比数组长度小1。因此，数组声明能过使用一个声明创建大量的变量，然后便可以用索引来标识和访问各个元素。</p>
+<p>有效下标的重要性：编译器不会检查使用的下标是否有效。但是程序运行后，这种赋值可能引发问题，他可能破坏数据或代码，也可能导致程序异常终止。</p>
+<p>数组初始化：</p>
+<pre><code>int y[3] = {0,1,2};
+</code></pre><p>sizeof运算符返回类型或数据对象的长度（单位为字节）。</p>
+<pre><code>sizeof(y);
+</code></pre><h3 id="4-1-1-数组初始化"><a href="#4-1-1-数组初始化" class="headerlink" title="4.1.1 数组初始化"></a>4.1.1 数组初始化</h3><p>只有定义数组时才能初始化，此后就不能使用了，也不能将一个数组赋给另一个数组：</p>
+<pre><code>int cards[5] = {3,6,8,10}; 
+int hand[4];
+hand[4] = {5,6,7,9}; //错误做法，hand[4] = 5;这样是替换低4个元素的值为5
+hand = cards; //错误语法
+</code></pre><p>然而，可以使用下标分别给数组中的元素赋值。</p>
+<p>初始化数组时，提供的值可以少于数组的元素数目。例如，下面的语句只初始化hotelTips的前两个元素：</p>
+<pre><code>float hotelTips[5] = {5.0, 2.5};
+</code></pre><p>如果只对数组的一部分进行初始化，则编译器将把其他元素设置为0。将数组中所有的元素初始化为0非常简单，只要显式地将第一个元素初始化0。然后编译器将其他元素都初始化为0即可：</p>
+<pre><code>long totals[500] = {0};
+</code></pre><p>如果初始化数组方括号内([])为空，C++编译器将计算元素个数，例如，对于下面的声明：</p>
+<pre><code>short things[] = {1,5,3,8};
+</code></pre><p>编译器将使things数组包含4个元素。</p>
+<h3 id="4-1-2-C-11数组初始化方法"><a href="#4-1-2-C-11数组初始化方法" class="headerlink" title="4.1.2 C++11数组初始化方法"></a>4.1.2 C++11数组初始化方法</h3><p>初始化时可以省略等号：</p>
+<pre><code>double earning[3] {100.1, 112.2,133.2};
+</code></pre><p>可以在花括号中不包括任何内容，这将把所有元素都设置为零：</p>
+<pre><code>float blances[100] {}; 
+</code></pre><p>列表初始化禁止缩窄转换：</p>
+<pre><code>long plifs[] = {25, 3.0}; //错误语法，3.0为float无法转换为long
+char slifs[] = {&apos;h&apos;, &apos;i&apos;, 1122011}; //最后一个元素太大，char无法容纳，char变量的长度为8位
+char tilfs[4] = {&apos;h&apos;, &apos;i&apos;, 24}; //正确做法
+</code></pre><h2 id="4-2-字符串"><a href="#4-2-字符串" class="headerlink" title="4.2 字符串"></a>4.2 字符串</h2><p>字符串是存储在内存的连续字节中的一系列字符。C++处理字符串的方式有两种：</p>
+<ul>
+<li>来自C语言，常被称为C-风格字符串</li>
+<li>基于string类库的方法</li>
+</ul>
+<p>存储在连续字节中的一系列字符意味着可以将字符串存储在char数组中，其中每个字符都位于自己的数组元素中。C-风格字符具有一种特殊的性质：以空字符结尾，用字符被写作\0,其ASCII码为0，用来标记字符串的结尾。例如：</p>
+<pre><code>char dog[4] = {&apos;b&apos;,&apos;e&apos;,&apos;a&apos;,&apos;x&apos;}; //不是一个字符串
+char cat[4] = {&apos;f&apos;,&apos;s&apos;,&apos;a&apos;,&apos;\0&apos;};  //是一个字符串
+</code></pre><p>这两个数组都是char数组，但只有第二个数组是字符串。空字符对C-风格字符串而言至关重要。例如，C++有很多处理字符串的函数，其中包括cout使用的那些函数，它们都逐个地字符串中的字符，直到到达一个空字符为止。如果使用cout显式cat这样的字符串，则将前3个字符，发现空字符后停止。如果使用cout显式上面的dog数组（他不是字符串），cout将打印出数组中的4个字符，并接着将内存中随后的各个字节解释为要打印的字符，直到遇到控制符为止。由于空字符（实际上是被设置为0的字节）在内存中是常见的，因此这一过程很快就停止。</p>
+<p>一种更好的、将字符数组数组初始化为字符串的方法–只需使用一个引号括起来的字符即可，这种字符串被称为字符串常量或字符串字面值，如下：</p>
+<pre><code>char bird[11] = &quot;Mr. Cheeps&quot;;
+char fish[] = &quot;Bubbles&quot;;
+</code></pre><p>用引号括起的字符串隐式地包括结尾的空字符，因此不用显式地包括它。</p>
+<p>C++输入工具通过键盘输入，将字符串读入到char数组中时，将自动加上末尾的空字符。当然应确保数组足够大，能过存储字符串中的所有字符—包括空字符。</p>
+<p>注意：在确定存储字符串所需的最短数组时，别忘了将结尾的空字符计算在内。</p>
+<p>字符串常量（使用双引号）不能与字符常量（使用单引号）互换。字符常量（如‘S’）是字符串编码的简写表示。在ASCII系统上，‘S’只是83的另一种写法，因此，下面的语句将83赋给shirt_size:</p>
+<pre><code>char shirt_size = &apos;S&apos;;
+</code></pre><p>但”S”不是字符常量,它表示的是两个字符（字符S和\0）组成的字符串。更糟糕的是，”S”实际上表示的是字符串所在的内存地址。因此，下面的语句试图将一个内存地址赋给shirt_size:</p>
+<pre><code>char shirt_size = &quot;S&quot;;//错误的做法
+</code></pre><p>由于地址在C++中是一种独立的类型，因此编译器不允许这种不合理的做法。</p>
+<h3 id="4-2-1-拼接字符串常量"><a href="#4-2-1-拼接字符串常量" class="headerlink" title="4.2.1 拼接字符串常量"></a>4.2.1 拼接字符串常量</h3><p>但字符串很长无法放到一行时，C++允许拼接字符串字面值，即将两个用引号括起来的字符串合并为一个。 事实上，任何两个有空白（空格、制表符、换行符）分割的字符串常量都将自动拼接成一个。下面语句等价：</p>
+<pre><code>cout &lt;&lt; &quot;I&apos;d give my right arm to ba &quot; &quot;a great violinist.\n&quot;;
+cout &lt;&lt; &quot;I&apos;d give my right arm to ba a great violinist.\n&quot;;
+cout &lt;&lt; &quot;I&apos;d give my right ar&quot; 
+        &quot;m to ba a great violinist.\n&quot;
+</code></pre><p>注意，拼接时不会再被连接的字符串之间添加空格，第二个字符串的第一个字符将紧接在第一个字符串的最后一个字符（不考虑\0）后面。第一个字符串中的\0会被第二个字符串中的第一个字符取代。</p>
+<h3 id="4-2-2-在数组中使用字符串"><a href="#4-2-2-在数组中使用字符串" class="headerlink" title="4.2.2 在数组中使用字符串"></a>4.2.2 在数组中使用字符串</h3><p>将字符串存段数组中，常用的两种方法：</p>
+<ul>
+<li>将数组初始化为字符串常量</li>
+<li>将键盘或文件输入读入到数组中</li>
+</ul>
+<p>string.cpp</p>
+<pre><code>#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+        const int Size = 15;
+        char name1[Size];
+        char name2[Size] = &quot;C++owboy&quot;;
+
+        cout &lt;&lt; &quot;Howdy! I&apos;m &quot; &lt;&lt; name2;
+        cout &lt;&lt; &quot;! What&apos;s your name? \n&quot;;
+        cin &gt;&gt; name1;
+        cout &lt;&lt; &quot;Well, &quot; &lt;&lt; name1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;Your name has &quot; &lt;&lt; strlen(name1) &lt;&lt; &quot; letters and is stored&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;Your name has &quot; &lt;&lt; sizeof(name1) &lt;&lt; &quot; bytes. \n&quot; ;
+        name2[3] = &apos;\0&apos;; //第四个字符设置为空字符，打印字符串时，到此结束
+        cout &lt;&lt; &quot;First 3 characters of my name: &quot; &lt;&lt; name2 &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：Howdy! I’m C++owboy! What’s your name? <br><br>zxphello<br><br>Well, zxphello<br><br>Your name has 8 letters and is stored<br><br>Your name has 15 bytes. <br><br>First 3 characters of my name: C++<br></p>
+<p>sizeof运算符指出整个数组的长度：15字节；但strlen()函数返回的是存储在数组中的字符串的长度，而不是数组本身的长度。另外，strlen()只计算可见的字符，空字符不计算在内。如果存储字符串cosmic,数组的长度不能短于strlen(comisc) + 1。</p>
+<p>注意：使用符合常量表示数组长度，当修改程序以使用不同数组长度时，工作变得非常简单。</p>
+<h3 id="4-2-3-字符串输入"><a href="#4-2-3-字符串输入" class="headerlink" title="4.2.3 字符串输入"></a>4.2.3 字符串输入</h3><p>程序inst1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+        const int Size = 20;
+        char name[Size];
+        char dessert[Size];
+
+        cout &lt;&lt; &quot;Enter your name: \n&quot;;
+        cin &gt;&gt; name;
+        cout &lt;&lt; &quot;Enter your favorite dessert: \n&quot;;
+        cin &gt;&gt; dessert;
+        cout &lt;&lt;  name &lt;&lt; &quot; like &quot;&lt;&lt; dessert &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：<br></p>
+<pre><code>[root@localhost ~]# ./a.out&lt;/br&gt;
+Enter your name: &lt;/br&gt;
+zxp&lt;/br&gt;
+Enter your favorite dessert:&lt;/br&gt; 
+kk&lt;/br&gt; 
+zxp like kk&lt;/br&gt; 
+[root@localhost ~]# ./a.out&lt;/br&gt; 
+Enter your name: &lt;/br&gt; 
+zxp zxp1&lt;/br&gt; 
+Enter your favorite dessert: &lt;/br&gt; 
+zxp like zxp1&lt;/br&gt; 
+</code></pre><p>对于第二种情况，我们还没有对“输入甜点的提示”做出反应，程序便他把显示出来。</p>
+<p>由于不能通过键盘输入空字符，因此cin需要用别的方法来字符串的结尾位置。cin使用空白（空格、制表符和换行符）来确定字符串的结束位置，这意味着cin在获取字符数组输入时只读取一个单词。读取该单词后，cin将该字符串放到数组中，并自动在结尾添加空字符。</p>
+<p>这个例子的实际结果是，cin把zxp作为第一个字符串，并将它放到name数组中。把zxp1留在队列中，当cin在输入队列中搜索用户喜欢的甜点时，它发现了zxp1,因此cin读取zxp1,并将它放到dessert数组中。</p>
+<h3 id="4-2-4-每次读取一行字符串输入"><a href="#4-2-4-每次读取一行字符串输入" class="headerlink" title="4.2.4 每次读取一行字符串输入"></a>4.2.4 每次读取一行字符串输入</h3><p>当程序要求用户输入城市名，用户输入New York,希望完整的存储城市名，而不仅仅是New。</p>
+<p>istream中的类（如cin）提供了面向行的类成员：getline()和get()。这两个函数都读取一行输入，直到到达换行符。然而，随后getline()将丢弃换行符，而get()将换行符保留在输入序列中。</p>
+<p><strong>1、getline()</strong></p>
+<p>使用cin.getline()调用。该函数有两个参数：</p>
+<ul>
+<li>用来存储输入行的数组的名称参数</li>
+<li>要读取字符数的参数，getline()成员函数，在读取指定数目的字符或遇到换行符时停止读取。</li>
+</ul>
+<p>例如，使用getline()将姓名读取到一个包含20个元素的name数组中：</p>
+<pre><code>cin.getline(name, 20);
+</code></pre><p>如果一行读入不超过19个字符，将全部读取到name数组中。</p>
+<p>将instr1.cpp程序修改为使用cin.getline(),而不是简单的cin。</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+        const int Size = 20;
+        char name[Size];
+        char dessert[Size];
+
+        cout &lt;&lt; &quot;Enter your name: \n&quot;;
+        cin.getline(name, Size);
+        cout &lt;&lt; &quot;Enter your favorite dessert: \n&quot;;
+        cin.getline(dessert, Size);
+        cout &lt;&lt;  name &lt;&lt; &quot; like &quot;&lt;&lt; dessert &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>[root@localhost ~]# ./a.out
+Enter your name: 
+zxp zxp1
+Enter your favorite dessert: 
+kk dd
+zxp zxp1 like kk dd
+</code></pre><p>该程序可以读取完整的姓名和用户喜欢的甜点。getline()函数每次读取一行，通过换行符来确定行尾，但不保存换行符。</p>
+<p><strong>2、get()</strong></p>
+<p>get()函数的参数跟getline()相同，解释参数的方式也相同，并且都读取到行尾。但get()不丢弃换行符，而是将其留在输入队列中。假设，连续两次调用get():</p>
+<pre><code>cin.get(name, Arsize);
+cin.get(dessert, Arsize);
+</code></pre><p>由于第一次调用后，换行符还在输入队列中，因此第二次调用时看到的第一个字符便是换行符。因此get()默认已到达行尾，而没有读取到任何内容。</p>
+<p>一种方法是通过使用get()的变体，使用不带参数的cin.get()调用可读取下一个字符（即使换行符），因此可以用它来处理换行符：</p>
+<pre><code>cin.get(name, Arsize);
+cin.get()
+cin.get(dessert, Arsize);
+</code></pre><p>另一种使用get()的方式是将两个类成员函数拼接起来（合并）：</p>
+<pre><code>cin.get(name, Arsize).get();
+</code></pre><p>这样做，是由于cin.get(name, Arsize)返回一个cin对象，该对象随后调用get()函数。</p>
+<p>下面语句跟两次调用getline()效果相同:</p>
+<pre><code>cin.getline(name1, Arsize).getline(name1,Arsize);    
+</code></pre><p>使用get()使输入更仔细。例如，假设用get()将一行读入到数组中，如何直到停止的原因是由于已经读取了整行，而不是由于数组已填满。查看下一个输入字符，如果是换行符，说面已读取了整行，否则，说明该行中还有其他输入。</p>
+<p><strong>3、空行和其他问题</strong></p>
+<p>当getline()和get()读取空行时，最初的做法，下一条输入语句将在前一条getline()或get()结束读取的位置开始读取。当前做法，当get()（而不是getline()）读取空行后，将设置失效位（failbit）,这意味着接下来的输入被阻断，但可以使用如下命令来恢复输入：</p>
+<pre><code>cin.clear()
+</code></pre><p>另一个问题是：输入字符串可能比分配的空间长。如果输入行包含的字符数比指定的多，则getline()和get()将把余下的字符保留在队列中，而getline()还会设置失效位，并关闭后面的输入。</p>
+<h3 id="4-2-5-混合输入字符串和数字"><a href="#4-2-5-混合输入字符串和数字" class="headerlink" title="4.2.5 混合输入字符串和数字"></a>4.2.5 混合输入字符串和数字</h3><p>numstr.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+        int year;
+        char address[80];
+        cout &lt;&lt; &quot;Enter year:\n&quot; ;
+        cin &gt;&gt; year;
+        cout &lt;&lt; &quot;Enter address:\n&quot;;
+//      cin &gt;&gt; address;
+        cin.getline(address,80);
+        cout &lt;&lt; &quot;Year: &quot; &lt;&lt; year &lt;&lt;endl;
+        cout &lt;&lt; &quot;Address: &quot; &lt;&lt; address &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：  Enter year:<br><br>1991<br><br>Enter address:<br><br>Year: 1991<br><br>Address: <br></p>
+<p>用户根本没有输入地址。问题在于cin读取年份，将回车生成的换行符留在的输入队列中。后面的cin.getline()看到换行符后，将认为是一个空行，并将一个空字符串赋给address数组。解决的办法是：在读取地址之前先读取并丢弃换行符。具体方法是：</p>
+<pre><code>cin.get();//调用一个没有参数的get() 
+或者 cin.get(ch); //调用一个接受参数的get()
+或者 (cin &gt;&gt; year).get();
+或者 (cin &gt;&gt; year).get(ch); 
+</code></pre><h2 id="4-3-string类简介"><a href="#4-3-string类简介" class="headerlink" title="4.3 string类简介"></a>4.3 string类简介</h2><p>string类型的变量可以存储字符串，不是使用字符数组的方式存储。string类使用起来比数组简单，同时提供了将字符串作为一种数据类型的表达方式。</p>
+<p>使用string类，必须在程序中包含头文件string。string类位于命名空间std中，因此必须通告一条using编译指令，或者使用std::string来引用它。string来定义隐藏了字符串的数组特性。</p>
+<p>strtype1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+        char ch1[20];
+        char ch2[20] = &quot;jaguar&quot;;
+        string str1;
+        string str2 = &quot;panther&quot;;
+
+        cout &lt;&lt; &quot;Enter a king of feline:\n&quot;;
+        cin &gt;&gt; ch1;
+        cout &lt;&lt; &quot;Enter another king of  faline: \n&quot;;
+        cin &gt;&gt; str1;
+
+        cout &lt;&lt; &quot;ch1: &quot; &lt;&lt;  ch1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;ch2: &quot; &lt;&lt;  ch2 &lt;&lt; endl;
+        cout &lt;&lt; &quot;str1: &quot; &lt;&lt; str1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;str2: &quot; &lt;&lt; str2 &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：Enter a king of feline:<br><br>ocelot<br><br>Enter another king of  faline: <br><br>tiger<br><br>ch1: ocelot<br><br>ch2: jaguar<br><br>str1: tiger<br><br>str2: panther<br></p>
+<p>string类设计让程序能够处理string的大小。例如：str1的声明创建一个长度为0的string对象，当程序将输入读取到str1中时，将自动调整str1的长度。这跟数组相比，使用string更安全方便。</p>
+<p>char数组视为一组用于存储一个字符串的char存储单元，而string类变量是一个表示字符串的实体。</p>
+<h3 id="C-11字符串初始化"><a href="#C-11字符串初始化" class="headerlink" title="C++11字符串初始化"></a>C++11字符串初始化</h3><p>C++11也允许将列表初始化用于字符串和string对象：</p>
+<pre><code>char ch1[] = {&quot;aaaa, 11&quot;};
+string str1 = {&quot;bbb, 22&quot;}
+</code></pre><h3 id="赋值、拼接和附加"><a href="#赋值、拼接和附加" class="headerlink" title="赋值、拼接和附加"></a>赋值、拼接和附加</h3><p>使用string类时，一些操作比数组更简单。比如：不能将一个数组赋给另一个数组，但可以将一个string对象赋给另一个string对象。</p>
+<pre><code>char ch1[20];
+char ch2[20] = &quot;jaguar&quot;;
+string str1;
+string str2 = &quot;panther&quot;;
+ch1  = ch2;  
+str1 = str2;
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+        char ch1[20];
+        char ch2[20] = &quot;jaguar&quot;;
+        string str1;
+        string str2 = &quot;panther&quot;;
+        ch1 = ch2;//语法错误
+        str1 = str2;
+
+        cout &lt;&lt; &quot;ch1: &quot; &lt;&lt;  ch1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;ch2: &quot; &lt;&lt;  ch2 &lt;&lt; endl;
+        cout &lt;&lt; &quot;str1: &quot; &lt;&lt; str1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;str2: &quot; &lt;&lt; str2 &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>报错：<br>strtype1.cpp: 在函数‘int main()’中:<br><br>strtype1.cpp:14:6: 错误：无效的数组赋值<br><br>  ch1 = ch2;</p>
+<p>string类简化了字符串的合并操作。可以使用+运算符将两个string对象合并，还可以将字符串附加到string对象的末尾。即：</p>
+<pre><code>string str3;
+str3 = str1 + str2;
+str1 += str2;
+</code></pre><h3 id="string类的其他操作"><a href="#string类的其他操作" class="headerlink" title="string类的其他操作"></a>string类的其他操作</h3><p>C-风格字符串一些常用函数（包含在cstring头文件中）：</p>
+<ul>
+<li>字符串赋值到字符数组中：使用strcpy()函数</li>
+<li>将字符串附加到字符数组末尾：使用strcat()函数</li>
+<li>获取数组字符串长度：strlen(ch1)</li>
+</ul>
+<p>获取string类字符串长度： str1.size()，size()是一个类方法，只能通过所属类的对象进行调用。</p>
+<p>strtype3.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int main()
+{
+        char ch1[20];
+        char ch2[20] = &quot;jaguar&quot;;
+        int len1 = strlen(ch2);
+        string str1 = &quot;12345&quot;;
+        int len2 = str1.size();
+        strcpy(ch1, ch2 );
+        strcat(ch1, &quot;ccc&quot;);
+        cout &lt;&lt; &quot;ch1: &quot; &lt;&lt;  ch1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;ch2: &quot; &lt;&lt;  ch2 &lt;&lt; endl;
+        cout &lt;&lt; &quot;len1: &quot; &lt;&lt; len1 &lt;&lt; endl;
+        cout &lt;&lt; &quot;len2: &quot; &lt;&lt;  len2 &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>ch1: jaguarccc
+ch2: jaguar
+len1: 6
+len2: 5
+</code></pre><h3 id="4-3-4-string类I-O"><a href="#4-3-4-string类I-O" class="headerlink" title="4.3.4 string类I/O"></a>4.3.4 string类I/O</h3><p>strtype2.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+using namespace std;
+
+int main()
+{
+        char ch1[20];
+        string str1;
+
+        cout &lt;&lt; &quot;ch1&apos;s length before input: &quot; &lt;&lt;  strlen(ch1) &lt;&lt; endl;
+        cout &lt;&lt; &quot;str&apos;s length before input: &quot; &lt;&lt; str1.size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;Enter a line of text: \n&quot;;
+        cin.getline(ch1,20);
+        cout &lt;&lt; &quot;Enter another line of text: \n&quot;;
+        getline(cin,str1);
+        cout &lt;&lt; &quot;ch1: &quot; &lt;&lt; ch1 &lt;&lt; &quot; it&apos;s length: &quot; &lt;&lt; strlen(ch1) &lt;&lt; endl;
+        cout &lt;&lt; &quot;str1: &quot; &lt;&lt; str1 &lt;&lt; &quot; it&apos;s length: &quot; &lt;&lt; str1.size() &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>ch1&apos;s length before input: 6
+str&apos;s length before input: 0
+Enter a line of text: 
+abc
+Enter another line of text: 
+kkkk
+ch1: abc it&apos;s length: 3
+str1: kkkk it&apos;s length: 4
+</code></pre><p>用户输入之前，指定了ch1的长度为20，而输出为6，这是因为：</p>
+<ul>
+<li>初始化的数组的内容未定义</li>
+<li>函数strlen()从数组的第一个元素开始计算字节数，直到遇到空字符</li>
+</ul>
+<p>在本例中，在数组中第6个字节遇到空字符。对于未被初始化的数据，第一个空字符出现的位置是随机的，也可能出现数组规定字节外，这样数组的长度大于20。</p>
+<p>getline(ch1, 20)是一个istream类的一个类方法，第一个参数为目标数组，第二参数为数组长度。</p>
+<p>getline(cin, str1)表明getline（）不是类方法(类方法使用句点表示法),它将cin作为参数，指出从哪里查找输入。另外，没有规定字符串的长度，string对象会根据字符串的长度自动调整大小。</p>
+<p>getline()一个是istream的类方法，而另一个不是。在引入string之前，C++就有istream类，因此istrem设计考虑了int、double等数据类型，但没有考虑string类型，所以没有处理string对象的方法。但处理string对象的代码使用string类的一个友元函数。</p>
+<h3 id="4-3-5-其他形式的字符串字面值"><a href="#4-3-5-其他形式的字符串字面值" class="headerlink" title="4.3.5 其他形式的字符串字面值"></a>4.3.5 其他形式的字符串字面值</h3><p>除char类型外，C++还有类型wchar_t，C++新增了char16_t和char32_t。可创建这些类型的数组和这些类型的字符串字面值。对于这些类型的字符串字面值，C++分布使用前缀L、u和U来表示，如下：</p>
+<pre><code>wchar_t a[] = L&quot;aaaa&quot;;
+char16_t b[] = u&quot;bbbb&quot;;
+char32_t c[] = U&quot;cccc&quot;;
+</code></pre><p>C++11还支持Unicode字符编码方案UTF-8。在这种方案中，根据编码的数字值，字符可能存储为1~4个八位组。C++使用前缀u8来表示这种类型的字符串字面值。</p>
+<p>C++11还增加了另一种新类型是<strong>原始(raw)字符串</strong>。在原始字符串中，字符表示的就是自己。例如：\n不表示换行符，而是两个常规的字符–斜杠和n。还有在字符中使用”,不用\”来表示。原始字符串使用”(和)”来做定界符，并使用前缀R来标识。</p>
+<pre><code>cout &lt;&lt; R&quot;(Jim &quot;King&quot; \n instead of endl.)&quot; &lt;&lt; &apos;\n&apos;;
+</code></pre><p>输出为：</p>
+<pre><code>Jim &quot;King&quot; \n instead of endl.
+</code></pre><p>原始字符串的界定符还可以自己设定，比如：有时候需要在字符串中输入”(或者)”,这是需要自定义界定符。可以在”和(之间添加任意符号，这样在字符串结尾的)和”之间也要添加这些字符。比如：使用R”+#(标识字符串的开头，必须使用)(+#”作为原始字符串的结尾。因此由：</p>
+<pre><code>cout &lt;&lt; R&quot;+#(Jim Keing&quot;(hello world)&quot;)+=&quot; &lt;&lt; endl;
+</code></pre><h2 id="4-4-结构简介"><a href="#4-4-结构简介" class="headerlink" title="4.4 结构简介"></a>4.4 结构简介</h2><h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5 共用体"></a>4.5 共用体</h2><h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6 枚举"></a>4.6 枚举</h2><h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h2><h2 id="4-8-指针、数组和指针算术"><a href="#4-8-指针、数组和指针算术" class="headerlink" title="4.8 指针、数组和指针算术"></a>4.8 指针、数组和指针算术</h2><h2 id="4-0-类型组合"><a href="#4-0-类型组合" class="headerlink" title="4.0 类型组合"></a>4.0 类型组合</h2><h2 id="4-10-数组的替代品"><a href="#4-10-数组的替代品" class="headerlink" title="4.10 数组的替代品"></a>4.10 数组的替代品</h2><h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>
       
     </div>
     
@@ -356,7 +702,7 @@
         <p><span>本文标题:</span><a href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-09-12, 14:23:14</p>
-        <p><span>最后更新:</span>2018-09-12, 17:06:08</p>
+        <p><span>最后更新:</span>2018-09-20, 15:55:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/12/C++ Primer Plus--复合类型（四）/" title="C++ Primer Plus--复合类型（四）">https://zxpgo.github.io/2018/09/12/C++ Primer Plus--复合类型（四）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/12/C++ Primer Plus--复合类型（四）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -372,8 +718,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/22/进制相互转换/">
-                    进制介绍以及相互转换
+                <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/">
+                    Python2.7和Python3.6安装以及文件解决
                 </a>
             </div>
         
@@ -453,7 +799,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-数组"><span class="toc-number">1.</span> <span class="toc-text">4.1 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-字符串"><span class="toc-number">2.</span> <span class="toc-text">4.2 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-string类简介"><span class="toc-number">3.</span> <span class="toc-text">4.3 string类简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-结构简介"><span class="toc-number">4.</span> <span class="toc-text">4.4 结构简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-共用体"><span class="toc-number">5.</span> <span class="toc-text">4.5 共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-枚举"><span class="toc-number">6.</span> <span class="toc-text">4.6 枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-指针和自由存储空间"><span class="toc-number">7.</span> <span class="toc-text">4.7 指针和自由存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-指针、数组和指针算术"><span class="toc-number">8.</span> <span class="toc-text">4.8 指针、数组和指针算术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-0-类型组合"><span class="toc-number">9.</span> <span class="toc-text">4.0 类型组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-数组的替代品"><span class="toc-number">10.</span> <span class="toc-text">4.10 数组的替代品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-总结"><span class="toc-number">11.</span> <span class="toc-text">4.11 总结</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-数组"><span class="toc-number">1.</span> <span class="toc-text">4.1 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-数组初始化"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 数组初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-C-11数组初始化方法"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 C++11数组初始化方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-字符串"><span class="toc-number">2.</span> <span class="toc-text">4.2 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-拼接字符串常量"><span class="toc-number">2.1.</span> <span class="toc-text">4.2.1 拼接字符串常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-在数组中使用字符串"><span class="toc-number">2.2.</span> <span class="toc-text">4.2.2 在数组中使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-字符串输入"><span class="toc-number">2.3.</span> <span class="toc-text">4.2.3 字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-每次读取一行字符串输入"><span class="toc-number">2.4.</span> <span class="toc-text">4.2.4 每次读取一行字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-混合输入字符串和数字"><span class="toc-number">2.5.</span> <span class="toc-text">4.2.5 混合输入字符串和数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-string类简介"><span class="toc-number">3.</span> <span class="toc-text">4.3 string类简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11字符串初始化"><span class="toc-number">3.1.</span> <span class="toc-text">C++11字符串初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值、拼接和附加"><span class="toc-number">3.2.</span> <span class="toc-text">赋值、拼接和附加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string类的其他操作"><span class="toc-number">3.3.</span> <span class="toc-text">string类的其他操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-string类I-O"><span class="toc-number">3.4.</span> <span class="toc-text">4.3.4 string类I/O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-其他形式的字符串字面值"><span class="toc-number">3.5.</span> <span class="toc-text">4.3.5 其他形式的字符串字面值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-结构简介"><span class="toc-number">4.</span> <span class="toc-text">4.4 结构简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-共用体"><span class="toc-number">5.</span> <span class="toc-text">4.5 共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-枚举"><span class="toc-number">6.</span> <span class="toc-text">4.6 枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-指针和自由存储空间"><span class="toc-number">7.</span> <span class="toc-text">4.7 指针和自由存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-指针、数组和指针算术"><span class="toc-number">8.</span> <span class="toc-text">4.8 指针、数组和指针算术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-0-类型组合"><span class="toc-number">9.</span> <span class="toc-text">4.0 类型组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-数组的替代品"><span class="toc-number">10.</span> <span class="toc-text">4.10 数组的替代品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-总结"><span class="toc-number">11.</span> <span class="toc-text">4.11 总结</span></a></li></ol>
         
     </div>
     <style>
@@ -509,7 +855,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/22/进制相互转换/" title="上一篇: 进制介绍以及相互转换">
+            <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" title="上一篇: Python2.7和Python3.6安装以及文件解决">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -523,7 +869,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
 
 
 

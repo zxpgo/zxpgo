@@ -15,27 +15,20 @@
 
 
 
-<meta name="description" content="Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。">
-<meta name="keywords" content="Linux">
+<meta name="description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
+<meta name="keywords" content="模式识别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 进程概念">
-<meta property="og:url" content="https://zxpgo.github.io/2018/09/01/Linux 进程概念/index.html">
+<meta property="og:title" content="模式识别(二)--K均值聚类">
+<meta property="og:url" content="https://zxpgo.github.io/2019/09/11/聚类分析/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。">
+<meta property="og:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/BAKla96.png">
-<meta property="og:image" content="https://i.imgur.com/BlLyygB.png">
-<meta property="og:image" content="https://i.imgur.com/HS6uTHT.png">
-<meta property="og:image" content="https://i.imgur.com/Qw7rGCf.png">
-<meta property="og:image" content="https://i.imgur.com/f38yS4k.png">
-<meta property="og:image" content="https://i.imgur.com/PIun1nr.png">
-<meta property="og:image" content="https://i.imgur.com/e3K8hae.png">
-<meta property="og:image" content="https://i.imgur.com/bz6fhk2.png">
-<meta property="og:updated_time" content="2018-09-05T00:29:32.511Z">
+<meta property="og:image" content="https://i.imgur.com/BHa0iXW.png">
+<meta property="og:updated_time" content="2018-09-20T11:52:39.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 进程概念">
-<meta name="twitter:description" content="Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。">
-<meta name="twitter:image" content="https://i.imgur.com/BAKla96.png">
+<meta name="twitter:title" content="模式识别(二)--K均值聚类">
+<meta name="twitter:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
+<meta name="twitter:image" content="https://i.imgur.com/BHa0iXW.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -67,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux 进程概念 | 平步青云win</title>
+<title>模式识别(二)--K均值聚类 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -296,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Linux 进程概念" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-聚类分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/01/Linux 进程概念/" class="article-date">
-      <time datetime="2018-09-01T07:57:50.000Z" itemprop="datePublished">2018-09-01</time>
+      <a href="/2019/09/11/聚类分析/" class="article-date">
+      <time datetime="2019-09-11T14:28:50.000Z" itemprop="datePublished">2019-09-11</time>
 </a>
 
 
@@ -315,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux 进程概念
+      模式识别(二)--K均值聚类
     </h1>
   
 
@@ -325,13 +318,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
+    <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -346,150 +339,76 @@
 	
       
           
-        <p>Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。<a id="more"></a></p>
-<h2 id="一、概念理解"><a href="#一、概念理解" class="headerlink" title="一、概念理解"></a>一、概念理解</h2><h3 id="1-1-程序与进程"><a href="#1-1-程序与进程" class="headerlink" title="1.1 程序与进程"></a>1.1 程序与进程</h3><p><strong>程序（procedure）</strong>：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。</p>
-<p><strong>进程（process）</strong>：进程是程序在一个数据集合上的一次执行过程，在早期的UNIX、Linux 2.4及更早的版本中，它是系统进行资源分配和调度的独立基本单位。同上一个例子，就如我们去了餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，而里面做饭的是一个进程，做牛肉汤汁的是一个进程，把牛肉汤汁与饭混合在一起的是一个进程，把饭端上桌的是一个进程。它就像是我们在看武功秘籍这么一个过程，然后一个篇章一个篇章地去练。</p>
-<p>简单来说，程序是为了完成某种任务而设计的软件，比如vim程序。而进程就是运行中的程序。</p>
-<p>程序只是一些列指令的集合，是一个静止的实体，而进程不同，进程有以下特点：</p>
-<ul>
-<li><p>动态性： 进程的实质是一次程序执行的过程，有创建、撤销等状态的变化。而程序是一个静态的实体。</p>
-</li>
-<li><p>并发性： 进程可以做到一个时间段内，有多个进程在运行。程序只是静态的实体，所以不存在并发性。</p>
-</li>
-<li><p>独立性： 进程可以独立分配资源，独立接受调查，独立地运行。</p>
-</li>
-<li><p>异步性： 进程以不可预知的速度向前推进。</p>
-</li>
-<li><p>结构性： 进程拥有代码段、数据段、PCB(进程控制块，进程存在的唯一标识)。也正是因为有结构性，进程才可以做到独立地运行。</p>
-</li>
-</ul>
-<blockquote>
-<p>并发：在一个时间段内，宏观来看有多个程序都在活动，有条不紊的执行（每一瞬间只有一个在执行，只是在一段时间有多个程序都在执行过）</p>
-</blockquote>
-<blockquote>
-<p>并行：在每一个瞬间，都有多个程序在同时执行，这个必须多个CPU才行</p>
-</blockquote>
-<p>引入进程是因为传统意义上的程序已经不足以描述 OS 中各种活动之间的动态性、并发性、独立性还有相互制约性。程序就像一个公司，只是一些证书，文件的堆积（静态实体）。而当公司运作起来就有各个部门的区分，财务部，技术部，销售部等等，就像各个进程，各个部门之间可以独立运做，也可以有交互（独立性、并发性）。</p>
-<p>而随着程序的发展越做越大，又会继续细分，从而引入了线程的概念，当代多数操作系统、Linux 2.6及更新的版本中，进程本身不是基本运行单位，而是线程的容器。就像上述所说的，每个部门又会细分为各个工作小组（线程），而工作小组需要的资源需要向上级（进程）申请。</p>
-<blockquote>
-<p>线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。因为线程中几乎不包含系统资源，所以执行更快、更有效率。</p>
-</blockquote>
-<p><img src="https://i.imgur.com/BAKla96.png" alt=""></p>
-<h2 id="二、进程的属性"><a href="#二、进程的属性" class="headerlink" title="二、进程的属性"></a>二、进程的属性</h2><h2 id="2-1-进程分类"><a href="#2-1-进程分类" class="headerlink" title="2.1 进程分类"></a>2.1 进程分类</h2><p>进程的分类，可以从两个角度来分：</p>
-<ul>
-<li>以进程的功能与服务的对象来分；</li>
-<li>以应用程序的服务类型来分。</li>
-</ul>
-<p>第一个角度来看，可以分为用户进程与系统进程：</p>
-<ul>
-<li>用户进程：通过执行用户程序、应用程序或称之为内核之外的系统程序而产生的进程，此来进程可以在用户的控制下运行或关闭。</li>
-<li>系统进程： 通过执行系统内核程序而产生的进程，比如可以执行内存资源分配和进程切换等相对底层的工作；而且该进程的运行不受用户的干预，即使是root用户也不能干预系统进程的运行。</li>
-</ul>
-<p>第二个角度来看，可以将进程分为交换进程、批处理进程、守护进程</p>
-<ul>
-<li>交换进程：由一个shell终端启动的进程，在执行过程中，需要与用户进行交互操作，可以运行于前台，也可以运行在后台。</li>
-<li>批处理进程：该进程是一个进程集合，负责按顺序启动其他的进程。</li>
-<li>守护进程：守护进程是一直运行的一种进程，在Linux系统启动时启动，在系统关闭时终止。它们独立于控制终端并且周期性的执行某种任务或等待处理某些发生的事件。例如httpd进程，一直处于运行状态，等待用户的访问。还有进程用的cron（在centos系列为crond）进程，这个进程为crontab的守护进程，可以周期性的执行用户设定的某些任务。</li>
-</ul>
-<h2 id="2-2-进程的衍生"><a href="#2-2-进程的衍生" class="headerlink" title="2.2 进程的衍生"></a>2.2 进程的衍生</h2><p>进程有这么多的种类，那么进程之间定是有相关性的，而这些有关联性的进程又是如何产生的，如何衍生的？</p>
-<p>就比如我们启动了终端，就是启动了一个 bash 进程，我们可以在 bash 中再输入 bash 则会再启动一个 bash 的进程，此时第二个 bash 进程就是由第一个 bash 进程创建出来的，他们之间又是个什么关系？</p>
-<p>我们一般称呼第一个 bash 进程是第二 bash 进程的父进程，第二 bash 进程是第一个 bash 进程的子进程，这层关系是如何得来的呢？</p>
-<blockquote>
-<p>fork-exec是由 Dennis M. Ritchie 创造的</p>
-</blockquote>
-<blockquote>
-<p>fork() 是一个系统调用（system call），它的主要作用就是为当前的进程创建一个新的进程，这个新的进程就是它的子进程，这个子进程除了父进程的返回值和 PID 以外其他的都一模一样，如进程的执行代码段，内存信息，文件描述，寄存器状态等等</p>
-</blockquote>
-<blockquote>
-<p>exec() 也是系统调用，作用是切换子进程中的执行程序也就是替换其从父进程复制过来的代码段与数据段</p>
-</blockquote>
-<p>子进程就是父进程通过系统调用 fork() 而产生的复制品，fork() 就是把父进程的 PCB 等进程的数据结构信息直接复制过来，只是修改了 PID，所以一模一样，只有在执行 exec() 之后才会不同，而早先的 fork() 比较消耗资源后来进化成 vfork(),效率高了不少，感兴趣的同学可以查查为什么。</p>
-<p>既然子进程是通过父进程而衍生出来的，那么子进程的退出与资源的回收定然与父进程有很大的相关性。当一个子进程要正常的终止运行时，或者该进程结束时它的主函数 main() 会执行 exit(n); 或者 return n，这里的返回值 n 是一个信号，系统会把这个 SIGCHLD 信号传给其父进程，当然若是异常终止也往往是因为这个信号。</p>
-<p>在将要结束时的子进程代码执行部分已经结束执行了，系统的资源也基本归还给系统了，但若是其进程的进程控制块（PCB）仍驻留在内存中，而它的 PCB 还在，代表这个进程还存在（因为 PCB 就是进程存在的唯一标志，里面有 PID 等消息），并没有消亡，这样的进程称之为僵尸进程（Zombie）。</p>
-<p>如图中第四列标题是 S，S 表示的是进程的状态，而在下属的第三行的 Z 表示的是 Zombie 的意思。</p>
-<p><img src="https://i.imgur.com/BlLyygB.png" alt=""></p>
-<p>正常情况下，父进程会收到两个返回值：exit code（SIGCHLD 信号）与 reason for termination 。之后，父进程会使用 wait(&amp;status) 系统调用以获取子进程的退出状态，然后内核就可以从内存中释放已结束的子进程的 PCB；而如若父进程没有这么做的话，子进程的 PCB 就会一直驻留在内存中，一直留在系统中成为僵尸进程（Zombie）。</p>
-<p>虽然僵尸进程是已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，在进程列表中保留一个位置，记载该进程的退出状态等信息供其父进程收集，从而释放它。但是 Linux 系统中能使用的 PID 是有限的，如果系统中存在有大量的僵尸进程，系统将会因为没有可用的 PID 从而导致不能产生新的进程。</p>
-<p>另外如果父进程结束（非正常的结束），未能及时收回子进程，子进程仍在运行，这样的子进程称之为孤儿进程。在 Linux 系统中，孤儿进程一般会被 init 进程所“收养”，成为 init 的子进程。由 init 来做善后处理，所以它并不至于像僵尸进程那样无人问津，不管不顾，大量存在会有危害。</p>
-<p>进程 0 是系统引导时创建的一个特殊进程，也称之为内核初始化，其最后一个动作就是调用 fork() 创建出一个子进程运行 /sbin/init 可执行文件,而该进程就是 PID=1 的进程 1，而进程 0 就转为交换进程（也被称为空闲进程），进程 1 （init 进程）是第一个用户态的进程，再由它不断调用 fork() 来创建系统里其他的进程，所以它是所有进程的父进程或者祖先进程。同时它是一个守护程序，直到计算机关机才会停止。</p>
-<p>通过以下的命令我们可以很明显的看到这样的结构</p>
-<pre><code>pstree
-</code></pre><p>还可以使用这样一个命令来看，其中 pid 就是该进程的一个唯一编号，ppid 就是该进程的父进程的 pid，command 表示的是该进程通过执行什么样的命令或者脚本而产生的</p>
-<pre><code>ps －fxo user,ppid,pid,pgid,command
-</code></pre><p><img src="https://i.imgur.com/HS6uTHT.png" alt=""></p>
-<p>可以在图中看见我们执行的 ps 就是由 zsh 通过 fork-exec 创建的子进程而执行的</p>
-<p>使用这样的一个命令我们也能清楚的看见 init 如上文所说是由进程 0 这个初始化进程来创建出来的子进程,而其他的进程基本是由 init 创建的子进程，或者是由它的子进程创建出来的子进程。所以 init 是用户进程的第一个进程也是所有用户进程的父进程或者祖先进程。（ps 命令将在后续课程详解）</p>
-<p>就像一个树状图，而 init 进程就是这棵树的根，其他进程由根不断的发散，开枝散叶</p>
-<h2 id="2-3-进程组于Sessons"><a href="#2-3-进程组于Sessons" class="headerlink" title="2.3 进程组于Sessons"></a>2.3 进程组于Sessons</h2><p>每一个进程都会是一个进程组的成员，而且这个进程组是唯一存在的，他们是依靠 PGID（process group ID）来区别的，而每当一个进程被创建的时候，它便会成为其父进程所在组中的一员。</p>
-<p>一般情况，进程组的 PGID 等同于进程组的第一个成员的 PID，并且这样的进程称为该进程组的领导者,也就是领导进程，进程一般通过使用 getpgrp() 系统调用来寻找其所在组的 PGID，领导进程可以先终结，此时进程组依然存在，并持有相同的PGID，直到进程组中最后一个进程终结。</p>
-<p>与进程组类似，每当一个进程被创建的时候，它便会成为其父进程所在 Session 中的一员，每一个进程组都会在一个 Session 中，并且这个 Session 是唯一存在的，</p>
-<p>Session 主要是针对一个 tty 建立，Session 中的每个进程都称为一个工作(job)。每个会话可以连接一个终端(control terminal)。当控制终端有输入输出时，都传递给该会话的前台进程组。Session 意义在于将多个 jobs 囊括在一个终端，并取其中的一个 job 作为前台，来直接接收该终端的输入输出以及终端信号。 其他 jobs 在后台运行。</p>
-<blockquote>
-<p>前台（foreground）就是在终端中运行，能与你有交互的</p>
-</blockquote>
-<blockquote>
-<p>后台（background）就是在终端中运行，但是你并不能与其任何的交互，也不会显示其执行的过程</p>
-</blockquote>
-<h2 id="2-4-工作管理"><a href="#2-4-工作管理" class="headerlink" title="2.4 工作管理"></a>2.4 工作管理</h2><p>bash（Bourne-Again shell）支持工作控制（job control）,而sh(Bourne shell)不支持。</p>
-<p>并且每个终端或者说bash只能管理当前终端中的job，不能管理其他终端中的job，比如我们当前存在两个bash分别为bash1、bash2，bash1只能管理其自己里面的job并不能管理bash2里面的job。</p>
-<p>当知道一个进程在前台运行时，可以同用<code>Ctrl+C</code>来终止它，但是若在后台的话，则不行。</p>
-<p>可以通过<code>&amp;</code>符号，让命令在后台运行：</p>
-<pre><code>ls &amp; 
-</code></pre><p><img src="https://i.imgur.com/Qw7rGCf.png" alt=""></p>
-<p>图中所显示的 [1] 236分别是该 job 的 job number 与该进程的 PID，而最后一行的 Done 表示该命令已经在后台执行完毕。</p>
-<p>我们还可以通过 ctrl + z 使我们的当前工作停止并丢到后台中去</p>
-<p><img src="https://i.imgur.com/f38yS4k.png" alt=""></p>
-<p>其中第一列显示的为被放置后台 job 的编号，而第二列的 ＋ 表示最近(刚刚、最后)被放置后台的 job，同时也表示预设的工作，也就是若是有什么针对后台 job 的操作，首先对预设的 job，- 表示倒数第二（也就是在预设之前的一个）被放置后台的工作，倒数第三个（再之前的）以后都不会有这样的符号修饰，第三列表示它们的状态，而最后一列表示该进程执行的命令</p>
-<pre><code>#后面不加参数提取预设工作，加参数提取指定工作的编号
-#ubuntu 在 zsh 中需要 %，在 bash 中不需要 %
-fg [%jobnumber]
-</code></pre><p><img src="https://i.imgur.com/PIun1nr.png" alt=""></p>
-<p><code>Ctrl+z</code>使得工作停止放置在后台，如果想让其在后台运行，可以使用如下命令：</p>
-<pre><code>#与fg类似，加参则指定，不加参则取预设
-bg [%jobnumber]
-</code></pre><p><img src="https://i.imgur.com/e3K8hae.png" alt=""></p>
-<p>既然有办法让放置在后台的工作提至前台或让它从停止变成继续运行在后台，当然也有办法删除一个工作，或者重启等：</p>
-<pre><code>#kill的使用格式如下
-kill -signal %jobnumber
+        <p>K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。<a id="more"></a>具体算法实现如下：<br>    <img src="https://i.imgur.com/BHa0iXW.png" alt=""></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import numpy as np
+import random
+import matplotlib.pyplot as plt
 
-#signal从1-64个信号值可以选择，可以这样查看
-kill －l
-</code></pre><p>其中常用的有这些信号值</p>
-<table>
-<thead>
-<tr>
-<th>信号值</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-1</td>
-<td>重新读取参数运行，类似与restart</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>如同 ctrl+c 的操作退出</td>
-</tr>
-<tr>
-<td>-9</td>
-<td>强制终止该任务</td>
-</tr>
-<tr>
-<td>-15</td>
-<td>正常的方式终止该任务</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://i.imgur.com/bz6fhk2.png" alt=""></p>
-<p>注意:</p>
-<ul>
-<li><p>若是在使用kill＋信号值然后直接加 pid，你将会对 pid 对应的进程进行操作</p>
-</li>
-<li><p>若是在使用kill+信号值然后 ％jobnumber，这时所操作的对象是 job，这个数字就是就当前 bash 中后台的运行的 job 的 ID</p>
-</li>
-</ul>
+#计算样本到中心的距离,采用欧式距离
+def distEC(data,center,k):
+    num = np.array(data)
+    hang = num.shape[0] #数据个数
+    lie = num.shape[1] #指标个数
+    dist = [[0]*k for row in range(hang)]
+    for i in range(hang):
+        for l in range(k):
+            s = 0
+            for j in range(lie):
+                s =  (center[l][j] - data[i][j])**2 + s
+            dist[i][l] = s**0.5
+    return dist
 
+#根据计算得到的距离对样本分类
+def Cluter(dist):
+    num = np.array(dist)
+    hang = num.shape[0] #数据个数
+    k = num.shape[1] #中心个数
+    clu = [[] for row in range(k)] #初始化存放样本标号的距离
+    for i in range(hang):
+        temp = dist[i][:].index(min(dist[i][:]))#求样本距离哪个聚类中心最近
+        for j in range(k):#判断样本属于哪个距离中心
+            if temp == j:
+                clu[j].append(i)
+                break
+    return clu
+
+#重新计算聚类中心
+
+def clu_center(clu,data,k):
+    for i in range(k):
+        for j in range(2):#(np.array(data).shape[1]):
+            temp = 0
+            for k in range(len(clu[i])):#len(clu[i])为每个聚类中心样本的个数
+                temp = data[clu[i][k]][j] + temp
+            center[i][j] = temp / len(clu[i]) #重新计算得到的聚类中心
+    return center
+
+if __name__ == &quot;__main__&quot;:
+    k =3#聚类中心个数
+    data = [[0,0],[3,8],[2,2],[1,1],[5,3],[4,8],[6,3],[5,4],[6,4],[7,5]]
+    #center = random.sample(data,k)#随机选取初始聚类中心
+    center = [[0,0],[3,8],[2,2]]#固定初始聚类中心
+    dist = distEC(data,center,k)#计算样本与聚类中心的距离
+    clu = Cluter(dist)#聚类
+    center1 = clu_center(clu,data,k)#重新计算聚类中心
+    center2 = []
+    while center1 != center2: #当聚类中心相同时，停止聚类
+        dist = distEC(data,center1,k)
+        clu = Cluter(dist)
+        center2 = center1
+        center1 = clu_center(clu,data,k)
+        print(center1,center2)
+
+    #画图
+    plt.figure()
+    for j in range(10):
+        plt.plot(data[j][0],data[j][1],&apos;b.&apos;)
+    for i in range(k):
+        plt.plot(center1[i][0],center[i][1],&apos;ro&apos;)
+    plt.xlabel(&apos;x&apos;)
+    plt.ylabel(&apos;y&apos;)
+    plt.show()
+</code></pre>
       
     </div>
     
@@ -497,13 +416,13 @@ kill －l
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></p>
+        <p><span>本文标题:</span><a href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-09-01, 15:57:50</p>
-        <p><span>最后更新:</span>2018-09-05, 08:29:32</p>
+        <p><span>发布时间:</span>2019-09-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-09-20, 19:52:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/09/01/Linux 进程概念/" title="Linux 进程概念">https://zxpgo.github.io/2018/09/01/Linux 进程概念/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/01/Linux 进程概念/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/09/11/聚类分析/" title="模式识别(二)--K均值聚类">https://zxpgo.github.io/2019/09/11/聚类分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/09/11/聚类分析/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -515,16 +434,10 @@ kill －l
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/09/02/2016百度校招面试题/">
-                    2016百度校招面试题
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/09/01/正则表达式基础/">
-                    正则表达式基础
+                <a href="/2019/09/11/模式识别绪论/">
+                    模式识别绪论(一)
                 </a>
             </div>
         
@@ -597,7 +510,7 @@ kill －l
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概念理解"><span class="toc-number">1.</span> <span class="toc-text">一、概念理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-程序与进程"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 程序与进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、进程的属性"><span class="toc-number">2.</span> <span class="toc-text">二、进程的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-进程分类"><span class="toc-number">3.</span> <span class="toc-text">2.1 进程分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-进程的衍生"><span class="toc-number">4.</span> <span class="toc-text">2.2 进程的衍生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-进程组于Sessons"><span class="toc-number">5.</span> <span class="toc-text">2.3 进程组于Sessons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-工作管理"><span class="toc-number">6.</span> <span class="toc-text">2.4 工作管理</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li></ol>
         
     </div>
     <style>
@@ -633,7 +546,7 @@ kill －l
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux 进程概念　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"模式识别(二)--K均值聚类　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -653,15 +566,13 @@ kill －l
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/09/02/2016百度校招面试题/" title="上一篇: 2016百度校招面试题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/09/01/正则表达式基础/" title="下一篇: 正则表达式基础">
+            <a href="/2019/09/11/模式识别绪论/" title="下一篇: 模式识别绪论(一)">
                 <i class="fa fa-angle-right"></i>
             </a>
         

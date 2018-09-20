@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-09-11T14:47:40.503Z</updated>
+  <updated>2018-09-20T11:52:39.697Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>模式识别绪论</title>
+    <title>模式识别(二)--K均值聚类</title>
+    <link href="https://zxpgo.github.io/2019/09/11/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
+    <id>https://zxpgo.github.io/2019/09/11/聚类分析/</id>
+    <published>2019-09-11T14:28:50.000Z</published>
+    <updated>2018-09-20T11:52:39.697Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。
+    
+    </summary>
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模式识别绪论(一)</title>
     <link href="https://zxpgo.github.io/2019/09/11/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E7%BB%AA%E8%AE%BA/"/>
     <id>https://zxpgo.github.io/2019/09/11/模式识别绪论/</id>
     <published>2019-09-11T14:28:50.000Z</published>
-    <updated>2018-09-11T14:47:40.503Z</updated>
+    <updated>2018-09-20T11:48:59.255Z</updated>
     
     <summary type="html">
     
@@ -61,7 +81,7 @@
     <link href="https://zxpgo.github.io/2019/08/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/"/>
     <id>https://zxpgo.github.io/2019/08/22/LeetCode算法题目/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-09-11T14:24:18.860Z</updated>
+    <updated>2018-09-14T11:46:31.981Z</updated>
     
     <summary type="html">
     
@@ -75,6 +95,46 @@
       <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
     
       <category term="LeetCode面试题" scheme="https://zxpgo.github.io/tag/LeetCode%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现：8种排序算法</title>
+    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-23T15:18:58.377Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
+    
+    </summary>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进制介绍以及相互转换</title>
+    <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:11:01.367Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://zxpgo.github.io/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -117,28 +177,6 @@
   </entry>
   
   <entry>
-    <title>Python实现：8种排序算法</title>
-    <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-23T15:18:58.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍8中排序算法，包括算法的基本思路和算法的python实现。
-    
-    </summary>
-    
-      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python2.7和Python3.6安装以及文件解决</title>
     <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
@@ -157,29 +195,11 @@
   </entry>
   
   <entry>
-    <title>进制介绍以及相互转换</title>
-    <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
-    <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:11:01.367Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://zxpgo.github.io/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C++ Primer Plus--复合类型（四）</title>
     <link href="https://zxpgo.github.io/2018/09/12/C++%20Primer%20Plus--%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/09/12/C++ Primer Plus--复合类型（四）/</id>
     <published>2018-09-12T06:23:14.000Z</published>
-    <updated>2018-09-12T09:06:08.527Z</updated>
+    <updated>2018-09-20T07:55:09.006Z</updated>
     
     <summary type="html">
     
@@ -199,7 +219,7 @@
     <link href="https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
     <id>https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
     <published>2018-09-06T08:28:50.000Z</published>
-    <updated>2018-09-12T09:05:20.773Z</updated>
+    <updated>2018-09-20T08:58:34.523Z</updated>
     
     <summary type="html">
     
@@ -275,50 +295,6 @@
   </entry>
   
   <entry>
-    <title>Centos7设置默认进入图形界面和命令行界面</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Centos%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E8%BF%9B%E5%85%A5%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%92%8C%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Centos设置默认进入图形界面和命令行界面/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-11T06:45:14.104Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux数据流重定向</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-01T13:05:43.636Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux 进程概念</title>
     <link href="https://zxpgo.github.io/2018/09/01/Linux%20%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
     <id>https://zxpgo.github.io/2018/09/01/Linux 进程概念/</id>
@@ -328,26 +304,6 @@
     <summary type="html">
     
       &lt;p&gt;Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下软件安装</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux下软件安装/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-04T08:33:49.356Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在此简单介绍Linux下软件安装，更多可见：&lt;a href=&quot;https://www.zxpblog.cn/2018/08/28/Linux不同版本以及程序包安装/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux不同版本以及程序包安装&lt;/a&gt;
     
     </summary>
     
@@ -381,6 +337,70 @@
   </entry>
   
   <entry>
+    <title>Linux数据流重定向</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-01T13:05:43.636Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下软件安装</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Linux%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Linux下软件安装/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-04T08:33:49.356Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在此简单介绍Linux下软件安装，更多可见：&lt;a href=&quot;https://www.zxpblog.cn/2018/08/28/Linux不同版本以及程序包安装/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux不同版本以及程序包安装&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7设置默认进入图形界面和命令行界面</title>
+    <link href="https://zxpgo.github.io/2018/09/01/Centos%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E8%BF%9B%E5%85%A5%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%92%8C%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/"/>
+    <id>https://zxpgo.github.io/2018/09/01/Centos设置默认进入图形界面和命令行界面/</id>
+    <published>2018-09-01T07:57:50.000Z</published>
+    <updated>2018-09-11T06:45:14.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++ Primer Plus--开始学习（二）</title>
     <link href="https://zxpgo.github.io/2018/08/31/%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0C++/"/>
     <id>https://zxpgo.github.io/2018/08/31/开始学习C++/</id>
@@ -390,26 +410,6 @@
     <summary type="html">
     
       &lt;p&gt;C++基本语法介绍
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--数据处理（三）</title>
-    <link href="https://zxpgo.github.io/2018/08/31/C++%20Primer%20Plus%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/08/31/C++ Primer Plus 数据处理/</id>
-    <published>2018-08-31T06:33:14.000Z</published>
-    <updated>2018-09-12T06:23:21.692Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍C++变量的命名规则，以及数据类型
     
     </summary>
     
