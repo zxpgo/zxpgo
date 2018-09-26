@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="复合类型介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T07:55:09.006Z">
+<meta property="og:updated_time" content="2018-09-26T08:24:57.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--复合类型（四）">
 <meta name="twitter:description" content="复合类型介绍">
@@ -206,7 +206,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/模式识别/">模式识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/通信协议/">通信协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/模式识别/">模式识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/计算机网络/">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/通信协议/">通信协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
                     </div>
                 </section>
                 
@@ -691,7 +691,718 @@ char32_t c[] = U&quot;cccc&quot;;
 <pre><code>Jim &quot;King&quot; \n instead of endl.
 </code></pre><p>原始字符串的界定符还可以自己设定，比如：有时候需要在字符串中输入”(或者)”,这是需要自定义界定符。可以在”和(之间添加任意符号，这样在字符串结尾的)和”之间也要添加这些字符。比如：使用R”+#(标识字符串的开头，必须使用)(+#”作为原始字符串的结尾。因此由：</p>
 <pre><code>cout &lt;&lt; R&quot;+#(Jim Keing&quot;(hello world)&quot;)+=&quot; &lt;&lt; endl;
-</code></pre><h2 id="4-4-结构简介"><a href="#4-4-结构简介" class="headerlink" title="4.4 结构简介"></a>4.4 结构简介</h2><h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5 共用体"></a>4.5 共用体</h2><h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6 枚举"></a>4.6 枚举</h2><h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h2><h2 id="4-8-指针、数组和指针算术"><a href="#4-8-指针、数组和指针算术" class="headerlink" title="4.8 指针、数组和指针算术"></a>4.8 指针、数组和指针算术</h2><h2 id="4-0-类型组合"><a href="#4-0-类型组合" class="headerlink" title="4.0 类型组合"></a>4.0 类型组合</h2><h2 id="4-10-数组的替代品"><a href="#4-10-数组的替代品" class="headerlink" title="4.10 数组的替代品"></a>4.10 数组的替代品</h2><h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>
+</code></pre><h2 id="4-4-结构简介"><a href="#4-4-结构简介" class="headerlink" title="4.4 结构简介"></a>4.4 结构简介</h2><p>结构是一种比较灵活的数据格式，同一个结构中可以存储多种类型的数据。结构也是C++面向对象(类)的基石。结构是用户自定义的类型，而结构声明定义了这种类型的数据属性。定义了类型后，便可以创建这种类型的变量。创建一个结构包括两步：定义结构描述；按描述创建结构变量。</p>
+<p>结构描述如下：</p>
+<pre><code>struct inflatable
+{
+    char name[20];
+    float volume;
+    double price;
+}
+</code></pre><p>其中关键字struct表明，这些代码定义的是一个结构的布局。标识符inflatable是这种数据格式的名称，因此新类型的名称为inflatable。定义结构后，便可以创建这种类型的变量：</p>
+<pre><code>inflatable hat;
+inflatable mainframe;
+</code></pre><p>C中要求添加struct关键字,如下：</p>
+<pre><code>struct inflatable hat;
+</code></pre><p>因为hat的类型为inflatable，因此可以是一个.操作符访问各个成员。比如：hat.volume指的是结构得volume成员。</p>
+<h3 id="4-4-1-程序中使用结构体"><a href="#4-4-1-程序中使用结构体" class="headerlink" title="4.4.1 程序中使用结构体"></a>4.4.1 程序中使用结构体</h3><p>structur.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+struct inflatable
+{
+        char name[20];
+        float volume;
+        double price;
+};
+
+int main()
+{
+        inflatable guest = {&quot;gloria&quot;, 1.88, 29.99};
+        inflatable pal = {&quot;Arthur&quot;, 3.12, 32.99};
+
+        cout &lt;&lt; &quot;Guest: &quot; &lt;&lt; guest.name &lt;&lt; &quot; &quot; &lt;&lt; guest.volume
+        &lt;&lt; &quot; &quot; &lt;&lt; guest.price &lt;&lt; endl;
+        cout &lt;&lt; pal.price + guest.price &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：Guest: gloria 1.88 29.99<br><br>62.98</p>
+<p>结果声明声明得位置有两种选择，第一，放在main()函数中；第二，放在main()函数的前面，其他函数也可以访问。变量也可以在函数内部和外部定义，外部定义由所有函数共享。</p>
+<h3 id="C-结构初始化"><a href="#C-结构初始化" class="headerlink" title="C++结构初始化"></a>C++结构初始化</h3><p>与数组踹坏，C++也支持列表初始化用于结构，且等号是可选的：</p>
+<pre><code>inflatable duck {&quot;Daphe&quot;, 0.12, 9,89};
+</code></pre><p>其次，如果大括号内为空，各个成员初始化为零。如下：</p>
+<pre><code>inflatable mayor {};
+</code></pre><p>最后，不允许缩窄转换。</p>
+<h3 id="结构可以使用string类o成员"><a href="#结构可以使用string类o成员" class="headerlink" title="结构可以使用string类o成员"></a>结构可以使用string类o成员</h3><pre><code>struct inflatable
+{
+        std::string name;
+        float volume;
+        double price;
+};
+</code></pre><h3 id="其他结构属性"><a href="#其他结构属性" class="headerlink" title="其他结构属性"></a>其他结构属性</h3><ul>
+<li>结构变量之间可以使用赋值运算符;</li>
+<li>结构可以作为参数传递给函数，也可以让函数返回一个结构；</li>
+</ul>
+<p>assgn_st.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+struct inflatable
+{
+        char name[20];
+        float volume;
+        double price;
+};
+
+int main()
+{
+        inflatable bou = {&quot;sun&quot;, 0.2, 12.49};
+        inflatable choice;
+        choice = bou;
+        cout &lt;&lt; &quot;choice: &quot; &lt;&lt; choice.price &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果： choice: 12.49</p>
+<p>从中可见成员赋值是有效的，choice结构中的成员值与bouquet结构中存储的值相同。</p>
+<p>可以同时完成定义结构和创建结果的工作，如下：</p>
+<pre><code>struct perks
+{
+    int key_num;
+    char car[12];    
+}mr_smith, ms_jones;
+</code></pre><p>甚至可以初始化以这种方式创建的变量：</p>
+<pre><code>struct perks
+{
+    int key_num;
+    char car[12];    
+}mr_smith ={7, &quot;Packard&quot;};
+</code></pre><p>还可以声明没有名称的结构体，这样以后无法创建这种类型的变量，如下：</p>
+<pre><code>struct
+{
+    int key_num;
+    char car[12];    
+}mr_smith;
+</code></pre><p>创建了一个mr_smith变量，可以访问其中的成员。</p>
+<h3 id="4-4-5-结构数组"><a href="#4-4-5-结构数组" class="headerlink" title="4.4.5 结构数组"></a>4.4.5 结构数组</h3><p>可以创建结构数组，比如，创建一个包含100个inflatable结构的数组，如下：</p>
+<pre><code>inflatable gifts[100];
+</code></pre><p>这样gifts是一个inflatable数组，其中的每个元素(如gifts[0])都是inflatable对象，可以与成员运算符一起使用：</p>
+<pre><code>cin &gt;&gt; gifts[0].volume;
+</code></pre><p>gifts本身是一个数组，不是一个结构。因此gifts.price是无效的。</p>
+<p>初始化结构数组，可以结合使用初始化数组的规则，具体如下：</p>
+<pre><code>inflatable guests[2] = {
+    {&quot;zzz&quot;, 1.2, 33.4},
+    {&quot;ddd&quot;, 0.4, 33,2}
+};
+</code></pre><h3 id="4-4-6-结构中的位字段"><a href="#4-4-6-结构中的位字段" class="headerlink" title="4.4.6 结构中的位字段"></a>4.4.6 结构中的位字段</h3><p>C++允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整型或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段(bit field)。下面是一个例子：</p>
+<pre><code>struct torgle_register
+{    
+    unsigned int SN : 4;
+    ussigned int :4 ;
+    bool goodIn : 1;
+    bool goodTorgle : 1;
+}
+</code></pre><p>可以先通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</p>
+<pre><code>torgle_register tr = {14, true, false};    
+cout &lt;&lt; tr.goodIn;
+</code></pre><p>位字段一般使用在低级编程中。</p>
+<h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5 共用体"></a>4.5 共用体</h2><p>共用体(union)是一种数据格式，它能够存储不同的数据格式，但只能同时存储其中的一种类型。即，结构体可以同时存储int、long和double,共用体只能存储int、long或double。共用体的句法与结构体相似，但含义不同。</p>
+<pre><code>union one4all
+{
+    int int_val;
+    long long_val;
+    double double_val;
+}
+</code></pre><p>可以使用one4all变量来存储int、long或double，条件是在不同的时间进行：</p>
+<pre><code>one4all pail;
+pail.int_val = 15;
+cout &lt;&lt; pail.int_val;
+pail.double_val = 2.2; //int_val的值丢失
+cout &lt;&lt; pail.double_val;
+</code></pre><p>因此，pail有时可以是int变量，而有时是double类型的变量。通用体每次只能存储一个值，因此必须有足够大的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
+<p>共用体的用处之一是，但数据项使用两种或多种格式时，可节省空间。例如：管理一个小商品目录，其中一些商品的ID为整型，而另一些为字符串。在这种情况可以如下：</p>
+<pre><code>struct widget
+{
+    char brand[20];
+    int tyep;
+    union id
+    {
+        long id_num;
+        char id_char[20];
+    } id_val;
+};
+widget prize;
+if (prize.type == 1)
+    cin &gt;&gt; prize.id_val.id_num;
+else
+    cin &gt;&gt; prize.id_val.id_char;
+</code></pre><p>匿名共用体没有名称，其成员将成为位于相同地址出的变量，显然，每次只有一个成员是当前的成员：</p>
+<pre><code>struct widget
+{
+    char brand[20];
+    int tyep;
+    union
+    {
+        long id_num;
+        char id_char[20];
+    } ;
+};
+widget prize;
+if (prize.type == 1)
+    cin &gt;&gt; prize.id_num;
+else
+    cin &gt;&gt; prize..id_char;
+</code></pre><p>由于共用体是匿名的，因此id_num和id_char被视为prize的两个成员，它们的地址相同，所以不需要中间标识符id_val。共用体用于节省内存。但C++用于嵌入式编程，如控制烤箱或火星漫步者的处理器，内存非常宝贵。</p>
+<h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6 枚举"></a>4.6 枚举</h2><p>C++的enum工具提供了另一种创建符号常量的方式，这种方式可以替代const。它还允许定义新类型，但必须按照严格的限制进行。使用enum句法与使用结构相似。例如:</p>
+<pre><code>enum spectrum {red, orange, yellow, green, blue, violet, indigo ultraviolet};
+</code></pre><p>该语句完成了两个工作:</p>
+<ul>
+<li>让spectrum成为新类型的名称：spectrum被称为枚举(enumeration)</li>
+<li>将red、orange等作为符号常量，它们对应整数值0~7，这些常量叫做枚举量。</li>
+</ul>
+<p>利用枚举类型来声明这种类型的变量：</p>
+<pre><code>spectrrm band;
+</code></pre><p>对于枚举类型，只定义了赋值运算符，具体说，没有为枚举定义算术运算：</p>
+<pre><code>band = orange;
+++band; //非法
+band = orange + yellow; //非法
+band = 2000; //非法，2000不是一个枚举类型
+</code></pre><p>枚举量是整型，可被提升为int类型，但int类型不能自动转换为枚举类型：</p>
+<pre><code>int color = bule;
+band = 3; //非法
+color = 3 + red; 
+</code></pre><p>如果int值是有效的，则可以通过强制类型转换，将它赋值给枚举变量：</p>
+<pre><code>band = spectrum(3);
+</code></pre><p>如果试图对一个适当的值进行强制类型转换，结果是不确定的，不会报错：</p>
+<pre><code>band = spectrum(5000);
+</code></pre><p>如果只使用常量，而不创建枚举类型的变量，则可以省略枚举类型的名称，如下：</p>
+<pre><code>enum {red, orange, yellow, green, blue, violet, indigo ultraviolet};
+</code></pre><h3 id="4-6-1-设置枚举量的值"><a href="#4-6-1-设置枚举量的值" class="headerlink" title="4.6.1 设置枚举量的值"></a>4.6.1 设置枚举量的值</h3><p>可以使用赋值运算符来显示地设置枚举量的值：</p>
+<pre><code>enum bits {one = 1, two = 2, four = 4, eight = 8};
+</code></pre><p>指定的值必须是整数，也可以只显示地定义其中一些枚举量地值：</p>
+<pre><code>enum bigstep {first, second = 100, third};
+</code></pre><p>这里，first在默认情况下为0，后面没有被初始化地枚举量地值将比其前面的枚举量大1.因此third的值为101。</p>
+<p>最火，可以创建多个值相同的枚举量：</p>
+<pre><code>enum {zero, null = 0, one, numero_nuo = 1};
+</code></pre><p>其中，zero,null的值都没零，one和numero_nuo都为1。在早期，只能将int值赋给枚举类型，但这种限制取消了，因此可以使用long甚至long long类型的值。</p>
+<h3 id="4-6-2-枚举的取值范围"><a href="#4-6-2-枚举的取值范围" class="headerlink" title="4.6.2 枚举的取值范围"></a>4.6.2 枚举的取值范围</h3><p>对于枚举来说，只有声明中指出的那些值是有效的。然而，C++现在通过强制类型转换，增加了可赋给枚举变量的合法值。每个枚举都要取值范围，通过强制类型转换，可以将取值范围中的任何整数赋值给枚举变量，即使这个值不是枚举类型，如下:</p>
+<pre><code>enum bits{one=1, two=2, four=4, eight=8};
+bits myflag;
+</code></pre><p>下面的代码合理：</p>
+<pre><code>myflag = bits(6);
+</code></pre><p>其中6不是枚举类型，但它位于枚举定义的取值范围内。</p>
+<p>取值的范围定义如下：首先，找出上限，需要知道枚举的最大值。找出大于这个最大值的、最小的2的幂，将它减去1，得到的便是取值范围的上限。计算下限，需要知道枚举量的最小值，如果它不小于0，则取值范围的下限为0；否则采用与寻找上限方式相同的方式，但加上负号。</p>
+<p>例如:前面定义的bigstep的最大枚举值是101。在2的幂中，比这个数大的最小值是128，因此取值范围的上限为127。对于下限，如果最小的枚举量为-6，而比它小的、最大的2的幂是-8，因此下限为-7。</p>
+<h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h2><p>使用&amp;地址运算符，获取变量的地址。例如，如果home是一个变量，则&amp;home是它的地址。</p>
+<pre><code>#include &lt;iostream&gt;
+int main()
+{
+        using namespace std;
+        int donuts = 6;
+        double cups = 4.5;
+
+        cout &lt;&lt; &quot;donuts&apos;s addresss: &quot; &lt;&lt;  &amp;donuts &lt;&lt; endl;
+        cout &lt;&lt; &quot;cups&apos;s addresss: &quot; &lt;&lt; &amp;cups &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：donuts’s addresss: 0x7ffe74cc89b8<br><br>cups’s addresss: 0x7ffe74cc89b4</p>
+<p>显示地址时，该实现的cout使用十六进制表示法，因为这是常用于描述内存的表示法。两个地址的差为：0x7ffe74cc89b8-0x7ffe74cc89b4（即4）,在实现中，donuts的存储位置比cups低，而这种类型使用4个字节。当然，不同的系统，存储的顺序以及字节大小都不同。</p>
+<p>指针与C++基本原理：</p>
+<p>面向对象编程与传统的过程性编程的区别在于，OOP强调的是在运行阶段进行决策。运行阶段指的是程序正在运行，编译阶段指的是编译器将程序组合起来。运行阶段是做决策，程序应该如何运行，而编译阶段是安全预先设定的程序运行。</p>
+<p>运行阶段决策提供了灵活性，可以根据当时的情况进行调整。比如：考虑为数组分配内存的情况。</p>
+<p>一种特殊的变量–指针用于存储地址的值。$\ast$运算符被称为间接值或解除引用。</p>
+<p>pointer.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        using namespace std;
+        int updates = 6;
+        int *p_updates;
+        p_updates =  &amp;updates;
+
+        cout &lt;&lt; &quot;*p_updates: &quot; &lt;&lt; *p_updates &lt;&lt; endl;
+        cout &lt;&lt; &quot;p_updates: &quot; &lt;&lt; p_updates &lt;&lt; endl;
+        *p_updates = 1 + *p_updates;
+        return 0;
+}
+</code></pre><p>结果：$\ast$p_updates: 6<br><br>p_updates: 0x7ffc6c803fa4<br><br>$\ast$p_updates + 1: 7</p>
+<p>从中可知，p_updates表示地址，使用$\ast$号运算符来获得值。$\ast$p_updates和updates完全等价。可以像int变量一样使用$\ast$p_updates。</p>
+<h3 id="4-7-1-声明和初始化指针"><a href="#4-7-1-声明和初始化指针" class="headerlink" title="4.7.1 声明和初始化指针"></a>4.7.1 声明和初始化指针</h3><p>声明指针，计算机需要跟踪指针指向的值的类型。比如：char的地址和double的地址，看上去一样，但char和double使用的字节数不同，它们存储值得内部格式不同。</p>
+<pre><code>int * p_updates;
+或 int *p_updates;
+或 int* p_updates; //int* 是一种类型--指向int的指针。
+或 int*p_updates;
+</code></pre><p>这表明，$\ast$updates的类型为int。由于$\ast$运算符被用于指针，因此p_updates变量本身必须是指针。</p>
+<pre><code>int* p1, p2;
+</code></pre><p>注意上面的语句是创建一个指针(p1)和一个int变量(p2)。对于每个指针变量名，都需要使用一个$\ast$。</p>
+<pre><code>double * tax;
+char* str;
+</code></pre><p>将tax声明为一个指向double的指针，编译器知道$\ast$tax是一个double类型的值。即$\ast$tax是一个以浮点数格式存储的值，这个值占据8个字节（不同系统可能不同）。指针变量不仅仅是指针，而且是指向特定类型的指针。虽然，tax和str指向两种不同长度的叔叔类型，但这两个变量本身的长度是相同的，即char的地址和double的地址的长度相同。</p>
+<p>可以在声明语句中初始化。</p>
+<pre><code>int h = 5;
+int *ph = &amp;h;
+</code></pre><p>被初始化的是指针，而不是它指向的值，即pt的值设为&h;而不是$\ast$pt的值。</p>
+<h3 id="4-7-2-指针的危险"><a href="#4-7-2-指针的危险" class="headerlink" title="4.7.2 指针的危险"></a>4.7.2 指针的危险</h3><p>在C++中创建地址时，计算机分配用来存储地址的内存，但不会分配用来存储指针所指向的数据的内存。为数据提供空间是一个独立的步骤，忽略这一步是错误的，如下：</p>
+<pre><code>long * fellow;
+*fellow = 222;
+</code></pre><p>fellow确实是一个指针。上述代码没有将地址赋给fellow,那么222将被存放在哪里？由于fellow没有被初始化，它可能有任何值。不管值是什么，程序都将它解释为存储222的地址。</p>
+<p>注意：一定要在对指针应用解除引用运算符（$\ast$）之前，将指针初始化为一个确定的、适当的地址。</p>
+<h3 id="4-7-3-指针和数字"><a href="#4-7-3-指针和数字" class="headerlink" title="4.7.3 指针和数字"></a>4.7.3 指针和数字</h3><p>指针不是整型，索然计算机通常把地址当作整数处理。指针没有加减乘除运算，指针描述的是位置。不能简单的对将整数赋给地址：</p>
+<pre><code>int *pt;
+pt = 0xB8000000; 
+</code></pre><p>在C++中，编译器将显示错误信息，类型不匹配。要将数字值作为地址来使用，应通过强制类型转换将数字转换为适当的地址类型：</p>
+<pre><code>int *pt;
+pt = (int*) 0xB8000000;
+</code></pre><p>这样，赋值语句两边都是整型的地址，因此赋值有效。pt是int值的地址，并不意味着pt本身的类型是int。</p>
+<h3 id="4-7-4-使用new来分配内存"><a href="#4-7-4-使用new来分配内存" class="headerlink" title="4.7.4 使用new来分配内存"></a>4.7.4 使用new来分配内存</h3><p>在C语言中，可以使用库函数malloc()来分配内存；而在C++让可以这样做，但C++提供了更好的方法—new运算符。</p>
+<p>在运行阶段为一个int值分配未命名的内存，并使用指针来访问这个值：</p>
+<pre><code>int *pn = new int;
+</code></pre><p>new int告诉程序，需要适合存储int的内存。new运算符根据类型确定需要多少字节的内存，然后找到这样的内存，并返回其地址，并将地址赋给pn，pn是被声明为指向int的指针。现在pn是地址，$\ast$pn存储那里的值。将这种方法于将变量的地址赋给指针进行对比:</p>
+<pre><code>int h = 5;
+int *ph = &amp;h;
+</code></pre><p>在这两种情况下，都是将一个int变量的地址赋给了指针。在第二种情况，可以通过变量名了访问该int值，而第一种情况只能通过指针进行访问。</p>
+<p>为数据对象（可以是结构，也可以是基本类型）获得并指定分配内存的通用格式：</p>
+<pre><code>typeName *pointer_name = new typeName;
+</code></pre><p>use_new.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        using namespace std;
+        int nights = 1001;
+        int *pt = new int;
+        *pt = 1001;
+
+        cout &lt;&lt; &quot;*pt: &quot; &lt;&lt; *pt &lt;&lt; endl;
+        cout &lt;&lt; &quot;pt: &quot; &lt;&lt; pt  &lt;&lt; endl;
+        cout &lt;&lt; &quot;&amp;nights: &quot; &lt;&lt; &amp;nights &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：*pt: 1001<br><br>pt: 0x220c010<br><br>&amp;nights: 0x7ffc241baf94</p>
+<p>new为int数据对象分配内存，这是在程序运行时进行的。指针必须声明所指向的类型的原因是：地址本身只指出了对象存储的地址开始，而没有指出其类型(使用的字节数)。</p>
+<p>对于指针，new分配的内存块于常规变量声明分配的内存块不同。变量nights的值存储在被称为栈的内存区域中，new从被称为堆或自由存储区的内存区域分配内存。</p>
+<h3 id="4-7-5-使用delete释放内存"><a href="#4-7-5-使用delete释放内存" class="headerlink" title="4.7.5 使用delete释放内存"></a>4.7.5 使用delete释放内存</h3><p>需要内存时，使用new来请求。使用完内存后，使用delete运算符将其归还给内存池。一定要配对使用new和delete，否则会发送内存泄漏，即被分配的内存再也无法使用。如果泄漏严重，则程序将由于不断寻找更多内存而终止。</p>
+<pre><code>int *ps =  new int;
+delete ps;
+</code></pre><p>不用使用delete释放已经释放的内存，这样做结果是不确定的。另外，不要使用delete来释放声明变量所获得的内存：</p>
+<pre><code>int jugs = 5;
+int *pi = &amp;jugs;
+delete pi; //不允许，错误的做法
+</code></pre><p>注意：只能用delete释放使用new分配的内存，然后，对空指针使用delete是安全的。</p>
+<p>使用delete的关键在于，将它用于new分配的地址，而不意味着要使用用于new的指针，而是用户new的地址：</p>
+<pre><code>int *ps = new int;
+int *pq = ps;
+delete pq;
+</code></pre><p>一般来说，不要创建两个指向同一个内存块的地址，因为这样增加错误地删除同一个内存块两次的可能性。但，对于返回指针的函数，使用另一个指针是有道理的。</p>
+<h3 id="4-7-6-使用new来创建动态数组"><a href="#4-7-6-使用new来创建动态数组" class="headerlink" title="4.7.6 使用new来创建动态数组"></a>4.7.6 使用new来创建动态数组</h3><p>在编程时给数组分配内存被称为静态联编，意味着数组在编译时加入到程序中的。但使用new时，如果在运行阶段需要数组，则创建它，如果不需要，则不创建。还可以在程序运行时选择数组的长度，这种被称为动态联编，意味着数是在程序运行时创建的。这种数组叫作动态数组。</p>
+<p><strong>1、使用new创建动态数组</strong></p>
+<p>在C++中创建动态数组：只要将数组元素类型和元素数目告诉new即可。必须在类型名后加上方括号，其中包含元素的数目：</p>
+<pre><code>int *psome = new int[10]; 
+delete [] psome;
+</code></pre><p>创建了一个包含10个int元素的数组。并使用delete对分配的内存进行释放。释放内存时，方括号告诉程序，应该释放整个数组，而不仅仅是指针指向的元素。</p>
+<p>程序确实跟踪了分配的内存量，以便以后使用delete []正确地释放这些内存，但这种信息是不公用的。例如:不能使用sizeof运算符来确定动态数组分配的数组包含的字节数。</p>
+<p><strong>2、使用动态数组</strong></p>
+<p>*psome是第1个元素的值,psome[0]同样是第一个元素的值。psome[1]是第2个元素的值，以此类推。</p>
+<p>arraynew.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+int main()
+{
+        using namespace std;
+        double *p3 = new double [3];
+        p3[0] = 0.2;
+        p3[1] = 0.5;
+        p3[3] = 0.8;
+        cout &lt;&lt; &quot;p3[1]: &quot; &lt;&lt; p3[1] &lt;&lt; endl;
+        p3 = p3 + 1;
+        cout &lt;&lt; &quot;p3+1,p3[0]: &quot; &lt;&lt; p3[0] &lt;&lt; endl;
+        p3 = p3 - 1;
+        delete [] p3;
+        return 0;
+}
+</code></pre><p>结果：p3[1]: 0.5<br>p3+1,p3[0]: 0.5</p>
+<p>从中可知，程序将指针p3当作数组名来使用，p3[0]表示第1个元素，依次类推。不过指针和数组名之间有差别的，不能更改数组名的值，但指针是变量，因此可以修改它的值：</p>
+<pre><code>p3 = p3 + 1;
+</code></pre><p>将p3加1的效果，是将p3[0]指向数组中的第2个元素。将它减1后，指针将指向原来的值，这样程序可以给delete[]提供正确的地址。</p>
+<h2 id="4-8-指针、数组和指针算术"><a href="#4-8-指针、数组和指针算术" class="headerlink" title="4.8 指针、数组和指针算术"></a>4.8 指针、数组和指针算术</h2><p>指针和数组基本等级的原因在于指针运算符和C++内部处理数组的方式。将指针加1后，增加的量等于它所指向的类型的字节数。比如：将double类型的指针加1后，如果系统double使用8个字节存储，则数值将加8。另外，C++将数组名解释为地址。</p>
+<p>addpntrs.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+int main()
+{
+        using namespace std;
+        double wages[3] = {1000.0, 2000.0, 3000.0};
+        short stacks[3] = {3, 2, 1};
+
+        double *pw = wages;
+        short *ps = &amp;stacks[0];
+        cout &lt;&lt; &quot;pw = &quot; &lt;&lt;  pw &lt;&lt; &quot;, *pw = &quot; &lt;&lt; *pw &lt;&lt; endl;
+        pw = pw + 1;
+        cout &lt;&lt; &quot;Add 1 to the pw pointer:\n&quot;;
+        cout &lt;&lt; &quot;pw = &quot; &lt;&lt;  pw &lt;&lt; &quot;, *pw = &quot; &lt;&lt; *pw &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;ps = &quot; &lt;&lt;  ps &lt;&lt; &quot;, *ps = &quot; &lt;&lt; *ps &lt;&lt; endl;
+        ps = ps + 1;
+        cout &lt;&lt; &quot;Add 1 to the ps pointer:\n&quot;;
+        cout &lt;&lt; &quot;ps = &quot; &lt;&lt;  ps &lt;&lt; &quot;, *ps = &quot; &lt;&lt; *ps &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;stacts[0] = &quot; &lt;&lt; stacks[0] &lt;&lt; endl;
+        cout &lt;&lt; &quot;*(stacks + 1) = &quot; &lt;&lt;  *(stacks+1) &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;Wages array size: &quot; &lt;&lt; sizeof(wages) &lt;&lt; endl;
+        cout &lt;&lt; &quot;pw pointer size: &quot; &lt;&lt; sizeof(pw) &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>pw = 0x7ffedfcf9060, *pw = 1000
+Add 1 to the pw pointer:
+pw = 0x7ffedfcf9068, *pw = 2000
+ps = 0x7ffedfcf9050, *ps = 3
+Add 1 to the ps pointer:
+ps = 0x7ffedfcf9052, *ps = 2
+stacts[0] = 3
+*(stacks + 1) = 2
+Wages array size: 24
+pw pointer size: 8
+</code></pre><h3 id="4-8-1-程序说明"><a href="#4-8-1-程序说明" class="headerlink" title="4.8.1 程序说明"></a>4.8.1 程序说明</h3><p>在多数情况下，数组名解释为数组的第一个元素的地址。因此，下面语句将pw声明为指向double类型的指针，然后将它初始化为wages—wages数组中第一个元素的地址：</p>
+<pre><code>double *pw = wages; 
+</code></pre><p>和所有数组一样，有：</p>
+<pre><code>wages = &amp;wages[0]; //第一个元素的地址
+</code></pre><p>程序查看了pw和$\ast$pw的值，前者是地址，后者是存储在该地址的值。pw加1，数字地址值增加8（double类型）这样pw指向数组中第二个元素。而对于ps(short类型)，ps+1,其地址值将增加2。</p>
+<p>注意：将指针变量加1后，其增加的值等于指向的类型所占用的字节数。</p>
+<p>stacks[1]和$\ast$(stacks+1)等价，$\ast$(stacks+1意味着先计算数组第2个元素的地址，然后找到存储在那里的值。（运算符优先级要求使用括号，如果不使用将给$\ast$stacks的值加1）。</p>
+<p>对于数组和指针，c++可以执行下面的转换：</p>
+<pre><code>arrayname[i];  -&gt; *(arrayname+1);
+pointername[i]; -&gt; *(pointername+1);
+</code></pre><p>数组和指针的区别在于，数组名是常量，而指针可以修改其值。如下：</p>
+<pre><code>arrayname = arrayname + 1;//错误
+pointername = pointername + 1;
+</code></pre><p>另一个区别，对于数组应用sizeof运算符得到的是数组的长度，而对指针应用sizeof运算符得到的指针的长度，即使指针指向一个数组。在上述程序中有体现。</p>
+<p><strong>数组的地址</strong><br>数组名被解释为其第一个元素的地址，而对数组名应用地址运算符时，得到的是整个数组的地址：</p>
+<pre><code>short tell[10];
+cout &lt;&lt; tell &lt;&lt; endl; //第一个元素的地址
+cout &lt;&lt; &amp;tell &lt;&lt; endl; //整个数组的地址
+</code></pre><p>从数字上说，这两个值是相等的；但概念上，tell(&amp;tell[0])是一个2字节内存块的地址，而&amp;tell是一个20字节的内存块地址。因此表达式tell+1将地址值加1，而表达式&amp;tell+2将地址加20。即：tell是一个short指针($\ast$short),而&amp;tell是一个指向包含20个元素的short数组（short($\ast$)[20]）的指针。</p>
+<pre><code>short (*pas)[20] = &amp;tell;
+</code></pre><p>pas的类型为short($\ast$)[20]，由于pas被设置为&amp;tell,因此*pas于tell等价，即($\ast$pas)[0]为tell数组的第一个元素。其中括号不能少，否则，pas是一个short指针数组，它包含20个元素。</p>
+<h3 id="4-8-2-指针小结"><a href="#4-8-2-指针小结" class="headerlink" title="4.8.2 指针小结"></a>4.8.2 指针小结</h3><p><strong>1、声明指针</strong></p>
+<pre><code>typeName * pointername;
+
+double *pn;
+char *pc;
+</code></pre><p><strong>2、给指针赋值</strong></p>
+<p>对变量使用&amp;运算符，来获取被命名的内存的地址，new运算符返回未命名的内存的地址。</p>
+<pre><code>double *pn;
+char * pc;
+couble * pa;
+double bud = 2.33;
+pn = &amp;bud;
+pc = new char;
+pa = new double [10];
+</code></pre><p><strong>3、对指针解除引用</strong></p>
+<p>对指针解除引用意味着获取指针指向的值。</p>
+<pre><code>cout &lt;&lt; *pn;
+*pc = &quot;s&quot;;
+pa[1] = 2.11;
+</code></pre><p>决不要对未被初始化为适当地址的指针解除引用。</p>
+<p><strong>4、区分指针和指针指向的值</strong></p>
+<p>pt是指向int的指针，则$\ast$pt是指向int类型的变量的值。</p>
+<pre><code>int *pt = new int;
+*pt = 3;
+</code></pre><p><strong>5、数组名</strong></p>
+<p>在多数情况下，C++将数组名视为数组第一个元素的地址。一种例外情况是，将sizeof运算符用于数组名时，此时将返回整个数组的长度。</p>
+<p><strong>6、指针算术</strong></p>
+<p>C++允许将指针和整数相加。还可以将一个指针减去另一个指针，获得两个指针的差，仅当两个指针指向同一个数组时，运算才有意义。</p>
+<pre><code>int tacos[10] = {2,3,4,5,6,8,9,1,0,7};
+int *pt = tacos;
+pt = pt + 1;
+int *pe = &amp;tacos[9];
+pe = pe - 1;
+int diff = pe - pt;
+</code></pre><p><strong>7、数组的动态联编和静态联编</strong></p>
+<p>使用数组声明来创建数组时，采用静态联编，即数组的长度在编译时给定：</p>
+<pre><code>int tacos[10];
+</code></pre><p>使用new[] 运算符创建数组时，将采用动态联编，即将在运行时为数组分配空间，其长度也在运行时设置：</p>
+<pre><code>int size;
+cin &gt;&gt; size;
+int *pz = new int [size];
+delete [] pz;
+</code></pre><p><strong>8、数组表示法和指针表示法</strong></p>
+<pre><code>tacos[0]; 等价于 *tacos;
+tacos[3]; 等价于 *(tacos+3);
+</code></pre><p>数组名和指针变量都是如此，因此对于指针和数组名，既可以使用指针表示法，也可以使用数组表示法。</p>
+<h3 id="4-8-3-指针和字符串"><a href="#4-8-3-指针和字符串" class="headerlink" title="4.8.3 指针和字符串"></a>4.8.3 指针和字符串</h3><p>cout对象认为char的地址是字符串的地址，因此它打印该地址处的地址，然后继续打印后面的字符，知道遇到空字符(\0)为止。如果要获取字符串数组的地址，需要进行强制转换，如（int*）flower。而且，”are red”字符串常量，为了保持输出一致，这个引号括号起来的字符串也是一个地址。</p>
+<p>注意：在cout和多数C++表达式中，char数组名、char指针以及引号括起来的字符串常量都被解释为字符串第一个字符的地址。</p>
+<p>ptrstr.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+int main()
+{
+        using namespace std;
+        char animal[20] = &quot;bear&quot;;
+        const char *bird = &quot;wren&quot;;
+        char *ps;
+
+        cout &lt;&lt; animal &lt;&lt; &quot; and &quot; &lt;&lt; bird &lt;&lt; endl;
+        //cout &lt;&lt; ps &lt;&lt; endl;
+        cout &lt;&lt; &quot;Enter a kind of animal:&quot;;
+        cin &gt;&gt; animal;
+
+        ps = animal;
+        cout &lt;&lt; ps &lt;&lt; endl;
+        cout &lt;&lt; &quot;Before using strcpy():\n&quot;;
+        cout &lt;&lt; animal &lt;&lt; &quot; at &quot; &lt;&lt; (int *)animal &lt;&lt; endl;
+        cout &lt;&lt; ps &lt;&lt; &quot; at &quot; &lt;&lt; (int*)ps &lt;&lt; endl;
+
+        ps = new char[strlen(animal) + 1];
+        strcpy(ps, animal);
+        cout  &lt;&lt; &quot;After using strcpy():\n&quot;;
+        cout &lt;&lt; animal &lt;&lt; &quot; at &quot; &lt;&lt; (int *)animal &lt;&lt; endl;
+        cout &lt;&lt; ps &lt;&lt; &quot; at &quot; &lt;&lt; (int*)ps &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>bear and wren
+Enter a kind of animal:fox
+fox
+Before using strcpy():
+fox at 0x7ffd1b868460
+fox at 0x7ffd1b868460
+After using strcpy():
+fox at 0x7ffd1b868460
+fox at 0xe91010
+</code></pre><p>其中”wren”实际表示的是字符串的地址，因此”const char $\ast$bird = “wren”;”语句是将”wren”的地址赋给了bird指针。程序中将bird指针声明为const，因此编译器将禁止改变bird指向的位置中的内容。</p>
+<p>获得字符串副本，首先，需要分配内存来存储该字符串，这可以通过声明一个数组或使用new来完成。后一种方法使得能够根据字符串长度来指定所需的空间：</p>
+<pre><code>ps = new char[strlen(animal) + 1];
+</code></pre><p>然后，需要将animal数组中的字符串复制到新分配的空间中。将animal赋给ps是不可行的，因为这样只能修改存储在ps中的地址，从而失去程序访问新分配内存的唯一途径，需要使用库函数strcpy():</p>
+<pre><code>strcpy(ps, animal);
+</code></pre><p>strcpy()函数接收两个参数，第一个是目标地址，第二个是要赋值的字符串的地址。通过使用new和strcpy()，将获得”fox”两个独立的副本。</p>
+<pre><code>fox at 0x7ffd1b868460
+fox at 0xe91010
+</code></pre><p>经常需要将字符串放到数组中。初始化数组时，使用”=”运算符；否则使用strcpy()或strncpy()。</p>
+<pre><code>char food[20] = &quot;carrots&quot;;
+strcpy(food, &quot;flan&quot;);
+
+strcpy(food, &quot;a picnic basket filled with many goodies&quot;);//导致问题，food数组比字符串小。
+</code></pre><p>对于最后一种情况，函数将字符串剩余的部分复制到数组后面的内存字节中，这可能覆盖程序正在使用的其他内存。要避免这种问题，使用strncpy()。该函数接收第3个参数–要复制的最大字符数。</p>
+<pre><code>strncpy(food, &quot;a picnic basket filled with many goodies&quot;, 19);
+food[19] = &apos;\0&apos;;
+</code></pre><p>这样最多将19个字符复制到数组中，然后最后一个元素设置为空字符。如果该字符串少于19个字符，则strncpy()将在复制完成字符串之后加上空字符，以标记字符串的结尾。 </p>
+<h3 id="4-8-4-使用new创建动态结构"><a href="#4-8-4-使用new创建动态结构" class="headerlink" title="4.8.4 使用new创建动态结构"></a>4.8.4 使用new创建动态结构</h3><p>在运行时创建数组优于在编译时创建数组，对于结构也如此。对于new用于结构由两步组成：创建结构和访问其成员。创建结构，需要同时使用结构类型和new。如下：</p>
+<pre><code>inflatable *ps = new inflatable;
+</code></pre><p>这样把足以存储inflatable结构的一块可用内存的地址赋给ps。这种句法和C++内置类型完全相同。接下来是成员访问，创建动态结构时，不能使用运算符句点用于结构，因为这种结构没有名称，只知道其地址。C++专门提供了箭头成员运算符（-&gt;）。该运算符由连字符和大于号组成，可用于指向结构的指针，就像点运算符可用于结构名一样。例如：ps-&gt;price。</p>
+<p>另一种访问结构的方法是，如果ps是指向结构的指针，则$\ast$ps就是被指向的值—结构本身。由于$\ast$ps是一个结构，因此($\ast$ps).price是该结果的price成员。C++的运算符优先级规则要求使用括号。</p>
+<p>newstrct.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+struct inflatable
+{
+        char name[20];
+        float volume;
+        double price;
+};
+
+int main()
+{
+        using namespace std;
+        inflatable *ps = new inflatable;
+        cout &lt;&lt; &quot;Enter name of infaltable item: &quot;;
+        cin.get(ps-&gt;name, 20);
+        cout &lt;&lt; &quot;Enter volume of inflatable item: &quot;;
+        cin &gt;&gt; (*ps).volume;
+        cout &lt;&lt; &quot;Enter price of inflatable item: &quot;;
+        cin &gt;&gt; ps-&gt;price;
+        cout &lt;&lt; &quot;Name: &quot; &lt;&lt; (*ps).name &lt;&lt; endl;
+        cout &lt;&lt; &quot;Volume: &quot; &lt;&lt; ps-&gt;volume &lt;&lt; endl;
+        cout &lt;&lt; &quot;Price: &quot; &lt;&lt; ps-&gt;price &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter name of infaltable item: Frodo
+Enter volume of inflatable item: 1.4
+Enter price of inflatable item: 27.99
+Name: Frodo
+Volume: 1.4
+Price: 27.99
+</code></pre><p><strong>1. 一个使用new和delete的示例</strong></p>
+<p>delete.cpp定义了一个函数getname()，该函数返回输入字符串的指针。该函数将输入读入到一个大型临时数组中，然后使用new[]来创建一个刚好存储该输入字符串的内存块，并返回一个指向该内存块的指针。对于读取大量字符串的程序，这种方法可以大大节省内存。</p>
+<p>假设程序需要读取100个字符串，其中最大的字符串包含79个字符，而大多数字符串都短得多。如果用char数组来存储这些字符串，则需要100个数组，其中每个数组的长度为80个字符，总共需要8000多个字节，而其中大部分内存没有被使用。</p>
+<p>另一种方法，创建一个数组，它包含100个指向char的指针，然后使用new根据字符串的需要分配相应数量的内存。还可以使用new根据需要的指针数量来分配空间。</p>
+<p>delete.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+char * getname(void);
+int main()
+{
+        char *name;
+        name = getname();
+        cout &lt;&lt; name &lt;&lt;  &quot; at &quot; &lt;&lt; (int*)name &lt;&lt; endl;
+        delete [] name;
+        name = getname();
+        cout &lt;&lt; name &lt;&lt; &quot; at &quot; &lt;&lt; (int*)name &lt;&lt; endl;
+        delete [] name;
+        return 0;
+}
+
+char * getname()
+{
+        char temp[80];
+        cout &lt;&lt; &quot;Enter last name: &quot;;
+        cin &gt;&gt; temp;
+        char *pn = new char [strlen(temp)+1];
+        strcpy(pn, temp);
+        return pn;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter last name: Fred
+Fred at 0x1c76010
+Enter last name: Zll
+Zll at 0x1c76010
+</code></pre><p><strong>2. 程序说明</strong></p>
+<p>getname()函数，使用cin将输入的字符串放到temp数组中，然后使用new分配行内存，以存储该字符串。程序需要strlen(temp)+1个字符（包括空字符）来存储该字符串，将这个值提供给new。获得空间后，getname()使用标准库函数strcpy()将temp中的字符串复制到新的内存块中。最后返回pn，这是字符串副本的地址。</p>
+<p>在main()中，返回值（地址）被赋值给name。该指针是在main()中定义的，但它指向getname()函数中分配的内存块。接下来，在释放name指向的内存快后，main()再次调用getname()。C++不保证新释放的内存就是下一次使用new时选择的内存，但该例子中刚好是的。</p>
+<p>在这个例子中，getname()分配内存，而main()释放内存，将new和delete放在不同的函数通常不是一个好办法，因为这样容易忘记使用delete。不过这样做确实可以。</p>
+<h3 id="4-8-5-自动存储、静态存储和动态存储"><a href="#4-8-5-自动存储、静态存储和动态存储" class="headerlink" title="4.8.5 自动存储、静态存储和动态存储"></a>4.8.5 自动存储、静态存储和动态存储</h3><p>根据用户分配内存的方法，C++有3种管理数据内存的方式：自动存储、静态存储和动态存储（有时也叫作自由存储空间或堆）。在存储时间的长短方面，以这3种方式分配的数据对象各不相同。</p>
+<p><strong>1、自动存储</strong></p>
+<p>在函数内存定义的常规变量使用自动存储空间，被称为自动变量。即它们在所属的函数被调用时自动产生，在该函数结束时消亡。例如delete.cpp中的temp数组仅当getname()函数活动时存在。当程序控制权回到main()时，temp使用的内存自动释放。</p>
+<p>实际上，自动变量是一个局部变量，其作用域为包含它的代码块。自动变量通常存储在<strong>栈</strong>中，这意味着执行代码块时，其中的变量将依次加入栈中，而在离开代码时，将按照相反的顺序释放这些变量。这被称为后进先出（LIFO）。</p>
+<p><strong>2、静态存储</strong></p>
+<p>静态存储是整个程序执行期间都存在的存储方式。使变量成为静态存储的方式有两种:</p>
+<ul>
+<li>在函数外面定义它</li>
+<li><p>在声明使用关键字static</p>
+<p>  static double fee = 44.3;</p>
+</li>
+</ul>
+<p>自动存储和静态存储的关键在于：这些方法严格限制了变量的寿命。变量可能存在于程序的整个生命周期（静态变量），也可能只是特定函数被执行时存在（自动变量）。</p>
+<p><strong>3、动态存储</strong></p>
+<p>new和delete运算符提供了一种比自动变量和静态变量更灵活的方法。它们管理了一个内存池，这在C++被称为自由存储空间或<strong>堆</strong>。该内存池同用于静态变量和自动变量的内存是分开的。</p>
+<p>数据的生命周期不完全受程序或函数的生存控制。与常规的变量相比，使用new和delete让程序员对程序如何使用内存有更大的控制权。在栈中，自动添加和删除机制使得占用的内存是连续，但new和delete的相互影响可能导致占用的自由存储区不连续，这使得跟踪内存的位置更困难。</p>
+<p><strong>内存泄漏</strong></p>
+<p>如果使用new运算符在自由存储空间（堆）上创建变量后，没有调用delete，则即使包好指针的内存由于作用域和对象生命周期的原因而被释放，在自由存储空间上动态分配的变量或结构也将继续存在。实际上，将会无法访问自由存储空间的结构，因为指向这些内存的指针无效。这将导致内存泄漏。泄漏的内存，将在程序整个生命周期内不可使用，这些内存被分配出去，无法回收。极端情况，内存泄漏可能导致程序崩溃。</p>
+<h2 id="4-9-类型组合"><a href="#4-9-类型组合" class="headerlink" title="4.9 类型组合"></a>4.9 类型组合</h2><pre><code>struct antarctica_year_end
+{
+        int year;
+};
+</code></pre><p>可以创建这种类型的变量：</p>
+<pre><code>antarctica_year_end s01, s02, s03;
+</code></pre><p>然后，使用成员运算符来访问其成员：</p>
+<pre><code>s01.year = 1998;
+</code></pre><p>可以创建指向这种结构的指针：</p>
+<pre><code>antarctica_year_end *pa = &amp;s02;
+</code></pre><p>将指针设置为有效地址后，就可以使用间接成员运算符来访问成员：</p>
+<pre><code>pa-&gt;year = 1999;
+</code></pre><p>可创建结构数组：</p>
+<pre><code>antarctica_year_end trio[3];
+</code></pre><p>然后，使用成员运算符来访问元素的成员：</p>
+<pre><code>trio[0].year = 2003;
+</code></pre><p>由于数组名是一个指针，因此可以使用间接成员运算符：</p>
+<pre><code>(trio+1)-&gt;year = 2004;
+</code></pre><p>可创建指针数组：</p>
+<pre><code>const antarctica_year_end *arp[3] = {&amp;s01,&amp;s02,&amp;s03};
+</code></pre><p>arp是一个指针数组，arp[1]就是一个指针，可将间接运算符应用于它：</p>
+<pre><code>cout &lt;&lt; arp[1]-&gt;year &lt;&lt; endl;
+</code></pre><p>可创建指向上述数组的指针：</p>
+<pre><code>const antarctica_year_end **ppa = arp;
+</code></pre><p>其中arp是一个数组名，因此它是第一个元素的地址。但其第一元素为指针，因此ppa是一个指针，指向const antarctica_year_end的指针。这样容易出错，比如忘记const，搞错顺序或结构类型，C++11提供了auto，编译器知道arp的类型能过正确地推断出ppb的类型：</p>
+<pre><code>auto ppb = arp;
+</code></pre><p>ppa是一个指向结构指针的指针，因此*ppa是一个结构指针，可间接成员运算符应用于它：</p>
+<pre><code>cout &lt;&lt; (*ppa)-&gt;year &lt;&lt; endl;
+cout &lt;&lt; (*(ppa+1))-&gt;year &lt;&lt; endl;
+</code></pre><p>mixtype.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+struct antarctica_year_end
+{
+        int year;
+};
+int main()
+{
+        using namespace std;
+        antarctica_year_end s01, s02, s03;
+        s01.year = 1998;
+        antarctica_year_end *pa = &amp;s02;
+        pa-&gt;year = 1999;
+        antarctica_year_end trio[3];
+        trio[0].year = 2003;
+        cout &lt;&lt; trio-&gt;year &lt;&lt; endl;
+        const antarctica_year_end *arp[3] = {&amp;s01,&amp;s02,&amp;s03};
+        cout &lt;&lt; arp[1]-&gt;year &lt;&lt; endl;
+        const antarctica_year_end **ppa = arp;
+        cout &lt;&lt; (*ppa)-&gt;year &lt;&lt; endl;
+        cout &lt;&lt; (*(ppa+1))-&gt;year &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>2003
+1999
+1998
+1999
+</code></pre><h2 id="4-10-数组的替代品"><a href="#4-10-数组的替代品" class="headerlink" title="4.10 数组的替代品"></a>4.10 数组的替代品</h2><h3 id="4-10-1-模板类vector"><a href="#4-10-1-模板类vector" class="headerlink" title="4.10.1 模板类vector"></a>4.10.1 模板类vector</h3><p>模板类vector类类似于string类，也是一种动态数组。可以运行阶段设置vector对象的长度，可在末尾附加新数据，还可以在中间插入新数据。实际上，vector使用new和delete来管理内存，但这种工作是自动完成的。</p>
+<p>首先，使用vector类，必须包含头文件vector；其次，vector包含在命名空间std中，因此可以使用using编译指令、using声明或std::vector；然后，模板使用不同的语法来指出它存储的数据类型；最后，vector类使用不同的语法来指定元素数。</p>
+<pre><code>#include &lt;vector&gt;
+using namespace std;
+vector&lt;int&gt; vi; //创建一个int类型空数组
+int n;
+cin &gt;&gt; n;
+vector&lt;double&gt; vd(n); //创建一个double类型n个元素的数组
+</code></pre><p>其中vi是一个vector<int>对象，vd是一个vector<double>对象。由于vector对象在插入或添加值时自动调整长度，因此可以在将vi的长度初始化为0。但要调整长度，需要使用vector包中的各种方法。</double></int></p>
+<p>一般而言，创建一个名为vt的vector对象，它可存储n_elem个类型typeName的元素：</p>
+<pre><code>vector&lt;typeName&gt; vt(n_elem);
+</code></pre><h3 id="4-10-2-模板类array-C-11"><a href="#4-10-2-模板类array-C-11" class="headerlink" title="4.10.2 模板类array(C++11)"></a>4.10.2 模板类array(C++11)</h3><p>vector类的功能比数组强大，但付出的代价是效率低。如果需要的是固定长度的数组，使用数组是更佳的选择，但代价是不那么方便。鉴于此，C++新增了模板类array，它也位于命名空间std中。与数组一样，array对象的长度也是固定，也使用栈（静态内存分配），而不是自由存储区，因此效率与数组相同，但更方便，更安全。需要包含头文件array。创建arry对象的语法：</p>
+<pre><code>#include &lt;array&gt;
+using namespace std;
+array &lt;int,5&gt; ai;
+array&lt;double,4&gt; ad = {1.2, 1.3, 2.2, 2.3};
+</code></pre><p>创建一个名为arr的array对象，它包含n_elem个类型为typeName的元素：</p>
+<pre><code>array &lt;typeName, n_elem&gt; arr; 
+</code></pre><h3 id="4-10-3-数组、vector对象、array对象比较"><a href="#4-10-3-数组、vector对象、array对象比较" class="headerlink" title="4.10.3 数组、vector对象、array对象比较"></a>4.10.3 数组、vector对象、array对象比较</h3><p>choices.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;array&gt;
+int main()
+{
+        using namespace std;
+        double a1[4] = {1.2, 1.4, 2.2, 2.3};
+        vector&lt;double&gt; a2(4);
+        a2[0] = 1.0/3.0;
+        a2[1] = 1.0/5.0;
+        a2[2] = 1.0/7.0;
+        a2[3] = 1.0/9.0;
+        array&lt;double, 4&gt;  a3 = {3.14, 2.72, 1.62, 1.41};
+        array&lt;double, 4&gt;  a4;
+        a4 = a3;
+        cout &lt;&lt; &quot;a1[2]:&quot; &lt;&lt; a1[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a1[2] &lt;&lt; endl;
+        cout &lt;&lt; &quot;a2[2]:&quot; &lt;&lt; a2[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a2[2] &lt;&lt; endl;
+        cout &lt;&lt; &quot;a3[2]:&quot; &lt;&lt; a3[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a3[2] &lt;&lt; endl;
+        cout &lt;&lt; &quot;a4[2]:&quot; &lt;&lt; a4[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a4[2] &lt;&lt; endl;
+
+        a1[-2] = 20.2;
+
+        cout &lt;&lt; &quot;a1[-2]:&quot; &lt;&lt; a1[-2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a1[-2] &lt;&lt; endl;
+        cout &lt;&lt; &quot;a3[2]:&quot; &lt;&lt; a3[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a3[2] &lt;&lt; endl;
+        cout &lt;&lt; &quot;a4[2]:&quot; &lt;&lt; a4[2] &lt;&lt; &quot; at &quot; &lt;&lt; &amp;a4[2] &lt;&lt; endl;
+        return 0;
+}
+</code></pre><p>Linux下使用C++11版本运行:g++ -std=c++11 choices.cpp</p>
+<p>结果：</p>
+<pre><code>a1[2]:2.2 at 0x7ffdefd049f0
+a2[2]:0.142857 at 0x16f2020
+a3[2]:1.62 at 0x7ffdefd04a10
+a4[2]:1.62 at 0x7ffdefd04a30
+a1[-2]:20.2 at 0x7ffdefd049d0
+a3[2]:1.62 at 0x7ffdefd04a10
+a4[2]:1.62 at 0x7ffdefd04a30
+</code></pre><p><strong>程序说明：</strong></p>
+<p>首先，注意到无论数组、vector对象还是array对象，都可使用标准数组表示法来访问各个元素。从地址可知，array对象和数组存储在相同的内存区域（即栈）中，而vector对象，存储在另一个区域（自由存储区域或堆）中。</p>
+<p>a1[-2] = 20.2;</p>
+<p>索引-2，找出a1指向的地方，向前移两个double元素，并将20.2存储到目的地。即将信息存储到数组的外面，与C语言一样，C++也不检查这种越界错误。vector和array对象仍可以编写这种不安全的代码。</p>
+<p>对于vector和array对象还可使用at()成员函数:</p>
+<pre><code>a2.at(1) = 2.3;
+</code></pre><p>使用at()时，将在运行期间捕获非法索引，而程序默认将终端。这种额外检查的代价是运行的时间更长，这就是C++允许使用任何一种表示法的原因。另外，这些类还能够降低意外超界错误的概率，例如，它们包含成员函数begin()和end()，能够确定边界，以免无意超界。</p>
+<h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2><p>数组、结构和指针是C++的3种复合类型。</p>
+<p>字符串</p>
+<p>共用体</p>
+<p>枚举</p>
+<p>指针</p>
+<p>new和delete</p>
+<p>vector和array对象</p>
+
       
     </div>
     
@@ -702,7 +1413,7 @@ char32_t c[] = U&quot;cccc&quot;;
         <p><span>本文标题:</span><a href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-09-12, 14:23:14</p>
-        <p><span>最后更新:</span>2018-09-20, 15:55:09</p>
+        <p><span>最后更新:</span>2018-09-26, 16:24:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/12/C++ Primer Plus--复合类型（四）/" title="C++ Primer Plus--复合类型（四）">https://zxpgo.github.io/2018/09/12/C++ Primer Plus--复合类型（四）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/12/C++ Primer Plus--复合类型（四）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -718,15 +1429,15 @@ char32_t c[] = U&quot;cccc&quot;;
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/">
-                    Python2.7和Python3.6安装以及文件解决
+                <a href="/2018/09/21/计算机网络(二)--物理层/">
+                    计算机网络(二)--物理层
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">
-                    DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems
+                <a href="/2018/09/05/Linux 日志系统/">
+                    Linux 日志系统
                 </a>
             </div>
         
@@ -799,7 +1510,7 @@ char32_t c[] = U&quot;cccc&quot;;
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-数组"><span class="toc-number">1.</span> <span class="toc-text">4.1 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-数组初始化"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 数组初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-C-11数组初始化方法"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 C++11数组初始化方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-字符串"><span class="toc-number">2.</span> <span class="toc-text">4.2 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-拼接字符串常量"><span class="toc-number">2.1.</span> <span class="toc-text">4.2.1 拼接字符串常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-在数组中使用字符串"><span class="toc-number">2.2.</span> <span class="toc-text">4.2.2 在数组中使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-字符串输入"><span class="toc-number">2.3.</span> <span class="toc-text">4.2.3 字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-每次读取一行字符串输入"><span class="toc-number">2.4.</span> <span class="toc-text">4.2.4 每次读取一行字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-混合输入字符串和数字"><span class="toc-number">2.5.</span> <span class="toc-text">4.2.5 混合输入字符串和数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-string类简介"><span class="toc-number">3.</span> <span class="toc-text">4.3 string类简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11字符串初始化"><span class="toc-number">3.1.</span> <span class="toc-text">C++11字符串初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值、拼接和附加"><span class="toc-number">3.2.</span> <span class="toc-text">赋值、拼接和附加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string类的其他操作"><span class="toc-number">3.3.</span> <span class="toc-text">string类的其他操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-string类I-O"><span class="toc-number">3.4.</span> <span class="toc-text">4.3.4 string类I/O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-其他形式的字符串字面值"><span class="toc-number">3.5.</span> <span class="toc-text">4.3.5 其他形式的字符串字面值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-结构简介"><span class="toc-number">4.</span> <span class="toc-text">4.4 结构简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-共用体"><span class="toc-number">5.</span> <span class="toc-text">4.5 共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-枚举"><span class="toc-number">6.</span> <span class="toc-text">4.6 枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-指针和自由存储空间"><span class="toc-number">7.</span> <span class="toc-text">4.7 指针和自由存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-指针、数组和指针算术"><span class="toc-number">8.</span> <span class="toc-text">4.8 指针、数组和指针算术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-0-类型组合"><span class="toc-number">9.</span> <span class="toc-text">4.0 类型组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-数组的替代品"><span class="toc-number">10.</span> <span class="toc-text">4.10 数组的替代品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-总结"><span class="toc-number">11.</span> <span class="toc-text">4.11 总结</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-数组"><span class="toc-number">1.</span> <span class="toc-text">4.1 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-数组初始化"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 数组初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-C-11数组初始化方法"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 C++11数组初始化方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-字符串"><span class="toc-number">2.</span> <span class="toc-text">4.2 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-拼接字符串常量"><span class="toc-number">2.1.</span> <span class="toc-text">4.2.1 拼接字符串常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-在数组中使用字符串"><span class="toc-number">2.2.</span> <span class="toc-text">4.2.2 在数组中使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-字符串输入"><span class="toc-number">2.3.</span> <span class="toc-text">4.2.3 字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-每次读取一行字符串输入"><span class="toc-number">2.4.</span> <span class="toc-text">4.2.4 每次读取一行字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-混合输入字符串和数字"><span class="toc-number">2.5.</span> <span class="toc-text">4.2.5 混合输入字符串和数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-string类简介"><span class="toc-number">3.</span> <span class="toc-text">4.3 string类简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-11字符串初始化"><span class="toc-number">3.1.</span> <span class="toc-text">C++11字符串初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值、拼接和附加"><span class="toc-number">3.2.</span> <span class="toc-text">赋值、拼接和附加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string类的其他操作"><span class="toc-number">3.3.</span> <span class="toc-text">string类的其他操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-string类I-O"><span class="toc-number">3.4.</span> <span class="toc-text">4.3.4 string类I/O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-其他形式的字符串字面值"><span class="toc-number">3.5.</span> <span class="toc-text">4.3.5 其他形式的字符串字面值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-结构简介"><span class="toc-number">4.</span> <span class="toc-text">4.4 结构简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-程序中使用结构体"><span class="toc-number">4.1.</span> <span class="toc-text">4.4.1 程序中使用结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-结构初始化"><span class="toc-number">4.2.</span> <span class="toc-text">C++结构初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构可以使用string类o成员"><span class="toc-number">4.3.</span> <span class="toc-text">结构可以使用string类o成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他结构属性"><span class="toc-number">4.4.</span> <span class="toc-text">其他结构属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-5-结构数组"><span class="toc-number">4.5.</span> <span class="toc-text">4.4.5 结构数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-6-结构中的位字段"><span class="toc-number">4.6.</span> <span class="toc-text">4.4.6 结构中的位字段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-共用体"><span class="toc-number">5.</span> <span class="toc-text">4.5 共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-枚举"><span class="toc-number">6.</span> <span class="toc-text">4.6 枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-1-设置枚举量的值"><span class="toc-number">6.1.</span> <span class="toc-text">4.6.1 设置枚举量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-2-枚举的取值范围"><span class="toc-number">6.2.</span> <span class="toc-text">4.6.2 枚举的取值范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-指针和自由存储空间"><span class="toc-number">7.</span> <span class="toc-text">4.7 指针和自由存储空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-1-声明和初始化指针"><span class="toc-number">7.1.</span> <span class="toc-text">4.7.1 声明和初始化指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-2-指针的危险"><span class="toc-number">7.2.</span> <span class="toc-text">4.7.2 指针的危险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-3-指针和数字"><span class="toc-number">7.3.</span> <span class="toc-text">4.7.3 指针和数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-4-使用new来分配内存"><span class="toc-number">7.4.</span> <span class="toc-text">4.7.4 使用new来分配内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-5-使用delete释放内存"><span class="toc-number">7.5.</span> <span class="toc-text">4.7.5 使用delete释放内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-6-使用new来创建动态数组"><span class="toc-number">7.6.</span> <span class="toc-text">4.7.6 使用new来创建动态数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-指针、数组和指针算术"><span class="toc-number">8.</span> <span class="toc-text">4.8 指针、数组和指针算术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-1-程序说明"><span class="toc-number">8.1.</span> <span class="toc-text">4.8.1 程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-2-指针小结"><span class="toc-number">8.2.</span> <span class="toc-text">4.8.2 指针小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-3-指针和字符串"><span class="toc-number">8.3.</span> <span class="toc-text">4.8.3 指针和字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-4-使用new创建动态结构"><span class="toc-number">8.4.</span> <span class="toc-text">4.8.4 使用new创建动态结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-5-自动存储、静态存储和动态存储"><span class="toc-number">8.5.</span> <span class="toc-text">4.8.5 自动存储、静态存储和动态存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-类型组合"><span class="toc-number">9.</span> <span class="toc-text">4.9 类型组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-数组的替代品"><span class="toc-number">10.</span> <span class="toc-text">4.10 数组的替代品</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-1-模板类vector"><span class="toc-number">10.1.</span> <span class="toc-text">4.10.1 模板类vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-2-模板类array-C-11"><span class="toc-number">10.2.</span> <span class="toc-text">4.10.2 模板类array(C++11)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-3-数组、vector对象、array对象比较"><span class="toc-number">10.3.</span> <span class="toc-text">4.10.3 数组、vector对象、array对象比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-总结"><span class="toc-number">11.</span> <span class="toc-text">4.11 总结</span></a></li></ol>
         
     </div>
     <style>
@@ -855,7 +1566,7 @@ char32_t c[] = U&quot;cccc&quot;;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" title="上一篇: Python2.7和Python3.6安装以及文件解决">
+            <a href="/2018/09/21/计算机网络(二)--物理层/" title="上一篇: 计算机网络(二)--物理层">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -863,13 +1574,13 @@ char32_t c[] = U&quot;cccc&quot;;
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/" title="下一篇: DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems">
+            <a href="/2018/09/05/Linux 日志系统/" title="下一篇: Linux 日志系统">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li></ul>
 
 
 
