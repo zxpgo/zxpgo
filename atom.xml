@@ -57,26 +57,6 @@
   </entry>
   
   <entry>
-    <title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</title>
-    <link href="https://zxpgo.github.io/2019/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
-    <id>https://zxpgo.github.io/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
-    <published>2019-09-06T08:28:50.000Z</published>
-    <updated>2018-09-26T08:38:37.174Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文一
-    
-    </summary>
-    
-      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
     <title>移动通信技术</title>
     <link href="https://zxpgo.github.io/2019/09/06/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF/"/>
     <id>https://zxpgo.github.io/2019/09/06/移动通信技术/</id>
@@ -97,42 +77,22 @@
   </entry>
   
   <entry>
-    <title>Python2.7和Python3.6安装以及文件解决</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:43:47.693Z</updated>
+    <title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</title>
+    <link href="https://zxpgo.github.io/2019/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
+    <id>https://zxpgo.github.io/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
+    <published>2019-09-06T08:28:50.000Z</published>
+    <updated>2018-10-02T02:45:52.770Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
+      &lt;p&gt;论文一
     
     </summary>
     
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode算法题目</title>
-    <link href="https://zxpgo.github.io/2019/08/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/"/>
-    <id>https://zxpgo.github.io/2019/08/22/LeetCode算法题目/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-09-22T14:09:57.485Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;leetcode是个&lt;a href=&quot;https://leetcode-cn.com/problemset/all/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。
-    
-    </summary>
-    
-      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
     
     
-      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode面试题" scheme="https://zxpgo.github.io/tag/LeetCode%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
@@ -141,7 +101,7 @@
     <link href="https://zxpgo.github.io/2019/08/22/Python%E5%AE%9E%E7%8E%B08%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
     <id>https://zxpgo.github.io/2019/08/22/Python实现8种排序算法/</id>
     <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-23T15:18:58.377Z</updated>
+    <updated>2018-09-27T06:41:50.378Z</updated>
     
     <summary type="html">
     
@@ -155,24 +115,6 @@
       <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
       <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python2.x和Python3.x的版本区别</title>
-    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
-    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
-    <published>2019-08-22T14:28:50.000Z</published>
-    <updated>2018-08-26T14:44:55.229Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
     
   </entry>
   
@@ -197,6 +139,64 @@
   </entry>
   
   <entry>
+    <title>Python2.7和Python3.6安装以及文件解决</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.7%E5%92%8Cpython3.6%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.7和python3.6安装以及问题解决/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:43:47.693Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python2.x和Python3.x的版本区别</title>
+    <link href="https://zxpgo.github.io/2019/08/22/python2.x%E5%92%8Cpython3.x%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zxpgo.github.io/2019/08/22/python2.x和python3.x版本区别/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-08-26T14:44:55.229Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode算法题目</title>
+    <link href="https://zxpgo.github.io/2019/08/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/"/>
+    <id>https://zxpgo.github.io/2019/08/22/LeetCode算法题目/</id>
+    <published>2019-08-22T14:28:50.000Z</published>
+    <updated>2018-10-01T13:59:30.900Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;leetcode是个&lt;a href=&quot;https://leetcode-cn.com/problemset/all/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。
+    
+    </summary>
+    
+      <category term="算法" scheme="https://zxpgo.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://zxpgo.github.io/tag/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode面试题" scheme="https://zxpgo.github.io/tag/LeetCode%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>进制介绍以及相互转换</title>
     <link href="https://zxpgo.github.io/2019/08/22/%E8%BF%9B%E5%88%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
     <id>https://zxpgo.github.io/2019/08/22/进制相互转换/</id>
@@ -215,15 +215,93 @@
   </entry>
   
   <entry>
-    <title>计算机网络(一)--概论</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
-    <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-26T08:37:02.867Z</updated>
+    <title>NP问题理解</title>
+    <link href="https://zxpgo.github.io/2018/10/02/NP%E9%97%AE%E9%A2%98%E7%90%86%E8%A7%A3/"/>
+    <id>https://zxpgo.github.io/2018/10/02/NP问题理解/</id>
+    <published>2018-10-02T08:53:50.000Z</published>
+    <updated>2018-10-02T10:03:39.188Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;五层协议体系结构、计算机网络性能
+      &lt;p&gt;P问题、NP问题、NP难问题、NP完全问题
+    
+    </summary>
+    
+    
+      <category term="NP问题" scheme="https://zxpgo.github.io/tag/NP%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>格理论与密码学--数学基础（一）</title>
+    <link href="https://zxpgo.github.io/2018/10/02/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/02/格理论与密码学--数学基础（一）/</id>
+    <published>2018-10-02T06:52:50.000Z</published>
+    <updated>2018-10-02T10:03:48.536Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍一些基本的数学概念和符号。
+    
+    </summary>
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--分支语句和逻辑运算符（六）</title>
+    <link href="https://zxpgo.github.io/2018/10/02/C++%20Primer%20Plus--%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/</id>
+    <published>2018-10-02T01:48:14.000Z</published>
+    <updated>2018-10-02T12:32:40.944Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C++提供了if和switch语句来进行决策，还有逻辑运算符和条件运算符。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>格-数据基础</title>
+    <link href="https://zxpgo.github.io/2018/10/01/%E6%A0%BC-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/"/>
+    <id>https://zxpgo.github.io/2018/10/01/格-数据基础/</id>
+    <published>2018-10-01T08:42:50.000Z</published>
+    <updated>2018-10-02T03:10:19.844Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;格密码是一类备受关注的抗量子计算攻击的公钥密码体制。格密码理论的研究设计的密码数学问题很多。
+    
+    </summary>
+    
+      <category term="云数据完整性验证" scheme="https://zxpgo.github.io/categories/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E9%AA%8C%E8%AF%81/"/>
+    
+    
+      <category term="云数据完整性验证" scheme="https://zxpgo.github.io/tag/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E9%AA%8C%E8%AF%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络(三)--数据链路层</title>
+    <link href="https://zxpgo.github.io/2018/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    <id>https://zxpgo.github.io/2018/10/01/计算机网络(二)--数据链路层/</id>
+    <published>2018-10-01T02:48:50.000Z</published>
+    <updated>2018-10-01T10:18:58.452Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据链路层属于计算机网络的底层，数据链路层使用的信道主要有以下两种类型：(1)点对点信道；(2)广播信道。
     
     </summary>
     
@@ -235,15 +313,79 @@
   </entry>
   
   <entry>
+    <title>Python字典、列表、元组、数组</title>
+    <link href="https://zxpgo.github.io/2018/09/27/Python%E5%AD%97%E5%85%B8%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E5%85%83%E7%BB%84%E3%80%81%E6%95%B0%E7%BB%84/"/>
+    <id>https://zxpgo.github.io/2018/09/27/Python字典、列表、元组、数组/</id>
+    <published>2018-09-27T12:51:50.000Z</published>
+    <updated>2018-09-27T14:12:44.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://zxpgo.github.io/tag/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--循环和关系表达式（五）</title>
+    <link href="https://zxpgo.github.io/2018/09/27/C++%20Primer%20Plus--%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/</id>
+    <published>2018-09-27T02:23:14.000Z</published>
+    <updated>2018-10-02T02:20:22.647Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C++提供三种循环：for循环、while循环和do while循环。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络(二)--物理层</title>
     <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E7%89%A9%E7%90%86%E5%B1%82/"/>
     <id>https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/</id>
     <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-26T08:36:58.254Z</updated>
+    <updated>2018-09-29T14:45:09.648Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;物理层
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络(一)--概论</title>
+    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
+    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
+    <published>2018-09-21T14:28:50.000Z</published>
+    <updated>2018-09-26T08:37:02.867Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;五层协议体系结构、计算机网络性能
     
     </summary>
     
@@ -271,152 +413,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 日志系统</title>
-    <link href="https://zxpgo.github.io/2018/09/05/Linux%20%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zxpgo.github.io/2018/09/05/Linux 日志系统/</id>
-    <published>2018-09-05T03:07:50.000Z</published>
-    <updated>2018-09-05T07:17:57.488Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;日志数据可以是有价值的信息宝库，也可以是毫无价值的数据泥潭。它可以记录下系统产生的所有行为，并按照某种规范表达出来。可以使用日志系统所记录的信息为系统进行排错，优化系统的性能，或者根据这些信息调整系统的行为。收集你想要的数据，分析出有价值的信息，可以提高系统、产品的安全性，还可以帮助开发完善代码，优化产品。日志会成为在事故发生后查明“发生了什么”的一个很好的“取证”信息来源。日志可以为审计进行审计跟踪。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 进程管理</title>
-    <link href="https://zxpgo.github.io/2018/09/05/Linux%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/09/05/Linux 进程管理/</id>
-    <published>2018-09-05T00:30:50.000Z</published>
-    <updated>2018-09-05T03:06:10.624Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2016百度校招面试题</title>
-    <link href="https://zxpgo.github.io/2018/09/02/2016%E7%99%BE%E5%BA%A6%E6%A0%A1%E6%8B%9B%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>https://zxpgo.github.io/2018/09/02/2016百度校招面试题/</id>
-    <published>2018-09-02T00:51:24.000Z</published>
-    <updated>2018-09-02T00:52:58.650Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对前面学习命令的一个总结
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式基础</title>
-    <link href="https://zxpgo.github.io/2018/09/01/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
-    <id>https://zxpgo.github.io/2018/09/01/正则表达式基础/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-02T08:33:18.304Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="正则表达式" scheme="https://zxpgo.github.io/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下软件安装</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux下软件安装/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-04T08:33:49.356Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在此简单介绍Linux下软件安装，更多可见：&lt;a href=&quot;https://www.zxpblog.cn/2018/08/28/Linux不同版本以及程序包安装/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux不同版本以及程序包安装&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 进程概念</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%20%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux 进程概念/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-05T00:29:32.511Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7设置默认进入图形界面和命令行界面</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Centos%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E8%BF%9B%E5%85%A5%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%92%8C%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Centos设置默认进入图形界面和命令行界面/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-11T06:45:14.104Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
