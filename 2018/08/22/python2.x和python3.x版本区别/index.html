@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="模式识别">
-<meta name="keywords" content="模式识别">
+<meta name="description" content="Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式识别绪论(一)">
-<meta property="og:url" content="https://zxpgo.github.io/2019/09/11/模式识别绪论/index.html">
+<meta property="og:title" content="Python2.x和Python3.x的版本区别">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/22/python2.x和python3.x版本区别/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="模式识别">
+<meta property="og:description" content="Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T11:48:59.255Z">
+<meta property="og:updated_time" content="2018-10-02T14:17:22.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式识别绪论(一)">
-<meta name="twitter:description" content="模式识别">
+<meta name="twitter:title" content="Python2.x和Python3.x的版本区别">
+<meta name="twitter:description" content="Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>模式识别绪论(一) | 平步青云win</title>
+<title>Python2.x和Python3.x的版本区别 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-模式识别绪论" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python2.x和python3.x版本区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/11/模式识别绪论/" class="article-date">
-      <time datetime="2019-09-11T14:28:50.000Z" itemprop="datePublished">2019-09-11</time>
+      <a href="/2018/08/22/python2.x和python3.x版本区别/" class="article-date">
+      <time datetime="2018-08-22T14:28:50.000Z" itemprop="datePublished">2018-08-22</time>
 </a>
 
 
@@ -306,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      模式识别绪论(一)
+      Python2.x和Python3.x的版本区别
     </h1>
   
 
@@ -315,14 +315,10 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -337,28 +333,121 @@
 	
       
           
-        <p>模式识别<a id="more"></a></p>
-<p>1、模式识别系统组成单元：</p>
+        <p>Python 3.0在设计的时候没有考虑向下相容。许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。<a id="more"></a></p>
+<p><a href="https://www.zxpblog.cn/2019/08/22/python2.x和python3.x版本区别/" target="_blank" rel="noopener">pyython3.x和python2.x的版本区别</a></p>
+<p>为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Python 3.0的迁移，允许使用部分Python 3.0的语法与函数。</p>
+<p>目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。大多数第三方库都正在努力地相容Python 3.0版本。即使无法立即使用Python 3.0，也建议编写相容Python 3.0版本的程式，然后使用Python 2.6, Python 2.7来执行。</p>
+<h2 id="print"><a href="#print" class="headerlink" title="print"></a>print</h2><p>python 3.0 中使用print()函数来输出，而不再使用print语句。</p>
+<pre><code>print(&quot;zxp&quot;) #python3.0
+print &quot;zxp&quot; #python3.0不再支持
+</code></pre><p>在python2.6和python2.7中，三种形式等价：</p>
+<pre><code>print(&quot;zxp&quot;)# print不能带任何参数
+print (&quot;zxp&quot;) #print后有空格
+print &quot;zxp&quot;
+</code></pre><p>python2.6实际已经支持print()语法：</p>
+<pre><code>seq = &apos;hello&apos;
+print(&apos;zxp&apos;,&apos;panda&apos;,seq)
+</code></pre><h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>python2中有ASCII str()类型，unicode()是单独的，不是byte类型。<!--more--><br>python3中有Unicode(utf-8)字符串，以及一个字节类：byte和bytearrays。</p>
+<p>python3.x源码文件默认使用utf-8:</p>
+<pre><code>&gt;&gt;&gt;中国 = “china”
+&gt;&gt;&gt;print(中国)
+china
+</code></pre><p>而在python2.x中是语法错误<br></p>
+<p>python2.x</p>
+<pre><code>&gt;&gt;&gt; 中国 = &quot;china&quot;
+SyntaxError: invalid syntax
+&gt;&gt;&gt; str = &quot;我是霸王&quot;
+&gt;&gt;&gt; str
+&apos;\xce\xd2\xca\xc7\xb0\xd4\xcd\xf5&apos;
+&gt;&gt;&gt; print str
+我是霸王
+&gt;&gt;&gt; str = u&apos;我是霸王&apos;
+&gt;&gt;&gt; str
+u&apos;\u6211\u662f\u9738\u738b&apos;
+</code></pre><p>python3.x</p>
+<pre><code>&gt;&gt;&gt; str = &quot;我是霸王&quot;
+&gt;&gt;&gt; str
+&apos;我是霸王&apos;
+&gt;&gt;&gt; print(str)
+我是霸王
+</code></pre><h2 id="除法运算"><a href="#除法运算" class="headerlink" title="除法运算"></a>除法运算</h2><p>python中除法包括两个运算符，<code>/</code>和<code>//</code></p>
+<p>python2.x中的<code>/</code>除法，跟java、c相同，整数相除结果是一个整数，把小数忽略掉。浮点数的除法会保留小数部分，得到一个浮点数结果。</p>
+<p>python3.x中<code>/</code>除法对于整数之间相除，结果也会是浮点数</p>
+<p>python2.x</p>
+<pre><code>&gt;&gt;&gt; 3/2
+1
+</code></pre><p>python3.x</p>
+<pre><code>&gt;&gt;&gt; 3/2
+1.5
+</code></pre><p>而对于<code>//</code>除法，被称为floor除法(python3.x中的floor)，会对除法的结果自动进行一个floor操作，在python2.x和python3.x中是一致的</p>
+<pre><code>&gt;&gt;&gt; 5//3
+1
+</code></pre><p>python3.x中floor操作：向下取整，小数不存在</p>
+<pre><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.floor(2.2)
+2
+</code></pre><p>python2.x中floor操作：向下取整，小数存在，仍然是浮点数</p>
+<pre><code>&gt;&gt;&gt; math.floor(3.2)
+3.0
+</code></pre><p>如果需要取整，需要<code>trunc</code>函数</p>
+<pre><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.trunc(5/3)
+1
+</code></pre><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>在 Python 3 中我们现在使用 as 作为关键词。捕获异常的语法由 except exc, var 改为 except exc as var。</p>
+<p>使用语法except (exc1, exc2) as var可以同时捕获多种类别的异常。 Python 2.6已经支持这两种语法。</p>
 <ul>
-<li>信息输入与数据获取</li>
-<li>预处理</li>
-<li>特征抽取、选择和提取：高维测量空间 $ \rightarrow $ 低维的特征空间 </li>
-<li>旁边分类（分类决策）</li>
+<li>1在2.x时代，所有类型的对象都是可以被直接抛出的，在3.x时代，只有继承自BaseException的对象才可以被抛出。</li>
+<li>2.x raise语句使用逗号将抛出对象类型和参数分开，3.x取消了这种奇葩的写法，直接调用构造函数抛出对象即可。</li>
 </ul>
-<p>2、 模式识别系统分类</p>
-<ul>
-<li>统计模式系统和句法模式识别</li>
-</ul>
-<p>统计： 采用概念和统计的方法，采用判别函数，使判识概念最小<br><br>句法：</p>
-<ul>
-<li>模糊模式识别：以隶属度位基础，运用模糊数学的“关系”判别</li>
-<li>神经网络模式识别</li>
-</ul>
-<p>3、 实现方法分类：</p>
-<ul>
-<li>监督： 需要足够的先验知识</li>
-<li>无监督</li>
-</ul>
+<h2 id="创建迭代对象"><a href="#创建迭代对象" class="headerlink" title="创建迭代对象"></a>创建迭代对象</h2><p>在Python 2 中 xrange() 创建迭代对象的用法是非常流行的。比如： for 循环或者是列表/集合/字典推导式。这个表现十分像生成器（比如。”惰性求值”）。但是这个 xrange-iterable 是无穷的，意味着你可以无限遍历。由于它的惰性求值，如果你不得仅仅不遍历它一次，xrange() 函数 比 range() 更快（比如 for 循环）。尽管如此，对比迭代一次，不建议你重复迭代多次，因为生成器每次都从头开始。</p>
+<p>在 Python 3 中，range() 是像 xrange() 那样实现以至于一个专门的 xrange() 函数都不再存在（在 Python 3 中 xrange() 会抛出命名异常）。</p>
+<p>python2.x中使用xrange()和range()</p>
+<pre><code>&gt;&gt;&gt; range(1,10,2)
+[1, 3, 5, 7, 9]
+&gt;&gt;&gt; xrange(1,10,2)
+xrange(1, 11, 2)
+&gt;&gt;&gt; list(xrange(1,10,2))
+[1, 3, 5, 7, 9]
+</code></pre><p>python3.x中使用range(),内容包含了xrange()</p>
+<pre><code>&gt;&gt;&gt; xrange(10)
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#0&gt;&quot;, line 1, in &lt;module&gt;
+    xrange(10)
+NameError: name &apos;xrange&apos; is not defined
+&gt;&gt;&gt; range(10)
+range(0, 10)
+&gt;&gt;&gt; list(range(1,10))
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre><h2 id="八进制字面量表示"><a href="#八进制字面量表示" class="headerlink" title="八进制字面量表示"></a>八进制字面量表示</h2><p>八进制数必须写成0o777，原来的形式0777不能用了；二进制必须写成0b111。</p>
+<p>新增了一个bin()函数用于将一个整数转换成二进制字串。 Python 2.6已经支持这两种语法。</p>
+<p>在Python 3.x中，表示八进制字面量的方式只有一种，就是0o1000。</p>
+<pre><code>&gt;&gt;&gt; 0777
+SyntaxError: invalid token
+&gt;&gt;&gt; 0o777
+511
+</code></pre><p>python2.x</p>
+<pre><code>&gt;&gt;&gt; 0777
+511
+&gt;&gt;&gt; 0o777
+511
+</code></pre><h2 id="不等于运算符"><a href="#不等于运算符" class="headerlink" title="不等于运算符"></a>不等于运算符</h2><p>Python 2.x中不等于有两种写法 != 和 &lt;&gt;</p>
+<p>Python 3.x中去掉了&lt;&gt;, 只有!=一种写法，还好，我从来没有使用&lt;&gt;的习惯</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>python3.x中不再有long类型，只有一种整性int,当它的行为跟python2.x的long相同</p>
+<p>python3.x中，字符串和bytes类型彻底分开了。字符串是以字符为单位进行处理的，bytes类型是以字节为单位处理的。</p>
+<h3 id="bytes"><a href="#bytes" class="headerlink" title="bytes"></a>bytes</h3><p>bytes数据类型在所有的操作和使用甚至内置方法上和字符串数据类型基本一样，也是不可变的序列对象。</p>
+<p>bytes对象只负责以二进制字节序列的形式记录所需记录的对象，至于该对象到底表示什么（比如到底是什么字符）则由相应的编码格式解码所决定。Python3中，bytes通常用于网络数据传输、二进制图片和文件的保存等等。可以通过调用bytes()生成bytes实例，其值形式为 b’xxxxx’，其中 ‘xxxxx’ 为一至多个转义的十六进制字符串（单个 x 的形式为：\x12，其中\x为小写的十六进制转义字符，12为二位十六进制数）组成的序列，每个十六进制数代表一个字节（八位二进制数，取值范围0-255），对于同一个字符串如果采用不同的编码方式生成bytes对象，就会形成不同的值.</p>
+<pre><code>b = b&apos;&apos;         # 创建一个空的bytes
+b = byte()      # 创建一个空的bytes
+b = b&apos;hello&apos;    #  直接指定这个hello是bytes类型
+b = bytes(&apos;string&apos;,encoding=&apos;编码类型&apos;)  #利用内置bytes方法，将字符串转换为指定编码的bytes
+b = str.encode(&apos;编码类型&apos;)   # 利用字符串的encode方法编码成bytes，默认为utf-8类型
+
+bytes.decode(&apos;编码类型&apos;)：将bytes对象解码成字符串，默认使用utf-8进行解码。
+</code></pre><p>对于bytes，我们只要知道在Python3中某些场合下强制使用，以及它和字符串类型之间的互相转换，其它的基本照抄字符串。</p>
+<p>简单的省事模式：</p>
+<p><code>string = b&#39;xxxxxx&#39;.decode()</code> 直接以默认的utf-8编码解码bytes成string</p>
+<p><code>b = string.encode()</code> 直接以默认的utf-8编码string为bytes</p>
+<p>转自：<a href="http://www.runoob.com/python/python-2x-3x.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-2x-3x.html</a><br><a href="https://www.cnblogs.com/R-bear/p/7744454.html" target="_blank" rel="noopener">https://www.cnblogs.com/R-bear/p/7744454.html</a></p>
 
       
     </div>
@@ -367,13 +456,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2019-09-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-09-20, 19:48:59</p>
+        <p><span>发布时间:</span>2018-08-22, 22:28:50</p>
+        <p><span>最后更新:</span>2018-10-02, 22:17:22</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/09/11/模式识别绪论/" title="模式识别绪论(一)">https://zxpgo.github.io/2019/09/11/模式识别绪论/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/09/11/模式识别绪论/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/22/python2.x和python3.x版本区别/" title="Python2.x和Python3.x的版本区别">https://zxpgo.github.io/2018/08/22/python2.x和python3.x版本区别/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/22/python2.x和python3.x版本区别/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -386,15 +475,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/11/聚类分析/">
-                    模式识别(二)--K均值聚类
+                <a href="/2018/08/22/Python实现8种排序算法/">
+                    Python实现：8种排序算法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/06/移动通信技术/">
-                    移动通信技术
+                <a href="/2018/08/19/文件系统概念/">
+                    文件系统概念
                 </a>
             </div>
         
@@ -467,7 +556,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#print"><span class="toc-number">1.</span> <span class="toc-text">print</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unicode"><span class="toc-number">2.</span> <span class="toc-text">Unicode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#除法运算"><span class="toc-number">3.</span> <span class="toc-text">除法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常"><span class="toc-number">4.</span> <span class="toc-text">异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建迭代对象"><span class="toc-number">5.</span> <span class="toc-text">创建迭代对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八进制字面量表示"><span class="toc-number">6.</span> <span class="toc-text">八进制字面量表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不等于运算符"><span class="toc-number">7.</span> <span class="toc-text">不等于运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">8.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bytes"><span class="toc-number">8.1.</span> <span class="toc-text">bytes</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -503,7 +592,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"模式识别绪论(一)　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python2.x和Python3.x的版本区别　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -523,7 +612,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/11/聚类分析/" title="上一篇: 模式识别(二)--K均值聚类">
+            <a href="/2018/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -531,13 +620,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/06/移动通信技术/" title="下一篇: 移动通信技术">
+            <a href="/2018/08/19/文件系统概念/" title="下一篇: 文件系统概念">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
 
 
 

@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="建站 Linux Python C++ 编程语言">
-<meta name="keywords" content="建站 Linux Python C++ 编程语言">
-<meta property="og:type" content="website">
-<meta property="og:title" content="平步青云win">
-<meta property="og:url" content="https://zxpgo.github.io/archives/2019/index.html">
+<meta name="description" content="模式识别">
+<meta name="keywords" content="模式识别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模式识别绪论(一)">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/11/模式识别绪论/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="建站 Linux Python C++ 编程语言">
+<meta property="og:description" content="模式识别">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-02T14:14:38.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平步青云win">
-<meta name="twitter:description" content="建站 Linux Python C++ 编程语言">
+<meta name="twitter:title" content="模式识别绪论(一)">
+<meta name="twitter:description" content="模式识别">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019 | 平步青云win</title>
+<title>模式识别绪论(一) | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,8 +68,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -286,381 +287,264 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-模式识别绪论" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/11/聚类分析/" class="archive-article-date">
-      <time datetime="2019-09-11T14:28:50.000Z" itemprop="datePublished">09-11</time>
+    <div class="article-meta">
+      <a href="/2018/09/11/模式识别绪论/" class="article-date">
+      <time datetime="2018-09-11T14:28:50.000Z" itemprop="datePublished">2018-09-11</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模式识别绪论(一)
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+	  
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
     </div>
 
-        </div>
+		<span id="busuanzi_container_page_pv_top" style ="display:block">
+  |阅读量(<span id="busuanzi_value_page_pv"></span>)
+</span>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <p>模式识别<a id="more"></a></p>
+<p>1、模式识别系统组成单元：</p>
+<ul>
+<li>信息输入与数据获取</li>
+<li>预处理</li>
+<li>特征抽取、选择和提取：高维测量空间 $ \rightarrow $ 低维的特征空间 </li>
+<li>旁边分类（分类决策）</li>
+</ul>
+<p>2、 模式识别系统分类</p>
+<ul>
+<li>统计模式系统和句法模式识别</li>
+</ul>
+<p>统计： 采用概念和统计的方法，采用判别函数，使判识概念最小<br><br>句法：</p>
+<ul>
+<li>模糊模式识别：以隶属度位基础，运用模糊数学的“关系”判别</li>
+<li>神经网络模式识别</li>
+</ul>
+<p>3、 实现方法分类：</p>
+<ul>
+<li>监督： 需要足够的先验知识</li>
+<li>无监督</li>
+</ul>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
+        <p><span>发布时间:</span>2018-09-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-10-02, 22:14:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/11/模式识别绪论/" title="模式识别绪论(一)">https://zxpgo.github.io/2018/09/11/模式识别绪论/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/11/模式识别绪论/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/09/11/聚类分析/">
+                    模式识别(二)--K均值聚类
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">
+                    DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems
+                </a>
+            </div>
+        
+    </nav>
+
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 支付宝打赏图案 -->
+        <img src="/img/Alipay.jpg" alt="支付宝打赏">
+        <!-- 微信打赏图案 -->
+        <img src="/img/WeChatpay.jpg" alt="微信打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+	
+	
+	
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/11/模式识别绪论/" class="archive-article-date">
-      <time datetime="2019-09-11T14:28:50.000Z" itemprop="datePublished">09-11</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"模式识别绪论(一)　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/09/11/聚类分析/" title="上一篇: 模式识别(二)--K均值聚类">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/" title="下一篇: DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/06/移动通信技术/" class="archive-article-date">
-      <time datetime="2019-09-06T08:28:50.000Z" itemprop="datePublished">09-06</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/移动通信技术/">移动通信技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/教程/">教程</a>
-    </div>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/通信协议/">通信协议</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/" class="archive-article-date">
-      <time datetime="2019-09-06T08:28:50.000Z" itemprop="datePublished">09-06</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/论文/">论文</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/论文/">论文</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/Python实现8种排序算法/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/模式匹配的KMP算法/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/python2.x和python3.x版本区别/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/LeetCode算法题目/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/LeetCode面试题/">LeetCode面试题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/22/进制相互转换/" class="archive-article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">08-22</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/数据结构/">数据结构</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <footer id="footer">

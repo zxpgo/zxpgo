@@ -15,20 +15,24 @@
 
 
 
-<meta name="description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
-<meta name="keywords" content="模式识别">
+<meta name="description" content="在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式识别(二)--K均值聚类">
-<meta property="og:url" content="https://zxpgo.github.io/2019/09/11/聚类分析/index.html">
+<meta property="og:title" content="Python2.7和Python3.6安装以及文件解决">
+<meta property="og:url" content="https://zxpgo.github.io/2018/08/22/python2.7和python3.6安装以及问题解决/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
+<meta property="og:description" content="在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/BHa0iXW.png">
-<meta property="og:updated_time" content="2018-09-20T11:52:39.697Z">
+<meta property="og:image" content="https://i.imgur.com/XR3VI7D.png">
+<meta property="og:image" content="https://i.imgur.com/85ex4wA.png">
+<meta property="og:image" content="https://i.imgur.com/LtX3Wxy.png">
+<meta property="og:image" content="https://i.imgur.com/9YIypTY.png">
+<meta property="og:image" content="https://i.imgur.com/I9XDzyO.png">
+<meta property="og:updated_time" content="2018-10-02T14:16:53.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式识别(二)--K均值聚类">
-<meta name="twitter:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
-<meta name="twitter:image" content="https://i.imgur.com/BHa0iXW.png">
+<meta name="twitter:title" content="Python2.7和Python3.6安装以及文件解决">
+<meta name="twitter:description" content="在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。">
+<meta name="twitter:image" content="https://i.imgur.com/XR3VI7D.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -60,7 +64,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>模式识别(二)--K均值聚类 | 平步青云win</title>
+<title>Python2.7和Python3.6安装以及文件解决 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +293,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-聚类分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python2.7和python3.6安装以及问题解决" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/11/聚类分析/" class="article-date">
-      <time datetime="2019-09-11T14:28:50.000Z" itemprop="datePublished">2019-09-11</time>
+      <a href="/2018/08/22/python2.7和python3.6安装以及问题解决/" class="article-date">
+      <time datetime="2018-08-22T14:28:50.000Z" itemprop="datePublished">2018-08-22</time>
 </a>
 
 
@@ -308,7 +312,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      模式识别(二)--K均值聚类
+      Python2.7和Python3.6安装以及文件解决
     </h1>
   
 
@@ -317,14 +321,10 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -339,76 +339,40 @@
 	
       
           
-        <p>K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。<a id="more"></a>具体算法实现如下：<br>    <img src="https://i.imgur.com/BHa0iXW.png" alt=""></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import numpy as np
-import random
-import matplotlib.pyplot as plt
+        <p>在实际中，可以需要同时安装python2.7和python3.6版本，在此过程中可以遇到一些问题，在此将一一陈述。<a id="more"></a></p>
+<h2 id="Python2-7和Python3-6并存"><a href="#Python2-7和Python3-6并存" class="headerlink" title="Python2.7和Python3.6并存"></a>Python2.7和Python3.6并存</h2><p>在环境变量中添加Python两个版本的值即可，具体如下：</p>
+<p>右键我的电脑，按下图操作：<br><img src="https://i.imgur.com/XR3VI7D.png" alt=""></p>
+<p>添加值：</p>
+<p><img src="https://i.imgur.com/85ex4wA.png" alt=""></p>
+<p>在环境变量中添加：</p>
+<pre><code>C:\Python27
+C:\Python27\Scripts    
 
-#计算样本到中心的距离,采用欧式距离
-def distEC(data,center,k):
-    num = np.array(data)
-    hang = num.shape[0] #数据个数
-    lie = num.shape[1] #指标个数
-    dist = [[0]*k for row in range(hang)]
-    for i in range(hang):
-        for l in range(k):
-            s = 0
-            for j in range(lie):
-                s =  (center[l][j] - data[i][j])**2 + s
-            dist[i][l] = s**0.5
-    return dist
+C:\Python36
+C:\Python36\Scripts
+</code></pre><p>打开CMD,切换Python2.7和Python3.6</p>
+<pre><code>py -2 切换至python2.7
+py -3 
+</code></pre><p><img src="https://i.imgur.com/LtX3Wxy.png" alt=""></p>
+<p>Ctrl+C或 输入<code>exit()</code>退出Python环境</p>
+<p>在具体py文件中，使用</p>
+<pre><code>#! python2
+# coding: utf-8
+</code></pre><p>可以指定解释器版本，这时只需py test.py，无需带-2或-3这种参数</p>
+<h2 id="IDLE打开方式"><a href="#IDLE打开方式" class="headerlink" title="IDLE打开方式"></a>IDLE打开方式</h2><p>可以尝试在搜索栏中输入IDLE，然后双击，如果找不到，尝试如下方法：<br>找到<code>C:\Python27\Lib\idlelib</code>下的<code>idle.bat</code>文件，双击即可打开IDLE</p>
+<h2 id="Python2-7的IDLE无法打开问题解决"><a href="#Python2-7的IDLE无法打开问题解决" class="headerlink" title="Python2.7的IDLE无法打开问题解决"></a>Python2.7的IDLE无法打开问题解决</h2><p>打开运行，输入如下代码：</p>
+<pre><code>%USERPROFILE%\.idlerc
+</code></pre><p>会自动大量如下文件夹：</p>
+<p><img src="https://i.imgur.com/9YIypTY.png" alt=""></p>
+<p>删除文件夹中的三个文件</p>
+<h2 id="pip安装第三方库"><a href="#pip安装第三方库" class="headerlink" title="pip安装第三方库"></a>pip安装第三方库</h2><pre><code>pip2.7 install numpy
+#仅为python2.7安装numpy库
 
-#根据计算得到的距离对样本分类
-def Cluter(dist):
-    num = np.array(dist)
-    hang = num.shape[0] #数据个数
-    k = num.shape[1] #中心个数
-    clu = [[] for row in range(k)] #初始化存放样本标号的距离
-    for i in range(hang):
-        temp = dist[i][:].index(min(dist[i][:]))#求样本距离哪个聚类中心最近
-        for j in range(k):#判断样本属于哪个距离中心
-            if temp == j:
-                clu[j].append(i)
-                break
-    return clu
+pip3.6 install numpy
+#仅为python3.6安装numpy库
+</code></pre><p><img src="https://i.imgur.com/I9XDzyO.png" alt=""></p>
+<p>第三方库安装目录：<code>C:\Python27\Lib\site-packages</code></p>
 
-#重新计算聚类中心
-
-def clu_center(clu,data,k):
-    for i in range(k):
-        for j in range(2):#(np.array(data).shape[1]):
-            temp = 0
-            for k in range(len(clu[i])):#len(clu[i])为每个聚类中心样本的个数
-                temp = data[clu[i][k]][j] + temp
-            center[i][j] = temp / len(clu[i]) #重新计算得到的聚类中心
-    return center
-
-if __name__ == &quot;__main__&quot;:
-    k =3#聚类中心个数
-    data = [[0,0],[3,8],[2,2],[1,1],[5,3],[4,8],[6,3],[5,4],[6,4],[7,5]]
-    #center = random.sample(data,k)#随机选取初始聚类中心
-    center = [[0,0],[3,8],[2,2]]#固定初始聚类中心
-    dist = distEC(data,center,k)#计算样本与聚类中心的距离
-    clu = Cluter(dist)#聚类
-    center1 = clu_center(clu,data,k)#重新计算聚类中心
-    center2 = []
-    while center1 != center2: #当聚类中心相同时，停止聚类
-        dist = distEC(data,center1,k)
-        clu = Cluter(dist)
-        center2 = center1
-        center1 = clu_center(clu,data,k)
-        print(center1,center2)
-
-    #画图
-    plt.figure()
-    for j in range(10):
-        plt.plot(data[j][0],data[j][1],&apos;b.&apos;)
-    for i in range(k):
-        plt.plot(center1[i][0],center[i][1],&apos;ro&apos;)
-    plt.xlabel(&apos;x&apos;)
-    plt.ylabel(&apos;y&apos;)
-    plt.show()
-</code></pre>
       
     </div>
     
@@ -416,13 +380,13 @@ if __name__ == &quot;__main__&quot;:
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2019-09-11, 22:28:50</p>
-        <p><span>最后更新:</span>2018-09-20, 19:52:39</p>
+        <p><span>发布时间:</span>2018-08-22, 22:28:50</p>
+        <p><span>最后更新:</span>2018-10-02, 22:16:53</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/09/11/聚类分析/" title="模式识别(二)--K均值聚类">https://zxpgo.github.io/2019/09/11/聚类分析/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/09/11/聚类分析/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/22/python2.7和python3.6安装以及问题解决/" title="Python2.7和Python3.6安装以及文件解决">https://zxpgo.github.io/2018/08/22/python2.7和python3.6安装以及问题解决/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/22/python2.7和python3.6安装以及问题解决/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -434,10 +398,16 @@ if __name__ == &quot;__main__&quot;:
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/08/22/进制相互转换/">
+                    进制介绍以及相互转换
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/09/11/模式识别绪论/">
-                    模式识别绪论(一)
+                <a href="/2018/08/22/模式匹配的KMP算法/">
+                    模式匹配的KMP算法
                 </a>
             </div>
         
@@ -510,7 +480,7 @@ if __name__ == &quot;__main__&quot;:
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2-7和Python3-6并存"><span class="toc-number">1.</span> <span class="toc-text">Python2.7和Python3.6并存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDLE打开方式"><span class="toc-number">2.</span> <span class="toc-text">IDLE打开方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2-7的IDLE无法打开问题解决"><span class="toc-number">3.</span> <span class="toc-text">Python2.7的IDLE无法打开问题解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pip安装第三方库"><span class="toc-number">4.</span> <span class="toc-text">pip安装第三方库</span></a></li></ol>
         
     </div>
     <style>
@@ -546,7 +516,7 @@ if __name__ == &quot;__main__&quot;:
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"模式识别(二)--K均值聚类　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python2.7和Python3.6安装以及文件解决　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -566,19 +536,21 @@ if __name__ == &quot;__main__&quot;:
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/08/22/进制相互转换/" title="上一篇: 进制介绍以及相互转换">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/09/11/模式识别绪论/" title="下一篇: 模式识别绪论(一)">
+            <a href="/2018/08/22/模式匹配的KMP算法/" title="下一篇: 模式匹配的KMP算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
 
 
 

@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
-<meta name="keywords" content="算法">
+<meta name="description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
+<meta name="keywords" content="模式识别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式匹配的KMP算法">
-<meta property="og:url" content="https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/index.html">
+<meta property="og:title" content="模式识别(二)--K均值聚类">
+<meta property="og:url" content="https://zxpgo.github.io/2018/09/11/聚类分析/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
+<meta property="og:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T10:23:19.353Z">
+<meta property="og:image" content="https://i.imgur.com/BHa0iXW.png">
+<meta property="og:updated_time" content="2018-10-02T14:14:32.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式匹配的KMP算法">
-<meta name="twitter:description" content="简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。">
+<meta name="twitter:title" content="模式识别(二)--K均值聚类">
+<meta name="twitter:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
+<meta name="twitter:image" content="https://i.imgur.com/BHa0iXW.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>模式匹配的KMP算法 | 平步青云win</title>
+<title>模式识别(二)--K均值聚类 | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -287,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-模式匹配的KMP算法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-聚类分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/22/模式匹配的KMP算法/" class="article-date">
-      <time datetime="2019-08-22T14:28:50.000Z" itemprop="datePublished">2019-08-22</time>
+      <a href="/2018/09/11/聚类分析/" class="article-date">
+      <time datetime="2018-09-11T14:28:50.000Z" itemprop="datePublished">2018-09-11</time>
 </a>
 
 
@@ -306,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      模式匹配的KMP算法
+      模式识别(二)--K均值聚类
     </h1>
   
 
@@ -316,13 +318,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
+    <a class="article-category-link" href="/categories/模式识别/">模式识别</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/算法/">算法</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/模式识别/">模式识别</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -337,86 +339,75 @@
 	
       
           
-        <p>简单模式匹配算法的效率不高，原因在于匹配过程中的回溯。KMP匹配算法的时间复杂度是O(m+n)，优于简单算法，原因在于KMP算法到达失配点，串S不需要回溯，串P也不一定要回溯到第1个字符的位置。<a id="more"></a></p>
-<p>模式匹配：设有两个串S和P,称在串中S中找串P的过程为模式匹配。S为主串，P为字串。</p>
-<p>KMP算法的关键是$j$回溯到什么位置，实现KMP算法的关键是求出模式串$P$的每个字符的最大$k$值，$k$是失配时$j$需要向前回溯的最少位置。下一趟比较就可以从$S[i]$和$P[k]$开始。设主串为$S=”s_0s_1{\cdots}s_{n-1}”$，模式串为$P=”p_0p_1{\cdots}p_{m-1}”$，并设在$s_i \neq p_j$处失配。考察P串，如果发现：</p>
-<p>$$p_0p_1{\cdots}p_{k-1} = p_{j-k}p_{j-k+1}{\cdots}p_{j-1}\tag{1-1} $$</p>
-<p>是失配点前的串$p_0p_1{\cdots}p_{j-1}$中“最长的相同的前缀子串和后缀子串”，其中，$p_0p_1{\cdots}p_{k-1}$是$p_0p_1{\cdots}p_{j-1}$的前缀子串，$p_{j-k}p_{j-k+1}{\cdots}p_{j-1}$是$p_0p_1{\cdots}p_{j-1}$的后缀子串。那么，由于匹配在$s_i \neq p_j$处失败，所以必有：</p>
-<p>$$p_{j-k}{\cdots}p_{j-2}p_{j-1} = s_{i-k}{\cdots}p_{i-2}p_{i-1}\tag{1-2} $$  </p>
-<p>综合式（1-1）和式（1-2）,可得式（1-3）：</p>
-<p>$$p_0{\cdots}p_{k-2}p_{k-1} = s_{i-k}{\cdots}s_{i-2}s_{i-1}\tag{1-3} $$   </p>
-<p>式（1-3）说明，下一趟匹配过程从$s_i$和$p_k$开始，即将模式串中$k$位置的字符和主串中$i$位置的字符对齐后开始下一趟比较。</p>
-<h3 id="1-失败函数f"><a href="#1-失败函数f" class="headerlink" title="1.失败函数f"></a>1.失败函数f</h3><p>设长度为$m$的模式串$P=“p_0p_1{\cdots}p_{m-1}”$，$k$为相同的前、后缀子串长，失败函数定义为：</p>
-<p>$$f(j) =\begin{cases}<br>-1 &amp; j=0\ |<br>\max  \left (k | 0&lt;k&lt;j 且 p_0p_1{\cdots}p_{k-1} = p_{j-k}p_{j-k+1}{\cdots}p_{j-1}\right )\ |<br>0 &amp; other\<br>\end{cases}\tag{1-4}<br>$$</p>
-<p>从式（1-4）可以看出，失败函数$f(j)$被定义为相同的前、后缀子串长的最大值，其含义为：当匹配在$s_i \neq p_j$处失败，$j$应该回溯的的位置$f(j)$。$f(j) \geq or \ge 0$表示下趟匹配过程从$s_i$和$p_{f(j)}$开始；$f(j)=-1$表示从下趟匹配过程从$s_{i+1}$和$p_0$开始。</p>
-<table>
-<thead>
-<tr>
-<th>j</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>a</td>
-<td>b</td>
-<td>c</td>
-<td>a</td>
-<td>b</td>
-<td>b</td>
-<td>a</td>
-<td>c</td>
-</tr>
-<tr>
-<td>$f(j)$</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>$f(j)$的取决于模式串$P$自身的特性。一种特殊的情况，$P$中没有相同的字符出现，或头尾相同，其余不同，则除了$f(0)=-1$外，其他得$f(j)$均为0。也就是说，当到达失配点，$P$均回到第1个字符a_0开始下一趟匹配。</p>
-<h3 id="2-KMP算法的C-程序"><a href="#2-KMP算法的C-程序" class="headerlink" title="2. KMP算法的C++程序"></a>2. KMP算法的C++程序</h3><p>设串P的f值已求得</p>
-<pre><code>int FindKMP(int i, String &amp;P)
-{
-    if (i&lt;0 || i&gt;n-1){
-        cout &lt;&lt; &quot;Out of bounds!&quot; &lt;&lt;endl;
-        return -1;
-    }
+        <p>K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。<a id="more"></a>具体算法实现如下：<br>    <img src="https://i.imgur.com/BHa0iXW.png" alt=""></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import numpy as np
+import random
+import matplotlib.pyplot as plt
 
-    int j=0, m=P.n;
-    while(i&lt;n &amp;&amp; j&lt;m)
-    {
-        if( j==-1 || str[i] == P.str[j])
-        {
-            i++; j++;
-        }
-        else j=P.f[j];
-    return ( (j==m)?i-m:-1)
-    }
-}
+#计算样本到中心的距离,采用欧式距离
+def distEC(data,center,k):
+    num = np.array(data)
+    hang = num.shape[0] #数据个数
+    lie = num.shape[1] #指标个数
+    dist = [[0]*k for row in range(hang)]
+    for i in range(hang):
+        for l in range(k):
+            s = 0
+            for j in range(lie):
+                s =  (center[l][j] - data[i][j])**2 + s
+            dist[i][l] = s**0.5
+    return dist
+
+#根据计算得到的距离对样本分类
+def Cluter(dist):
+    num = np.array(dist)
+    hang = num.shape[0] #数据个数
+    k = num.shape[1] #中心个数
+    clu = [[] for row in range(k)] #初始化存放样本标号的距离
+    for i in range(hang):
+        temp = dist[i][:].index(min(dist[i][:]))#求样本距离哪个聚类中心最近
+        for j in range(k):#判断样本属于哪个距离中心
+            if temp == j:
+                clu[j].append(i)
+                break
+    return clu
+
+#重新计算聚类中心
+
+def clu_center(clu,data,k):
+    for i in range(k):
+        for j in range(2):#(np.array(data).shape[1]):
+            temp = 0
+            for k in range(len(clu[i])):#len(clu[i])为每个聚类中心样本的个数
+                temp = data[clu[i][k]][j] + temp
+            center[i][j] = temp / len(clu[i]) #重新计算得到的聚类中心
+    return center
+
+if __name__ == &quot;__main__&quot;:
+    k =3#聚类中心个数
+    data = [[0,0],[3,8],[2,2],[1,1],[5,3],[4,8],[6,3],[5,4],[6,4],[7,5]]
+    #center = random.sample(data,k)#随机选取初始聚类中心
+    center = [[0,0],[3,8],[2,2]]#固定初始聚类中心
+    dist = distEC(data,center,k)#计算样本与聚类中心的距离
+    clu = Cluter(dist)#聚类
+    center1 = clu_center(clu,data,k)#重新计算聚类中心
+    center2 = []
+    while center1 != center2: #当聚类中心相同时，停止聚类
+        dist = distEC(data,center1,k)
+        clu = Cluter(dist)
+        center2 = center1
+        center1 = clu_center(clu,data,k)
+        print(center1,center2)
+
+    #画图
+    plt.figure()
+    for j in range(10):
+        plt.plot(data[j][0],data[j][1],&apos;b.&apos;)
+    for i in range(k):
+        plt.plot(center1[i][0],center[i][1],&apos;ro&apos;)
+    plt.xlabel(&apos;x&apos;)
+    plt.ylabel(&apos;y&apos;)
+    plt.show()
 </code></pre>
       
     </div>
@@ -425,13 +416,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2019-08-22, 22:28:50</p>
-        <p><span>最后更新:</span>2018-09-05, 18:23:19</p>
+        <p><span>发布时间:</span>2018-09-11, 22:28:50</p>
+        <p><span>最后更新:</span>2018-10-02, 22:14:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/22/模式匹配的KMP算法/" title="模式匹配的KMP算法">https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2019/08/22/模式匹配的KMP算法/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/11/聚类分析/" title="模式识别(二)--K均值聚类">https://zxpgo.github.io/2018/09/11/聚类分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/09/11/聚类分析/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -444,15 +435,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/22/Python实现8种排序算法/">
-                    Python实现：8种排序算法
+                <a href="/2018/09/12/C++ Primer Plus--复合类型（四）/">
+                    C++ Primer Plus--复合类型（四）
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/">
-                    Python2.7和Python3.6安装以及文件解决
+                <a href="/2018/09/11/模式识别绪论/">
+                    模式识别绪论(一)
                 </a>
             </div>
         
@@ -525,7 +516,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-失败函数f"><span class="toc-number">1.</span> <span class="toc-text">1.失败函数f</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-KMP算法的C-程序"><span class="toc-number">2.</span> <span class="toc-text">2. KMP算法的C++程序</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li></ol>
         
     </div>
     <style>
@@ -561,7 +552,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"模式匹配的KMP算法　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"模式识别(二)--K均值聚类　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -581,7 +572,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
+            <a href="/2018/09/12/C++ Primer Plus--复合类型（四）/" title="上一篇: C++ Primer Plus--复合类型（四）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -589,13 +580,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/22/python2.7和python3.6安装以及问题解决/" title="下一篇: Python2.7和Python3.6安装以及文件解决">
+            <a href="/2018/09/11/模式识别绪论/" title="下一篇: 模式识别绪论(一)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
 
 
 
