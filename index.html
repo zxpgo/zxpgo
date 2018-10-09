@@ -293,6 +293,406 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-计算机网络(四)--网络层" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/07/计算机网络(四)--网络层/" class="article-date">
+      <time datetime="2018-10-07T13:54:50.000Z" itemprop="datePublished">2018-10-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/计算机网络/">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-格理论与密码学--格的定义与相关性质（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/" class="article-date">
+      <time datetime="2018-10-04T10:48:50.000Z" itemprop="datePublished">2018-10-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <h2 id="3-2-格中的计算性难题"><a href="#3-2-格中的计算性难题" class="headerlink" title="3.2 格中的计算性难题"></a>3.2 格中的计算性难题</h2><p>与格相关的基本计算性难题有：</p>
+<ul>
+<li>在格中寻找最短的非零向量（最短向量问题SVP）</li>
+<li>在格中寻找与指定非格向量最为接近的向量（最近向量问题CVP）</li>
+</ul>
+<p>首先介绍两个最基本的格难题：</p>
+<p><strong>最短向量问题(SVP)</strong>: 在格$L$中寻找一个最短的非零向量，基寻找一个非零向量$v \in L$，使它的欧几里得范数$||v||$最小。</p>
+<p><strong>最近向量问题(CVP)</strong>: 给定一个不在格$L$中的向量$w \in R^m$，寻找一个向量$v \in L$，使它最接近$w$，即寻找一个向量$v \in L$，使欧几里得范数$||w-v||$最小。</p>
+<p><strong>注意</strong>： 在格中可能存在不止一个最短的非零向量。例如，在$Z^2$中，$(0,\pm1)$和$(\pm,0)$这四个向量都是SVP解。这种情形适用于CVP。</p>
+<p>CVP和SVP这一类问题都属于非常深奥的难题。随着格的维度$n$的增加，它们在计算上也越来越难解。另外，即使是对SVP和CVP的近似解，在理论和应用数学的诸多领域都有着惊人的应用。一般来说，CVP被认为是NP难问题，SVP在特定的“随机规约假设”下也被认为是NP难问题。</p>
+<p>在实际应用中，用到了一些很重要的SVP和CVP的变形形式，如下：</p>
+<ul>
+<li>最短基问题(SBP)：寻找格的一个基$v_1,v_2,\dots,v_n$，使它 在某些情况下最短。例如，可能需要使下式最小：</li>
+</ul>
+<p>$max_{i \leq i \leq n}||v_i||$ 或 $\sum_{i=1}^n||v_i||^2$</p>
+<p>因此，可能有许多版本的SBP，这取决于如何定义基的“大小”。</p>
+<ul>
+<li>近似最短向量问题(apprSVP)：设$\Psi (n)$是$n$的一个函数。在$n$维格$L$中，寻找一个非零向量，使其不大于最短非零向量的$\Psi (n)$倍。即，如果$v_{最短}$是$L$的最短非零向量，那么寻找一个非零向量$v \in L$，使其满足：</li>
+</ul>
+<p>$||v|| \leq \Psi (n) ||v_{最短}||$</p>
+<p>不同的函数$\Psi(n)$可以形成不同版本的apprSVP。比如，如要求设计一个算法，用于寻找非零的向量$v \in L$，满足：</p>
+<p>$||v|| \leq 3 \sqrt{n}||v_{最短}||$ 或 $||v|| \leq 2^{n/2}||v_{最短}||$</p>
+<p>很明显，前者的算法比后者要强，但如果格的维度不大，即使对后者的解也可能是非常有用的。</p>
+<ul>
+<li>近似最近向量问题(apprCVP)。这和apprSVP类似，只不过要找的是对CVP的近似解。</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/格理论与密码学/">格理论与密码学</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-格理论与密码学--格基约减算法与实现（四）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/" class="article-date">
+      <time datetime="2018-10-04T10:48:50.000Z" itemprop="datePublished">2018-10-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <p>二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。</p>
+<h2 id="4-1-二维格中的高斯格基约减算法"><a href="#4-1-二维格中的高斯格基约减算法" class="headerlink" title="4.1 二维格中的高斯格基约减算法"></a>4.1 二维格中的高斯格基约减算法</h2><p>高斯提出了如何在二维格中找出一组优质基的算法，这个算法的根本思想是：从一个基向量中交替减去另一个基向量的倍数，直到再没有更好的改进为止。没有更好的改进，就是没事算法中的一个特定的条件要求。</p>
+<p>给定一个二维格$L \subset R^2$，它的一组基向量为$v_1$和$v_2$，并假设$||v_1|| &lt; ||v_2||$。这个条件很容易实现，因为即使不能够直接满足上述条件，只需要将$v_2$和$v_2$交换位置即可。然后通过从向量$v_2$中减去$v_1$的倍数来达到减少$v_2$的目的。若可以从$v_2$中减去$v_1$任意倍数，则可以利用如下式中的$v^{\ast}_2$来代替$v_2$:</p>
+<p>$v_2^{\ast} = v_2 - \frac{v_1 \cdot v_2}{||v1||^2} v_1$</p>
+<p>由上式可以看出，向量$v^{\ast}_2$和向量$v_1$是正交的，并且向量$v^{\ast}_2$就是$v_2$在$v_1$证据补上的投影，如下图：</p>
+<p><img src="https://i.imgur.com/6q2Z1nz.png" alt=""></p>
+<p>但上述做法在实际中并不可行，因为通过上式计算出来的向量$v^{\ast}_2$很可能根本不在格$L$中。所以，在实际应用中只允许从向量$v_2$中减去$v_1$的整数倍。为了达到跟上式相近的结果，利用下式的向量来取代$v_2$:</p>
+<p>$v_2 - m v_1, m = \lceil \frac{v_1 \cdot v_2}{||v1||^2} \rceil$</p>
+<p>如果$v_2$仍旧比$v_1$长，那么算法结束；否则，交换向量$v_1$和$v_2$，然后重复上述过程。高斯证明了这个过程可以在有限步后结束，并且最终的基向量具有良好的正交性质。算法4.1对上述程序给出了严格的描述。</p>
+<p><img src="https://i.imgur.com/C0spUbD.png" alt=""></p>
+<p>更准确地说，当这个算法终止的时候，向量$v_1$就是格$L$中最短的非零向量。因此算法4.1很好地解决了SVP问题。</p>
+<p>例4.1</p>
+<p><img src="https://i.imgur.com/zu8wp0V.png" alt=""><br><img src="https://i.imgur.com/HEsKTNK.png" alt=""></p>
+<h2 id="4-2-LLL格基约减算法及其衍生和变形"><a href="#4-2-LLL格基约减算法及其衍生和变形" class="headerlink" title="4.2 LLL格基约减算法及其衍生和变形"></a>4.2 LLL格基约减算法及其衍生和变形</h2><h3 id="4-2-1-LLL格基约减算法"><a href="#4-2-1-LLL格基约减算法" class="headerlink" title="4.2.1 LLL格基约减算法"></a>4.2.1 LLL格基约减算法</h3><p>高斯格基约算法给出了一个在二维格中找到最短非零向量的有效方法。但是这个方法具有一定的局限性，因为随着格维数的增加，寻找最短向量也变得越来越困难。1982年，Lenstra、Lenstra和Lovasz提出了著名的LLL算法。该算法思想源于Lagrange、Gauss、Hermite、Korkine-Zolotareff等的二次型理论及Minkovski的数的几何理论。</p>
+<p>给定格$L$的一组基$\lbrace v_1,\dots, v_n\rbrace$，然后对他进行约减。<strong>约减的主要目的是将这组任意给定的基转化为一组正交性较好的优质基，并使得这个优质基中的各个向量尽量短。</strong>即，首先要得到能够通过算法找到的最短向量，然后，找到比这个最短向量稍长一点的向量，依次类推，直到最后找到这组基中的最后一个向量为止。或者，要使得在这个优质基中的向量之间具有相当好的正交性，即两个向量的点乘$v_i \cdot v_j$尽可能地接近零。</p>
+<p><img src="https://i.imgur.com/Af28Ogg.png" alt=""></p>
+<p>根据Hadamard不等式能够得到：</p>
+<p>$delL = vol(F) \leq ||v_1||||v_2||\dots||v_n||$</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/格理论与密码学/">格理论与密码学</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++ Primer Plus--函数(C++的变成模块)（七）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/" class="article-date">
+      <time datetime="2018-10-04T02:30:14.000Z" itemprop="datePublished">2018-10-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的变成模块)（七）</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+        <h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1 复习函数的基本知识"></a>7.1 复习函数的基本知识</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Public Proof of Cloud Storage from Lattice Assumption" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/" class="article-date">
+      <time datetime="2018-10-03T06:18:50.000Z" itemprop="datePublished">2018-10-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+              <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>存储可以提供灵活、可伸缩的数据存储服务。然而，一旦数据上传至云服务器，本地计算机没有拷贝，用户失去了对数据的物理控制。因此，研究一种方法来确保用户数据的完整性是有必要的。避免检索大量存储数或避免由用户检验数据，一种基于格加密的公开审计存储协议证明被提出。用户计算数据块的的标签，并且上传它们至云服务器。云服务器提供联合的块。第三方审计者通过联合的数据和标签来验证所有数据块的完整性。基于小整数解假设，<br>给出的方案可以抵抗来自云服务器的丢失攻击和篡改攻击。基于错误假设的学习，给出的方案可以抵抗来自第三方审计者的好奇攻击。该方案是高效的，仅仅需要几个矩阵向量乘法和离散高斯函数的抽样。</p>
+<p><strong>关键词</strong>：  云存储 存储证明 格加密 公开审计
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/论文/">论文</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/论文/">论文</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NP问题理解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -589,10 +989,10 @@
 
 
   
-    <article id="post-计算机网络(二)--数据链路层" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-计算机网络(三)--数据链路层" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/10/01/计算机网络(二)--数据链路层/" class="article-date">
+      <a href="/2018/10/01/计算机网络(三)--数据链路层/" class="article-date">
       <time datetime="2018-10-01T02:48:50.000Z" itemprop="datePublished">2018-10-01</time>
 </a>
 
@@ -608,7 +1008,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a>
+      <a class="article-title" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a>
     </h1>
   
 
@@ -641,378 +1041,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2018/10/01/计算机网络(二)--数据链路层/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Python字典、列表、元组、数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/27/Python字典、列表、元组、数组/" class="article-date">
-      <time datetime="2018-09-27T12:51:50.000Z" itemprop="datePublished">2018-09-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>介绍Python字典、列表、元组、数组的函数和方法。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python/">Python</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/27/Python字典、列表、元组、数组/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++ Primer Plus--循环和关系表达式（五）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/" class="article-date">
-      <time datetime="2018-09-27T02:23:14.000Z" itemprop="datePublished">2018-09-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>C++提供三种循环：for循环、while循环和do while循环。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-计算机网络(二)--物理层" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/21/计算机网络(二)--物理层/" class="article-date">
-      <time datetime="2018-09-21T14:28:50.000Z" itemprop="datePublished">2018-09-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>物理层
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/21/计算机网络(二)--物理层/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-计算机网络(一)--概论" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/21/计算机网络(一)--概论/" class="article-date">
-      <time datetime="2018-09-21T14:28:50.000Z" itemprop="datePublished">2018-09-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>五层协议体系结构、计算机网络性能
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/21/计算机网络(一)--概论/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++ Primer Plus--复合类型（四）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/12/C++ Primer Plus--复合类型（四）/" class="article-date">
-      <time datetime="2018-09-12T06:23:14.000Z" itemprop="datePublished">2018-09-12</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>复合类型介绍
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/12/C++ Primer Plus--复合类型（四）/#more">阅读全文 >></a>
+          <a href="/2018/10/01/计算机网络(三)--数据链路层/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -1037,7 +1066,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

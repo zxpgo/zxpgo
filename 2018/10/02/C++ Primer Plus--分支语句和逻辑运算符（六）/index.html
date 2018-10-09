@@ -23,10 +23,14 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="C++提供了if和switch语句来进行决策，还有逻辑运算符和条件运算符。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-02T12:32:40.944Z">
+<meta property="og:image" content="https://i.imgur.com/cSVU6ZR.jpg">
+<meta property="og:image" content="https://i.imgur.com/xTPy0bB.png">
+<meta property="og:image" content="https://i.imgur.com/Fsax9RR.png">
+<meta property="og:updated_time" content="2018-10-04T02:30:18.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--分支语句和逻辑运算符（六）">
 <meta name="twitter:description" content="C++提供了if和switch语句来进行决策，还有逻辑运算符和条件运算符。">
+<meta name="twitter:image" content="https://i.imgur.com/cSVU6ZR.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -449,6 +453,654 @@ else
 </code></pre><p>编译器不会捕获这种错误，因为它仍然是合法的C++语法。&lt;运算符是从左向右结合，因此表达式含义如下：</p>
 <pre><code>if ((17 &lt; age) &lt; 35)
 </code></pre><p>但（17&lt;age）的结果要么为1，要么为0。不管哪种情况，表达式的值17&lt;age都要小于35，所以整个测试的结果总是true。</p>
+<h3 id="6-2-4-逻辑NOT运算符"><a href="#6-2-4-逻辑NOT运算符" class="headerlink" title="6.2.4 逻辑NOT运算符"></a>6.2.4 逻辑NOT运算符</h3><p>!运算符将它后面的表达式的真值取反。!运算符的优先级高于所有的关系运算符和算术运算符。因此，要对表达式取反，必须使用括号将其括起来，如下：</p>
+<pre><code>!( x &gt; 5);
+!x &gt; 5; // 该表达式总是为false，!x为1或0，总是小于5
+</code></pre><p>!运算符对于返回true-false值或可以被解释为true-false值的函数是很有用的。比如：</p>
+<pre><code>!strcmp(s1,s2);
+</code></pre><p>下面的程序来筛选可赋给int变量的数字输入。</p>
+<p>not.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;climits&gt;
+using namespace std;
+bool is_int(double);
+int main()
+{
+    double num;
+    cout &lt;&lt; &quot;Enter an integer value:&quot;;
+    cin &gt;&gt; num;
+    while (! is_int(num))
+    {
+        cout &lt;&lt; &quot;Out of range -- please try again:&quot;;
+        cin &gt;&gt; num;
+    }
+    int val = int(num);
+    cout &lt;&lt; &quot;You&apos;ve entered the integer &quot; &lt;&lt; val &lt;&lt; endl;
+    return 0;
+}
+
+bool is_int(double x)
+{
+    if (x &lt;= INT_MAX &amp;&amp; x &gt;= INT_MIN)
+        return true;
+    else 
+        return false;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter an integer value:1000000000000000
+Out of range -- please try again:-1000000000000
+Out of range -- please try again:444
+You&apos;ve entered the integer 444
+</code></pre><p>布尔函数is_int()使用了climits文件中定义的两个符号常量INT_MIN和INT_MAX来确定int类型的范围。</p>
+<h3 id="6-2-5-逻辑运算符细节"><a href="#6-2-5-逻辑运算符细节" class="headerlink" title="6.2.5 逻辑运算符细节"></a>6.2.5 逻辑运算符细节</h3><p>AND和OR运算符的优先级都低于关系运算符。</p>
+<p>!运算符的优先级都高于所有关系运算符和算符运算符。</p>
+<p>逻辑AND运算符的优先级高于逻辑OR运算符，因此:</p>
+<pre><code>age &gt; 30 &amp;&amp; age &lt; 45 || weight &gt; 300
+</code></pre><p>被解释为：</p>
+<pre><code>(age &gt; 30 &amp;&amp; age &lt; 45) || weight &gt; 300
+</code></pre><p>当然，还可以使用括号来将所希望的解释告诉程序。例如：</p>
+<pre><code>(age &gt; 30 || weight &gt; 300) &amp;&amp; donation &gt; 1000
+</code></pre><p>C++确保程序从左向右进行逻辑运算表达式，并在知道了答案立刻停止。</p>
+<h3 id="6-2-6-其他表示方式"><a href="#6-2-6-其他表示方式" class="headerlink" title="6.2.6 其他表示方式"></a>6.2.6 其他表示方式</h3><p>使用标识符and、or和not来表示三种逻辑运算符。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>另一种表示方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>and</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>OR</td>
+</tr>
+<tr>
+<td>!</td>
+<td>NOT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-3-字符函数库cctype"><a href="#6-3-字符函数库cctype" class="headerlink" title="6.3 字符函数库cctype"></a>6.3 字符函数库cctype</h2><p>C++继承了一个与字符相关的、非常方便的函数软件包，他可以简化如确定字符是否为大小写字母、数字、标点符号等工作，这些函数的原型在头文件cctype(老式的风格ctype.h)中定义。</p>
+<p>下面使用AND和OR来测试字符ch是不是字母字符的代码：</p>
+<pre><code>if (ch &gt;= &apos;a&apos; and ch &lt;= &apos;z&apos;) || (ch &gt;= &apos;A&apos; &amp;&amp; ch &lt;= &apos;Z&apos;)
+</code></pre><p>与使用isalpha()相比：</p>
+<pre><code>if (isalpha(ch))
+</code></pre><p>isslpha()不仅更容易使用，而且更通用。</p>
+<p>下面程序演示cctype库函数。</p>
+<p>cctypes.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cctype&gt;
+using namespace std;
+int main()
+{
+    cout &lt;&lt; &quot;Enter text for analysis and type @ to terminate input:&quot;;
+    char ch;
+    int whitespace = 0;
+    int digits = 0;
+    int chars = 0;
+    int punct = 0;
+    int others = 0;
+    cin.get(ch);
+    while (ch != &apos;@&apos;)
+    {
+        if (isalpha(ch))
+            chars ++;
+        else if (isspace(ch))
+            whitespace++;
+        else if (isdigit(ch))
+            digits++;
+        else if (ispunct(ch))
+            punct++;
+        else
+            others++;
+        cin.get(ch);
+    }
+    cout &lt;&lt;  chars &lt;&lt; &quot; letters, &quot; 
+         &lt;&lt;  whitespace &lt;&lt; &quot; whitespace, &quot;
+         &lt;&lt; digits &lt;&lt; &quot; digits, &quot;
+         &lt;&lt; punct &lt;&lt; &quot; punctuations, &quot;
+         &lt;&lt; others &lt;&lt; &quot; others.\n&quot;;
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter text for analysis and type @ to terminate input:
+AdrenalVision Internationsl producer Adrienne Vismonger
+announced production of their new 3-D film, a remake of
+&quot;My Dinner with Andre,&quot; scheduled for 2013.
+@
+123 letters, 23 whitespace, 5 digits, 6 punctuations, 0 others.
+</code></pre><p>cctype中的字符函数：</p>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isalnum()</td>
+<td>如果参数是字母数字，即字母或数字，该函数返回true</td>
+</tr>
+<tr>
+<td>isalpha()</td>
+<td>如果参数是字母，该函数返回true</td>
+</tr>
+<tr>
+<td>iscntrl()</td>
+<td>如果参数是控制字符，该函数返回true</td>
+</tr>
+<tr>
+<td>isdigit()</td>
+<td>如果参数是数字(0~9),该函数返回true</td>
+</tr>
+<tr>
+<td>isgraph()</td>
+<td>如果参数是除空格之外的打印字符，该函数返回true</td>
+</tr>
+<tr>
+<td>islower()</td>
+<td>如果参数是小写字母，该函数返回true</td>
+</tr>
+<tr>
+<td>isprint()</td>
+<td>如果参数打印字符（包括空格），该函数返回true</td>
+</tr>
+<tr>
+<td>ispunct()</td>
+<td>如果参数是标点符号，该函数返回true</td>
+</tr>
+<tr>
+<td>isspace()</td>
+<td>如果参数是标准空白字符，如空格、换行符、回车、制表符，该函数返回true</td>
+</tr>
+<tr>
+<td>isupper()</td>
+<td>如果参数是大写字母，该函数返回true</td>
+</tr>
+<tr>
+<td>isxdigit()</td>
+<td>如果参数是十六进制，该函数返回true</td>
+</tr>
+<tr>
+<td>tolower()</td>
+<td>如果参数是大写字母，则返回小写字母</td>
+</tr>
+<tr>
+<td>toupper()</td>
+<td>如果参数是小写字母，则返回大写字母</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-4-运算符"><a href="#6-4-运算符" class="headerlink" title="6.4 ?:运算符"></a>6.4 ?:运算符</h2><p>C++常用?:运算符来代替if else语句，它C++中唯一的3个操作数的运算符。通用格式如下：</p>
+<pre><code>expression1 ? expression2 : expression3
+</code></pre><p>如果expression1为true，则整个表达式的值为expression2；否则，整个表达式的值为expression3。如下：</p>
+<pre><code>5 &gt; 3 ? 10 : 12 //5&gt;3为true，所以该表达式的值为19
+3 == 0 ？ 25 : 18 // 3==0为false，所以表达式的值为18
+</code></pre><p>condit.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+int main()
+{
+    using namespace std;
+    int a, b;
+    cout &lt;&lt; &quot;Enter two integers: &quot;;
+    cin &gt;&gt; a &gt;&gt; b;
+    cout &lt;&lt; &quot;The larger of &quot; &lt;&lt; a &lt;&lt; &quot; and &quot; &lt;&lt; b;
+    int c = a &gt; b ? a :b;
+    cout &lt;&lt; &quot; is &quot; &lt;&lt;  c &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>结果:</p>
+<pre><code>Enter two integers: 2 3
+The larger of 2 and 3 is 3
+</code></pre><p>将条件表达式嵌套在另一个条件表达式中，如下：</p>
+<pre><code>const char x[2][20] = {&quot;Jason &quot;, &quot;at your serviece\n&quot;};
+const char * y = &quot;Quillstone &quot;;
+
+for (int i = 0; i &lt; 3; i++)
+    cout &lt;&lt; ((i &lt; 2) ? !i ? x[i]:y : x[i]);
+</code></pre><p>这是一种费解的方式，他按下面的顺序打印3个字符串：</p>
+<pre><code>Jasn Qullstone at your service
+</code></pre><p>从可读性来说，条件运算符最适合简单关系和简单表达式的值。</p>
+<h2 id="6-5-switch语句"><a href="#6-5-switch语句" class="headerlink" title="6.5 switch语句"></a>6.5 switch语句</h2><p>用户从5个选项中选择一个，虽然可以扩展if else if else来处理，但C++的switch语句能够更容易地从大型列表中进行选择。switch语句的通用格式：</p>
+<pre><code>switch (integer-expression)
+{
+    case label1: statement(s);
+    case label2: statement(s);
+
+    default: statement(s);
+} 
+</code></pre><p>switch.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void showmenu();
+void report();
+void comfort();
+int main()
+{
+    showmenu();
+    int choice;
+    cin &gt;&gt; choice;
+    while (choice != 5)
+    {
+        switch (choice)
+        {
+            case 1 : cout &lt;&lt; &quot;\a\n&quot;;
+                break;
+            case 2 : report();
+                break;
+            case 3 : cout &lt;&lt; &quot;The boss was in all day.\n&quot;;
+                break;
+            case 4 : comfort();
+                break;
+            default : cout &lt;&lt; &quot;That&apos;s not a choce.\n&quot;;
+        }
+        showmenu();
+        cin &gt;&gt; choice;
+    }
+    cout &lt;&lt; &quot;Bye!\n&quot;;
+    return 0;
+}
+
+void showmenu()
+{
+    cout &lt;&lt; &quot;Please enter 1,2,3,4,5:\n&quot;
+        &quot;1) alarm     2) report\n&quot;
+        &quot;3) alibi     4) comfort\n&quot;
+        &quot;5) quit\n&quot;;
+}
+
+void report()
+{
+    cout &lt;&lt; &quot;It&apos;s been an excellent week for business.\n&quot;;
+}
+
+void comfort()
+{
+    cout &lt;&lt; &quot;Your employees think you are the fines CEO in the induesty.\n&quot;;
+}
+</code></pre><p>当用户输入5时，while循环结束。输入1到4将执行switch列表中相应的操作，输入6将执行默认语句。</p>
+<p>同时，也可以使用字符(而不是整数)作为菜单选项和switch标签，则可以为大写标签和小写标签提供相同的语句：</p>
+<pre><code>char choice;
+switch (choice)
+{
+    case &apos;a&apos; :
+    case &apos;A&apos; : cout &lt;&lt; &quot;\a\n&quot;;
+        break;
+    case &apos;b&apos; :
+    case &apos;B&apos; : report();
+        break;
+    case &apos;c&apos; :
+    case &apos;C&apos; : cout &lt;&lt; &quot;The boss was in all day.\n&quot;;
+        break;
+    case &apos;d&apos; :
+    case &apos;D&apos; : comfort();
+        break;
+    default : cout &lt;&lt; &quot;That&apos;s not a choce.\n&quot;;
+}
+</code></pre><p>由于case ‘a’后面没有break语句，因此程序将执行下一行–case ‘A’后面的语句。</p>
+<h3 id="6-5-1-将枚举用作标签"><a href="#6-5-1-将枚举用作标签" class="headerlink" title="6.5.1 将枚举用作标签"></a>6.5.1 将枚举用作标签</h3><p>使用enum定义了一组相关常量，然后在switch语句中使用这些常量。通常，cin无法识别枚举类型，因此该程序要求用户选择选项时输入一个整数。将switch语句将int值和枚举标签进行对比时，将枚举类型提升为int。</p>
+<p>enum.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+enum {red, orange, yellow, green, blue, violet, indigo};
+using namespace std;
+int main()
+{
+    cout &lt;&lt; &quot;Enter color code(0-6):&quot;;
+    int code;
+    cin &gt;&gt; code ;
+    while (code &gt;= red and code &lt;= indigo)
+    {
+        switch(code)    
+        {
+            case red : cout &lt;&lt; &quot;Her lips were red.\n&quot;; break;
+            case orange : cout &lt;&lt; &quot;Her hair was orange.\n&quot;; break;
+            case yellow : cout &lt;&lt; &quot;Her sheos were yellow.\n&quot;; break;
+            case green : cout &lt;&lt; &quot;Her nails were green.\n&quot;; break;
+            default : cout &lt;&lt; &quot;Others.\n&quot;;
+        }
+        cout &lt;&lt; &quot;Enter color code (0-6):&quot;;
+        cin &gt;&gt; code;
+    }
+    cout &lt;&lt; &quot;Bye!\n&quot;;
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter color code(0-6):0
+Her lips were red.
+Enter color code (0-6):2
+Her sheos were yellow.
+Enter color code (0-6):6
+Others.
+Enter color code (0-6):7
+Bye!
+</code></pre><h3 id="6-5-2-switch和if-else"><a href="#6-5-2-switch和if-else" class="headerlink" title="6.5.2 switch和if else"></a>6.5.2 switch和if else</h3><p>switch语句和if else语句都允许程序从选项中进行选择。if else更通用，它可以处理取值范围。而switch并不是为处理范围而设计的，switch语句中的每一个case标签都必须时一个单独的值。另外，这个值必须是整数（包括char）,因此switch无法处理浮点测试。另外，case标签值必须是常量。</p>
+<h2 id="6-6-break和continue"><a href="#6-6-break和continue" class="headerlink" title="6.6 break和continue"></a>6.6 break和continue</h2><p>break和continue语句都是程序能过跳过部分代码。可以在switch语句或任何循环中使用break语句，使程序跳到switch或循环后面的语句处执行。continue语句用于循环中，让程序跳过循环体中余下的代码，并开始新一轮循环。如下图：</p>
+<p><img src="https://i.imgur.com/cSVU6ZR.jpg" alt=""></p>
+<p>jump.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int ArSize = 80;
+int main()
+{
+    using namespace std;
+    int letter = 0;
+    char line[ArSize];
+    cout &lt;&lt; &quot;Enter a line of text:\n&quot;;
+    cin.get(line, ArSize);
+    cout &lt;&lt; &quot;Complete line:\n &quot; &lt;&lt; line &lt;&lt; endl;
+    cout &lt;&lt; &quot;Line through first period:\n&quot;;
+    for (int i = 0; line[i] != &apos;\0&apos;; i++)
+    {
+        cout &lt;&lt; line[i];
+        if (line[i] == &apos;.&apos;)//遇到句号，结束循环
+            break;
+        if (line[i] == &apos; &apos;) //只统计字母个数，空格跳过，则下面的语句将不会执行
+            continue;
+        letter++; //统计字母个数
+
+    }
+    cout &lt;&lt; endl &lt;&lt; letter &lt;&lt; &quot; letters.\n&quot;;
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter a line of text:
+Let&apos;s do lunch today. you can pay!
+Complete line:
+ Let&apos;s do lunch today. you can pay!
+Line through first period:
+Let&apos;s do lunch today.
+17 letters.
+</code></pre><p><strong>程序说明</strong></p>
+<p>虽然continue语句导致该程序跳过循环体的剩余部分，但不会跳过循环的更新表达式。在for循环中,continue语句使程序直接跳到更新表达式，然后跳到测试表达式。然而，对于while循环，continue将使程序直接跳到测试表达式，因此while循环中位于continue之后的更新表达式都被跳过。在某些情况下，这是一个问题。</p>
+<h2 id="6-7-读取数字的循环"><a href="#6-7-读取数字的循环" class="headerlink" title="6.7 读取数字的循环"></a>6.7 读取数字的循环</h2><p>将一系列数字读入数组中，并允许用户在数组填满之前结束输入，利用如下代码：</p>
+<pre><code>int n;
+cin &gt;&gt; n;
+</code></pre><p>如果用户输入一个单词，而不是一个数字，发送这种类型匹配情况时，将发生4种情况：</p>
+<ul>
+<li>n的值保持不变</li>
+<li>不匹配的输入将留在输入队列种</li>
+<li>cin对象中的一个错误标记被设置</li>
+<li>对cin方法的调用将返回false</li>
+</ul>
+<p>假设编写一个程序，来计算每天捕获的鱼的重量。这里假设每天最多捕获5条鱼，因此一个包含5个元素的数组将足以存储所以的数据，但也可能没有捕获这么多。如果数组被填满或输入了非数字输入，循环将结束。</p>
+<p>cinfish.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+const int Max = 5;
+int main()
+{
+    double fish[Max];
+    cout &lt;&lt; &quot;Please enter the weights of your fish.\n&quot;;
+    cout &lt;&lt; &quot;You may enter up to &quot; &lt;&lt; Max &lt;&lt; &quot; fish &lt; q to terminate&gt;.\n&quot;;
+    cout &lt;&lt; &quot;fish #1: &quot;;
+    int i = 0;
+    while (i &lt; Max and cin &gt;&gt; fish[i])
+        {
+        if (++i &lt; Max)
+            cout &lt;&lt; &quot;fish # &quot; &lt;&lt;  i+1 &lt;&lt; &quot;: &quot;;
+    }
+    double total = 0.0;
+    for (int j= 0; j&lt; i; j++)
+        total += fish[j];
+    if (i == 0)
+        cout &lt;&lt; &quot;No fisht.\n&quot;;
+    else 
+        cout &lt;&lt; total / i &lt;&lt; &quot; average weight of &quot; &lt;&lt; i &lt;&lt; &quot; fish.\n&quot;;
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Please enter the weights of your fish.
+You may enter up to 5 fish &lt; q to terminate&gt;.
+fish #1: 10.2
+fish # 2: 2.3
+fish # 3: 4.5
+fish # 4: q
+5.66667 average weight of 3 fish.
+[root@localhost ~]# ./a.out
+Please enter the weights of your fish.
+You may enter up to 5 fish &lt; q to terminate&gt;.
+fish #1: q
+No fisht.
+</code></pre><p>上述程序中，cin&gt;&gt;fish[i]实际上是一个cin方法函数调用，该函数返回cin。如果cin位于测试条件中，则将被转化为bool类型。如果输入成功，则转换后为true，否则为false。</p>
+<p>当用户输入的不是数字时，该程序将不再读取输入。下面再看一个例子，假设程序要求用户提供5个高尔夫得分，以计算平均分。如果用户输入非数字，程序拒绝，并要求用户继续输入数字。可以看到，可以使用cin输入表达式来检测输入是不是数字。程序发现用户输入了错误内容时，应采取3个步骤：</p>
+<ul>
+<li>重置cin以接受新的输入</li>
+<li>删除错误输入</li>
+<li>提示用户重新输入</li>
+</ul>
+<p>cingolf.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int Max = 5;
+using namespace std;
+int main()
+{
+     int golf[Max];
+    cout &lt;&lt; &quot;Enter your golf scores.\n&quot;;
+    cout &lt;&lt; &quot;You must enter &quot; &lt;&lt; Max &lt;&lt; &quot; rounds.&quot;;
+    for (int i = 0; i &lt; Max; i++)
+    {
+        cout &lt;&lt; &quot;Round# &quot; &lt;&lt; i+1 &lt;&lt; &quot; : &quot; ;    
+        while (!(cin &gt;&gt; golf[i]))
+        {
+            cin.clear();
+            while(cin.get()!=&apos;\n&apos;)
+                continue;
+            cout &lt;&lt; &quot;Please enter a number: &quot;;
+        }
+    }
+    double total = 0.0;
+    for (int i = 0; i&lt; Max; i++)
+        total += golf[i];
+    cout &lt;&lt; total/Max &lt;&lt; &quot; = average score &quot; &lt;&lt; Max &lt;&lt; &quot; rounds.\n&quot;;
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter your golf scores.
+You must enter 5 rounds.
+Round# 1 : 88
+Round# 2 : i
+Please enter a number: k
+Please enter a number: 4
+Round# 3 : 5
+Round# 4 : 9
+Round# 5 : ?
+Please enter a number: 44
+30 = average score 5 rounds.
+</code></pre><p>clear()方法重置输入，如果省略这条语句，程序将拒绝继续读取输入。程序中如下代码的作用是：</p>
+<pre><code>while(cin.get()!=&apos;\n&apos;)
+    continue;
+</code></pre><p>读取行尾之前的所有输入，从而删除这一行的错误输入。</p>
+<h2 id="6-8-简单文件输入-输出"><a href="#6-8-简单文件输入-输出" class="headerlink" title="6.8 简单文件输入/输出"></a>6.8 简单文件输入/输出</h2><p>C++使得将读取键盘输入和在屏幕上显示输出的技巧用于文件输入/输出(文件I/O)非常简单。</p>
+<h3 id="6-81-文本I-O和文本文件"><a href="#6-81-文本I-O和文本文件" class="headerlink" title="6.81 文本I/O和文本文件"></a>6.81 文本I/O和文本文件</h3><p>使用cin进行输入时，程序将输入视为一系列的字节，其中<strong>每个字节都被解释为字符编码</strong>。不管目标数据类型是什么，输入一开始都是字符数据–文本数据。然后，cin对象负责将文本转换为其他类型。</p>
+<pre><code>char ch;
+cin &gt;&gt; ch;
+</code></pre><p>输入实例为： 38.5 19.2</p>
+<p>输入行中的第一个字符被赋给ch。在这里第一个字符是数字3，其字符编码(二进制)被存储在变量ch中。输入和目标变量都是字符，因此不需要进行转换。注意，这里存储的不是数值3，而是字符3的编码。</p>
+<pre><code>int n;
+cin &gt;&gt; n;
+</code></pre><p>在这种情况下，cin将不断读取，直到遇到非数字符号。也就是说，它读取3和8，这样句点将成为输入队列中的下一个字符。cin通过计算发现，这两个字符对应数字是38，因此将38的二进制编码复制到变量n中。</p>
+<p>接下来看double类型：</p>
+<pre><code>double x;
+cin &gt;&gt; x;
+</code></pre><p>在这种情况下，cin将不断读取，直到遇到第一个不属于浮点数的字符。即，cin读取3、8、句点和5，使得空格成为输入队列中的下一个字符。cin通过计算发现，这四个字符对应数字38.5，因此将38.5的二进制编码复制到变量x中。</p>
+<p>接下来看看char数组的情况：</p>
+<pre><code>char word[50];
+cin &gt;&gt; word;
+</code></pre><p>在这种情况下，cin将不断读取，直到遇到空白字符。即，它读取3、8、句点和5，使得空格成为输入队列中的下一个字符。然后，cin将这4个字符编码存储到输入word中，并在末尾加上一个空字符，这里需要进行任何转换。</p>
+<p>最后，看一下另一种使用char数组来存储输入的情况：</p>
+<pre><code>char word[50];
+cin.getline(word,50);
+</code></pre><p>在这种情况下，cin将不断读取，直到遇到换行符。所有字符都将被存储到数组word中，并在末尾添加一个空字符。换行符被丢弃，输入队列中的下一个字符是下一行的第一个字符。这里不进行任何转换。</p>
+<p>对于输出，将执行相反的操作。即整数被转换为数字字符序列，浮点数被转换为数字字符和其他字符组成的字符序列。字符数据不需要做任何转换。</p>
+<p>这里的要点是：输入一开始都是文本。因此，控制台输入的文件版本是文本文件，即每个字节都存储了一个字符编码的文件。并非所有的文件都是文本文件，比如，数据块和电子表格以数值格式（即二进制整数或浮点格式）存储数值数据。</p>
+<h3 id="6-8-2-写入的文本文件中"><a href="#6-8-2-写入的文本文件中" class="headerlink" title="6.8.2 写入的文本文件中"></a>6.8.2 写入的文本文件中</h3><p>文件输出：</p>
+<ul>
+<li>必须包含头文件fstream;</li>
+<li>头文件fstream定义了一个用于处理输出的ofstream类；</li>
+<li>需要声明一个或多个ofstream变量，并以自己喜欢的方式对其进行命名；</li>
+<li>必须指明命名空间std;</li>
+<li>需要将ofstream对象与文件关联起来，为此方法之一是使用open()方法；</li>
+<li>使用完文件后，应使用方法close()将其关闭；</li>
+<li>可结合使用ofstream和运算符&lt;&lt;来输出各种类型的数据。</li>
+</ul>
+<p>iostream头文件提供了一个预先定义好的名为cout的ostream对象，但您必须声明自己的ofstream对象，为其命名，并将其同文件关联。声明对象如下：</p>
+<pre><code>ofstream outFile;
+</code></pre><p>关联文件如下：</p>
+<pre><code>outFile.open(&quot;fish.txt&quot;);
+char filename[50];
+cin &gt;&gt; filename;
+outFile.open(filename);
+</code></pre><p>open()接受一个c-风格字符串作为输入，可以是字面字符串，也可以是存储在数组中的字符串。</p>
+<p>使用文件输出的主要步骤如下：</p>
+<ul>
+<li>包含头文件fstream;</li>
+<li>创建一个ofstream对象；</li>
+<li>将该ofstream对象同一个文件关联起来;</li>
+<li>将像使用cout那样使用该ofstream对象。（如：&lt;&lt;,endl和setf()都可用于ofstream对象）。</li>
+</ul>
+<p>outfile.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+int main()
+{
+    char automobile[50];
+    int year;
+    double a_price;
+    double b_price;
+
+    ofstream outFile;
+    outFile.open(&quot;carinfo.txt&quot;);
+
+    cout &lt;&lt; &quot;Enter the amke and model of automobile: &quot;;
+    cin.getline(automobile, 50);
+    cout &lt;&lt; &quot;Enter the model year: &quot;;
+    cin &gt;&gt; year;
+    cout &lt;&lt; &quot;Enter the original asing price: &quot;;
+    cin &gt;&gt; a_price;
+    b_price = 0.913 * a_price;
+
+    cout.precision(5);
+    cout.setf(ios_base::showpoint);
+    cout &lt;&lt; &quot;Make and model: &quot; &lt;&lt; automobile &lt;&lt; endl;
+    cout &lt;&lt; &quot;Year: &quot; &lt;&lt; year &lt;&lt; endl;
+    cout &lt;&lt; &quot;Was asing: $&quot; &lt;&lt; a_price &lt;&lt; endl;
+    cout &lt;&lt; &quot;Now asking: $&quot; &lt;&lt; b_price &lt;&lt; endl;
+
+    outFile.precision(5);
+    outFile.setf(ios_base::showpoint);
+    outFile &lt;&lt; &quot;Make and model: &quot; &lt;&lt; automobile &lt;&lt; endl;
+    outFile &lt;&lt; &quot;Year: &quot; &lt;&lt; year &lt;&lt; endl;
+    outFile &lt;&lt; &quot;Was asking: $&quot; &lt;&lt; a_price &lt;&lt; endl;
+    outFile &lt;&lt; &quot;Now asking: $&quot; &lt;&lt; b_price &lt;&lt; endl;
+    outFile.close();
+    return 0;
+}
+</code></pre><p>结果：</p>
+<p><img src="https://i.imgur.com/xTPy0bB.png" alt=""></p>
+<p>在程序运行之前，并不存在carinfo.txt文件。在这种情况下，open()将新建一个名为carinfo.txt的文件。如果在此程序运行前，该文件已存在。默认情况下，open()将首先截断该文件，即将其长度截断为零—丢弃原有的内容，然后将新的输入加入到该文件中。</p>
+<h3 id="6-8-3-读取文本文件"><a href="#6-8-3-读取文本文件" class="headerlink" title="6.8.3 读取文本文件"></a>6.8.3 读取文本文件</h3><p>文件输入：</p>
+<ul>
+<li>必须包含头文件fstream;</li>
+<li>头文件fstream定义了一个用于处理输入的ifstream类；</li>
+<li>需要声明一个或多个ifstream变量，并以自己喜欢的方式对其进行命名；</li>
+<li>必须指明命名空间std;</li>
+<li>需要将ifstream对象与文件关联起来，为此方法之一是使用open()方法；</li>
+<li>使用完文件后，应使用方法close()将其关闭；</li>
+<li>可结合使用ifstream和运算符&gt;&gt;来输出各种类型的数据;</li>
+<li>可以使用ifstream对象和get()方法来读取一个字符，使用ifstream对象和getline()来读取一行字符；</li>
+<li>可以结合使用ifstream和eof()、fail()等方法来判断输入是否成功；</li>
+<li>ifstream对象本身被用作测试条件时，如果最后一个读取操作成功，它将转换为true，否则为false。</li>
+</ul>
+<p>ifstream对象的声明：</p>
+<pre><code>ifstream inFile;
+</code></pre><p>关联文件：</p>
+<pre><code>inFlie.open(&quot;bowling.txt&quot;);
+</code></pre><p>如果试图打开一个不存的文件用于输入，这种错误将导致后面使用ifstream对象进行输入时失败。检查文件是否被成功打开的方法：is_open()。</p>
+<pre><code>inFile.open(&quot;bowling.txt&quot;);
+if (!inFile.is_open())
+    exit(EXIT_FAILURE);
+</code></pre><p>函数exit()的原型在头文件cstdlib中定义的，在该头文件中，还定义了一个用于同操作系统通信的参数数值EXIT_FAILURE。函数exit()终止程序。</p>
+<p>方法is_open()是C++中比较新的内容。可以使用方法good()来代替。</p>
+<p>sumafile.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstdlib&gt;
+using namespace std;
+const int SIZE = 60;
+int main()
+{
+    char filename[SIZE];
+    ifstream inFile;
+    cout &lt;&lt; &quot;Enter name of data file: &quot;;
+    cin.getline(filename,SIZE);
+    inFile.open(filename);
+    if (!inFile.is_open())
+    {
+        cout &lt;&lt; &quot;Could not open the file &quot; &lt;&lt; filename &lt;&lt; endl;
+        cout &lt;&lt; &quot;Program terminating.\n&quot;;
+        exit(EXIT_FAILURE);
+    }
+    double value;
+    double sum = 0.0;
+    int count = 0;
+
+    inFile &gt;&gt; value;
+    while (inFile.good())
+    {
+        ++count ;
+        sum += value;
+        inFile &gt;&gt; value;
+    }
+    if (inFile.eof())
+        cout &lt;&lt; &quot;End of file reached.\n&quot;;
+    else if (inFile.fail())
+        cout &lt;&lt; &quot;Input terminatd by data mismatch.\n&quot;;
+    else 
+        cout &lt;&lt; &quot;Input terminated for unknown reasion.\n&quot;;
+    if (count == 0)
+        cout &lt;&lt; &quot;No data processed.\n&quot;;
+    else
+    {
+        cout &lt;&lt; &quot;Items read: &quot; &lt;&lt; count &lt;&lt; endl;
+        cout &lt;&lt; &quot;Sum: &quot; &lt;&lt; sum &lt;&lt; endl;
+        cout &lt;&lt; &quot;Average: &quot; &lt;&lt; sum/count &lt;&lt; endl;
+    }
+    inFile.close();
+    return 0;
+}
+</code></pre><p>结果：</p>
+<p><img src="https://i.imgur.com/Fsax9RR.png" alt=""></p>
+<p>文件循环读取设计时，需要注意几点。首先，程序读取文件时不应超过EOF。如果最后一次读取数据时遇到EOF，方法eof()返回true。其次，程序可能遇到类型不匹配，方法fail()返回true(如果遇到EOF，该方法也返回true)。最后，可能出现意外的问题，如文件损坏或硬件故障。如果最后一次读取文件出现了这样的问题，方法bad()将返回true。不要分布检查这些情况，一种更简单的方式是使用good()方法，该方法在没有发送任何错误时返回true。同时，可以使用其他方法来确定循环终止的原因，如下：</p>
+<pre><code>if (inFile.eof())
+    cout &lt;&lt; &quot;End of file reached.\n&quot;;
+else if (inFile.fail())
+    cout &lt;&lt; &quot;Input terminatd by data mismatch.\n&quot;;
+else 
+    cout &lt;&lt; &quot;Input terminated for unknown reasion.\n&quot;;
+</code></pre><p>方法god()指出最后一次读取输入的操作成功与否。标准的做法：</p>
+<pre><code>inFile &gt;&gt; value;
+while (inFile.good())
+{
+    ++count ;
+    sum += value;
+    inFile &gt;&gt; value;
+}
+</code></pre><p>由于表达式inFile &gt;&gt; value的结果为inFile，而在需要一个bool值的情况下，inFile的结果为inFile().good()，即true或false。于是，两条输入语句用一条用作循环测试的语句代替。因此可以简化上面标准做法，如下：</p>
+<pre><code>while(inFile &gt;&gt; value)
+{
+    sum += value;
+    ++count;
+}
+</code></pre><h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2><p>if语句、if else语句和switch语句</p>
+<p>逻辑运算符</p>
+<p>文件输出和输入</p>
 
       
     </div>
@@ -460,7 +1112,7 @@ else
         <p><span>本文标题:</span><a href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-10-02, 09:48:14</p>
-        <p><span>最后更新:</span>2018-10-02, 20:32:40</p>
+        <p><span>最后更新:</span>2018-10-04, 10:30:18</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/" title="C++ Primer Plus--分支语句和逻辑运算符（六）">https://zxpgo.github.io/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -557,7 +1209,7 @@ else
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-if语句"><span class="toc-number">1.</span> <span class="toc-text">6.1 if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1-if-else语句"><span class="toc-number">1.1.</span> <span class="toc-text">6.1.1 if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2-格式化if-else语句"><span class="toc-number">1.2.</span> <span class="toc-text">6.1.2 格式化if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-3-if-else-if-else结构"><span class="toc-number">1.3.</span> <span class="toc-text">6.1.3 if else if else结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-逻辑表达式"><span class="toc-number">2.</span> <span class="toc-text">6.2 逻辑表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-逻辑OR运算符"><span class="toc-number">2.1.</span> <span class="toc-text">6.2.1 逻辑OR运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-逻辑AND运算符"><span class="toc-number">2.2.</span> <span class="toc-text">6.2.2 逻辑AND运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-用-amp-amp-来设置取值范围"><span class="toc-number">2.3.</span> <span class="toc-text">6.2.3 用&amp;&amp;来设置取值范围</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-if语句"><span class="toc-number">1.</span> <span class="toc-text">6.1 if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1-if-else语句"><span class="toc-number">1.1.</span> <span class="toc-text">6.1.1 if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2-格式化if-else语句"><span class="toc-number">1.2.</span> <span class="toc-text">6.1.2 格式化if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-3-if-else-if-else结构"><span class="toc-number">1.3.</span> <span class="toc-text">6.1.3 if else if else结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-逻辑表达式"><span class="toc-number">2.</span> <span class="toc-text">6.2 逻辑表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-逻辑OR运算符"><span class="toc-number">2.1.</span> <span class="toc-text">6.2.1 逻辑OR运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-逻辑AND运算符"><span class="toc-number">2.2.</span> <span class="toc-text">6.2.2 逻辑AND运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-用-amp-amp-来设置取值范围"><span class="toc-number">2.3.</span> <span class="toc-text">6.2.3 用&amp;&amp;来设置取值范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-4-逻辑NOT运算符"><span class="toc-number">2.4.</span> <span class="toc-text">6.2.4 逻辑NOT运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-5-逻辑运算符细节"><span class="toc-number">2.5.</span> <span class="toc-text">6.2.5 逻辑运算符细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-6-其他表示方式"><span class="toc-number">2.6.</span> <span class="toc-text">6.2.6 其他表示方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-字符函数库cctype"><span class="toc-number">3.</span> <span class="toc-text">6.3 字符函数库cctype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-运算符"><span class="toc-number">4.</span> <span class="toc-text">6.4 ?:运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-switch语句"><span class="toc-number">5.</span> <span class="toc-text">6.5 switch语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-1-将枚举用作标签"><span class="toc-number">5.1.</span> <span class="toc-text">6.5.1 将枚举用作标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-2-switch和if-else"><span class="toc-number">5.2.</span> <span class="toc-text">6.5.2 switch和if else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-break和continue"><span class="toc-number">6.</span> <span class="toc-text">6.6 break和continue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-7-读取数字的循环"><span class="toc-number">7.</span> <span class="toc-text">6.7 读取数字的循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-8-简单文件输入-输出"><span class="toc-number">8.</span> <span class="toc-text">6.8 简单文件输入/输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-81-文本I-O和文本文件"><span class="toc-number">8.1.</span> <span class="toc-text">6.81 文本I/O和文本文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-2-写入的文本文件中"><span class="toc-number">8.2.</span> <span class="toc-text">6.8.2 写入的文本文件中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-3-读取文本文件"><span class="toc-number">8.3.</span> <span class="toc-text">6.8.3 读取文本文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-9-总结"><span class="toc-number">9.</span> <span class="toc-text">6.9 总结</span></a></li></ol>
         
     </div>
     <style>
@@ -627,7 +1279,7 @@ else
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(二)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的变成模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
 
 
 

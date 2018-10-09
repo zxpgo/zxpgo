@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-02T10:03:39.188Z</updated>
+  <updated>2018-10-07T13:55:24.327Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,123 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络(四)--网络层</title>
+    <link href="https://zxpgo.github.io/2018/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E5%9B%9B)--%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
+    <id>https://zxpgo.github.io/2018/10/07/计算机网络(四)--网络层/</id>
+    <published>2018-10-07T13:54:50.000Z</published>
+    <updated>2018-10-07T13:55:24.327Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <published>2018-10-04T10:48:50.000Z</published>
+    <updated>2018-10-04T12:29:05.132Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>格理论与密码学--格基约减算法与实现（四）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
+    <published>2018-10-04T10:48:50.000Z</published>
+    <updated>2018-10-04T12:28:48.780Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--函数(C++的变成模块)（七）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0(C++%E7%9A%84%E5%8F%98%E6%88%90%E6%A8%A1%E5%9D%97)%EF%BC%88%E4%B8%83%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</id>
+    <published>2018-10-04T02:30:14.000Z</published>
+    <updated>2018-10-04T02:41:15.189Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Public Proof of Cloud Storage from Lattice Assumption∗</title>
+    <link href="https://zxpgo.github.io/2018/10/03/Public%20Proof%20of%20Cloud%20Storage%20from%20Lattice%20Assumption/"/>
+    <id>https://zxpgo.github.io/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/</id>
+    <published>2018-10-03T06:18:50.000Z</published>
+    <updated>2018-10-04T08:13:44.097Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;存储可以提供灵活、可伸缩的数据存储服务。然而，一旦数据上传至云服务器，本地计算机没有拷贝，用户失去了对数据的物理控制。因此，研究一种方法来确保用户数据的完整性是有必要的。避免检索大量存储数或避免由用户检验数据，一种基于格加密的公开审计存储协议证明被提出。用户计算数据块的的标签，并且上传它们至云服务器。云服务器提供联合的块。第三方审计者通过联合的数据和标签来验证所有数据块的完整性。基于小整数解假设，&lt;br&gt;给出的方案可以抵抗来自云服务器的丢失攻击和篡改攻击。基于错误假设的学习，给出的方案可以抵抗来自第三方审计者的好奇攻击。该方案是高效的，仅仅需要几个矩阵向量乘法和离散高斯函数的抽样。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词&lt;/strong&gt;：  云存储 存储证明 格加密 公开审计
+    
+    </summary>
+    
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>NP问题理解</title>
@@ -39,7 +156,7 @@
     <link href="https://zxpgo.github.io/2018/10/02/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/02/格理论与密码学--数学基础（一）/</id>
     <published>2018-10-02T06:52:50.000Z</published>
-    <updated>2018-10-02T10:03:48.536Z</updated>
+    <updated>2018-10-03T12:18:08.677Z</updated>
     
     <summary type="html">
     
@@ -59,7 +176,7 @@
     <link href="https://zxpgo.github.io/2018/10/02/C++%20Primer%20Plus--%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88%E5%85%AD%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/</id>
     <published>2018-10-02T01:48:14.000Z</published>
-    <updated>2018-10-02T12:32:40.944Z</updated>
+    <updated>2018-10-04T02:30:18.683Z</updated>
     
     <summary type="html">
     
@@ -96,10 +213,10 @@
   
   <entry>
     <title>计算机网络(三)--数据链路层</title>
-    <link href="https://zxpgo.github.io/2018/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
-    <id>https://zxpgo.github.io/2018/10/01/计算机网络(二)--数据链路层/</id>
+    <link href="https://zxpgo.github.io/2018/10/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%89)--%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    <id>https://zxpgo.github.io/2018/10/01/计算机网络(三)--数据链路层/</id>
     <published>2018-10-01T02:48:50.000Z</published>
-    <updated>2018-10-01T10:18:58.452Z</updated>
+    <updated>2018-10-07T13:53:34.502Z</updated>
     
     <summary type="html">
     
@@ -119,7 +236,7 @@
     <link href="https://zxpgo.github.io/2018/09/27/Python%E5%AD%97%E5%85%B8%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E5%85%83%E7%BB%84%E3%80%81%E6%95%B0%E7%BB%84/"/>
     <id>https://zxpgo.github.io/2018/09/27/Python字典、列表、元组、数组/</id>
     <published>2018-09-27T12:51:50.000Z</published>
-    <updated>2018-10-02T14:14:14.969Z</updated>
+    <updated>2018-10-02T15:08:14.213Z</updated>
     
     <summary type="html">
     
@@ -153,15 +270,15 @@
   </entry>
   
   <entry>
-    <title>计算机网络(二)--物理层</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E7%89%A9%E7%90%86%E5%B1%82/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/</id>
+    <title>计算机网络(一)--概论</title>
+    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
+    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
     <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-29T14:45:09.648Z</updated>
+    <updated>2018-09-26T08:37:02.867Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;物理层
+      &lt;p&gt;五层协议体系结构、计算机网络性能
     
     </summary>
     
@@ -173,15 +290,15 @@
   </entry>
   
   <entry>
-    <title>计算机网络(一)--概论</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
+    <title>计算机网络(二)--物理层</title>
+    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E7%89%A9%E7%90%86%E5%B1%82/"/>
+    <id>https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/</id>
     <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-26T08:37:02.867Z</updated>
+    <updated>2018-09-29T14:45:09.648Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;五层协议体系结构、计算机网络性能
+      &lt;p&gt;物理层
     
     </summary>
     
@@ -213,26 +330,6 @@
   </entry>
   
   <entry>
-    <title>模式识别(二)--K均值聚类</title>
-    <link href="https://zxpgo.github.io/2018/09/11/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
-    <id>https://zxpgo.github.io/2018/09/11/聚类分析/</id>
-    <published>2018-09-11T14:28:50.000Z</published>
-    <updated>2018-10-02T14:14:32.347Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。
-    
-    </summary>
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>模式识别绪论(一)</title>
     <link href="https://zxpgo.github.io/2018/09/11/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E7%BB%AA%E8%AE%BA/"/>
     <id>https://zxpgo.github.io/2018/09/11/模式识别绪论/</id>
@@ -253,22 +350,22 @@
   </entry>
   
   <entry>
-    <title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</title>
-    <link href="https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
-    <id>https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
-    <published>2018-09-06T08:28:50.000Z</published>
-    <updated>2018-10-02T14:16:22.056Z</updated>
+    <title>模式识别(二)--K均值聚类</title>
+    <link href="https://zxpgo.github.io/2018/09/11/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
+    <id>https://zxpgo.github.io/2018/09/11/聚类分析/</id>
+    <published>2018-09-11T14:28:50.000Z</published>
+    <updated>2018-10-02T14:14:32.347Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;论文一
+      &lt;p&gt;K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。
     
     </summary>
     
-      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
     
-      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
@@ -293,6 +390,26 @@
   </entry>
   
   <entry>
+    <title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</title>
+    <link href="https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
+    <id>https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
+    <published>2018-09-06T08:28:50.000Z</published>
+    <updated>2018-10-02T14:16:22.056Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;论文一
+    
+    </summary>
+    
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux 日志系统</title>
     <link href="https://zxpgo.github.io/2018/09/05/Linux%20%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
     <id>https://zxpgo.github.io/2018/09/05/Linux 日志系统/</id>
@@ -302,108 +419,6 @@
     <summary type="html">
     
       &lt;p&gt;日志数据可以是有价值的信息宝库，也可以是毫无价值的数据泥潭。它可以记录下系统产生的所有行为，并按照某种规范表达出来。可以使用日志系统所记录的信息为系统进行排错，优化系统的性能，或者根据这些信息调整系统的行为。收集你想要的数据，分析出有价值的信息，可以提高系统、产品的安全性，还可以帮助开发完善代码，优化产品。日志会成为在事故发生后查明“发生了什么”的一个很好的“取证”信息来源。日志可以为审计进行审计跟踪。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 进程管理</title>
-    <link href="https://zxpgo.github.io/2018/09/05/Linux%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/09/05/Linux 进程管理/</id>
-    <published>2018-09-05T00:30:50.000Z</published>
-    <updated>2018-09-05T03:06:10.624Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍一些 Linux 所提供的工具来进行进程的查看与控制，掌握这些工具让我们能在某些进程出现异常的时候及时查看相关的指标，从而解决问题。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2016百度校招面试题</title>
-    <link href="https://zxpgo.github.io/2018/09/02/2016%E7%99%BE%E5%BA%A6%E6%A0%A1%E6%8B%9B%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>https://zxpgo.github.io/2018/09/02/2016百度校招面试题/</id>
-    <published>2018-09-02T00:51:24.000Z</published>
-    <updated>2018-09-02T00:52:58.650Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对前面学习命令的一个总结
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式基础</title>
-    <link href="https://zxpgo.github.io/2018/09/01/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
-    <id>https://zxpgo.github.io/2018/09/01/正则表达式基础/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-02T08:33:18.304Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍grep，sed，awk这三个命令，而正则表达式作为这三个命令的一种使用方式（命令输出中可以包含正则表达式）。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-      <category term="正则表达式" scheme="https://zxpgo.github.io/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux数据流重定向</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux数据流重定向/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-01T13:05:43.636Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;你可能对重定向这个概念感到些许陌生，但你应该在前面的课程中多次见过&amp;gt;或&amp;gt;&amp;gt;操作了，并知道他们分别是将标准输出导向一个文件或追加到一个文件中。这其实就是重定向，将原本输出到标准输出的数据重定向到一个文件中，因为标准输出(/dev/stdout)本身也是一个文件，我们将命令输出导向另一个文件自然也是没有任何问题的。
-    
-    </summary>
-    
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 进程概念</title>
-    <link href="https://zxpgo.github.io/2018/09/01/Linux%20%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
-    <id>https://zxpgo.github.io/2018/09/01/Linux 进程概念/</id>
-    <published>2018-09-01T07:57:50.000Z</published>
-    <updated>2018-09-05T00:29:32.511Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux 中也难免遇到某个程序无响应的情况，可以通过一些命令来帮助我们让系统能够更流畅的运行。 而在此之前，我们需要对进程的基础知识有一定的了解，才能更好、更有效率的使用Linux 提供的工具。
     
     </summary>
     
