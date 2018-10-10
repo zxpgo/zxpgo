@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-07T13:55:24.327Z</updated>
+  <updated>2018-10-10T07:29:21.454Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分布式机器学习框架--参数服务器</title>
+    <link href="https://zxpgo.github.io/2018/10/10/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6--%E5%8F%82%E6%95%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/10/分布式机器学习框架--参数服务器/</id>
+    <published>2018-10-10T07:30:14.000Z</published>
+    <updated>2018-10-10T07:29:21.454Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在大规模数据上跑机器学习任务是过去十多年内系统架构师面临的主要挑战之一，许多模型和抽象先后用于这一任务。
+    
+    </summary>
+    
+    
+      <category term="分布式机器学习" scheme="https://zxpgo.github.io/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络(四)--网络层</title>
@@ -91,17 +109,11 @@
     <link href="https://zxpgo.github.io/2018/10/04/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0(C++%E7%9A%84%E5%8F%98%E6%88%90%E6%A8%A1%E5%9D%97)%EF%BC%88%E4%B8%83%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</id>
     <published>2018-10-04T02:30:14.000Z</published>
-    <updated>2018-10-04T02:41:15.189Z</updated>
+    <updated>2018-10-10T07:15:06.769Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;函数
     
     </summary>
     
@@ -330,26 +342,6 @@
   </entry>
   
   <entry>
-    <title>模式识别绪论(一)</title>
-    <link href="https://zxpgo.github.io/2018/09/11/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E7%BB%AA%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/11/模式识别绪论/</id>
-    <published>2018-09-11T14:28:50.000Z</published>
-    <updated>2018-10-02T14:14:38.663Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;模式识别
-    
-    </summary>
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>模式识别(二)--K均值聚类</title>
     <link href="https://zxpgo.github.io/2018/09/11/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
     <id>https://zxpgo.github.io/2018/09/11/聚类分析/</id>
@@ -370,22 +362,22 @@
   </entry>
   
   <entry>
-    <title>移动通信技术</title>
-    <link href="https://zxpgo.github.io/2018/09/06/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF/"/>
-    <id>https://zxpgo.github.io/2018/09/06/移动通信技术/</id>
-    <published>2018-09-06T08:28:50.000Z</published>
-    <updated>2018-10-02T14:16:12.177Z</updated>
+    <title>模式识别绪论(一)</title>
+    <link href="https://zxpgo.github.io/2018/09/11/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E7%BB%AA%E8%AE%BA/"/>
+    <id>https://zxpgo.github.io/2018/09/11/模式识别绪论/</id>
+    <published>2018-09-11T14:28:50.000Z</published>
+    <updated>2018-10-02T14:14:38.663Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍第二代至第四代移动通信技术，以及正在研发的第五代移动通信技术
+      &lt;p&gt;模式识别
     
     </summary>
     
-      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
     
-      <category term="通信协议" scheme="https://zxpgo.github.io/tag/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
+      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
@@ -410,22 +402,22 @@
   </entry>
   
   <entry>
-    <title>Linux 日志系统</title>
-    <link href="https://zxpgo.github.io/2018/09/05/Linux%20%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://zxpgo.github.io/2018/09/05/Linux 日志系统/</id>
-    <published>2018-09-05T03:07:50.000Z</published>
-    <updated>2018-09-05T07:17:57.488Z</updated>
+    <title>移动通信技术</title>
+    <link href="https://zxpgo.github.io/2018/09/06/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF/"/>
+    <id>https://zxpgo.github.io/2018/09/06/移动通信技术/</id>
+    <published>2018-09-06T08:28:50.000Z</published>
+    <updated>2018-10-02T14:16:12.177Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;日志数据可以是有价值的信息宝库，也可以是毫无价值的数据泥潭。它可以记录下系统产生的所有行为，并按照某种规范表达出来。可以使用日志系统所记录的信息为系统进行排错，优化系统的性能，或者根据这些信息调整系统的行为。收集你想要的数据，分析出有价值的信息，可以提高系统、产品的安全性，还可以帮助开发完善代码，优化产品。日志会成为在事故发生后查明“发生了什么”的一个很好的“取证”信息来源。日志可以为审计进行审计跟踪。
+      &lt;p&gt;介绍第二代至第四代移动通信技术，以及正在研发的第五代移动通信技术
     
     </summary>
     
-      <category term="实验楼学习笔记之Linux" scheme="https://zxpgo.github.io/categories/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BLinux/"/>
+      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+      <category term="通信协议" scheme="https://zxpgo.github.io/tag/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   
