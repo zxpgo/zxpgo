@@ -15,20 +15,18 @@
 
 
 
-<meta name="description" content="进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。">
-<meta name="keywords" content="数据结构">
+<meta name="description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进制介绍以及相互转换">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/22/进制相互转换/index.html">
+<meta property="og:title" content="C++ Primer Plus--函数探幽（八）">
+<meta property="og:url" content="https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。">
+<meta property="og:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/3sYvUdr.png">
-<meta property="og:updated_time" content="2018-10-02T14:17:47.063Z">
+<meta property="og:updated_time" content="2018-10-12T01:30:22.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进制介绍以及相互转换">
-<meta name="twitter:description" content="进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。">
-<meta name="twitter:image" content="https://i.imgur.com/3sYvUdr.png">
+<meta name="twitter:title" content="C++ Primer Plus--函数探幽（八）">
+<meta name="twitter:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -60,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>进制介绍以及相互转换 | 平步青云win</title>
+<title>C++ Primer Plus--函数探幽（八） | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-进制相互转换" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C++ Primer Plus--函数探幽（八）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/22/进制相互转换/" class="article-date">
-      <time datetime="2018-08-22T14:28:50.000Z" itemprop="datePublished">2018-08-22</time>
+      <a href="/2018/10/12/C++ Primer Plus--函数探幽（八）/" class="article-date">
+      <time datetime="2018-10-12T01:30:14.000Z" itemprop="datePublished">2018-10-12</time>
 </a>
 
 
@@ -308,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      进制介绍以及相互转换
+      C++ Primer Plus--函数探幽（八）
     </h1>
   
 
@@ -317,10 +315,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C-Primer-Plus学习笔记/">C++ Primer Plus学习笔记</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/数据结构/">数据结构</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/C/">C++</a></li></ul>
     </div>
 
 		<span id="busuanzi_container_page_pv_top" style ="display:block">
@@ -335,48 +337,8 @@
 	
       
           
-        <p>进制也就是进位计数制，是人为定义的带进位的计数方法 对于任何一种进制—X进制，就表示每一位置上的数运算时都是逢X进一位。 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位。<a id="more"></a></p>
-<h1 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h1><ul>
-<li>十进制</li>
-<li>二进制</li>
-<li>四进制</li>
-<li>七进制</li>
-<li>八进制</li>
-<li>十六进制</li>
-</ul>
-<h2 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h2><p>十进制编码几乎就是数值本身。</p>
-<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>它由两个数码0，1组成，二进制数运算规律是逢二进一。</p>
-<p>二进制乘法和加法基本运算法则：</p>
-<p>0+0=0，0+1=1，1+0=1，1+1=10</p>
-<p>0×0=0，0×1=0，1×0=0，1×1=1</p>
-<h2 id="四进制"><a href="#四进制" class="headerlink" title="四进制"></a>四进制</h2><p>四进制是以4为基数的进位制，以 0、1、2 和 3 四个数字表示任何实数。</p>
-<p>十进制0-12之间的相互转换：</p>
-<p> <img src="https://i.imgur.com/3sYvUdr.png" alt=""></p>
-<h2 id="七进制"><a href="#七进制" class="headerlink" title="七进制"></a>七进制</h2><p>七进制是以7为基数的计数系统。使用数码0-6。</p>
-<h2 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h2><p>由于二进制数据的基数R较小，所以二进制数据的书写和阅读不方便，为此，在小型机中引入了八进制。八进制的基数R=8=2^3，有数码0、1、2、3、4、5、6、7，并且每个数码正好对应三位二进制数，所以八进制能很好地反映二进制。八进制用下标8或数据后面加O表示 例如：二进制数据 （ 11 101 010 . 010 110 100 ）2 对应八进制数据 (352.264)8或352.264O。</p>
-<h2 id="十六进制"><a href="#十六进制" class="headerlink" title="十六进制"></a>十六进制</h2><p>由于二进制数在使用中位数太长，不容易记忆，所以又提出了十六进制数。</p>
-<p>十六进制数有两个基本特点：它由十六个数码：数字0～9加上字母A-F组成（它们分别表示十进制数10～15），十六进制数运算规律是逢十六进一，即基数R=16=2^4，通常在表示时用尾部标志H或下标16以示区别，在c语言中用添加前缀0x以表示十六进制数。</p>
-<p>例如：十六进制数4AC8可写成（4AC8）16，或写成4AC8H。</p>
-<h1 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h1><p>对于任何一个数，我们可以用不同的进位制来表示。比如：十进数57(10)，可以用二进制表示为111001(2)，也可以用五进制表示为212(5)，也可以用八进制表示为71(8)、用十六进制表示为39(16)，它们所代表的数值都是一样的。</p>
-<h2 id="二进制数、十六进制数转换为十进制数（按权求和）"><a href="#二进制数、十六进制数转换为十进制数（按权求和）" class="headerlink" title="二进制数、十六进制数转换为十进制数（按权求和）"></a>二进制数、十六进制数转换为十进制数（按权求和）</h2><p>二进制数、十六进制数转换为十进制数的规律是相同的。把二进制数（或十六进制数）按位权形式展开多项式和的形式，求其最后的和，就是其对应的十进制数——简称“按权求和”.</p>
-<p>例如：把（1001.01)2 二进制计算。<br><br>解：（1001.01）2<br><br>=8<em>1+4</em>0+2<em>0+1</em>1+0<em>(1/2)+1</em>(1/4)<br><br>=8+0+0+1+0+0.25<br><br>=9.25</p>
-<p>把（38A.11)16转换为十进制数<br><br>解：（38A.11)16<br><br>=3×16的2次方+8×16的1次方+10×16的0次方+1×16的-1次方+1×16的-2次方<br><br>=768+128+10+0.0625+0.0039<br><br>=906.0664</p>
-<h1 id="十进制数转换为二进制数，十六进制数（除2-16取余法）"><a href="#十进制数转换为二进制数，十六进制数（除2-16取余法）" class="headerlink" title="十进制数转换为二进制数，十六进制数（除2/16取余法）"></a>十进制数转换为二进制数，十六进制数（除2/16取余法）</h1><p>整数转换.一个十进制整数转换为二进制整数通常采用除二取余法，即用2连续除十进制数，直到商为0，逆序排列余数即可得到――简称除二取余法．</p>
-<p>例：将25转换为二进制数<br><br>解：25÷2=12 余数1<br><br>12÷2=6 余数0<br><br>6÷2=3 余数0<br><br>3÷2=1 余数1<br><br>1÷2=0 余数1<br>所以25=(11001)2</p>
-<p>同理，把十进制数转换为十六进制数时，将基数2转换成16就可以了.</p>
-<p>例：将25转换为十六进制数<br>解：25÷16=1 余数9<br><br>1÷16=0 余数1<br><br>所以25=(19)16</p>
-<h2 id="二进制数与十六进制数之间的转换"><a href="#二进制数与十六进制数之间的转换" class="headerlink" title="二进制数与十六进制数之间的转换"></a>二进制数与十六进制数之间的转换</h2><p>由于4位二进制数恰好有16个组合状态，即1位十六进制数与4位二进制数是一一对应的.所以，十六进制数与二进制数的转换是十分简单的.</p>
-<p>(1）十六进制数转换成二进制数，只要将每一位十六进制数用对应的4位二进制数替代即可――简称位分四位.<br><br>例：将（4AF8B)16转换为二进制数.<br><br>解： 4 A F 8 B<br><br>0100 1010 1111 1000 1011<br><br>所以（4AF8B)16=(1001010111110001011)2</p>
-<p>(2）二进制数转换为十六进制数，分别向左，向右每四位一组，依次写出每组4位二进制数所对应的十六进制数――简称四位合一位.<br><br>例：将二进制数（000111010110)2转换为十六进制数.<br><br>解： 0001 1101 0110<br><br>1 D 6<br><br>所以（111010110)2=（1D6）16<br><br>转换时注意最后一组不足4位时必须加0补齐4位</p>
-<h2 id="数制转换的一般化"><a href="#数制转换的一般化" class="headerlink" title="数制转换的一般化"></a>数制转换的一般化</h2><p>1）R进制转换成十进制</p>
-<p>任意R进制数据按权展开、相加即可得十进制数据。例如：N = 1101.0101B = 1<em>2^3+1</em>2^2+0<em>2^1+1</em>2^0+0<em>2^-1+1</em>2^-2+0<em>2^-3+1</em>2^-4 = 8+4+0+1+0+0.25+0+0.0625 = 13.3125<br><br>N = 5A.8H = 5<em>16^1+A</em>16^0+8*16^-1 = 80+10+0.5 = 90.5</p>
-<p>2）十进制转换R 进制</p>
-<p>十进制数转换成R 进制数，须将整数部分和小数部分分别转换.</p>
-<p>1.整数转换———除R 取余法 规则：（1）用R 去除给出的十进制数的整数部分，取其余数作为转换后的R 进制数据的整数部分最低位数字； （2）再用R去除所得的商，取其余数作为转换后的R 进制数据的高一位数字； （3）重复执行（2）操作，一直到商为0结束。</p>
-<p>2．小数转换—————乘R 取整法 规则：（1）用R 去乘给出的十进制数的小数部分，取乘积的整数部分作为转换后R 进制小数点后第一位数字； （2）再用R 去乘上一步乘积的小数部分，然后取新乘积的整数部分作为转换后R 进制小数的低一位数字； （3）重复（2）操作，一直到乘积为0，或已得到要求精度数位为止。</p>
-<p>3.小数转换——整数退位法：举例：0.321d转成二进制，由于321不是5的倍数，用取余法、取整法可能要算很久，这时候我们可以采用整数退位法。原理如下：<br><br>n为转成的二进制数的小数位数<br><br>(x)10=(y)2<br><br>(x)10<em>2^n=(y)2</em>2^n<br><br>D=(x)10<em>2^n：计算10进制数，取整<br><br>D→T转成2进制数<br><br>(y)2=T/2^n=T</em>2^(-n)，T退位，位数不足前端补零<br><br>举例:<br><br>0.321转成二进制数，保留7位<br><br>0.321*2^7=41.088,取整数41<br><br>41=32+8+1即100000+1000+1=101001<br><br>退位，因只有6位而要求保留7位，所以是0.0101001</p>
-<p>提炼至：<a href="https://baike.baidu.com/item/%E8%BF%9B%E5%88%B6/317457" target="_blank" rel="noopener">百度百科</a></p>
-
+        <p>内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。<a id="more"></a></p>
+<h2 id="8-1-C-内联函数"><a href="#8-1-C-内联函数" class="headerlink" title="8.1 C++内联函数"></a>8.1 C++内联函数</h2>
       
     </div>
     
@@ -384,13 +346,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></p>
+        <p><span>本文标题:</span><a href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-22, 22:28:50</p>
-        <p><span>最后更新:</span>2018-10-02, 22:17:47</p>
+        <p><span>发布时间:</span>2018-10-12, 09:30:14</p>
+        <p><span>最后更新:</span>2018-10-12, 09:30:22</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/22/进制相互转换/" title="进制介绍以及相互转换">https://zxpgo.github.io/2018/08/22/进制相互转换/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/22/进制相互转换/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/" title="C++ Primer Plus--函数探幽（八）">https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -402,16 +364,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/22/python2.7和python3.6安装以及问题解决/">
-                    Python2.7和Python3.6安装以及文件解决
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/22/模式匹配的KMP算法/">
-                    模式匹配的KMP算法
+                <a href="/2018/10/11/感知器算法/">
+                    模式识别(二)--感知器算法
                 </a>
             </div>
         
@@ -484,7 +440,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#进制"><span class="toc-number">1.</span> <span class="toc-text">进制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#十进制"><span class="toc-number">1.1.</span> <span class="toc-text">十进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制"><span class="toc-number">1.2.</span> <span class="toc-text">二进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四进制"><span class="toc-number">1.3.</span> <span class="toc-text">四进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七进制"><span class="toc-number">1.4.</span> <span class="toc-text">七进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八进制"><span class="toc-number">1.5.</span> <span class="toc-text">八进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十六进制"><span class="toc-number">1.6.</span> <span class="toc-text">十六进制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进制转换"><span class="toc-number">2.</span> <span class="toc-text">进制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制数、十六进制数转换为十进制数（按权求和）"><span class="toc-number">2.1.</span> <span class="toc-text">二进制数、十六进制数转换为十进制数（按权求和）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十进制数转换为二进制数，十六进制数（除2-16取余法）"><span class="toc-number">3.</span> <span class="toc-text">十进制数转换为二进制数，十六进制数（除2/16取余法）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制数与十六进制数之间的转换"><span class="toc-number">3.1.</span> <span class="toc-text">二进制数与十六进制数之间的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数制转换的一般化"><span class="toc-number">3.2.</span> <span class="toc-text">数制转换的一般化</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-C-内联函数"><span class="toc-number">1.</span> <span class="toc-text">8.1 C++内联函数</span></a></li></ol>
         
     </div>
     <style>
@@ -520,7 +476,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"进制介绍以及相互转换　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--函数探幽（八）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -540,15 +496,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/22/python2.7和python3.6安装以及问题解决/" title="上一篇: Python2.7和Python3.6安装以及文件解决">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/22/模式匹配的KMP算法/" title="下一篇: 模式匹配的KMP算法">
+            <a href="/2018/10/11/感知器算法/" title="下一篇: 模式识别(二)--感知器算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         

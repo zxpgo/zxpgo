@@ -18,15 +18,17 @@
 <meta name="description" content="函数">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ Primer Plus--函数(C++的变成模块)（七）">
+<meta property="og:title" content="C++ Primer Plus--函数(C++的编程模块)（七）">
 <meta property="og:url" content="https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/index.html">
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-10T07:15:06.769Z">
+<meta property="og:image" content="https://i.imgur.com/W5MWJz7.png">
+<meta property="og:updated_time" content="2018-10-12T01:28:39.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ Primer Plus--函数(C++的变成模块)（七）">
+<meta name="twitter:title" content="C++ Primer Plus--函数(C++的编程模块)（七）">
 <meta name="twitter:description" content="函数">
+<meta name="twitter:image" content="https://i.imgur.com/W5MWJz7.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>C++ Primer Plus--函数(C++的变成模块)（七） | 平步青云win</title>
+<title>C++ Primer Plus--函数(C++的编程模块)（七） | 平步青云win</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -306,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++ Primer Plus--函数(C++的变成模块)（七）
+      C++ Primer Plus--函数(C++的编程模块)（七）
     </h1>
   
 
@@ -516,6 +518,872 @@ int sum_arr(int arr[], int n)
 </code></pre><h3 id="7-3-2-将数组作为参数意味着什么"><a href="#7-3-2-将数组作为参数意味着什么" class="headerlink" title="7.3.2 将数组作为参数意味着什么"></a>7.3.2 将数组作为参数意味着什么</h3><p>arr_sum()函数将cookies的地址赋给指针变量arr,将ArSize赋给int变量n。这意味着并没将数组内容传递给函数，而是将数组的位置、包含的元素种类以及元素数目提交给函数</p>
 <p>传递常规变量时，函数将使用该变量的拷贝；但传递数组时，函数将使用原来的数组。实际上，这种区别并不违反C++按值传递的方法，sum()函数传递了一个值，这个值被赋给一个新变量，但这个值是一个地址，而不是数组的内容。</p>
 <p>如果数组很大，则使用拷贝的系统开销将非常大；程序不仅需要更多的计算机内存，还需要花费时间来复制大块的数据。另一方面，使用原始数据增加了破坏数据的风险。</p>
+<p>arrfun2.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int ArSize = 8;
+int sum_arr(int arr [], int n);
+using namespace std;
+int main()
+{
+    int cookies[ArSize] = {1,2,4,8,16,32,64,128};
+    cout &lt;&lt;  cookies &lt;&lt; &quot; = array address, &quot; &lt;&lt; sizeof(cookies) &lt;&lt; &quot; = sizeof cookies.\n&quot;;
+
+    int sum = sum_arr(cookies, ArSize);
+    cout &lt;&lt; &quot;Total  cookies eaten: &quot; &lt;&lt; sum &lt;&lt; endl;
+
+    sum = sum_arr(cookies, 3);
+    cout &lt;&lt; &quot;First three eaters ate &quot; &lt;&lt; sum &lt;&lt; endl;
+    sum = sum_arr(cookies+4, 4);
+    cout &lt;&lt; &quot;Last four eaters ate &quot; &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}
+int sum_arr(int arr[],int n)
+{
+    int total = 0;
+    cout &lt;&lt; arr &lt;&lt; &quot; = arr, &quot;;
+    cout &lt;&lt; sizeof(arr) &lt;&lt; &quot; =  sizeof arr.\n&quot;; //实际得到的地址的长度
+    for (int i = 0; i &lt; n; i++)
+        total += arr[i];
+    return total;
+}
+</code></pre><p>结果</p>
+<pre><code>0x7ffff779f8b0 = array address, 32 = sizeof cookies.
+0x7ffff779f8b0 = arr, 8 =  sizeof arr.
+Total  cookies eaten: 255
+0x7ffff779f8b0 = arr, 8 =  sizeof arr.
+First three eaters ate 7
+0x7ffff779f8c0 = arr, 8 =  sizeof arr.
+Last four eaters ate 240
+</code></pre><p>注意，地址值和数组的长度随系统而异。</p>
+<p>cookies和arr指向同一个地址，但sizeof(cookies)的值为32，而sizeof(arr)为8。这是由于sizeof(cookies)是整个数组的长度，而sizeof(arr)只是指针变量的长度。这是必须现实传递数组长度，而不能在sum_arr()中使用sizeof(arr)的原因；指针本身没有指出数组的长度。</p>
+<p><strong>注意：</strong></p>
+<p>将数组类型和元素数量告诉数组处理函数，<strong>不要</strong>试图使用方括号表示法来传递数组长度：</p>
+<pre><code>void filarray(int arr[size]); //非法的
+</code></pre><h3 id="7-3-更多数组函数示例"><a href="#7-3-更多数组函数示例" class="headerlink" title="7.3 更多数组函数示例"></a>7.3 更多数组函数示例</h3><p>假设要使用一个数组记录房地产的价值。</p>
+<h4 id="1-填充数组"><a href="#1-填充数组" class="headerlink" title="1. 填充数组"></a>1. 填充数组</h4><p>由于接收数组名参数的函数访问的是原始数组，而不是副本，因此可以通过调用该函数将值赋给数组元素。该函数的一个参数是要填充的数组的名称。第二个参数是数组的长度。由于用户输入的元素数目可能少于数组的长度，因此函数返回实际输入的元素数目。</p>
+<p>停止循环的方法：使用一个特殊值来指出输入结束。由于所有的属性都不为负数，因此可以使用负数来指出输入结束。</p>
+<h4 id="2-显示数组及使用const保护数组"><a href="#2-显示数组及使用const保护数组" class="headerlink" title="2. 显示数组及使用const保护数组"></a>2. 显示数组及使用const保护数组</h4><p>接受数组名的函数将使用原始数据，为防止函数无意中修改数组的内容，可在声明形参时使用关键字const。</p>
+<pre><code>void show_array(const double ar[], int n);
+</code></pre><p>该声明表明，指针ar指向的是常量数组。这意味着不能使用ar修改该数据。</p>
+<h4 id="3-修改数组"><a href="#3-修改数组" class="headerlink" title="3. 修改数组"></a>3. 修改数组</h4><p>具体见代码</p>
+<h4 id="4-组合"><a href="#4-组合" class="headerlink" title="4. 组合"></a>4. 组合</h4><p>arrfun3.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int Max = 5;
+int fill_array(double ar[], int n);
+void show_array(const double ar[], int n);
+void revalue(double r, double ar[], int n);
+using namespace std;
+int main()
+{
+    double properties[Max];
+    int size = fill_array(properties,Max);
+    show_array(properties, size);
+    if (size &gt; 0)
+    {
+        cout &lt;&lt; &quot;Enter revaluation factor: &quot;;
+        double factor;
+        while (!(cin &gt;&gt; factor))
+        {
+            cin.clear();
+            while (cin.get() != &apos;\n&apos;)
+                continue;
+            cout &lt;&lt; &quot;Bad input; Please enter a number: &quot;;
+        }
+        revalue(factor, properties, size);
+        show_array(properties, size);
+    }
+    return 0;
+}
+int fill_array(double ar[], int n)
+{
+    double temp;
+    int i;
+    for (i = 0; i &lt; n; i++)
+    {
+        cout &lt;&lt; &quot;Enter values #&quot;&lt;&lt; i+1 &lt;&lt; &quot; : &quot; ;
+        cin &gt;&gt; temp;
+        if (!cin)
+        {
+            cin.clear();
+            while (cin.get() != &apos;\n&apos; ) //读取输入队列中的所有内容
+                continue;
+            cout &lt;&lt; &quot;Bad input; input process terminated.\n&quot;;
+            break;
+        }
+        else if (temp &lt; 0)
+            break;
+        ar[i] = temp;
+    }
+    return i;
+}
+
+void show_array(const double ar[], int n)
+{
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt; &quot;Property #&quot; &lt;&lt; i+1 &lt;&lt; &quot;: $ &quot; &lt;&lt; ar[i] &lt;&lt; endl;
+}
+
+void revalue(double r, double ar[], int n)
+{
+    for (int i = 0; i &lt; n; i++)
+        ar[i] *=  r;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter values #1 : 30000
+Enter values #2 : 20000
+Enter values #3 : 10000
+Enter values #4 : -3
+Property #1: $ 30000
+Property #2: $ 20000
+Property #3: $ 10000
+Enter revaluation factor: 0.8
+Property #1: $ 24000
+Property #2: $ 16000
+Property #3: $ 8000
+[root@localhost ~]# ./a.out
+Enter values #1 : oo
+Bad input; input process terminated.
+</code></pre><h4 id="5-数组处理函数的常用编写方式"><a href="#5-数组处理函数的常用编写方式" class="headerlink" title="5. 数组处理函数的常用编写方式"></a>5. 数组处理函数的常用编写方式</h4><p>如果函数修改数组，其原型可能如下：</p>
+<pre><code>void f_modify(double ar[], int n);
+</code></pre><p>如果函数不修改数组，其原型可能如下：</p>
+<pre><code>void f_no_change(const double ar[], int n);
+</code></pre><h3 id="7-3-4-使用数组区间的函数"><a href="#7-3-4-使用数组区间的函数" class="headerlink" title="7.3.4 使用数组区间的函数"></a>7.3.4 使用数组区间的函数</h3><p>前面，对于处理数组的C++函数，必须将数组中的数据类型、数组的起始位置和数组中元素的数量提交给它。</p>
+<p>还有一种给函数提供所需信息的方法，即指定元素区间，这块车通过传递两个指针来完成；一个指针表示数组的开头，另一个指针表示数组的尾部。</p>
+<pre><code>double elbuod[20];
+</code></pre><p>则指针elbuod和elbuod+20定义了区间。首先，数组名elbuod指向第一个元素。表达式elbuod+19指向最后一个元素，因此elbuod+20指向数组结尾后的一个位置。</p>
+<p>arrfun4.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int ArSize = 8;
+int sum_arr(int * begin, int * end);
+using namespace std;
+int main()
+{
+    int cookies[ArSize] = {1,2,4,8,16,32,64,128};
+    cout &lt;&lt;  cookies &lt;&lt; &quot; = array address, &quot; &lt;&lt; sizeof(cookies) &lt;&lt; &quot; = sizeof cookies.\n&quot;;
+
+    int sum = sum_arr(cookies, cookies+ArSize);
+    cout &lt;&lt; &quot;Total  cookies eaten: &quot; &lt;&lt; sum &lt;&lt; endl;
+
+    sum = sum_arr(cookies, cookies+3);
+    cout &lt;&lt; &quot;First three eaters ate &quot; &lt;&lt; sum &lt;&lt; endl;
+    sum = sum_arr(cookies+4, cookies+8);
+    cout &lt;&lt; &quot;Last four eaters ate &quot; &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}
+int sum_arr(int * begin, int * end)
+{
+    const int * pt;
+    int total = 0;
+    for (pt = begin; pt !=  end; pt++)
+        total +=  *pt;
+    return total;
+}
+</code></pre><p>结果</p>
+<pre><code>Total  cookies eaten: 255
+First three eaters ate 7
+Last four eaters ate 240
+</code></pre><p>程序中，将pt设置为指向第一个元素的指针，并将*pt加入到total扎。然后，循环通过递增操作来更新pt，使之指向下一个元素。</p>
+<h3 id="7-3-5-指针和const"><a href="#7-3-5-指针和const" class="headerlink" title="7.3.5 指针和const"></a>7.3.5 指针和const</h3><p>可以用两种不同的方式将const关键字用于指针。第一种方法是让指针指向一个常量对象，这样可以防止使用该指针来修改所指向的值；第二种方法是将指针本身声明为常量，这样可以防止改变指针指向的位置。</p>
+<h4 id="1-const-int"><a href="#1-const-int" class="headerlink" title="1. const int *"></a>1. const int *</h4><pre><code>int age = 39;
+const int * pt = &amp;age;
+</code></pre><p>该声明指出，pt指向一个const int，因此不能使用pt来修改这个值。即，*pt的值为const，不能被修改：</p>
+<pre><code>*pt += 1; //非法
+cin &gt;&gt; *pt; //非法
+</code></pre><p>一个微妙的问题，pt的声明并不意味着它指向的值实际上就是一个常量，而只是意味着对pt而言，这个值是常量。比如，pt指向age，而age不是const。可以直接通过age变量来修改age的值，但是不能使用pt指针来修改它：</p>
+<pre><code>*pt = 20; //非法
+age = 20; //合理
+</code></pre><p>还有两种可能：第一种，将const变量的地址赋给指向const的指针；第二种，将const的地址赋给常规指针。第一种可行，第二种不可行：</p>
+<pre><code>cont float g_earth = 9.80;
+cont float * pe = &amp;g_earth; //合理
+
+const float g_moon = 1.63;
+float *pm = &amp;g_moon; //非法
+</code></pre><p>对于第一种情况，既不能修改g_earth来修改值9.80，也不能使用pe来修改。C++禁止第二种情况的原因：如果将g_moon的地址赋给pm，则可以使用pm来修改g_moon的值，这使得g_moon的const状态很荒诞。</p>
+<p>如果将指针指向指针，则情况更复杂。假如涉及的是一级间接关系，则将非const指针赋给const指针是可以的：</p>
+<pre><code>int age = 39;
+int *pd = &amp;age;
+const int * pt = pd;
+</code></pre><p>然而，进入两级间接关系时，与一级间接关系一样，将const和非const混合的指针赋值方式将不再安全。如果允许这样做，则可以编写这样的代码：</p>
+<pre><code>const int  **pp2;
+int *p1;
+const int n = 13;
+pp2 = &amp;p1; //非法，但是假设其成立
+*pp2 = &amp;n; //合理
+*p1 = 10; //合理
+</code></pre><p>上述代码将非const地址(&amp;p1)赋给了指向const指针(pp2)，因此可以使用p1来修改const数据。因此，仅当只有一层间接关系时，才可以将非const地址或指针赋给const指针。</p>
+<p>假设一个由const数据组成的数组：</p>
+<pre><code>const int monthes[5] = {31, 28, 31, 30, 31};
+</code></pre><p>则禁止将常量数组的地址赋给非常量指针，这意味着不能将数组名作为参数传递给非常量形参的函数：</p>
+<pre><code>int sum(int arr[], int n); // 应该写为： const int arr[]
+int j = sum(months, 12); //不被允许
+</code></pre><p>上述函数调用试图将const指针赋给非const指针，编译器将禁止这种函数调用。</p>
+<p>另一个微妙之处，声明：</p>
+<pre><code>int age = 39;
+const int * pt = &amp;age;
+</code></pre><p>第二个声明种的const只能防止修改pt指向的值，但不能修改pt的值，即可以将一个新地址赋给pt:</p>
+<pre><code>int sage = 40;
+pt = &amp;sage;
+</code></pre><p>但仍然不能使用pt来修改它指向的值。</p>
+<h4 id="2-int-const"><a href="#2-int-const" class="headerlink" title="2. int * const"></a>2. int * const</h4><p>使用const的方式使得无法修改指针的值：</p>
+<pre><code>int sloth = 3;
+const int *ps = &amp;sloth;
+int * const finger = &amp;sloth;
+</code></pre><p>最后一个声明，关键字const的位置与以前不同。这种声明格式使得finger只能指向sloth，但允许使用finger来修改sloth的值。中间的声明不允许使用ps来修改sloth的值，但可以将ps指向另一位置。即，finger和$\ast$p都是const，而$\ast$finger和ps不是。</p>
+<p>如果愿意还可以声明指向const对象的const指针：</p>
+<pre><code>double trouble = 2.0E30;
+const double * const stick = &amp;trouble;
+</code></pre><p>其中，stick只能指向troulbe，而stick不能用来修改trouble的值。即const和$\ast$const都是const。</p>
+<h2 id="7-4-函数和二维数组"><a href="#7-4-函数和二维数组" class="headerlink" title="7.4 函数和二维数组"></a>7.4 函数和二维数组</h2><p>为编写将二维数组作为参数的函数，必须牢记，数组名被视为其地址，因此响应的形参是一个指针。比如：</p>
+<pre><code>int data[2][4] = {{1,2,3，4},{4,5,6，7}};
+int total = sum(data, 3);
+</code></pre><p>data是一个数组名，该数组有2个元素。第一个元素本身就是一个数组，有4个int值组成。因此data的类型是指向由4个int组成的数组的指针，正确的原型如下：</p>
+<pre><code>int sum(int (*ar2)[4], int size);
+</code></pre><p>其中的括号是必不可少的，因为下面声明将声明一个由4个指向int的指针组成的数组，而不是由一个指向由4个int组成的数组的指针；林伟函数不能是数组：</p>
+<pre><code>int *ar2[4]; //4个指针指针组成的数组
+</code></pre><p>还有另一个种格式，这种格式与上述原型的含义完全相同，但可读性更强:</p>
+<pre><code>int sum(int ar2[][4], int size);
+</code></pre><p>上述两个原型都指出，ar2是指针而不是数组。指针类型指出，它指向由4个int组成的数组。因此，指针类型指定了列数。</p>
+<p>由于指针类型指定了列数，因此sum()函数只能接受由4列组成的数组。但长度变量指定了行数，因此sum()对数组的行数没有限制：</p>
+<pre><code>int a[100][4];
+int b[60][4];
+
+int total1 = sum(a, 100);
+int total2 = sum(b, 60);
+</code></pre><p>对于参数ar2是指向数组的指针，在函数定义中使用它，最简单的办法是将ar2看作一个二维数组的名称。</p>
+<p>同样行数被传递给size参数，当无论是参数ar2的声明或是内部for循环中，列数都是固定的–4列。</p>
+<p>ar2[r]是编号为r的元素，由于该元素本身就是一个由4个int组成的数组，因此ar2[r]是由4个int组成的数组的名称。将下标用于数组名将得到一个数组元素，因此ar2[r][c]是由4个int组成的数组中的一个元素，是一个int值。必须对指针ar2执行两次解除引用，才能得到数据。也可以使用运算符*两次：</p>
+<pre><code>ar2[r][c] = *(*(ar2+r)+c)
+</code></pre><h2 id="7-5-函数和C-风格字符串"><a href="#7-5-函数和C-风格字符串" class="headerlink" title="7.5 函数和C-风格字符串"></a>7.5 函数和C-风格字符串</h2><p>C-风格自身串由一系列字符组成，以空值字符结尾。</p>
+<h3 id="7-5-1-将C-风格字符串作为参数的函数"><a href="#7-5-1-将C-风格字符串作为参数的函数" class="headerlink" title="7.5.1 将C-风格字符串作为参数的函数"></a>7.5.1 将C-风格字符串作为参数的函数</h3><p>假设要将字符串作为参数传递给函数，则表示字符串的方式有三种：</p>
+<ul>
+<li>char数组</li>
+<li>用引号括起来的字符串常量（字符串字面值）</li>
+<li>被设置为字符串的地址的char指针</li>
+</ul>
+<p>但上述3中选择的类型都是char指针（准确地说是char$\ast$），因此可以将其作为字符串处理函数的参数：</p>
+<pre><code>char ghost[15] = &quot;galloping&quot;;
+char * str = &quot;galumphing&quot;;
+int n1 = strlen(ghone);
+int n2 = shrlen(str);
+</code></pre><p>可以说，将字符串作为参数来传递，但实际上传递的是字符串第一个字符的地址。这意味着字符串函数原型将其表示字符串的形参声明为char$\ast$类型。</p>
+<p>C-风格字符串与常规数组之间的重要区别是：字符串有内置的结束字符（不以空值字符结尾的char数组只是数组，而不是字符串）。这意味着不必将字符串长度作为参数传递给函数，而函数可以使用循环依次检查字符串中的每个字符，直到遇到结尾的空字符为止。</p>
+<p>strfun.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+unsigned int c_in_str(const char * str, char ch);
+using namespace std;
+int main()
+{
+    char mmm[15] = &quot;minimum&quot;;
+    const char *wail = &quot;ululate&quot;;
+    unsigned int ms = c_in_str(mmm, &apos;m&apos;);
+    unsigned int us = c_in_str(wail, &apos;u&apos;);
+    cout &lt;&lt; ms &lt;&lt; &quot; m characters in &quot; &lt;&lt; mmm &lt;&lt; endl;
+    cout &lt;&lt; us &lt;&lt; &quot; u characters in &quot; &lt;&lt; wail &lt;&lt; endl;
+    return 0;
+}
+
+unsigned int c_in_str(const char * str, char ch)
+{
+    unsigned int count = 0;
+    while(*str)
+    {
+        if (*str == ch)
+            count ++;
+        str++;
+    }
+    return count;
+}
+</code></pre><p>结果：</p>
+<pre><code>3 m characters in minimum
+2 u characters in ululate
+</code></pre><p>为了防止c_in_str()函数修改原始字符串，因此在函数声明形参str时使用了限定符const。</p>
+<p>str最初指向字符串的第一个字符，因此*str表示的第一个字符。</p>
+<h3 id="7-5-2-返回C-风格字符串的函数"><a href="#7-5-2-返回C-风格字符串的函数" class="headerlink" title="7.5.2 返回C-风格字符串的函数"></a>7.5.2 返回C-风格字符串的函数</h3><p>strgback.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+char * buildstr(char c, int n);
+using namespace std;
+int main()
+{
+    int times;
+    char ch;
+    cout &lt;&lt; &quot;Enter a character: &quot;;
+    cin &gt;&gt; ch;
+    cout &lt;&lt; &quot;Enter a integer: &quot;;
+    cin &gt;&gt; times;
+    char * ps = buildstr(ch, times);
+    cout &lt;&lt; ps &lt;&lt; endl;
+    delete [] ps;
+    ps = buildstr(&apos;+&apos;, 20);
+    cout &lt;&lt; ps &lt;&lt;  &quot;-DONE-&quot; &lt;&lt; ps &lt;&lt; endl;
+    delete [] ps;
+    return 0;
+}
+
+char * buildstr(char c, int n)
+{
+    char * pstr = new char [n+1];
+    pstr[n] = &apos;\0&apos;;
+    while(n--)
+        pstr[n] = c;
+    return pstr;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter a character: V
+Enter a integer: 46
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+++++++++++++++++++++-DONE-++++++++++++++++++++
+</code></pre><p>要创建包含n个字符的字符串，需要能够存储n+1个字符的空间，以便能够存储空值字符。程序中请求分配了n+1个字节的内存来存储字符串，并将最后一个字节设置为空值字符。</p>
+<p>n–表示先在测试条件中比较，然后将其值递减。因此，当n=20时，首先20大于0，然后将其值递减1，于是循环体里面的n=19。</p>
+<p>注意pstr的作用为buildstr函数内，因此该函数结束时，pstr使用的内存将被释放。但由于函数返回了pstr的值，因此程序仍可以通过main()中的指针ps来访问新建的字符串。当该字符串不再需要时，使用delete释放该字符串所占用的内存。</p>
+<h2 id="7-6-函数和结构"><a href="#7-6-函数和结构" class="headerlink" title="7.6 函数和结构"></a>7.6 函数和结构</h2><p>使用结构编程时，最直接的方式就像处理基本类型那样来处理结构；即将结构作为参数传递，并在需要时将结构用作返回值使用。在这种情况下，函数将使用原始结构的副本，与处理数组不同。如果结构非常大，则复制结构将增大内存要求，降低系统运行速度。出于这些愿意，许多C程序倾向于传递结构的地址，然后使用指针来访问结构的内容。C++提供了第三种选择—按引用传递（下一章介绍）。</p>
+<h3 id="7-6-1-传递和返回结构"><a href="#7-6-1-传递和返回结构" class="headerlink" title="7.6.1 传递和返回结构"></a>7.6.1 传递和返回结构</h3><p>当结构比较小时，按值传递结构最合理。第一个例子处理行程时间，比如从Falls到Bingo需要3小时50分钟，而Bingo到Gotesquo需要1小时25分钟。对于这种时间，可以使用结构表示–一个成员表示小时值，另一个成员表示分钟值。将两个时间加起来需要一些技巧，因为可能需要将分钟值转换为小时。具体如下：</p>
+<p>travel.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+struct travel_time
+{
+    int hours;
+    int mins;
+};
+
+const int Mins_per_hr = 60;
+
+travel_time sum(travel_time t1, travel_time t2);
+void show_time(travel_time t);
+
+int main()
+{
+    travel_time day1 = {5, 45};
+    travel_time day2 = {4, 55};
+
+    travel_time trip = sum(day1, day2);
+    cout &lt;&lt; &quot;Two-day total: &quot;;
+    show_time(trip);
+
+    return 0;
+}
+
+travel_time sum(travel_time t1, travel_time t2)
+{
+    travel_time total;
+    total.mins = (t1.mins + t2.mins) % Mins_per_hr;
+    total.hours = t1.hours + t2.hours + (t1.mins + t2.mins) / Mins_per_hr;
+    return total;
+}
+
+void show_time(travel_time t)
+{
+    cout &lt;&lt; t.hours &lt;&lt; &quot; hours, &quot;
+        &lt;&lt; t.mins &lt;&lt; &quot; mins.\n&quot;;
+}
+</code></pre><p>结果</p>
+<pre><code>Two-day total: 10 hours, 40 mins.
+</code></pre><p>其中，travel_time就像一个标准类型名，可被用来声明变量、函数的返回类型和函数参数类型。</p>
+<h3 id="7-6-2-另一个处理结构的函数示例"><a href="#7-6-2-另一个处理结构的函数示例" class="headerlink" title="7.6.2 另一个处理结构的函数示例"></a>7.6.2 另一个处理结构的函数示例</h3><p>表示二维坐标中的一个点的方法有两种：一种是指出该点相对远点的水平偏移和垂直便宜（x-y）；另一个种是指出它偏离远点的距离和方向（极坐标）。实现表示两种表示方法，以及之间的相互转换，如下程序：</p>
+<p>atrctfun.cpp</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cmath&gt; 
+using namespace std;
+
+struct rect 
+{
+    double x;
+    double y;
+};
+struct polar
+{
+    double distance;
+    double angle;    
+};
+
+polar rect_to_polar(rect xypos);
+void show_polar(polar dapos);
+
+int main()
+{
+    rect rplace;
+    polar pplace;
+
+    cout &lt;&lt; &quot;Enter the x and y value: &quot;;
+    while (cin &gt;&gt; rplace.x &gt;&gt; rplace.y)
+    {
+        pplace = rect_to_polar(rplace);
+        show_polar(pplace);
+        cout &lt;&lt; &quot;Nest two number(q to quit): &quot;;
+    }
+    return 0;
+}
+
+polar rect_to_polar(rect xypos)
+{
+    polar answer;
+    answer.distance = sqrt(xypos.x * xypos.x + xypos.y * xypos.y);
+    answer.angle = atan2(xypos.y, xypos.x);
+    return answer;
+}
+
+void show_polar(polar dapos)
+{
+    const double Rad_to_deg = 57.29577951;
+    cout &lt;&lt;  &quot;Distance = &quot; &lt;&lt; dapos.distance;
+    cout &lt;&lt; &quot;, Angle =  &quot; &lt;&lt; dapos.angle * Rad_to_deg &lt;&lt; &quot; degrees.\n&quot;;
+}
+</code></pre><p>结果</p>
+<pre><code>Enter the x and y value: 30 40
+Distance = 50, Angle =  53.1301 degrees.
+Nest two number(q to quit): -100 100
+Distance = 141.421, Angle =  135 degrees.
+Nest two number(q to quit): q
+</code></pre><h3 id="7-6-3-传递结构的地址"><a href="#7-6-3-传递结构的地址" class="headerlink" title="7.6.3 传递结构的地址"></a>7.6.3 传递结构的地址</h3><p>需要修改的滴很：</p>
+<ul>
+<li>调用函数时，将结构的地址(&amp;pplace)而不是结构本身(pplace)传递给它；</li>
+<li>将形参声明为指向polar的指针，即polar$\ast$类型，由于函数不应该修改结构，因此使用了const修饰符；</li>
+<li>由于形参是指针而不是结构，因此应使用间接成员运算符(-&gt;)，而不是成员运算符（句点）。</li>
+</ul>
+<p>strctptr.cpp</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cmath&gt; 
+using namespace std;
+
+struct rect 
+{
+    double x;
+    double y;
+};
+struct polar
+{
+    double distance;
+    double angle;    
+};
+
+void rect_to_polar(const rect *xypos,  polar *dapos);
+void show_polar(const polar *dapos);
+
+int main()
+{
+    rect rplace;
+    polar pplace;
+
+    cout &lt;&lt; &quot;Enter the x and y value: &quot;;
+    while (cin &gt;&gt; rplace.x &gt;&gt; rplace.y)
+    {
+        rect_to_polar(&amp;rplace, &amp;pplace);
+        show_polar(&amp;pplace);
+        cout &lt;&lt; &quot;Nest two number(q to quit): &quot;;
+    }
+    return 0;
+}
+
+void  rect_to_polar(const rect *xypos, polar *dapos)
+{
+    dapos-&gt;distance = sqrt(xypos-&gt;x * xypos-&gt;x + xypos-&gt;y * xypos-&gt;y);
+    dapos-&gt;angle = atan2(xypos-&gt;y, xypos-&gt;x);
+}
+
+void show_polar(const polar *dapos)
+{
+    const double Rad_to_deg = 57.29577951;
+    cout &lt;&lt;  &quot;Distance = &quot; &lt;&lt; dapos-&gt;distance;
+    cout &lt;&lt; &quot;, Angle =  &quot; &lt;&lt; dapos-&gt;angle * Rad_to_deg &lt;&lt; &quot; degrees.\n&quot;;
+}
+</code></pre><p>结果同上</p>
+<h1 id="遇到的问题-待解决"><a href="#遇到的问题-待解决" class="headerlink" title="遇到的问题(待解决)"></a>遇到的问题(待解决)</h1><p>在编写时，发现如果开始将结构初始为结构指针，如下：</p>
+<pre><code>rect *rplace;
+polar *pplace;
+</code></pre><p>而这样在输入x,y的之后出现<strong>段错误(吐核)</strong>。根据网上教程，在./a.out之前，加上strace，即 strace ./a.out，看不懂到底是什么原因。而使用上述程序种的方式不会有问题。</p>
+<p><img src="https://i.imgur.com/W5MWJz7.png" alt=""></p>
+<h2 id="7-7-函数核string对象"><a href="#7-7-函数核string对象" class="headerlink" title="7.7 函数核string对象"></a>7.7 函数核string对象</h2><p>虽然C-风格字符串和string对象的用途几乎相同，但与数组相比，string对象与结构的更相似。例如：可以将一个结构赋给另一个结构，也可以将一个对象赋给另一个对象。可以将结构作为完整的实体传给函数，也可以将对象作为完整的实体进行传递。如果需要多个字符串，可以声明一个string对象数组，而不是二维char数组。</p>
+<p>topfive.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+const int SIZE = 5;
+void display(const string sa[], int n);
+int main()
+{
+    string list[SIZE];
+    cout &lt;&lt; &quot;Enter your &quot; &lt;&lt; SIZE &lt;&lt; &quot; favorite astronomicla sights: \n&quot;;
+    for (int i = 0; i &lt; SIZE; i++)
+    {
+        cout &lt;&lt; i + 1 &lt;&lt; &quot;: &quot;;
+        getline(cin, list[i]);
+    }
+
+    cout &lt;&lt; &quot;Your list: \n&quot;;
+    display(list, SIZE);
+    return 0;
+}
+
+void display(const string sa[], int n)
+{
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt; i + 1&lt;&lt; &quot;: &quot; &lt;&lt; sa[i] &lt;&lt; endl;
+}
+</code></pre><p>结果</p>
+<pre><code>Enter your 5 favorite astronomicla sights: 
+1: Mon
+2: Jupiter
+3: Saturn
+4: M13
+5: Orion Nebula
+Your list: 
+1: Mon
+2: Jupiter
+3: Saturn
+4: M13
+5: Orion Nebula
+</code></pre><h2 id="7-8-函数和array对象"><a href="#7-8-函数和array对象" class="headerlink" title="7.8 函数和array对象"></a>7.8 函数和array对象</h2><p>假设要使用一个array对象来存储一年四个季度的开支：</p>
+<pre><code>std::array&lt;double, 4&gt; expenses;
+</code></pre><p>要使用array类，需要包含头文件array，而名称array位于名称空间std中。如果函数来显示expenses的内容，可按值传递expenses:</p>
+<pre><code>show(expenses);
+</code></pre><p>但如果函数要修改对象expenses，则需将对象的地址传给函数：</p>
+<pre><code>fill(&amp;expenses);
+</code></pre><p>声明上述两个函数为array&lt;double, 4&gt;，因此必须在函数原型中指定这种类型：</p>
+<pre><code>void show(std::array&lt;double, 4&gt; da);
+void fill(std::array&lt;doulbe, 4&gt; * pa);
+</code></pre><p>首先，使用符号常量替换4：</p>
+<pre><code>const int Seasons = 4;
+</code></pre><p>使用一个const array对象，该对象包含4个string对象，用于表示几个季度：</p>
+<pre><code>const std::array&lt;std::string, Season&gt; Sname = {&quot;Spring&quot;, &quot;Summer&quot;, &quot;Fall&quot;, &quot;Winter&quot;};
+</code></pre><p>arrobj.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;array&gt;
+#include &lt;string&gt;
+using namespace std;
+const int Seasons = 4;
+const array&lt;string, Seasons&gt; Sname = {&quot;Spring&quot;, &quot;Summer&quot;, &quot;Fall&quot;, &quot;Winter&quot;};
+
+void fill(array&lt;double, Seasons&gt; * pa);
+void show(array&lt;double, Seasons&gt; da);
+
+int main()
+{
+    array&lt;double, Seasons&gt; expenses;
+    fill(&amp;expenses);
+    show(expenses);
+    return 0;
+}
+
+void fill(array&lt;double, Seasons&gt; *pa)
+{
+    for (int i = 0; i&lt; Seasons; i++)
+    {
+        cout &lt;&lt; &quot;Enter &quot; &lt;&lt; Sname[i] &lt;&lt; &quot; expenses: &quot;;
+        cin &gt;&gt; (*pa)[i];
+    }
+}
+
+void show(array&lt;double, Seasons&gt; da)
+{
+    double total = 0.0;
+    cout &lt;&lt; &quot;EXPENSES\n&quot;;
+    for (int i = 0; i &lt; Seasons; i++)
+    {
+        cout &lt;&lt; Sname[i] &lt;&lt; &quot;: $&quot; &lt;&lt; da[i] &lt;&lt; endl;
+        total += da[i];
+    }
+    cout &lt;&lt; &quot;Total expenses: $&quot; &lt;&lt; total &lt;&lt; endl;
+}
+</code></pre><p>结果</p>
+<pre><code>Enter Spring expenses: 1000
+Enter Summer expenses: 2000
+Enter Fall expenses: 2000
+Enter Winter expenses: 4000
+EXPENSES
+Spring: $1000
+Summer: $2000
+Fall: $2000
+Winter: $4000
+Total expenses: $9000
+</code></pre><p>注意，String是C++11中的内容，在使用Linux编译时，需要告诉编译器使用C++11的编译器，如下：</p>
+<pre><code>g++ -std = c++ arrobj.cpp
+</code></pre><p>因为在代码最前面添加了编译指令using，因此可以不适用std::来限定array和string。</p>
+<h2 id="7-9-递归"><a href="#7-9-递归" class="headerlink" title="7.9 递归"></a>7.9 递归</h2><p>C++函数有一种有趣的特点–可以自己调用自己，这种功能被称为递归。</p>
+<h3 id="7-9-1-包好一个递归调用的递归"><a href="#7-9-1-包好一个递归调用的递归" class="headerlink" title="7.9.1 包好一个递归调用的递归"></a>7.9.1 包好一个递归调用的递归</h3><p>如果递归函数调用自己，则被调用的函数也将调用自己，这将无限循环下去，除非代码中包含终止调用链的内容。通常的方法将递归调用放在if语句中。如下：</p>
+<pre><code>void recurs(argumentlist)
+{
+    statements1
+    if (test)
+        recurs(arguments)
+    statements2
+}
+</code></pre><p>test为false，调用链断开。只要if语句为true，每个recurs()调用都将执行statements1，然后再调用recurs()，而不会执行statements2。当if语句为false时，当前调用执行statements2。当前调用结束后，程序控制权将返回给调用它的recurs()，而该recurs()将执行其statements2部分，然后结束，并将控制权返回给前一个调用，依次类推。因此，如果recurs()进行了5次递归调用，则第一个statements1部分将按函数调用的顺序执行5次，然后，statements部分将以与函数调用相反的顺序执行5次。进入5层递归后，程序将沿进入的路径返回。</p>
+<p>recur.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+void countdown(int n);
+using namespace std;
+int main()
+{
+    countdown(4);
+    return 0;
+}
+
+void countdown(int n)
+{
+    cout &lt;&lt; &quot;Count down ... &quot; &lt;&lt; n &lt;&lt; endl;
+    if (n &gt; 0)
+        countdown(n-1);
+    cout &lt;&lt; n &lt;&lt; &quot;: Kaboom!\n&quot;;
+}
+</code></pre><p>结果</p>
+<pre><code>Count down ... 4
+Count down ... 3
+Count down ... 2
+Count down ... 1
+Count down ... 0
+0: Kaboom!
+1: Kaboom!
+2: Kaboom!
+3: Kaboom!
+4: Kaboom!
+</code></pre><p>注意，每个递归调用都创建自己的一套变量，因此当程序达到第5次调用时，将有5个独立的变量n，其中每个变量的值都不同。为了验证这一点，使之显示n的地址和值：</p>
+<pre><code>cout &lt;&lt; &quot;Count down ... &quot; &lt;&lt; n &lt;&lt; &quot;(n at&quot; &lt;&lt; &amp;n &lt;&lt; &quot; )&quot; &lt;&lt; endl;
+if (n &gt; 0)
+    countdown(n-1);
+cout &lt;&lt; n &lt;&lt; &quot;: Kaboom!&quot; &lt;&lt;  &quot;      &quot; &lt;&lt; &quot;(n at&quot; &lt;&lt; &amp;n &lt;&lt; &quot; )&quot; &lt;&lt; endl;
+</code></pre><p>程序输出结果为：</p>
+<pre><code>Count down ... 4(n at0x7ffc9be6862c )
+Count down ... 3(n at0x7ffc9be685fc )
+Count down ... 2(n at0x7ffc9be685cc )
+Count down ... 1(n at0x7ffc9be6859c )
+Count down ... 0(n at0x7ffc9be6856c )
+0: Kaboom!      (n at0x7ffc9be6856c )
+1: Kaboom!      (n at0x7ffc9be6859c )
+2: Kaboom!      (n at0x7ffc9be685cc )
+3: Kaboom!      (n at0x7ffc9be685fc )
+4: Kaboom!      (n at0x7ffc9be6862c )
+</code></pre><h3 id="7-9-2-包含多个递归调用的递归"><a href="#7-9-2-包含多个递归调用的递归" class="headerlink" title="7.9.2 包含多个递归调用的递归"></a>7.9.2 包含多个递归调用的递归</h3><p>在需要将一定工作不断分为两项较小的、类似的工作时，递归非常有用。例如：考虑使用这种方法来绘制绘制标尺的情况。标出两端，找到重点并将其标出。然后，将同样的操作用于标尺的左半部分和右半部分。如果要进一步细分，同将同样的操作用于当前的每一部分。递归方法有时被称为分而治之策略。</p>
+<p>下面程序使用subdivide()演示了这种方法，该函数使用一个字符串，该字符串处两端为|字符为，其他都为空格。main函数使用循环调用subdivide()函数6次，每次见递归层编号加1，并打印得到的字符。这样，每行输出表示一层递归。</p>
+<p>ruler.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+const int len = 66;
+const int Divs = 6;
+void subdivide(char ar [], int low, int  hight, int level);
+using namespace std;
+int main()
+{
+    char ruler[len];
+    int i ;
+    for (i = 1; i &lt; len - 2; i++)
+        ruler[i] = &apos; &apos;;
+    ruler[len-1] = &apos;\0&apos;;
+    int max = len - 2;
+    int min = 0;
+    ruler[min] = ruler[max] = &apos;|&apos;;
+    cout &lt;&lt; ruler &lt;&lt; endl;
+    for (i = 1; i &lt;= Divs; i++)
+    {
+        subdivide(ruler, min, max, i);
+        cout &lt;&lt; ruler &lt;&lt; endl;
+        for (int j = 1; j &lt; len -2; j++)
+            ruler[j] = &apos; &apos;;
+    }
+    return 0;
+}
+
+void subdivide(char ar[], int low, int high, int level)
+{
+    if (level == 0)
+        return ;
+    int mid = (high + low) / 2;
+    ar[mid] = &apos;|&apos;;
+    subdivide(ar, low, mid, level-1);
+    subdivide(ar, mid, high, level-1);
+}
+</code></pre><p>结果</p>
+<pre><code>|                                                               |
+|                               |                               |
+|               |               |               |               |
+|       |       |       |       |       |       |       |       |
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+</code></pre><p>subdivide()使用变量level来控制递归层。函数调用自身时，将把level减1，当level为0时，该函数将不再调用自己。注意，subdivide()调用自己两次，一次针对左半部分，另一个针对右半部分。最初的中点被用作一次调用的右端点和另一次调用的左端点。调用次数从指数级增长。如果要求的递归层次很多，这种递归方式将是一种糟糕的选择；然而对于递归层次较少，这将是一种精致而简单的选择。</p>
+<h2 id="7-10-函数指针"><a href="#7-10-函数指针" class="headerlink" title="7.10 函数指针"></a>7.10 函数指针</h2><p>与数据项类似，函数也有地址。函数的地址是存储器机器语言代码的内存的地址。通常，这些地址对于用户而言，既不重要，也没有什么用处，但对程序而言，却很重要。可以编写将另一个函数第地址作为参数的函数。这样第一个函数将能够找到第二个函数，并运行它。与直接调用另一个函数相比，这种方法很笨拙，但它允许在不同的时间传递不同的函数的地址，这意味着可以在不同的时间使用不同的函数。</p>
+<h3 id="7-10-1-函数指针的基础知识"><a href="#7-10-1-函数指针的基础知识" class="headerlink" title="7.10.1 函数指针的基础知识"></a>7.10.1 函数指针的基础知识</h3><p>通过一个例子来阐述这一过程。假设要设计一个名为estimate()函数，估算编写执行函数的代码所需的时间，并且希望不同的程序员都可以使用这个函数。对于所有用户来说，estimate()中一部分代码都是相同的，但该函数允许每个程序员提供自己的算法来估算时间。为实现这个目标，采用的机制是，将程序员使用的算法函数的地址传给estimate()。为此，必须完成如下工作：</p>
+<ul>
+<li>获取函数地址</li>
+<li>声明一个函数指针</li>
+<li>使用函数指针来调用函数</li>
+</ul>
+<h4 id="1-获取函数地址"><a href="#1-获取函数地址" class="headerlink" title="1.获取函数地址"></a>1.获取函数地址</h4><p>获取函数的地址很简单：只要使用函数名(后面不跟参数)即可。即，如果think()是一个函数，则think就是该函数的地址。</p>
+<p>要将函数作为参数进行传递，必须传递函数名。一定要区分传递的是函数的地址还是函数的返回值：</p>
+<pre><code>process(think);
+process(think());//传递的是函数的返回值
+</code></pre><h4 id="2-声明函数指针"><a href="#2-声明函数指针" class="headerlink" title="2.声明函数指针"></a>2.声明函数指针</h4><p>声明指向某种数据类型的指针时，必须指定指针指向的类型。同样，声明指向函数的指针时，也必须指定指针指向的函数类型。这意味着声明应指出函数的返回类型以及函数的特征标(参数列表)。即声明应像函数原型一样指出函数信息。一个函数原型如下：</p>
+<pre><code>double pam(int);
+</code></pre><p>则正确的指针类型声明如下：</p>
+<pre><code>double (*pf) (int); 
+</code></pre><p>这与pam()声明类似，这是将pam替换为了($\ast$pf)。由于pam是函数，因此($\ast$pf)也是函数。而如果($\ast$pf)是函数，则pf就是函数指针。</p>
+<p>括号的优先级比$\ast$的运算符高，因此$\ast$pf(int)意味着pf()是一个返回指针的函数，而($\ast$pf)(int)意味着pf是一个指向函数的指针：</p>
+<pre><code>double (*pf)(int);
+double * pf (int); //一个返回指针的函数pf()
+</code></pre><p>正确声明pf后，便可以将相应函数的地址赋给它：</p>
+<pre><code>pf = pam;
+</code></pre><p>现在，给出estimate()函数的原型：</p>
+<pre><code>void estimate(int lines, double (*pf)(int));
+</code></pre><p>使用estiemate()如下：</p>
+<pre><code>estimate(50, pam);
+</code></pre><p>pam为函数pam()的指针。</p>
+<h4 id="3-使用指针来调用函数"><a href="#3-使用指针来调用函数" class="headerlink" title="3.使用指针来调用函数"></a>3.使用指针来调用函数</h4><p>使用指针来调用被指向的函数。($\ast$pf)扮演的角色与函数名相同，因此使用($\ast$pf)时，只需将它看作函数名：</p>
+<pre><code>double pam(int);
+double (*pf) (int); 
+double x = pam(3);
+double y = (*pf)(3);
+</code></pre><p>实际上，C++也允许像使用函数名一样使用pf:</p>
+<pre><code>double y = pf(3);
+</code></pre><h3 id="7-10-2-函数指针示例"><a href="#7-10-2-函数指针示例" class="headerlink" title="7.10.2 函数指针示例"></a>7.10.2 函数指针示例</h3><p>下面的程序，两次调用estimate()函数，一次传递betsy()函数的地址，另一次则传递pam()函数地址。</p>
+<p>fun_ptr.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+double betsy(int);
+double pam(int);
+using namespace std;
+void estimate(int lines, double (*pf)(int));
+
+int main()
+{
+    int code;
+    cout &lt;&lt; &quot;How many lines of code do you need? &quot;;
+    cin &gt;&gt; code;
+    cout &lt;&lt; &quot;Here&apos;s Betsy&apos;s estimate:\n&quot;;
+    estimate(code, betsy);
+    cout &lt;&lt; &quot;Here&apos;s Pam&apos;s estimate:\n&quot;;
+    estimate(code, pam);
+    return 0;
+}
+
+double betsy(int lns)
+{
+    return 0.05 * lns;
+}
+
+double pam(int lns)
+{
+    return 0.03 * lns + 0.0004 * lns * lns;
+}
+
+void estimate(int lines, double (*pf)(int))
+{
+    cout &lt;&lt; lines &lt;&lt; &quot; lines will take &quot;;
+    cout &lt;&lt; (*pf)(lines) &lt;&lt; &quot; hour(s)\n&quot;;
+}
+</code></pre><p>结果</p>
+<pre><code>How many lines of code do you need? 30  
+Here&apos;s Betsy&apos;s estimate:
+30 lines will take 1.5 hour(s)
+Here&apos;s Pam&apos;s estimate:
+30 lines will take 1.26 hour(s)
+</code></pre><h3 id="7-10-3-深入探讨函数指针"><a href="#7-10-3-深入探讨函数指针" class="headerlink" title="7.10.3 深入探讨函数指针"></a>7.10.3 深入探讨函数指针</h3><p>下面一些函数的原型，它们的特征标（参数列表）和返回类型相同：</p>
+<pre><code>const double * f1(const double ar[], int n);
+const double * f2(const double [], int);
+const double * f3(const double *, int);
+</code></pre><p>这些函数特征标看似不同，但实际上相同。前面说过，在函数原型中，参数列表const double ar[]与const double $\ast$ar的含义相同。其次，在函数原型中，可以省略标识符（参数名）。因此，const double ar[]可简化为const double []，而const double $\ast$ar可简化为const double $\ast$。因此，上述的函数特征标的含义都相同。另一方面，函数定义必须通过标识符，因此需要使用const double $\ast$ar或const double ar[]。</p>
+<p>接下来，声明一个指针，它可指向这三个函数之一。假设该指针名为pa，则只需要将目标函数原型中的函数名替换为($\ast$pa):</p>
+<pre><code>const double * (*pa)(cosnt double * , int);
+</code></pre><p>可在声明的同时初始化：</p>
+<pre><code>const double * (*pa)(cosnt double * , int) = f1;
+</code></pre><p>使用C++的自动类型推断功能时，代码要简单得多：</p>
+<pre><code>auto p2 = f2;
+</code></pre><p>将于使用三个函数，如果有一个函数指针数组将很方便。这种声明声明类似于单个函数指针的声明，但必须在某个地方加上[3]，以指出一个包含三个函数指针的数组：</p>
+<pre><code>const double * (*pa[3])(const double *, int) = {f1, f2, f3};
+</code></pre><p>pa是一个包含三个元素的数组，而要声明这样的数组，首先需要使用pa[3]。该声明的其他部分指出了数组包含的元素是什么样的。运算符[]的优先级高于$\ast$，因此$\ast$pa[3]表明pa是一个包含三个指针的数组。在此不能使用auto，自动类型推断只能用于单值初始化，而不能用于初始化列表。但是声明数组pa后，声明同样类型的数组就简单了：</p>
+<pre><code>auto pb = pa;
+</code></pre><p>使用它们来调用函数：pa[i]和pb[i]表示数组中的指针，因此可将任何一种函数调用表示法用于它们：</p>
+<pre><code>const double * px = pa[0](av,3);
+const double * py = (*pb[1])(av,3);
+</code></pre><p>获取指向的double值，可使用运算符$\ast$:</p>
+<pre><code>double x = *pa[0](av,3);
+double y = *(*pb[1])(av,3);
+</code></pre><p>可做的另一件事是创建指向整个数组的指针。由于数组名pa是指向函数指针的指针，因此指向数组的指针将是这样的指针，即它指向数组指针的指针。由于可使用单个值对其进行初始化，因此可以使用auto:</p>
+<pre><code>auto pc = &amp;pa;
+</code></pre><p>如果指针名为pd，则需要指出它是一个指针，而不是数组。这意味着声明的核心部分应为($\ast$pd)[3]，其中的括号让标识符pd与$*$先结合：</p>
+<pre><code>*pd[3]// 一个数组有三个指针
+(*pd)[3] //一个指针指向三个元素
+</code></pre><p>即pd是一个指针，它指向一个包含三个元素的数组。由pa的声明的其他部分描述，如果如下：</p>
+<pre><code>const double *(*(*pd)[3])(const double *, int) = &amp;pa;
+</code></pre><p>要调用函数，需要认识：pd指向数组，$\ast$pd就是数组，而($*$pd)[i]是数组中的元素，即函数指针。因此，较简单的函数调用是($\ast$pd)<a href="av,3">i</a>，而$\ast$($\ast$pd)<a href="av,3">i</a>是返回的指针所指向的值。也可以使用第二种使用指针调用函数语法：使用($\ast$($\ast$pd[i]))(av,3)，而$\ast$($\ast$($\ast$pd))<a href="av,3">i</a>是指向的double值。</p>
+<p>pa和&amp;的区别：pa都是数组第一个元素的地址，即&amp;pa[0]，因此，它是单个指针的地址。但&amp;pa是整个数组的地址（即三个指针块）。从数字上来说，pa和&amp;pa的值相同，但它们的类型不同，一种差别是，pa+1为数组中的下一个元素，而&amp;pa+1为数组pa后面的12字节内存块的地址(假定地址为4字节)。另一个差别是，要得到第一个元素的值，对pa解除一次引用，但需要对&amp;pa解除两次引用：</p>
+<pre><code>**&amp;pa == *pa == pa[0]
+</code></pre><p>arfupt.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+const double * f1(const double ar[], int n);
+const double * f2(const double [], int);
+const double * f3(const double *, int);
+
+int main()
+{
+    double av[3] = {1112.3, 1542.6, 2227.9};
+    const double *(*p1)(const double *, int) = f1;
+    auto p2 =  f2;
+    cout &lt;&lt; &quot;Using pointers to functions:\n&quot;;
+    cout &lt;&lt; &quot;Address Value\n&quot;;
+    cout &lt;&lt; (*p1)(av,3) &lt;&lt; &quot;: &quot; &lt;&lt; *(*p1)(av,3) &lt;&lt; endl;
+    cout &lt;&lt; p2(av,3) &lt;&lt; &quot;: &quot; &lt;&lt; *p2(av,3) &lt;&lt; endl;
+
+    const double *(*pa[3])(const double *, int) = {f1, f2, f3};
+    auto pb = pa;
+    //const double *(**pb)(const double *, int) = pa;
+    cout &lt;&lt; &quot;\nUsing an array of pointers to functions:\n&quot;;
+    cout &lt;&lt; &quot;Address Value\n&quot;;
+    for (int i =  0; i &lt; 3; i++)
+        cout &lt;&lt; pb[i](av,3) &lt;&lt; &quot;: &quot; &lt;&lt; *pb[i](av,3) &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;\nUsing pointers to an array pointers:\n&quot;;
+    cout &lt;&lt; &quot;Address Value\n&quot;;
+    auto pc = &amp;pa;
+    cout &lt;&lt; (*pc)[0](av,3) &lt;&lt; &quot;: &quot; &lt;&lt; *(*pc)[0](av,3) &lt;&lt; endl;
+    const double *(*(*pd)[3])(const double *, int) = &amp;pa;
+    const double * pdb = (*pd)[1](av,3);
+    cout &lt;&lt; pdb &lt;&lt; &quot;: &quot; &lt;&lt; *pdb &lt;&lt; endl;
+    cout &lt;&lt;  (*(*pd)[2])(av,3) &lt;&lt; &quot;: &quot; &lt;&lt; *(*(*pd)[2])(av,3) &lt;&lt; endl;
+    return 0;
+}
+
+const double * f1(const double * ar, int n)
+{
+    return ar;
+}
+
+const double * f2(const double ar[], int n)
+{
+    return ar+1;
+}
+
+const double * f3(const double ar[], int n)
+{
+    return ar+2;
+}
+</code></pre><p>结果:</p>
+<pre><code>Using pointers to functions:
+Address Value
+0x7fff5fac4b50: 1112.3
+0x7fff5fac4b58: 1542.6
+
+Using an array of pointers to functions:
+Address Value
+0x7fff5fac4b50: 1112.3
+0x7fff5fac4b58: 1542.6
+0x7fff5fac4b60: 2227.9
+
+Using pointers to an array pointers:
+Address Value
+0x7fff5fac4b50: 1112.3
+0x7fff5fac4b58: 1542.6
+0x7fff5fac4b60: 2227.9
+</code></pre><p>auto在C++11才有，所以编译时使用：</p>
+<pre><code>g++ -std=c++11 arfupt.cpp
+</code></pre><h3 id="7-10-4-使用typedef进行简化"><a href="#7-10-4-使用typedef进行简化" class="headerlink" title="7.10.4 使用typedef进行简化"></a>7.10.4 使用typedef进行简化</h3><p>除auto外，C++还提供了简化声明的工具。关键字typedef能够创建类型别名：</p>
+<pre><code>typedef double real; //real为double的别名
+</code></pre><p>这里采用的方法是，将别名当作标识符进行声明，并在开头使用关键字typedef。因此，可将p_fun声明为程序中使用的函数指针类型的别名：</p>
+<pre><code>typedef const double *(*p_fun)(const double *, int);
+p_fun p1 = f1;
+</code></pre><p>然后使用这个别名来简化代码：</p>
+<pre><code>p_fun pa[3] = {f1,f2,f3};
+p_fun (*pd)[3] = &amp;pa;
+</code></pre><h2 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h2><p>函数原型</p>
+<p>参数传递和返回值</p>
+<p>函数指针</p>
 
       
     </div>
@@ -524,12 +1392,12 @@ int sum_arr(int arr[], int n)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的变成模块)（七）</a></p>
+        <p><span>本文标题:</span><a href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-10-04, 10:30:14</p>
-        <p><span>最后更新:</span>2018-10-10, 15:15:06</p>
+        <p><span>最后更新:</span>2018-10-12, 09:28:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/" title="C++ Primer Plus--函数(C++的变成模块)（七）">https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</a>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/" title="C++ Primer Plus--函数(C++的编程模块)（七）">https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -543,8 +1411,8 @@ int sum_arr(int arr[], int n)
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">
-                    格理论与密码学--格基约减算法与实现（四）
+                <a href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">
+                    格理论与密码学--格的定义与相关性质（三）
                 </a>
             </div>
         
@@ -624,7 +1492,7 @@ int sum_arr(int arr[], int n)
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-复习函数的基本知识"><span class="toc-number">1.</span> <span class="toc-text">7.1 复习函数的基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-定义函数"><span class="toc-number">1.1.</span> <span class="toc-text">7.1 定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-2-函数原型和函数调用"><span class="toc-number">1.2.</span> <span class="toc-text">7.1.2 函数原型和函数调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数原型必要性"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.函数原型必要性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-原型的语法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 原型的语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-原型的功能"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 原型的功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-函数参数和按转传递"><span class="toc-number">2.</span> <span class="toc-text">7.2 函数参数和按转传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-多个参数"><span class="toc-number">2.1.</span> <span class="toc-text">7.2.1 多个参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-2-另一个接收两个参数的函数"><span class="toc-number">2.1.1.</span> <span class="toc-text">7.2.2 另一个接收两个参数的函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-函数和数组"><span class="toc-number">3.</span> <span class="toc-text">7.3 函数和数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-函数如何使用指针来处理数组"><span class="toc-number">3.1.</span> <span class="toc-text">7.3.1 函数如何使用指针来处理数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-将数组作为参数意味着什么"><span class="toc-number">3.2.</span> <span class="toc-text">7.3.2 将数组作为参数意味着什么</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-复习函数的基本知识"><span class="toc-number">1.</span> <span class="toc-text">7.1 复习函数的基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-定义函数"><span class="toc-number">1.1.</span> <span class="toc-text">7.1 定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-2-函数原型和函数调用"><span class="toc-number">1.2.</span> <span class="toc-text">7.1.2 函数原型和函数调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数原型必要性"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.函数原型必要性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-原型的语法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 原型的语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-原型的功能"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 原型的功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-函数参数和按转传递"><span class="toc-number">2.</span> <span class="toc-text">7.2 函数参数和按转传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-多个参数"><span class="toc-number">2.1.</span> <span class="toc-text">7.2.1 多个参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-2-另一个接收两个参数的函数"><span class="toc-number">2.1.1.</span> <span class="toc-text">7.2.2 另一个接收两个参数的函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-函数和数组"><span class="toc-number">3.</span> <span class="toc-text">7.3 函数和数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-函数如何使用指针来处理数组"><span class="toc-number">3.1.</span> <span class="toc-text">7.3.1 函数如何使用指针来处理数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-将数组作为参数意味着什么"><span class="toc-number">3.2.</span> <span class="toc-text">7.3.2 将数组作为参数意味着什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-更多数组函数示例"><span class="toc-number">3.3.</span> <span class="toc-text">7.3 更多数组函数示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-填充数组"><span class="toc-number">3.3.1.</span> <span class="toc-text">1. 填充数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-显示数组及使用const保护数组"><span class="toc-number">3.3.2.</span> <span class="toc-text">2. 显示数组及使用const保护数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-修改数组"><span class="toc-number">3.3.3.</span> <span class="toc-text">3. 修改数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-组合"><span class="toc-number">3.3.4.</span> <span class="toc-text">4. 组合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-数组处理函数的常用编写方式"><span class="toc-number">3.3.5.</span> <span class="toc-text">5. 数组处理函数的常用编写方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-使用数组区间的函数"><span class="toc-number">3.4.</span> <span class="toc-text">7.3.4 使用数组区间的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-5-指针和const"><span class="toc-number">3.5.</span> <span class="toc-text">7.3.5 指针和const</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-const-int"><span class="toc-number">3.5.1.</span> <span class="toc-text">1. const int *</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-int-const"><span class="toc-number">3.5.2.</span> <span class="toc-text">2. int * const</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-函数和二维数组"><span class="toc-number">4.</span> <span class="toc-text">7.4 函数和二维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-函数和C-风格字符串"><span class="toc-number">5.</span> <span class="toc-text">7.5 函数和C-风格字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-1-将C-风格字符串作为参数的函数"><span class="toc-number">5.1.</span> <span class="toc-text">7.5.1 将C-风格字符串作为参数的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-2-返回C-风格字符串的函数"><span class="toc-number">5.2.</span> <span class="toc-text">7.5.2 返回C-风格字符串的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-函数和结构"><span class="toc-number">6.</span> <span class="toc-text">7.6 函数和结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-1-传递和返回结构"><span class="toc-number">6.1.</span> <span class="toc-text">7.6.1 传递和返回结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-2-另一个处理结构的函数示例"><span class="toc-number">6.2.</span> <span class="toc-text">7.6.2 另一个处理结构的函数示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-3-传递结构的地址"><span class="toc-number">6.3.</span> <span class="toc-text">7.6.3 传递结构的地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#遇到的问题-待解决"><span class="toc-number"></span> <span class="toc-text">遇到的问题(待解决)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-7-函数核string对象"><span class="toc-number">1.</span> <span class="toc-text">7.7 函数核string对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-8-函数和array对象"><span class="toc-number">2.</span> <span class="toc-text">7.8 函数和array对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-9-递归"><span class="toc-number">3.</span> <span class="toc-text">7.9 递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-1-包好一个递归调用的递归"><span class="toc-number">3.1.</span> <span class="toc-text">7.9.1 包好一个递归调用的递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-2-包含多个递归调用的递归"><span class="toc-number">3.2.</span> <span class="toc-text">7.9.2 包含多个递归调用的递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-10-函数指针"><span class="toc-number">4.</span> <span class="toc-text">7.10 函数指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-1-函数指针的基础知识"><span class="toc-number">4.1.</span> <span class="toc-text">7.10.1 函数指针的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获取函数地址"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.获取函数地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-声明函数指针"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.声明函数指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-使用指针来调用函数"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.使用指针来调用函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-2-函数指针示例"><span class="toc-number">4.2.</span> <span class="toc-text">7.10.2 函数指针示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-3-深入探讨函数指针"><span class="toc-number">4.3.</span> <span class="toc-text">7.10.3 深入探讨函数指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-4-使用typedef进行简化"><span class="toc-number">4.4.</span> <span class="toc-text">7.10.4 使用typedef进行简化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-11-总结"><span class="toc-number">5.</span> <span class="toc-text">7.11 总结</span></a></li></ol>
         
     </div>
     <style>
@@ -660,7 +1528,7 @@ int sum_arr(int arr[], int n)
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--函数(C++的变成模块)（七）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"C++ Primer Plus--函数(C++的编程模块)（七）　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -680,7 +1548,7 @@ int sum_arr(int arr[], int n)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/" title="上一篇: 格理论与密码学--格基约减算法与实现（四）">
+            <a href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/" title="上一篇: 格理论与密码学--格的定义与相关性质（三）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -694,7 +1562,7 @@ int sum_arr(int arr[], int n)
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的变成模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 

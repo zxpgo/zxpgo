@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-10T07:29:21.454Z</updated>
+  <updated>2018-10-12T01:30:22.559Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Primer Plus--函数探幽（八）</title>
+    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
+    <published>2018-10-12T01:30:14.000Z</published>
+    <updated>2018-10-12T01:30:22.559Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模式识别(二)--感知器算法</title>
+    <link href="https://zxpgo.github.io/2018/10/11/%E6%84%9F%E7%9F%A5%E5%99%A8%E7%AE%97%E6%B3%95/"/>
+    <id>https://zxpgo.github.io/2018/10/11/感知器算法/</id>
+    <published>2018-10-11T03:01:50.000Z</published>
+    <updated>2018-10-11T03:04:18.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;感知器算法
+    
+    </summary>
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式机器学习框架--参数服务器</title>
@@ -39,25 +79,7 @@
     <link href="https://zxpgo.github.io/2018/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E5%9B%9B)--%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
     <id>https://zxpgo.github.io/2018/10/07/计算机网络(四)--网络层/</id>
     <published>2018-10-07T13:54:50.000Z</published>
-    <updated>2018-10-07T13:55:24.327Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
-    <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-04T12:29:05.132Z</updated>
+    <updated>2018-10-11T15:14:46.963Z</updated>
     
     <summary type="html">
     
@@ -71,10 +93,10 @@
     
     </summary>
     
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -105,11 +127,37 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--函数(C++的变成模块)（七）</title>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <published>2018-10-04T10:48:50.000Z</published>
+    <updated>2018-10-04T12:29:05.132Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--函数(C++的编程模块)（七）</title>
     <link href="https://zxpgo.github.io/2018/10/04/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0(C++%E7%9A%84%E5%8F%98%E6%88%90%E6%A8%A1%E5%9D%97)%EF%BC%88%E4%B8%83%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</id>
     <published>2018-10-04T02:30:14.000Z</published>
-    <updated>2018-10-10T07:15:06.769Z</updated>
+    <updated>2018-10-12T01:28:39.647Z</updated>
     
     <summary type="html">
     
@@ -266,7 +314,7 @@
     <link href="https://zxpgo.github.io/2018/09/27/C++%20Primer%20Plus--%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/</id>
     <published>2018-09-27T02:23:14.000Z</published>
-    <updated>2018-10-02T02:20:22.647Z</updated>
+    <updated>2018-10-10T11:12:01.160Z</updated>
     
     <summary type="html">
     
@@ -282,15 +330,15 @@
   </entry>
   
   <entry>
-    <title>计算机网络(一)--概论</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
+    <title>计算机网络(二)--物理层</title>
+    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E7%89%A9%E7%90%86%E5%B1%82/"/>
+    <id>https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/</id>
     <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-26T08:37:02.867Z</updated>
+    <updated>2018-09-29T14:45:09.648Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;五层协议体系结构、计算机网络性能
+      &lt;p&gt;物理层
     
     </summary>
     
@@ -302,15 +350,15 @@
   </entry>
   
   <entry>
-    <title>计算机网络(二)--物理层</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)--%E7%89%A9%E7%90%86%E5%B1%82/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/</id>
+    <title>计算机网络(一)--概论</title>
+    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
+    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
     <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-29T14:45:09.648Z</updated>
+    <updated>2018-09-26T08:37:02.867Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;物理层
+      &lt;p&gt;五层协议体系结构、计算机网络性能
     
     </summary>
     
@@ -378,46 +426,6 @@
     
     
       <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</title>
-    <link href="https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective%20Data%20Access%20Control%20for%20Multiauthority%20Cloud%20Storage%20Systems/"/>
-    <id>https://zxpgo.github.io/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/</id>
-    <published>2018-09-06T08:28:50.000Z</published>
-    <updated>2018-10-02T14:16:22.056Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文一
-    
-    </summary>
-    
-      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>移动通信技术</title>
-    <link href="https://zxpgo.github.io/2018/09/06/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF/"/>
-    <id>https://zxpgo.github.io/2018/09/06/移动通信技术/</id>
-    <published>2018-09-06T08:28:50.000Z</published>
-    <updated>2018-10-02T14:16:12.177Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍第二代至第四代移动通信技术，以及正在研发的第五代移动通信技术
-    
-    </summary>
-    
-      <category term="教程" scheme="https://zxpgo.github.io/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="通信协议" scheme="https://zxpgo.github.io/tag/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   
