@@ -293,6 +293,77 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-微软面试题目--字母易位词" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/12/微软面试题目--字母易位词/" class="article-date">
+      <time datetime="2018-10-12T01:30:14.000Z" itemprop="datePublished">2018-10-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a>
+    </h1>
+  
+
+      </header>
+	  
+      
+    
+	
+    <div class="article-entry" itemprop="articleBody">
+	
+      
+          
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>两个单词如果包含相同的字母，次序不同，则称为字母易位词(anagram)。例如，“silent”和“listen”是字母易位词，而“apple”和“aplee”不是易位词。请定义函数检查两个单词是否是字母易位词。可以假设两个单词字母均为小写。要求算法复杂度尽量低。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/10/12/微软面试题目--字母易位词/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
+	
+	
+	
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-C++ Primer Plus--函数探幽（八）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -546,12 +617,8 @@
 	
       
           
-        <h2 id="4-1-网络层提供的两种服务"><a href="#4-1-网络层提供的两种服务" class="headerlink" title="4.1 网络层提供的两种服务"></a>4.1 网络层提供的两种服务</h2><p>借助于电信网的成功经验，让网络复杂可靠交付。电信网使用昂贵的程控交换机，用<strong>面向链接</strong>的通信方式，使电信网络能够向用户(实际上使电话机)提供可靠传输的服务。计算机网络也应该模仿打电话所使用的面向连接的通信方式。当计算机进行通信时，也应当先建立连接(但在分组交换中使建立一条<strong>虚电路VC</strong>)以保证双方通信所需的一切网络资源。然后，双方就沿着已建立的虚电路发送分组。这样的分组首部不需要填写完整的目的主机地址，而只需要填写这条虚电路的编号(一个不大的整数)，因而减少了分组的开销。这种通信方式如果再使用可靠传输的网络协议，就可使所发的分组无差错按序到达终点，当然也不会丢失、不重复。在通信结束以后释放虚电路。具体如下图：</p>
-<p><img src="https://i.imgur.com/yvq1aQk.png" alt=""></p>
-<p>计算机网络的端系统是有智能的计算机，计算机有很强的差错处理能力，因此，因特网在设计上就采用了和电信网完全不同的思路。</p>
-<p>这种思路就是：网络层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网络在发送分组时不需要先建立连接。每一个分组独立发送，所传送的分组可能出错、丢失、重复和失序，当然也不保证分组交付的时限。由于传输网络不提供端到端的可靠传输服务，这种网络中的路由器比较简单，价格低廉。如果主机中的进程之间的通信需要是可靠的，那么就由路由网络的主机中的运输层负责（包括差错处理、流量控制）。如下图：</p>
-<p><img src="https://i.imgur.com/xDhr4JV.png" alt=""></p>
-<h2 id="4-2-网际IP协议"><a href="#4-2-网际IP协议" class="headerlink" title="4.2 网际IP协议"></a>4.2 网际IP协议</h2>
+              <p>网络层
+          
       
     </div>
     
@@ -568,6 +635,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/计算机网络/">计算机网络</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/10/07/计算机网络(四)--网络层/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -621,25 +692,8 @@
 	
       
           
-        <p>二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。</p>
-<h2 id="4-1-二维格中的高斯格基约减算法"><a href="#4-1-二维格中的高斯格基约减算法" class="headerlink" title="4.1 二维格中的高斯格基约减算法"></a>4.1 二维格中的高斯格基约减算法</h2><p>高斯提出了如何在二维格中找出一组优质基的算法，这个算法的根本思想是：从一个基向量中交替减去另一个基向量的倍数，直到再没有更好的改进为止。没有更好的改进，就是没事算法中的一个特定的条件要求。</p>
-<p>给定一个二维格$L \subset R^2$，它的一组基向量为$v_1$和$v_2$，并假设$||v_1|| &lt; ||v_2||$。这个条件很容易实现，因为即使不能够直接满足上述条件，只需要将$v_2$和$v_2$交换位置即可。然后通过从向量$v_2$中减去$v_1$的倍数来达到减少$v_2$的目的。若可以从$v_2$中减去$v_1$任意倍数，则可以利用如下式中的$v^{\ast}_2$来代替$v_2$:</p>
-<p>$v_2^{\ast} = v_2 - \frac{v_1 \cdot v_2}{||v1||^2} v_1$</p>
-<p>由上式可以看出，向量$v^{\ast}_2$和向量$v_1$是正交的，并且向量$v^{\ast}_2$就是$v_2$在$v_1$证据补上的投影，如下图：</p>
-<p><img src="https://i.imgur.com/6q2Z1nz.png" alt=""></p>
-<p>但上述做法在实际中并不可行，因为通过上式计算出来的向量$v^{\ast}_2$很可能根本不在格$L$中。所以，在实际应用中只允许从向量$v_2$中减去$v_1$的整数倍。为了达到跟上式相近的结果，利用下式的向量来取代$v_2$:</p>
-<p>$v_2 - m v_1, m = \lceil \frac{v_1 \cdot v_2}{||v1||^2} \rceil$</p>
-<p>如果$v_2$仍旧比$v_1$长，那么算法结束；否则，交换向量$v_1$和$v_2$，然后重复上述过程。高斯证明了这个过程可以在有限步后结束，并且最终的基向量具有良好的正交性质。算法4.1对上述程序给出了严格的描述。</p>
-<p><img src="https://i.imgur.com/C0spUbD.png" alt=""></p>
-<p>更准确地说，当这个算法终止的时候，向量$v_1$就是格$L$中最短的非零向量。因此算法4.1很好地解决了SVP问题。</p>
-<p>例4.1</p>
-<p><img src="https://i.imgur.com/zu8wp0V.png" alt=""><br><img src="https://i.imgur.com/HEsKTNK.png" alt=""></p>
-<h2 id="4-2-LLL格基约减算法及其衍生和变形"><a href="#4-2-LLL格基约减算法及其衍生和变形" class="headerlink" title="4.2 LLL格基约减算法及其衍生和变形"></a>4.2 LLL格基约减算法及其衍生和变形</h2><h3 id="4-2-1-LLL格基约减算法"><a href="#4-2-1-LLL格基约减算法" class="headerlink" title="4.2.1 LLL格基约减算法"></a>4.2.1 LLL格基约减算法</h3><p>高斯格基约算法给出了一个在二维格中找到最短非零向量的有效方法。但是这个方法具有一定的局限性，因为随着格维数的增加，寻找最短向量也变得越来越困难。1982年，Lenstra、Lenstra和Lovasz提出了著名的LLL算法。该算法思想源于Lagrange、Gauss、Hermite、Korkine-Zolotareff等的二次型理论及Minkovski的数的几何理论。</p>
-<p>给定格$L$的一组基$\lbrace v_1,\dots, v_n\rbrace$，然后对他进行约减。<strong>约减的主要目的是将这组任意给定的基转化为一组正交性较好的优质基，并使得这个优质基中的各个向量尽量短。</strong>即，首先要得到能够通过算法找到的最短向量，然后，找到比这个最短向量稍长一点的向量，依次类推，直到最后找到这组基中的最后一个向量为止。或者，要使得在这个优质基中的向量之间具有相当好的正交性，即两个向量的点乘$v_i \cdot v_j$尽可能地接近零。</p>
-<p><img src="https://i.imgur.com/Af28Ogg.png" alt=""></p>
-<p>根据Hadamard不等式能够得到：</p>
-<p>$delL = vol(F) \leq ||v_1||||v_2||\dots||v_n||$</p>
-
+              <p>二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
+          
       
     </div>
     
@@ -656,6 +710,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -709,33 +767,8 @@
 	
       
           
-        <h2 id="3-2-格中的计算性难题"><a href="#3-2-格中的计算性难题" class="headerlink" title="3.2 格中的计算性难题"></a>3.2 格中的计算性难题</h2><p>与格相关的基本计算性难题有：</p>
-<ul>
-<li>在格中寻找最短的非零向量（最短向量问题SVP）</li>
-<li>在格中寻找与指定非格向量最为接近的向量（最近向量问题CVP）</li>
-</ul>
-<p>首先介绍两个最基本的格难题：</p>
-<p><strong>最短向量问题(SVP)</strong>: 在格$L$中寻找一个最短的非零向量，基寻找一个非零向量$v \in L$，使它的欧几里得范数$||v||$最小。</p>
-<p><strong>最近向量问题(CVP)</strong>: 给定一个不在格$L$中的向量$w \in R^m$，寻找一个向量$v \in L$，使它最接近$w$，即寻找一个向量$v \in L$，使欧几里得范数$||w-v||$最小。</p>
-<p><strong>注意</strong>： 在格中可能存在不止一个最短的非零向量。例如，在$Z^2$中，$(0,\pm1)$和$(\pm,0)$这四个向量都是SVP解。这种情形适用于CVP。</p>
-<p>CVP和SVP这一类问题都属于非常深奥的难题。随着格的维度$n$的增加，它们在计算上也越来越难解。另外，即使是对SVP和CVP的近似解，在理论和应用数学的诸多领域都有着惊人的应用。一般来说，CVP被认为是NP难问题，SVP在特定的“随机规约假设”下也被认为是NP难问题。</p>
-<p>在实际应用中，用到了一些很重要的SVP和CVP的变形形式，如下：</p>
-<ul>
-<li>最短基问题(SBP)：寻找格的一个基$v_1,v_2,\dots,v_n$，使它 在某些情况下最短。例如，可能需要使下式最小：</li>
-</ul>
-<p>$max_{i \leq i \leq n}||v_i||$ 或 $\sum_{i=1}^n||v_i||^2$</p>
-<p>因此，可能有许多版本的SBP，这取决于如何定义基的“大小”。</p>
-<ul>
-<li>近似最短向量问题(apprSVP)：设$\Psi (n)$是$n$的一个函数。在$n$维格$L$中，寻找一个非零向量，使其不大于最短非零向量的$\Psi (n)$倍。即，如果$v_{最短}$是$L$的最短非零向量，那么寻找一个非零向量$v \in L$，使其满足：</li>
-</ul>
-<p>$||v|| \leq \Psi (n) ||v_{最短}||$</p>
-<p>不同的函数$\Psi(n)$可以形成不同版本的apprSVP。比如，如要求设计一个算法，用于寻找非零的向量$v \in L$，满足：</p>
-<p>$||v|| \leq 3 \sqrt{n}||v_{最短}||$ 或 $||v|| \leq 2^{n/2}||v_{最短}||$</p>
-<p>很明显，前者的算法比后者要强，但如果格的维度不大，即使对后者的解也可能是非常有用的。</p>
-<ul>
-<li>近似最近向量问题(apprCVP)。这和apprSVP类似，只不过要找的是对CVP的近似解。</li>
-</ul>
-
+              <p>格中计算性难题
+          
       
     </div>
     
@@ -752,6 +785,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -973,81 +1010,6 @@
       
         <p class="article-more-link">
           <a href="/2018/10/02/NP问题理解/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-格理论与密码学--数学基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/10/02/格理论与密码学--数学基础（一）/" class="article-date">
-      <time datetime="2018-10-02T06:52:50.000Z" itemprop="datePublished">2018-10-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a>
-    </h1>
-  
-
-      </header>
-	  
-      
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
-          
-              <p>介绍一些基本的数学概念和符号。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/格理论与密码学/">格理论与密码学</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/10/02/格理论与密码学--数学基础（一）/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
