@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-13T06:41:02.684Z">
+<meta property="og:updated_time" content="2018-10-14T02:40:04.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--函数探幽（八）">
 <meta name="twitter:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
@@ -231,7 +231,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于编程语言、建站和Linux</div>
+                    <div id="js-aboutme">专注于云存储安全和大数据安全</div>
                 </section>
                 
             </div>
@@ -630,8 +630,393 @@ cout &lt;&lt; jref &lt;&lt; end;
 </code></pre><p>如果不希望函数修改传入的结构，可使用const：</p>
 <pre><code>void display(const free_throws &amp; ft);
 </code></pre><p>strtref.cpp</p>
-<p>结果</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+struct free_throws
+{
+    string name;
+    int made;
+    int attempts;
+    float percent;
+};
 
+void display(const free_throws &amp; ft);
+void set_pc(free_throws &amp; ft);
+free_throws &amp; accumulate(free_throws &amp; target, const free_throws &amp; source);
+
+int main()
+{
+    free_throws one = {&quot;Ifelsa Branch&quot;, 13, 14};
+    free_throws two = {&quot;Andor Knott&quot;, 10, 16};
+    free_throws three = {&quot;Minnie Max&quot;, 7, 9};
+    free_throws four = {&quot;Whily Looper&quot;, 5, 9};
+    free_throws five = {&quot;Long Long&quot;, 6, 14};
+    free_throws team = {&quot;Throwgoods&quot;, 0, 0};
+
+    free_throws dup;
+    set_pc(one);
+    display(one);
+    accumulate(team, one);
+    display(team);
+    display(accumulate(team, two));
+    accumulate(accumulate(team, three), four);
+    display(team);
+    dup = accumulate(team, five);
+    cout &lt;&lt; &quot;Displyaing team:\n&quot;;
+    display(team);
+    cout &lt;&lt; &quot;Display dup after assignment:\n&quot;;
+    display(dup);
+    set_pc(four);
+    accumulate(dup,five) = four;
+    cout &lt;&lt; &quot;Displaying dup after ill-advised assignment:\n&quot;;
+    display(dup);
+    return 0;
+}
+
+void display(const free_throws &amp; ft)
+{
+    cout &lt;&lt; &quot;Name: &quot; &lt;&lt; ft.name &lt;&lt; endl;
+    cout &lt;&lt; &quot; Made: &quot; &lt;&lt; ft.made &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;Attempts: &quot; &lt;&lt; ft.attempts &lt;&lt; &quot;\t&quot;;
+    cout &lt;&lt; &quot;Percent: &quot; &lt;&lt; ft.percent &lt;&lt; endl;
+}
+
+void set_pc(free_throws &amp; ft)
+{
+    if (ft.attempts != 0) 
+        ft.percent = 100.0f * float(ft.made) / float(ft.attempts);
+    else 
+        ft.percent = 0;
+}
+
+free_throws &amp; accumulate(free_throws &amp; target, const free_throws &amp; source)
+{
+    target.attempts += source.attempts;
+    target.made += source.made;
+    set_pc(target);
+    return target;
+}
+</code></pre><p>结果</p>
+<pre><code>Name: Ifelsa Branch
+ Made: 13    Attempts: 14    Percent: 92.8571
+Name: Throwgoods
+ Made: 13    Attempts: 14    Percent: 92.8571
+Name: Throwgoods
+ Made: 23    Attempts: 30    Percent: 76.6667
+Name: Throwgoods
+ Made: 35    Attempts: 48    Percent: 72.9167
+Displyaing team:
+Name: Throwgoods
+ Made: 41    Attempts: 62    Percent: 66.129
+Display dup after assignment:
+Name: Throwgoods
+ Made: 41    Attempts: 62    Percent: 66.129
+Displaying dup after ill-advised assignment:
+Name: Whily Looper
+ Made: 5    Attempts: 9    Percent: 55.5556
+</code></pre><h4 id="1-程序说明"><a href="#1-程序说明" class="headerlink" title="1.程序说明"></a>1.程序说明</h4><p>该程序首先初始化了多个结果对象。如果指定的初始值比成员少，余下的成员(这里是percent)将被设置为零。第一个函数调用如下：</p>
+<pre><code>set_pc(one);
+</code></pre><p>由于函数set_pc()的形参ft为引用，因此ft指向one，函数set_pc()的代码设置成员one.percent。按值传递不行，因此这将导致设置的是one的临时拷贝的成员percent。另一种方法是使用指针参数，并传递结构的地址，要复杂些。</p>
+<p>下一个函数调用如下：</p>
+<pre><code>display(one);
+</code></pre><p>由于display()显示结构的内容，而不修改它，因此这个函数使用了一个const引用参数。就这个函数而言，也可按值传递，但与复制原始结构的拷贝相比，使用引用可节省时间和内存。</p>
+<p>再下一个函数调用如下：</p>
+<pre><code>accumulate(team, one);
+</code></pre><p>函数accumulate()接收两个结构参数，并将第二结构的成员attempts和made的数据添加到第一个结构的相应成员中。只修改了第一个结构，因此第一个参数为引用，而第二个参数为const引用：</p>
+<pre><code>free_throws &amp; accumulate(free_throws &amp; target, const free_throws &amp; source)
+</code></pre><p>当前讨论的函数调用没有使用它，就目前而言，原本可以将返回值声明void，但请看下述函数调用：</p>
+<pre><code>display(accumulate(team, two));
+</code></pre><p>首先，结构对象team作为第一个参数传递给了accumulate()。意味着在函数accumulate()中，target指向的是team。函数accumulate()修改team，在返回指向它的引用。注意到返回语句如下：</p>
+<pre><code>return target;
+</code></pre><p>光看这条语句并不能知道返回的是引用，但函数头和原型中指出了这一点。如果返回类型被声明为free_throws而不是free_throws &amp;，上述返回语句将返回target（即team）的拷贝。但返回类型为引用，这意味着返回的是最初传递给accumulate()的team对象。</p>
+<p>接下来，将accumulate()的返回值作为参数传递给了display()，这意味着将team传递给了display()。display()的参数为引用，这意味着函数display()中的ft指向是team，因此将显示team的内容。</p>
+<h4 id="2-为何要返回引用"><a href="#2-为何要返回引用" class="headerlink" title="2.为何要返回引用"></a>2.为何要返回引用</h4><p>下面更深入地讨论返回引用与传统返回机制的不同。传统返回机制与按值传递函数参数类似：计算关键字return后面的表达式，并将结果返回给调用函数。从概念上说，这个值被复制到一个临时位置，而调用程序将使用这个值。</p>
+<pre><code>double m = sqrt(16.0);
+cout &lt;&lt; sqrt(25.0);
+</code></pre><p>在第一天语句中，值4.0被复制到一个临时位置，然后被复制给m。在第二条语句中，值5.0被复制到一个临时位置，然后被传递给cout。</p>
+<pre><code>dup = accumulate(team, five);
+</code></pre><p>如果accumulate()返回一个结构，而不是指向结构的引用，将把整个结构复制到一个临时位置，再将这个拷贝复制给dup。但在返回值为引用时，将直接把team复制到dup，其效率更高。</p>
+<h4 id="3-返回引用时需要注意的问题"><a href="#3-返回引用时需要注意的问题" class="headerlink" title="3. 返回引用时需要注意的问题"></a>3. 返回引用时需要注意的问题</h4><p>返回引用时最重要的一点是，应避免返回函数终止时不再存在的内存单元引用。应避免写下面这样的代码：</p>
+<pre><code>const free_throws &amp; clone2(free_throws &amp; ft)
+{
+    free_throws newguy;
+    newguy = ft;
+    return newguy;
+}
+</code></pre><p>该函数返回一个指向临时变量的引用，函数运行完毕它将不再存在。也应避免返回指向临时变量的指针。</p>
+<p>为避免这种问题，最简单的方法是，返回一个作为参数传递给函数的引用。作为参数的引用将指向调用函数使用的数据，因此返回的引用也将指向这些数。正如accumulate()一样，第一个引用就是这个作用。</p>
+<p>另一种方法是用new来分配新的存储空间。前面使用过，使用new为字符串分配内存空间，并返回指向该内存空间的指针。下面是使用引用来完成类似的工作：</p>
+<pre><code>const free_throws &amp; clone(free_throws &amp; ft)
+{
+    free_throws * pt;
+    *pt = ft;
+    return *pt;
+}
+</code></pre><p>第一条语句创建一个无名的free_throws结构，并让指针pt指向该结构，因此*pt就是该结构。上述代码似乎会返回结构，但函数声明表明，该函数实际上将返回这个结构的引用。这样，便可以这样使用该函数：</p>
+<pre><code>free_throws &amp; jolly = clone(three);
+</code></pre><p>这使得jolly成为新结构的引用，这种方法存在一个问题：在不再需要new分配的内存时，应使用delete来释放它们。调用clone()隐藏了对new的调用，这使得以后很容易忘记使用delete来释放内存。第16章讨论的auto_ptr模板以及C++新增的unique_ptr可帮助程序员自动完成释放工作。</p>
+<h4 id="4-为何将const用于引用返回类型"><a href="#4-为何将const用于引用返回类型" class="headerlink" title="4. 为何将const用于引用返回类型"></a>4. 为何将const用于引用返回类型</h4><p>程序中：</p>
+<pre><code>accumulate(dup, five) = four;
+</code></pre><p>其效果如下：首先将five的数据添加到dup中，再使用four的内容覆盖dup的内容。这条语句为何能够通过编译呢？在赋值语句中，左边必须是可修改的左值，即在赋值表达式中，左边的子表达式必须标识一个可修改的内存块。在这里，函数返回值指向dup的引用，它确实标识的是一个这样的内存块，因此这条语句是合法的。</p>
+<p>另一方面，常规（非引用）返回类型是右值—不能通过地址访问的值。这种表达式可出现在赋值语句的右边，但不能出现在左边。其他右值包括字面值(如10.0)和表达式(x+y)。显然，获取字面值的地址没有意义，但为何常规函数返回值是右值呢？这是因为这种返回值位于临时内存单元中，运行到下一条语句时，它们可能不再存在。</p>
+<p>假设要使用引用返回值，但又不允许执行像给accumulate()赋值这样的操作，只需要将返回类型声明为const引用：</p>
+<pre><code>const free_throws &amp; accumulate(free_throws &amp; target, const free_throws &amp; source);
+</code></pre><p>现在返回类型为const，是不可修改的左值，因此下面的赋值语句不合法：</p>
+<pre><code>accumulate(dup, five) = four;
+</code></pre><p>返回类型为const引用后，下面的语句仍合法：</p>
+<pre><code>display(accumulate(team, two));
+</code></pre><p>这是因为display()的形参也是const free_throws &amp;类型。但下面的赋值语句不合法，因此accumulate()的第一形参不是const:</p>
+<pre><code>accumulate(accumualte(team, three), four);
+</code></pre><p>在此，影响不大，仍可以这样做：</p>
+<pre><code>accumulate(team, three);
+accumulate(team, four);
+</code></pre><h3 id="8-2-5-将引用用于对象"><a href="#8-2-5-将引用用于对象" class="headerlink" title="8.2.5 将引用用于对象"></a>8.2.5 将引用用于对象</h3><p>将类对象传递给函数是，C++通过的做法是使用引用。例如，可以通过使用引用，让函数将类string、ostream、istream、ofstream和ifstream等类的对象作为参数。</p>
+<p>使用string类，演示一些不同的设计方案。这个例子的基本思想是:创建一个函数，它将指定的字符串加入到另一个字符串的前面和后面。下面程序提供了三个函数，然后其中的一个存在非常大的缺陷，可能导致程序崩溃甚至不通过编译。</p>
+<p>strquote.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+string version1(const string &amp; s1, const string &amp; s2);
+const string &amp; version2(string &amp; s1, const string &amp; s2);
+const string &amp; version3(string &amp; s1, const string &amp; s2);
+
+int main()
+{
+    string input;
+    string copy;
+    string result;
+
+    cout &lt;&lt; &quot;Enter a string: &quot;;
+    getline(cin, input);
+    copy = input;
+    cout &lt;&lt; &quot;Your string as entered: &quot; &lt;&lt; input &lt;&lt; endl;
+    result = version1(input, &quot;***&quot;);
+    cout &lt;&lt; &quot;Your string enhanced: &quot; &lt;&lt; result &lt;&lt; endl;
+    cout &lt;&lt; &quot;Your original string: &quot; &lt;&lt; input &lt;&lt; endl;
+
+    result = version2(input, &quot;###&quot;);
+        cout &lt;&lt; &quot;Your string enhanced: &quot; &lt;&lt; result &lt;&lt; endl;
+        cout &lt;&lt; &quot;Your original string: &quot; &lt;&lt; input &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;Resetting original string.\n&quot;;
+    input = copy;
+    result = version3(input, &quot;@@@&quot;);
+        cout &lt;&lt; &quot;Your string enhanced: &quot; &lt;&lt; result &lt;&lt; endl;
+        cout &lt;&lt; &quot;Your original string: &quot; &lt;&lt; input &lt;&lt; endl;
+
+    return 0;
+}
+
+string version1(const string &amp; s1, const string &amp; s2)
+{
+    string temp;
+    temp = s2 + s1 + s2;
+    return temp;
+}
+
+const string &amp; version2(string &amp; s1, const string &amp; s2)
+{
+    s1 = s2 + s1 + s2;
+    return s1;
+}
+
+const string &amp; version3(string &amp; s1, const string &amp; s2)
+{
+    string temp;
+    temp = s2 + s1 + s2;
+    return temp;
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter a string: It&apos;s my fault
+Your string as entered: It&apos;s my fault
+Your string enhanced: ***It&apos;s my fault***
+Your original string: It&apos;s my fault
+Your string enhanced: ###It&apos;s my fault###
+Your original string: ###It&apos;s my fault###
+Resetting original string.
+Your string enhanced: 
+Your original string: It&apos;s my fault
+</code></pre><p>编译时给出警告</p>
+<pre><code>strquote.cpp: 在函数‘const string&amp; version3(std::string&amp;, const string&amp;)’中:
+strquote.cpp:50:9: 警告：返回了对局部变量的‘temp’的引用 [-Wreturn-local-addr]
+  string temp;
+</code></pre><p>即version3尝试返回一个局部变量的引用。temp是一个新的string对象，只在函数version1()中有效，该函数执行完毕，它将不再存在。因此返回指向temp的引用不可行，因此该函数的返回类型为string，这意味着temp的内容将被复制到一个临时存储单元中，然后在main()中，该存储单元的内容被复制到一个名为result的strin中。</p>
+<p><strong>将C-风格字符串用作string对象引用参数</strong></p>
+<p>对于函数version1()，可能注意到有趣的一点：该函数的两个形参(s1和s2)的类型都是const sting &amp;，但实参(input和”$\ast\ast\ast$”)的类型分别为string和const char *。由于input的类型为string，因此让s1指向它没有任何问题，然而，程序怎么能够接受char指针赋给string引用呢？</p>
+<p>这里有两点需要说明：首先，string类定义了一种char$\ast$到string的转换功能，这使得可以使用C-风格字符日来初始化string对象。其次，本章前面讨论过的类型为const引用的形参的一个属性。假设实参的类型与引用参数类型不匹配，但可被转换为引用类型，程序将创建一个正确类型的临时变量，使用转换后的实参值来初始化它，然后传递一个指向该临时变量的引用。例如，将int实参传递给const double &amp;形参时，就是以这种方式处理的。同样，也可以将实参char$\ast$或const char$\ast$传递给形参const string &amp;。</p>
+<p>这种属性的结果是，如果形参类型为const string &amp;，在调用函数时，使用的实参可以是string对象或C-风格字符串，如用引号括起来的字符串字面量、自空字符结尾的char数组或指向char的指针变量。因此，下面代码是可行的：</p>
+<pre><code>result = version1(input, &quot;***&quot;);
+</code></pre><p>函数version2()不创建临时string对象，而是这将修改原来的string对象。由于s1指向main()中一个对象(input)的引用，因此将s1作为引用返回是安全的。由于s1指向input的引用，调用该函数将带来修改input的副作用。</p>
+<p>verson3()函数的做法是错误的非法的。它存在一个致命的错误：返回一个指向version3()中声明的变量的引用。这个函数能够通过编译（但编程器会给出警告），但当程序试图执行该函数时将崩溃。具体地说，问题是由下面的赋值语句引起的：</p>
+<pre><code>result = version3(input, &quot;@@@&quot;);
+</code></pre><p>程序试图引用已经释放的内存。</p>
+<h3 id="8-2-6-对象、继承和引用"><a href="#8-2-6-对象、继承和引用" class="headerlink" title="8.2.6 对象、继承和引用"></a>8.2.6 对象、继承和引用</h3><p>ostream和ofstream类凸显了引用的一个有趣属性。ofstream对象可以使用ostream类的方法，这使得文件输入/输出的格式与控制台输入/输出相同。使得能够将特性从一个类传递到另一个类的语言特性被称为继承，这将在第13章讨论。简单地说，ostream是基类，而ofstream是派生类。派生类继承了基类的方法，这意味着ofstream对象可以使用基类的特性。</p>
+<p>继承的另一个特征是，基类引用可以指向派生类对象，而无需进行强制转换。这种特征的一个实际结果是，可以定义一个接受基类引用作为参数的函数，调用该函数时，可以将基类作为参数，也可以将派生类对象作为参数。例如：参数类型为ostream &amp;的函数可以接受ostream对象(如 cout)或声明的ofstream对象作为参数。</p>
+<p>下面程序，通过调用一个函数将数据写入文件和显示到屏幕上来说明这一点。该程序要求用户输入望远镜物镜和一些目镜的焦距，然后计算并显示每个目镜的放大倍数。放大倍数等于物镜的焦距除以目镜的焦距。</p>
+<p>filefun.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstdlib&gt;
+using namespace std;
+
+void file_it(ostream &amp; os, double fo, const double fe[], int n);
+const int LIMIT = 5;
+int main()
+{
+    ofstream fout;
+    const char * fn = &quot;ep-data.txt&quot;;
+    fout.open(fn);
+    if (!fout.is_open())
+    {
+        cout &lt;&lt; &quot;Can&apos;t open &quot; &lt;&lt; fn &lt;&lt; &quot;. Bye.\n&quot;;
+        exit(EXIT_FAILURE);
+    }
+    double objective;
+    cout &lt;&lt; &quot;Enter the focal length of your telescope objective in mm: &quot;;
+    cin &gt;&gt; objective;
+    double eps[LIMIT];
+    cout &lt;&lt; &quot;Enter the focal lengths, in mm, of &quot; &lt;&lt; LIMIT &lt;&lt; &quot; eyepieces:\n&quot;;
+    for (int i = 0; i &lt; LIMIT; i++)
+    {
+        cout &lt;&lt; &quot;Eyepiece #&quot; &lt;&lt; i + 1 &lt;&lt; &quot;: &quot; ;
+        cin &gt;&gt; eps[i];
+    }
+    file_it(fout, objective, eps, LIMIT);
+    file_it(cout, objective, eps, LIMIT);
+
+    return 0;
+}
+
+void file_it(ostream &amp; os, double fo, const double fe[], int n)
+{
+    ios_base::fmtflags initial;
+    initial = os.setf(ios_base::fixed);
+    os.precision(0);
+    os &lt;&lt; &quot;Foacal length of objective: &quot; &lt;&lt; fo &lt;&lt; &quot; mm\n&quot;;
+    os.setf(ios::showpoint);
+    os.precision(1);
+    os.width(2);
+    os &lt;&lt; &quot;f.1 eyepiece&quot;;
+    os.width(15);
+    os &lt;&lt; &quot;magnification&quot; &lt;&lt; endl;
+    for (int i = 0; i &lt; n; i++)
+    {
+        os.width(12);
+        os &lt;&lt; fe[i];
+        os.width(15);
+        os &lt;&lt; int (fo/fe[i] + 0.5) &lt;&lt; endl;
+    }
+    os.setf(initial);
+}
+</code></pre><p>结果：</p>
+<pre><code>Enter the focal length of your telescope objective in mm: 1800 
+Enter the focal lengths, in mm, of 5 eyepieces:
+Eyepiece #1: 30
+Eyepiece #2: 19
+Eyepiece #3: 14
+Eyepiece #4: 8.8
+Eyepiece #5: 7.5
+Foacal length of objective: 1800 mm
+f.1 eyepiece  magnification
+        30.0             60
+        19.0             95
+        14.0            129
+         8.8            205
+         7.5            240
+</code></pre><p>对于该程序，最重要的一点是，参数os（其类型为ostream &amp;）可以指向ostream对象（如cout），也可以指向ofstream对象（如fcout）。</p>
+<p>方法setf()让您能够设置各种格式化状态。例如，方法调用setf(ios_base::fixed)将对象置于使用定点表示法模式；set(ios_base::showpoint)将对象置于显示小数点的模式，即使小数部分为零。方法precision()指定显示多少位小数。所有这些设置都将保持不变，直到再次调用相应的方法重新设置它们。方法width()设置下一次输出操作使用的字段宽度，这种设置只在显示下一值时有效，然后将恢复到默认设置。默认的字段宽度为零，这意味着刚好能容纳下要显示的内容。</p>
+<p>函数file_it()使用了两个有趣的方法调用：</p>
+<pre><code>ios_base::fmtflags initial;
+initial = os.setf(ios_base::fixed);
+...
+os.setf(initial);
+</code></pre><p>方法setf()返回调用它之前有效的所有格式设置。ios_base::fmtflags是存储这种信息所需的数据类型名称。因此，将返回值赋给initial将存储调用file_it()之前的格式化设置，然后便可以使用变量initial作为参数来调用setf()，将所有的格式化设置恢复到原来的值。因此，该函数将对象回到传递给file_it()之前的状态。</p>
+<p>需要说明的最后一点，每个对象都存储了自己的格式化设置。因此，当程序将cout传递给file_it()时，cout的设置将被修改，然后被恢复；当程序将fout传递给file_it()时，fout的设置将被修改了，然后被恢复默认。</p>
+<h3 id="8-2-7-何时使用引用参数"><a href="#8-2-7-何时使用引用参数" class="headerlink" title="8.2.7 何时使用引用参数"></a>8.2.7 何时使用引用参数</h3><p>使用引用参数的主要原因有两个：</p>
+<ul>
+<li>程序员能够修改调用函数中的数据对象</li>
+<li>通过传递引用而不是整个数据对象，可以提高程序的运行速度</li>
+</ul>
+<p>当数据对象比较大时（如结果和类对象），第二个原因最重要。这些也是使用指针参数的原因。</p>
+<p>对于使用传递值而不作修改的函数。</p>
+<ul>
+<li>如果数据对象很小，如内置数据类型或小型结构，则按值传递。</li>
+<li>如果数据对象是数组，则使用指针，因为这是唯一的选择，并将指针声明为指向const的指针。</li>
+<li>如果数据对象是比较大的结构，则使用const指针和const引用，以提高程序的效率。这样可以节省复制结构所需的时间和空间。</li>
+<li>如果数据对象是类对象，则使用const引用。类设计的语义常常要求使用引用，这是C++新增这种特性的主要原因。因此，传递类对象参数的标准方式是按引用传递。</li>
+</ul>
+<p>对于修改调用函数中数据的函数：</p>
+<ul>
+<li>如果数据对象是内置数据类型，则使用指针。如果看到诸如fixit(&amp;x)这样的代码(其中x是int)，则很明显，该函数将修改x。</li>
+<li>如果数据对象是结构，则使用引用或指针。</li>
+<li>如果数据对象是数组，则只能使用指针。</li>
+<li>如果数据对象是类对象，则使用引用。</li>
+</ul>
+<p>当然，这只是一些值得原则，很可能有充分的理由做出其他选择。</p>
+<h2 id="8-3-默认参数"><a href="#8-3-默认参数" class="headerlink" title="8.3 默认参数"></a>8.3 默认参数</h2><p>默认参数指的是当函数调用中省略了实参时自动使用的一个值。</p>
+<p>由于编译器通过查看原因来了解函数所使用的参数数目，因此函数原型必须将可能的默认参数告知程序。方法是将值赋给原型中的参数。例如：</p>
+<pre><code>char * left (const char * str, int n = 1);
+</code></pre><p>对于带参数列表的函数，必须<strong>从右到左添加默认值</strong>。即要为某个参数设置默认值，则必须为它右边的所有参数提供默认：</p>
+<pre><code>int harpo(int n, int m = 4, int j = 5);
+int chico(int n, int m = 6, int j); //非法的
+int groucho(int k = 1, int m = 2, int n = 3);
+</code></pre><p>丽日，harpo()原型允许调用该函数时提供1、2或3个参数：</p>
+<pre><code>beeps = harpo(2);
+beeps = harpo(1,8);
+beeps = harpo(8,7,6);
+</code></pre><p>实参按从左至右的顺序依次被赋给相应的形参，而不能跳过任何参数。因此，下面的调用是<strong>不允许</strong>的：</p>
+<pre><code>beeps =    harpo(3, ,8);
+</code></pre><p>left.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+const int ArSize = 80;
+char * left(const char * str, int n = 1);
+int main()
+{
+    char sample[ArSize];
+    cout &lt;&lt; &quot;Enter a string:\n&quot;;
+    cin.get(sample, ArSize);
+    char *ps  = left(sample, 4);
+    cout &lt;&lt; ps &lt;&lt; endl;
+    delete [] ps;
+    ps = left(sample);
+    cout &lt;&lt; ps &lt;&lt; endl;
+    delete [] ps;
+    return 0;
+}
+
+char * left(const char * str, int n)//注意在函数定义时，不要添加默认参数，否则会报错
+{
+    if (n &lt; 0)
+        n = 0;
+    char * p = new char[n+1];
+    int i;
+    for (i = 0; i &lt; n &amp;&amp; str[i]; i++)
+        p[i] = str[i];
+    while (i &lt;= n)
+        p[i++] = &apos;\0&apos;;
+    return p;
+}
+</code></pre><p>结果</p>
+<pre><code>Enter a string:
+forthcoming
+fort
+f
+</code></pre><p>为了防止用户要求的字符数目可能多于字符串包含的字符数，为预防这种情况，函数使用了一个组合测试：</p>
+<pre><code>i &lt; n &amp;&amp; str[i]
+</code></pre><p>i&lt;n测试让循环复制了n个字符后就终止。测试的第二部分–表达式str[i]，是要复制的字符的编码。遇到空值字符后，循环结束。</p>
+<p>另一种设置新字符串长度的方法是，将n设置为传递的值和字符长度中较小的一个：</p>
+<pre><code>int len = strlen(str);
+n = (n &lt; len) ? n : len;
+char *p = new char[n+1];
+</code></pre><p>这件确保new分配的空间不会多余存储字符串所需的空间。如果用户执行像left(“Hi!”, 1000)这样的调用，这种方法很有用。第一种方法是，将“Hi!”复制到由1000个字符组成的数组中，并将除前3个字符之外的所有字符都设置为空值字符；第二种方法是，将“Hi！”复制到由4个字符组成的数组中。但由于添加了另一个函数调用strlen()，因此程序将更长，运行速度将检查，同时还必须包括头文件cstring。</p>
+<p>如果调用strlen()所需的时间很长，则可以让left()直接确定n和字符串长度哪个小。例如，当m的值等于n或到达字符串结尾时，下面的循环都将停止：</p>
+<pre><code>int m = 0;
+while (m &lt;= n &amp;&amp; str[m] != &apos;\0&apos;) // 也可以写成while (m &lt;= n &amp;&amp; str[m])
+    m++;
+char *p = new char[m+1];
+</code></pre><h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2>
       
     </div>
     
@@ -642,7 +1027,7 @@ cout &lt;&lt; jref &lt;&lt; end;
         <p><span>本文标题:</span><a href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-10-12, 09:30:14</p>
-        <p><span>最后更新:</span>2018-10-13, 14:41:02</p>
+        <p><span>最后更新:</span>2018-10-14, 10:40:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/" title="C++ Primer Plus--函数探幽（八）">https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -657,10 +1042,16 @@ cout &lt;&lt; jref &lt;&lt; end;
 
     <nav id="article-nav">
         
-        
-            <div id="article-nav-older" class="article-nav-title">
+            <div id="article-nav-newer" class="article-nav-title">
                 <a href="/2018/10/12/微软面试题目--字母易位词/">
                     微软面试题目--字母易位词
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/11/感知器算法/">
+                    模式识别(二)--感知器算法
                 </a>
             </div>
         
@@ -733,7 +1124,7 @@ cout &lt;&lt; jref &lt;&lt; end;
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-C-内联函数"><span class="toc-number">1.</span> <span class="toc-text">8.1 C++内联函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-引用变量"><span class="toc-number">2.</span> <span class="toc-text">8.2 引用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-创建应用变量"><span class="toc-number">2.1.</span> <span class="toc-text">8.2.1 创建应用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-将引用作为函数参数"><span class="toc-number">2.2.</span> <span class="toc-text">8.2.2 将引用作为函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-引用的属性和特别之处"><span class="toc-number">2.3.</span> <span class="toc-text">8.2.3 引用的属性和特别之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-4-将引用用于结构"><span class="toc-number">2.4.</span> <span class="toc-text">8.2.4 将引用用于结构</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-C-内联函数"><span class="toc-number">1.</span> <span class="toc-text">8.1 C++内联函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-引用变量"><span class="toc-number">2.</span> <span class="toc-text">8.2 引用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-创建应用变量"><span class="toc-number">2.1.</span> <span class="toc-text">8.2.1 创建应用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-将引用作为函数参数"><span class="toc-number">2.2.</span> <span class="toc-text">8.2.2 将引用作为函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-引用的属性和特别之处"><span class="toc-number">2.3.</span> <span class="toc-text">8.2.3 引用的属性和特别之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-4-将引用用于结构"><span class="toc-number">2.4.</span> <span class="toc-text">8.2.4 将引用用于结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-程序说明"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.程序说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-为何要返回引用"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.为何要返回引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-返回引用时需要注意的问题"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. 返回引用时需要注意的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-为何将const用于引用返回类型"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. 为何将const用于引用返回类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-5-将引用用于对象"><span class="toc-number">2.5.</span> <span class="toc-text">8.2.5 将引用用于对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-6-对象、继承和引用"><span class="toc-number">2.6.</span> <span class="toc-text">8.2.6 对象、继承和引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-7-何时使用引用参数"><span class="toc-number">2.7.</span> <span class="toc-text">8.2.7 何时使用引用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-默认参数"><span class="toc-number">3.</span> <span class="toc-text">8.3 默认参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-函数重载"><span class="toc-number">4.</span> <span class="toc-text">8.4 函数重载</span></a></li></ol>
         
     </div>
     <style>
@@ -789,19 +1180,21 @@ cout &lt;&lt; jref &lt;&lt; end;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/10/12/微软面试题目--字母易位词/" title="上一篇: 微软面试题目--字母易位词">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/10/12/微软面试题目--字母易位词/" title="下一篇: 微软面试题目--字母易位词">
+            <a href="/2018/10/11/感知器算法/" title="下一篇: 模式识别(二)--感知器算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-13T06:41:02.684Z</updated>
+  <updated>2018-10-13T06:38:08.407Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>C++ Primer Plus--函数探幽（八）</title>
-    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
-    <published>2018-10-12T01:30:14.000Z</published>
-    <updated>2018-10-13T06:41:02.684Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
   
   <entry>
     <title>微软面试题目--字母易位词</title>
@@ -51,6 +31,26 @@
     
     
       <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--函数探幽（八）</title>
+    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
+    <published>2018-10-12T01:30:14.000Z</published>
+    <updated>2018-10-14T02:40:04.204Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   
@@ -113,15 +113,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格基约减算法与实现（四）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:36:17.401Z</updated>
+    <updated>2018-10-13T06:37:01.388Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
+      &lt;p&gt;格中计算性难题
     
     </summary>
     
@@ -133,15 +133,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <title>格理论与密码学--格基约减算法与实现（四）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:37:01.388Z</updated>
+    <updated>2018-10-13T06:36:17.401Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;格中计算性难题
+      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
     
     </summary>
     
@@ -216,7 +216,7 @@
     <link href="https://zxpgo.github.io/2018/10/02/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/02/格理论与密码学--数学基础（一）/</id>
     <published>2018-10-02T06:52:50.000Z</published>
-    <updated>2018-10-03T12:18:08.677Z</updated>
+    <updated>2018-10-14T01:31:38.060Z</updated>
     
     <summary type="html">
     
@@ -390,15 +390,15 @@
   </entry>
   
   <entry>
-    <title>模式识别绪论(一)</title>
-    <link href="https://zxpgo.github.io/2018/09/11/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB%E7%BB%AA%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/11/模式识别绪论/</id>
+    <title>模式识别(二)--K均值聚类</title>
+    <link href="https://zxpgo.github.io/2018/09/11/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/"/>
+    <id>https://zxpgo.github.io/2018/09/11/聚类分析/</id>
     <published>2018-09-11T14:28:50.000Z</published>
-    <updated>2018-10-02T14:14:38.663Z</updated>
+    <updated>2018-10-02T14:14:32.347Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;模式识别
+      &lt;p&gt;K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。
     
     </summary>
     
