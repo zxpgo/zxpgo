@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T02:40:04.204Z">
+<meta property="og:updated_time" content="2018-10-18T07:53:26.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--函数探幽（八）">
 <meta name="twitter:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
@@ -1016,7 +1016,745 @@ char *p = new char[n+1];
 while (m &lt;= n &amp;&amp; str[m] != &apos;\0&apos;) // 也可以写成while (m &lt;= n &amp;&amp; str[m])
     m++;
 char *p = new char[m+1];
-</code></pre><h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2>
+</code></pre><h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2><p>函数重载指的是可以有多个同名的函数，因此对名称进行了重载。可以通过函数重载来设计一系列函数–它们完成相同的工作，但使用不同的参数列表。C++根据使用上下文来确定要使用的重载函数版本。</p>
+<p>函数重载的关键是函数的参数列表–也称为函数特征标。如果两个函数的参数数目和类型相同，同时参数的排序顺序也相同，则它们的特征标相同，而变量名是无关紧要的。C++允许定义名称相同的函数，条件是它们的特征标不同。如果参数数目和/或参数类型不同，则特征标也不同。例如，可以定义一组原型如下print()函数：</p>
+<pre><code>void print(const char * str, int width);
+void print(double d, int width);
+void print(long l, int width);
+void print(int i, int width);
+void print(const char * str);
+</code></pre><p>使用print()函数时，编译器根据所采用的用法使用相应特征标的原型。</p>
+<p>使用被重载的函数时，需要在函数调用中使用正确的参数类型，例如，对如下面的语句：</p>
+<pre><code>unsigned int year = 3210;
+print(year, 6);
+</code></pre><p>print()调用与哪个原型匹配呢？它不与任何原型匹配！没有匹配的原型并不会自动停止使用其他的某个函数，因为C++将尝试使用标准类型强制转换进行匹配。如果原型只有第二个，则函数调用print(year,6)将把year转换为doule类型。但在上面的代码中，有3个将数字作为第一个参数的原型，因此有3种转换year的方式。在这种情况下，C++拒绝这种函数调用，并将其视为错误。</p>
+<p>一些看起来彼此不同的特征标是不能共存的，例如：</p>
+<pre><code>double cube(double x);
+double cube(double &amp; x);
+</code></pre><p>编译器考虑这个问题时，请看如下代码：</p>
+<pre><code>cout &lt;&lt; cube(x);
+</code></pre><p>参数x与double x原型和 double &amp; x原型都匹配，因此编译器不知道究竟使用哪个原型。为避免这种混乱，编译器在检查函数特征标时，将把类型引用和类型本身视为同一个特征标。</p>
+<p>匹配函数时，并不区分const和非const变量。</p>
+<pre><code>void dribble(char * bits);
+void dribble(const char * cbits);
+void babble(char * bits);
+void drivel(const char * bits);
+</code></pre><p>下面列出了各种函数调用对应的原型：</p>
+<pre><code>const char p1[20] = &quot;How&apos;s the weather?&quot;;
+char p2[20] = &quot;How&apos;s business?&quot;;
+dribble (p1);
+dribble(p2);
+dabble(p1); //不匹配
+dabble(p2); 
+drivel(p1);
+drivel(p2);
+</code></pre><p>dribble()函数有两个原型，一个用于const指针，另一个用于常规指针，编译器根据实参是否为const来决定使用哪个原型。dabble()函数只与带非const参数的调用匹配，而drivel()函数可以与带const和非const参数的调用匹配。drivel()和dabble()在行为上有这种差别，主要是由于将非const值赋给const变量是合法的，但反之是非法的。</p>
+<p>请记住，是特征标，而不是函数类型使得可以对函数进行重载。例如，下面两个声明是互斥的：</p>
+<pre><code>long gronk(int n, float m);
+double gronk(int n, float m);
+</code></pre><p>因此，C++不允许以这种方式重载gronk()。返回类型可以不同，但特征标也必须不同：</p>
+<pre><code>long gronk(int n, float m);
+double gronk(float n, float m);
+</code></pre><p><strong>重载引用参数</strong></p>
+<p>类设计和STL经常使用引用参数，因此直到不同引用类型的重载很有用：</p>
+<pre><code>void sink(doube &amp; r1);
+void sank(const double &amp;r2);
+void sunk(double &amp;&amp; r3);
+</code></pre><p>左值引用参数r1与可修改的左值参数匹配；const左值引用参数r2与可修改的左值参数、const作者参数和右值参数(如两个double值的和)匹配；最后，右值引用参数r3与右值匹配。注意到r1或r3匹配的参数都与r2匹配。</p>
+<p>注意到与r1或r3匹配的参数都与r2匹配。这就带来一个问题：如果重载使用这三种参数的函数，结果将如何？答案是将调用最匹配的版本：</p>
+<pre><code>void staff(doube &amp; rs);
+void staff(const double &amp; rcs);
+void stove(double &amp; r1);
+void stove(const double &amp; r2);
+void stove(double &amp;&amp; r3);
+</code></pre><p>这让您根据参数是左值、const还是右值来定制函数的行为：</p>
+<pre><code>double x = 55.5;
+const double y = 32.0;
+stove(x); //调用stove(double &amp;)
+stove(y); //调用stove(const double &amp;)
+stove(x+y); //调用 stove(doubel &amp;&amp;)
+</code></pre><p>如果没有定义stove(double &amp;&amp;)，stove(x+y)将调用函数stove(const double &amp;)。</p>
+<h3 id="8-4-1-重载示例"><a href="#8-4-1-重载示例" class="headerlink" title="8.4.1 重载示例"></a>8.4.1 重载示例</h3><p>前面创建了left()函数，它返回一个指针，指向字符串的前n个字符。下面添加另一个left()函数，它返回整数的前n位。</p>
+<p>一种方法是，先计算数字包含多少位，将数字除以10便可以去掉一位，因此可以使用除法来计算数位。更准确的，可以使用下面循环：</p>
+<pre><code>nsigned digits = 1;
+while (n /= 10)
+        digits++;
+</code></pre><p>上述循环计算每次删除n中的一位时，需要多少次才能删除所有的位。</p>
+<p>现在假设数字共有5位，并要返回前3位，则将这个数除以10再除以10，便可以得到所需的值。每除以10就删除数字的最后一位。要直到需要删除多少位，只需要将总数减去要获得的位数即可。可以如下编写：</p>
+<pre><code>ct = digits - ct;
+while(ct--)
+    num /= 10;
+return num;
+</code></pre><p>leftover.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+unsigned long left(unsigned long num, unsigned ct);
+char * left (const char * str, int n = 1);
+using namespace std;
+
+int main()
+{
+    char * trip = &quot;Hawaii!!&quot;;
+    unsigned long n = 12345678;
+    int i;
+    char * temp;
+
+    for (i = 1; i &lt; 10; i++)
+    {
+        cout &lt;&lt; left(n, i) &lt;&lt; endl;
+        temp = left(trip, i);
+        cout &lt;&lt; temp &lt;&lt; endl;    
+        delete [] temp;
+    }
+
+    return 0;
+}
+
+unsigned long left(unsigned long num, unsigned ct)
+{
+    unsigned digits = 1;
+    unsigned long n = num;
+
+    if (ct == 0 || num == 0)
+        return 0;
+    while (n /= 10)
+        digits++;
+    if (digits &gt; ct)
+    {
+        ct = digits - ct;
+        while(ct--)
+            num /= 10;
+        return num;
+    }
+    else
+        return num;
+}
+
+char * left(const char * str, int n)
+{
+    if (n &lt; 0)
+        n = 0;
+    char * p = new char [n+1];
+    int i;
+    for (i = 0; i &lt; n &amp;&amp; str[i]; i++ )
+        p[i] = str[i];
+    while (i &lt;= n)
+        p[i++] = &apos;\0&apos;;
+    return p;
+
+}
+</code></pre><p>结果：</p>
+<pre><code>1
+H
+12
+Ha
+123
+Haw
+1234
+Hawa
+12345
+Hawai
+123456
+Hawaii
+1234567
+Hawaii!
+12345678
+Hawaii!!
+12345678
+Hawaii!!
+</code></pre><h3 id="8-4-2-何时使用函数重载"><a href="#8-4-2-何时使用函数重载" class="headerlink" title="8.4.2 何时使用函数重载"></a>8.4.2 何时使用函数重载</h3><p>函数重载一般使用在：仅当函数基本上执行相同的任务，但使用不同形式的数据时，才应采用函数重载。另外，是否可以通过使用默认参数来实现同样的目的。例如，可以用两个重载函数来代替面向字符串的left()函数：</p>
+<pre><code>char * left(const char * str, unsigned n);
+char * left(const char * str);
+</code></pre><p>使用一个带默认参数的函数要简单些。只需编写一个函数，程序也只需为一个函数请求内存；需要修改函数时，只需修改一个。然而，如果需要使用不同类型的参数，则默认参数便不管用了，在这种情况下，应使用函数重载。</p>
+<p><strong>名称修饰</strong></p>
+<p>C++如何跟踪每一个重载函数？它给这些函数指定了秘密身份。使用C++开发工具中的编辑器编写和编译程序时，C++编译器将执行一些神奇的操作–名称修饰或名称矫正，它根据函数原型中指定的形参类型对每个函数名进行加密。请看下述未经修饰的函数原型：</p>
+<pre><code>long MyFunctionFoo(int, float);
+</code></pre><p>这种格式对于人类来说很合适；我们直到函数接受两个参数，并返回一个long值。而编译器将名称转换为不太好看的内部表示，来描述该接口，如下所示：</p>
+<pre><code>？MyfunctionFoo@@YAXH
+</code></pre><p>对原始名称进行的表面看来无意义的修饰将对参数数目和类型进行编码。添加的一组符号随函数特征标而异，而修饰时使用的约定随编译器而异。</p>
+<h2 id="8-5-函数模板"><a href="#8-5-函数模板" class="headerlink" title="8.5 函数模板"></a>8.5 函数模板</h2><p>函数模板是通用的函数描述，即它们使用泛型来定义函数。其中的泛型可以具体的类型(如int或double)替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。由于模板允许以泛型的方式编写程序，因此有时也称为通用编程。由于类型是用参数表示的，因此模板特性有时也称为参数化类型。</p>
+<p>前面，定义了一个交换两个int的值的函数。假设要交换两个double值，则一种方法是复制原来的代码，并用double替换所有的int。如果需要需要交换两个char值，可以再次使用同样的技术。进行这种修改将浪费宝贵时间，且容易出错。</p>
+<p>C++的函数模板功能能自动完成这一过程，可以节省时间，而且更可靠。</p>
+<p>函数模板允许以任意类型的方式来定义函数。例如，可以这样建立一个交换模板：</p>
+<pre><code>template &lt;typename AnyType&gt;
+void Swap(AnyType &amp; a, AnyType &amp;b)
+{
+    AnyType temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+</code></pre><p>第一行指出，要建立一个模板，并将类型命名为AnyType。关键字template和type是是必需的，除非可以使用关键字class代替typename。另外，必须使用尖括号。类型名可以任意选择，只要遵守C++命名规则即可。模板不创建任何函数，而只是告诉编译器如何定义函数。需要交换int的函数时，编译器将按模板创建这样的函数，并用int代替AnyType。同样，需要交换double的函数时，编译器将按模板创建这样的函数，并用double代替AnyType。</p>
+<p>在标准C++98添加关键字typename之前，C++使用关键字class来创建模板。即，可以如下编写模块定义：</p>
+<pre><code>template &lt;class AnyType&gt;
+void Swap(AnyType &amp; a, AnyType &amp;b)
+{
+    AnyType temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+</code></pre><p>funtemp.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b);
+
+int main()
+{
+    int i = 10;
+    int j = 20;
+    cout &lt;&lt; &quot;i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+    Swap(i, j);
+    cout &lt;&lt; &quot;Now i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+
+    double x = 24.5;
+    double y = 81.4;
+    cout &lt;&lt; &quot;x, y = &quot; &lt;&lt; x &lt;&lt; &quot;, &quot; &lt;&lt; y &lt;&lt; endl;
+    Swap(x, y);
+    cout &lt;&lt; &quot;Now x, y = &quot; &lt;&lt; x  &lt;&lt; &quot;, &quot; &lt;&lt; y &lt;&lt; endl;
+    return 0;
+}
+
+template&lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b)
+{
+    T temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+</code></pre><p>结果</p>
+<pre><code>i, j = 10, 20
+Now i, j = 20, 10
+x, y = 24.5, 81.4
+Now x, y = 81.4, 24.5
+</code></pre><p>当Swap()函数接受两个int参数，因此编译器生成该函数的int版本。即用int替换所有的int，生成下面的代码：</p>
+<pre><code>void Swap(int &amp;a, int &amp;b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+</code></pre><p>程序员看不到这些代码，当编译器确实生成并在程序中使用了它们。</p>
+<p>注意函数模板不能缩短可执行程序。对于上述程序，最终仍将有两个独立的函数定义，就像以手工的方式定义了这些函数一样最终代码不包含任何模板，而只包含为程序生成的时间函数。</p>
+<p>更常见的情形时是，将模板放在头文件中，并在需要使用模板的文件中包含头文件。</p>
+<h3 id="8-5-1-重载的模板"><a href="#8-5-1-重载的模板" class="headerlink" title="8.5.1 重载的模板"></a>8.5.1 重载的模板</h3><p>需要多个对不同类型使用同一种算法的函数时，可使用模板。然而，并非所有的类型都使用相同的算法。为满足这种需求，可以像重载常规函数一样重载模板定义。和常规重载一样，被重载的模板的函数特征标必须相同。例如，上面程序新增了一个交换模板，用于交换两个数组中的元素。</p>
+<p>cat twotemps.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+template &lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b);
+
+template &lt;typename T&gt;
+void Swap(T a[], T b[], int n);
+void Show(int a[]);
+const int Lim = 4;
+int main()
+{
+    int i = 10, j = 20;
+    cout &lt;&lt; &quot;i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+    Swap(i, j);
+    cout &lt;&lt; &quot;Now i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+
+    int d1[Lim] = {0,7,0,4};
+    int d2[Lim] = {1,9,6,9};
+    cout &lt;&lt; &quot;Original arrays:\n&quot;;
+    Show(d1);
+    Show(d2);
+    Swap(d1, d2, Lim);
+    cout &lt;&lt; &quot;Swapped arrays:\n&quot;;
+    Show(d1);
+    Show(d2);
+    return 0;
+}
+template &lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b)
+{
+    T temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+template &lt;typename T&gt;
+void Swap(T a[], T b[], int n)
+{
+    T temp;
+    for (int i = 0; i &lt; n; i++)
+    {
+        temp = a[i];
+        a[i] = b[i];
+        b[i] = temp;
+    }
+}
+
+void Show(int a[])
+{
+    for (int i = 0; i &lt; Lim; i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+
+}
+</code></pre><p>结果：</p>
+<pre><code>i, j = 10, 20
+Now i, j = 20, 10
+Original arrays:
+0 7 0 4 
+1 9 6 9 
+Swapped arrays:
+1 9 6 9 
+0 7 0 4 
+</code></pre><h3 id="8-5-2-模板的局限性"><a href="#8-5-2-模板的局限性" class="headerlink" title="8.5.2 模板的局限性"></a>8.5.2 模板的局限性</h3><p>假设有如下模板函数：</p>
+<pre><code>template &lt;class T&gt;
+void f(T a, T b)
+{}
+</code></pre><p>通常，代码假定可执行哪些操作。例如，下面的代码假定定义了赋值，但如果T是数组，这种假设将不成立:</p>
+<pre><code>a = b;
+</code></pre><p>同样，下面语句假设定义了&lt;，但如果T为结构，该假设便不成立：</p>
+<pre><code>if (a &gt; b)
+</code></pre><p>另外，为数组名定义了运算符，但由于数组名为地址，因此它比较的是数组的地址，而这可能不是您所希望的。下面的语句假定为类型T定义了乘法运算，但如果T为数组、指针或结构，这种假设便不成立：</p>
+<pre><code>T c = a*b;
+</code></pre><p>总之，编写的函数模板很可能无法处理某些类型。另一方面，有时候通用化是有意义的，但C++语法不允许这样左。例如，将两个包含位置坐标的结构相加是有意义的，虽然没有为结构定义运算+。一种解决方案是，C++允许您重载运算符+，以便能够将其用于特定的结构或类。这样使用运算符+的模板便可处理重载了运算符的结构。另一种解决方案是，为特定类型提供具体化的模板定义，接下来介绍。</p>
+<h3 id="8-5-3-显示具体化"><a href="#8-5-3-显示具体化" class="headerlink" title="8.5.3 显示具体化"></a>8.5.3 显示具体化</h3><p>假设定义了如下结构：</p>
+<pre><code>struct job
+{
+    char name[40];
+    double salary;
+    int floor;
+}
+</code></pre><p>另外，希望能够交换两个这种结构的内容。原来模板使用下面的代码来完成交换：</p>
+<pre><code>temp= a;
+a = b;
+b = temp;
+</code></pre><p>由于C++允许将一个结构赋给另一个结构，因此即使T是一个job结构，上述代码也适用。然而，假设只想交换salary和floor成员，而不交换name成员，则需要使用不同的代码，但Swap()的参数将保持不变，因此无法使用模板重载来提供其他代码。</p>
+<p>然而，可以提供一个具体化函数定义–称为显式具体化，其中包含所需的代码。当编译器找到与函数调用的具体化定义时，将使用该定义，而不再寻找模板。</p>
+<p>C++标准定义的形式：</p>
+<h4 id="1-第三代具体化"><a href="#1-第三代具体化" class="headerlink" title="1.第三代具体化"></a>1.第三代具体化</h4><p>C++98标准选择了下面的方法：</p>
+<ul>
+<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模板以及它们的重载版本。</li>
+<li>显式具体化的原型和定义应以teplate&lt;&gt;开头，并通过名称来指出类型。</li>
+<li>具体化优先于常规模板，而非模板函数由于具体化和常规模板。</li>
+</ul>
+<p>下面是用于交换job结构的非模板函数、模板函数和具体化的原型：</p>
+<pre><code>void Swap(job &amp;, job &amp;);
+
+template &lt;typename T&gt;
+void Swap(T &amp;, T &amp;);
+
+template &lt;&gt; void Swap&lt;job&gt;(job &amp;, job &amp;); //具体化
+</code></pre><p>下面看一看显式具体化的工作方式。</p>
+<h4 id="2-显式具体化示例"><a href="#2-显式具体化示例" class="headerlink" title="2.显式具体化示例"></a>2.显式具体化示例</h4><p>twoswap.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+template &lt;typename T&gt;
+void Swap(T &amp;a, T &amp;b);
+struct job
+{
+    char name[40];
+    double salary;
+    int floor;
+};
+template &lt;&gt; void Swap&lt;job&gt;(job &amp;j1, job &amp;j2);
+void Show(job &amp;j);
+int main()
+{    
+    cout.precision(2);
+    cout.setf(ios::fixed,ios::floatfield);
+    int i = 10, j = 20;
+    cout &lt;&lt; &quot;i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+    Swap(i,j);
+    cout &lt;&lt; &quot;Now, i, j = &quot; &lt;&lt; i &lt;&lt; &quot;, &quot; &lt;&lt; j &lt;&lt; endl;
+
+    job sue = {&quot;Susan&quot;, 73000.6, 7};
+    job sidney = {&quot;Sidney&quot;, 78060.7, 9};
+    cout &lt;&lt; &quot;Before job swapping:\n&quot;;
+    Show(sue);
+    Show(sidney);
+    Swap(sue, sidney);
+    cout &lt;&lt; &quot;After job swapping:\n&quot;;
+    Show(sue);
+    Show(sidney);
+    return 0;
+}
+
+template &lt;typename T&gt;
+void Swap(T &amp; a, T &amp; b)
+{
+    T temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+template &lt;&gt; void Swap&lt;job&gt;(job &amp; j1, job &amp; j2)
+{
+    double t1;
+    t1 = j1.salary;
+    j1.salary = j2.salary;
+    j2.salary = t1;
+    int t2;
+    t2 = j1.floor;
+    j1.floor = j2.floor;
+    j2.floor = t2;
+}
+
+void Show(job &amp;j)
+{
+    cout &lt;&lt; j.name &lt;&lt; &quot;: $&quot; &lt;&lt; j.salary &lt;&lt; &quot; on floor &quot; &lt;&lt; j.floor &lt;&lt; endl;
+}
+</code></pre><p>结果：</p>
+<pre><code>i, j = 10, 20
+Now, i, j = 20, 10
+Before job swapping:
+Susan: $73000.60 on floor 7
+Sidney: $78060.70 on floor 9
+After job swapping:
+Susan: $78060.70 on floor 9
+Sidney: $73000.60 on floor 7
+</code></pre><h3 id="8-5-4-实例化和具体化"><a href="#8-5-4-实例化和具体化" class="headerlink" title="8.5.4 实例化和具体化"></a>8.5.4 实例化和具体化</h3><p>在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。编译器使用模板为特定类型生成函数定义时，得到的是模板实例。例如，在上述程序中，函数调用Swap(i,j)导致编译器生成Swap()的一个实例，该实例使用int类型。模板并非函数定义，但使用int的模板实例是函数定义，这种实例化被称为<strong>隐式实例化</strong>。</p>
+<p>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，但现在C++还允许<strong>显式实例化</strong>。这意味着可以直接命令编译器创建特定的实例，如Swap<int>()。其语法是，声明所需的种类–用&lt;&gt;符号指出类型，并在声明前加上关键字template:</int></p>
+<pre><code>template void Swap&lt;int&gt;(int, int);
+</code></pre><p>实现了这种特性的编译器看上上述声明后，将使用Swap()模板生成一个使用int类型的实例。即，该声明的意思是：使用Swap()模板生成int类型的函数定义。</p>
+<p>与显式实例化不同的是，<strong>显式具体化</strong>使用下面两个等价的声明之一：</p>
+<pre><code>template &lt;&gt; void Swap&lt;int&gt;(int &amp;, int &amp;);
+template &lt;&gt; void Swap(int &amp;, int &amp;);
+</code></pre><p>区别在于，这些声明的意思是：不要使用Swap()模板生成函数定义，而应使用专门为int类型显式地定义的函数定义。这些原型必须有自己的函数定义。显式具体化声明在关键字templat包含&lt;&gt;，而显式实例化没有。</p>
+<p><strong>警告</strong>： 试图在同一个文件中使用同一种类型的显式实例和显式具体化将出错。</p>
+<p>还可以通过在程序中使用函数来创建显式实例化。例如，请看下面代码：</p>
+<pre><code>templatte &lt;class T&gt;
+T Add(T a, T b)
+{
+    return a + b;
+}
+int m = 6;
+double x = 10.2;
+cout &lt;&lt; Add&lt;double&gt;(x, m) &lt;&lt; endl;
+</code></pre><p>这里的模板与函数调用Add(x,m)不匹配，因为该模板要求两个函数参数的类型相同。但通过使用Add<double>(x,m),可强制为double类型实例化，并将参数m强制转换为double类型，以便与函数Add<double>(double,double)的第二个参数匹配。</double></double></p>
+<p>如果对Swap()做类型的处理：</p>
+<pre><code>int m = 5;
+double x = 14.3;
+Swap&lt;double&gt;(m, x);
+</code></pre><p>这将为类型double生成一个显式实例化，不幸的是，这些代码不管用，因此的哥形参的类型为double &amp;，不能只想int变量m。 </p>
+<p>隐式实例化、显式实例化和显式具体化统称为具体化。它们的相同之处在于，它们表示都是使用具体类型的函数定义，而不是通用描述。</p>
+<p>引入显式实例化后，必须使用新的语法–在声明中使用前缀template和template&lt;&gt;，以区分显式实例化还是显式具体化。通常，功能越多，语法规则也越多。下面的代码片段中间了这些概念：</p>
+<pre><code>template &lt;class T&gt;
+void Swap(T &amp;a , T &amp;b);
+
+template &lt;&gt; void Swap&lt;job&gt;(job &amp;, job &amp;);//显式具体化
+int main()
+{
+    template void Swap&lt;char&gt;(char &amp;, char &amp;); //显式实例化
+
+    short a, b;
+    Swap(a, b); //隐私实例化
+    job n, m;
+    Swap(n, m); //使用显式具体化
+    char g, h;
+    Swap(g, h); //使用显式实例化
+}
+</code></pre><p>编译器看到char的显式实例化后，将使用模板定义来生成Swap()的char版本。对于其他Swap()调用，编译器根据函数调用中实际使用的参数，生成相应的版本。例如，当编译器看淡函数调用Swap(a,b)    后，将生成Swap(a,b)的short版本，因为两个参数的类型都是short。当编译器看到Swap(n,m)后，将使用short类型提供的独立定义(显式具体化)。当编译器看到Swap(g,h)后，将使用处理显式实例化时生成的模板具体化。</p>
+<h3 id="8-5-5-编译器选择使用哪个函数版本"><a href="#8-5-5-编译器选择使用哪个函数版本" class="headerlink" title="8.5.5 编译器选择使用哪个函数版本"></a>8.5.5 编译器选择使用哪个函数版本</h3><p>对于函数重载、函数模板和函数模板重载，C++需要（且有）一个定义良好的策略，来决定为函数调用使用哪一个函数的定义，尤其是有多个参数时。这个过程称为<strong>重载解析</strong>。大致了解一下这个过程是如何进行的：</p>
+<ul>
+<li>第一步：创建候选函数列表。其中包含于被调用函数的名称相同的函数和函数模板。</li>
+<li>第二步：使用候选函数列表创建可行函数列表。这些都是参数数目正确的函数，为此有一个隐式转换序列，其中包括实参类型与相应的形参类型完全匹配的情况。例如，使用float参数的函数调用可以将该参数转换为doule，从而与doule形参匹配，而模板可以为float生成一个实例。</li>
+<li>第三步：确定是否有最佳的可行函数。如果有，则使用它，否则该函数调用出错。</li>
+</ul>
+<p>考虑只有一个函数参数的情况，如下面的调用：</p>
+<pre><code>may(&apos;B&apos;);
+</code></pre><p>首先，编译器将寻找候选者，即名称为may()的函数和函数模板。然后，寻找那些可以用一个参数调用的函数。例如，下面的函数符合要求，因为其名称和被调用的函数函数相同，且可只给它传递一个参数：</p>
+<pre><code>void may(int);                            #1
+float may(flaot, flaot = 3);              #2
+void may(char);                              #3                        
+char * myay(const char *);                #4
+char may (const char &amp;);                  #5
+template &lt;class T&gt; void may(const T &amp;);   #6
+template &lt;class T&gt; void may(T *);         #7
+</code></pre><p>注意，只考虑特征标，而不考虑返回类型。其中的两个函数(#4和#7)不可行，因为整型类型不能被隐式地转换（即没有显式强制类型转换）为指针类型。剩余的一个模板可用来生成具体化，其中T被替换为char类型。这样剩余5个可行的函数，其中的每一个函数，如果它式声明唯一一个函数，都可以被使用。</p>
+<p>接下来，编译器必须确定哪个可行函数是最佳的。它查看为使函数调用参数与可行的候选函数的参数匹配所需进行的转换。通过从最佳到最差的顺序如下所述：</p>
+<ul>
+<li><ol>
+<li>完全匹配，但常规函数优先于模板。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>提升转换（例如，char和short自动转换为int, float自动转换为double）。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>标准转换（例如，int转换为char，long转换为double）.</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>用户定义的转换，如类声明中定义的转换。</li>
+</ol>
+</li>
+</ul>
+<p>例如，函数#1优先于函数#2，因为char到int的转换为提升转换，而char到float的转换是标准转换。函数#3、函数#5和函数#6都优先于函数#1和#2，因为它们都是完全匹配的。#3和#5优先于#6，因为#6是函数模板。如果两个函数(如#3和#5)都完全匹配，将如何办？通常，有两个函数完全匹配是一种错误，但这一规则有两个例外。下面，深入探讨这一点：</p>
+<h4 id="1-完全匹配和最佳匹配"><a href="#1-完全匹配和最佳匹配" class="headerlink" title="1. 完全匹配和最佳匹配"></a>1. 完全匹配和最佳匹配</h4><p>完全匹配允许的无关紧要的转换：</p>
+<table>
+<thead>
+<tr>
+<th>从实参</th>
+<th>到形参</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Type &amp;</td>
+</tr>
+<tr>
+<td>Type &amp;</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>Type []</td>
+<td>Type $\ast$</td>
+</tr>
+<tr>
+<td>Type (argument-list)</td>
+<td>Type ($\ast$)(argument-list)</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>const Type</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>volatile Type</td>
+</tr>
+<tr>
+<td>Type $\ast$</td>
+<td>const Type</td>
+</tr>
+<tr>
+<td>Type $\ast$</td>
+<td>volatile Type $\ast$</td>
+</tr>
+</tbody>
+</table>
+<p>Type表示任意类型，例如int实参与int &amp;形参完全匹配。Type(argument-list)意味着用作实参的函数名与用作形参的函数指针只要返回类型和参数列表相同，就是匹配的。volatile下一章介绍。</p>
+<p>假设有下面的函数代码：</p>
+<pre><code>struct blot {int a, char b[10]};
+blot ink{25, &quot;spots&quot;};
+recycle(ink);
+</code></pre><p>在这种情况下，下面的原型都是完全匹配的：</p>
+<pre><code>void recycle(blot);          #1
+void recycle(const blot);    #2
+void recycle(blot &amp;);        #3
+void recycle(const blot &amp;);  #4
+</code></pre><p>正如预期的，如果有多个匹配的原型，则编译器将无法完成重载解析过程；如果没有最佳的可行函数，则编译程将生成一条错误消息，该消息可能会使用诸如“ambiguous(二义性)”这样的词语。</p>
+<p>然而，有时候，即使两个函数都完全匹配，仍可完成重载解析。首先，<strong>指向非const数据的指针和引用优先与非const指针和引用参数匹配</strong>。即，在recycle()示例中，如果只定义了函数#3和#4是完全匹配的，则将选择#3，因为int没有被声明为const。然而，<strong>const和非const之间的区别只适用于指针和引用指向的数据</strong>。即，如果只定义了#1和#2，则将出现二义性。</p>
+<p>一个完全匹配优先于另一个的另一种情况是，其中一个是非模板函数，而另一个不是。在这种情况下，<strong>非模板函数将优先于模板函数（包括显式具体化）</strong>。</p>
+<p>如果两个完全匹配的函数都是模板函数，则<strong>较具体的模板函数优先</strong>。例如，这意味着显式具体化将优先于使用模板隐式生成的具体化：</p>
+<pre><code>struct blot {int a; char b[10]};
+template &lt;class Type&gt; void recycle(Type t);
+template &lt;&gt; void recycle&lt;blot&gt; (blot &amp; t);
+
+blot ink = {25, &quot;spots&quot;};
+recycle(int);
+</code></pre><p>术语“最具体”并不一定意味显式具体化，而是指编译器推断使用哪种类型时执行的转换最少。例如，请看下面两个模板：</p>
+<pre><code>template &lt;class Type&gt; void recycle(Type t);    #1
+template &lt;class Type&gt; void recyclle(Type * t); #2
+
+recycle(&amp;ink);
+</code></pre><p>recyele(&amp;ink)调用与#1模板匹配，匹配时间Type解释为blot $\ast$。recycle(&amp;ink)函数调用也与#2模板匹配，这样Type被解释为blot。因此两个隐式实例–recycle&lt;blot$\ast$&gt;(blot$\ast$)和recycle<blot>(bloat$\ast$)发送到可行函数池中。</blot></p>
+<p>在这两个模板函数中，recycle&lt;blot$\ast$&gt;(blot$\ast$)被认为是更具体地，因为在生成过程中，它需要进行地转换更少。即，#2模板已经显式指出，函数参数是指向Type的指针，因为出可以直接用blot标识Type；而#1模板见Type作为函数参数，因此Type必须被解释为指向blot的指针。即，在#2模板中，Type已经被具体化为指针，因为说它“更具体”。</p>
+<h4 id="2-部分排序规则实例"><a href="#2-部分排序规则实例" class="headerlink" title="2. 部分排序规则实例"></a>2. 部分排序规则实例</h4><p>下述程序有两个用来显式数组内容的模板定义。第一个定义（模板A）假设作为参数传递的数组中包含了要显式地数据；第二个定义（模板B）假设数组元素为指针，指向要显示地数据。</p>
+<p>temptempover.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt;
+void ShowArray(T arr[], int n);
+
+template &lt;typename T&gt;
+void ShowArray(T * arr[], int n);
+
+struct debts
+{
+    char name[30];
+    double amount;
+};
+
+int main()
+{
+    int things[6] = {13, 31, 103, 301, 310, 130};
+    struct debts mr_E[3] = 
+    {
+        {&quot;Volfe&quot;, 2400.0},
+        {&quot;Foxe&quot;, 1300.0},
+        {&quot;Stout&quot;, 1800.0}
+    };
+    double *pd[3];//3个指针组成的数组
+    for (int i = 0; i &lt; 3; i++)
+        pd[i] = &amp;mr_E[i].amount;
+    cout &lt;&lt;  &quot;Listing Mr. E&apos;s counts of things:\n&quot;;
+    ShowArray(things, 6);
+    cout &lt;&lt; &quot;Listing Mr. E&apos;s debts:\n&quot;;
+    ShowArray(pd, 3);
+    return 0;
+}
+
+template &lt;typename T&gt;
+void ShowArray (T arr[], int n)
+{
+    cout &lt;&lt; &quot;Template A\n&quot;;
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt; arr[i] &lt;&lt; &apos; &apos;;
+    cout &lt;&lt; endl;
+}
+
+template &lt;typename T&gt;
+void ShowArray(T * arr[], int n)
+{
+    cout &lt;&lt; &quot;Template B\n&quot;;
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt;  *arr[i] &lt;&lt; &apos; &apos;;
+    cout &lt;&lt; endl;
+}
+</code></pre><p>结果</p>
+<pre><code>Listing Mr. E&apos;s counts of things:
+Template A
+13 31 103 301 310 130 
+Listing Mr. E&apos;s debts:
+Template B
+2400 1300 1800 
+</code></pre><p>标识符things是一个int数组的名称，因为与下面的模板匹配：</p>
+<pre><code>template &lt;typename T&gt;                       #模板A
+void ShowArray(T arr[], int n);
+</code></pre><p>pd是一个doulbe $\ast$数组的名称，这与下面的模板匹配：</p>
+<pre><code>template &lt;typename T&gt;                      #模板B
+void ShowArray(T * arr[], int n);
+</code></pre><p>如果将模板B删除，则编译器将使用模板A来显示pd内容，因此显示的将是地址，而不是值。</p>
+<p>简而言之，重载解析将寻找最匹配的函数。如果只存在一个这样的函数，则选择它；如果存在多个这样的函数，但其中只有一个是非模板函数，则选择该函数；如果存在多个适合的函数，且它们都为模板函数，但其中有一个函数比其他函数具体，则选择该函数。如果有多个同样合适的非模板函数或模板函数，但没有一个函数比其他函数具体，则函数调用将不是确定的，因此是错误；当然，如果不存在匹配函数，则也是错误。</p>
+<h4 id="3-创建自定义选择"><a href="#3-创建自定义选择" class="headerlink" title="3. 创建自定义选择"></a>3. 创建自定义选择</h4><p>在有些情况下，可通过编写合适的函数的调用，引导编译器做出您希望的选择。下面程序，将模板函数定义放在文件开头，从而无需提供模板原型。与常规函数一样，通过在使用函数前提供模板函数定义，让他充当原型。</p>
+<p>choices.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;class T&gt;            //#1
+T lesser(T a, T b)
+{
+    return a &lt; b ? a : b; 
+}
+
+int lesser (int a, int b)    //#2
+{
+    a = a &lt; 0 ? -a : a;
+    b = b &lt; 0 ? -b : b;
+    return a &lt; b ? a : b;
+}
+
+int main()
+{
+    int m = 20;
+    int n = -30;
+    double x  = 15.5;
+    double y  = 25.9;
+    cout &lt;&lt; lesser(m, n) &lt;&lt; endl;     //使用#2       
+    cout &lt;&lt; lesser(x, y) &lt;&lt; endl;     //使用#1
+    cout &lt;&lt; lesser&lt;&gt;(m, n) &lt;&lt; endl;   //使用#1
+    cout &lt;&lt; lesser&lt;int&gt;(x, y) &lt;&lt; endl;//使用#1
+    return 0;
+}
+</code></pre><p>结果</p>
+<pre><code>20
+15.5
+-30
+15
+</code></pre><p>上述程序提供了一个模板和一个标准函数，其中模板返回两个值较小的一个，而标准函数返回两个值绝对值较小的那个。如果函数定义是在使用函数前提供的，它将充当原型，因此这个示例无需提供原型</p>
+<pre><code>lesser&lt;&gt;(m, n);
+</code></pre><p>&lt;&gt;指出，编译器应选择模板，而不是非模板函数；编译器注意到实参的类型为int，因此使用int替代T对模板进行示例化。</p>
+<p>最后，lesser<int>(x, y)这条语句要求进行显示实例化，将使用显示实例化得到的函数。x和y的值将被强制转换为int，该函数返回一个int值</int></p>
+<h4 id="4-多个参数的函数"><a href="#4-多个参数的函数" class="headerlink" title="4.多个参数的函数"></a>4.多个参数的函数</h4><p>将有多个参数的函数调用与有多个参数的原型进行匹配时，情况将非常复杂。编译器必须考虑所有参数的匹配情况。如果找到比其他可行函数都合适的函数，则选择该函数。一个函数要比其他函数都合适，其所有参数的匹配程度都必须不必其他函数差，同时至少有一个参数的匹配程度比其他函数都高。</p>
+<h3 id="8-5-6-模板函数的发展"><a href="#8-5-6-模板函数的发展" class="headerlink" title="8.5.6 模板函数的发展"></a>8.5.6 模板函数的发展</h3><p>在C++发展的早期，大多数人都没有想到模板函数和模板类会有这么强大而有用。</p>
+<h4 id="1-是什么类型"><a href="#1-是什么类型" class="headerlink" title="1.是什么类型"></a>1.是什么类型</h4><p>在C++98中，编写模板函数时，一个问题是并非总能知道应在声明中使用哪种类型。如下：</p>
+<pre><code>template &lt;class T1, class T2&gt;
+void ft(T1 x, T2 y)
+{
+    ?type? xpy = x + y;
+    ...
+}
+</code></pre><p>xpy应为什么类型。由于不知道ft()将如何使用，因此无法预先知道这一点。正确的类型可能是T1、T2或其他类型。例如，T1可能是double，而T2可能是int，在这种情况下，两个变量的和将为double类型。T1可能是short，而T2可能是int，在这种情况下，两个变量的和为int。T1还可能是short，而T2可能是char，在这种情况下，加法运算将导致自动整型提升，因此结果类型为int。另外，结构和类可能重载运算符+，这导致问题更加复杂。</p>
+<h4 id="2-关键字decltype-C-11"><a href="#2-关键字decltype-C-11" class="headerlink" title="2.关键字decltype(C++11)"></a>2.关键字decltype(C++11)</h4><p>C++11新增的关键字decltype提供了解决方案，可这样使用该关键字：</p>
+<pre><code>int x;
+decltype(x) y;  //是y的类型跟x相同
+</code></pre><p>给decltype提供的参数可以是表达式，因此在前面的模板函数ft()中，可使用下面的代码：</p>
+<pre><code>decltype(x + y) xpy;
+xpy = x + y;
+</code></pre><p>另一种方法是，将这两条语句合二为一：</p>
+<pre><code>decltype(x +  y) xpy = x + y;
+</code></pre><p>decltype比这些示例演示的更复杂些。为确定类型，编译器必须遍历一个核对表。假设有如下声明：</p>
+<pre><code>decltype(expression) var;
+</code></pre><p>则核对表的简化版如下：</p>
+<p>第一步：如果expression是一个没有用括号括起来的标识符，则var的类型与该标识符的类型相同，包括const等限定符：</p>
+<pre><code>double x = 5.5;
+double y = 7.9;
+double &amp;rx = x;
+const double * pd;
+decltype(x) w;
+dexltype(rx) u = y;
+decltype(pd) v;
+</code></pre><p>第二步：如果expression是一个函数调用，则var的类型与函数的返回类型相同：</p>
+<pre><code>long indeed(int);
+decltype(indeed(3)) m;
+</code></pre><p>注意：并不会实际调用函数，编译器通过查看函数的原型来获悉返回类型，而无需实际调用函数。</p>
+<p>第三步： 如果expression是一个左值，则var为指向其类型的引用。这好像意味着前面的w应为引用类型，因为x是一个左值。但别忘了，这种情况已经在第一步处理过了。要进入第三步，expression不能是用未用括号括起来的标识。那么，expression是用括号括起来的标识符：</p>
+<pre><code>double xx = 4.4;    
+decltype((xx)) r2 = x; //r2是doule &amp; 类型
+decltype(xx) w = x;   //w是double类型
+</code></pre><p>顺便说一句，括号并不会改变表达式的值和左值性。例如下面两条语句等效：</p>
+<pre><code>xx = 98.6;
+(xx) = 98.6;
+</code></pre><p>第四步：如果前面的条件都不满足，则var的类型与expresssion类型相同：</p>
+<pre><code>int j = 3;
+int &amp;k = j;
+int &amp;n = j;
+decltype(j+6) i1; //i1为int
+decltype(100L) i2; //i2为long
+decltype(k+n) i3; //i3为int
+</code></pre><p>请注意，虽然n和k都是引用，但表达式k+n不是引用，它是两个int的和，因此类型为int。</p>
+<p>如果需要多次声明，可结合typedef和decltyep:</p>
+<pre><code>template &lt;class T1, class T2&gt;
+void ft(T1 x, T2 y)
+{
+    typedef decltype(x + y)     xytype;
+    xytype xpy = x + y;
+    xytype arr[10];
+    xytyep &amp; rxy = arr[2];
+    ... 
+}
+</code></pre><h4 id="3-另一种函数声明的语法（C-后置返回类型）"><a href="#3-另一种函数声明的语法（C-后置返回类型）" class="headerlink" title="3. 另一种函数声明的语法（C++后置返回类型）"></a>3. 另一种函数声明的语法（C++后置返回类型）</h4><p>另一个相关的问题是decltype本身无法解决的。如下不完整的模板函数：</p>
+<pre><code>template &lt;class T1, class T2&gt;
+?type? t(T1 x, T2 y)
+{
+    ...
+    return x + y;
+}
+</code></pre><p>同样，无法预先知道x和y相加得到的类型。好像可以将返回类型设置为decltype(x+y)。但不幸的是，此时还未声明参数x和y，它们不在作用域内。必须在声明参数后使用decltype。为此，C++新增了一种声明和定义函数的语法。下面使用内置类型来说明这种语法的工作原理。对于下面的原型：</p>
+<pre><code>double h(int x, float y);
+</code></pre><p>使用新增的语法可编写成这样：</p>
+<pre><code>auto h (int x, float y) -&gt; double;
+</code></pre><p>这将返回类型移动到参数声明后面。-&gt;double被称为后置返回类型。其中auto是一个占位符，表示后置返回类型提供的类型。这是C++新增给auto的一种角色。这样语法可以用于函数定义：</p>
+<pre><code>auto h(int x, float y) -&gt; double
+{...}
+</code></pre><p>通过结合使用这种语法和decltype，便可给出gt()指定返回类型，如下：</p>
+<pre><code>template&lt;class T1, class T2&gt;
+auto gt(T1 x, T2 y) -&gt; decltype(x + y)
+{
+    return x + y;
+}
+</code></pre><p>现在decltype在参数声明后面，因此x和y位于作用域内。</p>
+<h2 id="8-6-总结"><a href="#8-6-总结" class="headerlink" title="8.6 总结"></a>8.6 总结</h2><p>函数</p>
+<p>引用变量： &amp; k</p>
+<p>默认参数</p>
+<p>重载</p>
+<p>模板</p>
+<p>模板重载 </p>
+
       
     </div>
     
@@ -1027,7 +1765,7 @@ char *p = new char[m+1];
         <p><span>本文标题:</span><a href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-10-12, 09:30:14</p>
-        <p><span>最后更新:</span>2018-10-14, 10:40:04</p>
+        <p><span>最后更新:</span>2018-10-18, 15:53:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/" title="C++ Primer Plus--函数探幽（八）">https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -1043,15 +1781,15 @@ char *p = new char[m+1];
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/10/12/微软面试题目--字母易位词/">
-                    微软面试题目--字母易位词
+                <a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">
+                    C++ Primer Plus--内存模型和名称空间（九）
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/10/11/感知器算法/">
-                    模式识别(二)--感知器算法
+                <a href="/2018/10/12/微软面试题目--字母易位词/">
+                    微软面试题目--字母易位词
                 </a>
             </div>
         
@@ -1124,7 +1862,7 @@ char *p = new char[m+1];
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-C-内联函数"><span class="toc-number">1.</span> <span class="toc-text">8.1 C++内联函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-引用变量"><span class="toc-number">2.</span> <span class="toc-text">8.2 引用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-创建应用变量"><span class="toc-number">2.1.</span> <span class="toc-text">8.2.1 创建应用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-将引用作为函数参数"><span class="toc-number">2.2.</span> <span class="toc-text">8.2.2 将引用作为函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-引用的属性和特别之处"><span class="toc-number">2.3.</span> <span class="toc-text">8.2.3 引用的属性和特别之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-4-将引用用于结构"><span class="toc-number">2.4.</span> <span class="toc-text">8.2.4 将引用用于结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-程序说明"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.程序说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-为何要返回引用"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.为何要返回引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-返回引用时需要注意的问题"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. 返回引用时需要注意的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-为何将const用于引用返回类型"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. 为何将const用于引用返回类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-5-将引用用于对象"><span class="toc-number">2.5.</span> <span class="toc-text">8.2.5 将引用用于对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-6-对象、继承和引用"><span class="toc-number">2.6.</span> <span class="toc-text">8.2.6 对象、继承和引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-7-何时使用引用参数"><span class="toc-number">2.7.</span> <span class="toc-text">8.2.7 何时使用引用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-默认参数"><span class="toc-number">3.</span> <span class="toc-text">8.3 默认参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-函数重载"><span class="toc-number">4.</span> <span class="toc-text">8.4 函数重载</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-C-内联函数"><span class="toc-number">1.</span> <span class="toc-text">8.1 C++内联函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-引用变量"><span class="toc-number">2.</span> <span class="toc-text">8.2 引用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-1-创建应用变量"><span class="toc-number">2.1.</span> <span class="toc-text">8.2.1 创建应用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-2-将引用作为函数参数"><span class="toc-number">2.2.</span> <span class="toc-text">8.2.2 将引用作为函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-3-引用的属性和特别之处"><span class="toc-number">2.3.</span> <span class="toc-text">8.2.3 引用的属性和特别之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-4-将引用用于结构"><span class="toc-number">2.4.</span> <span class="toc-text">8.2.4 将引用用于结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-程序说明"><span class="toc-number">2.4.1.</span> <span class="toc-text">1.程序说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-为何要返回引用"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.为何要返回引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-返回引用时需要注意的问题"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. 返回引用时需要注意的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-为何将const用于引用返回类型"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. 为何将const用于引用返回类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-5-将引用用于对象"><span class="toc-number">2.5.</span> <span class="toc-text">8.2.5 将引用用于对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-6-对象、继承和引用"><span class="toc-number">2.6.</span> <span class="toc-text">8.2.6 对象、继承和引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-7-何时使用引用参数"><span class="toc-number">2.7.</span> <span class="toc-text">8.2.7 何时使用引用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-默认参数"><span class="toc-number">3.</span> <span class="toc-text">8.3 默认参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-函数重载"><span class="toc-number">4.</span> <span class="toc-text">8.4 函数重载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-1-重载示例"><span class="toc-number">4.1.</span> <span class="toc-text">8.4.1 重载示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-2-何时使用函数重载"><span class="toc-number">4.2.</span> <span class="toc-text">8.4.2 何时使用函数重载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-函数模板"><span class="toc-number">5.</span> <span class="toc-text">8.5 函数模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-1-重载的模板"><span class="toc-number">5.1.</span> <span class="toc-text">8.5.1 重载的模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-2-模板的局限性"><span class="toc-number">5.2.</span> <span class="toc-text">8.5.2 模板的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-3-显示具体化"><span class="toc-number">5.3.</span> <span class="toc-text">8.5.3 显示具体化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-第三代具体化"><span class="toc-number">5.3.1.</span> <span class="toc-text">1.第三代具体化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-显式具体化示例"><span class="toc-number">5.3.2.</span> <span class="toc-text">2.显式具体化示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-4-实例化和具体化"><span class="toc-number">5.4.</span> <span class="toc-text">8.5.4 实例化和具体化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-5-编译器选择使用哪个函数版本"><span class="toc-number">5.5.</span> <span class="toc-text">8.5.5 编译器选择使用哪个函数版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-完全匹配和最佳匹配"><span class="toc-number">5.5.1.</span> <span class="toc-text">1. 完全匹配和最佳匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-部分排序规则实例"><span class="toc-number">5.5.2.</span> <span class="toc-text">2. 部分排序规则实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建自定义选择"><span class="toc-number">5.5.3.</span> <span class="toc-text">3. 创建自定义选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-多个参数的函数"><span class="toc-number">5.5.4.</span> <span class="toc-text">4.多个参数的函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-6-模板函数的发展"><span class="toc-number">5.6.</span> <span class="toc-text">8.5.6 模板函数的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-是什么类型"><span class="toc-number">5.6.1.</span> <span class="toc-text">1.是什么类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关键字decltype-C-11"><span class="toc-number">5.6.2.</span> <span class="toc-text">2.关键字decltype(C++11)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-另一种函数声明的语法（C-后置返回类型）"><span class="toc-number">5.6.3.</span> <span class="toc-text">3. 另一种函数声明的语法（C++后置返回类型）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6-总结"><span class="toc-number">6.</span> <span class="toc-text">8.6 总结</span></a></li></ol>
         
     </div>
     <style>
@@ -1180,7 +1918,7 @@ char *p = new char[m+1];
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/10/12/微软面试题目--字母易位词/" title="上一篇: 微软面试题目--字母易位词">
+            <a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/" title="上一篇: C++ Primer Plus--内存模型和名称空间（九）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -1188,13 +1926,13 @@ char *p = new char[m+1];
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/10/11/感知器算法/" title="下一篇: 模式识别(二)--感知器算法">
+            <a href="/2018/10/12/微软面试题目--字母易位词/" title="下一篇: 微软面试题目--字母易位词">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">C++ Primer Plus--内存模型和名称空间（九）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
 
 
 
