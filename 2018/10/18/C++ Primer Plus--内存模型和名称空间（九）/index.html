@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T07:55:12.903Z">
+<meta property="og:updated_time" content="2018-10-18T11:36:46.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--内存模型和名称空间（九）">
 <meta name="twitter:description" content="单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。">
@@ -338,7 +338,113 @@
       
           
         <p>单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。<a id="more"></a></p>
+<h2 id="9-1-单独编译"><a href="#9-1-单独编译" class="headerlink" title="9.1 单独编译"></a>9.1 单独编译</h2><p>和C语言一样，C++允许甚至鼓励程序员将组件函数放在独立的文件中。可以单独地编译这些文件，然后将它们链接成可执行文件的程序。如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接。这使得大程序的管理更便捷。</p>
+<p>大多数C++环境提供了其他工具来帮助管理。比如：Linux系统具有make程序，可以跟踪程序依赖文件以及这些文件的最后修改时间。运行make时，如果检测上次编译后修改了源文件，make将记住重新构建所需的步骤。大多数继承环境都在project菜单中提供了类似的工具。</p>
+<p>C++提供了#include来处理不同文件使用同一个结构的问题。与其将结构声明加入到每一个文件中，不如将其放在头文件中，然后在每一个源代码文件中包含该文件头。这样，要修改结构声明时，只需在头文件中做一次改动即可。另外，也可以将函数原型放在头文件中。因此，可以将原来的程序分成三部分：</p>
+<ul>
+<li>头文件：包含结构声明和使用这些结构的函数的原型。</li>
+<li>源代码文件：包含与结构有关的函数的代码。</li>
+<li>源代码文件：包含调用与结构相关的函数的代码。</li>
+</ul>
+<p>这是一种非常有用的组织程序的策略。例如，如果编写另一个程序，也需要使用这些函数，则只需要包含头文件，并将函数文件添加到项目列表或make列表中即可。另外，这种组织方式也与OOP方法一致。一个文件（头文件）包含了用户定义类型的定义；另一个文件包含操作用户定义类型的函数的代码。这两个文件组成了一个软件包，可用于各种程序中。</p>
+<p><strong>请不要将函数定义或变量声明放在头文件中</strong>。这样做对于简单的情况可能是可行的，但通过会迎来麻烦。例如，如果头文件包含一个函数定义，然后在其他两个文件中包含该头文件，则同一个程序中包含同一个函数的两个定义，除非函数是内联的，否则这将出错。</p>
+<p>下面列出了头文件中包含的内容：</p>
+<ul>
+<li>函数原型</li>
+<li>使用#define或const定义的符合常量</li>
+<li>结构声明</li>
+<li>类声明</li>
+<li>模板声明</li>
+<li>内联函数</li>
+</ul>
+<p>将结构放在头文件中式可以的，因为它们不会创建变量，而只是在源代码文件中声明结构时，高旭编译器如何创建变量。同样，模板声明不是被编译的代码，它们指示编译器如何生成与源代码中的函数调用相匹配的函数定义。被声明未const的数据和内联函数有特殊的链接属性，因此可以放在头文件中。</p>
+<p>下面三个程序是将第7章中坐标转换程序分成几个独立部分后得到的结果。注意，在包含头文件时，使用“coordin.h”，而不是&lt;coordin.h&gt;。如果文件名包含在尖括号中，则C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在双引号中，则编译器将首先查找当前的工作目录或源代码目录。如果没有在那里找到头文件，则将在标准位置查找，因此在包含自己的头文件时，应使用双引号而不是尖括号。</p>
+<p>coordin.h</p>
+<pre><code>#ifndef COORDIN_H_
+#define COORDIN_H_
 
+struct polar
+{
+    double distance;
+    double angle;
+};
+
+struct rect 
+{
+    double x;
+    double y;
+};
+
+polar rect_to_polar(rect xypos);
+void show_polar(polar  dapos);
+
+#endif
+</code></pre><p>file1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;coordin.h&quot;
+using namespace std;
+
+int main()
+{
+    rect rplace;
+    polar pplace;
+
+    cout &lt;&lt; &quot;Enter the x and y value: &quot;;
+    while (cin &gt;&gt; rplace.x &gt;&gt; rplace.y)
+    {
+        pplace = rect_to_polar(rplace);
+        show_polar(pplace);
+        cout &lt;&lt; &quot;Nest two number(q to quit): &quot;;
+    }
+    return 0;
+}
+</code></pre><p>file2.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &quot;coordin.h&quot;
+using namespace std;
+
+polar rect_to_polar(rect xypos)
+{
+    polar answer;
+    answer.distance = sqrt(xypos.x * xypos.x + xypos.y * xypos.y);
+    answer.angle = atan2(xypos.y, xypos.x);
+    return answer;
+}
+
+void show_polar(polar dapos)
+{
+    const double Rad_to_deg = 57.29577951;
+    cout &lt;&lt;  &quot;Distance = &quot; &lt;&lt; dapos.distance;
+    cout &lt;&lt; &quot;, Angle =  &quot; &lt;&lt; dapos.angle * Rad_to_deg &lt;&lt; &quot; degrees.\n&quot;;
+}
+</code></pre><p><strong>编译多文件</strong></p>
+<pre><code>g++ file1.cpp file.cpp -o file
+</code></pre><p><strong>运行可执行文件</strong></p>
+<pre><code>./file
+</code></pre><p>结果：</p>
+<pre><code>Enter the x and y value: 30 100
+Distance = 104.403, Angle =  73.3008 degrees.
+Nest two number(q to quit): q
+</code></pre><p>我们讨论的是根据文件进行单独编译，但为保持通用性，C++标准使用了术语”翻译单元”，而不是文件；文件并不是计算机组织信息时的唯一方式。出于简化的目的，可将文件术语解释为“翻译单元”。</p>
+<p><strong>头文件管理</strong></p>
+<p>在同一个文件中只能将同一个头文件包含一次。记住这个规则很容易，但很可能在不知情的情况下将头文件包含多次。例如，可能使用包含了另外一个头文件的头文件。有一种标准的C/C++技术可以避免多次包含同一个头文件。它是基于预处理器编译指令#ifndef(即if not defint)的。下面的代码片段意味着仅当以前没有使用预处理器编译指令#define定义名称COORDIN_H_时，才处理#ifndef和endif之间的语句：</p>
+<pre><code>#ifndef COORDIN_H_
+...
+#endif
+</code></pre><p>通常，使用#define语句用来创建符合常量，如下：</p>
+<pre><code>#define MAXIMUM  4096
+</code></pre><p>但只要将#define用于名称，就足以完成该名称的定义，如下：</p>
+<pre><code>#define COORDIN_H_
+</code></pre><p>使用这种技术将文件内容包含在#ifdef中：</p>
+<pre><code>#ifndef COORDIN_H_
+#define COORDIN_H_
+...
+#endif
+</code></pre><p>编译器首次遇到该文件时，名称COORDIN_H_没有定义（根据include文件名来选择名称，并加上一些下划线，以创建一个在其他地方不太可能被定义的名称）。在这种情况下，编译器将查看#ifndef和#endif之间的内容，并读取定义COORDIN_H_的这一行。如果在同一文件中遇到其他包含coordin.h的代码，编译器将知道COORDIN_H_已经被定义了，从而跳到#endif后面的一行上。注意，这种方法并不能防止编译器将文件包含两次，而只是让它忽略地磁包含之外的所有内容。大多数标准C/C++头文件都使用这种防护方案。否则，可能在一个文件中定义同一个结构两次，这将导致错误。</p>
+<p><strong>多个库的链接</strong></p>
+<p>C++标准允许每个编译器设计人员以他认为合适的方式实现名称修饰（第8章已经介绍），因此由不同的编译器创建的二进制模板可能无法正确地链接。即，两个编译器将为同一个函数生成不同的修饰名称。名称的不同将使链接器无法将一个编译器生成的函数调用与另一个编译器生成的函数定义匹配。在链接编译模块时，请确保所有对象文件或库都是由同一个编译器生成的。如果有源代码，通常可以用自己的编译器重新编译源代码来消除链接错误。</p>
+<h2 id="9-2-存储连续性、作用域和链接性"><a href="#9-2-存储连续性、作用域和链接性" class="headerlink" title="9.2 存储连续性、作用域和链接性"></a>9.2 存储连续性、作用域和链接性</h2>
       
     </div>
     
@@ -349,7 +455,7 @@
         <p><span>本文标题:</span><a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">C++ Primer Plus--内存模型和名称空间（九）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
         <p><span>发布时间:</span>2018-10-18, 15:53:14</p>
-        <p><span>最后更新:</span>2018-10-18, 15:55:12</p>
+        <p><span>最后更新:</span>2018-10-18, 19:36:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/" title="C++ Primer Plus--内存模型和名称空间（九）">https://zxpgo.github.io/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/</a>
             <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -440,7 +546,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-单独编译"><span class="toc-number">1.</span> <span class="toc-text">9.1 单独编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-存储连续性、作用域和链接性"><span class="toc-number">2.</span> <span class="toc-text">9.2 存储连续性、作用域和链接性</span></a></li></ol>
         
     </div>
     <style>
@@ -508,7 +614,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">C++ Primer Plus--内存模型和名称空间（九）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">C++ Primer Plus--内存模型和名称空间（九）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li></ul>
 
 
 

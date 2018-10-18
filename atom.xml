@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-18T07:55:12.903Z</updated>
+  <updated>2018-10-18T11:36:46.731Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zxpgo.github.io/2018/10/18/C++%20Primer%20Plus--%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%EF%BC%88%E4%B9%9D%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/</id>
     <published>2018-10-18T07:53:14.000Z</published>
-    <updated>2018-10-18T07:55:12.903Z</updated>
+    <updated>2018-10-18T11:36:46.731Z</updated>
     
     <summary type="html">
     
@@ -61,7 +61,7 @@
     <link href="https://zxpgo.github.io/2018/10/12/%E5%BE%AE%E8%BD%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE--%E5%AD%97%E6%AF%8D%E6%98%93%E4%BD%8D%E8%AF%8D/"/>
     <id>https://zxpgo.github.io/2018/10/12/微软面试题目--字母易位词/</id>
     <published>2018-10-12T01:30:14.000Z</published>
-    <updated>2018-10-13T06:38:08.407Z</updated>
+    <updated>2018-10-18T12:03:34.179Z</updated>
     
     <summary type="html">
     
@@ -133,15 +133,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <title>格理论与密码学--格基约减算法与实现（四）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:37:01.388Z</updated>
+    <updated>2018-10-13T06:36:17.401Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;格中计算性难题
+      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
     
     </summary>
     
@@ -153,15 +153,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格基约减算法与实现（四）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:36:17.401Z</updated>
+    <updated>2018-10-13T06:37:01.388Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
+      &lt;p&gt;格中计算性难题
     
     </summary>
     
