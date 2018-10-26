@@ -1,17 +1,87 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="zxp" />
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,硬盘分区," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
 
 
 
@@ -28,315 +98,330 @@
 <meta name="twitter:title" content="文件系统概念">
 <meta name="twitter:description" content="文件系统和硬盘分区基本概念介绍">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>文件系统概念 | 平步青云win</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: true
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
+  };
 </script>
 
 
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
 
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
+  <link rel="canonical" href="https://zxpgo.github.io/2018/08/19/文件系统概念/"/>
 
 
 
 
 
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+  <title>文件系统概念 | 平步青云win</title>
+  
+
+
+
+
+
+
 
 
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">zxp</a></h1>
-        </hgroup>
 
-        
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
+  
+  
+    
+  
 
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/随笔">随笔</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa GitHub" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa CSDN" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
-                            
-                                <a class="fa LinkedIn" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Mock数据模拟/">Mock数据模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/NP问题/">NP问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/VPN/">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/云数据完整性验证/">云数据完整性验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/分布式机器学习/">分布式机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/小程序/">小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/手机抓包/">手机抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/格理论与密码学/">格理论与密码学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/模式识别/">模式识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/研究方向/">研究方向</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/计算机网络/">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/论文/">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/资源/">资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/通信协议/">通信协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/面试题目/">面试题目</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://blog.csdn.net/qq_25774883">CSDN</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于云存储安全和大数据安全</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">zxp</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">zxp</a></h1>
-            </hgroup>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/随笔">随笔</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/zxpgo/zxpgo" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/qq_25774883" title="CSDN"></a>
-                            
-                                <a class="fa LinkedIn" target="_blank" href="https://www.linkedin.com/feed/" title="LinkedIn"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
-</nav>
-      <div class="body-wrap"><article id="post-文件系统概念" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/19/文件系统概念/" class="article-date">
-      <time datetime="2018-08-19T14:28:50.000Z" itemprop="datePublished">2018-08-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      文件系统概念
-    </h1>
-  
-
-      </header>
-	  
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
       
-      <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/实验楼学习笔记之Linux/">实验楼学习笔记之Linux</a>
-    </div>
-
-
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/硬盘分区/">硬盘分区</a></li></ul>
-    </div>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
 
-		<span id="busuanzi_container_page_pv_top" style ="display:block">
-  |阅读量(<span id="busuanzi_value_page_pv"></span>)
-</span>
-        <div class="clearfix"></div>
-      </div>
       
-    
-	
-    <div class="article-entry" itemprop="articleBody">
-	
-      
+        <li class="menu-item menu-item-search">
           
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/08/19/文件系统概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">文件系统概念</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-19T22:28:50+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实验楼学习笔记之Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">实验楼学习笔记之Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/19/文件系统概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/19/文件系统概念/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
         <p>文件系统和硬盘分区基本概念介绍<a id="more"></a><br><strong>文件系统</strong>：是操作系统用于明确存储设备（常见的是磁盘，也有基于NAND Flash的固态硬盘）或分区上的文件的方法和数据结构；即在存储设备上组织文件的方法。<br>从系统角度来看，文件系统是对文件存储设备的空间进行组织和分配，负责文件存储并对存入的文件进行保护和检索的系统。具体地说，它负责为用户建立文件，存入、读出、修改、转储文件，控制文件的存取，当用户不再使用时撤销文件等。</p>
 <p><strong>硬盘分区</strong>：实质上是对硬盘的一种格式化。当我们创建分区时，就已经设置好了硬盘的各项物理参数，指定了硬盘主引导记录(即Master Boot Record，一般简称为MBR)和引导记录备份的存放位置。而对于文件系统以及其他操作系统管理硬盘所需要的信息则是通过之后的高级格式化，即Format命令来实现。</p>
 <p><strong>簇</strong>：是指可分配的用来保存文件的最小磁盘空间，操作系统规定一个簇中只能放置一个文件的内容，因此文件所占用的空间，只能是簇的整数倍；而如果文件实际大小小于一簇，它也要占一簇的空间。所以,簇越小，保存信息的效率就越高。</p>
@@ -376,298 +461,926 @@
       
     </div>
     
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2018/08/19/文件系统概念/" title="文件系统概念">https://zxpgo.github.io/2018/08/19/文件系统概念/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tag/硬盘分区/" rel="tag"># 硬盘分区</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/17/Mock模拟数据生成接口/" rel="next" title="Mock模拟数据生成接口">
+                <i class="fa fa-chevron-left"></i> Mock模拟数据生成接口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/22/Python实现8种排序算法/" rel="prev" title="Python实现：8种排序算法">
+                Python实现：8种排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/19/文件系统概念/">文件系统概念</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">zxp</a></p>
-        <p><span>发布时间:</span>2018-08-19, 22:28:50</p>
-        <p><span>最后更新:</span>2018-08-22, 23:07:33</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/19/文件系统概念/" title="文件系统概念">https://zxpgo.github.io/2018/08/19/文件系统概念/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://zxpgo.github.io/2018/08/19/文件系统概念/　　作者: zxp" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
+  </div>
 
 
+          </div>
+          
 
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/22/Python实现8种排序算法/">
-                    Python实现：8种排序算法
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/17/Mock模拟数据生成接口/">
-                    Mock模拟数据生成接口
-                </a>
-            </div>
-        
-    </nav>
+
+          
 
   
-	<!-- 添加打赏功能和评论功能 只在文章详情中显示-->
-	
-	
-	<! -- 添加捐赠图标 -->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           ↑<br>
-           欣赏此文？求鼓励，求支持！
-        </span>
-        <br>
-      </div>  
-    <div id="donate_guide" class="donate_bar center hidden" >
-        <!-- 方式一： 
-            ![](/img/Alipay.jpg)
-            ![](/img/WeChatpay.jpg)
-        -->
-        <!-- 方式二；
-            step1：在_config.yml中添加配置
-                Alipay: /img/Alipay.jpg
-                WeChatpay: /img/WeChatpay.jpg
-            step2：此处两张图片的路径分别设置为如下
-                <img src=""
-                <img src=""
-        -->
-        <!-- 支付宝打赏图案 -->
-        <img src="/img/Alipay.jpg" alt="支付宝打赏">
-        <!-- 微信打赏图案 -->
-        <img src="/img/WeChatpay.jpg" alt="微信打赏">
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     </div>
-    <script type="text/javascript">
-        document.getElementById('btn_donate').onclick = function(){
-            $('#donate_board').addClass('hidden');
-            $('#donate_guide').removeClass('hidden');
-        }
-    </script>
-</div>
-<! -- 添加捐赠图标 -->
 
-	<!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-	
-	
-	
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分区状态"><span class="toc-number">1.</span> <span class="toc-text">分区状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分区格式"><span class="toc-number">2.</span> <span class="toc-text">分区格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分区表类型"><span class="toc-number">3.</span> <span class="toc-text">分区表类型</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
+  
 
 
 
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"文件系统概念　| 平步青云win　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/22/Python实现8种排序算法/" title="上一篇: Python实现：8种排序算法">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2018/08/17/Mock模拟数据生成接口/" title="下一篇: Mock模拟数据生成接口">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/Python小技巧/">Python小技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/C++ Primer Plus--对象和类（十）/">C++ Primer Plus--对象和类（十）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/">C++ Primer Plus--内存模型和名称空间（九）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/C++ Primer Plus--函数探幽（八）/">C++ Primer Plus--函数探幽（八）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/12/微软面试题目--字母易位词/">微软面试题目--字母易位词</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/感知器算法/">模式识别(二)--感知器算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/分布式机器学习框架--参数服务器/">分布式机器学习框架--参数服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/07/计算机网络(四)--网络层/">计算机网络(四)--网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/">格理论与密码学--格的定义与相关性质（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">格理论与密码学--格基约减算法与实现（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/">C++ Primer Plus--函数(C++的编程模块)（七）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/">Public Proof of Cloud Storage from Lattice Assumption∗</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/NP问题理解/">NP问题理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/格理论与密码学--数学基础（一）/">格理论与密码学--数学基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/">C++ Primer Plus--分支语句和逻辑运算符（六）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/格-数据基础/">格-数据基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/计算机网络(三)--数据链路层/">计算机网络(三)--数据链路层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/Python字典、列表、元组、数组/">Python字典、列表、元组、数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/">C++ Primer Plus--循环和关系表达式（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(二)--物理层/">计算机网络(二)--物理层</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/计算机网络(一)--概论/">计算机网络(一)--概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/C++ Primer Plus--复合类型（四）/">C++ Primer Plus--复合类型（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/模式识别绪论/">模式识别绪论(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/聚类分析/">模式识别(二)--K均值聚类</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/移动通信技术/">移动通信技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/06/DAC-MACS-Effective Data Access Control for Multiauthority Cloud Storage Systems/">DAC-MACS Effective Data Access Control for Multiauthority Cloud Storage Systems</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 日志系统/">Linux 日志系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/Linux 进程管理/">Linux 进程管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/2016百度校招面试题/">2016百度校招面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux 进程概念/">Linux 进程概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux数据流重定向/">Linux数据流重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/正则表达式基础/">正则表达式基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Linux下软件安装/">Linux下软件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/Centos设置默认进入图形界面和命令行界面/">Centos7设置默认进入图形界面和命令行界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/C++ Primer Plus 数据处理/">C++ Primer Plus--数据处理（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/开始学习C++/">C++ Primer Plus--开始学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/网络与信息安全研究方向/">网络与信息安全研究方向</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/预备知识/">C++ Primer Plus--预备知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/29/简单的文本处理/">简单的文本处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/Linux不同版本以及程序包安装/">Linux不同版本以及程序包安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/28/命令执行顺序控制与管道/">命令执行顺序控制与管道</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/Linux任务计划crontab/">Linux任务计划crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/Linux中的帮助命令/">Linux中的帮助命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/八大数据结构/">十大数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/进制相互转换/">进制介绍以及相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/模式匹配的KMP算法/">模式匹配的KMP算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.x和python3.x版本区别/">Python2.x和Python3.x的版本区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/LeetCode算法题目/">LeetCode算法题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/python2.7和python3.6安装以及问题解决/">Python2.7和Python3.6安装以及文件解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/Python实现8种排序算法/">Python实现：8种排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/19/文件系统概念/">文件系统概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/Mock模拟数据生成接口/">Mock模拟数据生成接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/环境变量与文件查找/">环境变量与文件查找</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django简介（一）/">Django简介（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/小程序开发工具调试/">小程序开发工具调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Django安装（二）/">Django安装（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/16/Python实现：用位运算符实现加法，不允许使用 “+”/">Python实现：用位运算符实现加法，不允许使用 “+”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/Git + TortoiseGit安装教程/">Git + TortoiseGit安装教程和环境部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/14/微信小程序开发-前言/">微信小程序开发前言</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/Vim教程/">Vim教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/手机抓包软件：charles安装及教程/">手机抓包软件：charles安装及教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN安装后无法连接互联网/">VPN安装后无法连接到互联网</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/VPN资源md/">VPN资源</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/Markdown教程/">Markdown教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux常用的压缩解压工具zip和tar/">Linux常用的压缩/解压工具：zip和tar</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Linux介绍/">Linux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/Hexo搭建博客/">Hexo搭建属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/11/文件系统操作与磁盘管理/">文件系统操作与磁盘管理</a></li></ul>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分区状态"><span class="nav-number">1.</span> <span class="nav-text">分区状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分区格式"><span class="nav-number">2.</span> <span class="nav-text">分区格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分区表类型"><span class="nav-number">3.</span> <span class="nav-text">分区表类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
 
 
-
-
-    <script>
         
-    </script>
-</div>
-      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2018 zxp
-            </div>
-           <!-- <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div> -->
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv">
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-
-    <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
 </div>
-<script>
-    // Open in New Window
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://zxpgo.github.io/2018/08/19/文件系统概念/';
+          this.page.identifier = '2018/08/19/文件系统概念/';
+          this.page.title = '文件系统概念';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
-  </div>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
 </body>
 </html>
