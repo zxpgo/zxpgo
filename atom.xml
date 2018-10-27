@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-26T14:09:37.328Z</updated>
+  <updated>2018-10-27T08:23:03.807Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,22 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>C++ Primer Plus--对象和类（十）</title>
-    <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-26T14:09:37.328Z</updated>
+    <title>Next主题配置</title>
+    <link href="https://zxpgo.github.io/2018/10/27/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/"/>
+    <id>https://zxpgo.github.io/2018/10/27/Next主题配置/</id>
+    <published>2018-10-27T08:28:50.000Z</published>
+    <updated>2018-10-27T08:23:03.807Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;面向对象编程（OOP）
+      &lt;p&gt;前面一直使用Yelle主题，最近感觉太花哨了，所以修改成简洁的Next主题。
     
     </summary>
     
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
     
   </entry>
   
@@ -51,6 +49,26 @@
     
     
       <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--对象和类（十）</title>
+    <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
+    <published>2018-10-25T11:08:14.000Z</published>
+    <updated>2018-10-26T14:09:37.328Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面向对象编程（OOP）
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   
@@ -384,26 +402,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络(一)--概论</title>
-    <link href="https://zxpgo.github.io/2018/09/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)--%E6%A6%82%E8%AE%BA/"/>
-    <id>https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/</id>
-    <published>2018-09-21T14:28:50.000Z</published>
-    <updated>2018-09-26T08:37:02.867Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;五层协议体系结构、计算机网络性能
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
