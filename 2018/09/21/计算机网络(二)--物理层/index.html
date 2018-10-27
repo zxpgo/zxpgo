@@ -592,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/计算机网络(一)--概论/" rel="next" title="计算机网络(一)--概论">
-                <i class="fa fa-chevron-left"></i> 计算机网络(一)--概论
+              <a href="/2018/09/12/C++ Primer Plus--复合类型（四）/" rel="next" title="C++ Primer Plus--复合类型（四）">
+                <i class="fa fa-chevron-left"></i> C++ Primer Plus--复合类型（四）
               </a>
             
           </div>
@@ -602,8 +602,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/27/C++ Primer Plus--循环和关系表达式（五）/" rel="prev" title="C++ Primer Plus--循环和关系表达式（五）">
-                C++ Primer Plus--循环和关系表达式（五） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/21/计算机网络(一)--概论/" rel="prev" title="计算机网络(一)--概论">
+                计算机网络(一)--概论 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1542,77 +1542,21 @@ function showTime(Counter) {
 		query.find({
 			success: function(results) {
 				if (results.length == 0) {
-					var content = $(document.getElementById(url)).text() + ': 0';
+					var content = $(document.getElementById(url)).text() + ' 0';
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
 				for (var i = 0; i < results.length; i++) {
-					var object = results[0];
-					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
 					$(document.getElementById(url)).text(content);
 				}
-				}
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
 			}
 		});
 
 	});
 }
 
-function addCount(Counter) {
-	var Counter = AV.Object.extend("Counter");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Counter);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Counter();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = $(document.getElementById(url)).text() + ' ' + newcounter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Counter = AV.Object.extend("Counter");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Counter);
-	} else if ($('.post-title-link').length > 1) {
-		showTime(Counter);
-	}
-});
 </script>
   
 </body>
