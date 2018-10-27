@@ -94,7 +94,7 @@
 <meta property="og:description" content="前面一直使用Yelle主题，最近感觉太花哨了，所以修改成简洁的Next主题。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/Qma2Jrn.png">
-<meta property="og:updated_time" content="2018-10-27T08:23:03.807Z">
+<meta property="og:updated_time" content="2018-10-27T08:42:13.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Next主题配置">
 <meta name="twitter:description" content="前面一直使用Yelle主题，最近感觉太花哨了，所以修改成简洁的Next主题。">
@@ -411,6 +411,23 @@
 <h2 id="第三方评论"><a href="#第三方评论" class="headerlink" title="第三方评论"></a>第三方评论</h2><h3 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h3><p>来必力： <a href="https://www.livere.com" target="_blank" rel="noopener">https://www.livere.com</a></p>
 <p>在主题文件中添加如下命令：</p>
 <pre><code>livere_uid: kjfkdjffklajdf
+</code></pre><p>在安装之后，发现首页也有评论栏，严重影响美观。去掉方案为，修改<code>layout\_third-party\comments</code>中的<code>livers.siwg</code>文件：</p>
+<pre><code>{% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id and not theme.gentie_productKey %}
+	  {% if theme.livere_uid %}
+	  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+	    <script type="text/javascript">
+	      (function(d, s) {
+	        var j, e = d.getElementsByTagName(s)[0];
+	        if (typeof LivereTower === 'function') { return; }
+	        j = d.createElement(s);
+	        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	        j.async = true;
+	        e.parentNode.insertBefore(j, e);
+	      })(document, 'script');
+	    </script>
+		</div>
+	  {% endif %}
+{% endif %}
 </code></pre><p>uid来自来必力管理后台：</p>
 <p><img src="https://i.imgur.com/Qma2Jrn.png" alt=""></p>
 <p>更多评论第三方：</p>
@@ -780,7 +797,7 @@ function showTime(Counter) {
 
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-"></i>
+    <i class="fa fa-"></i> Power by 
   </span>
   <span class="author" itemprop="copyrightHolder">zxp</span>
 
@@ -939,7 +956,7 @@ function showTime(Counter) {
 
 
   
-  <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
     <script type="text/javascript">
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
