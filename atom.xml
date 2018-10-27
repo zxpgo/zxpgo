@@ -171,15 +171,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格基约减算法与实现（四）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:36:17.401Z</updated>
+    <updated>2018-10-13T06:37:01.388Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
+      &lt;p&gt;格中计算性难题
     
     </summary>
     
@@ -191,15 +191,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <title>格理论与密码学--格基约减算法与实现（四）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-13T06:37:01.388Z</updated>
+    <updated>2018-10-13T06:36:17.401Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;格中计算性难题
+      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
     
     </summary>
     
