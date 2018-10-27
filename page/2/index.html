@@ -1786,7 +1786,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxp">
@@ -1805,7 +1805,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/21/计算机网络(一)--概论/" itemprop="url">计算机网络(一)--概论</a></h2>
+                <a class="post-title-link" href="/2018/09/21/计算机网络(二)--物理层/" itemprop="url">计算机网络(二)--物理层</a></h2>
         
 
         <div class="post-meta">
@@ -1858,9 +1858,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/21/计算机网络(一)--概论/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/21/计算机网络(二)--物理层/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/21/计算机网络(一)--概论/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/21/计算机网络(二)--物理层/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1868,7 +1868,7 @@
 
           
           
-             <span id="/2018/09/21/计算机网络(一)--概论/" class="leancloud_visitors" data-flag-title="计算机网络(一)--概论">
+             <span id="/2018/09/21/计算机网络(二)--物理层/" class="leancloud_visitors" data-flag-title="计算机网络(二)--物理层">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1900,10 +1900,10 @@
 
       
         
-          <p>五层协议体系结构、计算机网络性能
+          <p>物理层
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/21/计算机网络(一)--概论/#more" rel="contents">
+            <a class="btn" href="/2018/09/21/计算机网络(二)--物理层/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2804,7 +2804,76 @@
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
 <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
 <script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				else{
+					i = 0;
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
 
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ' ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
 $(function() {
 	var Counter = AV.Object.extend("Counter");
 	if ($('.leancloud_visitors').length == 1) {
