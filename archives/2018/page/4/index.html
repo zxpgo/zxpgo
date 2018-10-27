@@ -138,6 +138,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -375,43 +385,6 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/09/01/正则表达式基础/" itemprop="url">
-              
-                <span itemprop="name">正则表达式基础</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-01T15:57:50+08:00"
-              content="2018-09-01" >
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
             <a class="post-title-link" href="/2018/09/01/Linux下软件安装/" itemprop="url">
               
                 <span itemprop="name">Linux下软件安装</span>
@@ -486,9 +459,46 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/08/31/C++ Primer Plus 数据处理/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/01/正则表达式基础/" itemprop="url">
               
-                <span itemprop="name">C++ Primer Plus--数据处理（三）</span>
+                <span itemprop="name">正则表达式基础</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-09-01T15:57:50+08:00"
+              content="2018-09-01" >
+          09-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/08/31/开始学习C++/" itemprop="url">
+              
+                <span itemprop="name">C++ Primer Plus--开始学习（二）</span>
               
             </a>
         
@@ -523,9 +533,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/2018/08/31/开始学习C++/" itemprop="url">
+            <a class="post-title-link" href="/2018/08/31/C++ Primer Plus 数据处理/" itemprop="url">
               
-                <span itemprop="name">C++ Primer Plus--开始学习（二）</span>
+                <span itemprop="name">C++ Primer Plus--数据处理（三）</span>
               
             </a>
         
@@ -898,6 +908,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1519,6 +1535,18 @@
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
@@ -1543,7 +1571,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1574,12 +1602,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1603,7 +1632,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

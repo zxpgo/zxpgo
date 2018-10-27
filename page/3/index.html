@@ -138,6 +138,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -317,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/09/21/计算机网络(一)--概论/">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/09/21/计算机网络(二)--物理层/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxp">
@@ -336,7 +346,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/21/计算机网络(一)--概论/" itemprop="url">计算机网络(一)--概论</a></h2>
+                <a class="post-title-link" href="/2018/09/21/计算机网络(二)--物理层/" itemprop="url">计算机网络(二)--物理层</a></h2>
         
 
         <div class="post-meta">
@@ -389,9 +399,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/21/计算机网络(一)--概论/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/21/计算机网络(二)--物理层/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/21/计算机网络(一)--概论/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/21/计算机网络(二)--物理层/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -399,7 +409,7 @@
 
           
           
-             <span id="/2018/09/21/计算机网络(一)--概论/" class="leancloud_visitors" data-flag-title="计算机网络(一)--概论">
+             <span id="/2018/09/21/计算机网络(二)--物理层/" class="leancloud_visitors" data-flag-title="计算机网络(二)--物理层">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,10 +441,10 @@
 
       
         
-          <p>五层协议体系结构、计算机网络性能
+          <p>物理层
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/21/计算机网络(一)--概论/#more" rel="contents">
+            <a class="btn" href="/2018/09/21/计算机网络(二)--物理层/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2184,6 +2194,12 @@
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -2804,6 +2820,18 @@
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
@@ -2828,7 +2856,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -2859,12 +2887,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -2888,7 +2917,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

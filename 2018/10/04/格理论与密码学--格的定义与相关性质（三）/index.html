@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="格中计算性难题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-13T06:37:01.388Z">
+<meta property="og:updated_time" content="2018-10-27T02:10:52.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格理论与密码学--格的定义与相关性质（三）">
 <meta name="twitter:description" content="格中计算性难题">
@@ -138,6 +138,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -812,6 +822,12 @@
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1448,11 +1464,43 @@
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1483,12 +1531,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1512,7 +1561,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

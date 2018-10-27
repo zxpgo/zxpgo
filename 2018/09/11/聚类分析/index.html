@@ -94,7 +94,7 @@
 <meta property="og:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/BHa0iXW.png">
-<meta property="og:updated_time" content="2018-10-02T14:14:32.347Z">
+<meta property="og:updated_time" content="2018-10-27T02:10:44.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模式识别(二)--K均值聚类">
 <meta name="twitter:description" content="K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。">
@@ -140,6 +140,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -856,6 +866,12 @@ if __name__ == &quot;__main__&quot;:
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1492,11 +1508,43 @@ if __name__ == &quot;__main__&quot;:
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1527,12 +1575,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1556,7 +1605,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

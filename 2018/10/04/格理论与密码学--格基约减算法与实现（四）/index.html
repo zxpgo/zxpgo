@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://i.imgur.com/zu8wp0V.png">
 <meta property="og:image" content="https://i.imgur.com/HEsKTNK.png">
 <meta property="og:image" content="https://i.imgur.com/Af28Ogg.png">
-<meta property="og:updated_time" content="2018-10-13T06:36:17.401Z">
+<meta property="og:updated_time" content="2018-10-27T02:11:22.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格理论与密码学--格基约减算法与实现（四）">
 <meta name="twitter:description" content="二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。">
@@ -144,6 +144,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -809,6 +819,12 @@
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1445,11 +1461,43 @@
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1480,12 +1528,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1509,7 +1558,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

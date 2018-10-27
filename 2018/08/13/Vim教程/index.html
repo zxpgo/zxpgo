@@ -139,6 +139,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -937,8 +947,8 @@ dNw 删除N个单词
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/12/Markdown教程/" rel="next" title="Markdown教程">
-                <i class="fa fa-chevron-left"></i> Markdown教程
+              <a href="/2018/08/13/手机抓包软件：charles安装及教程/" rel="next" title="手机抓包软件：charles安装及教程">
+                <i class="fa fa-chevron-left"></i> 手机抓包软件：charles安装及教程
               </a>
             
           </div>
@@ -947,8 +957,8 @@ dNw 删除N个单词
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/13/手机抓包软件：charles安装及教程/" rel="prev" title="手机抓包软件：charles安装及教程">
-                手机抓包软件：charles安装及教程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/14/微信小程序开发-前言/" rel="prev" title="微信小程序开发前言">
+                微信小程序开发前言 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1201,6 +1211,12 @@ dNw 删除N个单词
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1838,6 +1854,18 @@ dNw 删除N个单词
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
@@ -1873,12 +1901,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1902,7 +1931,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {

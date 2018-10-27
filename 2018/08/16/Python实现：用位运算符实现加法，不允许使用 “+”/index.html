@@ -94,7 +94,7 @@
 <meta property="og:description" content="计算两个整数a、b的和，但是不能使用“+”操作符。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/V2JKW9z.jpg">
-<meta property="og:updated_time" content="2018-08-16T14:25:25.384Z">
+<meta property="og:updated_time" content="2018-10-27T02:10:10.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现：用位运算符实现加法，不允许使用 “+”">
 <meta name="twitter:description" content="计算两个整数a、b的和，但是不能使用“+”操作符。">
@@ -140,6 +140,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -582,8 +592,8 @@ tb = 1001 //9
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/15/Git + TortoiseGit安装教程/" rel="next" title="Git + TortoiseGit安装教程和环境部署">
-                <i class="fa fa-chevron-left"></i> Git + TortoiseGit安装教程和环境部署
+              <a href="/2018/08/16/Django简介（一）/" rel="next" title="Django简介（一）">
+                <i class="fa fa-chevron-left"></i> Django简介（一）
               </a>
             
           </div>
@@ -592,8 +602,8 @@ tb = 1001 //9
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/16/小程序开发工具调试/" rel="prev" title="小程序开发工具调试">
-                小程序开发工具调试 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/16/Django安装（二）/" rel="prev" title="Django安装（二）">
+                Django安装（二） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -846,6 +856,12 @@ tb = 1001 //9
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1483,11 +1499,43 @@ tb = 1001 //9
       new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
   </script>
 
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1518,12 +1566,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
-				else{
-					i = 0;
-					var object = results[i];
+				else:{
+				for (var i = 0; i < results.length; i++) {
+					var object = results[0];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					$(document.getElementById(url)).text(content);
-				}}
+				}
+				}
 			},
 			error: function(object, error) {
 				console.log("Error: " + error.code + " " + error.message);
@@ -1547,7 +1596,7 @@ function addCount(Counter) {
 				counter.increment("time");
 				counter.save(null, {
 					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ' ' + counter.get('time');
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {
