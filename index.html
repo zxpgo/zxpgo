@@ -405,150 +405,16 @@
 
       
         
-          
-            <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>游戏设置：这里有一排糖果，两个人分别轮流从中抓取一块或两块（注：抓取的两块必须是挨着的）。</p>
+          <p>游戏设置：这里有一排糖果，两个人分别轮流从中抓取一块或两块（注：抓取的两块必须是挨着的）。</p>
 <p>中奖规则：谁拿到了最后的糖果，谁就是胜者！</p>
-<p>算法要求：编写一条算法：保证先抓的人一定能赢。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>A、B两个人，</p>
-<ul>
-<li>1.如果这里有3块糖果，A先拿走了中间的一块，显而易见，那么无论B怎么拿，A都会赢</li>
-<li>2.如果这里有4块糖果，A先拿了中间的2块，同样的，无论B怎么拿，A也都会赢</li>
-<li>3.举一反三，如果这里增到五块糖果，A先拿了中间的1块，如果B拿走1块，A就拿和B中心对称的一块，这样A还是会赢。</li>
-</ul>
-<p>如果想让先拿的获胜，我们就得出以下规律：</p>
-<ul>
-<li><ol>
-<li>糖果如果是奇数块，先拿的就拿中间的一块；</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>糖果如果是偶数块，先拿的就先拿中间的两块；</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>1、2步骤后剩下的只要和对方的基于中心点对称就一定会赢。</li>
-</ol>
-</li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code>#include &lt;iostream&gt;
-
-using namespace std;
-
-bool take_stone(char *stones, int len, int start, int num)
-{
-    bool bRet = true;
-
-    if ((start &lt; 0) || ((start+num) &gt; len) || (num &lt; 1 || num &gt; 2))
-        return false;
-
-    if (((num == 1) &amp;&amp; (stones[start] != &apos;O&apos;)) 
-        || ((num == 2) &amp;&amp; ((stones[start] != &apos;O&apos;) || (stones[start+1] != &apos;O&apos;))))
-        return false;
-
-    if (num == 1)
-        stones[start] = &apos;x&apos;;
-    else if (num == 2)
-    {
-        stones[start] = &apos;x&apos;; stones[start+1] = &apos;x&apos;;
-    }
-
-    return bRet;
-}
-
-bool scan(char *stones, int len, int start, int num, int round)
-{
-    int i = 0, mid = 0;
-    bool bRet = false;
-
-    mid = (len+1)/2;
-
-    if (round == 0)
-    {
-        if (len%2 == 1)
-        {
-            mid = (len-1)/2;
-            stones[mid] = &apos;x&apos;;
-        }
-        else
-        {
-            mid = len/2 - 1;
-            stones[mid] = &apos;x&apos;; stones[mid+1] = &apos;x&apos;;
-        }
-    }
-    else
-    {
-        mid = len - 1 - start;
-        stones[mid] = &apos;x&apos;;
-
-        mid = mid - (num-1);
-        stones[mid] = &apos;x&apos;;
-    }
-
-    for (i=0; i &lt; len; i++)
-    {
-        if (stones[i] == &apos;O&apos;)
-        {
-            bRet = true;
-            break;
-        }
-    }
-
-    if (!bRet)
-    {
-        cout &lt;&lt; &quot;PROGRAM WIN!!&quot; &lt;&lt; endl;
-        bRet = false;
-    }
-
-    return bRet;
-}
-
-void print(char *stones, int len)
-{
-    int i = 0;
-
-    for (i=0; i &lt; len; i++)
-    {
-        cout &lt;&lt; stones[i] &lt;&lt; &quot;   &quot;;
-    }
-    cout &lt;&lt; endl;
-}
-
-void play(char *stones, int len)
-{
-    int nStart=0, nNum=0;
-    int round = 0;
-
-    while(scan(stones, len, nStart, nNum, round))
-    {
-        print(stones, len);
-        cout &lt;&lt; &quot;please input the start stone and will take how many(max is 2)&quot; &lt;&lt; endl;
-        cin &gt;&gt; nStart &gt;&gt; nNum;
-        while (!take_stone(stones, len, nStart, nNum))
-        {
-            cout &lt;&lt; &quot;please re-input your choose&quot; &lt;&lt;endl;
-            cin &gt;&gt; nStart &gt;&gt; nNum;
-        }
-
-        round++;
-    }
-
-    print(stones, len);
-}
-
-void main()
-{
-    char test[]={&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;};
-    int len = 8;
-
-    play(test, len);
-
-    cin &gt;&gt; len;
-}
-</code></pre><p>转自：<a href="https://mp.weixin.qq.com/s/DDQw2OlbYAvPy9Rg4juUdw" target="_blank" rel="noopener">CSDN云计算公众号</a></p>
-<p><a href="https://blog.csdn.net/wangzhiyu1980/article/details/50647064?utm_source=blogxgwz6" target="_blank" rel="noopener">类似游戏
-</a></p>
-
-          
+<p>算法要求：编写一条算法：保证先抓的人一定能赢。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/28/挑糖果游戏/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

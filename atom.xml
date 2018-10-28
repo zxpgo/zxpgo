@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-28T03:08:24.325Z</updated>
+  <updated>2018-10-28T12:08:14.463Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="https://zxpgo.github.io/2018/10/28/%E6%8C%91%E7%B3%96%E6%9E%9C%E6%B8%B8%E6%88%8F/"/>
     <id>https://zxpgo.github.io/2018/10/28/挑糖果游戏/</id>
     <published>2018-10-28T02:28:14.000Z</published>
-    <updated>2018-10-28T03:08:24.325Z</updated>
+    <updated>2018-10-28T12:08:14.463Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;游戏设置：这里有一排糖果，两个人分别轮流从中抓取一块或两块（注：抓取的两块必须是挨着的）。&lt;/p&gt;
+&lt;p&gt;中奖规则：谁拿到了最后的糖果，谁就是胜者！&lt;/p&gt;
+&lt;p&gt;算法要求：编写一条算法：保证先抓的人一定能赢。
     
     </summary>
     
