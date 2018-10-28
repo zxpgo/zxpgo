@@ -95,7 +95,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/tuXJeop.gif">
 <meta property="og:image" content="https://i.imgur.com/NkFDJCn.png">
-<meta property="og:updated_time" content="2018-10-26T13:56:33.099Z">
+<meta property="og:image" content="https://i.imgur.com/RRuWyQ4.png">
+<meta property="og:updated_time" content="2018-10-27T15:19:18.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode算法题目">
 <meta name="twitter:description" content="leetcode是个题库，里面有很编程多面试的题目，可以在线编译运行。难度比较高。如果自己能都做出来，对面大公司很有帮助。">
@@ -1039,6 +1040,57 @@ public:
         return max;
     }
 };
+</code></pre><h2 id="15-螺旋矩阵"><a href="#15-螺旋矩阵" class="headerlink" title="15 螺旋矩阵"></a>15 螺旋矩阵</h2><p>给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
+<p>示例 1:</p>
+<pre><code>输入:
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+输出: [1,2,3,6,9,8,7,4,5]
+</code></pre><p>示例 2:</p>
+<pre><code>输入:
+[
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9,10,11,12]
+]
+输出: [1,2,3,4,8,12,11,10,9,5,6,7]
+</code></pre><p><strong>思路</strong></p>
+<p>一层一层输出，先输出第一行，最后一列，最后一行，第一列。然后进入第二层，采用通过的顺序输出。</p>
+<p><img src="https://i.imgur.com/RRuWyQ4.png" alt=""></p>
+<p><strong>C++实现</strong></p>
+<pre><code>class Solution {
+public:
+    vector&lt;int&gt; spiralOrder(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) {
+        if (matrix.empty()) return {};
+        int j = 0;
+        int r1 = 0;
+        int r2 = matrix.size()-1;
+        int c1 = 0;
+        int c2 = matrix[0].size()-1;
+        int totalnums = (r2+1) * (c2+1);
+        vector&lt;int&gt; p(totalnums);
+        int k = 0;
+        while (r1 &lt;= r2 and c1 &lt;= c2)
+        {
+            for (int i = c1; i &lt;= c2; i++) p[k++] = matrix[r1][i];
+            for (int j = r1 + 1; j &lt;= r2; j++) p[k++] = matrix[j][c2];
+            if (r1 &lt; r2 &amp;&amp; c1 &lt; c2)
+            {
+                cout &lt;&lt; &apos;1&apos; &lt;&lt; endl;
+                for (int i = c2 - 1; i &gt; c1; i--) p[k++] = matrix[r2][i];
+                for (int j = r2; j &gt; r1; j--) p[k++] = matrix[j][c1];
+            }
+            r1++;
+            r2--;
+            c1++;
+            c2--;  
+        }
+        return p;
+    }
+};
 </code></pre>
       
     </div>
@@ -1051,7 +1103,7 @@ public:
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>Donate comment here</div>
+  <div></div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
@@ -1131,8 +1183,8 @@ public:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/22/python2.x和python3.x版本区别/" rel="next" title="Python2.x和Python3.x的版本区别">
-                <i class="fa fa-chevron-left"></i> Python2.x和Python3.x的版本区别
+              <a href="/2018/08/22/python2.7和python3.6安装以及问题解决/" rel="next" title="Python2.7和Python3.6安装以及文件解决">
+                <i class="fa fa-chevron-left"></i> Python2.7和Python3.6安装以及文件解决
               </a>
             
           </div>
@@ -1141,8 +1193,8 @@ public:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/22/python2.7和python3.6安装以及问题解决/" rel="prev" title="Python2.7和Python3.6安装以及文件解决">
-                Python2.7和Python3.6安装以及文件解决 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/22/模式匹配的KMP算法/" rel="prev" title="模式匹配的KMP算法">
+                模式匹配的KMP算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1229,7 +1281,7 @@ public:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1338,6 +1390,10 @@ public:
                     <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
                   </li>
                 
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
               </ul>
             </div>
           
@@ -1357,7 +1413,7 @@ public:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两数之和"><span class="nav-number">1.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两数相加"><span class="nav-number">2.</span> <span class="nav-text">两数相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无重复字符的最长子串"><span class="nav-number">3.</span> <span class="nav-text">无重复字符的最长子串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：暴力法"><span class="nav-number">3.1.</span> <span class="nav-text">方法一：暴力法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：滑动窗口"><span class="nav-number">3.2.</span> <span class="nav-text">方法二：滑动窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三：优化的滑动窗口"><span class="nav-number">3.3.</span> <span class="nav-text">方法三：优化的滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个排序数组的中位数"><span class="nav-number">4.</span> <span class="nav-text">两个排序数组的中位数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、数组"><span class="nav-number"></span> <span class="nav-text">二、数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-三数之和"><span class="nav-number">1.</span> <span class="nav-text">1.三数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一："><span class="nav-number">1.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二："><span class="nav-number">1.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-最接近的三数之和"><span class="nav-number">2.</span> <span class="nav-text">2.最接近的三数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-四数之和"><span class="nav-number">3.</span> <span class="nav-text">3.四数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-删除排序数组中的重复项"><span class="nav-number">4.</span> <span class="nav-text">4.删除排序数组中的重复项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法"><span class="nav-number">4.1.</span> <span class="nav-text">双指针法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-移除元素"><span class="nav-number">5.</span> <span class="nav-text">5.移除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法-1"><span class="nav-number">5.1.</span> <span class="nav-text">双指针法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-下一排序"><span class="nav-number">6.</span> <span class="nav-text">6.下一排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一遍扫描"><span class="nav-number">6.1.</span> <span class="nav-text">一遍扫描</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-搜索旋转排序数组"><span class="nav-number">7.</span> <span class="nav-text">7.搜索旋转排序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-插入搜索位置"><span class="nav-number">8.</span> <span class="nav-text">8.插入搜索位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-组合总和"><span class="nav-number">9.</span> <span class="nav-text">9.组合总和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-缺失的第一个正数"><span class="nav-number">10.</span> <span class="nav-text">10. 缺失的第一个正数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-接雨水"><span class="nav-number">11.</span> <span class="nav-text">11. 接雨水</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-跳跃游戏Ⅱ"><span class="nav-number">12.</span> <span class="nav-text">12. 跳跃游戏Ⅱ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-图像旋转"><span class="nav-number">13.</span> <span class="nav-text">13. 图像旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-最大子序和"><span class="nav-number">14.</span> <span class="nav-text">14. 最大子序和</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两数之和"><span class="nav-number">1.</span> <span class="nav-text">两数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两数相加"><span class="nav-number">2.</span> <span class="nav-text">两数相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无重复字符的最长子串"><span class="nav-number">3.</span> <span class="nav-text">无重复字符的最长子串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：暴力法"><span class="nav-number">3.1.</span> <span class="nav-text">方法一：暴力法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：滑动窗口"><span class="nav-number">3.2.</span> <span class="nav-text">方法二：滑动窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三：优化的滑动窗口"><span class="nav-number">3.3.</span> <span class="nav-text">方法三：优化的滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个排序数组的中位数"><span class="nav-number">4.</span> <span class="nav-text">两个排序数组的中位数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、数组"><span class="nav-number"></span> <span class="nav-text">二、数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-三数之和"><span class="nav-number">1.</span> <span class="nav-text">1.三数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一："><span class="nav-number">1.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二："><span class="nav-number">1.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-最接近的三数之和"><span class="nav-number">2.</span> <span class="nav-text">2.最接近的三数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-四数之和"><span class="nav-number">3.</span> <span class="nav-text">3.四数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-删除排序数组中的重复项"><span class="nav-number">4.</span> <span class="nav-text">4.删除排序数组中的重复项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法"><span class="nav-number">4.1.</span> <span class="nav-text">双指针法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-移除元素"><span class="nav-number">5.</span> <span class="nav-text">5.移除元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针法-1"><span class="nav-number">5.1.</span> <span class="nav-text">双指针法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-下一排序"><span class="nav-number">6.</span> <span class="nav-text">6.下一排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一遍扫描"><span class="nav-number">6.1.</span> <span class="nav-text">一遍扫描</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-搜索旋转排序数组"><span class="nav-number">7.</span> <span class="nav-text">7.搜索旋转排序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-插入搜索位置"><span class="nav-number">8.</span> <span class="nav-text">8.插入搜索位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-组合总和"><span class="nav-number">9.</span> <span class="nav-text">9.组合总和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-缺失的第一个正数"><span class="nav-number">10.</span> <span class="nav-text">10. 缺失的第一个正数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-接雨水"><span class="nav-number">11.</span> <span class="nav-text">11. 接雨水</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-跳跃游戏Ⅱ"><span class="nav-number">12.</span> <span class="nav-text">12. 跳跃游戏Ⅱ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-图像旋转"><span class="nav-number">13.</span> <span class="nav-text">13. 图像旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-最大子序和"><span class="nav-number">14.</span> <span class="nav-text">14. 最大子序和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-螺旋矩阵"><span class="nav-number">15.</span> <span class="nav-text">15 螺旋矩阵</span></a></li></ol></div>
             
 
           </div>
@@ -1391,17 +1447,14 @@ public:
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; 2018-8-10 &mdash; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-"></i> Power by 
   </span>
   <span class="author" itemprop="copyrightHolder">zxp</span>
-
+  
   
 </div>
-
-
-
 
 
 

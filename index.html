@@ -324,6 +324,277 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/28/挑糖果游戏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/28/挑糖果游戏/" itemprop="url">挑糖果游戏</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-28T10:28:14+08:00">
+                2018-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/28/挑糖果游戏/" class="leancloud_visitors" data-flag-title="挑糖果游戏">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>游戏设置：这里有一排糖果，两个人分别轮流从中抓取一块或两块（注：抓取的两块必须是挨着的）。</p>
+<p>中奖规则：谁拿到了最后的糖果，谁就是胜者！</p>
+<p>算法要求：编写一条算法：保证先抓的人一定能赢。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>A、B两个人，</p>
+<ul>
+<li>1.如果这里有3块糖果，A先拿走了中间的一块，显而易见，那么无论B怎么拿，A都会赢</li>
+<li>2.如果这里有4块糖果，A先拿了中间的2块，同样的，无论B怎么拿，A也都会赢</li>
+<li>3.举一反三，如果这里增到五块糖果，A先拿了中间的1块，如果B拿走1块，A就拿和B中心对称的一块，这样A还是会赢。</li>
+</ul>
+<p>如果想让先拿的获胜，我们就得出以下规律：</p>
+<ul>
+<li><ol>
+<li>糖果如果是奇数块，先拿的就拿中间的一块；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>糖果如果是偶数块，先拿的就先拿中间的两块；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>1、2步骤后剩下的只要和对方的基于中心点对称就一定会赢。</li>
+</ol>
+</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+bool take_stone(char *stones, int len, int start, int num)
+{
+    bool bRet = true;
+
+    if ((start &lt; 0) || ((start+num) &gt; len) || (num &lt; 1 || num &gt; 2))
+        return false;
+
+    if (((num == 1) &amp;&amp; (stones[start] != &apos;O&apos;)) 
+        || ((num == 2) &amp;&amp; ((stones[start] != &apos;O&apos;) || (stones[start+1] != &apos;O&apos;))))
+        return false;
+
+    if (num == 1)
+        stones[start] = &apos;x&apos;;
+    else if (num == 2)
+    {
+        stones[start] = &apos;x&apos;; stones[start+1] = &apos;x&apos;;
+    }
+
+    return bRet;
+}
+
+bool scan(char *stones, int len, int start, int num, int round)
+{
+    int i = 0, mid = 0;
+    bool bRet = false;
+
+    mid = (len+1)/2;
+
+    if (round == 0)
+    {
+        if (len%2 == 1)
+        {
+            mid = (len-1)/2;
+            stones[mid] = &apos;x&apos;;
+        }
+        else
+        {
+            mid = len/2 - 1;
+            stones[mid] = &apos;x&apos;; stones[mid+1] = &apos;x&apos;;
+        }
+    }
+    else
+    {
+        mid = len - 1 - start;
+        stones[mid] = &apos;x&apos;;
+
+        mid = mid - (num-1);
+        stones[mid] = &apos;x&apos;;
+    }
+
+    for (i=0; i &lt; len; i++)
+    {
+        if (stones[i] == &apos;O&apos;)
+        {
+            bRet = true;
+            break;
+        }
+    }
+
+    if (!bRet)
+    {
+        cout &lt;&lt; &quot;PROGRAM WIN!!&quot; &lt;&lt; endl;
+        bRet = false;
+    }
+
+    return bRet;
+}
+
+void print(char *stones, int len)
+{
+    int i = 0;
+
+    for (i=0; i &lt; len; i++)
+    {
+        cout &lt;&lt; stones[i] &lt;&lt; &quot;   &quot;;
+    }
+    cout &lt;&lt; endl;
+}
+
+void play(char *stones, int len)
+{
+    int nStart=0, nNum=0;
+    int round = 0;
+
+    while(scan(stones, len, nStart, nNum, round))
+    {
+        print(stones, len);
+        cout &lt;&lt; &quot;please input the start stone and will take how many(max is 2)&quot; &lt;&lt; endl;
+        cin &gt;&gt; nStart &gt;&gt; nNum;
+        while (!take_stone(stones, len, nStart, nNum))
+        {
+            cout &lt;&lt; &quot;please re-input your choose&quot; &lt;&lt;endl;
+            cin &gt;&gt; nStart &gt;&gt; nNum;
+        }
+
+        round++;
+    }
+
+    print(stones, len);
+}
+
+void main()
+{
+    char test[]={&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;,&apos;O&apos;};
+    int len = 8;
+
+    play(test, len);
+
+    cin &gt;&gt; len;
+}
+</code></pre><p>转自：<a href="https://mp.weixin.qq.com/s/DDQw2OlbYAvPy9Rg4juUdw" target="_blank" rel="noopener">CSDN云计算公众号</a></p>
+<p><a href="https://blog.csdn.net/wangzhiyu1980/article/details/50647064?utm_source=blogxgwz6" target="_blank" rel="noopener">类似游戏
+</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/27/Next主题配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -409,6 +680,141 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/27/Next主题配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/25/Python小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/Python小技巧/" itemprop="url">Python小技巧</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T19:08:14+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/25/Python小技巧/" class="leancloud_visitors" data-flag-title="Python小技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/25/Python小技巧/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -566,141 +972,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/25/C++ Primer Plus--对象和类（十）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/25/Python小技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zxp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="平步青云win">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/25/Python小技巧/" itemprop="url">Python小技巧</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T19:08:14+08:00">
-                2018-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/25/Python小技巧/" class="leancloud_visitors" data-flag-title="Python小技巧">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/25/Python小技巧/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1636,163 +1907,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zxp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="平步青云win">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/" itemprop="url">格理论与密码学--格基约减算法与实现（四）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-04T18:48:50+08:00">
-                2018-10-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/格理论与密码学/" itemprop="url" rel="index">
-                    <span itemprop="name">格理论与密码学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/" class="leancloud_visitors" data-flag-title="格理论与密码学--格基约减算法与实现（四）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1847,7 +1961,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1956,6 +2070,10 @@
                     <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
                   </li>
                 
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
               </ul>
             </div>
           
@@ -1993,17 +2111,14 @@
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; 2018-8-10 &mdash; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-"></i> Power by 
   </span>
   <span class="author" itemprop="copyrightHolder">zxp</span>
-
+  
   
 </div>
-
-
-
 
 
 
