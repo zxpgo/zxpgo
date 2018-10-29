@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="面向对象编程（OOP）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-26T14:09:37.328Z">
+<meta property="og:updated_time" content="2018-10-28T13:42:49.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--对象和类（十）">
 <meta name="twitter:description" content="面向对象编程（OOP）">
@@ -470,7 +470,30 @@ Stock solly;
 <h4 id="1-访问控制"><a href="#1-访问控制" class="headerlink" title="1.访问控制"></a>1.访问控制</h4><p>关键字private和public，描述了对类成员的访问控制。使用类对象的程序都可以直接访问公有部分，但只能通过公有成员函数（或友员函数，参见第11章）来访问对象的私有成员。例如，要修改Stock类的shares成员，只能通过Stock的成员函数。因此，公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏。C++还提供了第三个访问控制关键字protected（第13章介绍）。</p>
 <p>类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏是一种封装，将实现的细节隐藏在私有部分中，就像Stock类对set_tot()所做的那样，也是一种封装。封装的另一个例子是，将函数定义和类声明放在不同的文件中。</p>
 <p>数据隐藏不仅可以防止直接访问数据，还可以让开发者无需了解数据是如何标识的。例如，show()成员将显式某支股票的总价格（还有其他内容），这个值可以存储在对象中，也可以在需要时通过计算得到。从使用类的角度看，使用哪种方法没有声明区别。所需要知道的只是各种成员函数的功能；即，需要知道成员函数接受什么样的参数以及返回生命类型的值。原则是将实现细节从接口设计中分离出来。如果以后找到了更好的、实现数据表示或成员函数细节的方法，可以对这些细节进行修改，而无需修改程序接口，这使得程序维护起来更容易。</p>
-<h4 id="2-控制对成员的访问：公有还是私有"><a href="#2-控制对成员的访问：公有还是私有" class="headerlink" title="2.控制对成员的访问：公有还是私有"></a>2.控制对成员的访问：公有还是私有</h4>
+<h4 id="2-控制对成员的访问：公有还是私有"><a href="#2-控制对成员的访问：公有还是私有" class="headerlink" title="2.控制对成员的访问：公有还是私有"></a>2.控制对成员的访问：公有还是私有</h4><p>无论类成员是数据成员还是函数成员，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是OOP主要的目标之一，因此数据项通常放在私有部分，组成类接口的成员函数放在公有部分；否则就无法从从程序中调用这些函数。正如Stock声明所表明的，也可以把成员函数放在私有部分中。不能直接从程序中调用这种函数，但公有方法却可以访问使用它们。通常，程序使用私有成员函数来处理不属于公有接口的实现细节。</p>
+<p><strong>不必在类声明中使用关键字private，因为这是类对象的默认访问控制</strong>:</p>
+<pre><code>class World
+{
+    float mass;
+    char name[20];
+public: 
+    void tellall(void);
+}
+</code></pre><p>然而，为强调数据隐藏的概念，本书显式地使用了private。</p>
+<p><strong>类和结构</strong></p>
+<p>类描述看上去很像是包含成员函数以及public和private可见性标签的结构声明。实际上，C++对结构进行了扩展，使之具有与类相同的特性。它们之间的唯一区别是，结构的默认访问类型是public，而类为private。C++程序员通常使用类实现类描述，而把结构限制为只表示纯粹的数据对象。</p>
+<h3 id="10-2-3-实现类成员函数"><a href="#10-2-3-实现类成员函数" class="headerlink" title="10.2.3 实现类成员函数"></a>10.2.3 实现类成员函数</h3><p>还需要创建类描述的第二部分：为那些由类声明中的原型表示的成员函数提供代码。成员函数定义与常规函数定义非常相似，它们由函数头和函数体，也可以返回类型和参数。但它们两个特殊的特征：</p>
+<ul>
+<li>定义成员函数，使用作用域解析运算符(::)来标识函数所属的类；</li>
+<li>类方法可以访问类的private组件。</li>
+</ul>
+<p>首先，成员函数的函数头使用作用域运算符解析（::）来指出函数所属的类。例如，update()成员函数的函数头如下：</p>
+<pre><code>void Stock::update(double prive)
+</code></pre><p>这种表示法意味着我们定义的update()函数是stock类的成员。这不仅将update()标识为成员函数，意味着我们可以将另一个类的成员函数也命名为update()。例如，Buffon类的update()函数的函数头如下：</p>
+<pre><code>void Buffon::update()
+</code></pre><p>因此，作用域解析运算符确定了方法定义对应的类的身份。Stock类的其他成员函数不必使用作用域解析运算符，就可以使用update()方法，这是因为它们属于同一个类，因此update()是可见的。然而，在类声明和方法定义职位使用update()时，需要采用特殊的措施。</p>
+<p>类方法的完整名称中包括类名。</p>
+
       
     </div>
     
@@ -562,8 +585,8 @@ Stock solly;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/" rel="next" title="C++ Primer Plus--内存模型和名称空间（九）">
-                <i class="fa fa-chevron-left"></i> C++ Primer Plus--内存模型和名称空间（九）
+              <a href="/2018/10/25/项目开发流程--快速开发APP(一)/" rel="next" title="应用开发前准备--快速开发APP(一)">
+                <i class="fa fa-chevron-left"></i> 应用开发前准备--快速开发APP(一)
               </a>
             
           </div>
@@ -572,8 +595,8 @@ Stock solly;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/25/Python小技巧/" rel="prev" title="Python小技巧">
-                Python小技巧 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/27/Next主题配置/" rel="prev" title="Next主题配置">
+                Next主题配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,7 +683,7 @@ Stock solly;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -671,7 +694,7 @@ Stock solly;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -682,7 +705,7 @@ Stock solly;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -792,7 +815,7 @@ Stock solly;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-过程性编程和面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">10.1 过程性编程和面向对象编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-抽象和类"><span class="nav-number">2.</span> <span class="nav-text">10.2 抽象和类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-类型"><span class="nav-number">2.1.</span> <span class="nav-text">10.2.1 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-C-类"><span class="nav-number">2.2.</span> <span class="nav-text">10.2.2 C++类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问控制"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-控制对成员的访问：公有还是私有"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.控制对成员的访问：公有还是私有</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-过程性编程和面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">10.1 过程性编程和面向对象编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-抽象和类"><span class="nav-number">2.</span> <span class="nav-text">10.2 抽象和类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-类型"><span class="nav-number">2.1.</span> <span class="nav-text">10.2.1 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-C-类"><span class="nav-number">2.2.</span> <span class="nav-text">10.2.2 C++类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问控制"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-控制对成员的访问：公有还是私有"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.控制对成员的访问：公有还是私有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-3-实现类成员函数"><span class="nav-number">2.3.</span> <span class="nav-text">10.2.3 实现类成员函数</span></a></li></ol></li></ol></div>
             
 
           </div>
