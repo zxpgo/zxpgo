@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-10-28T12:08:14.463Z</updated>
+  <updated>2018-10-31T13:41:15.761Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>制作一款交互性应用</title>
+    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
+    <published>2018-10-31T13:40:14.000Z</published>
+    <updated>2018-10-31T13:41:15.761Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android开发实践</title>
+    <link href="https://zxpgo.github.io/2018/10/30/Android%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://zxpgo.github.io/2018/10/30/Android开发实践/</id>
+    <published>2018-10-30T11:40:14.000Z</published>
+    <updated>2018-10-31T13:31:15.654Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Anddroid Studio(AS)安装和使用教程。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打造布局</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
+    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
+    <published>2018-10-30T11:08:14.000Z</published>
+    <updated>2018-10-31T01:44:45.389Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>应用开发前准备--快速开发APP(一)</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
+    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
+    <published>2018-10-30T11:08:14.000Z</published>
+    <updated>2018-10-30T11:41:39.768Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>挑糖果游戏</title>
@@ -55,6 +135,24 @@
   </entry>
   
   <entry>
+    <title>Python小技巧</title>
+    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
+    <published>2018-10-25T11:08:14.000Z</published>
+    <updated>2018-10-25T12:04:19.290Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++ Primer Plus--对象和类（十）</title>
     <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
@@ -75,64 +173,6 @@
   </entry>
   
   <entry>
-    <title>应用开发前准备--快速开发APP(一)</title>
-    <link href="https://zxpgo.github.io/2018/10/25/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
-    <id>https://zxpgo.github.io/2018/10/25/项目开发流程--快速开发APP(一)/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-29T15:29:18.202Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>打造布局</title>
-    <link href="https://zxpgo.github.io/2018/10/25/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
-    <id>https://zxpgo.github.io/2018/10/25/打造布局/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-29T15:28:32.875Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python小技巧</title>
-    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-25T12:04:19.290Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C++ Primer Plus--内存模型和名称空间（九）</title>
     <link href="https://zxpgo.github.io/2018/10/18/C++%20Primer%20Plus--%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%EF%BC%88%E4%B9%9D%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/</id>
@@ -142,6 +182,26 @@
     <summary type="html">
     
       &lt;p&gt;单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--函数探幽（八）</title>
+    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
+    <published>2018-10-12T01:30:14.000Z</published>
+    <updated>2018-10-18T07:53:26.314Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
     
     </summary>
     
@@ -167,26 +227,6 @@
     
     
       <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--函数探幽（八）</title>
-    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
-    <published>2018-10-12T01:30:14.000Z</published>
-    <updated>2018-10-18T07:53:26.314Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   
@@ -249,15 +289,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格基约减算法与实现（四）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
+    <title>格理论与密码学--格的定义与相关性质（三）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-27T02:11:22.837Z</updated>
+    <updated>2018-10-27T02:10:52.611Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
+      &lt;p&gt;格中计算性难题
     
     </summary>
     
@@ -269,15 +309,15 @@
   </entry>
   
   <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
+    <title>格理论与密码学--格基约减算法与实现（四）</title>
+    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
     <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-27T02:10:52.611Z</updated>
+    <updated>2018-10-27T02:11:22.837Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;格中计算性难题
+      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
     
     </summary>
     
@@ -364,46 +404,6 @@
     
     
       <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--分支语句和逻辑运算符（六）</title>
-    <link href="https://zxpgo.github.io/2018/10/02/C++%20Primer%20Plus--%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88%E5%85%AD%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/02/C++ Primer Plus--分支语句和逻辑运算符（六）/</id>
-    <published>2018-10-02T01:48:14.000Z</published>
-    <updated>2018-10-04T02:30:18.683Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;C++提供了if和switch语句来进行决策，还有逻辑运算符和条件运算符。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>格-数据基础</title>
-    <link href="https://zxpgo.github.io/2018/10/01/%E6%A0%BC-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/"/>
-    <id>https://zxpgo.github.io/2018/10/01/格-数据基础/</id>
-    <published>2018-10-01T08:42:50.000Z</published>
-    <updated>2018-10-02T03:10:19.844Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;格密码是一类备受关注的抗量子计算攻击的公钥密码体制。格密码理论的研究设计的密码数学问题很多。
-    
-    </summary>
-    
-      <category term="云数据完整性验证" scheme="https://zxpgo.github.io/categories/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E9%AA%8C%E8%AF%81/"/>
-    
-    
-      <category term="云数据完整性验证" scheme="https://zxpgo.github.io/tag/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
