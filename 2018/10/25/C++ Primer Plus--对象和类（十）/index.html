@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="面向对象编程（OOP）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T13:42:49.160Z">
+<meta property="og:updated_time" content="2018-11-01T08:57:04.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--对象和类（十）">
 <meta name="twitter:description" content="面向对象编程（OOP）">
@@ -461,8 +461,29 @@
 <p>对于类，我们说的公共接口。在这里，公众是使用类的程序，交互系统由类对象组成，而接口由编写类的人提供的方法组成的。接口让程序员能够编写与类交互的代码，从而让程序能够使用类对象。例如，要计算sting对象中包含多少个字符，您无需打开对象，只需要使用sting类提供的size()方法。类设计禁止公共用户直接访问类，但公众可以使用方法size()。方法size()是用户和string类对象之间的公共接口的组成部分。通常，方法getline()是对象istream类的公共接口的组成部分，使用cin的程序不是直接与cin对象内部交互来读取一行输入，而是使用getline()。</p>
 <p>为开发一个类并编写一个使用它的程序，需要完成多个步骤。这里将开发过程分为多个阶段，而不是一次性完成。通过，C++程序员将接口（类定义）放在头文件中，并将实现（类方法的代码）放在源代码文件中。第一个文件，它是Stock类的类声明。</p>
 <p><strong>类名首字母大写</strong>。</p>
-<p>stock00.hca</p>
-<p>先看一下类的通用特性。首先，C++关键字class指出这些代码定义了一个类设计（不同于模板参数中，在这里，关键字class和typename不是同意词，不能使用typename代替class）。这种语法指出，Stock是这个新类的类型名。该声明让我们能够声明Stock类型的变量–称为对象或实例。每个对象都表示一支股票。例如，下面的声明创建两个Stock对象，它们名称分别为sally和solly:</p>
+<p>stock00.h</p>
+<pre><code>#ifndef STOCK00_H_
+#define STOCK00_H_
+
+#include &lt;string&gt;
+class Stock
+{
+    private:
+        std::string company;
+        long shares;
+        double share_val;
+        double total_val;
+        void set_tot() { total_val = share_val * shares;}
+    public:
+        void acquire(const std::string &amp; co, long n, double pr);
+        void buy(long num, double price);
+        void sell(long num, double price);
+        void update(double price);
+        void show();
+};
+
+#endif
+</code></pre><p>先看一下类的通用特性。首先，C++关键字class指出这些代码定义了一个类设计（不同于模板参数中，在这里，关键字class和typename不是同意词，不能使用typename代替class）。这种语法指出，Stock是这个新类的类型名。该声明让我们能够声明Stock类型的变量–称为对象或实例。每个对象都表示一支股票。例如，下面的声明创建两个Stock对象，它们名称分别为sally和solly:</p>
 <pre><code>Stock sally;
 Stock solly;
 </code></pre><p>例如，sally对象可以表示Sally持有的某公司股票。</p>
@@ -492,7 +513,135 @@ public:
 </code></pre><p>这种表示法意味着我们定义的update()函数是stock类的成员。这不仅将update()标识为成员函数，意味着我们可以将另一个类的成员函数也命名为update()。例如，Buffon类的update()函数的函数头如下：</p>
 <pre><code>void Buffon::update()
 </code></pre><p>因此，作用域解析运算符确定了方法定义对应的类的身份。Stock类的其他成员函数不必使用作用域解析运算符，就可以使用update()方法，这是因为它们属于同一个类，因此update()是可见的。然而，在类声明和方法定义职位使用update()时，需要采用特殊的措施。</p>
-<p>类方法的完整名称中包括类名。</p>
+<p>类方法的完整名称中包括类名。即，Stock::update()是函数的限定名；而简单的update()是全名的缩写，它只能在类作用域中使用。</p>
+<p>方法的第二个特点是，方法可以访问类的私有成员，例如，Show()方法可以使用这样的代码：</p>
+<pre><code>std::cout &lt;&lt; &quot;Company: &quot; &lt;&lt; compangy
+          &lt;&lt; &quot; Shares: &quot; &lt;&lt; shares &lt;&lt; endl;
+</code></pre><p>其中，company和shares都是Stock类的私有数据成员。如果试图使用非成员函数访问这些数据成员，编译器禁止这样做。</p>
+<p>stock00.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stock00.h&quot;
+
+void Stock::acquire(const std::string &amp; co, long n, double pr)
+{
+    company = co;
+    if (n &lt; 0)
+    {
+        std::cout &lt;&lt; &quot;Number of shares can&apos;t be nagative: &quot;
+              &lt;&lt; company &lt;&lt; &quot; share set to 0.\n&quot;;
+        shares = 0;
+    }
+    else
+        shares = n;
+    share_val = pr;
+    set_tot();
+}
+
+void Stock::buy(long num, double price)
+{
+    if (num &lt; 0)
+    {
+        std::cout &lt;&lt; &quot;Number of shares purchased can&apos;t be nagative. &quot;
+              &lt;&lt; &quot;Transaction is aborted.\n&quot;;
+    }
+    else
+    {
+        shares += num;
+        share_val = price;
+        set_tot();
+    }
+}
+
+void Stock::sell(long num, double price)
+{
+    using std::cout;
+    if (num &lt; 0)
+    {
+        cout &lt;&lt; &quot;Number of shares sold can&apos;t be nagative. &quot;
+            &lt;&lt; &quot;Transaction is aborted.\n&quot;;
+    }
+    else if (num &gt; shares)
+    {
+        cout &lt;&lt; &quot;You can&apos;t sell more than you have!&quot;
+            &lt;&lt; &quot; Transantion is aborted.\n&quot;;
+    }
+    else
+    {
+        shares -= num;
+        share_val = price;
+        set_tot();
+    }
+}
+
+void Stock::update(double price)
+{
+    share_val = price;
+    set_tot();
+}
+
+void Stock::show()
+{
+    std::cout &lt;&lt; &quot;Company: &quot; &lt;&lt; company
+        &lt;&lt; &quot; Shares: &quot; &lt;&lt; shares &lt;&lt; std::endl
+        &lt;&lt; &quot; Share Price: $&quot; &lt;&lt; share_val
+        &lt;&lt; &quot; Total Worth: $&quot; &lt;&lt; total_val &lt;&lt; std::endl;
+}
+</code></pre><h4 id="1-成员函数说明"><a href="#1-成员函数说明" class="headerlink" title="1.成员函数说明"></a>1.成员函数说明</h4><p>acquire()确保管理对某个公司购买的首次购买，而buy()和sell()管理增加或减少持有的股票。方法buy()和sell()确保买入或卖出的股票不能为负数。另外，如果用户试图卖出超过他所拥有的股票数量，则sell()函数结束这次交易。这些使数据私有并限于对公有函数的计数允许我们能够控制数据如何被使用。</p>
+<p>set_tot()只是实现代码的一种方式，而不是公有接口的组成部分，因为这个类将其声明为私有成员函数。</p>
+<h4 id="2-内联方法"><a href="#2-内联方法" class="headerlink" title="2. 内联方法"></a>2. 内联方法</h4><p><strong>其定义位于类声明中的函数都将自动为内联函数</strong>，因此Stock::set_tot()是一个内联函数。类声明常将短小的成员函数作为内联函数。</p>
+<p>如果愿意，也可以类声明以外定义成员函数，并使其成员内联函数。只需要在定义函数时使用inline限定符，如下：</p>
+<pre><code>inline void Stock::set_tot()
+{
+    total_val = shares * share_val;
+}
+</code></pre><p>内联函数的特殊规则要求在每个使用它们的文件中都对其进行定义。确保内联定义对多个文件程序中的所有文件都可用，最简单的方法是：将内联定义放在定义类的头文件。</p>
+<h4 id="3-方法使用哪个对象"><a href="#3-方法使用哪个对象" class="headerlink" title="3. 方法使用哪个对象"></a>3. 方法使用哪个对象</h4><p>下面介绍使用对象时最重要的一个方面；比如将类方法应用于对象。下面代码使用了一个对象的shares成员：</p>
+<pre><code>shares += num;
+</code></pre><p>则问题是使用哪个对象的shares成员。首先，看如何创建对象：</p>
+<pre><code>Stock kate, joe;
+</code></pre><p>接下来，看看如何使用对象的成员函数：</p>
+<pre><code>kate.show();
+joe.show();
+</code></pre><p>第一条语句调用kate对象show()成员。这意味着show()方法把shares解释为kate.shares，将share_val解释为kate.share_val。</p>
+<p>所创建的每个新对象都有自己的存储空间，用于存储其内部变量和成员；但同一个类的所有对象共享同一组类方法，即每种方法只有一个副本。例如，假设kate和joe都是Stock对象，则kate.shares将占据一个内存块，而joe.shares占用另一个内存块，但kate.show()和joe.show()都调用同一个方法。</p>
+<h3 id="10-2-4"><a href="#10-2-4" class="headerlink" title="10.2.4"></a>10.2.4</h3><p>现在，创建一个程序，他创建并使用对象。C++的目标是使用使得类和使用基本的内置类型尽可能相同。要创建类对象，可以声明类变量，也可以使用new为类对象分配存储值。可以对象作为参数和返回值，也可以将一个对象赋给另一个对象。</p>
+<p>usestock00.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stock00.h&quot;
+int main()
+{
+    Stock fluffy;
+    fluffy.acquire(&quot;NanoSmart&quot;, 20, 12.50);
+    fluffy.show();
+    fluffy.buy(15, 19.125);
+    fluffy.show();
+    fluffy.sell(400, 20.00);
+    fluffy.show();
+    fluffy.buy(300000, 40.125);
+    fluffy.show();
+    fluffy.sell(300000, 0.125);
+    fluffy.show();
+    return 0;
+}
+</code></pre><p>结果：</p>
+<pre><code>Company: NanoSmart Shares: 20
+ Share Price: $12.5 Total Worth: $250
+Company: NanoSmart Shares: 35
+ Share Price: $19.125 Total Worth: $669.375
+You can&apos;t sell more than you have! Transantion is aborted.
+Company: NanoSmart Shares: 35
+ Share Price: $19.125 Total Worth: $669.375
+Company: NanoSmart Shares: 300035
+ Share Price: $40.125 Total Worth: $1.20389e+07
+Company: NanoSmart Shares: 35
+ Share Price: $0.125 Total Worth: $4.375
+</code></pre><p><strong>客户/服务器模式</strong></p>
+<p>OOP程序常依照客户/服务器模式来讨论程序设计。客户是使用类的程序，类声明（包括类方法）构成了服务器，它是程序可以使用的资源。客户只能通过以公有方式定义的接口使用服务器，这意味着客户唯一责任是了解该接口。</p>
+<h3 id="10-2-5-修改实现"><a href="#10-2-5-修改实现" class="headerlink" title="10.2.5 修改实现"></a>10.2.5 修改实现</h3><p>在前面的程序输出中，数字的格式不一致。现在可以改进实现，但保持接口不变。ostream类包含一些可用于控制格式的成员函数。如下：</p>
+<pre><code>std::cout.setf(std::ios_base::fixed, std::ios_base::floatfiled);
+</code></pre><p>这设置了cout对象的一个标记，命令cout使用定点表示法。同样，下面的语句导致cout在使用定点表示法，显式3位小数：</p>
+<pre><code>std::cout.precision(3);
+</code></pre><p>第17章介绍更多细节。</p>
 
       
     </div>
@@ -585,8 +734,8 @@ public:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/" rel="next" title="C++ Primer Plus--内存模型和名称空间（九）">
-                <i class="fa fa-chevron-left"></i> C++ Primer Plus--内存模型和名称空间（九）
+              <a href="/2018/10/25/Python小技巧/" rel="next" title="Python小技巧">
+                <i class="fa fa-chevron-left"></i> Python小技巧
               </a>
             
           </div>
@@ -595,8 +744,8 @@ public:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/25/Python小技巧/" rel="prev" title="Python小技巧">
-                Python小技巧 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/27/Next主题配置/" rel="prev" title="Next主题配置">
+                Next主题配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -683,7 +832,7 @@ public:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -815,7 +964,7 @@ public:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-过程性编程和面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">10.1 过程性编程和面向对象编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-抽象和类"><span class="nav-number">2.</span> <span class="nav-text">10.2 抽象和类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-类型"><span class="nav-number">2.1.</span> <span class="nav-text">10.2.1 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-C-类"><span class="nav-number">2.2.</span> <span class="nav-text">10.2.2 C++类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问控制"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-控制对成员的访问：公有还是私有"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.控制对成员的访问：公有还是私有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-3-实现类成员函数"><span class="nav-number">2.3.</span> <span class="nav-text">10.2.3 实现类成员函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-过程性编程和面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">10.1 过程性编程和面向对象编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-抽象和类"><span class="nav-number">2.</span> <span class="nav-text">10.2 抽象和类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-类型"><span class="nav-number">2.1.</span> <span class="nav-text">10.2.1 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-C-类"><span class="nav-number">2.2.</span> <span class="nav-text">10.2.2 C++类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问控制"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-控制对成员的访问：公有还是私有"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.控制对成员的访问：公有还是私有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-3-实现类成员函数"><span class="nav-number">2.3.</span> <span class="nav-text">10.2.3 实现类成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-成员函数说明"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.成员函数说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-内联方法"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 内联方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-方法使用哪个对象"><span class="nav-number">2.3.3.</span> <span class="nav-text">3. 方法使用哪个对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-4"><span class="nav-number">2.4.</span> <span class="nav-text">10.2.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-5-修改实现"><span class="nav-number">2.5.</span> <span class="nav-text">10.2.5 修改实现</span></a></li></ol></li></ol></div>
             
 
           </div>

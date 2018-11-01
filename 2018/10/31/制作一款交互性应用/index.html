@@ -93,12 +93,14 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/m1G3gbp.gif">
 <meta property="og:image" content="https://i.imgur.com/euUZfgX.gif">
-<meta property="og:updated_time" content="2018-10-31T13:41:15.761Z">
+<meta property="og:image" content="https://i.imgur.com/5HO84IX.gif">
+<meta property="og:updated_time" content="2018-11-01T12:37:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="制作一款交互性应用">
 <meta name="twitter:description" content="设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格">
-<meta name="twitter:image" content="https://i.imgur.com/euUZfgX.gif">
+<meta name="twitter:image" content="https://i.imgur.com/m1G3gbp.gif">
 
 
 
@@ -427,6 +429,9 @@
 
       
         <p>设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格<a id="more"></a>。</p>
+<p>篮球计分器：<a href="https://github.com/zxpgo/CourtCounter" target="_blank" rel="noopener">代码</a></p>
+<p>效果：</p>
+<p><img src="https://i.imgur.com/m1G3gbp.gif" alt=""></p>
 <h2 id="利用java进行交互"><a href="#利用java进行交互" class="headerlink" title="利用java进行交互"></a>利用java进行交互</h2><p>在本次实现，学会创建java变量，以及使用java的全局变量quantity。代码如下：</p>
 <p>MainActivity.java</p>
 <pre><code>    /**
@@ -556,6 +561,155 @@ public class MainActivity extends AppCompatActivity {
 &lt;/LinearLayout&gt;
 </code></pre><p>效果：</p>
 <p><img src="https://i.imgur.com/euUZfgX.gif" alt=""></p>
+<p>实现Java字符串处理，包括创建一个字符串变量，字符串相加等。以及布局中的嵌套LinearLayout。具体代码如下：</p>
+<p>MainActivity.java</p>
+<pre><code>/**
+ * Add your package below. Package name can be found in the project&apos;s AndroidManifest.xml file.
+ * This is the package name our example uses:
+ *
+ * package com.example.android.justjava; 
+ */
+package com.example.myapplication;
+import java.text.NumberFormat;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
+
+import com.example.myapplication.R;
+
+import org.w3c.dom.Text;
+
+/**
+ * This app displays an order form to order coffee.
+ */
+public class MainActivity extends AppCompatActivity {
+
+    int quantity = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * This method is called when the order button is clicked.
+     */
+    public void submitOrder(View view) {
+        String priceMessage = &quot;Price $ &quot; + (quantity  * 5) + &quot;\n&quot; + &quot;Thank your!&quot;;
+        displayMessage(priceMessage);
+       /** displayPrice(quantity * 5);*/
+    }
+    public void increment(View View)
+    {
+        quantity = quantity + 1;
+        display(quantity);
+    }
+    public void decrement(View View)
+    {
+        quantity = quantity - 1;
+        display(quantity);
+
+    }
+
+    /**
+     * This method displays the given quantity value on the screen.
+     */
+    private void display(int number) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        quantityTextView.setText(&quot;&quot; + number);
+    }
+    private void displayPrice(int number)
+    {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+    /**显式字符串*/
+    private void displayMessage(String str)
+    {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(str);
+    }
+
+}
+</code></pre><p>activity_main.xml</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:textSize=&quot;26sp&quot;
+        android:layout_margin=&quot;16dp&quot;
+        android:text=&quot;Quantity&quot;
+        android:textAllCaps=&quot;true&quot;/&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:onClick=&quot;decrement&quot;
+            android:layout_width=&quot;48dp&quot;
+            android:layout_height=&quot;48dp&quot;
+            android:layout_marginLeft=&quot;16dp&quot;
+            android:textSize=&quot;30sp&quot;
+            android:text=&quot;-&quot;/&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/quantity_text_view&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:textSize=&quot;26sp&quot;
+            android:layout_marginLeft=&quot;16dp&quot;
+            android:textColor=&quot;@android:color/black&quot;
+            android:layout_gravity=&quot;center_vertical&quot;
+            android:text=&quot;0&quot; /&gt;
+
+        &lt;Button
+            android:onClick=&quot;increment&quot;
+            android:layout_width=&quot;48dp&quot;
+            android:layout_height=&quot;48dp&quot;
+            android:layout_marginLeft=&quot;16dp&quot;
+            android:text=&quot;+&quot;
+            android:textSize=&quot;30sp&quot;/&gt;
+
+    &lt;/LinearLayout&gt;
+
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_margin=&quot;16dp&quot;
+        android:text=&quot;PRICE&quot;
+        android:textSize=&quot;26sp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/price_text_view&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:textSize=&quot;26sp&quot;
+        android:layout_marginLeft=&quot;16dp&quot;
+        android:textColor=&quot;@android:color/black&quot;
+        android:text=&quot;$0&quot; /&gt;
+
+
+    &lt;Button
+        style=&quot;@style/Widget.AppCompat.Button&quot;
+        android:layout_width=&quot;134dp&quot;
+        android:layout_height=&quot;50dp&quot;
+        android:layout_margin=&quot;16dp&quot;
+        android:text=&quot;ORDER&quot;
+        android:textSize=&quot;26sp&quot;
+        android:onClick=&quot;submitOrder&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>效果：</p>
+<p><img src="https://i.imgur.com/5HO84IX.gif" alt=""></p>
 
       
     </div>
@@ -658,6 +812,10 @@ public class MainActivity extends AppCompatActivity {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/01/利用Git提交代码至Github以及克隆/" rel="prev" title="利用Git提交代码至Github以及克隆">
+                利用Git提交代码至Github以及克隆 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -742,7 +900,7 @@ public class MainActivity extends AppCompatActivity {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
