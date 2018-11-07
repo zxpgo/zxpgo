@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-11-01T15:08:35.095Z</updated>
+  <updated>2018-11-05T14:28:44.507Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用VPN断开后无法连接互联网问题解决方案</title>
+    <link href="https://zxpgo.github.io/2018/11/05/%E4%BD%BF%E7%94%A8VPN%E6%96%AD%E5%BC%80%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>https://zxpgo.github.io/2018/11/05/使用VPN断开后无法连接互联网问题解决方案/</id>
+    <published>2018-11-05T14:40:14.000Z</published>
+    <updated>2018-11-05T14:28:44.507Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有些时候，使用VPN后断开，会发现无法连接互联网，这是由于浏览器已经开启了局域网代理。
+    
+    </summary>
+    
+    
+      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
+    
+  </entry>
   
   <entry>
     <title>利用Git提交代码至Github以及克隆</title>
@@ -35,15 +53,15 @@
   </entry>
   
   <entry>
-    <title>制作一款交互性应用</title>
-    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
+    <title>Java面向对象编程</title>
+    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-01T12:37:27.000Z</updated>
+    <updated>2018-11-07T13:19:16.815Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
+      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
     
     </summary>
     
@@ -55,21 +73,15 @@
   </entry>
   
   <entry>
-    <title>Java面向对象编程</title>
-    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
+    <title>制作一款交互性应用</title>
+    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-04T12:22:06.501Z</updated>
+    <updated>2018-11-01T12:37:27.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
     
     </summary>
     
@@ -179,24 +191,6 @@
   </entry>
   
   <entry>
-    <title>Python小技巧</title>
-    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-25T12:04:19.290Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C++ Primer Plus--对象和类（十）</title>
     <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
@@ -213,6 +207,24 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python小技巧</title>
+    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
+    <published>2018-10-25T11:08:14.000Z</published>
+    <updated>2018-10-25T12:04:19.290Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
     
   </entry>
   
@@ -389,27 +401,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Public Proof of Cloud Storage from Lattice Assumption∗</title>
-    <link href="https://zxpgo.github.io/2018/10/03/Public%20Proof%20of%20Cloud%20Storage%20from%20Lattice%20Assumption/"/>
-    <id>https://zxpgo.github.io/2018/10/03/Public Proof of Cloud Storage from Lattice Assumption/</id>
-    <published>2018-10-03T06:18:50.000Z</published>
-    <updated>2018-10-27T02:11:41.654Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;存储可以提供灵活、可伸缩的数据存储服务。然而，一旦数据上传至云服务器，本地计算机没有拷贝，用户失去了对数据的物理控制。因此，研究一种方法来确保用户数据的完整性是有必要的。避免检索大量存储数或避免由用户检验数据，一种基于格加密的公开审计存储协议证明被提出。用户计算数据块的的标签，并且上传它们至云服务器。云服务器提供联合的块。第三方审计者通过联合的数据和标签来验证所有数据块的完整性。基于小整数解假设，&lt;br&gt;给出的方案可以抵抗来自云服务器的丢失攻击和篡改攻击。基于错误假设的学习，给出的方案可以抵抗来自第三方审计者的好奇攻击。该方案是高效的，仅仅需要几个矩阵向量乘法和离散高斯函数的抽样。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;关键词&lt;/strong&gt;：  云存储 存储证明 格加密 公开审计
-    
-    </summary>
-    
-      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
