@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-11-05T14:28:44.507Z</updated>
+  <updated>2018-11-09T02:58:30.511Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java数组、列表、循环和自定义类</title>
+    <link href="https://zxpgo.github.io/2018/11/09/Java%E6%95%B0%E7%BB%84%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
+    <id>https://zxpgo.github.io/2018/11/09/Java数组、列表、循环和自定义类/</id>
+    <published>2018-11-09T00:33:14.000Z</published>
+    <updated>2018-11-09T02:58:30.511Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模式识别(三)--判别函数及几何分类法</title>
+    <link href="https://zxpgo.github.io/2018/11/08/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB(%E4%B8%89)--%E5%88%A4%E5%88%AB%E5%87%BD%E6%95%B0%E5%8F%8A%E5%87%A0%E4%BD%95%E5%88%86%E7%B1%BB%E6%B3%95/"/>
+    <id>https://zxpgo.github.io/2018/11/08/模式识别(三)--判别函数及几何分类法/</id>
+    <published>2018-11-08T11:02:50.000Z</published>
+    <updated>2018-11-09T06:20:11.519Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;统计模式识别分为聚类分析和判别函数法两大类，聚类分析属于非监督分类，判别函数法属于监督分类。判别函数法需要有足够的先验知识，首先利用已知类别的训练样本集确定判别函数，然后利用训练好的判别函数对未知的模式进行识别分类
+    
+    </summary>
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Intent和Activity</title>
+    <link href="https://zxpgo.github.io/2018/11/08/Intent%E5%92%8CActivity/"/>
+    <id>https://zxpgo.github.io/2018/11/08/Intent和Activity/</id>
+    <published>2018-11-08T01:40:14.000Z</published>
+    <updated>2018-11-08T11:09:53.714Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍如何使用intent来切换Activity。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>使用VPN断开后无法连接互联网问题解决方案</title>
@@ -53,15 +119,15 @@
   </entry>
   
   <entry>
-    <title>制作一款交互性应用</title>
-    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
+    <title>Java面向对象编程</title>
+    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-01T12:37:27.000Z</updated>
+    <updated>2018-11-07T13:19:16.815Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
+      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
     
     </summary>
     
@@ -73,15 +139,15 @@
   </entry>
   
   <entry>
-    <title>Java面向对象编程</title>
-    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
+    <title>制作一款交互性应用</title>
+    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-07T13:19:16.815Z</updated>
+    <updated>2018-11-01T12:37:27.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
+      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
     
     </summary>
     
@@ -113,15 +179,15 @@
   </entry>
   
   <entry>
-    <title>应用开发前准备--快速开发APP(一)</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
-    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
+    <title>打造布局</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
+    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
     <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-30T11:41:39.768Z</updated>
+    <updated>2018-10-31T01:44:45.389Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
+      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
     
     </summary>
     
@@ -133,15 +199,15 @@
   </entry>
   
   <entry>
-    <title>打造布局</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
-    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
+    <title>应用开发前准备--快速开发APP(一)</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
+    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
     <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-31T01:44:45.389Z</updated>
+    <updated>2018-10-30T11:41:39.768Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
+      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
     
     </summary>
     
@@ -341,66 +407,6 @@
     
     
       <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>格理论与密码学--格基约减算法与实现（四）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%87%8F%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格基约减算法与实现（四）/</id>
-    <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-27T02:11:22.837Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;二维格中的高斯约减算法，以及著名的LLL算法，该算法能够解决某些维数较低的格中的SVP问题和CVP问题。三随着格维数的增高，该算法的运行效果也随之减弱，以至于对高维度的格来说，即使LLL算法，也无法很好地解决SVP和CVP问题。所以大多数基于格理论的密码系统的安全性，都依赖于LLL算法以及其他格基约减算法能否高效解决apprSVP和apprCVP问题的困难性。
-    
-    </summary>
-    
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>格理论与密码学--格的定义与相关性质（三）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6--%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%80%A7%E8%B4%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/格理论与密码学--格的定义与相关性质（三）/</id>
-    <published>2018-10-04T10:48:50.000Z</published>
-    <updated>2018-10-27T02:10:52.611Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;格中计算性难题
-    
-    </summary>
-    
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/categories/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-      <category term="格理论与密码学" scheme="https://zxpgo.github.io/tag/%E6%A0%BC%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--函数(C++的编程模块)（七）</title>
-    <link href="https://zxpgo.github.io/2018/10/04/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0(C++%E7%9A%84%E5%8F%98%E6%88%90%E6%A8%A1%E5%9D%97)%EF%BC%88%E4%B8%83%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/04/C++ Primer Plus--函数(C++的变成模块)（七）/</id>
-    <published>2018-10-04T02:30:14.000Z</published>
-    <updated>2018-10-12T01:28:39.647Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;函数
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   

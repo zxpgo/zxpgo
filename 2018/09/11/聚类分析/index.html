@@ -85,22 +85,23 @@
 
 
 
-<meta name="description" content="2.1 距离聚类的概念物以俱类”物以俱类，人以群分“，反映了聚类分析的基本思想。 聚类分析属于非监督分类，即基本上无先验知识可依据或参考。 聚类分析根据模式之间的相似性对模式进行分类，对一批没有标出类别的模式样本集，将相似的归为一类，不相似的归为一类。 相似性当研究一个复杂对象时，可以对其特征进行各种可能的测量，将测量值组成向量形式，称为该样本的特征向量，有$n$个特征值组成的就是$n$维向量，相">
+<meta name="description" content="物以俱类，人以群分">
 <meta name="keywords" content="模式识别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模式识别(二)--K均值聚类">
+<meta property="og:title" content="模式识别(二)--聚类分析">
 <meta property="og:url" content="https://zxpgo.github.io/2018/09/11/聚类分析/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="2.1 距离聚类的概念物以俱类”物以俱类，人以群分“，反映了聚类分析的基本思想。 聚类分析属于非监督分类，即基本上无先验知识可依据或参考。 聚类分析根据模式之间的相似性对模式进行分类，对一批没有标出类别的模式样本集，将相似的归为一类，不相似的归为一类。 相似性当研究一个复杂对象时，可以对其特征进行各种可能的测量，将测量值组成向量形式，称为该样本的特征向量，有$n$个特征值组成的就是$n$维向量，相">
+<meta property="og:description" content="物以俱类，人以群分">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/whme94d.png">
 <meta property="og:image" content="https://i.imgur.com/VhVHTyV.png">
 <meta property="og:image" content="https://i.imgur.com/Eguul2a.png">
+<meta property="og:image" content="https://i.imgur.com/PVtenpJ.png">
 <meta property="og:image" content="https://i.imgur.com/BHa0iXW.png">
-<meta property="og:updated_time" content="2018-11-07T11:30:01.470Z">
+<meta property="og:updated_time" content="2018-11-08T11:10:35.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模式识别(二)--K均值聚类">
-<meta name="twitter:description" content="2.1 距离聚类的概念物以俱类”物以俱类，人以群分“，反映了聚类分析的基本思想。 聚类分析属于非监督分类，即基本上无先验知识可依据或参考。 聚类分析根据模式之间的相似性对模式进行分类，对一批没有标出类别的模式样本集，将相似的归为一类，不相似的归为一类。 相似性当研究一个复杂对象时，可以对其特征进行各种可能的测量，将测量值组成向量形式，称为该样本的特征向量，有$n$个特征值组成的就是$n$维向量，相">
+<meta name="twitter:title" content="模式识别(二)--聚类分析">
+<meta name="twitter:description" content="物以俱类，人以群分">
 <meta name="twitter:image" content="https://i.imgur.com/whme94d.png">
 
 
@@ -137,7 +138,7 @@
 
 
 
-  <title>模式识别(二)--K均值聚类 | 平步青云win</title>
+  <title>模式识别(二)--聚类分析 | 平步青云win</title>
   
 
 
@@ -346,7 +347,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">模式识别(二)--K均值聚类</h2>
+          <h2 class="post-title" itemprop="name headline">模式识别(二)--聚类分析</h2>
         
 
         <div class="post-meta">
@@ -398,7 +399,7 @@
 
           
           
-             <span id="/2018/09/11/聚类分析/" class="leancloud_visitors" data-flag-title="模式识别(二)--K均值聚类">
+             <span id="/2018/09/11/聚类分析/" class="leancloud_visitors" data-flag-title="模式识别(二)--聚类分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -429,7 +430,8 @@
       
 
       
-        <h2 id="2-1-距离聚类的概念"><a href="#2-1-距离聚类的概念" class="headerlink" title="2.1 距离聚类的概念"></a>2.1 距离聚类的概念</h2><h3 id="物以俱类"><a href="#物以俱类" class="headerlink" title="物以俱类"></a>物以俱类</h3><p>”物以俱类，人以群分“，反映了聚类分析的基本思想。</p>
+        <p>物以俱类，人以群分<a id="more"></a></p>
+<h2 id="2-1-距离聚类的概念"><a href="#2-1-距离聚类的概念" class="headerlink" title="2.1 距离聚类的概念"></a>2.1 距离聚类的概念</h2><h3 id="物以俱类"><a href="#物以俱类" class="headerlink" title="物以俱类"></a>物以俱类</h3><p>”物以俱类，人以群分“，反映了聚类分析的基本思想。</p>
 <p>聚类分析属于非监督分类，即基本上无先验知识可依据或参考。</p>
 <p>聚类分析根据模式之间的相似性对模式进行分类，对一批没有标出类别的模式样本集，将相似的归为一类，不相似的归为一类。</p>
 <h3 id="相似性"><a href="#相似性" class="headerlink" title="相似性"></a>相似性</h3><p>当研究一个复杂对象时，可以对其特征进行各种可能的测量，将测量值组成向量形式，称为该样本的特征向量，有$n$个特征值组成的就是$n$维向量，相当于空间中的一个点，整个模式样本集的特征向量可以看作分布在特征空间中的一些点。</p>
@@ -492,7 +494,32 @@
 <p>5、重复步骤3和步骤4，直到没有聚类中心出现为止。</p>
 <p>6、寻找聚类中心的运算结束后，将模式样本$\lbrace X_i, i =1,2,\dots,N \rbrace$按最近距离划分到相应聚类中心所代表的类别中。</p>
 <h2 id="2-4-层次聚类"><a href="#2-4-层次聚类" class="headerlink" title="2.4 层次聚类"></a>2.4 层次聚类</h2><p>层次聚类法也称为系统聚类法或分级聚类法。这种方法同样采用距离与之作为决策聚类数目的标准，基本思路：每个样本先自成一类，然后按距离准则逐步合并，减少类数，直到达到分类要求为止。</p>
-<h4 id="算法描述-2"><a href="#算法描述-2" class="headerlink" title="算法描述"></a>算法描述</h4><p>K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。<a id="more"></a>具体算法实现如下：</p>
+<h4 id="算法描述-2"><a href="#算法描述-2" class="headerlink" title="算法描述"></a>算法描述</h4><p>1、N个初始化模式样本自成一类，即建立N类$G_1(0),G_2(0),\dots,G_N(0)$。计算各类之间（各样本间）的距离，得到一个$N \times N$维的距离矩阵$D(0)$。标号$(0)$表示是聚类开始运算前的状态。</p>
+<p>2、如在前一步聚类运算中，以求得距离矩阵$D(n)$(n为逐次聚类合并得次数)，则找出$D(n)$中得最小元素，将其对应得两类合并为一类。由此建立新的分类：$G_1(n+1),G_2(n+1),\dots$。</p>
+<p>3、计算合并后新类别之间得距离，得到距离矩阵$D(n+1)$。</p>
+<p>4、 跳至第2步，重复计算及合并。</p>
+<p>结束条件：设定一个距离阈值$T$，当$D(n)$的最小值分量超过给定值$T$时，算法停止。</p>
+<p>在第3步中，计算合并后的聚类与其他没有合并的模式类之间的距离，或者两个合并后的聚类之间的距离时，应如何计算？下面介绍几种不同的类间距离计算准则：</p>
+<ul>
+<li>（1）最短距离法</li>
+<li>（2）最长距离法</li>
+<li>（3）中间距离法</li>
+<li>（4）重心法</li>
+<li>（5）类平均距离法</li>
+</ul>
+<h2 id="2-5-动态聚类法"><a href="#2-5-动态聚类法" class="headerlink" title="2.5 动态聚类法"></a>2.5 动态聚类法</h2><p>动态聚类法首先选择若干个模式样本作为聚类中心，再按照实现确定的聚类准则进行聚类。在聚类过程中，根据聚类准则对聚类中心进行反复修改，直到分类合理为止。</p>
+<h3 id="2-5-1-K-均值算法"><a href="#2-5-1-K-均值算法" class="headerlink" title="2.5.1 K-均值算法"></a>2.5.1 K-均值算法</h3><p>K-均值算法又称为C-均值算法，时根据函数准则进行分类的聚类算法，基于使聚类准则函数最小化。</p>
+<p><img src="https://i.imgur.com/PVtenpJ.png" alt=""></p>
+<h4 id="算法描述-3"><a href="#算法描述-3" class="headerlink" title="算法描述"></a>算法描述</h4><p>设共有$N$个模式样本，计算步骤如下：</p>
+<p>1、 任选$K$个初始化聚类中心$Z_1(1),Z_1(2),Z_K(1), K &lt; N$。括号内的序号代表寻找聚类中心的迭代次序号。一般选择样本集中前$K$个样本作为初始聚类中心。</p>
+<p>2、 按<strong>最短距离原则</strong>将其余样本分配到$K$个聚类中心中的某一个，即</p>
+<p>若 $\min{\lbrace ||X-Z_i(k)||, i =1,2,\dots, K\rbrace} = ||X-Z_j(k)||=D_j(k)$<br>则，$X \in S_j(k)$</p>
+<p>式中，$k$即为迭代运算的次序号。</p>
+<p>3、计算各个聚类中心的新向量值$Z_j(k+1),j =1,2,\dots,K$</p>
+<p>$Z_j(k+1) = \frac{1}{N_j} \sum_{X \in S_j(k)}X, j = 1,2,\dots, K$</p>
+<p>即以均值向量作为新的聚类中心。这一步要分别计算$K$个聚类中的样本均值向量，故称算法为K-均值聚类。</p>
+<p>4、如果$Z_j(k+1) \neq Z_j(k),j =1,2,\dots,K$，则回到步骤2，将模式样本逐个重新分类，并重复迭代计算，如果$Z_j(k+1) = Z_j(k),j =1,2,\dots,K$，算法收敛，计算完毕。</p>
+<p>K均值聚类算法的思想是：首先随机选取K个对象作为初始的聚类中心，然后，计算每个对象距聚类中心的距离，把每个对象归到距离它最近的聚类中心。如果全部对象被分配完，则每个聚类的聚类中心将根据现有的对象重新计算。直到满足某个终止条件。K均值聚类算法是一种无监督学习算法。具体算法实现如下：</p>
 <p><img src="https://i.imgur.com/BHa0iXW.png" alt=""></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import numpy as np
 import random
@@ -562,7 +589,21 @@ if __name__ == &quot;__main__&quot;:
     plt.xlabel(&apos;x&apos;)
     plt.ylabel(&apos;y&apos;)
     plt.show()
-</code></pre>
+</code></pre><h3 id="2-5-2-ISODATA算法（迭代自组织的数据分析算法）"><a href="#2-5-2-ISODATA算法（迭代自组织的数据分析算法）" class="headerlink" title="2.5.2 ISODATA算法（迭代自组织的数据分析算法）"></a>2.5.2 ISODATA算法（迭代自组织的数据分析算法）</h3><p>K—均值算法比较简单，但它的自我调整能力也比较差。这主要表现在类别数不能改变，受代表点初始选择的影响也比较大。</p>
+<p>ISODATA算法的功能与K—均值算法相比，在下列几方面有改进：</p>
+<ul>
+<li>可以改变类别数目。通过类别的合并与分裂来实现。</li>
+<li>合并主要发生在某一类内样本个数太少的情况，或两类聚类中心之间距离太小的情况。为此设有最小类内样本数限制，以及类间中心距离参数。</li>
+<li>分裂则主要发生在某一类别的某分量出现类内方差过大的现象，因而宜分裂成两个类别，以维持合理的类内方差。给出一个对类内分量方差的限制参数，用以决定是否需要将某一类分裂成两类。</li>
+<li>由于算法有自我调整的能力，因而需要设置若干个控制用参数。，如聚类数期望值K、每次迭代允许合并的最大聚类对数L、及允许迭代次数I等。</li>
+</ul>
+<h2 id="2-6-聚类结果评价"><a href="#2-6-聚类结果评价" class="headerlink" title="2.6 聚类结果评价"></a>2.6 聚类结果评价</h2><p>可考虑用以下几个指标来评价聚类效果：</p>
+<ul>
+<li>聚类中心之间的距离：距离值大，通常可考虑分为不同类</li>
+<li>聚类域中的样本数目：样本数目少且聚类中心距离远，可考虑是否为噪声</li>
+<li>聚类域内样本的距离方差： 方差过大的样本可考虑是否属于这一类</li>
+</ul>
+
       
     </div>
     
@@ -619,7 +660,7 @@ if __name__ == &quot;__main__&quot;:
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zxpgo.github.io/2018/09/11/聚类分析/" title="模式识别(二)--K均值聚类">https://zxpgo.github.io/2018/09/11/聚类分析/</a>
+    <a href="https://zxpgo.github.io/2018/09/11/聚类分析/" title="模式识别(二)--聚类分析">https://zxpgo.github.io/2018/09/11/聚类分析/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -760,7 +801,7 @@ if __name__ == &quot;__main__&quot;:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -892,7 +933,7 @@ if __name__ == &quot;__main__&quot;:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-距离聚类的概念"><span class="nav-number">1.</span> <span class="nav-text">2.1 距离聚类的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物以俱类"><span class="nav-number">1.1.</span> <span class="nav-text">物以俱类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相似性"><span class="nav-number">1.2.</span> <span class="nav-text">相似性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-相似度测量和距离准则"><span class="nav-number">2.</span> <span class="nav-text">2.2 相似度测量和距离准则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-相似性测度"><span class="nav-number">2.1.</span> <span class="nav-text">2.2.1 相似性测度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-聚类准测"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.2 聚类准测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-基于距离阈值的聚类算法"><span class="nav-number">3.</span> <span class="nav-text">2.3 基于距离阈值的聚类算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-近邻聚类算法"><span class="nav-number">3.1.</span> <span class="nav-text">2.3.1 近邻聚类算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">3.1.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述"><span class="nav-number">3.1.2.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法特点"><span class="nav-number">3.1.3.</span> <span class="nav-text">算法特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-最大最小距离算法"><span class="nav-number">3.2.</span> <span class="nav-text">2.3.2 最大最小距离算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题：-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-层次聚类"><span class="nav-number">4.</span> <span class="nav-text">2.4 层次聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述-2"><span class="nav-number">4.0.1.</span> <span class="nav-text">算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">5.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-距离聚类的概念"><span class="nav-number">1.</span> <span class="nav-text">2.1 距离聚类的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物以俱类"><span class="nav-number">1.1.</span> <span class="nav-text">物以俱类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相似性"><span class="nav-number">1.2.</span> <span class="nav-text">相似性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-相似度测量和距离准则"><span class="nav-number">2.</span> <span class="nav-text">2.2 相似度测量和距离准则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-相似性测度"><span class="nav-number">2.1.</span> <span class="nav-text">2.2.1 相似性测度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-聚类准测"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.2 聚类准测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-基于距离阈值的聚类算法"><span class="nav-number">3.</span> <span class="nav-text">2.3 基于距离阈值的聚类算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-近邻聚类算法"><span class="nav-number">3.1.</span> <span class="nav-text">2.3.1 近邻聚类算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">3.1.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述"><span class="nav-number">3.1.2.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法特点"><span class="nav-number">3.1.3.</span> <span class="nav-text">算法特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-最大最小距离算法"><span class="nav-number">3.2.</span> <span class="nav-text">2.3.2 最大最小距离算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题：-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-层次聚类"><span class="nav-number">4.</span> <span class="nav-text">2.4 层次聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述-2"><span class="nav-number">4.0.1.</span> <span class="nav-text">算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-动态聚类法"><span class="nav-number">5.</span> <span class="nav-text">2.5 动态聚类法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-1-K-均值算法"><span class="nav-number">5.1.</span> <span class="nav-text">2.5.1 K-均值算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法描述-3"><span class="nav-number">5.1.1.</span> <span class="nav-text">算法描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-ISODATA算法（迭代自组织的数据分析算法）"><span class="nav-number">6.1.</span> <span class="nav-text">2.5.2 ISODATA算法（迭代自组织的数据分析算法）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-聚类结果评价"><span class="nav-number">7.</span> <span class="nav-text">2.6 聚类结果评价</span></a></li></ol></div>
             
 
           </div>
