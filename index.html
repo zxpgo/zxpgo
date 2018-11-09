@@ -427,90 +427,14 @@
 
       
         
-          
-            <p>8种基本类型：</p>
-<p><img src="https://i.imgur.com/YaVcg0c.png" alt=""></p>
-<p>注意：String不是基本类型，它是一个字符串对象。其中第一个字母<code>S</code>需要大写。</p>
-<h3 id="数组Array"><a href="#数组Array" class="headerlink" title="数组Array"></a>数组Array</h3><p>创建一个数组：</p>
-<pre><code>int [] shoeSizes = new int[3];
-</code></pre><p>初始化数组元素：</p>
-<pre><code>shoeSize[0] = 5;
-shoeSize[1] = 7;
-shoeSize[2] = 10;
-</code></pre><p>获取数组的长度：</p>
-<pre><code>shoeSize.length
-</code></pre><p>创建一个数组，并初始化，通过输入到日志消息查看是否实现：</p>
-<pre><code>String [] words = new String[10];
-words[0] = &quot;one&quot;;
-words[1] = &quot;two&quot;;
-words[2] = &quot;three&quot;;
-words[3] = &quot;four&quot;;
-words[4] = &quot;five&quot;;
-words[5] = &quot;six&quot;;
-words[6] = &quot;seven&quot;;
-words[7] = &quot;eight&quot;;
-words[8] = &quot;nine&quot;;
-words[9] = &quot;ten&quot;;
-Log.v(&quot;NumbersActivity&quot;,&quot;Word at index 0: &quot; + words[0]);
-</code></pre><h3 id="数组列表ArrayList"><a href="#数组列表ArrayList" class="headerlink" title="数组列表ArrayList"></a>数组列表ArrayList</h3><p><img src="https://i.imgur.com/9kC91Ix.png" alt=""></p>
-<ul>
-<li>数组的大小是固定的，而数组列表的大小可以改变；</li>
-<li>数组中可以存储原始数据类型（比如int,double）和对象类型，但数组列表只能存储对象类型；</li>
-<li>数组不是类，不需要方法来访问和修改元素；数组列表被定义成类，意味着数组列表的每个实例都是对象，具有方法供我们访问和修改数据。</li>
-</ul>
-<p>ArrayList类继承于AbstractList类，AbstractList是一个抽象类，抽象类是部分实现的类，表示某些方法已经实现，某些方法还是空着的。</p>
-<p>Java中有很多其他类型的列表，比如链表、堆栈和向量等。</p>
-<ul>
-<li>具体类：具有状态和所有方法的实现，比如ArrayList</li>
-<li>抽象类：部分方法实现，比如AbstractList</li>
-<li>接口：所有方法都没有实现，比如List</li>
-</ul>
-<p><img src="https://i.imgur.com/QCdOcJR.png" alt=""></p>
-<p>创建一个数组列表：</p>
-<pre><code>ArrayList&lt;String&gt; musicLibrary = new ArrayList&lt;String&gt;();
-</code></pre><p>对数组列表添加元素:</p>
-<pre><code>musicLibrary.add(“Yellow Submarine”);
-musicLibrary.add(&quot;Thriller&quot;);
-//在特定位置添加元素
-musicLibrary.add(0,&quot;Blue Suede Shoes&quot;);
-</code></pre><p>访问数组列表中的元素:</p>
-<pre><code>musicLibrary.get(0);
-</code></pre><p>删除数组列表中的元素：</p>
-<pre><code>musicLibrary.remove(2);
-musicLibrary.remove(&quot;Thriller&quot;);
-</code></pre><p>获取数组列表的长度：</p>
-<pre><code>musiciLibrary.size();
-</code></pre><p>下面列出了常见的<a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html" target="_blank" rel="noopener">类型参数</a>： E - 元素（Java Collections Framework 大量用到） K - 键 N - 数字 T - 类型 V - 值 S、U、V 等 - 第 2 种、第 3 种、第 4 种类型。</p>
-<p>创建数组列表的例子：</p>
-<pre><code>ArrayList&lt;String&gt; words = new ArrayList&lt;String&gt;();
- words.add(&quot;one&quot;);
- words.add(&quot;two&quot;);
- words.add(&quot;three&quot;);
- words.add(&quot;four&quot;);
- words.add(&quot;five&quot;);
- words.add(&quot;six&quot;);
- words.add(&quot;seven&quot;);
- words.add(&quot;eight&quot;);
- words.add(&quot;seven&quot;);
- words.add(&quot;ten&quot;);
- Log.v(&quot;NumbersActivity&quot;,&quot;Words at index 0: &quot; + words.get(0));
-</code></pre><h3 id="根据列表向布局添加剂TextView"><a href="#根据列表向布局添加剂TextView" class="headerlink" title="根据列表向布局添加剂TextView"></a>根据列表向布局添加剂TextView</h3><pre><code>LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-TextView wordView = new TextView(this);
-wordView.setText(words.get(0));
-rootView.addView(wordView);
-</code></pre><p>首先获取根视图，然后创建子视图，并设置子视图中的内容，最后，将子视图添加到父视图。</p>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><pre><code>while (条件){
-    循环体
-}
-</code></pre><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><pre><code>for(初始化count; 条件; 更新count){
-    循环体
-}
-</code></pre><h3 id="视图回收"><a href="#视图回收" class="headerlink" title="视图回收"></a>视图回收</h3><p>内存资源是有限的，应该节约使用。如果我们要显示1000个联系人，创建1000个1000TextView，这样大大浪费了内存，因为显示在屏幕中的仅仅几个。如是考虑重复使用TextView。</p>
-<p>视图回收：表示重复使用在屏幕上不再可见的视图。这里的视图是单行布局，包括LinearLayout、RelativeLayout。</p>
-<p>采用ListView和ArrayAdapter根据需要在屏幕上显示的内容，创建阻隔的视图，即列表项行。</p>
-<p><img src="https://i.imgur.com/QV3VRHa.png" alt=""></p>
-
-          
+          <p>Java基本知识，包括：数组、数组列表，for、while循环和自定义类
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/09/Java数组、列表、循环和自定义类/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1612,163 +1536,6 @@ rootView.addView(wordView);
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/30/打造布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zxp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="平步青云win">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/30/打造布局/" itemprop="url">打造布局</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T19:08:14+08:00">
-                2018-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/APP开发/" itemprop="url" rel="index">
-                    <span itemprop="name">APP开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/30/打造布局/" class="leancloud_visitors" data-flag-title="打造布局">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/30/打造布局/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1876,6 +1643,163 @@ rootView.addView(wordView);
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/30/项目开发流程--快速开发APP(一)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/10/30/打造布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/打造布局/" itemprop="url">打造布局</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T19:08:14+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/APP开发/" itemprop="url" rel="index">
+                    <span itemprop="name">APP开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/30/打造布局/" class="leancloud_visitors" data-flag-title="打造布局">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/30/打造布局/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
