@@ -41,17 +41,11 @@
     <link href="https://zxpgo.github.io/2018/11/28/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E8%A1%8C/"/>
     <id>https://zxpgo.github.io/2018/11/28/线程与并行/</id>
     <published>2018-11-28T00:40:14.000Z</published>
-    <updated>2018-11-28T09:49:56.433Z</updated>
+    <updated>2018-11-29T14:46:33.118Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;Android 系统能够同时运行多个线程， 因此可以相互独立的处理 两组或多组任务。如果有多个线程需要运行， Android 还会就何时运行哪些线程进行优先级排序， 并确定各线程的运行时长。
     
     </summary>
     
@@ -67,17 +61,11 @@
     <link href="https://zxpgo.github.io/2018/11/27/HTTP%E7%BD%91%E7%BB%9C/"/>
     <id>https://zxpgo.github.io/2018/11/27/HTTP网络/</id>
     <published>2018-11-27T00:40:14.000Z</published>
-    <updated>2018-11-28T01:45:44.002Z</updated>
+    <updated>2018-11-29T14:47:34.423Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;HTTP介绍，以及Android开发中HTTP连接的发起，以及请求数据的解析。
     
     </summary>
     
@@ -383,6 +371,24 @@
   </entry>
   
   <entry>
+    <title>Python小技巧</title>
+    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
+    <published>2018-10-25T11:08:14.000Z</published>
+    <updated>2018-10-25T12:04:19.290Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++ Primer Plus--对象和类（十）</title>
     <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
@@ -399,24 +405,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python小技巧</title>
-    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-25T12:04:19.290Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
     
   </entry>
   
