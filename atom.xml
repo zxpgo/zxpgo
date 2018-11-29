@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-11-09T07:19:45.920Z</updated>
+  <updated>2018-11-29T12:24:38.278Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,143 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android基础知识数据存储</title>
+    <link href="https://zxpgo.github.io/2018/11/29/Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    <id>https://zxpgo.github.io/2018/11/29/Android基础知识数据存储/</id>
+    <published>2018-11-29T07:40:14.000Z</published>
+    <updated>2018-11-29T12:24:38.278Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;创建存储数据的变量，当屏幕旋转时，Activity被销毁，存储的数据就会消失。因此需要一个更永久的方式来存储用户数据，当关闭应用并重新打开时，用户数据依然存在，这一概念叫做数据持久性。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程与并行</title>
+    <link href="https://zxpgo.github.io/2018/11/28/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E8%A1%8C/"/>
+    <id>https://zxpgo.github.io/2018/11/28/线程与并行/</id>
+    <published>2018-11-28T00:40:14.000Z</published>
+    <updated>2018-11-28T09:49:56.433Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP网络</title>
+    <link href="https://zxpgo.github.io/2018/11/27/HTTP%E7%BD%91%E7%BB%9C/"/>
+    <id>https://zxpgo.github.io/2018/11/27/HTTP网络/</id>
+    <published>2018-11-27T00:40:14.000Z</published>
+    <updated>2018-11-28T01:45:44.002Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSON解析</title>
+    <link href="https://zxpgo.github.io/2018/11/23/JSON%E8%A7%A3%E6%9E%90/"/>
+    <id>https://zxpgo.github.io/2018/11/23/JSON解析/</id>
+    <published>2018-11-23T00:40:14.000Z</published>
+    <updated>2018-11-27T09:40:24.921Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Json解析，以及字符串处理，日期和时间转换，小数点处理，switch语句等等
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>音频处理</title>
+    <link href="https://zxpgo.github.io/2018/11/18/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/"/>
+    <id>https://zxpgo.github.io/2018/11/18/音频处理/</id>
+    <published>2018-11-18T12:40:14.000Z</published>
+    <updated>2018-11-22T11:10:24.532Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实现音乐的播放和停止。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>台式安装Android Studio后出现虚拟机无法启动</title>
+    <link href="https://zxpgo.github.io/2018/11/18/%E5%8F%B0%E5%BC%8F%E5%AE%89%E8%A3%85Android%20Studio%E5%87%BA%E7%8E%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
+    <id>https://zxpgo.github.io/2018/11/18/台式安装Android Studio出现虚拟机无法启动/</id>
+    <published>2018-11-18T01:40:14.000Z</published>
+    <updated>2018-11-18T12:42:17.245Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在台式机上安装了Android Studio，想利用虚拟机来进行安装App，启动虚拟机时，遇到该问题。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java数组、列表、循环和自定义类</title>
     <link href="https://zxpgo.github.io/2018/11/09/Java%E6%95%B0%E7%BB%84%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
     <id>https://zxpgo.github.io/2018/11/09/Java数组、列表、循环和自定义类/</id>
     <published>2018-11-09T00:33:14.000Z</published>
-    <updated>2018-11-09T07:19:45.920Z</updated>
+    <updated>2018-11-14T12:47:17.095Z</updated>
     
     <summary type="html">
     
@@ -113,15 +245,15 @@
   </entry>
   
   <entry>
-    <title>Java面向对象编程</title>
-    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
+    <title>制作一款交互性应用</title>
+    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-07T13:19:16.815Z</updated>
+    <updated>2018-11-01T12:37:27.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
+      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
     
     </summary>
     
@@ -133,15 +265,15 @@
   </entry>
   
   <entry>
-    <title>制作一款交互性应用</title>
-    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
+    <title>Java面向对象编程</title>
+    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-01T12:37:27.000Z</updated>
+    <updated>2018-11-07T13:19:16.815Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
+      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
     
     </summary>
     
@@ -285,122 +417,6 @@
     
     
       <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--内存模型和名称空间（九）</title>
-    <link href="https://zxpgo.github.io/2018/10/18/C++%20Primer%20Plus--%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%EF%BC%88%E4%B9%9D%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/</id>
-    <published>2018-10-18T07:53:14.000Z</published>
-    <updated>2018-10-25T11:07:02.399Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--函数探幽（八）</title>
-    <link href="https://zxpgo.github.io/2018/10/12/C++%20Primer%20Plus--%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD%EF%BC%88%E5%85%AB%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/12/C++ Primer Plus--函数探幽（八）/</id>
-    <published>2018-10-12T01:30:14.000Z</published>
-    <updated>2018-10-18T07:53:26.314Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微软面试题目--字母易位词</title>
-    <link href="https://zxpgo.github.io/2018/10/12/%E5%BE%AE%E8%BD%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE--%E5%AD%97%E6%AF%8D%E6%98%93%E4%BD%8D%E8%AF%8D/"/>
-    <id>https://zxpgo.github.io/2018/10/12/微软面试题目--字母易位词/</id>
-    <published>2018-10-12T01:30:14.000Z</published>
-    <updated>2018-10-18T12:03:34.179Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;两个单词如果包含相同的字母，次序不同，则称为字母易位词(anagram)。例如，“silent”和“listen”是字母易位词，而“apple”和“aplee”不是易位词。请定义函数检查两个单词是否是字母易位词。可以假设两个单词字母均为小写。要求算法复杂度尽量低。
-    
-    </summary>
-    
-    
-      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模式识别(二)--感知器算法</title>
-    <link href="https://zxpgo.github.io/2018/10/11/%E6%84%9F%E7%9F%A5%E5%99%A8%E7%AE%97%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2018/10/11/感知器算法/</id>
-    <published>2018-10-11T03:01:50.000Z</published>
-    <updated>2018-10-27T02:11:09.132Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;感知器算法
-    
-    </summary>
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分布式机器学习框架--参数服务器</title>
-    <link href="https://zxpgo.github.io/2018/10/10/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6--%E5%8F%82%E6%95%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/10/分布式机器学习框架--参数服务器/</id>
-    <published>2018-10-10T07:30:14.000Z</published>
-    <updated>2018-10-10T07:29:21.454Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在大规模数据上跑机器学习任务是过去十多年内系统架构师面临的主要挑战之一，许多模型和抽象先后用于这一任务。
-    
-    </summary>
-    
-    
-      <category term="分布式机器学习" scheme="https://zxpgo.github.io/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络(四)--网络层</title>
-    <link href="https://zxpgo.github.io/2018/10/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E5%9B%9B)--%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
-    <id>https://zxpgo.github.io/2018/10/07/计算机网络(四)--网络层/</id>
-    <published>2018-10-07T13:54:50.000Z</published>
-    <updated>2018-10-27T02:09:56.866Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网络层
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

@@ -97,7 +97,11 @@
 <meta property="og:image" content="https://i.imgur.com/9kC91Ix.png">
 <meta property="og:image" content="https://i.imgur.com/QCdOcJR.png">
 <meta property="og:image" content="https://i.imgur.com/QV3VRHa.png">
-<meta property="og:updated_time" content="2018-11-09T07:19:45.920Z">
+<meta property="og:image" content="https://i.imgur.com/kZ7FtQP.png">
+<meta property="og:image" content="https://i.imgur.com/YldFuZr.png">
+<meta property="og:image" content="https://i.imgur.com/oESlPBy.png">
+<meta property="og:image" content="https://i.imgur.com/XSCkvuw.png">
+<meta property="og:updated_time" content="2018-11-14T12:47:17.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java数组、列表、循环和自定义类">
 <meta name="twitter:description" content="Java基本知识，包括：数组、数组列表，for、while循环和自定义类">
@@ -511,9 +515,141 @@ rootView.addView(wordView);
 <p>视图回收：表示重复使用在屏幕上不再可见的视图。这里的视图是单行布局，包括LinearLayout、RelativeLayout。</p>
 <p>采用ListView和ArrayAdapter根据需要在屏幕上显示的内容，创建阻隔的视图，即列表项行。</p>
 <p><img src="https://i.imgur.com/QV3VRHa.png" alt=""></p>
-<p>查看占用的内存：</p>
-<p><a href="https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView" target="_blank" rel="noopener">https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView</a></p>
+<p>如果某个视图在屏幕上不再可见时，我们可以通过更改相关数据重复使用该视图，及更改视图中的数据，例如TextView中的文本或ImageView中的图片，我们不需要浪费事件从头创建整个视图。我们将这些多徐的视图放入Screap Pile中并等着回收利用。</p>
+<p>当用户正在滚动查看屏幕，想查看列表的顶部，看看最新的推文，ListView意识到需要快速创建更多的列表项行，当用户滚动的时候，似乎列表项一直都存在，它可以从Scrap Pile中选择一个视图，（如果存在的话）重复使用，而不是从头创建。我们通过使用Scrap Pile中的视图创建了更多的视图行，然后就只需更改视图中的数据，以便为相关列表项显示正确的信息。ListView同时还很智能地知道位于屏幕底部的视图已经被滚出屏幕，这些对用户来说已经不可见，可以之间添加到Scrap Pile中。当用户往上滚动时，我们就可以使用这钱位于屏幕底部的列表项行。所有这些的目标是尽量创建很少的列表项，因为从XML向Java对象隐形膨胀视图的代价很大。</p>
+<p><img src="https://i.imgur.com/kZ7FtQP.png" alt=""></p>
+<p>当第一次将适配器与ListView相关联时，该ListView会询问“你想显示多少个项？”。ArrayAdapter知道这一信息，所以ListView对ArrayAdapter调用方法，它将在该方法中传入一个输入参数，即用户当前正在查看的列表位置。知道这一信息后，ArrayAdapter会查看数据的内部来源，如果列表是来源数据的话，它会查看列表，并获取相关信息。ArrayAdapter具有说明（Instructionss）来告诉ArrayAdapter如何创建列表项视图并返回ListView。当屏幕占满后，ListView将停止工作向ArrayAdapter寻求更多的列表项，列表项仅在需要是才创建。当视图被滚动离开屏幕后，它们就会被添加到这个Scrap Pile。然后，当我们请求新的列表项时，我们可以通过将这些视图在返回到ArrayAdapter重复使用它们。Listview将请求列表中特定位置的视图，同时传入之前用户的视图，例如，如果用户请求位置6的视图，会将可重复使用的以前的视图传给ArrayAdapter，ArrayAdapter可以通过在回收的视图中放入数据，使用回收的视图，比如，通过调用TextView setText()方法来更改这里的内容。</p>
+<p><img src="https://i.imgur.com/YldFuZr.png" alt=""></p>
+<pre><code>ArrayAdapter itemsAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, words);
+ListView listView = (ListView) findViewById(R.id.list);
+listView.setAdapter(itemsAdapter);  
+</code></pre><p>首先，使用new关键字以及具有三个输入参数的构造函数创建了一个ArrayAdapter对象，将其存储在itemsAdapter变量中，其数据类型是ArrayAdapter。第一个参数是Context，this指代NumbersActivity；第二个参数是列表项布局文件，这里指定为android.R.layout，因为Android框架实际上预定义了一个XMK布局文件，叫做simple_list_item_1，我们可以直接使用Android预定义的这个文件。最后一个参数是对象列表，即ArrayAdapter的数据来源。</p>
+<p>前面使用ArrayList<string>创建字符串数组列表，讨论了泛型。因为ArrayList是个泛型类，我们可以重写成ArrayList<e>，E表示它是个泛型类<br>，E是类型参数或占位符，可以替换为具体的对象类型。例如，当我们创建ArrayList实例时，可以替换为字符串。创建一个泛型类，可以让我们稍后判断他将存储的数据类型，而不用创建多个具体的类，例如StringList类，IntegerList类等等。</e></string></p>
+<p>第二行，找到布局中的ListView。</p>
+<p>第三行，setAdapter方法输入参数是一个ListAdapter，ListAdatper是一个接口，由BaseAdapter抽象类实现某些方法，同时为其他方法保留为抽象方法，这时需要ArrayAdatper，ArrayAdapter是一个具体的类，所有方法都实现了。我们可以创建一个ArrayAdapter对象实例，并在我们的应用中使用。因此，ArrayAdapter是一个listAdapter，可以将itemsAdapter变量传入为listView.setAdapter()方法调用的输入参数。</p>
+<p><img src="https://i.imgur.com/oESlPBy.png" alt=""></p>
+<p>使用下拉菜单（Spinner）、网格视图（GridView）时，都需要使用到适配器ArrayAdapter。</p>
+<p><img src="https://i.imgur.com/XSCkvuw.png" alt=""></p>
+<h2 id="构造列表项布局"><a href="#构造列表项布局" class="headerlink" title="构造列表项布局"></a>构造列表项布局</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;16dp&quot;&gt;
 
+    &lt;TextView
+        android:id=&quot;@+id/default_text_view&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        tools:text=&quot;one&quot;/&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/miwok_text_view&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        tools:text=&quot;一&quot;/&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><h3 id="tools命名空间"><a href="#tools命名空间" class="headerlink" title="tools命名空间"></a>tools命名空间</h3><p>在XML中，命名空间使元素之间没有名称冲突。<code>xmlns:android</code>是一个命名空间，我们已经在Android中使用的属性，例如android:layout_height等等以<code>android:</code>开头。</p>
+<p>上面代码还添加一个命名空间，叫做tools命名空间</p>
+<pre><code>xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+</code></pre><p>上面这行代码表示将tools前缀映射到这个命名空间<code>http://schemas.android.com/tools</code>。任何以tools开头的元素或属性都属于tools命名空间的一部分。</p>
+<pre><code>tools:text=&quot;one&quot;
+</code></pre><p>利用tools命名空间text来设置内容，在Android Studio的设计预览中将会显示此文本，但不会在运行时出现，这样为我们开发提供帮助。</p>
+<h2 id="自定义类"><a href="#自定义类" class="headerlink" title="自定义类"></a>自定义类</h2><pre><code>package com.example.android.miwok;
+
+/**
+ * 创建了一个Wrod类，用户可以使用
+ * 其包含一个默认翻译和一个Miwok翻译对于同一个单词
+ * */
+public class Word {
+    private String mDefaultTranslation;
+    private String mMiwokTranslation;
+
+    public Word(String defaultTranslation, String miwokTranslaton)
+    {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslaton;
+    }
+
+    /**
+     * Get the Miwok Translation
+     * @return
+     */
+    public String getMiwokTranslation() {
+        return mMiwokTranslation;
+    }
+
+    /**
+     * Get the defualt translation
+     * @return string
+     */
+    public String getDefaultTranslation(){
+        return mDefaultTranslation;
+    }
+}
+</code></pre><p>根据自定义的类Word，可以创建Word对象数组列表，并传递给ArrayAdapter。</p>
+<pre><code>ArrayList&lt;Word&gt; words = new ArrayList&lt;Word&gt;();
+words.add(new Word(&quot;one&quot;,&quot;一&quot;));
+words.add(new Word(&quot;two&quot;,&quot;二&quot;));
+</code></pre><h2 id="自定义ArrayAdapter"><a href="#自定义ArrayAdapter" class="headerlink" title="自定义ArrayAdapter"></a>自定义ArrayAdapter</h2><pre><code>package com.example.android.miwok;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class WordAdapter extends ArrayAdapter&lt;Word&gt; {
+    //构造函数
+    public WordAdapter(Context context, ArrayList&lt;Word&gt; objects) {
+        super(context, 0, objects);
+    }
+    /**@Override
+    public View getView(int position,  View convertView,  ViewGroup parent)
+    {
+        return super.getView(position, convertView, parent);
+    }*/
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Check if the existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.list_item, parent, false);
+        }
+
+        // Get the {@link AndroidFlavor} object located at this position in the list
+        Word currentWord = getItem(position);
+
+        // Find the TextView in the list_item.xml layout with the ID version_name
+        TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
+        // Get the version name from the current AndroidFlavor object and
+        // set this text on the name TextView
+        defaultTextView.setText(currentWord.getDefaultTranslation());
+
+        // Find the TextView in the list_item.xml layout with the ID version_number
+        TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
+        // Get the version number from the current AndroidFlavor object and
+        // set this text on the number TextView
+        miwokTextView.setText(currentWord.getMiwokTranslation());
+
+        // Return the whole list item layout (containing 2 TextViews)
+        // so that it can be shown in the List
+        return listItemView;
+    }
+
+}
+</code></pre><p>在</p>
+<pre><code>WordAdapter adapter = new WordAdapter(this,words);
+ListView listView = (ListView) findViewById(R.id.list);
+listView.setAdapter(adapter);
+</code></pre>
       
     </div>
     
@@ -623,6 +759,10 @@ rootView.addView(wordView);
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/18/台式安装Android Studio出现虚拟机无法启动/" rel="prev" title="台式安装Android Studio后出现虚拟机无法启动">
+                台式安装Android Studio后出现虚拟机无法启动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -707,7 +847,7 @@ rootView.addView(wordView);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -839,7 +979,7 @@ rootView.addView(wordView);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组Array"><span class="nav-number">1.</span> <span class="nav-text">数组Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组列表ArrayList"><span class="nav-number">2.</span> <span class="nav-text">数组列表ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据列表向布局添加剂TextView"><span class="nav-number">3.</span> <span class="nav-text">根据列表向布局添加剂TextView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">4.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while循环"><span class="nav-number">4.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">4.2.</span> <span class="nav-text">for循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图回收"><span class="nav-number">5.</span> <span class="nav-text">视图回收</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组Array"><span class="nav-number">1.</span> <span class="nav-text">数组Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组列表ArrayList"><span class="nav-number">2.</span> <span class="nav-text">数组列表ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据列表向布局添加剂TextView"><span class="nav-number">3.</span> <span class="nav-text">根据列表向布局添加剂TextView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">4.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#while循环"><span class="nav-number">4.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">4.2.</span> <span class="nav-text">for循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图回收"><span class="nav-number">5.</span> <span class="nav-text">视图回收</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造列表项布局"><span class="nav-number"></span> <span class="nav-text">构造列表项布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tools命名空间"><span class="nav-number">1.</span> <span class="nav-text">tools命名空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类"><span class="nav-number"></span> <span class="nav-text">自定义类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义ArrayAdapter"><span class="nav-number"></span> <span class="nav-text">自定义ArrayAdapter</span></a></div>
             
 
           </div>
