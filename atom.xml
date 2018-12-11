@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-11-29T12:24:38.278Z</updated>
+  <updated>2018-12-11T14:51:40.310Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Malware Propagations in Wireless Ad Hoc Networks</title>
+    <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
+    <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2018-12-11T14:51:40.310Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无线Ad hoc网络中恶意软件传播研究。
+    
+    </summary>
+    
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Android基础知识数据存储</title>
@@ -233,15 +253,15 @@
   </entry>
   
   <entry>
-    <title>制作一款交互性应用</title>
-    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
+    <title>Java面向对象编程</title>
+    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-01T12:37:27.000Z</updated>
+    <updated>2018-11-07T13:19:16.815Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
+      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
     
     </summary>
     
@@ -253,15 +273,15 @@
   </entry>
   
   <entry>
-    <title>Java面向对象编程</title>
-    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
+    <title>制作一款交互性应用</title>
+    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
+    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
     <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-07T13:19:16.815Z</updated>
+    <updated>2018-11-01T12:37:27.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
+      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
     
     </summary>
     
@@ -293,15 +313,15 @@
   </entry>
   
   <entry>
-    <title>应用开发前准备--快速开发APP(一)</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
-    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
+    <title>打造布局</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
+    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
     <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-30T11:41:39.768Z</updated>
+    <updated>2018-10-31T01:44:45.389Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
+      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
     
     </summary>
     
@@ -313,15 +333,15 @@
   </entry>
   
   <entry>
-    <title>打造布局</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
-    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
+    <title>应用开发前准备--快速开发APP(一)</title>
+    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
+    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
     <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-31T01:44:45.389Z</updated>
+    <updated>2018-10-30T11:41:39.768Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
+      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
     
     </summary>
     
@@ -385,26 +405,6 @@
     
     
       <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--对象和类（十）</title>
-    <link href="https://zxpgo.github.io/2018/10/25/C++%20Primer%20Plus--%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%88%E5%8D%81%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2018/10/25/C++ Primer Plus--对象和类（十）/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-11-01T08:57:04.808Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;面向对象编程（OOP）
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   

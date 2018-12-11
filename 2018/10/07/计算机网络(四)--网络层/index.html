@@ -96,7 +96,14 @@
 <meta property="og:image" content="https://i.imgur.com/yvq1aQk.png">
 <meta property="og:image" content="https://i.imgur.com/xDhr4JV.png">
 <meta property="og:image" content="https://i.imgur.com/SeaFqqD.png">
-<meta property="og:updated_time" content="2018-10-27T02:09:56.866Z">
+<meta property="og:image" content="https://i.imgur.com/u54Wa5y.png">
+<meta property="og:image" content="https://i.imgur.com/jIpZsAx.png">
+<meta property="og:image" content="https://i.imgur.com/2KqjWYc.png">
+<meta property="og:image" content="https://i.imgur.com/HLexnye.png">
+<meta property="og:image" content="https://i.imgur.com/K0Wi9wG.png">
+<meta property="og:image" content="https://i.imgur.com/c62p1WF.png">
+<meta property="og:image" content="https://i.imgur.com/wiS0s6Y.png">
+<meta property="og:updated_time" content="2018-12-02T14:38:21.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络(四)--网络层">
 <meta name="twitter:description" content="网络层">
@@ -443,7 +450,86 @@
 <p>还有一个协议叫做逆地址解析协议RARP，是和ARP协议配合使用的，但现在已被淘汰不使用了。</p>
 <p>下图画出了这三个协议和网际协议IP的关系。在这一层中，ARP画在最下面，因为IP经常要使用这个协议。ICMP和IGMP画在这一层的上部，因为它们要使用IP协议。这三个协议后面陆续介绍。由于网际协议IP是用来使互联起来的许多计算机网络能够进行通信，因此TCP/IP体系中的网络层常常称为<strong>网际层或IP</strong>。</p>
 <p><img src="https://i.imgur.com/SeaFqqD.png" alt=""></p>
-<h3 id="4-2-1-虚拟互连网络"><a href="#4-2-1-虚拟互连网络" class="headerlink" title="4.2.1 虚拟互连网络"></a>4.2.1 虚拟互连网络</h3>
+<h3 id="4-2-1-虚拟互连网络"><a href="#4-2-1-虚拟互连网络" class="headerlink" title="4.2.1 虚拟互连网络"></a>4.2.1 虚拟互连网络</h3><p>将互联网互连在一起要使用一些中间设备。根据中间设备所在的层次，可以有一下四种不同的中间设备：</p>
+<ul>
+<li>物理层使用的中间设备：转发器</li>
+<li>数据链路层使用的中间设备:网桥或桥接器</li>
+<li>网络层使用的中间设备：路由器</li>
+<li>网络层以上使用的中间设备：网关</li>
+</ul>
+<p>当中间设备是转发器或网桥时，这仅仅是把一个网络扩大了，而从网络层的角度，这仍然是一个网络，一般并不称为网络互连。我们讨论网络互连，是指用路由器进行网络互连和路由选择。路由器就是一个专用计算机，用来在互联网中进行路由选择。</p>
+<p>TAP/IP体系在网络互连商采用的做法是在网络层（即IP层）采用了标准化协议，当相互连接的网络则是可以异构的。</p>
+<h3 id="4-2-2-分类的IP地址"><a href="#4-2-2-分类的IP地址" class="headerlink" title="4.2.2 分类的IP地址"></a>4.2.2 分类的IP地址</h3><h4 id="1-IP地址及其表示法"><a href="#1-IP地址及其表示法" class="headerlink" title="1 IP地址及其表示法"></a>1 IP地址及其表示法</h4><p>整个因特网就是一个单一的、抽象的网络，IP地址就是给因特网上的每一个主机的每一个接口分配一个在全世界范围是唯一的32位的标识符。IP地址的结构使我们在因特网上很方便地进行寻址。</p>
+<p>IP地址由两个固定长度的字段组成，其中第一个字段是网络号，它标志主机所连接到的网络。一个网络号在整个因特网范围内必须是唯一的。第二个字段是主机号，它标志该主机，一个主机号在它前面的网络号所指明的网络范围内必须是唯一的。</p>
+<p>这种两级的IP地址可以记为：</p>
+<p>IP地址::={&lt;网络号&gt;,&lt;主机号&gt;}  其中“::=”表示“定义为”</p>
+<p>下图给出了各种IP地址的网络号字段和主机号字段，这里A类、B类、C类地址都是单播地址（一对一通信），是最常用的。</p>
+<p><img src="https://i.imgur.com/u54Wa5y.png" alt=""></p>
+<p>从上图可以看出：</p>
+<ul>
+<li>A类、B类和C类地址的网络号字段分别位1、2和3字节长，而在网络号字段的最前面由1~3位的类别位，其数值分别规定为0，10和110。</li>
+<li>A类、B类和C类地址的主机号字段分别为3个、2个和1个字节长。</li>
+<li>D类地址（前4位是1110）用于多播（一对多通信）。</li>
+<li>E类地址（前4位是1111）保留为以后用。</li>
+</ul>
+<p>从IP地址结构来看，IP地址并不仅仅指明一个主机，而是还指明了主机所连接到的网络。</p>
+<p>IP地址点分十进制记法：</p>
+<p><img src="https://i.imgur.com/jIpZsAx.png" alt=""></p>
+<h4 id="2-常用的三种类别的IP地址"><a href="#2-常用的三种类别的IP地址" class="headerlink" title="2. 常用的三种类别的IP地址"></a>2. 常用的三种类别的IP地址</h4><p>A类地址的网络号字段占用一个字节，只有7位可供使用（该字段第一位固定为0），可指派的网络号是127个（$2^7-2$）。减2的原因是：第一，IP地址中的全0表示“这个（this）”。网络号字段为全0的IP地址是个保留地址，意思是“本网络”。第二，网络号为127（即01111111）保留作为本地软件<strong>环回测试</strong>本主机的进程之间的通信之用。网络号为127的地址不会出现在任何网络上，因为网络号为127的地址根本不是一个网络地址。</p>
+<p>A类地址的主机号占3字节，因为每一个A类网络中的最大主机数是$2^{24}-2$，即16 777 214。这里的减2原因是：全0的主机号字段表示该IP地址是“本主机”所连接到的单个网络地址（例如，一主机的IP地址为5.6.7.8，则该主机的网络地址就是5.0.0.0），而全1表示“所有的（all）”，因此全1的主机号字段表示该网络上的所有主机。</p>
+<p>B类地址的网络号字段有2个字节，但前面两位（1 0）已经固定了，剩下14可以进行分配。因为，前面两位中有0和1，所以不管怎么取都不会有全0和全1,并且，B类网络地址128.0.0.0是不指派的，而可以指派的B类最小网络地址是128.1.0.0。所以，B类地址的网络数位$2^{14}-1$，即16 383。B类地址的每一个网络上的最大主机数是$2^{16}-2$，即65 534。这里需要减去2是因为扣除全1和全0的主机号。</p>
+<p>C类地址有3个字节的网络号字段，最前面的3位是（1 1 0），还有21位可以进行分配。C类网络地址192.0.0.0也是不指派的，可以指派的C类网络地址是192.0.1.0，因此C类地址可指派的网络总数是$2^{21}-1$，即2097151。每一个C类地址的最大主机数是$2^8-2$。</p>
+<p><img src="https://i.imgur.com/2KqjWYc.png" alt=""></p>
+<p>注意：</p>
+<ul>
+<li>路由器总是具有两个或两个以上的IP地址。即路由器的每一接口都有一个不同的网络号的IP地址。</li>
+<li>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</li>
+<li>用网桥（它只工作在链路层）互连的网段仍然是一个局域网，只能有一个网络号。</li>
+</ul>
+<h3 id="4-2-3-IP地址与硬件地址"><a href="#4-2-3-IP地址与硬件地址" class="headerlink" title="4.2.3 IP地址与硬件地址"></a>4.2.3 IP地址与硬件地址</h3><p>物理地址是数据链路层和物理层使用的地址，而IP地址是网络层和以上各层使用的地址，是一种逻辑地址（称IP地址是逻辑地址是因为IP地址是由软件实现的）。</p>
+<p>在发送数据时，数据从高层下到底层，然后才到通信链路上传输。使用IP地址的IP数据报一旦交给了数据链路层，就被封装成MAC帧了。MAC帧在传送时使用的源地址和目的的地址都是硬件地址，这两个硬件地址都写在MAC帧的首部。</p>
+<p><img src="https://i.imgur.com/HLexnye.png" alt=""></p>
+<p>IP地址放在IP数据报的首部，而硬件地址则放在MAC帧的首部。在网络层和网络层以上使用的是IP地址，而数据链路层及以下使用的是硬件地址。</p>
+<p>路由器只根据目的站的 IP 地址的网络号进行路由选择。在具体的物理网络的链路层只能看见 MAC 帧而看不见 IP 数据报。</p>
+<p>IP层抽象的互联网屏蔽了下层很复杂的细节在抽象的网络层上讨论问题，就能够使用统一的、抽象的 IP 地址研究主机和主机或主机和路由器之间的通信。</p>
+<h3 id="4-2-4-地址解析协议ARP"><a href="#4-2-4-地址解析协议ARP" class="headerlink" title="4.2.4 地址解析协议ARP"></a>4.2.4 地址解析协议ARP</h3><p>由于IP协议使用了ARP协议，因此通常把ARP协议划归网络层。ARP协议的用途是为了从网络层使用的IP协议解析出在数据链路层使用的硬件地址。</p>
+<p>每一个主机都设有一个 ARP 高速缓存(ARP cache)，里面有所在的局域网上的各主机和路由器的 IP 地址到硬件地址的映射表。</p>
+<p>当主机 A 欲向本局域网上的某个主机 B 发送 IP 数据报时，就先在其 ARP 高速缓存中查看有无主机 B 的 IP 地址。如有，就可查出其对应的硬件地址，再将此硬件地址写入 MAC 帧，然后通过局域网将该 MAC 帧发往此硬件地址。  </p>
+<p><img src="https://i.imgur.com/K0Wi9wG.png" alt=""></p>
+<p>ARP 高速缓存的作用：</p>
+<ul>
+<li>为了减少网络上的通信量，主机 A 在发送其 ARP 请求分组时，就将自己的 IP 地址到硬件地址的映射写入 ARP 请求分组。</li>
+<li>当主机 B 收到 A 的 ARP 请求分组时，就将主机 A 的这一地址映射写入主机 B 自己的 ARP 高速缓存中。这对主机 B 以后向 A 发送数据报时就更方便了</li>
+</ul>
+<p>ARP 是解决同一个局域网上的主机或路由器的 IP 地址和硬件地址的映射问题。如果所要找的主机和源主机不在同一个局域网上，那么就要通过 ARP 找到一个位于本局域网上的某个路由器的硬件地址，然后把分组发送给这个路由器，让这个路由器把分组转发给下一个网络。剩下的工作就由下一个网络来做。</p>
+<p>从IP地址到硬件地址的解析是自动进行的，主机的用户对这种地址解析过程是不知道的。只要主机或路由器要和本网络上的另一个已知 IP 地址的主机或路由器进行通信，ARP 协议就会自动地将该 IP 地址解析为链路层所需要的硬件地址。  </p>
+<p>不直接使用硬件地址通信，而采用IP地址的原因：</p>
+<ul>
+<li>由于全世界存在着各式各样的网络，它们使用不同的硬件地址。要使这些异构网络能够互相通信就必须进行非常复杂的硬件地址转换工作，因此几乎是不可能的事。</li>
+<li>连接到因特网的主机都拥有统一的 IP 地址，它们之间的通信就像连接在同一个网络上那样简单方便，因为调用 ARP 来寻找某个路由器或主机的硬件地址都是由计算机软件自动进行的，对用户来说是看不见这种调用过程的。  </li>
+</ul>
+<h3 id="4-2-5-IP数据报格式"><a href="#4-2-5-IP数据报格式" class="headerlink" title="4.2.5 IP数据报格式"></a>4.2.5 IP数据报格式</h3><p>一个 IP 数据报由首部和数据两部分组成。首部的前一部分是固定长度，共 20 字节，是所有 IP 数据报必须具有的。在首部的固定部分的后面是一些可选字段，其长度是可变的。 </p>
+<p><img src="https://i.imgur.com/c62p1WF.png" alt=""></p>
+<ul>
+<li>版本——占 4 位，指 IP 协议的版本目前的 IP 协议版本号为 4 (即 IPv4)。</li>
+<li>首部长度——占 4 位，可表示的最大数值是 15 个单位(一个单位为 4 字节)因此 IP 的首部长度的最大值是 60 字节。</li>
+<li>区分服务——占 8 位，用来获得更好的服务在旧标准中叫做服务类型，但实际上一直未被使用过。1998 年这个字段改名为区分服务。只有在使用区分服务（DiffServ）时，这个字段才起作用。在一般的情况下都不使用这个字段。 </li>
+<li>总长度——占 16 位，指首部和数据之和的长度，单位为字节，因此数据报的最大长度为 65535 字节。总长度必须不超过最大传送单元 MTU。 </li>
+<li>标识(identification)——占 16 位，它是一个计数器，用来产生数据报的标识。 </li>
+<li>标志(flag)——占 3 位，目前只有前两位有意义。标志字段的最低位是 MF (More Fragment)。MF=1 表示后面“还有分片”。MF=0 表示最后一个分片。标志字段中间的一位是 DF (Don’t Fragment) 。只有当 DF  0 时才允许分片。 </li>
+<li>片偏移(13 位)指出：较长的分组在分片后某片在原分组中的相对位置。片偏移以 8 个字节为偏移单位。</li>
+</ul>
+<p>一数据报的总长度为3820字节，其数据部分为3800字节长。需要分片长度不超过1420字节的数据报片。因固定首部长度为20字节，因此每个数据报片的数据部分不超过1400字节。于是分为3个数据报片。</p>
+<p><img src="https://i.imgur.com/wiS0s6Y.png" alt=""></p>
+<ul>
+<li>生存时间(8 位)记为 TTL (Time To Live)数据报在网络中可通过的路由器数的最大值。</li>
+<li>协议(8 位)字段指出此数据报携带的数据使用何种协议以便目的主机的 IP 层将数据部分上交给哪个处理过程。</li>
+<li>首部检验和(16 位)字段只检验数据报的首部不检验数据部分。这里不采用 CRC 检验码而采用简单的计算方法。 </li>
+<li>源地址和目的地址都各占 4 字节。</li>
+</ul>
+<h3 id="4-2-6-IP层转发分组的流程"><a href="#4-2-6-IP层转发分组的流程" class="headerlink" title="4.2.6 IP层转发分组的流程"></a>4.2.6 IP层转发分组的流程</h3><p>灯谜：</p>
+<p>天鹅飞去鸟不归<br>良字无头双人配<br>受字中间多两笔<br>人尔结合是自己</p>
+
       
     </div>
     
@@ -641,7 +727,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -773,7 +859,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-网络层提供的两种服务"><span class="nav-number">1.</span> <span class="nav-text">4.1 网络层提供的两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-网际IP协议"><span class="nav-number">2.</span> <span class="nav-text">4.2 网际IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-虚拟互连网络"><span class="nav-number">2.1.</span> <span class="nav-text">4.2.1 虚拟互连网络</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-网络层提供的两种服务"><span class="nav-number">1.</span> <span class="nav-text">4.1 网络层提供的两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-网际IP协议"><span class="nav-number">2.</span> <span class="nav-text">4.2 网际IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-虚拟互连网络"><span class="nav-number">2.1.</span> <span class="nav-text">4.2.1 虚拟互连网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-分类的IP地址"><span class="nav-number">2.2.</span> <span class="nav-text">4.2.2 分类的IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-IP地址及其表示法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1 IP地址及其表示法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的三种类别的IP地址"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 常用的三种类别的IP地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-IP地址与硬件地址"><span class="nav-number">2.3.</span> <span class="nav-text">4.2.3 IP地址与硬件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-地址解析协议ARP"><span class="nav-number">2.4.</span> <span class="nav-text">4.2.4 地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-5-IP数据报格式"><span class="nav-number">2.5.</span> <span class="nav-text">4.2.5 IP数据报格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-6-IP层转发分组的流程"><span class="nav-number">2.6.</span> <span class="nav-text">4.2.6 IP层转发分组的流程</span></a></li></ol></li></ol></div>
             
 
           </div>
