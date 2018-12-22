@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2018-12-11T14:51:40.310Z</updated>
+  <updated>2018-12-22T12:23:08.720Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,149 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Centos7备份和还原</title>
+    <link href="https://zxpgo.github.io/2018/12/22/Centos7%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F/"/>
+    <id>https://zxpgo.github.io/2018/12/22/Centos7备份和还原/</id>
+    <published>2018-12-22T09:24:24.000Z</published>
+    <updated>2018-12-22T12:23:08.720Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Centos7备份系统和还原系统。
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
+    <published>2018-12-21T12:57:14.000Z</published>
+    <updated>2018-12-22T11:47:32.790Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7上Django+Mysql+Appach环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
+    <published>2018-12-21T12:57:14.000Z</published>
+    <updated>2018-12-22T11:47:44.197Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android绘图系列之三(Paint常用函数介绍)</title>
+    <link href="https://zxpgo.github.io/2018/12/15/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%89(Paint%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D)/"/>
+    <id>https://zxpgo.github.io/2018/12/15/android绘图系列之三(Paint常用函数介绍)/</id>
+    <published>2018-12-15T12:57:14.000Z</published>
+    <updated>2018-12-15T13:08:21.215Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面介绍了基本的paint和canvas的基本用法，这里汇总paint常用函数。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android绘图系列之二(Canvas绘制文本drawText)</title>
+    <link href="https://zxpgo.github.io/2018/12/13/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C(Canvas%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%ACdrawText)/"/>
+    <id>https://zxpgo.github.io/2018/12/13/android绘图系列之二(Canvas绘制文本drawText)/</id>
+    <published>2018-12-13T06:44:14.000Z</published>
+    <updated>2018-12-13T11:14:17.537Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;系列之一介绍了绘制基本图形，比如矩形、直线、圆等。Canvas除了这些操作，还有两个重量级的绘制能力:Text(文本)和Path(路径),这里介绍Text的绘制。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android绘图系列之一(Canvas基本操作)</title>
+    <link href="https://zxpgo.github.io/2018/12/12/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%80(Canvas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C)/"/>
+    <id>https://zxpgo.github.io/2018/12/12/android绘图系列之一(Canvas基本操作)/</id>
+    <published>2018-12-12T02:52:14.000Z</published>
+    <updated>2018-12-13T06:41:36.315Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Canvas的基本操作以及开始绘制简单图形。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用CurosrLoader加载数据</title>
+    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
+    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2018-12-09T11:36:22.465Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Malware Propagations in Wireless Ad Hoc Networks</title>
     <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
     <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
     <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2018-12-11T14:51:40.310Z</updated>
+    <updated>2018-12-10T13:17:10.454Z</updated>
     
     <summary type="html">
     
@@ -37,11 +175,31 @@
   </entry>
   
   <entry>
+    <title>Content Providers简介</title>
+    <link href="https://zxpgo.github.io/2018/12/04/Content%20Providers%E7%AE%80%E4%BB%8B/"/>
+    <id>https://zxpgo.github.io/2018/12/04/Content Providers简介/</id>
+    <published>2018-12-04T10:52:14.000Z</published>
+    <updated>2018-12-08T04:37:08.267Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果直接调用SQLite数据库，很容易引入错误，假如Activity中有错别字，就会将无效输入插入到数据库中。可以通过引入一个名为Content Provider的概念，作为数据库和活动之间的一个层。使用其有很多好处，可以用它确保输入数据库中的数据是有效的。介绍它，必须介绍URI、UriMatcher、Content Resolver。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android基础知识数据存储</title>
     <link href="https://zxpgo.github.io/2018/11/29/Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
     <id>https://zxpgo.github.io/2018/11/29/Android基础知识数据存储/</id>
     <published>2018-11-29T07:40:14.000Z</published>
-    <updated>2018-11-29T12:24:38.278Z</updated>
+    <updated>2018-12-04T08:56:26.918Z</updated>
     
     <summary type="html">
     
@@ -61,11 +219,12 @@
     <link href="https://zxpgo.github.io/2018/11/28/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E8%A1%8C/"/>
     <id>https://zxpgo.github.io/2018/11/28/线程与并行/</id>
     <published>2018-11-28T00:40:14.000Z</published>
-    <updated>2018-11-29T14:46:33.118Z</updated>
+    <updated>2018-12-08T04:58:00.161Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Android 系统能够同时运行多个线程， 因此可以相互独立的处理 两组或多组任务。如果有多个线程需要运行， Android 还会就何时运行哪些线程进行优先级排序， 并确定各线程的运行时长。
+      &lt;p&gt;Android 系统能够同时运行多个线程， 因此可以相互独立的处理 两组或多组任务。如果有多个线程需要运行， Android 还会&lt;br&gt;就何时运行哪些线程进行优先级排序， 并确定各线程的运行时长。&lt;/p&gt;
+&lt;p&gt;线程也知道如何保存其位置。它不仅会记录所有变量的值， 还会记住完成当前正在执行的指令 会调用的函数系列： 即能够重新完成工作所需的一切内容。
     
     </summary>
     
@@ -81,11 +240,17 @@
     <link href="https://zxpgo.github.io/2018/11/27/HTTP%E7%BD%91%E7%BB%9C/"/>
     <id>https://zxpgo.github.io/2018/11/27/HTTP网络/</id>
     <published>2018-11-27T00:40:14.000Z</published>
-    <updated>2018-11-29T14:47:34.423Z</updated>
+    <updated>2018-11-28T01:45:44.002Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;HTTP介绍，以及Android开发中HTTP连接的发起，以及请求数据的解析。
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
@@ -249,162 +414,6 @@
     
     
       <category term="Git" scheme="https://zxpgo.github.io/tag/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java面向对象编程</title>
-    <link href="https://zxpgo.github.io/2018/10/31/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2018/10/31/Java面向对象编程/</id>
-    <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-07T13:19:16.815Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Java一般语法，以及在Android开发中的知识点和注意事项。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>制作一款交互性应用</title>
-    <link href="https://zxpgo.github.io/2018/10/31/%E5%88%B6%E4%BD%9C%E4%B8%80%E6%AC%BE%E4%BA%A4%E4%BA%92%E6%80%A7%E5%BA%94%E7%94%A8/"/>
-    <id>https://zxpgo.github.io/2018/10/31/制作一款交互性应用/</id>
-    <published>2018-10-31T13:40:14.000Z</published>
-    <updated>2018-11-01T12:37:27.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;设计一个简单的计数模块，比如预定咖啡的数量，点击Order计算咖啡的总价格
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android开发实践</title>
-    <link href="https://zxpgo.github.io/2018/10/30/Android%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://zxpgo.github.io/2018/10/30/Android开发实践/</id>
-    <published>2018-10-30T11:40:14.000Z</published>
-    <updated>2018-10-31T13:31:15.654Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Anddroid Studio(AS)安装和使用教程。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>打造布局</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E6%89%93%E9%80%A0%E5%B8%83%E5%B1%80/"/>
-    <id>https://zxpgo.github.io/2018/10/30/打造布局/</id>
-    <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-31T01:44:45.389Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍基本的视图，包括文本视图、图片视图；以及开发环境和软件。最后，介绍开发中的注意事项和开发文档查询。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>应用开发前准备--快速开发APP(一)</title>
-    <link href="https://zxpgo.github.io/2018/10/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B--%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91APP(%E4%B8%80)/"/>
-    <id>https://zxpgo.github.io/2018/10/30/项目开发流程--快速开发APP(一)/</id>
-    <published>2018-10-30T11:08:14.000Z</published>
-    <updated>2018-10-30T11:41:39.768Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;APP开发的前期准备，包括，原型设计、UI设计和应用开发。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>挑糖果游戏</title>
-    <link href="https://zxpgo.github.io/2018/10/28/%E6%8C%91%E7%B3%96%E6%9E%9C%E6%B8%B8%E6%88%8F/"/>
-    <id>https://zxpgo.github.io/2018/10/28/挑糖果游戏/</id>
-    <published>2018-10-28T02:28:14.000Z</published>
-    <updated>2018-10-28T12:08:14.463Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;游戏设置：这里有一排糖果，两个人分别轮流从中抓取一块或两块（注：抓取的两块必须是挨着的）。&lt;/p&gt;
-&lt;p&gt;中奖规则：谁拿到了最后的糖果，谁就是胜者！&lt;/p&gt;
-&lt;p&gt;算法要求：编写一条算法：保证先抓的人一定能赢。
-    
-    </summary>
-    
-    
-      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Next主题配置</title>
-    <link href="https://zxpgo.github.io/2018/10/27/Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/"/>
-    <id>https://zxpgo.github.io/2018/10/27/Next主题配置/</id>
-    <published>2018-10-27T08:28:50.000Z</published>
-    <updated>2018-10-27T08:42:13.700Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面一直使用Yelle主题，最近感觉太花哨了，所以修改成简洁的Next主题。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://zxpgo.github.io/tag/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python小技巧</title>
-    <link href="https://zxpgo.github.io/2018/10/25/Python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zxpgo.github.io/2018/10/25/Python小技巧/</id>
-    <published>2018-10-25T11:08:14.000Z</published>
-    <updated>2018-10-25T12:04:19.290Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给初学者的Python小技巧，非常实用，可以用在你的程序中，代码瞬间变得高大上，看起来还有Pythonic（很Python）的感觉。
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://zxpgo.github.io/tag/python/"/>
     
   </entry>
   
