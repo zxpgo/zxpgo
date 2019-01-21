@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T11:07:02.399Z">
+<meta property="og:updated_time" content="2019-01-18T13:31:24.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--内存模型和名称空间（九）">
 <meta name="twitter:description" content="单独编译，存储持续性、作用域和链接性，定位运算符，名称空间。">
@@ -444,7 +444,7 @@
 <li>模板声明</li>
 <li>内联函数</li>
 </ul>
-<p>将结构放在头文件中式可以的，因为它们不会创建变量，而只是在源代码文件中声明结构时，高旭编译器如何创建变量。同样，模板声明不是被编译的代码，它们指示编译器如何生成与源代码中的函数调用相匹配的函数定义。被声明未const的数据和内联函数有特殊的链接属性，因此可以放在头文件中。</p>
+<p>将结构放在头文件中可以的，因为它们不会创建变量，而只是在源代码文件中声明结构时，告诉编译器如何创建变量。同样，模板声明不是被编译的代码，它们指示编译器如何生成与源代码中的函数调用相匹配的函数定义。被声明为const的数据和内联函数有特殊的链接属性，因此可以放在头文件中。</p>
 <p>下面三个程序是将第7章中坐标转换程序分成几个独立部分后得到的结果。注意，在包含头文件时，使用“coordin.h”，而不是&lt;coordin.h&gt;。如果文件名包含在尖括号中，则C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在双引号中，则编译器将首先查找当前的工作目录或源代码目录。如果没有在那里找到头文件，则将在标准位置查找，因此在包含自己的头文件时，应使用双引号而不是尖括号。</p>
 <p>coordin.h</p>
 <pre><code>#ifndef COORDIN_H_
@@ -1573,8 +1573,8 @@ pers::showPerson(collector);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/25/C++ Primer Plus--对象和类（十）/" rel="prev" title="C++ Primer Plus--对象和类（十）">
-                C++ Primer Plus--对象和类（十） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/25/Python小技巧/" rel="prev" title="Python小技巧">
+                Python小技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1661,7 +1661,7 @@ pers::showPerson(collector);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">94</span>
+                  <span class="site-state-item-count">95</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1827,7 +1827,7 @@ pers::showPerson(collector);
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-"></i> Power by 
   </span>
