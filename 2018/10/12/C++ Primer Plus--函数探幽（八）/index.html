@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T07:53:26.314Z">
+<meta property="og:updated_time" content="2019-02-18T13:48:06.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--函数探幽（八）">
 <meta name="twitter:description" content="内联函数、按引用传递变量、默认的参数值、函数动态以及模板函数。">
@@ -471,7 +471,7 @@ b = SQUARE(c++);
 </code></pre><p>但仍然存在问题，即弘不能按值传递。即使使用新的定义，SQUARE(c++)仍将c递增两次，程序inline.cpp中，内联函数square()计算的c的结果，传递它，以计算其平方值，然后将c递增一次。</p>
 <h2 id="8-2-引用变量"><a href="#8-2-引用变量" class="headerlink" title="8.2 引用变量"></a>8.2 引用变量</h2><p>C++增加了一种复合类型–引用变量。引用是已定义的变量的别名(另一个名称)。例如：如果将twain作为clement变量的引用，则可以交替使用twain和clement来表示变量。</p>
 <p>引用变量的主要用途是用作函数的形参。通过将引用变量用作参数，函数将使用原始数据，而不是其副本。这样除指针之外，引用也为函数处理大型结构提供了一种非常方便的途径，同时对于设计来说，引用也是必不可少的。</p>
-<h3 id="8-2-1-创建应用变量"><a href="#8-2-1-创建应用变量" class="headerlink" title="8.2.1 创建应用变量"></a>8.2.1 创建应用变量</h3><p>C++给&amp;符号赋予了另一个含义，将其用来声明用于。例如，要将rodents作为rats变量的别名，可以这样做：</p>
+<h3 id="8-2-1-创建应用变量"><a href="#8-2-1-创建应用变量" class="headerlink" title="8.2.1 创建应用变量"></a>8.2.1 创建应用变量</h3><p>C++给&amp;符号赋予了另一个含义，将其用来声明引用。例如，要将rodents作为rats变量的别名，可以这样做：</p>
 <pre><code>int rats;
 int &amp; rodents = rats;
 </code></pre><p>其中，&amp;不是地址运算符，而是类型标识符的一部分。就像声明中的char$\ast$指的是指向char的指针一样，int&amp;指的是指向int的引用。上述声明允许将rats和rodents互换–它们指向相同的值和内存单元。</p>
@@ -501,7 +501,7 @@ rats addresss = 0x7ffc899ccdf4, rodents address = 0x7ffc899ccdf4
 <pre><code>int rats = 101;
 int &amp; rodents = rats;
 int * prats = &amp;rats;
-</code></pre><p>这样，表达式rodents和$\ast$都可以同rats互换；表达式&amp;rodents和prats都可以同&amp;rats互换。</p>
+</code></pre><p>这样，表达式rodents和$\ast$prats都可以同rats互换；表达式&amp;rodents和prats都可以同&amp;rats互换。</p>
 <p>引用与指针差别之一是：引用必须在声明引用的时将其初始化，而不能像指针那样，先声明，再赋值。</p>
 <p>引用更接近const指针，必须在创建时进行初始化，一旦与某个变量关联起来，就一致效忠于它。即：</p>
 <pre><code>int &amp; rodents = rats;
@@ -1941,8 +1941,8 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/12/微软面试题目--字母易位词/" rel="next" title="微软面试题目--字母易位词">
-                <i class="fa fa-chevron-left"></i> 微软面试题目--字母易位词
+              <a href="/2018/10/11/感知器算法/" rel="next" title="模式识别(二)--感知器算法">
+                <i class="fa fa-chevron-left"></i> 模式识别(二)--感知器算法
               </a>
             
           </div>
@@ -1951,8 +1951,8 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/18/C++ Primer Plus--内存模型和名称空间（九）/" rel="prev" title="C++ Primer Plus--内存模型和名称空间（九）">
-                C++ Primer Plus--内存模型和名称空间（九） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/12/微软面试题目--字母易位词/" rel="prev" title="微软面试题目--字母易位词">
+                微软面试题目--字母易位词 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -2039,7 +2039,7 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2050,7 +2050,7 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2061,7 +2061,7 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2879,6 +2879,26 @@ auto gt(T1 x, T2 y) -&gt; decltype(x + y)
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

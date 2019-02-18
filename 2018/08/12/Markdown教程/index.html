@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="Markdown安装，升级，以及语法介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T07:46:11.897Z">
+<meta property="og:updated_time" content="2019-02-12T15:14:36.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown教程">
 <meta name="twitter:description" content="Markdown安装，升级，以及语法介绍">
@@ -411,7 +411,15 @@ QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnx
 t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==
 </code></pre><p>作者：hecatonchires<br>链接：<a href="https://www.jianshu.com/p/8a1bd4892291" target="_blank" rel="noopener">https://www.jianshu.com/p/8a1bd4892291</a><br>來源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
 <p>来自：<a href="https://www.jianshu.com/p/8a1bd4892291" target="_blank" rel="noopener">https://www.jianshu.com/p/8a1bd4892291</a></p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>支持六级标题</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h2><p>开启数学公式： </p>
+<pre><code>mathjax: true
+</code></pre><p>在文章中显示$\ast$:</p>
+<pre><code>$\ast$
+</code></pre><p>前提在开启数学公式。 </p>
+<h3 id="本文居中"><a href="#本文居中" class="headerlink" title="本文居中"></a>本文居中</h3><pre><code>&lt;center&gt;成员名和参数名&lt;/center&gt;
+</code></pre><h3 id="文本加粗"><a href="#文本加粗" class="headerlink" title="文本加粗"></a>文本加粗</h3><pre><code>__加粗__ 或者 **加粗**
+</code></pre><p>第二种加粗方式可能不起作用，所以建议使用第一种。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>支持六级标题</p>
 <pre><code># 一级标题
 ## 二级标题
 ### 三级标题
@@ -490,6 +498,7 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
 <p>项目３<br>:   定义 C</p>
 <p>:   定义 D</p>
 <pre><code>&gt; 定义D内容
+&gt; 
 </code></pre><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>代码块语法遵循标准markdown代码，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
 <h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>生成一个脚注[^footnote].<br>  [^footnote]: 这里是 <strong>脚注</strong> 的 <em>内容</em>. </p>
@@ -642,8 +651,8 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/13/VPN安装后无法连接互联网/" rel="prev" title="VPN安装后无法连接到互联网">
-                VPN安装后无法连接到互联网 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/13/手机抓包软件：charles安装及教程/" rel="prev" title="手机抓包软件：charles安装及教程">
+                手机抓包软件：charles安装及教程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -730,7 +739,7 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +750,7 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -752,7 +761,7 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -862,7 +871,7 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#升级Pro版本"><span class="nav-number">1.</span> <span class="nav-text">升级Pro版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱地址："><span class="nav-number">1.1.</span> <span class="nav-text">邮箱地址：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权秘钥："><span class="nav-number">1.2.</span> <span class="nav-text">授权秘钥：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体设置"><span class="nav-number">2.2.</span> <span class="nav-text">字体设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-number">2.3.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown及扩展"><span class="nav-number">2.4.</span> <span class="nav-text">Markdown及扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.5.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义列表"><span class="nav-number">2.6.</span> <span class="nav-text">定义列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">2.7.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">2.8.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">2.9.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.10.</span> <span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML-图"><span class="nav-number">2.11.</span> <span class="nav-text">UML 图:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线写博客"><span class="nav-number">2.12.</span> <span class="nav-text">离线写博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器兼容"><span class="nav-number">2.13.</span> <span class="nav-text">浏览器兼容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学公式语法"><span class="nav-number">3.</span> <span class="nav-text">数学公式语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他语法"><span class="nav-number">4.</span> <span class="nav-text">其他语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#升级Pro版本"><span class="nav-number">1.</span> <span class="nav-text">升级Pro版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱地址："><span class="nav-number">1.1.</span> <span class="nav-text">邮箱地址：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权秘钥："><span class="nav-number">1.2.</span> <span class="nav-text">授权秘钥：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用语法"><span class="nav-number">2.1.</span> <span class="nav-text">常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文居中"><span class="nav-number">2.1.1.</span> <span class="nav-text">本文居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本加粗"><span class="nav-number">2.1.2.</span> <span class="nav-text">文本加粗</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">2.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体设置"><span class="nav-number">2.3.</span> <span class="nav-text">字体设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-number">2.4.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown及扩展"><span class="nav-number">2.5.</span> <span class="nav-text">Markdown及扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义列表"><span class="nav-number">2.7.</span> <span class="nav-text">定义列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">2.8.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">2.9.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">2.10.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学公式"><span class="nav-number">2.11.</span> <span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML-图"><span class="nav-number">2.12.</span> <span class="nav-text">UML 图:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线写博客"><span class="nav-number">2.13.</span> <span class="nav-text">离线写博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器兼容"><span class="nav-number">2.14.</span> <span class="nav-text">浏览器兼容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学公式语法"><span class="nav-number">3.</span> <span class="nav-text">数学公式语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他语法"><span class="nav-number">4.</span> <span class="nav-text">其他语法</span></a></li></ol></div>
             
 
           </div>
@@ -1570,6 +1579,26 @@ t1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

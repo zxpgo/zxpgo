@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-01-21T14:27:54.550Z</updated>
+  <updated>2019-02-16T14:52:23.398Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,125 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>廖雪峰SQL教程--关系模型(二)</title>
+    <link href="https://zxpgo.github.io/2019/02/16/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL%E6%95%99%E7%A8%8B--%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B(%E4%BA%8C)/"/>
+    <id>https://zxpgo.github.io/2019/02/16/廖雪峰SQL教程--关系模型(二)/</id>
+    <published>2019-02-16T13:54:50.000Z</published>
+    <updated>2019-02-16T14:52:23.398Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
+    
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--类和动态内存分配（十二）</title>
+    <link href="https://zxpgo.github.io/2019/02/13/C++%20Primer%20Plus--%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/02/13/C++ Primer Plus--类和动态内存分配（十二）/</id>
+    <published>2019-02-13T11:08:14.000Z</published>
+    <updated>2019-02-18T13:48:10.346Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍对类使用new和delete以及如何处理由于动态内存所引起的一些微妙问题。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7使用yum安装提示cannot find a valid baseurl for repo:base/7/x86_64 的解决方法</title>
+    <link href="https://zxpgo.github.io/2019/02/12/Centos7%E7%94%A8yum%E5%AE%89%E8%A3%85%E6%8F%90%E7%A4%BAcannot%20find%20a%20valid%20baseurl%20for%20rep/"/>
+    <id>https://zxpgo.github.io/2019/02/12/Centos7用yum安装提示cannot find a valid baseurl for rep/</id>
+    <published>2019-02-12T05:08:14.000Z</published>
+    <updated>2019-02-18T13:48:18.265Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>廖雪峰SQL教程--关系数据库概述(一)</title>
+    <link href="https://zxpgo.github.io/2019/02/11/%E5%BB%96%E9%9B%AA%E5%B3%B0%E6%95%99%E7%A8%8B--%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0(%E4%B8%80)/"/>
+    <id>https://zxpgo.github.io/2019/02/11/廖雪峰教程--关系数据库概述(一)/</id>
+    <published>2019-02-11T13:54:50.000Z</published>
+    <updated>2019-02-16T14:51:18.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据库作为一种专门管理数据的软件。应用程序不需要自己管理数据，而是通过数据库软件提供的接口来读写数据。至于数据本身如何存储到文件，那是数据库软件的事情，应用程序自己并不关心。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;┌──────────────┐
+│ application  │
+└──────────────┘
+       ▲│
+       ││
+   read││write
+       ││
+       │▼
+┌──────────────┐
+│   database   │
+└──────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样一来，编写应用程序的时候，数据读写的功能就大大被简化了。
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
+    
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--使用类（十一）</title>
+    <link href="https://zxpgo.github.io/2019/01/23/C++%20Primer%20Plus--%E4%BD%BF%E7%94%A8%E7%B1%BB%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/</id>
+    <published>2019-01-23T11:08:14.000Z</published>
+    <updated>2019-02-18T13:48:23.143Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django学习过程遇到的问题</title>
     <link href="https://zxpgo.github.io/2019/01/21/Django%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://zxpgo.github.io/2019/01/21/Django开发过程遇到的问题/</id>
     <published>2019-01-21T13:34:24.000Z</published>
-    <updated>2019-01-21T14:27:54.550Z</updated>
+    <updated>2019-01-23T01:29:14.499Z</updated>
     
     <summary type="html">
     
@@ -39,7 +153,7 @@
     <link href="https://zxpgo.github.io/2018/12/22/Centos7%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F/"/>
     <id>https://zxpgo.github.io/2018/12/22/Centos7备份和还原/</id>
     <published>2018-12-22T09:24:24.000Z</published>
-    <updated>2018-12-22T12:23:08.720Z</updated>
+    <updated>2019-01-23T01:29:18.222Z</updated>
     
     <summary type="html">
     
@@ -57,7 +171,7 @@
     <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2018-12-22T11:47:44.197Z</updated>
+    <updated>2019-01-23T01:29:21.378Z</updated>
     
     <summary type="html">
     
@@ -153,26 +267,6 @@
   </entry>
   
   <entry>
-    <title>使用CurosrLoader加载数据</title>
-    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
-    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
-    <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2018-12-09T11:36:22.465Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Malware Propagations in Wireless Ad Hoc Networks</title>
     <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
     <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
@@ -189,6 +283,26 @@
     
     
       <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用CurosrLoader加载数据</title>
+    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
+    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2018-12-09T11:36:22.465Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -316,104 +430,6 @@
     
     
       <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>台式安装Android Studio后出现虚拟机无法启动</title>
-    <link href="https://zxpgo.github.io/2018/11/18/%E5%8F%B0%E5%BC%8F%E5%AE%89%E8%A3%85Android%20Studio%E5%87%BA%E7%8E%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/"/>
-    <id>https://zxpgo.github.io/2018/11/18/台式安装Android Studio出现虚拟机无法启动/</id>
-    <published>2018-11-18T01:40:14.000Z</published>
-    <updated>2018-11-18T12:42:17.245Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在台式机上安装了Android Studio，想利用虚拟机来进行安装App，启动虚拟机时，遇到该问题。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java数组、列表、循环和自定义类</title>
-    <link href="https://zxpgo.github.io/2018/11/09/Java%E6%95%B0%E7%BB%84%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
-    <id>https://zxpgo.github.io/2018/11/09/Java数组、列表、循环和自定义类/</id>
-    <published>2018-11-09T00:33:14.000Z</published>
-    <updated>2018-11-14T12:47:17.095Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Java基本知识，包括：数组、数组列表，for、while循环和自定义类
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模式识别(三)--判别函数及几何分类法</title>
-    <link href="https://zxpgo.github.io/2018/11/08/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB(%E4%B8%89)--%E5%88%A4%E5%88%AB%E5%87%BD%E6%95%B0%E5%8F%8A%E5%87%A0%E4%BD%95%E5%88%86%E7%B1%BB%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2018/11/08/模式识别(三)--判别函数及几何分类法/</id>
-    <published>2018-11-08T11:02:50.000Z</published>
-    <updated>2018-11-09T06:55:49.026Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;统计模式识别分为聚类分析和判别函数法两大类，聚类分析属于非监督分类，判别函数法属于监督分类。判别函数法需要有足够的先验知识，首先利用已知类别的训练样本集确定判别函数，然后利用训练好的判别函数对未知的模式进行识别分类
-    
-    </summary>
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/categories/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    
-      <category term="模式识别" scheme="https://zxpgo.github.io/tag/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Intent和Activity</title>
-    <link href="https://zxpgo.github.io/2018/11/08/Intent%E5%92%8CActivity/"/>
-    <id>https://zxpgo.github.io/2018/11/08/Intent和Activity/</id>
-    <published>2018-11-08T01:40:14.000Z</published>
-    <updated>2018-11-08T11:09:53.714Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍如何使用intent来切换Activity。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用VPN断开后无法连接互联网问题解决方案</title>
-    <link href="https://zxpgo.github.io/2018/11/05/%E4%BD%BF%E7%94%A8VPN%E6%96%AD%E5%BC%80%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E4%BA%92%E8%81%94%E7%BD%91%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://zxpgo.github.io/2018/11/05/使用VPN断开后无法连接互联网问题解决方案/</id>
-    <published>2018-11-05T14:40:14.000Z</published>
-    <updated>2018-11-05T14:28:44.507Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有些时候，使用VPN后断开，会发现无法连接互联网，这是由于浏览器已经开启了局域网代理。
-    
-    </summary>
-    
-    
-      <category term="VPN" scheme="https://zxpgo.github.io/tag/VPN/"/>
     
   </entry>
   

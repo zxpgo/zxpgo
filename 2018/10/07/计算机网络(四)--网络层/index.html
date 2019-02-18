@@ -103,7 +103,9 @@
 <meta property="og:image" content="https://i.imgur.com/K0Wi9wG.png">
 <meta property="og:image" content="https://i.imgur.com/c62p1WF.png">
 <meta property="og:image" content="https://i.imgur.com/wiS0s6Y.png">
-<meta property="og:updated_time" content="2018-12-02T14:38:21.902Z">
+<meta property="og:image" content="https://i.imgur.com/pG9iWGc.png">
+<meta property="og:image" content="https://i.imgur.com/3aK84Cm.png">
+<meta property="og:updated_time" content="2019-02-11T14:59:43.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络(四)--网络层">
 <meta name="twitter:description" content="网络层">
@@ -527,7 +529,61 @@
 <li>首部检验和(16 位)字段只检验数据报的首部不检验数据部分。这里不采用 CRC 检验码而采用简单的计算方法。 </li>
 <li>源地址和目的地址都各占 4 字节。</li>
 </ul>
-<h3 id="4-2-6-IP层转发分组的流程"><a href="#4-2-6-IP层转发分组的流程" class="headerlink" title="4.2.6 IP层转发分组的流程"></a>4.2.6 IP层转发分组的流程</h3><p>灯谜：</p>
+<h3 id="4-2-6-IP层转发分组的流程"><a href="#4-2-6-IP层转发分组的流程" class="headerlink" title="4.2.6 IP层转发分组的流程"></a>4.2.6 IP层转发分组的流程</h3><p>有四个 A 类网络通过三个路由器连接在一起。每一个网络上都可能有成千上万个主机。可以想像，若按目的主机号来制作路由表，则所得出的路由表就会过于庞大。但若按主机所在的网络地址来制作路由表，那么每一个路由器中的路由表就只包含 4 个项目。这样就可使路由表大大简化。 </p>
+<p><img src="https://i.imgur.com/pG9iWGc.png" alt=""></p>
+<p><strong>查找路由表</strong></p>
+<p>根据目的网络地址就能确定下一跳路由器，这样做的结果是：</p>
+<ul>
+<li>IP 数据报最终一定可以找到目的主机所在目的网络上的路由器（可能要通过多次的间接交付）。</li>
+<li>只有到达最后一个路由器时，才试图向目的主机进行直接交付。 </li>
+</ul>
+<p><strong>特定主机路由</strong></p>
+<ul>
+<li>这种路由是为特定的目的主机指明一个路由。</li>
+<li>采用特定主机路由可使网络管理人员能更方便地控制网络和测试网络，同时也可在需要考虑某种安全问题时采用这种特定主机路由。 </li>
+</ul>
+<p><strong>默认路由</strong></p>
+<ul>
+<li>路由器还可采用默认路由以减少路由表所占用的空间和搜索路由表所用的时间。</li>
+<li>这种转发方式在一个网络只有很少的对外连接时是很有用的。</li>
+<li>默认路由在主机发送IP数据报时往往更能显示出他的好处。</li>
+<li>如果一个主机连接在一个小网络上，而这个网络只用一个路由器和因特网连接，那么在这种情况下使用默认路由是非常合适的。</li>
+</ul>
+<p><img src="https://i.imgur.com/3aK84Cm.png" alt=""></p>
+<p>只要目的网络不是 N1 和 N2，就一律选择默认路由，把数据报先间接交付路由器 R1，让 R1 再转发给下一个路由器。</p>
+<p><strong>注意</strong></p>
+<ul>
+<li>IP数据报的首部中没有地方可以用来指明“下一跳路由器的IP地址”。</li>
+<li>当路由器收到待转发的数据报，不是将下一跳路由器的IP地址填入IP数据报，而是送交下层的网络接口软件。</li>
+<li>网络接口软件使用ARP复杂将下一跳路由器的IP地址转换成硬件地址，并将此硬件地址放在链路层的MAC帧的首部，然后根据这个硬件地址找到下一跳路由器。</li>
+</ul>
+<p><strong>分组转发算法</strong></p>
+<ul>
+<li>（1）从数据报的首部提取目的主机的IP地址<em>D</em>，得出目的网络地址为<em>N</em>。</li>
+<li>（2）若网络地址<em>N</em>与此路由器直接相连，则把数据报直接交付目的主机<em>D</em>;否则间接交付，执行(3)。</li>
+<li>（3）若路由表中有目的地址为$D$的特定主机路由，则把数据报传送给路由表中所指明的下一跳路由器；否则，执行(4)。</li>
+<li>（4）若路由表中有到达网路<em>N</em>的路由，则把数据报传送给路由表指明的下一跳路由器；否则，执行(5)。</li>
+<li>（5）若路由表中有一个默认路由，则把数据报传送给路由表中所指明的默认路由器；否则，执行(6)。</li>
+<li>（6）报告转发分组出错。</li>
+</ul>
+<h2 id="4-3-划分子网和构造超网"><a href="#4-3-划分子网和构造超网" class="headerlink" title="4.3 划分子网和构造超网"></a>4.3 划分子网和构造超网</h2><h3 id="4-3-1-划分子网"><a href="#4-3-1-划分子网" class="headerlink" title="4.3.1 划分子网"></a>4.3.1 划分子网</h3><p><strong>1. 从两级IP地址到三级IP地址</strong></p>
+<p>在 ARPANET 的早期，IP 地址的设计确实不够合理。</p>
+<ul>
+<li>IP 地址空间的利用率有时很低。 </li>
+<li>给每一个物理网络分配一个网络号会使路由表变得太大因而使网络性能变坏。 </li>
+<li>两级的 IP 地址不够灵活</li>
+</ul>
+<p>三级iP地址：</p>
+<p>从 1985 年起在 IP 地址中又增加了一个“子网号字段”，使两级的 IP 地址变成为三级的 IP 地址。</p>
+<p>这种做法叫作划分子网(subnetting) 。划分子网已成为因特网的正式标准协议</p>
+<p><strong>基本思路</strong></p>
+<pre><code>IP地址 ::= {&lt;网络号&gt;, &lt;子网号&gt;, &lt;主机号&gt;} 
+</code></pre><p>划分子网纯属一个单位内部的事情。单位对外仍然表现为没有划分子网的网络。</p>
+<p>从主机号借用若干个位作为子网号 subnet-id，而主机号 host-id 也就相应减少了若干个位。</p>
+<p>凡是从其他网络发送给本单位某个主机的 IP 数据报，仍然是根据 IP 数据报的目的网络号 net-id，先找到连接在本单位网络上的路由器。</p>
+<p>然后此路由器在收到 IP 数据报后，再按目的网络号 net-id 和子网号 subnet-id 找到目的子网。</p>
+<p>最后就将 IP 数据报直接交付目的主机。 </p>
+<p>灯谜：</p>
 <p>天鹅飞去鸟不归<br>良字无头双人配<br>受字中间多两笔<br>人尔结合是自己</p>
 
       
@@ -629,8 +685,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/04/格理论与密码学--格基约减算法与实现（四）/" rel="next" title="格理论与密码学--格基约减算法与实现（四）">
-                <i class="fa fa-chevron-left"></i> 格理论与密码学--格基约减算法与实现（四）
+              <a href="/2018/10/04/格理论与密码学--格的定义与相关性质（三）/" rel="next" title="格理论与密码学--格的定义与相关性质（三）">
+                <i class="fa fa-chevron-left"></i> 格理论与密码学--格的定义与相关性质（三）
               </a>
             
           </div>
@@ -727,7 +783,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -738,7 +794,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -749,7 +805,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -859,7 +915,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-网络层提供的两种服务"><span class="nav-number">1.</span> <span class="nav-text">4.1 网络层提供的两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-网际IP协议"><span class="nav-number">2.</span> <span class="nav-text">4.2 网际IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-虚拟互连网络"><span class="nav-number">2.1.</span> <span class="nav-text">4.2.1 虚拟互连网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-分类的IP地址"><span class="nav-number">2.2.</span> <span class="nav-text">4.2.2 分类的IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-IP地址及其表示法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1 IP地址及其表示法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的三种类别的IP地址"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 常用的三种类别的IP地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-IP地址与硬件地址"><span class="nav-number">2.3.</span> <span class="nav-text">4.2.3 IP地址与硬件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-地址解析协议ARP"><span class="nav-number">2.4.</span> <span class="nav-text">4.2.4 地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-5-IP数据报格式"><span class="nav-number">2.5.</span> <span class="nav-text">4.2.5 IP数据报格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-6-IP层转发分组的流程"><span class="nav-number">2.6.</span> <span class="nav-text">4.2.6 IP层转发分组的流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-网络层提供的两种服务"><span class="nav-number">1.</span> <span class="nav-text">4.1 网络层提供的两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-网际IP协议"><span class="nav-number">2.</span> <span class="nav-text">4.2 网际IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-虚拟互连网络"><span class="nav-number">2.1.</span> <span class="nav-text">4.2.1 虚拟互连网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-分类的IP地址"><span class="nav-number">2.2.</span> <span class="nav-text">4.2.2 分类的IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-IP地址及其表示法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1 IP地址及其表示法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的三种类别的IP地址"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 常用的三种类别的IP地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-IP地址与硬件地址"><span class="nav-number">2.3.</span> <span class="nav-text">4.2.3 IP地址与硬件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-地址解析协议ARP"><span class="nav-number">2.4.</span> <span class="nav-text">4.2.4 地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-5-IP数据报格式"><span class="nav-number">2.5.</span> <span class="nav-text">4.2.5 IP数据报格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-6-IP层转发分组的流程"><span class="nav-number">2.6.</span> <span class="nav-text">4.2.6 IP层转发分组的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-划分子网和构造超网"><span class="nav-number">3.</span> <span class="nav-text">4.3 划分子网和构造超网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-划分子网"><span class="nav-number">3.1.</span> <span class="nav-text">4.3.1 划分子网</span></a></li></ol></li></ol></div>
             
 
           </div>

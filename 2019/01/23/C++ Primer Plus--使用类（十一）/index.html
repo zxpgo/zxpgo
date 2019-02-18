@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer Plus--使用类（十一）">
+<meta property="og:url" content="https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-18T13:48:23.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Primer Plus--使用类（十一）">
+<meta name="twitter:description" content="本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/"/>
+
+
+
+
+
+  <title>C++ Primer Plus--使用类（十一） | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C++ Primer Plus--使用类（十一）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T19:08:14+08:00">
+                2019-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-Primer-Plus学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">C++ Primer Plus学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/23/C++ Primer Plus--使用类（十一）/" class="leancloud_visitors" data-flag-title="C++ Primer Plus--使用类（十一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。<a id="more"></a></p>
+<h2 id="11-1-运算符重载"><a href="#11-1-运算符重载" class="headerlink" title="11.1 运算符重载"></a>11.1 运算符重载</h2><p>运算符重载是一种形式的<strong>C++多态</strong>。第8章介绍了C++是如何使用户能够定义多个名称相同但特征标（参数列表）不同的韩剧是。这被称为函数重载或函数多态，旨在让您能过用同名的函数来完成相同的基本操作，即使这种操作被用于不同的数据类型。运算符重载将重载的概念扩展到运算符上，允许赋予C++运算符多种含义。实际上，很多C++运算符已经被重载。例如，将$\ast$运算符用于地址，将得到存储在这个地址中的值；但将它用于两个数字时，得到的将是它们的乘积。C++根据操作数的数目和类型来决定采用哪种操作。</p>
+<p>C++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作数的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加是一种常见的运算。通常，需要使用下面这样的for循环来实现：</p>
+<pre><code>for (int i = 0; i &lt; 20; i++)            
+    evening[i] = sam[i] + janet[i];
+</code></pre><p>但在C++中，可以定义一个表示数组的类，并重载+运算符。于是便可以由这样的语句：</p>
+<pre><code>evenig = sam + janet;
+</code></pre><p>这种简单的加法表示隐藏了内部机理，并强调了实质，这是OOP的另一个目标。</p>
+<p>要重载运算符，需使用被称为<strong>运算符函数的特殊函数形式</strong>。运算符函数的格式如下：</p>
+<pre><code>opeartor op (argument-list)
+</code></pre><p>例如，operator+()重载+运算符，operator$\ast$()重载$\ast$运算符。op必须是有效的C++运算符，不能虚构一个新的符号。例如，不能有operator@()这样的函数，因为C++中没有@运算符。然而，operator【】()函数重载[]运算符，因为[]运算符是数组索引运算符。</p>
+<p>例如，假设有一个Salesperson类，并为它定义了一个opeartor+()成员函数，以重载+运算符，以便能够将两个Saleperson对象的销量相加，则如果district2、sid和sara都是Salesperson类对象，便可以编写这样的等式：</p>
+<pre><code>district2 = sid + sara;
+</code></pre><p>编译发现，操作数是Salesperson类对象，因此使用相应的运算符函数替换上述运算符：</p>
+<pre><code>district2 = sid.operator+(sara);
+</code></pre><p>该函数将隐式地使用sid（因为它强调了方法），而显式地使用sara（因为他被作为参数传递），来计算总和，并返回这个值。当然最重要的是，可以使用简便的+运算符表示法，而不必使用笨拙的函数表示法。</p>
+<h2 id="11-2-计算时间：一个运算符重载示例"><a href="#11-2-计算时间：一个运算符重载示例" class="headerlink" title="11.2 计算时间：一个运算符重载示例"></a>11.2 计算时间：一个运算符重载示例</h2><p>如果今天早上在Priggs的账户上花费了2个小时35分钟，下午又花费了2小时40分钟，则总共花了多少时间？这个示例与加法的概念很吻合，但要相加的单位(小时与分钟的混合)与内置的类型不匹配。第7章通过定义一个travel_time结构和将这种结构相加的sum()函数来处理类似的情况。现在将其推广，采用一个使用方法来处理加法的Time类。首先使用一个名为Sum()的常规方法，然后介绍如何将其转换为重载运算符。程序11.1列出了这个类声明。</p>
+<p>程序11.1 mytime0h</p>
+<pre><code>#ifndef MYTIME0_H_
+#define MYTIME0_H_
+
+class Time
+{
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h, int m = 0);
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+    Time Sum(const Time &amp; t) const;
+    void Show() const;
+};
+
+#endif
+</code></pre><p>程序11.2 mytime0.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime0.h&quot;
+
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours = minutes / 60;
+    minutes = minutes % 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::Sum(const Time &amp; t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    return sum;
+}
+
+void Time::Show() const
+{
+    std::cout &lt;&lt; hours &lt;&lt; &quot; hours, &quot; &lt;&lt; minutes &lt;&lt; &quot; minutes.&quot;;
+}
+</code></pre><p>来看一下Sum()函数。注意参数是引用，但返回类型却不是引用。将参数声明为引用的目的是为了提供效率。如果直接传递Time对象，代码的功能将相同，但传递引用的速度更快，使用的内存将更少。</p>
+<p>然而，返回值不是引用。因为函数将创建一个新的Time对象(sum)，来表示另两个Time对象的和。返回对象(如代码所做的那样)将创建副本对象，而调用函数可以使用它。然而，如果返回类型是为Time &amp;，则引用的将是sum对象。但由于sum是局部变量，在函数结束时将被函数，因此引用将指向一个不存在的对象。使用返回类型Time意味着程序将在删除sum之前构造它的拷贝，调用函数将得到该拷贝。</p>
+<p><strong>注意</strong>：不要返回指向局部变量或临时对象的引用。函数执行完毕后，局部变量和临时对象将消失，引用将指向不存在的数据。</p>
+<p>程序11.3 usetime0.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime0.h&quot;
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+    Time planning;
+    Time coding(2, 40);
+    Time fixing(5, 55);
+    Time total;
+
+    cout &lt;&lt; &quot;planning time = &quot;;
+    planning.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;coding time = &quot;;
+    coding.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;fixing time = &quot;;
+    fixing.Show();
+    cout &lt;&lt; endl;
+
+    total = coding.Sum(fixing);
+    cout &lt;&lt; &quot;coding.Sum(fixing) = &quot;;
+    total.Show();
+    cout &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>[root@localhost ~]# g++ mytime0.cpp usetime0.cpp -o file
+[root@localhost ~]# ./file
+planning time = 0 hours, 0 minutes.
+coding time = 2 hours, 40 minutes.
+fixing time = 5 hours, 55 minutes.
+coding.Sum(fixing) = 8 hours, 35 minutes.
+</code></pre><h3 id="11-2-1-添加加法运算"><a href="#11-2-1-添加加法运算" class="headerlink" title="11.2.1 添加加法运算"></a>11.2.1 添加加法运算</h3><p>将Time类转换为重载的加法运算符很容易，只要将Sum()的名称改为operator + ()即可。这样做是对的。只要把运算符(这里为+)放到operator的后面，并将结果用作方法名即可。在这里，可以在标识符中使用字母、数字或下划线之外的其他支付。程序11.4和程序11.5反映了这些细微的修改。</p>
+<p>程序11.4 mytime1.h</p>
+<pre><code>#ifndef MYTIME1_H_
+#define MYTIME1_H_
+
+class Time
+{
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h, int m = 0);
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+    Time operator+(const Time &amp; t) const;
+    void Show() const;
+};
+
+#endif
+</code></pre><p>程序11.5 mytime1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime1.h&quot;
+
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours = minutes / 60;
+    minutes = minutes % 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time &amp; t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    return sum;
+}
+
+void Time::Show() const
+{
+    std::cout &lt;&lt; hours &lt;&lt; &quot; hours, &quot; &lt;&lt; minutes &lt;&lt; &quot; minutes.&quot;;
+}
+</code></pre><p>程序11.6 usetime1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime1.h&quot;
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+    Time planning;
+    Time coding(2, 40);
+    Time fixing(5, 55);
+    Time total;
+
+    cout &lt;&lt; &quot;planning time = &quot;;
+    planning.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;coding time = &quot;;
+    coding.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;fixing time = &quot;;
+    fixing.Show();
+    cout &lt;&lt; endl;
+
+    total = coding + fixing;
+    cout &lt;&lt; &quot;coding + fixing = &quot;;
+    total.Show();
+    cout &lt;&lt; endl;
+
+    Time morefixing(3, 28);
+    cout &lt;&lt; &quot;more fixing time = &quot;;
+    morefixing.Show();
+    cout &lt;&lt; endl;
+    total = morefixing.operator+(total);
+    cout &lt;&lt; &quot;morefixing.operator+(total) = &quot;;
+    total.Show();
+    cout &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>planning time = 0 hours, 0 minutes.
+coding time = 2 hours, 40 minutes.
+fixing time = 5 hours, 55 minutes.
+coding + fixing = 8 hours, 35 minutes.
+more fixing time = 3 hours, 28 minutes.
+morefixing.operator+(total) = 12 hours, 3 minutes.
+</code></pre><p>总之，operator+()函数的名称使得可以使用函数表示法或运算符表示法来调用它。编译器根据操作的类型来确定如何做：</p>
+<pre><code>int a, b, c;
+Time A, B, C;
+c = a + b; //使用整型加法
+C = A + B; //使用为Time对象定义的加法
+</code></pre><p>可以将两个以上的对象相加吗？例如，如果t1,t2,t3,t4都是Time对象，可以这样做吗：</p>
+<pre><code>t4 = t3 + t2 + t1;
+</code></pre><p>为回答这个问题，来看一些上述语句将如何被转换为函数调用。由于+是从左向右的运算符，因此上述语句首先被转换成如下这样：</p>
+<pre><code>t4 = t3.operator+(t2+t1);
+</code></pre><p>然后，函数参数本身被转换成一个函数调用，如下：</p>
+<pre><code>t4 = t3.operator(t2.operator+(t1));
+</code></pre><p>上述语句合法。函数调用t2.operator+(t1)返回一个Time对象，后者是t2和t1的和。然而，该对象成为函数调用t3.operator+()的参数，该调用返回t3与表示t2和t1之和的Time对象的和。总之，最后的返回值为t1、t2和t3之和。</p>
+<h3 id="11-2-2-重载限制"><a href="#11-2-2-重载限制" class="headerlink" title="11.2.2 重载限制"></a>11.2.2 重载限制</h3><p>多数C++运算符都可以用这样的方式重载。重载的运算符（有些例外情况）不必是成员函数，但必须至少有一个操作数是用户定义的类型。下面详细介绍C++对用户定义的运算符重载的限制。</p>
+<ol>
+<li>重载后的运算符必须至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符(-)重载为计算两个doulbe值的和，而不是它们的差。虽然，这种限制将对创造性有所影响，但可以确保程序正常运行。</li>
+<li><p>使用运算符时不能违反运算符原来的句法规则。例如，不能将求模运算符(%)重载成使用一个操作数：</p>
+<p> int x;<br> Time shiva;<br> % x;     //错误语法<br> % shiva; //错误语法</p>
+</li>
+</ol>
+<p>同样，不能修改运算符的优先级。因此，如果将加法运算符重载成为两个类相加，则新的运算符与原来的加号具有相同的优先级。</p>
+<ol start="3">
+<li>不能创建新运算符。例如，不能定义operator$\ast\ast$()函数来表示求幂。</li>
+<li>不能重载下面的运算符：</li>
+</ol>
+<ul>
+<li>sizof sizeof运算符。</li>
+<li>. 成员运算符。</li>
+<li>.$\ast$ 成员指针运算符。</li>
+<li>:: 作用域解析运算符</li>
+<li>?: 条件运算符</li>
+<li>typeid 一个RTTI运算符</li>
+<li>const_cast 强制类型转换运算符</li>
+<li>dynamic_cast 强制类型转换运算时</li>
+<li>reinterpret_cast 强制类型转换运算符</li>
+<li>static_cast 强制类型转换运算符</li>
+</ul>
+<p>然而表11.1中所有的运算符都可以重载。</p>
+<ol start="5">
+<li>表11.1中的大多数运算生都可以通过成员或非成员函数进行重载，但下面的运算符只能通过成员函数进行重载。</li>
+</ol>
+<ul>
+<li>= 赋值运算符</li>
+<li>() 函数调用运算符</li>
+<li>[] 下表运算符</li>
+<li>-&gt; 通过指针访问类成员的运算符</li>
+</ul>
+<p>表11.1 <center>可重载的运算符</center></p>
+<p>| + | - | <em> | / | % | ^ |<br>| &amp; | $|$ | ~= | ! | = | &lt; |<br>| &gt; | += | -= | </em>= | /= | %= |<br>| ^= | &amp;= | $|=$ | &lt;&lt; | &gt;&gt; | &gt;&gt;= |<br>| &lt;&lt;= | == | != | &lt;= | &gt;= | &amp;&amp; |<br>| $||$ | ++ | – | , | -&gt;* | -&gt; |<br>| () | [] | new | delete | new[] | delete[] |</p>
+<p>除了这些限制外，还应在重载运算符时遵循一些明智的限制。例如，不要将$\ast$运算符重载成交换两个Time对象的数据成员。表示法中没有任何内容可以表明交换对象的运算符完成的工作，因此最好定义一个其名称具有说明性的类方法，如Swap()。</p>
+<h3 id="11-2-3-其中重载运算符"><a href="#11-2-3-其中重载运算符" class="headerlink" title="11.2.3 其中重载运算符"></a>11.2.3 其中重载运算符</h3><p>还有一些其他的操作对Time类来说是有意义的。例如，可能要将两个时间相减或将时间乘以一个因子，这需要重载减法和乘法运算符。这和重载加法运算符的技术相同，即创建operator-()和operator$\ast$()方法。即，将下面的原型添加到类声明中：</p>
+<pre><code>Time operator-(const Time &amp; t) const;
+Time operator*(const Time &amp; t) const;
+</code></pre><p>程序11.7 mytime2.h</p>
+<pre><code>#ifndef MYTIME2_H_
+#define MYTIME2_H_
+
+class Time
+{
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h, int m = 0);
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+    Time operator+(const Time &amp; t) const;
+    Time operator-(const Time &amp; t) const;
+    Time operator*(double mult) const;
+    void Show() const;
+};
+
+#endif
+</code></pre><p>程序11.8 mytime2.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime2.h&quot;
+
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours = minutes / 60;
+    minutes = minutes % 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time &amp; t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    return sum;
+}
+
+Time Time::operator-(const Time &amp; t) const
+{
+    Time diff;
+    int tot1, tot2;
+    tot1 = t.minutes + 60 * t.hours;
+    tot2 = minutes +  60 * hours;
+    diff.minutes = (tot2 - tot1) % 60;
+    diff.hours = (tot2 - tot1) / 60;
+    return diff;
+}
+
+Time Time::operator*(double mult) const
+{
+    Time result;
+    long totalminutes = (minutes + hours * 60) * mult;
+    result.minutes = totalminutes % 60;
+    result.hours = totalminutes / 60;
+    return result;
+}
+
+void Time::Show() const
+{
+    std::cout &lt;&lt; hours &lt;&lt; &quot; hours, &quot; &lt;&lt; minutes &lt;&lt; &quot; minutes.&quot;;
+}
+</code></pre><p>程序11.9 usetime2.cpp</p>
+<pre><code>#include &lt;iostream&gt; 
+#include &quot;mytime2.h&quot;
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+    Time weeding(4, 35);
+    Time waxing(2, 47);
+    Time total;
+    Time diff;
+    Time adjusted;
+
+    cout &lt;&lt; &quot;weeding time = &quot;;
+    weeding.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;waxing time = &quot;;
+    waxing.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;total work time = &quot;;
+    total = weeding + waxing;
+    total.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;weeding time - waxing time = &quot;;
+    diff = weeding - waxing;
+    diff.Show();
+    cout &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;adjusted work time = &quot; ;
+    adjusted = total * 1.5;
+    adjusted.Show();
+    cout &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>[root@localhost ~]# g++ mytime1.cpp usetime2.cpp -o file
+[root@localhost ~]# ./file
+weeding time = 4 hours, 35 minutes.
+waxing time = 2 hours, 47 minutes.
+total work time = 7 hours, 22 minutes.
+weeding time - waxing time = 1 hours, 48 minutes.
+adjusted work time = 11 hours, 3 minutes.
+</code></pre><h2 id="11-3-友元"><a href="#11-3-友元" class="headerlink" title="11.3 友元"></a>11.3 友元</h2><p>C++控制对类对象私有部分的访问。通常，公有类方法提供唯一的访问途径，但有时候这种限制太严格，以至于不适合特定的编程问题。在这种情况下，C++提供了另一种形式的访问权限：友元。友元有3种：</p>
+<ul>
+<li>友元函数；</li>
+<li>友元类；</li>
+<li>友元成员函数。</li>
+</ul>
+<p>通过让函数成员类的友元，可以赋予该函数与类成员函数相同的权限。下面介绍友元函数，其他两种友元将在15章介绍。</p>
+<p>首先，介绍为何需要友元。在为类重载二元运算符符时（带有两个参数的运算符）常常需要友元。将Time对象乘以实数就属于这种情况。</p>
+<p>在前面的Time类示例中，重载的乘法运算符与其他两种重载运算符的差别在于，它使用了两种不同的类型。即，加法和减法运算符都结合两个Time值，而乘法运算符将一个Time值与一个doulbe值结合在一起。这限制了该运算符的使用方式。记住，左侧的操作数是调用对象。即，下面的语句：</p>
+<pre><code>A = B * 2.75;
+</code></pre><p>被转换为下面的成员函数调用：</p>
+<pre><code>A = B.operatore*(2.75);
+</code></pre><p>但下面的语句又如何呢？</p>
+<pre><code>A = 2.75 * B;
+</code></pre><p>从概念上讲，2.75$\ast$B和B$\ast$2.75相同。当地一个表达是不对应与成员函数，因为2.75不是Time类型的对象。记住，左侧的操作数应是调用对象，但2.75不是对象。因此，编译器不能使用成员函数来替换该表达式。</p>
+<p>解决这个难题的一种方式是，告知每个人(包括程序员自己)，只能按B$\ast$2.75这种格式编写，不能写成2.75$\ast$B。这是一种对服务器友好-客户警惕的解决方法，与OOP无关。</p>
+<p>然而，另一中解决方式是<strong>非成员函数</strong>(记住，大多数运算符都可以通过成员函数或非成员函数来重载)。非成员函数不是由对象调用，它使用的所有制(包括对象)都是显式参数。这样，编译器能够将下面的表达式：</p>
+<pre><code>A = 2.75 * B;
+</code></pre><p>与下面的非成员函数调用匹配：</p>
+<pre><code>A = operator*(2.75, B);
+</code></pre><p>该函数的原型如下：</p>
+<pre><code>Time operator(double m, const Time &amp; t);
+</code></pre><p>对于非成员重载运算符函数来说，运算符表达式左侧的操作数对应于运算符函数的第一个参数，运算符表达式右侧的操作数对应于运算符函数的第二个参数。而原来的成员函数则按相反的顺序处理操作数，即double值乘以Time值。</p>
+<p>使用非成员函数可以按所需的顺序获取操作数，但引发一个问题：<strong>非成员函数不能直接访问类的私有数据，至少常规非成员函数不能访问</strong>。然而，有一类特殊的非成员函数可以访问类的私有成员，它们被成为友元函数。</p>
+<h3 id="11-3-1-创建友元函数"><a href="#11-3-1-创建友元函数" class="headerlink" title="11.3.1 创建友元函数"></a>11.3.1 创建友元函数</h3><p>创建友元函数的第一步是将其原型放在类声明中，并在原型声明前加上<strong>关键字friend</strong>：</p>
+<pre><code>friend Time operator*(double m, const Time &amp; t);
+</code></pre><p>该原型意味着如下两点：</p>
+<ul>
+<li>虽然operator*()函数在类声明中声明的，但它不是成员函数，因此不能使用成员运算符来调用。</li>
+<li>虽然operator*()函数不是成员函数，但它与成员函数的访问权限相同。</li>
+</ul>
+<p>第二步，编写函数定义。因为它不是成员函数，所以不要使用Time::限定符。另外，不要再定义中使用关键字friend，定义应该如下：</p>
+<pre><code>Time operator*(double m, const Time &amp; t)
+{
+    Time result;
+    long totalminutes = t.hours * 60 * m + t.minutes * m;
+    result.hours = totalminutes / 60;
+    result.minutes = totalminutes % 60;
+    return result;
+}
+</code></pre><center>友元是否有悖于OOP</center>
+
+<p>乍一看，可能会认为友元违反了OOP数据隐藏的原则，因为友元机制允许非成员函数访问私有数据。然而，这个观点太片面。相反，应将友元函数看作类的扩展接口的组成部分。只有类声明可以决定哪一个函数是友元函数，因此类声明仍然控制了哪些函数可以访问私有数据。总之，类方法和友元知识表达类接口的两种不同机制。</p>
+<p>实际上，按上面的方式定义进行修改（交换乘法操作的顺序），可以将这个友元函数编写为非友元函数：</p>
+<pre><code>Time operator*(double m, const Time &amp; t)
+{
+    return t * m;
+}
+</code></pre><p>原来的版本显式地访问t.minutes和t.hours，所以他必须是友元。这个版本Time对象t作为一个整体使用，让成员函数来处理私有制，因此不必是友元函数。然而，将该版本作用友元也是一个好主意。最重要的是，他将该作为正式类接口的组成部分。其次，如果以后发现需要函数直接访问私有数据，则只要修改函数定义即可，而不必修改类原型。</p>
+<p><strong>提示</strong>：如果要为类重载运算符，并将非类的项作为其第一个操作数，则可以用友元函数来反转操作数的顺寻。</p>
+<h3 id="11-3-2-常用的友元：-重载-lt-lt-运算符"><a href="#11-3-2-常用的友元：-重载-lt-lt-运算符" class="headerlink" title="11.3.2 常用的友元： 重载&lt;&lt;运算符"></a>11.3.2 常用的友元： 重载&lt;&lt;运算符</h3><p>一个很有用的特性，可以对&lt;&lt;运算符进行重载，使之能与cout一起来显式对象的内容。与前面介绍的示例相比，这个重载要复杂些，因为我们分两步来完成。</p>
+<p>假设trip是一种Time对象。为显式Time的值，前面使用的是Show()。然而，如果可以像下面这样操作将更好：</p>
+<pre><code>cout &lt;&lt; trip;
+</code></pre><p>之所以可以这样做，是因为&lt;&lt;是可被重载的C++运算符之一。实际上，它已经被重载很多次了。最初，&lt;&lt;运算符是C和C++的位运算符，将值中的位左移。ostream类对该运算符进行了重载，将其转换为一个输出工具。前面讲过，cout是一个ostream对象，它是智能的，能够识别所有的C++基本类型。这是因为对于每种基本类型，ostream中都包含了相应的重载的operator&gt;&gt;()定义。即，一个定义使用int参数，一个定义使用double参数等等。因此要使cout能够识别cout对象，一种方法是将一个新的函数运算符定义添加到ostream类声明中。但修改ostream文件是个危险的注意，这样做会在标准接口上浪费时间。相反，通过Time类声明来让Time类知道如何使用cout。</p>
+<p><strong>1. &lt;&lt;的第一种重载版本</strong></p>
+<p>要使Time类知道使用cout，必须使用友元函数。这是因为下面这样的语句使用两个对象，其中第一个是ostream对象(cout):</p>
+<pre><code>cout &lt;&lt; trip;
+</code></pre><p>如果使用一个Time成员函数来重载&lt;&lt;,Time对象将是第一个操作数，就像使用成员函数重载$\ast$运算符那样。这意味着必须这样使用&lt;&lt;:</p>
+<pre><code>trip &lt;&lt; cout;
+</code></pre><p>这样会令人迷惑。但通过使用友元函数，可以像下面这样重载运算符：</p>
+<pre><code>void operator&lt;&lt;(ostream &amp; os, const Time &amp; t)
+{
+    os &lt;&lt; t.hours &lt;&lt; &quot; hours, &quot; &lt;&lt; t.minutes &lt;&lt; &quot; minutes&quot;;
+}
+</code></pre><p>这样做可以使用下面的语句：</p>
+<pre><code>cout &lt;&lt; trip;
+</code></pre><center>友元还是非友元</center>
+
+<p>新的Time类声明使operator&lt;&lt;()函数成为Time类的一个友元函数。但该函数不是ostream类的友元。operator&lt;&lt;()函数接受一个ostream参数和一个Time参数，因此表面看起来它必须同时是两个类的友元。然而，看看代码会发现，尽管该函数访问了Time对象的各个成员，但从始至终都将ostream对象看作一个整体使用。因为operator&lt;&lt;()访问了Time对象的私有成员，所以它必须是Time的友元。但由于它并不直接访问ostream对象的私有成员，所以并不一定必须是ostream类的友元。这样，就不需要修改ostream的定义。</p>
+<center> 不知道其他ostream函数?</center>
+
+<p>另一个ostream对象是cerr，它将输出发送到标准输出流—默认为显示器，但在UNIX、Linux和Windows命令行环境中，可以标准错误流重定向到文件中。另外，第6章介绍的ofstream对象将输出写入文件中。通过继承(参见第13章），ofstream对象可以使用ostream的方法。这样，便可以使用operator&lt;&lt;()定义来将Time的数据写入到文件和屏幕上，为此，只需传递一个经过适当初始化的ofstream对象(而不是cout对象)。</p>
+<p>调用cout &lt;&lt; trip应使用cout对象本身，而不是它的拷贝，因此该函数按引用来传递该对象。这样，表达式cout&lt;&lt;trip将导致ost成员cout的一个别名；而表达式cerr&lt;&lt;trip将导致os成为cerr的一个别名。Time对象可以按值或按引用来创建，因为这两种形式都使函数能够使用对象的值。按引用传递使用的内存和时间都比按值传递少。</p>
+<p><strong>2. &lt;&lt;的第二种重载版本</strong></p>
+<p>前面介绍的实现存在一个问题。就像下面这样的语句可以正常工作：</p>
+<pre><code>cout &lt;&lt; trip;
+</code></pre><p>但这种实现不允许像通常那样将重新定义的&lt;&lt;运算符与cout一起使用：</p>
+<pre><code>cout &lt;&lt; &quot;Trip time: &quot; &lt;&lt; trip &lt;&lt; &quot;(Tuesday)\n&quot;; //错误
+</code></pre><p>要理解这样做不可行的原因及必须如何做才能使其可行，首先需要了解关于cout操作的一点知识。请看下面的语句：</p>
+<pre><code>int x = 5;
+int y = 8;
+cout &lt;&lt; x &lt;&lt; y;
+</code></pre><p>C++从左到右读取输出语句，意味着它等同于：</p>
+<pre><code>(cout &lt;&lt; x) &lt;&lt; y;
+</code></pre><p>正如iostream中定义的那样，&lt;&lt;运算符要求左边是一个ostream对象。显然，因为cout是ostream对象，所以表达式cout&lt;&lt;x满足这种要求。然而，因为表达式cout&lt;&lt;x位于&lt;&lt;y的左侧，所以输出语句也要求该表达式是一个ostream对象。因此，ostream类将operator&lt;&lt;()函数实现为返回一个指向ostream对象的引用。具体说，它返回一个指向调用对象(这里是cout)的引用。因此，表达式(cout&lt;&lt;x)本身就是ostream对象cout，从而可以位于&lt;&lt;运算符的左侧。</p>
+<p>可以对友元函数采用相同的方法。只要修改operator&lt;&lt;()函数，让它返回ostream对象的引用即可：</p>
+<pre><code>ostream &amp; operator&lt;&lt;(ostream &amp; os, const Time &amp; t)
+{
+    os &lt;&lt; t.hours &lt;&lt; &quot; hours. &quot; &lt;&lt;  t.minutes &lt;&lt; &quot; minutes.&quot;;
+    return os;
+}
+</code></pre><p>注意返回类型是ostream &amp;。这意味着该函数返回ostream对象的引用。因为函数开始执行时，程序传递了一个转向引用给它，这样做的最终结果时，函数的返回值就是传递给它的对象。及，下面的入局：</p>
+<pre><code>cout &lt;&lt; trip;
+</code></pre><p>将被转换为下面的调用：</p>
+<pre><code>operator&lt;&lt;(cout, trip);
+</code></pre><p>而该调用函数返回cout对象。因此，下面的语句可以正常工作：</p>
+<pre><code>cout &lt;&lt; &quot;Trip time: &quot; &lt;&lt; trip &lt;&lt; &quot;(Tuesday)\n&quot;;
+</code></pre><p>有趣的是，这个operator&lt;&lt;()版本还可用于将输出写入文件中：</p>
+<pre><code>#include &lt;fstream&gt;
+ofstream fout;
+fout.open(&quot;savetime.txt&quot;);
+Time trip(12, 40);
+fout &lt;&lt; trip;
+</code></pre><p>其中最后一条语句将转换为这样：</p>
+<pre><code>operator&lt;&lt;(fout, trip);
+</code></pre><p>另外，正如第8章指出的，类继承属性让ostream引用能够指向ostream对象和ofstream对象。</p>
+<p><strong>提示：</strong>一般来说，要重载&lt;&lt;运算符来显式c_name对象，可使用一个友元函数，其定义如下：</p>
+<pre><code>ostream &amp; operator&lt;&lt;(ostream &amp; os, const c_name &amp; obj)
+{
+    os &lt;&lt; ...;
+    return os;
+}
+</code></pre><p>程序11.10列出了修改后的类定义，其中包括operator*()和operator&lt;&lt;()这两个友元函数。他将一个友元函数作为内联函数。</p>
+<p>程序11.10 mytime3.h</p>
+<pre><code>#ifndef MYTIME3_H_
+#define MYTIME3_H_
+
+#include &lt;iostream&gt;
+class Time
+{
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h, int m = 0);
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+    Time operator+(const Time &amp; t) const;
+    Time operator-(const Time &amp; t) const;
+    Time operator*(double mult) const;
+    friend Time operator*(double mult, const Time &amp; t)
+        { return t * mult;}
+    friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Time &amp; t);
+};
+
+#endif
+</code></pre><p>程序11.11 mytime3.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime3.h&quot;
+
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours = minutes / 60;
+    minutes = minutes % 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time &amp; t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    return sum;
+}
+
+Time Time::operator-(const Time &amp; t) const
+{
+    Time diff;
+    int tot1, tot2;
+    tot1 = t.minutes + 60 * t.hours;
+    tot2 = minutes +  60 * hours;
+    diff.minutes = (tot2 - tot1) % 60;
+    diff.hours = (tot2 - tot1) / 60;
+    return diff;
+}
+
+Time Time::operator*(double mult) const
+{
+    Time result;
+    long totalminutes = (minutes + hours * 60) * mult;
+    result.minutes = totalminutes % 60;
+    result.hours = totalminutes / 60;
+    return result;
+}
+
+std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Time &amp; t)
+{
+    os &lt;&lt; t.hours &lt;&lt; &quot; hours, &quot; &lt;&lt; t.minutes &lt;&lt; &quot;minutes.&quot;;
+    return os;
+}
+</code></pre><p>程序11.12 usetime3.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;mytime3.h&quot;
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+    Time aida(3, 35);
+    Time tosca(2, 46);
+    Time temp;
+
+    cout &lt;&lt; &quot;Aida and Tosca: \n&quot;;
+    cout &lt;&lt; aida &lt;&lt; &quot;; &quot; &lt;&lt; tosca &lt;&lt; endl;
+    temp = aida + tosca;
+    cout &lt;&lt; &quot;Aida + Tosca: &quot; &lt;&lt; temp &lt;&lt; endl;
+    temp = aida * 1.17;
+    cout &lt;&lt; &quot;Aida * 1.17: &quot; &lt;&lt; temp &lt;&lt; endl;
+    cout &lt;&lt; &quot;10.0 * Tosca: &quot; &lt;&lt; 10.0 * tosca &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Aida and Tosca: 
+3 hours, 35minutes.; 2 hours, 46minutes.
+Aida + Tosca: 6 hours, 21minutes.
+Aida * 1.17: 4 hours, 11minutes.
+10.0 * Tosca: 27 hours, 40minutes.
+</code></pre><h2 id="11-4-重载运算符：作为成员函数还是非成员函数"><a href="#11-4-重载运算符：作为成员函数还是非成员函数" class="headerlink" title="11.4 重载运算符：作为成员函数还是非成员函数"></a>11.4 重载运算符：作为成员函数还是非成员函数</h2><p>对于很多运算符来说，可以选择使用成员函数或非成员函数来实现运算符重载。一般来说，非成员函数应该是友元函数，这样它才能直接访问类的私有数据。例如，Time类的加法运算符在Time类声明中的原型如下：</p>
+<pre><code>Time operator+(const Time &amp; t) const;
+</code></pre><p>这个类也可以使用下面的原型：</p>
+<pre><code>friend Time operator(const Time &amp;t1, const Time &amp; t2);
+</code></pre><p>加法运算符需要两个操作数。对于成员函数版本来说，一个操作数通过this指针隐式地传递，另一个通过操作数作为函数参数显式地传递；对于友元版本来说，两个操作数都作为参数传递。</p>
+<p>记住两个格式必须选择一种格式，而不能同时选择两种格式。因为这两种格式都与同一个表达式匹配，同时定义这两种格式将被视为二义性，导致编译错误。</p>
+<h2 id="11-5-再谈重载：一个矢量类"><a href="#11-5-再谈重载：一个矢量类" class="headerlink" title="11.5 再谈重载：一个矢量类"></a>11.5 再谈重载：一个矢量类</h2><p>描述矢量需要两个数：</p>
+<ul>
+<li>可以用大小(长度)和方向(角度)描述矢量；</li>
+<li>可以用分量x和y表示矢量。</li>
+</ul>
+<p>程序11.13列出了这个类的声明。为复习名称空间，该清单见类声明放在VECTOR名称空间中。另外，该程序使用枚举创建了两个常量(RECT和POL)，用于标识两种表示法。</p>
+<p>程序11.13 vector.h</p>
+<pre><code>#ifndef VECTOR_H_
+#define VECTOR_H_
+
+#include &lt;iostream&gt;
+namespace VECTOR
+{
+    class Vector
+    {    
+    public:
+        enum Mode {RECT, POL};
+    private:
+        double x;
+        double y;
+        double mag;
+        double ang;
+        Mode mode;
+        void set_mag();
+        void set_ang();
+        void set_x();
+        void set_y();
+    public:
+        Vector();
+        Vector(double n1, double n2, Mode form = RECT);
+        void reset(double n1, double n2, Mode form = RECT);
+        ~Vector();
+        double xval() const {return x;}
+        double yval() const {return y;}
+        double magval() const {return mag;}
+        double angval() const {return ang;}
+        void polar_mode();
+        void rect_mode();
+        Vector operator+(const Vector &amp; b) const;
+        Vector operator-(const Vector &amp; b) const;
+        Vector operator-() const;
+        Vector operator*(double n) const;
+        friend Vector operator*(double n, const Vector &amp; a);
+        friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Vector &amp; v);
+    };
+}
+
+#endif
+</code></pre><p>注意，程序中4个报告分量值的函数是在类中声明的，因此自动成为内联函数。</p>
+<p>程序14利用名称空间的开放性，将方法定义添加到VECTOR名称空间中。另外，C++的内置数学函数在使用角度时以弧度为单位，所以函数在度和弧度之间进行转换。</p>
+<p>程序11.14 vector.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &quot;vector.h&quot;
+
+using std::sqrt;
+using std::sin;
+using std::cos;
+using std::atan;
+using std::atan2;
+using std::cout;
+
+namespace VECTOR
+{
+    const double Rad_to_deg = 45.0 / atan(1.0);
+
+
+    //private methods;
+    void Vector::set_mag()
+    {
+        mag = sqrt(x * x + y * y);
+    }
+
+    void Vector::set_ang()
+    {
+        if (x == 0.0 &amp;&amp; y == 0.0)
+            ang = 0.0;
+        else
+            ang = atan2(y, x);
+    }
+
+    void Vector::set_x()
+    {
+        x = mag * cos(ang);
+    }
+
+    void Vector::set_y()
+    {
+        y = mag * sin(ang);
+    }
+
+    //public methods;
+    Vector::Vector()
+    {
+        x = y = mag = ang = 0.0;
+        mode = RECT;
+    }
+
+    Vector::Vector(double n1, double n2, Mode form)
+    {
+        mode = form;
+        if (form == RECT)
+        {
+            x = n1;
+            y = n2;
+            set_mag();
+            set_ang();
+        }
+        else if (form == POL)
+        {
+            mag = n1;
+            ang = n2 / Rad_to_deg;
+            set_x();
+            set_y();
+        }
+        else
+        {
+            cout &lt;&lt; &quot;Incorrect 3rd argument to Vector() -- &quot;;
+            cout &lt;&lt; &quot;vector set to 0\n&quot;;
+            x = y = mag = ang = 0.0;
+            mode = RECT;
+        }
+    }
+
+    void Vector::reset(double n1, double n2, Mode form)
+    {
+                mode = form;
+                if (form == RECT)
+                {
+                        x = n1;
+                        y = n2;
+                        set_mag();
+                        set_ang();
+                }
+                else if (form == POL)
+                {
+                        mag = n1;
+                        ang = n2 / Rad_to_deg;
+                        set_x();
+                        set_y();
+                }
+                else
+                {
+                        cout &lt;&lt; &quot;Incorrect 3rd argument to Vector() -- &quot;;
+                        cout &lt;&lt; &quot;vector set to 0\n&quot;;
+                        x = y = mag = ang = 0.0;
+                        mode = RECT;
+                }
+        }
+
+    Vector::~Vector()
+    {}
+
+    void Vector::polar_mode()
+    {
+        mode = POL;
+    }
+
+    void Vector::rect_mode()
+    {
+        mode = RECT;
+    }
+
+    Vector Vector::operator+(const Vector &amp; b) const
+    {
+        return Vector(x + b.x, y + b.y);
+    }
+
+    Vector Vector::operator-(const Vector &amp; b) const
+    {
+        return Vector(x - b.x, y - b.y);
+    }
+
+    Vector Vector::operator-() const
+    {
+        return Vector(-x, -y);
+    }
+
+    Vector Vector::operator*(double n) const
+    {
+        return Vector(x*n ,y*n);
+    }
+
+    Vector operator*(double n, const Vector &amp; a)
+    {
+        return a * n;
+    }
+
+    std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Vector &amp; v)
+    {
+        if (v.mode == Vector::RECT)
+            os &lt;&lt; &quot;(x, y) = (&quot; &lt;&lt; v.x &lt;&lt; &quot;, &quot; &lt;&lt; v.y  &lt;&lt; &quot;)&quot;;
+        else if (v.mode == Vector::POL)
+        {
+            os &lt;&lt; &quot;(m, a) = (&quot; &lt;&lt; v.mag &lt;&lt; &quot;, &quot; &lt;&lt; v.ang &lt;&lt; &quot;)&quot;;
+        }
+        else
+            os &lt;&lt; &quot;Vector object mode is invalid!&quot;;
+        return os;
+    }
+}
+</code></pre><p>reset方法并非必不可少。假设shove是一个Vector对象，您编写了如下代码：</p>
+<pre><code>shove.reset(100, 300);
+</code></pre><p>可以使用构造函数来得到相同的结果：</p>
+<pre><code>shove = Vector(100, 300);
+</code></pre><p>然而，reset()直接修改shove的内容，而使用构造函数将增加额外的步骤：创建一个临时对象，然后将其赋值给shove。</p>
+<h3 id="11-5-1-使用状态成员"><a href="#11-5-1-使用状态成员" class="headerlink" title="11.5.1 使用状态成员"></a>11.5.1 使用状态成员</h3><p>Vectore类存储了矢量的直角坐标和极坐标。它使用名为mode的成员来控制使用构造函数、reset()方法和重载operator&lt;&lt;()函数使用哪种形式，其中枚举RECT表示直角坐标模式(默认值)，POL表示极坐标模式。这样的成员被称为状态成员，因为这种成员描述的是对象所处的状态。</p>
+<p>由构造函数的代码可知，第三个参数RECT或省略了，则将输入解释为直角坐标；如果为POL，则将输入解释为极坐标：</p>
+<pre><code>Vector folly(3.0, 4.0);
+Vector foolery(20.0, 30.0, VECTOR::Vector::POL);
+</code></pre><p>标识符POL的作用域为类，因此类定义可使用未限定的名称。但全限定名为VECTOR::Vector::POL，因为POL是在Vector类中定义的，而Vector是在名称空间VECTOR中定义的。</p>
+<p>operator&lt;&lt;()函数也是用模式来确定如何显式值。由于operator&lt;&lt;()是一个友元函数，而不在作用域内，因此必须使用Vector::RECT，而不能直接使用RECT。因为友元函数在名称空间VECTOR中，因此无需使用全限定名VECTOR::Vector::RECT。</p>
+<h3 id="11-5-2-为Vector类重载算术运算符"><a href="#11-5-2-为Vector类重载算术运算符" class="headerlink" title="11.5.2 为Vector类重载算术运算符"></a>11.5.2 为Vector类重载算术运算符</h3><p>在使用x,y坐标时，将两个矢量相加将非常简单，只要将两个x分量相加，得到最终的x分量，将两个y分量相加得到y分量即可。根据描述，可以使用如下代码：</p>
+<pre><code>Vector Vector::operator+(const Vector &amp; b) const
+{
+    Vector sum;
+    sum.x = x + b.x;
+    sum.y = y + b.y;
+    return sum;
+}
+</code></pre><p>如果对象只存储x和y分量，则这很好。遗憾的是，上述代码无法设置极坐标值。可以通过添加另外一些代码来解决这个问题：</p>
+<pre><code>    Vector Vector::operator+(const Vector &amp; b) const
+{
+    Vector sum;
+    sum.x = x + b.x;
+    sum.y = y + b.y;
+    sum.set_ang(sum.x, sum.y);
+    sum.set_mag(sum.x, sum.y);
+    return sum;
+}
+</code></pre><p>然而，使用构造函数来完成这种工作，将更简单，更可靠：</p>
+<pre><code>Vector Vector::operator+(const Vecotr &amp; b) const
+{
+    return Vector(x + b.x, y + b.y);
+}
+</code></pre><p>上述的代码将新的x和y分量传递给Vector构造函数是，而后者将使用这些值来创建无名的新对象，并返回这个对象的副本。这确保了新的Vector对象是根据构造函数的标准规则创建的。</p>
+<p><strong>提示：</strong>如果方法通过计算得到一个新的类对象，则应考虑是否可以使用类构造函数来完成这种工作。</p>
+<p><strong>1. 乘法</strong></p>
+<p>将矢量与一个数相乘，将使该矢量加长或缩短。因此，将矢量乘以3得到的矢量的长度为原来的三倍，而角度不变。要在Vector类中实现矢量的这种行为很容易。对于极坐标，只要将长度进行伸缩，并保持角度不变；对于直角坐标，只需要将x和y分量进行伸缩。</p>
+<pre><code>Vector  Vector::operator*(double n) const
+{
+    return Vector(x * n, y * n);
+}
+</code></pre><p>和重载加法一样，上述代码允许构造函数使用新的x和y分量来创建正确的Vector对象。上述函数用于处理Vector值和double相乘。可以像Time示例那样，使用一个内联友元函数来处理double与Vector相乘：</p>
+<pre><code>friend Vector Vector::operator*(double n, const Vector &amp; a) 
+{
+    return a * n;
+}
+</code></pre><p><strong>2. 对已重载的运算符进行重载</strong></p>
+<p>在C++中，-(负号)运算符有两种函数。首先，使用两个操作数，它是减法运算符。其次，使用一个操作数时，它是负号运算符。对于矢量来说，这两种操作都是有意义的，因此Vector类有这两种操作。</p>
+<p>要从矢量A中减去矢量B，只要将分量相减即可，因此重载减法与重载加法相似。</p>
+<p>操作的顺序非常重要。下面的语句：</p>
+<pre><code>diff = v1 - v2;
+</code></pre><p>将转换为下面的成员函数调用：</p>
+<pre><code>diff = v1.operator-(v2);
+</code></pre><p>这意味着将从隐私矢量参数减去显式参数创建的矢量。</p>
+<p>接下来，看一元负号运算符，它只有一个操作数。下面时定义：</p>
+<pre><code>Vector Vector::operator-() const
+{
+    return Vector(-x, -y);
+}
+</code></pre><p>现在，operator-()有两种不同的定义，这是可行的，因为它们的特征标(参数)不同。</p>
+<p><strong>11.5.3 对于实现的说明</strong></p>
+<p>Vector类中，所有接口都只要能够显示这两种表示，并返回各个值。内部实现可以完全不同。因此，可以只存储x和y分量，而返回矢量的长度的magval()方法可以根据x和y的值来计算出长度，而不是查找对象中存储的这个值。这种方法改变了实现，但用户接口没有改变。将接口和实现分离时OOP的目标之一。</p>
+<p>这两种实现各有利弊。存储数据意味着对象将占据更多的内存；但查找数据的速度比较快。如果应用经常访问矢量的这两种表示，则这个例子采用的实现比较合适。</p>
+<p><strong>11.5.4 使用Vector来模拟随机漫步</strong></p>
+<p>程序11.15是一个小程序，它使用了Vector类。该程序模拟了著名的醉鬼走路问题。实际上，醉鬼被认为是一个有许多健康问题的人，而不是大家娱乐消遣的谈资，因此这个问题通常被成为随机漫步问题。其意思，将一个领到街灯柱下。这个人开始走动，但没走一部的方向都是随机的。这个问题的一种表述时，这个人走到离灯柱50英尺的地方需要多少步。从矢量的角度，这相当于不断将方向随机的矢量相加，直到长度超过50英尺。</p>
+<p>程序11.15 randwalk.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;vector.h&quot;
+#include &lt;cstdlib&gt; // rand(), srand()
+#include &lt;ctime&gt; // time()
+
+int main()
+{
+    using namespace std;
+    using VECTOR::Vector;
+    srand(time(0));
+    double direction;
+    Vector step;
+    Vector result(0.0, 0.0);
+    unsigned long steps = 0;
+    double target;
+    double dstep;
+    cout &lt;&lt; &quot;Enter target distance (q to quit):&quot;;
+    while (cin &gt;&gt; target)
+    {
+        cout &lt;&lt; &quot;Ener step length: &quot;;
+        if (!(cin &gt;&gt; dstep))
+            break;
+        while(result.magval() &lt; target)
+        {
+            direction = rand() % 360;
+            step.reset(dstep, direction, Vector::POL);
+            result = result + step;
+            steps++;
+        }
+        cout &lt;&lt; &quot;After &quot; &lt;&lt; steps &lt;&lt; &quot;steps, the subject &quot;
+            &quot;has the following location:\n&quot;;
+        cout &lt;&lt; result &lt;&lt; endl;
+        result.polar_mode();
+        cout &lt;&lt; &quot;or\n&quot; &lt;&lt; result &lt;&lt; endl;
+        cout &lt;&lt; &quot;Average outward distance per step = &quot;
+            &lt;&lt; result.magval() / steps &lt;&lt; endl;
+        steps = 0;
+        result.reset(0.0, 0.0);
+        cout &lt;&lt; &quot;Enter target distance (q to quit):&quot;;
+    }
+    cout &lt;&lt; &quot;Bye!\n&quot;;
+    cin.clear();
+    while (cin.get() != &apos;\n&apos;)
+        continue;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Enter target distance (q to quit):100
+Ener step length: 5
+After 246steps, the subject has the following location:
+(x, y) = (85.9784, 54.1236)
+or
+(m, a) = (101.596, 0.56183)
+Average outward distance per step = 0.41299
+Enter target distance (q to quit):200     
+Ener step length: 5
+After 1087steps, the subject has the following location:
+(x, y) = (-57.2303, 193.208)
+or
+(m, a) = (201.506, 1.85877)
+Average outward distance per step = 0.185378
+Enter target distance (q to quit):q
+Bye!
+</code></pre><p><strong>程序说明</strong></p>
+<p>首先，需要指出的时，在程序11.15中使用VECTOR名称空间非常方便。下面using声明使Vector类的名称可用：</p>
+<pre><code>using VECTOR::Vector;
+</code></pre><p>接下来谈谈随机数。标准ANSI C库(C++也有)中有一个rand()函数，它返回一个从0到某个值(取决于实现)之间的随机数。该程序使用求模运算来获得一个0~359的角度值。</p>
+<p>rand()函数将一种算法用于一个初始种子值来获得随机数，该随机数用在下一次函数调用的种子，以此类推。这些数实际上使伪随机数，因此10次连续的调用通常生成10个同样的随机数。然而，srand()函数允许覆盖默认的种子值，重新启动另一个随机序列。该程序使用time(0)的返回值来设置种子。time(0)返回当前时间，通常从某一个日期开始的秒数。因此，下面的语句在每次运行程序时，都将设置不同的种子，是随机数看上去更为随机：</p>
+<pre><code>srand(time(0));
+</code></pre><p>头文件cstdlib包含了srand()和rand()的原型，而ctime包含了time()的原型。</p>
+<p>顺便说一句，在将一系列位置存储到文件中很容易。首先包含头文件fstream，声明一个ofstream对象，将其同一个文件关联起来：</p>
+<pre><code>#include &lt;fstream&gt;
+
+ofstream fout;
+fout.open(&quot;thewalk.txt&quot;);
+
+four &lt;&lt; resutl &lt;&lt; endl;
+</code></pre><p>这将调用友元函数operator&lt;&lt;(fout, result)，导致引用参数os指向fout，从而将输出写入文件中。</p>
+<h2 id="11-6-类的自动转换和强制转换"><a href="#11-6-类的自动转换和强制转换" class="headerlink" title="11.6 类的自动转换和强制转换"></a>11.6 类的自动转换和强制转换</h2><p>本节讨论如何处理用户定义类型的转换。首先，复习一下C++如何处理内置类型转换的。将一个标准类型变量的值赋给另一个标准类型的变量时，如果这两种类型兼容，则C++自动将这个值转换为接收变量的类型。例如，下面的语句都将导致类型转换：</p>
+<pre><code>long count = 8;
+double time = 11;
+int side = 3.33;
+</code></pre><p>上述赋值语句是可行的，因为在C++看来，各种数据类型都表示相同的东西—-一个数字，同时C++包含用于转换的内置规则。这些转换将降低精度。</p>
+<p>C++语言不自动转换不兼容的类型。例如，下面的语句是非法的，因为左边是指针类型，而右边是数字：</p>
+<pre><code>int *p = 10;
+</code></pre><p>虽然计算机内部可能使用证数来表示地址，但从概念上，整数和指针完全不同。例如，不能计算指针的平方。然而，在无法自动转换是，可以使用强制类型转换：</p>
+<pre><code>int *p = (int *) 10;
+</code></pre><p>上述语句将10强制转换为int指针类型，将指针设置为地址10。</p>
+<p>可以将类定义成为与基本类型或另一个类相关，使得从一个类型转换为另一个类型是有意义的。在这种情况下，程序员可以指示C++如何自动进行转换，或通过强制类型转换来完成。</p>
+<p>为了说明这个如何进行的，我们将第3章的磅转换为英石的程序改写为类形式。首先，设计一个合适的类型，我们基本上是以两种方式(磅和英石)来表示重量。对于在一个实体中包含一个概念的两种表示来说，类提供了一种非常好的方式。因此可以将重量的两种方法表示放在同一个类中，然后提供以这两种方式表达重量的类方法。</p>
+<p>程序11.16 stonewt.h</p>
+<p>#ifndef STONEWT_H_</p>
+<p>#define STONEWT_H_</p>
+<pre><code>class Stonewt
+{
+private:
+    enum {Lbs_per_stn = 14};
+    int stone;
+    double pds_left;
+    double pounds;
+public:
+    Stonewt(double lbs);
+    Stonewt(int stn, double lbs);
+    Stonewt();
+    ~Stonewt();
+    void show_lbs() const;
+    void show_stn() const;
+
+};
+
+#endif
+</code></pre><p>对于定义特定的常量来说，如果它们是整数，enum提供了一种方便的途径。也可以采用下面的方法：</p>
+<pre><code>static const int Lbs_per_stn = 14;
+</code></pre><p>Stonewt有3个构造函数，让您能够将Stonewt对象初始化为一个浮点数（单位为磅）或两个浮点数（分别代表英石和磅）。也可以创建Stonewt对象，而不进行初始化。</p>
+<p>Stonewt提供了两个显示函数，一个以磅为单位显示重量，另一个以英石和磅为单位显示重量。</p>
+<p>程序11.17sthonewt.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stonewt.h&quot;
+using std::cout;
+
+Stonewt::Stonewt(double lbs)
+{
+    stone = int (lbs) / Lbs_per_stn;
+    pds_left = int (lbs) % Lbs_per_stn;
+    pounds = lbs;
+}
+
+Stonewt::Stonewt(int stn, double lbs)
+{
+    stone = stn;
+    pds_left = lbs;
+    pounds = stn * Lbs_per_stn + lbs;
+}
+
+Stonewt::Stonewt()
+{
+    stone = pounds = pds_left = 0;
+}
+
+Stonewt::~Stonewt()
+{}
+
+void Stonewt::show_stn() const
+{
+    cout &lt;&lt; stone &lt;&lt; &quot; stone, &quot; &lt;&lt; pds_left &lt;&lt; &quot; pounds\n&quot;;
+}
+
+void Stonewt::show_lbs() const
+{
+    cout &lt;&lt; pounds &lt;&lt; &quot; pounds\n&quot;;
+}
+</code></pre><p>因为Stonewt对象表示一个重量，所以可以提供一些将整数或浮点数转换为Stonewt对象的方法。我们已经这样做了！在C++中，接受一个参数的构造函数为将类型与该参数相同的值转换提供了蓝图。因此，下面的构造函数用于将double类型转换为Stonewt类型：</p>
+<pre><code>Sthonewt(double lbs);
+</code></pre><p>即，可以编写如下代码：</p>
+<pre><code>Stonewt myCat;
+myCat = 19.6;
+</code></pre><p>程序将使用构造函数Stonewt(double)来创建一个临时的Stonewt对象，并将19.6作为初始化值。随后，采用逐成员赋值方式将该临时对象的内容赋值到myCat中。这一过程成为隐式转换，因为它是自动进行的，而不需要显式强制类型转换。</p>
+<p><strong>只有接受一个参数的构造函数才能作为转换函数。</strong>下面的构造函数有两个参数，因此不能用来转换类型：</p>
+<pre><code>Stonewt(int stn, double lbs);
+</code></pre><p>然而，如果给第二个参数提供默认值，它便可用于转换int:</p>
+<pre><code>Stonewt(int stn, double lbs = 0);
+</code></pre><p>将构造函数用作自动类型转换函数似乎是一项不错的特定。然而，当程序员拥有更丰富的C++经验时，将发现这种自动特性并非总是合乎需要的，因为这会导致意外的类型转换。因此，C++增加了<strong>关键字explicit用于关闭这种自动特性</strong>。即，可以这样声明构造函数：</p>
+<pre><code>explicit Stonewt(double lbs);
+</code></pre><p>这将关闭上述示例中介绍的隐式转换，但仍然允许显式转换，即显式强制转换：</p>
+<pre><code>Stonewt myCat;
+myCat = 19.6; //错误语法
+myCat = (Stonewt)19.6;
+myCat = Stonewt(19.6);
+</code></pre><p><strong>注意：</strong>只接受一个参数的构造函数时定义了从参数类型到类类型的转换。如果使用关键字explicit限定了这种构造函数，则它智能用于显式转换，否则也可以用于隐式转换。</p>
+<p>编译器在什么时候将使用Stonewt(doule)函数呢？如果在声明中使用了关键字explicict，则Stonewt(doule)将只用于显式强制类型转换，否则还可以用于下面的隐式转换：</p>
+<ul>
+<li>将Stonewt对象初始化为double值时。</li>
+<li>将double值赋给Stonewt对象时。</li>
+<li>将double值传递给接受Stonewt参数的函数时。</li>
+<li>返回值被声明为Stonewt的函数试图返回double值时。</li>
+<li>在上述任意一种情况下，使用可转换double类型的内置类型时。</li>
+</ul>
+<p>下面详细介绍最后一点。函数原型化提供的参数匹配过程，允许使用Stonewt(doule)构造函数来转换其他数字类型。即，下面两条语句都首先将int转换为double，然后使用Stonewt(double)构造函数。</p>
+<pre><code>Stonewt Jumbo(7000);
+Jumbo = 73000;
+</code></pre><p>然而，当且仅当转换不存在二义性时，才会进行这种二步转换。即，如果这个类还定义了构造函数Stonewt(long)，则编译器将拒绝这些语句，可能指出：int可被转换为long或double，因此调用存在二义性。</p>
+<p>程序11.18使用类的构造函数初始化一些Stonewt对象，并处理类型转换。</p>
+<p>程序11.18 stone.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stonewt.h&quot;
+using std::cout;
+void display(const Stonewt &amp; st, int n);
+
+int main()
+{
+    Stonewt incognito = 275;
+    Stonewt wolfe(287.5);
+    Stonewt taft(21, 8);
+
+    cout &lt;&lt; &quot;The celebrity weighed &quot;;
+    incognito.show_stn();
+    cout &lt;&lt; &quot;The detective weighed &quot;;
+    wolfe.show_stn();
+    cout &lt;&lt; &quot;The President weighed &quot;;
+    taft.show_lbs();
+    incognito = 276.8;
+    taft = 325;
+    cout &lt;&lt; &quot;After dinner, the celebrity weighed &quot;;
+    incognito.show_stn();
+    cout &lt;&lt; &quot;After dinner , the President weighed &quot;;
+    taft.show_lbs();
+    display(taft, 2);
+    cout &lt;&lt; &quot;The wrestler weighed even more.\n&quot;;
+    display(422, 2);
+    cout &lt;&lt; &quot;No stone left unearned\n&quot;;
+    return 0;
+}
+
+void display(const Stonewt &amp; st, int n)
+{
+    for (int i = 0; i &lt; n; i++)
+    {
+        cout &lt;&lt; &quot;Wow! &quot;;
+        st.show_stn();
+    }
+}
+</code></pre><p>输出：</p>
+<pre><code>The celebrity weighed 19 stone, 9 pounds
+The detective weighed 20 stone, 7 pounds
+The President weighed 302 pounds
+After dinner, the celebrity weighed 19 stone, 10 pounds
+After dinner , the President weighed 325 pounds
+Wow! 23 stone, 3 pounds
+Wow! 23 stone, 3 pounds
+The wrestler weighed even more.
+Wow! 30 stone, 2 pounds
+Wow! 30 stone, 2 pounds
+No stone left unearned
+</code></pre><p><strong>程序说明</strong></p>
+<p>当构造函数只接受一个参数是，可以使用下面的格式来初始类对象：</p>
+<pre><code>Stonewt incognito = 275;
+</code></pre><p>这等价于前面介绍过的另外两种格式：</p>
+<pre><code>Stonewt incognito(275);
+Stonewe incognito = Stonewt(275);
+</code></pre><p>然而，后面两种格式可用于接受多个参数的构造函数。</p>
+<p>接下来，注意下面两条赋值语句：</p>
+<pre><code>incognito = 276.8;
+taft = 325;
+</code></pre><p>第一条赋值语句使用接受double参数的构造函数，将276.8转换为一个Stonewt值，这将把incognito的pounds成员设置为276.8。因为该条语句使用了构造函数，所以还将设置stone和pds_left成员。同样，第二条赋值语句将一个int值转换为double类型，然后使用Stonewt(double)来设置全部3个成员。</p>
+<p>最后，注意下面的函数调用：</p>
+<pre><code>display(422, 2);
+</code></pre><p>display()的原型表明，第一个参数应是Stonewt对象(Stonewt和Stonewt&amp;形参都与Stonewt实参匹配)。遇到int参数时，编译器查找构造函数Stonewt(int)，以便将该int转换为Stonewt类型。由于没有找到这样的构造函数，因此编译器寻找接受其他内置类型的构造函数。Stonewt(double)构造函数满足这种要求，因此编译器将int转换为double，然后使用Stonewt(double)将其转换为一个Stonewt对象。</p>
+<h3 id="11-6-1-转换函数"><a href="#11-6-1-转换函数" class="headerlink" title="11.6.1 转换函数"></a>11.6.1 转换函数</h3><p>程序是将数字转换为Stonewt对象。可以做相反的转换吗？即，是否可以将Stonewt对象转换为double值。如下：</p>
+<pre><code>Stonewt wolfe(285.7);
+double host = wolfe;
+</code></pre><p>可以这样做，但不是使用构造函数。<strong>构造函数只用于从某种类型到类类型的转换。</strong>要进行相反的转换，必须使用特殊的C++运算符函数—转换函数。</p>
+<p>转换函数是用户定义的强制类型转换，可以像使用强制类型转换那样使用它。例如，如果定义了从Stonewt到double的转换函数，就可以使用如下的转换：</p>
+<pre><code>Stonewt wolfe(285.7);
+double host = double (wolfe);
+double thinker = (double) wolfe;
+</code></pre><p>也快车让编译器来决定如何做：</p>
+<pre><code>Stonewt wells(20, 3);
+double star = wells;
+</code></pre><p>编译器发现，右侧是Stonewt类型，而左侧是double类型，因此它将查看程序员是否定义了于此匹配的转换函数。</p>
+<p>创建转换函数，要转换为typeName类型，需要使用如下形式的转换函数：</p>
+<pre><code>operatro typeName();
+</code></pre><p>注意以下几点：</p>
+<ul>
+<li>转换函数必须是类方法；</li>
+<li>转换函数不能指定返回类型；</li>
+<li>转换函数不能有参数；</li>
+</ul>
+<p>例如，转换为double类型的函数的原型如下：</p>
+<pre><code>operator double();
+</code></pre><p>要添加将Stonewt转换为int类型和double类型的函数，需要将下面的原型添加到类声明中：</p>
+<pre><code>operator int();
+operator double();
+</code></pre><p>程序11.19列出了修改后的类声明：</p>
+<p>程序11.19 stonewt1.h</p>
+<pre><code>#ifndef STONEWT1_H_
+#define STONEWT1_H_
+
+class Stonewt
+{
+private:
+    enum {Lbs_per_stn = 14};
+    int stone;
+    double pds_left;
+    double pounds;
+public:
+    Stonewt(double lbs);
+    Stonewt(int stn, double lbs);
+    Stonewt();
+    ~Stonewt();
+    void show_lbs() const;
+    void show_stn() const;
+    operator int();
+    operator double();
+};
+
+#endif
+</code></pre><p>程序11.20对两个转换函数进行了定义。注意，虽然没有声明返回类型，这两个函数也就返回所需的值。另外，int转换将带转换的值进行四舍五入为最接近的整数，而不是去掉小鼠部分。例如，如果pounds为114.4，则pounds+0.5等于114.9，int(114.9)等于114。但是，如果pounds为114.6，则pounds+0.5是115.1，而int(115.1)为115。</p>
+<p>程序11.20 stonewt1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stonewt1.h&quot;
+using std::cout;
+
+Stonewt::Stonewt(double lbs)
+{
+    stone = int (lbs) / Lbs_per_stn;
+    pds_left = int (lbs) % Lbs_per_stn;
+    pounds = lbs;
+}
+
+Stonewt::Stonewt(int stn, double lbs)
+{
+    stone = stn;
+    pds_left = lbs;
+    pounds = stn * Lbs_per_stn + lbs;
+}
+
+Stonewt::Stonewt()
+{
+    stone = pounds = pds_left = 0;
+}
+
+Stonewt::~Stonewt()
+{}
+
+void Stonewt::show_stn() const
+{
+    cout &lt;&lt; stone &lt;&lt; &quot; stone, &quot; &lt;&lt; pds_left &lt;&lt; &quot; pounds\n&quot;;
+}
+
+void Stonewt::show_lbs() const
+{
+    cout &lt;&lt; pounds &lt;&lt; &quot; pounds\n&quot;;
+}
+
+Stonewt::operator int()
+{
+    return int (pounds + 0.5);
+}
+
+Stonewt::operator double()
+{
+    return pounds;
+}
+</code></pre><p>程序11.21对新的转换函数进行测试。</p>
+<p>程序11.21 stone1.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;stonewt1.h&quot;
+
+int main()
+{
+    using std::cout;
+    Stonewt poppins(9, 2.8);
+    double p_wt = poppins;
+    cout &lt;&lt; &quot;Convert to double = &quot;;
+    cout &lt;&lt; &quot;Poppins: &quot; &lt;&lt; p_wt &lt;&lt; &quot; pounds.\n&quot;;
+    cout &lt;&lt; &quot;Convert to int = &quot;;
+    cout &lt;&lt; &quot;Poppins: &quot; &lt;&lt; int(poppins) &lt;&lt; &quot; pounds.\n&quot;;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Convert to double = Poppins: 128.8 pounds.
+Convert to int = Poppins: 129 pounds.
+</code></pre><p><strong>自动应用类型转换</strong></p>
+<p>程序11.21中将int(poppins)和cout一起使用。假设省略了显式强制类型转换：</p>
+<pre><code>cout &lt;&lt; &quot;Poppins: &quot; &lt;&lt; poppins &lt;&lt; &quot; pounds.\n&quot;;
+</code></pre><p>程序将无法进行隐式转换。因为没有指出应转换为int类型还是doubl类型。在缺少信息时，编译器将指出，程序中使用了二义性转换。</p>
+<p>如果类只定义了double转换函数，则编译器将接受该语句。这是因为只有一种转换可能，因此不存在二义性。</p>
+<p>负责的情况与此类似。对于当前的类深埋来说，编译器将认为下面的语句有二义性而拒绝它：</p>
+<pre><code>long gone = poppins; //存在二义性
+</code></pre><p>在C++中，int和double值都可以给赋值给long变量，所以编译器使用任意一个转换函数都是合法的。然而，如果删除了这两个转换函数之一，编译器将接受这条语句。</p>
+<p>当类定义了两种或多种的转换是，仍可以使用显式强制类型转换来指出使用哪个转换函数。可以使用下面任何一种强制类型转换表示法：</p>
+<pre><code>long gone = (double) poppins;
+long gone = int (poppins);
+</code></pre><p>和转换构造函数一样，转换函数也有其优缺点。提供自动、隐式转换的函数所存在的问题是：在用户不希望进行转换时，转换函数也可能进行转换。如下：</p>
+<pre><code>int ar[20];
+Stonewt temp(14, 4);
+int Temp = 1;
+cout &lt;&lt; ar[temp] &lt;&lt; endl;
+</code></pre><p>原则上，最后使用显式转换，而避免隐式转换。在C++11中，可以使用explicit来关闭隐式转换：</p>
+<pre><code>class stonewt    
+{
+...
+    explicit operator int() const;
+    explicit operator double() const;
+};
+</code></pre><p>有了上述声明，需要强制转换时将调用这些运算符。</p>
+<p>另一种方法是，用一个功能相同的非转换函数替换该转换函数即可，但仅在被显式地调用时，该函数才会执行。即：</p>
+<pre><code>Stonewt::operator int(0 {return int (pounds + 0.5);}
+</code></pre><p>可以替换为：</p>
+<pre><code>int Stonewt::Stone_to_int() {return int (pounds + 0.5);}
+</code></pre><p>这样，下面的语句是非法的：</p>
+<pre><code>int plb = poppins;
+</code></pre><p>但如果确实需要这种转换，可以这样做：</p>
+<pre><code>int plb = poppins.Stone_to_int();
+</code></pre><p>总之，C++为类提供了下面的类型转换：</p>
+<ul>
+<li>只有一个参数的类构造函数用于将类型与该参数相同的值转换为类类型。</li>
+<li>被成为转换函数的特殊成员运算符函数，用于将类对象转换为其他类型。</li>
+</ul>
+<p><strong>注意</strong>：explicit关键字可以关闭以上两种隐私类型转换，但仍可以进行显式强制类型转换。</p>
+<h3 id="11-6-2-转换函数和友元函数"><a href="#11-6-2-转换函数和友元函数" class="headerlink" title="11.6.2 转换函数和友元函数"></a>11.6.2 转换函数和友元函数</h3><p>在讨论Time类时指出过，可以使用成员函数或友元函数来重载加法。处于简化的目的，假设没有定义operator double()转换函数，可以使用下面的成员函数实现加法：</p>
+<pre><code>Stonewt Stonewt::operator+(const Stonewt &amp; st) const
+{
+    double pds = pounds + st.pounds;
+    Stonewt sum(pds);
+    return sum;
+}
+</code></pre><p>也可以将加法作为友元函数来实现，如下：</p>
+<pre><code>Stonewt operator+(const stonewt &amp; st1, const stonewt &amp; st2)
+{
+    double pds = st1.pounds + st2.pounds;
+    Stonewt sum(pds);
+    return sum;
+}
+</code></pre><p>注意，可以提供友元函数定义或成员函数定义，但不能都提供。上面任何一种格式都允许如下操作：</p>
+<pre><code>Stonewt jennySt(9, 12);
+Stonewt bennySt(12, 8);
+Stonewt total = jennySt + bennySt;
+</code></pre><p>另外，如果提供了Stonewt(double)构造函数，则可以这样做：</p>
+<pre><code>Stonewt jennySt(9, 12);
+double kennyD = 176.0;
+Stonewt total = jennySt + kennyD;
+</code></pre><p>但只有友元函数才允许如下这样做：</p>
+<pre><code>Stonewt jenneySt(9, 12);
+double pennyD = 146.0;
+Stonewt total = pennyD + jennySt;
+</code></pre><p>这样因为：</p>
+<pre><code>Stonewt total = pennyD + jennySt;
+</code></pre><p>只能被转换为：</p>
+<pre><code>total = operator+(pennyD, jennySt);
+</code></pre><p>第一个参数pennyD为double类型，因此调用构造函数Stonewt(double)，将它转换为Stonewt对象。</p>
+<p>然而不能调用成员函数将jennySt和peenyD相加。将加法语法转换为函数将类似于下面这样：</p>
+<pre><code>total = pennyD.operator+(jennySt);
+</code></pre><p>这没有意义，因为只有类对象才可以调用成员函数。C++不会试图将pennyD转换为Stonewt对象。</p>
+<p><strong>将对成员函数参数进行转换，而不是调用成员函数的对象。</strong></p>
+<p><strong>经验告诉我们，将加法定义为友元可以让程序更容易适应自动类型转换。原因在于，两个操作数都成为函数参数，因此与函数原型匹配。</strong></p>
+<p><strong>实现加法时的选择</strong></p>
+<p>要将double量和Stonewt量相加，有两种选择。第一种方法是将下面的的函数定义为友元函数，让Stonewt(double)构造函数将double类型的参数转换为Stonewt类型的参数：</p>
+<pre><code>operator+(const Stonewt &amp;, const Stonewt &amp;);
+</code></pre><p>第二种方法是，将加法运算符重载为一个显式使用doulbe类型参数的函数：</p>
+<pre><code>Stonewt operator+(double x);
+friend Stonewt operator+(double x, Stonewt &amp; s);
+</code></pre><p>这样，下面的语句将与成员函数operator+(doulbe)完全匹配：</p>
+<pre><code>total = jennySt + kennyD;
+</code></pre><p>而下面的语句将于友元函数operator+(double, Stonewt &amp;)完全匹配：</p>
+<pre><code>total = kennyD + jennySt;
+</code></pre><p>每次中方法都有其优点。第一种方法使程序更简洁，因为定义的函数较少。缺点是，每次需要转换时，都将调用转换构造函数，这增加时间和内存开销。第二种方法刚好相反，使得程序较长，但运行速度快。</p>
+<h2 id="11-7-总结"><a href="#11-7-总结" class="headerlink" title="11.7 总结"></a>11.7 总结</h2><p>访问私有成员：</p>
+<ul>
+<li>友元函数： friend</li>
+<li>成员函数</li>
+</ul>
+<p>运算符重载： operator+()</p>
+<p>类型转换：</p>
+<ul>
+<li>自动类型转换</li>
+<li>强制类型转换</li>
+</ul>
+<p>关闭隐私类型转换：explicit</p>
+<p>转换构造函数: 只有一个参数的构造函数，或者有默认值参数的构造函数<br>转换函数： operator int()</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/" title="C++ Primer Plus--使用类（十一）">https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/Django开发过程遇到的问题/" rel="next" title="Django学习过程遇到的问题">
+                <i class="fa fa-chevron-left"></i> Django学习过程遇到的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/11/廖雪峰教程--关系数据库概述(一)/" rel="prev" title="廖雪峰SQL教程--关系数据库概述(一)">
+                廖雪峰SQL教程--关系数据库概述(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-运算符重载"><span class="nav-number">1.</span> <span class="nav-text">11.1 运算符重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-计算时间：一个运算符重载示例"><span class="nav-number">2.</span> <span class="nav-text">11.2 计算时间：一个运算符重载示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-1-添加加法运算"><span class="nav-number">2.1.</span> <span class="nav-text">11.2.1 添加加法运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-2-重载限制"><span class="nav-number">2.2.</span> <span class="nav-text">11.2.2 重载限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-3-其中重载运算符"><span class="nav-number">2.3.</span> <span class="nav-text">11.2.3 其中重载运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-友元"><span class="nav-number">3.</span> <span class="nav-text">11.3 友元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-1-创建友元函数"><span class="nav-number">3.1.</span> <span class="nav-text">11.3.1 创建友元函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-3-2-常用的友元：-重载-lt-lt-运算符"><span class="nav-number">3.2.</span> <span class="nav-text">11.3.2 常用的友元： 重载&lt;&lt;运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-4-重载运算符：作为成员函数还是非成员函数"><span class="nav-number">4.</span> <span class="nav-text">11.4 重载运算符：作为成员函数还是非成员函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-5-再谈重载：一个矢量类"><span class="nav-number">5.</span> <span class="nav-text">11.5 再谈重载：一个矢量类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-1-使用状态成员"><span class="nav-number">5.1.</span> <span class="nav-text">11.5.1 使用状态成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-5-2-为Vector类重载算术运算符"><span class="nav-number">5.2.</span> <span class="nav-text">11.5.2 为Vector类重载算术运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-6-类的自动转换和强制转换"><span class="nav-number">6.</span> <span class="nav-text">11.6 类的自动转换和强制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-1-转换函数"><span class="nav-number">6.1.</span> <span class="nav-text">11.6.1 转换函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-6-2-转换函数和友元函数"><span class="nav-number">6.2.</span> <span class="nav-text">11.6.2 转换函数和友元函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-7-总结"><span class="nav-number">7.</span> <span class="nav-text">11.7 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>
