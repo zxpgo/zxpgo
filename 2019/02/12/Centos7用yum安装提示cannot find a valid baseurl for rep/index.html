@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host 方法一、 　　1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”，也有些时">
+<meta name="description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos7使用yum安装提示cannot find a valid baseurl for repo:base&#x2F;7&#x2F;x86_64 的解决方法">
 <meta property="og:url" content="https://zxpgo.github.io/2019/02/12/Centos7用yum安装提示cannot find a valid baseurl for rep/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host 方法一、 　　1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”，也有些时">
+<meta property="og:description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T13:48:18.265Z">
+<meta property="og:updated_time" content="2019-02-18T13:54:54.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7使用yum安装提示cannot find a valid baseurl for repo:base&#x2F;7&#x2F;x86_64 的解决方法">
-<meta name="twitter:description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host 方法一、 　　1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”，也有些时">
+<meta name="twitter:description" content="*无法联网的明显表现会有： 　　1、yum install出现 Error: cannot find a valid baseurl or repo:base 　　2、ping host会提示unknown host">
 
 
 
@@ -405,6 +405,7 @@
         <p>*无法联网的明显表现会有：</p>
 <p>　　1、yum install出现 Error: cannot find a valid baseurl or repo:base</p>
 <p>　　2、ping host会提示unknown host</p>
+<a id="more"></a> 
 <p>方法一、</p>
 <p>　　1、打开 vi /etc/sysconfig/network-scripts/ifcfg-eth0（每个机子都可能不一样，但格式会是“ifcfg-eth数字”，也有些时ifcfg-ens数字），把ONBOOT=no，改为ONBOOT=yes</p>
 <p>　　2、重启网络：service network restart</p>
@@ -422,7 +423,7 @@
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+    <div>欢迎关注微信公众号！</div>
 </div>
 
       </div>
@@ -750,7 +751,7 @@
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-"></i> Power by 
   </span>
