@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T13:48:23.143Z">
+<meta property="og:updated_time" content="2019-02-20T13:17:18.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer Plus--使用类（十一）">
 <meta name="twitter:description" content="本章首先介绍运算符重载，它允许将标准C++运算符(如+和=)用于类对象。然后介绍友元，这种C++机制使得非成员函数可以访问私有数据。最后，介绍如何命令C++对类执行自动类型转换。">
@@ -1611,12 +1611,12 @@ double host = wolfe;
 <pre><code>Stonewt wolfe(285.7);
 double host = double (wolfe);
 double thinker = (double) wolfe;
-</code></pre><p>也快车让编译器来决定如何做：</p>
+</code></pre><p>也可以让编译器来决定如何做：</p>
 <pre><code>Stonewt wells(20, 3);
 double star = wells;
 </code></pre><p>编译器发现，右侧是Stonewt类型，而左侧是double类型，因此它将查看程序员是否定义了于此匹配的转换函数。</p>
 <p>创建转换函数，要转换为typeName类型，需要使用如下形式的转换函数：</p>
-<pre><code>operatro typeName();
+<pre><code>operator typeName();
 </code></pre><p>注意以下几点：</p>
 <ul>
 <li>转换函数必须是类方法；</li>
@@ -2014,7 +2014,7 @@ friend Stonewt operator+(double x, Stonewt &amp; s);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-02-16T14:52:23.398Z</updated>
+  <updated>2019-02-23T14:35:53.569Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Primer Plus--C++中的代码重用（十四）</title>
+    <link href="https://zxpgo.github.io/2019/02/21/C++%20Primer%20Plus--C++%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/02/21/C++ Primer Plus--C++中的代码重用（十四）/</id>
+    <published>2019-02-21T02:58:14.000Z</published>
+    <updated>2019-02-23T14:35:53.569Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;C++的一个主要目的是促进代码重用。公有继承是实现这种目标的机制之一，但并不是唯一的机制。本章将介绍其他方法，其一就是本身是另一个类的对象，称为包含、组合或层次化。另一种方法是使用私有或保护继承。最后，还包括类模板。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ Primer Plus--类继承（十三）</title>
+    <link href="https://zxpgo.github.io/2019/02/18/C++%20Primer%20Plus--%E7%B1%BB%E7%BB%A7%E6%89%BF%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/02/18/C++ Primer Plus--类继承（十三）/</id>
+    <published>2019-02-18T11:41:14.000Z</published>
+    <updated>2019-02-23T14:35:55.143Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面向对象编程的主要目的之一是提供可重用的代码。C++类提供了更多层次的重用性。目前，很多厂商提供了类库，类库由类声明和类实现构成。因为类组合了数组表示和类方法，因此提供了比函数库更加完整的程序包。类库是以源代码的方式提供，这意味着可以对其进行修改，以满足需要。然而，C++提供了比修改代码更好的方式来扩展和修改类。这种方法叫作&lt;strong&gt;类继承&lt;/strong&gt;。它能够从已有的类派生出新的类，而派生类继承了原有类(称为基类)的特征，包括方法。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
   
   <entry>
     <title>廖雪峰SQL教程--关系模型(二)</title>
@@ -111,7 +151,7 @@
     <link href="https://zxpgo.github.io/2019/01/23/C++%20Primer%20Plus--%E4%BD%BF%E7%94%A8%E7%B1%BB%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/"/>
     <id>https://zxpgo.github.io/2019/01/23/C++ Primer Plus--使用类（十一）/</id>
     <published>2019-01-23T11:08:14.000Z</published>
-    <updated>2019-02-18T13:48:23.143Z</updated>
+    <updated>2019-02-20T13:17:18.680Z</updated>
     
     <summary type="html">
     
@@ -263,26 +303,6 @@
   </entry>
   
   <entry>
-    <title>Malware Propagations in Wireless Ad Hoc Networks</title>
-    <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
-    <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
-    <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2019-02-18T15:08:03.445Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无线Ad hoc网络中恶意软件传播研究。
-    
-    </summary>
-    
-      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
     <title>使用CurosrLoader加载数据</title>
     <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
     <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
@@ -299,6 +319,26 @@
     
     
       <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Malware Propagations in Wireless Ad Hoc Networks</title>
+    <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
+    <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2019-02-18T15:08:03.445Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无线Ad hoc网络中恶意软件传播研究。
+    
+    </summary>
+    
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
@@ -379,46 +419,6 @@
           
         
       
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSON解析</title>
-    <link href="https://zxpgo.github.io/2018/11/23/JSON%E8%A7%A3%E6%9E%90/"/>
-    <id>https://zxpgo.github.io/2018/11/23/JSON解析/</id>
-    <published>2018-11-23T00:40:14.000Z</published>
-    <updated>2018-11-27T09:40:24.921Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Json解析，以及字符串处理，日期和时间转换，小数点处理，switch语句等等
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>音频处理</title>
-    <link href="https://zxpgo.github.io/2018/11/18/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/"/>
-    <id>https://zxpgo.github.io/2018/11/18/音频处理/</id>
-    <published>2018-11-18T12:40:14.000Z</published>
-    <updated>2018-11-22T11:10:24.532Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;实现音乐的播放和停止。
     
     </summary>
     
