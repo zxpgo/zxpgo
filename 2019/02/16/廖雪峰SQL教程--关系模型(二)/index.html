@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="关系数据库是建立在关系模型上的，而关系模型本质上就是若干个存储数据的二维表，可以把它们看作很多Excel表。 表的每一行称为记录，记录是一个逻辑意义上的数据。 表的每一列称为字段，同一个表的每一行记录都拥有相同的若个字段。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T05:55:53.180Z">
+<meta property="og:updated_time" content="2019-02-26T06:01:53.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰SQL教程--关系模型(二)">
 <meta name="twitter:description" content="关系数据库是建立在关系模型上的，而关系模型本质上就是若干个存储数据的二维表，可以把它们看作很多Excel表。 表的每一行称为记录，记录是一个逻辑意义上的数据。 表的每一列称为字段，同一个表的每一行记录都拥有相同的若个字段。">
@@ -504,13 +504,82 @@
 <p>如果我们把上述表的<code>id_num</code>和<code>id_type</code>这两列作为联合主键，那么上面的3条记录都是允许的，因为没有两列主键组合起来是相同的。</p>
 <p>没有必要的情况下，我们尽量不使用联合主键，因为它给关系表带来了复杂度的上升。</p>
 <h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><p>当我们用主键唯一标识记录时，我们就可以在<code>students</code>表中确定任意一个学生的记录：</p>
-<p>| id | name    | other columns… |<br>| 1    | 小明    | … |<br>| 2    | 小红    | … |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>other columns…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>小明</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小红</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
 <p>我们还可以在classes表中确定任意一个班级记录：</p>
-<p>| id | name    | other columns… |<br>| 1    | 一班    | … |<br>| 2    | 二班    | … |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>other columns…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>一班</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>二班</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
 <p>但是我们如何确定<code>students</code>表的一条记录，例如，<code>id=1</code>的小明，属于哪个班级呢？</p>
 <p>由于一个班级可以有多个学生，在关系模型中，这两个表的关系可以称为“一对多”，即一个<code>classes</code>的记录可以对应多个<code>students</code>表的记录。</p>
 <p>为了表达这种一对多的关系，我们需要在students表中加入一列<code>class_id</code>，让它的值与<code>classes</code>表的某条记录相对应：</p>
-<p>| id | class_id | name | other columns… |<br>| 1    | 1    | 小明    | … |<br>| 2    | 1    | 小红    | … |<br>| 5    | 2    | 小白    | … |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>class_id</th>
+<th>name</th>
+<th>other columns…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>小明</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>小红</td>
+<td>…</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>小白</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
 <p>这样，我们就可以根据<code>class_id</code>这个列直接定位出一个<code>students</code>表的记录应该对应到<code>classes</code>的哪条记录。</p>
 <p>例如：</p>
 <p>小明的<code>class_id</code>是1，因此，对应的<code>classes</code>表的记录是<code>id=1</code>的一班；<br>小红的<code>class_id</code>是1，因此，对应的<code>classes</code>表的记录是<code>id=1</code>的一班；<br>小白的<code>class_id</code>是2，因此，对应的<code>classes</code>表的记录是<code>id=2</code>的二班。</p>
@@ -530,11 +599,93 @@ DROP FOREIGN KEY fk_class_id;
 <h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><p>通过一个表的外键关联到另一个表，我们可以定义出一对多关系。有些时候，还需要定义“多对多”关系。例如，一个老师可以对应多个班级，一个班级也可以对应多个老师，因此，班级表和老师表存在多对多关系。</p>
 <p>多对多关系实际上是通过两个一对多关系实现的，即通过一个中间表，关联两个一对多关系，就形成了多对多关系：</p>
 <p><code>teachers</code>表：</p>
-<p>| id | name |<br>| 1    | 张老师 |<br>| 2    | 王老师 |<br>| 3    | 李老师 |<br>| 4    | 赵老师 |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵老师</td>
+</tr>
+</tbody>
+</table>
 <p><code>classes表</code>：</p>
-<p>| id | name |<br>| 1    | 一班 |<br>| 2    | 二班 |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>一班</td>
+</tr>
+<tr>
+<td>2</td>
+<td>二班</td>
+</tr>
+</tbody>
+</table>
 <p>中间表<code>teacher_class</code>关联两个一对多关系：</p>
-<p>|id    | teacher_id | class_id |<br>| 1    | 1    | 1 |<br>| 2    | 1    | 2 |<br>| 3    | 2    | 1 |<br>| 4    | 2    | 2 |<br>| 5    | 3    | 1 |<br>| 6    | 4    | 2 |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>teacher_id</th>
+<th>class_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <p>通过中间表<code>teacher_class</code>可知<code>teachers</code>到<code>classes</code>的关系：</p>
 <p><code>id=1</code>的张老师对应<code>id=1,2</code>的一班和二班；<br><code>id=2</code>的王老师对应<code>id=1,2</code>的一班和二班；<br><code>id=3</code>的李老师对应<code>id=1</code>的一班；<br><code>id=4</code>的赵老师对应<code>id=2</code>的二班。</p>
 <p>同理可知<code>classes</code>到<code>teachers</code>的关系：</p>
@@ -542,14 +693,69 @@ DROP FOREIGN KEY fk_class_id;
 <p>因此，通过中间表，我们就定义了一个“多对多”关系。</p>
 <h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p>一对一关系是指，一个表的记录对应到另一个表的唯一一个记录。</p>
 <p>例如，<code>students</code>表的每个学生可以有自己的联系方式，如果把联系方式存入另一个表<code>contacts</code>，我们就可以得到一个“一对一”关系：</p>
-<p>| id | student_id    | mobile |<br>| 1    | 1    | 135xxxx6300 |<br>| 2    | 2    | 138xxxx2209 |<br>| 3    | 5    | 139xxxx8086 |</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>student_id</th>
+<th>mobile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>135xxxx6300</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>138xxxx2209</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>139xxxx8086</td>
+</tr>
+</tbody>
+</table>
 <p>有细心的童鞋会问，既然是一对一关系，那为啥不给<code>students</code>表增加一个<code>mobile</code>列，这样就能合二为一了？</p>
 <p>如果业务允许，完全可以把两个表合为一个表。但是，有些时候，如果某个学生没有手机号，那么，<code>contacts</code>表就不存在对应的记录。实际上，一对一关系准确地说，是<code>contacts</code>表一对一对应<code>students</code>表。</p>
 <p><strong>还有一些应用会把一个大表拆成两个一对一的表，目的是把经常读取和不经常读取的字段分开，以获得更高的性能。</strong>例如，把一个大的用户表分拆为用户基本信息表user_info和用户详细信息表user_profiles，大部分时候，只需要查询user_info表，并不需要查询user_profiles表，这样就提高了查询速度。</p>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。</p>
 <p>索引是关系数据库中对某一列或多个列的值进行预排序的数据结构。通过使用索引，可以让数据库系统不必扫描整个表，而是直接定位到符合条件的记录，这样就大大加快了查询速度。</p>
 <p>例如，对于<code>students</code>表：</p>
-<p>| id | class_id    | name    | gender | score |<br>|1    |1    |小明    |M    90|<br>|2    |1    |小红    |F    95|<br>|3    |1    |小军    |M    88|</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>class_id</th>
+<th>name</th>
+<th>gender</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>小明</td>
+<td>M    90</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>小红</td>
+<td>F    95</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>小军</td>
+<td>M    88</td>
+</tr>
+</tbody>
+</table>
 <p>如果要经常根据<code>score</code>列进行查询，就可以对<code>score</code>列创建索引：</p>
 <pre><code>ALTER TABLE students
 ADD INDEX idx_score (score);
