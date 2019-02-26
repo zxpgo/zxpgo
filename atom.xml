@@ -61,9 +61,13 @@
     <link href="https://zxpgo.github.io/2019/02/16/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL%E6%95%99%E7%A8%8B--%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B(%E4%BA%8C)/"/>
     <id>https://zxpgo.github.io/2019/02/16/廖雪峰SQL教程--关系模型(二)/</id>
     <published>2019-02-16T13:54:50.000Z</published>
-    <updated>2019-02-16T14:52:23.398Z</updated>
+    <updated>2019-02-26T05:55:53.180Z</updated>
     
     <summary type="html">
+    
+      &lt;p&gt;关系数据库是建立在关系模型上的，而关系模型本质上就是若干个存储数据的二维表，可以把它们看作很多Excel表。&lt;/p&gt;
+&lt;p&gt;表的每一行称为记录，记录是一个逻辑意义上的数据。&lt;/p&gt;
+&lt;p&gt;表的每一列称为字段，同一个表的每一行记录都拥有相同的若个字段。
     
     </summary>
     
@@ -203,15 +207,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Appach环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
+    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2019-01-23T01:29:21.378Z</updated>
+    <updated>2018-12-22T11:47:32.790Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
+      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
     
     </summary>
     
@@ -223,15 +227,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
+    <title>Centos7上Django+Mysql+Appach环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2018-12-22T11:47:32.790Z</updated>
+    <updated>2019-01-23T01:29:21.378Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
+      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
     
     </summary>
     
@@ -303,26 +307,6 @@
   </entry>
   
   <entry>
-    <title>使用CurosrLoader加载数据</title>
-    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
-    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
-    <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2018-12-09T11:36:22.465Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Malware Propagations in Wireless Ad Hoc Networks</title>
     <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
     <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
@@ -339,6 +323,26 @@
     
     
       <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用CurosrLoader加载数据</title>
+    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
+    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2018-12-09T11:36:22.465Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
+    
+    </summary>
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
