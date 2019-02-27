@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-02-23T14:35:53.569Z</updated>
+  <updated>2019-02-27T03:14:07.393Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>廖雪峰SQL教程--查询数据(三)</title>
+    <link href="https://zxpgo.github.io/2019/02/26/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL%E6%95%99%E7%A8%8B--%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE(%E4%B8%89)/"/>
+    <id>https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/</id>
+    <published>2019-02-26T13:54:50.000Z</published>
+    <updated>2019-02-27T03:14:07.393Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在关系数据库中，最常用的操作就是查询！结合DateWhale-MySQL集训进行学习，文末有DateWhale-MySQL集训给出的练习项目。
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
+    
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ Primer Plus--C++中的代码重用（十四）</title>
@@ -397,32 +417,6 @@
     
       &lt;p&gt;Android 系统能够同时运行多个线程， 因此可以相互独立的处理 两组或多组任务。如果有多个线程需要运行， Android 还会&lt;br&gt;就何时运行哪些线程进行优先级排序， 并确定各线程的运行时长。&lt;/p&gt;
 &lt;p&gt;线程也知道如何保存其位置。它不仅会记录所有变量的值， 还会记住完成当前正在执行的指令 会调用的函数系列： 即能够重新完成工作所需的一切内容。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP网络</title>
-    <link href="https://zxpgo.github.io/2018/11/27/HTTP%E7%BD%91%E7%BB%9C/"/>
-    <id>https://zxpgo.github.io/2018/11/27/HTTP网络/</id>
-    <published>2018-11-27T00:40:14.000Z</published>
-    <updated>2018-11-28T01:45:44.002Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
     
     </summary>
     

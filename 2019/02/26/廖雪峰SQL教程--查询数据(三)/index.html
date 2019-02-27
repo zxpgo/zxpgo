@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="APP开发," />
+  <meta name="keywords" content="SQL," />
 
 
 
@@ -85,26 +85,49 @@
 
 
 
-<meta name="description" content="前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。">
-<meta name="keywords" content="APP开发">
+<meta name="description" content="在关系数据库中，最常用的操作就是查询！结合DateWhale-MySQL集训进行学习，文末有DateWhale-MySQL集训给出的练习项目。">
+<meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7上Django+Mysql+Nginx+nwsgi环境搭建">
-<meta property="og:url" content="https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/index.html">
+<meta property="og:title" content="廖雪峰SQL教程--查询数据(三)">
+<meta property="og:url" content="https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。">
+<meta property="og:description" content="在关系数据库中，最常用的操作就是查询！结合DateWhale-MySQL集训进行学习，文末有DateWhale-MySQL集训给出的练习项目。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/QCngJnx.png">
-<meta property="og:image" content="https://i.imgur.com/3VlR8Q2.png">
-<meta property="og:image" content="https://i.imgur.com/9bBwGWq.png">
-<meta property="og:image" content="https://i.imgur.com/jodboEr.png">
-<meta property="og:image" content="https://i.imgur.com/8CtxZ4t.png">
-<meta property="og:image" content="https://i.imgur.com/HpaY7y6.png">
-<meta property="og:image" content="https://i.imgur.com/67uezFD.png">
-<meta property="og:updated_time" content="2018-12-22T11:47:32.790Z">
+<meta property="og:image" content="https://i.imgur.com/H3qdf0o.png">
+<meta property="og:image" content="https://i.imgur.com/et6K5r9.png">
+<meta property="og:image" content="https://i.imgur.com/a7zjZqc.png">
+<meta property="og:image" content="https://i.imgur.com/zFmE0BK.png">
+<meta property="og:image" content="https://i.imgur.com/QN1q0ym.png">
+<meta property="og:image" content="https://i.imgur.com/Cx2I1p6.png">
+<meta property="og:image" content="https://i.imgur.com/oNpcz3y.png">
+<meta property="og:image" content="https://i.imgur.com/oiMzZYR.png">
+<meta property="og:image" content="https://i.imgur.com/Rfb3Soe.png">
+<meta property="og:image" content="https://i.imgur.com/Ew6dPfz.png">
+<meta property="og:image" content="https://i.imgur.com/rLtVwjM.png">
+<meta property="og:image" content="https://i.imgur.com/IPPggRQ.png">
+<meta property="og:image" content="https://i.imgur.com/GVGQn04.png">
+<meta property="og:image" content="https://i.imgur.com/p9IzV7d.png">
+<meta property="og:image" content="https://i.imgur.com/acZdmlm.png">
+<meta property="og:image" content="https://i.imgur.com/jEcvkHn.png">
+<meta property="og:image" content="https://i.imgur.com/PDcJJpL.png">
+<meta property="og:image" content="https://i.imgur.com/eIpJkem.png">
+<meta property="og:image" content="https://i.imgur.com/nVOaaS3.png">
+<meta property="og:image" content="https://i.imgur.com/kWTybnz.png">
+<meta property="og:image" content="https://i.imgur.com/Hugtf8y.png">
+<meta property="og:image" content="https://i.imgur.com/ReJkL2G.png">
+<meta property="og:image" content="https://i.imgur.com/cUM6L19.png">
+<meta property="og:image" content="https://i.imgur.com/YhvkGkg.png">
+<meta property="og:image" content="https://i.imgur.com/6EeUS0f.png">
+<meta property="og:image" content="https://i.imgur.com/Lx5O3Nk.png">
+<meta property="og:image" content="https://i.imgur.com/fZl1xtt.png">
+<meta property="og:image" content="https://i.imgur.com/VGDFtPw.png">
+<meta property="og:image" content="https://i.imgur.com/kbS2Knh.png">
+<meta property="og:image" content="https://i.imgur.com/YLS5jZU.png">
+<meta property="og:updated_time" content="2019-02-27T03:14:07.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7上Django+Mysql+Nginx+nwsgi环境搭建">
-<meta name="twitter:description" content="前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。">
-<meta name="twitter:image" content="https://i.imgur.com/QCngJnx.png">
+<meta name="twitter:title" content="廖雪峰SQL教程--查询数据(三)">
+<meta name="twitter:description" content="在关系数据库中，最常用的操作就是查询！结合DateWhale-MySQL集训进行学习，文末有DateWhale-MySQL集训给出的练习项目。">
+<meta name="twitter:image" content="https://i.imgur.com/H3qdf0o.png">
 
 
 
@@ -134,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/"/>
+  <link rel="canonical" href="https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/"/>
 
 
 
 
 
-  <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建 | 平步青云win</title>
+  <title>廖雪峰SQL教程--查询数据(三) | 平步青云win</title>
   
 
 
@@ -332,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxp">
@@ -349,7 +372,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Centos7上Django+Mysql+Nginx+nwsgi环境搭建</h2>
+          <h2 class="post-title" itemprop="name headline">廖雪峰SQL教程--查询数据(三)</h2>
         
 
         <div class="post-meta">
@@ -361,8 +384,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T20:57:14+08:00">
-                2018-12-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T21:54:50+08:00">
+                2019-02-26
               </time>
             
 
@@ -384,8 +407,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/APP开发/" itemprop="url" rel="index">
-                    <span itemprop="name">APP开发</span>
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
                   </a>
                 </span>
 
@@ -401,7 +424,7 @@
 
           
           
-             <span id="/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/" class="leancloud_visitors" data-flag-title="Centos7上Django+Mysql+Nginx+nwsgi环境搭建">
+             <span id="/2019/02/26/廖雪峰SQL教程--查询数据(三)/" class="leancloud_visitors" data-flag-title="廖雪峰SQL教程--查询数据(三)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,179 +455,408 @@
       
 
       
-        <p>前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。<a id="more"></a></p>
-<h2 id="一、更新系统软件包"><a href="#一、更新系统软件包" class="headerlink" title="一、更新系统软件包"></a>一、更新系统软件包</h2><pre><code>yum update -y
-</code></pre><h2 id="二、安装软件管理包和可能使用的依赖"><a href="#二、安装软件管理包和可能使用的依赖" class="headerlink" title="二、安装软件管理包和可能使用的依赖"></a>二、安装软件管理包和可能使用的依赖</h2><pre><code>yum -y groupinstall &quot;Development tools&quot;
-yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel
-</code></pre><h2 id="三、下载Pyhton3到-usr-local-目录"><a href="#三、下载Pyhton3到-usr-local-目录" class="headerlink" title="三、下载Pyhton3到/usr/local 目录"></a>三、下载Pyhton3到/usr/local 目录</h2><pre><code>cd /usr/local
-wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tgz
-</code></pre><p>解压</p>
-<pre><code>tar -zxvf Python-3.6.6.tgz
-</code></pre><p>进入 Python-3.6.6路径</p>
-<pre><code>cd Python-3.6.6
-</code></pre><p>编译安装到指定路径</p>
-<pre><code>./configure --prefix=/usr/local/python3
-</code></pre><p>注意：/usr/local/python3 路径可以自己指定，自己记着就行，下边要用到。</p>
-<p>安装python3</p>
-<pre><code>make
-make install
-</code></pre><p>安装完成之后 建立软链接 添加变量 方便在终端中直接使用python3</p>
-<pre><code>ln -s /usr/local/python3/bin/python3.6 /usr/bin/python3
-</code></pre><p>Python3安装完成之后pip3也一块安装完成，不需要再单独安装<br>同样给pip3建立软链接</p>
-<pre><code>ln -s /usr/local/python3/bin/pip3.6 /usr/bin/pip3
-</code></pre><h2 id="四、查看Python3和pip3安装情况"><a href="#四、查看Python3和pip3安装情况" class="headerlink" title="四、查看Python3和pip3安装情况"></a>四、查看Python3和pip3安装情况</h2><p><img src="https://i.imgur.com/QCngJnx.png" alt=""></p>
-<h2 id="五、安装virtualenv-，建议大家都安装一个virtualenv，方便不同版本项目管理。"><a href="#五、安装virtualenv-，建议大家都安装一个virtualenv，方便不同版本项目管理。" class="headerlink" title="五、安装virtualenv ，建议大家都安装一个virtualenv，方便不同版本项目管理。"></a>五、安装virtualenv ，建议大家都安装一个virtualenv，方便不同版本项目管理。</h2><pre><code>pip3 install virtualenv
-</code></pre><p>建立软链接</p>
-<pre><code>ln -s /usr/local/python3/bin/virtualenv /usr/bin/virtualenv
-</code></pre><p>安装成功在根目录下建立两个文件夹，主要用于存放env和网站文件的。(个人习惯，其它人可根据自己的实际情况处理)</p>
-<pre><code>mkdir -p /data/env
-mkdir -p /data/wwwroot
-</code></pre><h2 id="六、切换到-data-env-下，创建指定版本的虚拟环境。"><a href="#六、切换到-data-env-下，创建指定版本的虚拟环境。" class="headerlink" title="六、切换到/data/env/下，创建指定版本的虚拟环境。"></a>六、切换到/data/env/下，创建指定版本的虚拟环境。</h2><pre><code>virtualenv --python=/usr/bin/python pyweb
-</code></pre><p>然后进入/data/env/pyweb/bin </p>
-<p>启动虚拟环境：</p>
-<pre><code>source activate
-</code></pre><p><img src="https://i.imgur.com/3VlR8Q2.png" alt=""></p>
-<p>留意我标记的位置，出现(pyweb)，说明是成功进入虚拟环境。</p>
-<h2 id="七、虚拟环境里用python3安django和uwsgi"><a href="#七、虚拟环境里用python3安django和uwsgi" class="headerlink" title="七、虚拟环境里用python3安django和uwsgi"></a>七、虚拟环境里用python3安django和uwsgi</h2><pre><code>pip3 install django （如果用于生产的话，则需要指定安装和你项目相同的版本）
-pip3 install uwsgi
-</code></pre><p>给uwsgi建立软链接，方便使用</p>
-<pre><code>ln -s /usr/local/python3/bin/uwsgi /usr/bin/uwsgi
-</code></pre><h2 id="八、切换到网站目录-data-wwwroot-创建Django项目"><a href="#八、切换到网站目录-data-wwwroot-创建Django项目" class="headerlink" title="八、切换到网站目录/data/wwwroot,创建Django项目"></a>八、切换到网站目录/data/wwwroot,创建Django项目</h2><pre><code>django-admin.py startproject mysite
-</code></pre><p>创建成功之后，/data/wwwroot下面就会多出一个mysite文件夹，我们的项目就在这个文件夹里。</p>
-<p>然后新建立一个名叫blog的APP</p>
-<pre><code>python3 manage.py startapp blog
-</code></pre><p>进入项目文件夹/data/wwwroot/mysite,添加static和templates，分别用于存放静态文件和模板文件。<br>编辑项目里mysite/settings.py文件</p>
-<pre><code>vim /data/wwwroot/mysite/mysite/settings.py
-</code></pre><p>在INSTALLED_APPS 列表里添加’blog’，注意，后面要加上一个逗号’,’.</p>
-<p><img src="https://i.imgur.com/9bBwGWq.png" alt=""></p>
-<p>修改ALLOWED_HOSTS，[‘*’]，可以让任何IP访问:</p>
-<p><img src="https://i.imgur.com/jodboEr.png" alt=""></p>
-<p>TEMPLATES的DIRS里添加模板路径</p>
-<pre><code>os.path.join(BASE_DIR, &apos;templates&apos;)
-</code></pre><p><img src="https://i.imgur.com/8CtxZ4t.png" alt=""></p>
-<p>尾部添加</p>
-<p>STATICFILES_DIRS = (<br>    os.path.join(BASE_DIR,’static’),<br>    )</p>
-<p><img src="https://i.imgur.com/HpaY7y6.png" alt=""></p>
-<h2 id="九、在templates下添加index-html文件，输入下面内容。"><a href="#九、在templates下添加index-html文件，输入下面内容。" class="headerlink" title="九、在templates下添加index.html文件，输入下面内容。"></a>九、在templates下添加index.html文件，输入下面内容。</h2><pre><code>vim /data/wwwroot/mystie/templates/index.html    
-</code></pre><p>输入内容：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;title&gt;我的网站&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;欢迎光临我的网站！&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h2 id="十、配置URL"><a href="#十、配置URL" class="headerlink" title="十、配置URL"></a>十、配置URL</h2><p>在mysite/mysite/目录下的urls.py文件添加内容，修改后如下：</p>
-<pre><code>from django.contrib import admin
-from django.urls import path, include
+        <p>在关系数据库中，最常用的操作就是查询！结合DateWhale-MySQL集训进行学习，文末有DateWhale-MySQL集训给出的练习项目。<a id="more"></a></p>
+<h2 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h2><p>查询数据<br>阅读: 2<br>在关系数据库中，最常用的操作就是查询。</p>
+<p>准备数据<br>为了便于讲解和练习，我们先准备好了一个students表和一个classes表，它们的结构和数据如下：</p>
+<p>students表存储了学生信息：</p>
+<pre><code>id    class_id    name    gender    score
+1    1     小明    M    90
+2    1     小红    F    95
+3    1     小军    M    88
+4    1     小米    F    73
+5    2     小白    F    81
+6    2     小兵    M    55
+7    2     小林    M    85
+8    3     小新    F    91
+9    3     小王    M    89
+10    3     小丽    F    85
+</code></pre><p>classes表存储了班级信息：</p>
+<pre><code>id    name
+1    一班
+2    二班
+3    三班
+4    四班
+</code></pre><p>如果想用MySQL练习，可以下载这个SQL脚本，然后在命令行运行：</p>
+<pre><code>mysql -u root -p &lt; init-test-data.sql
+</code></pre><p>就可以自动创建test数据库，并且在test数据库下创建students表和classes表，以及必要的初始化数据。</p>
+<p><img src="https://i.imgur.com/H3qdf0o.png" alt=""></p>
+<p>和内存数据库不同的是，对MySQL数据库做的所有修改，都会保存下来。如果你希望恢复到初始状态，可以再次运行该脚本。</p>
+<h2 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h2><p>查询数据库中所有数据：</p>
+<pre><code>SELECT * FROM &lt;表名&gt;;
+</code></pre><p>查询students表中所有数据：</p>
+<pre><code>SELECT * FROM students;
+</code></pre><p>使用<code>SELECT * FROM students</code>时，<code>SELECT</code>是关键字，表示将要执行一个查询，<code>*</code>表示“所有列”，<code>FROM</code>表示将要从哪个表查询，本例中是students表。</p>
+<p>该SQL将查询出students表的所有数据。注意：查询结果也是一个二维表，它包含列名和每一行的数据。</p>
+<p><img src="https://i.imgur.com/et6K5r9.png" alt=""></p>
+<p><code>SELECT</code>语句其实并不要求一定要有FROM子句。我们来试试下面的<code>SELECT</code>语句：</p>
+<pre><code>SELECT 100+200; //计算100+100
+</code></pre><p><img src="https://i.imgur.com/a7zjZqc.png" alt=""></p>
+<p>上述查询会直接计算出表达式的结果。虽然<code>SELECT</code>可以用作计算，但它并不是SQL的强项。但是，不带<code>FROM</code>子句的<code>SELECT</code>语句有一个有用的用途，就是用来判断当前到数据库的连接是否有效。许多检测工具会执行一条<code>SELECT 1</code>;来测试数据库连接。</p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><p>使用<code>SELECT * FROM &lt;表名&gt;</code>可以查询一张表中的所有记录。但是有时候，我们并不是希望获得所有记录，而是根据条件选择性地获取指定条件的记录。例如，查询分数在80分以上的学习记录。</p>
+<p><code>SELECT</code>语句可以通过<code>WHERE</code>条件来设定查询条件，查询结果是满足查询条件的记录。例如，要指定条件“分数在80分或以上的学生”，写成WHERE条件就是:</p>
+<pre><code>SELECT * FROM students WHERE score &gt;= 80;
+</code></pre><p>其中，<code>WHERE</code>关键字后面的<code>score &gt;= 80</code>就是条件。<code>score</code>是列名，该列存储了学生的成绩，因此，<code>score &gt;= 80</code>就筛选出了指定条件的记录：</p>
+<p><img src="https://i.imgur.com/zFmE0BK.png" alt=""></p>
+<p>因此，条件查询的语法就是：</p>
+<pre><code>SELECT * FROM &lt;表名&gt; WHERE &lt;条件表达式&gt;;
+</code></pre><h4 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h4><pre><code>SELECT * FROM students WHERE score &gt;= 80 AND gender = &apos;M&apos;;
+</code></pre><p><img src="https://i.imgur.com/QN1q0ym.png" alt=""></p>
+<h3 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h3><pre><code>SELECT * FROM students WHERE score &gt;= 80 OR gender = &apos;M&apos;;
+</code></pre><p><img src="https://i.imgur.com/Cx2I1p6.png" alt=""></p>
+<h3 id="NOT"><a href="#NOT" class="headerlink" title="NOT"></a>NOT</h3><pre><code>SELECT * FROM students WHERE NOT class_id = 2;
+</code></pre><p><img src="https://i.imgur.com/oNpcz3y.png" alt=""></p>
+<p>如果不加括号，条件运算按照<code>NOT、AND、OR</code>的优先级进行，即<code>NOT</code>优先级最高，其次是<code>AND</code>，最后是<code>OR</code>。加上括号可以改变优先级。</p>
+<h3 id="常用的条件表达式"><a href="#常用的条件表达式" class="headerlink" title="常用的条件表达式"></a>常用的条件表达式</h3><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>表达式举例1</th>
+<th>表达式举例2</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>使用=判断相等</td>
+<td>score = 80</td>
+<td>name = ‘abc’</td>
+<td>字符串需要用单引号括起来</td>
+</tr>
+<tr>
+<td>使用&gt;判断大于</td>
+<td>score &gt; 80</td>
+<td>name &gt; ‘abc’</td>
+<td>字符串比较根据ASCII码，中文字符比较根据数据库设置</td>
+</tr>
+<tr>
+<td>使用&gt;=判断大于或相等</td>
+<td>score &gt;= 80</td>
+<td>name &gt;= ‘abc’</td>
+<td></td>
+</tr>
+<tr>
+<td>使用&lt;判断小于</td>
+<td>score &lt; 80</td>
+<td>name &lt;= ‘abc’</td>
+<td></td>
+</tr>
+<tr>
+<td>使用&lt;=判断小于或相等</td>
+<td>score &lt;= 80</td>
+<td>name &lt;= ‘abc’</td>
+<td></td>
+</tr>
+<tr>
+<td>使用&lt;&gt;判断不相等</td>
+<td>score &lt;&gt; 80</td>
+<td>name &lt;&gt; ‘abc’</td>
+<td></td>
+</tr>
+<tr>
+<td>使用LIKE判断相似</td>
+<td>name LIKE ‘ab%’</td>
+<td>name LIKE ‘%bc%’</td>
+<td>%表示任意字符，例如’ab%’将匹配’ab’，’abc’，’abcd’</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查询分数在60分-含-～90分-含-之间的学生可以使用的WHERE语句"><a href="#查询分数在60分-含-～90分-含-之间的学生可以使用的WHERE语句" class="headerlink" title="查询分数在60分(含)～90分(含)之间的学生可以使用的WHERE语句"></a>查询分数在60分(含)～90分(含)之间的学生可以使用的WHERE语句</h3><pre><code>WHERE score BETWEEN 60 AND 90
 
-urlpatterns = [
-    path(&apos;admin/&apos;, admin.site.urls),
-    path(&apos;blog/&apos;, include(&apos;blog.urls&apos;)),
-]
-</code></pre><p>在blog文件夹中创建urls.py，输入如下内容：</p>
-<pre><code>from django.contrib import admin
-from django.urls import path, include
-from . import views
-urlpatterns = [
-    path(&apos;&apos;, views.index),
-]
-</code></pre><h2 id="十一、编辑blog-APP下的views-py"><a href="#十一、编辑blog-APP下的views-py" class="headerlink" title="十一、编辑blog APP下的views.py"></a>十一、编辑blog APP下的views.py</h2><p>在blog下的views.py中添加如下内容：</p>
-<pre><code>def index(request):
-    return render(request, &apos;index.html&apos;)
-</code></pre><h2 id="十二、启动项目"><a href="#十二、启动项目" class="headerlink" title="十二、启动项目"></a>十二、启动项目</h2><pre><code>python3 manage.py runserver    0:8000
-</code></pre><p>在浏览器内输入：</p>
-<pre><code>主机IP:8000
-比如：111.230.111.82:8000
-</code></pre><p>正常运行</p>
-<h2 id="十三、Django正常运行之后我们就开始配置一下uwsgi"><a href="#十三、Django正常运行之后我们就开始配置一下uwsgi" class="headerlink" title="十三、Django正常运行之后我们就开始配置一下uwsgi"></a>十三、Django正常运行之后我们就开始配置一下uwsgi</h2><p>我们网站项目路径是 /data/wwwroot/mysite/,在项目根目录下创建mysite.xml文件，输入如下内容：</p>
-<pre><code>&lt;uwsgi&gt;
-   &lt;socket&gt;127.0.0.1:8997&lt;/socket&gt; &lt;!-- 内部端口，自定义 --&gt;
-   &lt;chdir&gt;/data/wwwroot/mysite/&lt;/chdir&gt; &lt;!-- 项目路径 --&gt;
-   &lt;module&gt;mysite.wsgi&lt;/module&gt;  &lt;!-- mysite为wsgi.py所在目录名--&gt;
-   &lt;processes&gt;4&lt;/processes&gt; &lt;!-- 进程数 --&gt;
-   &lt;daemonize&gt;uwsgi.log&lt;/daemonize&gt; &lt;!-- 日志文件 --&gt;
-&lt;/uwsgi&gt;
-</code></pre><h2 id="十四、安装nginx和配置nginx-conf文件"><a href="#十四、安装nginx和配置nginx-conf文件" class="headerlink" title="十四、安装nginx和配置nginx.conf文件"></a>十四、安装nginx和配置nginx.conf文件</h2><p>进入home目录，执行下面命令</p>
-<pre><code>cd /home/
+WHERE score &gt;= 60 AND score &lt;= 90
+</code></pre><h3 id="查询前N条数据"><a href="#查询前N条数据" class="headerlink" title="查询前N条数据"></a>查询前N条数据</h3><pre><code>LIMIT N
 
-wget http://nginx.org/download/nginx-1.13.7.tar.gz
-</code></pre><p>下载完成后，执行解压命令：</p>
-<pre><code>tar -zxvf nginx-1.13.7.tar.gz
-</code></pre><p>进入解压后的nginx-1.13.7文件夹，依次执行以下命令：</p>
-<pre><code>./configure
-make
-make install
-</code></pre><p>nginx一般默认安装好的路径为/usr/local/nginx</p>
-<p>在/usr/local/nginx/conf/中先备份一下nginx.conf文件，以防意外。</p>
-<pre><code>cp nginx.conf nginx.conf.bak
-</code></pre><p>然后打开nginx.conf，把原来的内容删除，直接加入以下内容：</p>
-<pre><code>events {
-    worker_connections  1024;
-}
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-    sendfile        on;
-    server {
-        listen 80;
-        server_name 127.0.0.1:80; #改为自己的域名，没域名修改为127.0.0.1:80
-        charset utf-8;
-        location / {
-           include uwsgi_params;
-           uwsgi_pass 127.0.0.1:8997;  #端口要和uwsgi里配置的一样
-           uwsgi_param UWSGI_SCRIPT mysite.wsgi;  #wsgi.py所在的目录名+.wsgi
-           uwsgi_param UWSGI_CHDIR /data/wwwroot/mysite; #项目路径
+SELECT * FROM students LIMIT 5;
+</code></pre><p><img src="https://i.imgur.com/oiMzZYR.png" alt=""></p>
+<h2 id="投影查询"><a href="#投影查询" class="headerlink" title="投影查询"></a>投影查询</h2><p>如果我们只希望返回某些列的数据，而不是所有列的数据，我们可以用<code>SELECT 列1, 列2, 列3 FROM ...</code>，让结果集仅包含指定列。这种操作称为<strong>投影查询</strong>。</p>
+<p>例如，从<code>students</code>表中返回<code>id、score</code>和<code>name</code>这三列：</p>
+<pre><code>SELECT id, score, name FROM students;
+</code></pre><p><img src="https://i.imgur.com/Rfb3Soe.png" alt=""></p>
+<p>使用<code>SELECT 列1, 列2, 列3 FROM ...</code>时，还可以给每一列起个别名，这样，结果集的列名就可以与原表的列名不同。它的语法是:</p>
+<pre><code>SELECT 列1 别名1, 列2 别名2, 列3 别名3 FROM ...;
+</code></pre><p>例如，以下<code>SELECT</code>语句将列名<code>score</code>重命名为<code>points</code>，而<code>id</code>和<code>name</code>列名保持不变：</p>
+<pre><code>SELECT id, score points, name FROM students;
+</code></pre><p><img src="https://i.imgur.com/Ew6dPfz.png" alt=""></p>
+<h2 id="排序-ORDER-BY"><a href="#排序-ORDER-BY" class="headerlink" title="排序 ORDER BY"></a>排序 ORDER BY</h2><p>默认情况是按主键进行排序的。</p>
+<p>按<code>score</code>分数从低到高排序：</p>
+<pre><code>SELECT id, name, gender, score FROM students ORDER BY score;
+</code></pre><p><img src="https://i.imgur.com/rLtVwjM.png" alt=""></p>
+<p>如果反过来，按成绩<strong>从高到低(DESC)</strong>排序：</p>
+<pre><code>SELECT id, name, gender, score FROM students ORDER BY score DESC;
+</code></pre><p><img src="https://i.imgur.com/IPPggRQ.png" alt=""></p>
+<p>如果<code>score</code>列有相同的数据，要进一步排序，可以继续添加列名。例如，使用<code>ORDER BY score DESC, gender</code>表示先按<code>score</code>列倒序，如果有相同分数的，再按<code>gender</code>列排序:</p>
+<pre><code>SELECT id, name, gender, score FROM students ORDER BY score DESC, gender;
+</code></pre><p><img src="https://i.imgur.com/GVGQn04.png" alt=""></p>
+<p>默认的排序规则是<code>ASC</code>：“升序”，即从小到大。<code>ASC</code>可以省略，即<code>ORDER BY score ASC</code>和<code>ORDER BY score</code>效果一样。</p>
+<p>如果有<code>WHERE</code>子句，那么<code>ORDER BY</code>子句要放到<code>WHERE</code>子句后面。例如，查询一班的学生成绩，并按照倒序排序：</p>
+<pre><code>SELECT id, name, gender, score
+FROM students
+WHERE class_id = 1
+ORDER BY score DESC;
+</code></pre><p><img src="https://i.imgur.com/p9IzV7d.png" alt=""></p>
+<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>使用SELECT查询时，如果结果集数据量很大，比如几万行数据，放在一个页面显示的话数据量太大，不如分页显示，每次显示100条。</p>
+<p>要实现分页功能，实际上就是从结果集中显示第1~100条记录作为第1页，显示第101~200条记录作为第2页，以此类推。</p>
+<p>因此，分页实际上就是从结果集中“截取”出第M~N条记录。这个查询可以通过<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>子句实现。我们先把所有学生按照成绩从高到低进行排序，把结果集分页，每页3条记录。要获取第1页的记录，可以使用<code>LIMIT 3 OFFSET 0</code>：</p>
+<pre><code>SELECT id, name, gender, score
+FROM students
+ORDER BY score DESC
+LIMIT 3 OFFSET 0;
+</code></pre><p><img src="https://i.imgur.com/acZdmlm.png" alt=""></p>
+<p>上述查询<code>LIMIT 3 OFFSET 0</code>表示，对结果集从0号记录开始，最多取3条。注意SQL记录集的索引从0开始。</p>
+<p>如果要查询第2页，那么我们只需要“跳过”头3条记录，也就是对结果集从3号记录开始查询，把OFFSET设定为3：</p>
+<pre><code>SELECT id, name, gender, score
+FROM students
+ORDER BY score DESC
+LIMIT 3 OFFSET 3;
+</code></pre><p>如果OFFSET设定超过查询的最大数量不会报错，而是得到一个空的结果集。</p>
+<p><strong>注意</strong></p>
+<p><code>OFFSET</code>是可选的，如果只写<code>LIMIT 15</code>，那么相当于<code>LIMIT 15 OFFSET 0</code>。</p>
+<p>在MySQL中，<code>LIMIT 15 OFFSET 30</code>还可以简写成<code>LIMIT 30, 15</code>。</p>
+<p>使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>分页时，随着N越来越大，查询效率也会越来越低。</p>
+<h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>对于统计总数、平均数这类计算，SQL提供了专门的聚合函数，使用聚合函数进行查询，就是聚合查询，它可以快速获得结果。</p>
+<p>以查询<code>students</code>表一共有多少条记录为例，我们可以使用SQL内置的<code>COUNT()</code>函数查询：</p>
+<pre><code>SELECT COUNT(*) FROM students;
+</code></pre><p><code>COUNT(*)</code>表示查询所有列的行数，要注意聚合的计算结果虽然是一个数字，但查询的结果仍然是一个二维表，只是这个二维表只有一行一列，并且列名是<code>COUNT(*)</code>。</p>
+<p>通常，使用聚合查询时，我们应该给列名设置一个别名，便于处理结果：</p>
+<pre><code>SELECT COUNT(*) num FROM students;
+</code></pre><p><img src="https://i.imgur.com/jEcvkHn.png" alt=""></p>
+<p><code>COUNT(*)</code>和<code>COUNT(id)</code>实际上效果是一样的。聚合查询同样可以使用<code>WHERE</code>条件，因此我们可以方便地统计出有多少男生、多少女生，多少80分以上的学生等：</p>
+<pre><code>SELECT COUNT(*) boys FROM students WHERE gender = &apos;M&apos;;
+</code></pre><p><img src="https://i.imgur.com/PDcJJpL.png" alt=""></p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUM</td>
+<td>计算某一列的合计值，该列必须为数值类型</td>
+</tr>
+<tr>
+<td>AVG</td>
+<td>计算某一列的平均值，该列必须为数值类型</td>
+</tr>
+<tr>
+<td>MAX</td>
+<td>计算某一列的最大值</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>计算某一列的最小值</td>
+</tr>
+</tbody>
+</table>
+<pre><code>//计算男生平均成绩:
+SELECT AVG(score) average FROM students WHERE gender = &apos;M&apos;;
+//
+SELECT AVG(score) average FROM students WHERE gender = &apos;X&apos;;
+</code></pre><p><strong>注意</strong>：如果聚合查询的WHERE条件没有匹配到任何行，COUNT()会返回0，而SUM()、AVG()、MAX()和MIN()会返回<code>NULL</code>。</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>如果我们要统计一班的学生数量，我们知道，可以用</p>
+<pre><code>SELECT COUNT(*) num FROM students WHERE class_id = 1;
+</code></pre><p>如果要继续统计二班、三班的学生数量，难道必须不断修改WHERE条件来执行SELECT语句吗？</p>
+<p>对于聚合查询，SQL还提供了“分组聚合”的功能。如下：</p>
+<pre><code>SELECT  COUNT(*) num FROM students GROUP BY class_id;
+</code></pre><p><img src="https://i.imgur.com/eIpJkem.png" alt=""></p>
+<p>执行这个查询，<code>COUNT()</code>的结果不再是一个，而是3个，这是因为，<code>GROUP BY</code>子句指定了按<code>class_id</code>分组，因此，执行该<code>SELECT</code>语句时，会把<code>class_id</code>相同的列先分组，再分别计算，因此，得到了3行结果。</p>
+<pre><code>SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;
+</code></pre><p>如果把<code>name</code>放入结果集中，不出意外，执行这条查询我们会得到一个语法错误，因为在任意一个分组中，只有<code>class_id</code>都相同，<code>name</code>是不同的，SQL引擎不能把多个<code>name</code>的值放入一行记录中。因此，聚合查询的列中，只能放入分组的列。</p>
+<p><strong>使用多个列进行分组</strong></p>
+<pre><code>SELECT class_id, gender, COUNT(*) num FROM students GROUP BY class_id, gender;
+</code></pre><p><img src="https://i.imgur.com/nVOaaS3.png" alt=""></p>
+<h3 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h3><p>分组后的条件使用HAVING来限定，WHERE是对原始数据进行条件限定，几个关键字使用的顺序为：</p>
+<pre><code>where \ group by\ having \ order by
+</code></pre><p>例如：</p>
+<p>SELECT class_id, gender, COUNT(*) num FROM students GROUP BY class_id, gender;</p>
+<p><img src="https://i.imgur.com/kWTybnz.png" alt=""></p>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>SELECT查询不但可以从一张表查询数据，还可以从多张表同时查询数据。查询多张表的语法是：<code>SELECT * FROM &lt;表1&gt; &lt;表2&gt;</code>。</p>
+<p><img src="https://i.imgur.com/Hugtf8y.png" alt=""></p>
+<p>这种一次查询两个表的数据，查询的结果也是一个二维表，它是students表和classes表的“乘积”，即students表的每一行与classes表的每一行都两两拼在一起返回。结果集的列数是students表和classes表的列数之和，行数是students表和classes表的行数之积。</p>
+<p>这种多表查询又称<strong>笛卡尔查询</strong>，使用笛卡尔查询时要非常小心，由于结果集是目标表的行数乘积，对两个各自有100行记录的表进行笛卡尔查询将返回1万条记录，对两个各自有1万行记录的表进行笛卡尔查询将返回1亿条记录。</p>
+<p>你可能还注意到了，上述查询的结果集有两列id和两列name，两列id是因为其中一列是students表的id，而另一列是classes表的id，但是在结果集中，不好区分。两列name同理</p>
+<p>要解决这个问题，我们仍然可以利用投影查询的“设置列的别名”来给两个表各自的id和name列起别名：</p>
+<pre><code>SELECT
+students.id sid,
+students.name,
+students.gender,
+students.score,
+classes.id cid,
+classes.name cname
+FROM students, classes;
+</code></pre><p>可以给表设置一个别名，这样可以简化使用<code>表名.列名</code>这样的方式来引用列和设置别名    ：</p>
+<pre><code>SELECT 
+s.id sid,
+s.name, 
+s.gender,    
+s.score,
+c.id cid,
+c.name, cname
+FROM students s, classes c;
+</code></pre><p><img src="https://i.imgur.com/ReJkL2G.png" alt=""></p>
+<p>多表查询也可以使用WHERE条件，如下：</p>
+<pre><code>SELECT 
+s.id sid,
+s.name, 
+s.gender,    
+s.score,
+c.id cid,
+c.name cname
+FROM students s, classes c
+WHERE s.gender = &apos;M&apos; AND c.id = 1;
+</code></pre><p><img src="https://i.imgur.com/cUM6L19.png" alt=""></p>
+<p>注意：</p>
+<p>使用多表查询可以获取M x N行记录。</p>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><p>连接查询是另一种类型的多表查询。连接查询对多个表进行<strong>JOIN运算</strong>，简单地说，就是先确定一个主表作为结果集，然后，把其他表的行有选择性地“连接”在主表结果集上。</p>
+<p>例如，我们想选出<code>students</code>表的所有学生信息，可以用一条简单的SELECT语句完成：</p>
+<pre><code>SELECT s.id, s.name, s.class_id, s.gender, s.score FROM students s;
+</code></pre><p>但是，假设我们希望结果集同时包含所在班级的名称，上面的结果集只有class_id列，缺少对应班级的name列。</p>
+<p>现在问题来了，存放班级名称的name列存储在classes表中，只有根据students表的class_id，找到classes表对应的行，再取出name列，就可以获得班级名称。</p>
+<p>这时，连接查询就派上了用场。我们先使用最常用的一种内连接——INNER JOIN来实现：</p>
+<pre><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score
+FROM students s
+INNER JOIN classes c
+ON s.class_id = c.id;
+</code></pre><p><img src="https://i.imgur.com/YhvkGkg.png" alt=""></p>
+<p>注意INNER JOIN查询的写法是：</p>
+<ul>
+<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>语法；</li>
+<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
+<li>然后确定连接条件，使用<code>ON &lt;条件&gt;</code>，这里的条件是s.class_id = c.id，表示students表的class_id列与classes表的id列相同的行需要连接；</li>
+<li>可选，加上WHERE子句、ORDER BY等子句。</li>
+</ul>
+<p>有内连接（INNER JOIN）就有<strong>外连接（OUTER JOIN）</strong>。我们把内连接查询改成外连接查询，看看效果:</p>
+<pre><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score
+FROM students s
+RIGHT OUTER JOIN classes c
+ON s.class_id = c.id;
+</code></pre><p><img src="https://i.imgur.com/6EeUS0f.png" alt=""></p>
+<p>执行上述RIGHT OUTER JOIN可以看到，和INNER JOIN相比，RIGHT OUTER JOIN多了一行，多出来的一行是“四班”，但是，学生相关的列如name、gender、score都为NULL。</p>
+<p>这也容易理解，因为根据ON条件s.class_id = c.id，classes表的id=4的行正是“四班”，但是，students表中并不存在class_id=4的行。</p>
+<p>有RIGHT OUTER JOIN，就有LEFT OUTER JOIN，以及FULL OUTER JOIN。它们的区别是：</p>
+<p><strong>INNER JOIN只返回同时存在于两张表的行数据，</strong>由于students表的class_id包含1，2，3，classes表的id包含1，2，3，4，所以，INNER JOIN根据条件s.class_id = c.id 返回的结果集仅包含1，2，3。</p>
+<p><strong>RIGHT OUTER JOIN返回右表都存在的行。</strong>如果某一行仅在右表存在，那么结果集就会以NULL填充剩下的字段。</p>
+<p><strong>LEFT OUTER JOIN则返回左表都存在的行。</strong>如果我们给students表增加一列，并添加class_id=5，由于classes表并不存在id=5的列，所以，LEFT OUTER JOIN的结果会增加一列，对应的class_name是NULL：</p>
+<pre><code>-- 先增加一列class_id=5:
+INSERT INTO students (class_id, name, gender, score) values (5, &apos;新生&apos;, &apos;M&apos;, 88);
+-- 使用LEFT OUTER JOIN
+SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score
+FROM students s
+LEFT OUTER JOIN classes c
+ON s.class_id = c.id;
+</code></pre><p><img src="https://i.imgur.com/Lx5O3Nk.png" alt=""></p>
+<p><strong>最后，我们使用FULL OUTER JOIN，它会把两张表的所有记录全部选择出来，</strong>并且，自动把对方不存在的列填充为NULL：</p>
+<pre><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score
+FROM students s
+FULL OUTER JOIN classes c
+ON s.class_id = c.id;
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于这么多种JOIN查询，到底什么使用应该用哪种呢？其实我们用图来表示结果集就一目了然了。</p>
+<p>假设查询语句是：</p>
+<pre><code>SELECT ... FROM tableA ??? JOIN tableB ON tableA.column1 = tableB.column2;
+</code></pre><p><img src="https://i.imgur.com/fZl1xtt.png" alt=""></p>
+<h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><pre><code>CASE expression
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+   ...
+    WHEN conditionN THEN resultN
+    ELSE result
+END
+</code></pre><p>CASE 表示函数开始，END 表示函数结束。如果 condition1 成立，则返回 result1, 如果 condition2 成立，则返回 result2，当全部不成立则返回 result，而当有一个成立之后，后面的就不执行了。</p>
+<p>例如，对students表中同学的成绩分等级：</p>
+<pre><code>SELECT id,  class_id, name, score, 
+case 
+    WHEN score &gt; 90 THEN &apos;优秀&apos; 
+    WHEN score &gt; 80 AND score &lt;= 90 THEN &apos;良好&apos; 
+    WHEN score &gt; 70 AND score &lt;= 80 THEN &apos;中等&apos; 
+    WHEN score &gt; 60 AND score &lt;= 70 THEN &apos;及格&apos; 
+    ELSE &apos;不及格&apos; 
+END score_num 
+FROM students;
+</code></pre><p><img src="https://i.imgur.com/VGDFtPw.png" alt=""></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释：</p>
+<pre><code>create database database-x   -- 创建数据库
+</code></pre><p>多行注释：</p>
+<pre><code>create database database-x
+/*
+创建一个数据库
+名字为database-x
+*/
+</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><a href="http://www.runoob.com/mysql/mysql-functions.html" target="_blank" rel="noopener">时间函数、数值函数、字符串函数</a></p>
+<h2 id="格式规范"><a href="#格式规范" class="headerlink" title="格式规范"></a>格式规范</h2><p><a href="https://zhuanlan.zhihu.com/p/27466166" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27466166</a></p>
+<p><a href="https://www.sqlstyle.guide/" target="_blank" rel="noopener">https://www.sqlstyle.guide/</a></p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a href="[http://www.runoob.com/mysql/mysql-tutorial.html](http://www.runoob.com/mysql/mysql-tutorial.html">RUNOOB教程</a>)</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/001508284671805d39d23243d884b8b99f440bfae87b0f4000" target="_blank" rel="noopener">张雪峰SQL教程</a></p>
+<p><a href="https://wx.zsxq.com/mweb/views/topicdetail/topicdetail.html?topic_id=244445842852211&amp;group_id=822245485482" target="_blank" rel="noopener">Datawhale-MySQL</a></p>
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><h3 id="项目一：查找重复的电子邮箱（难度：简单）"><a href="#项目一：查找重复的电子邮箱（难度：简单）" class="headerlink" title="项目一：查找重复的电子邮箱（难度：简单）"></a>项目一：查找重复的电子邮箱（难度：简单）</h3><p>创建 email表，并插入如下三行数据</p>
+<pre><code>+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+</code></pre><p>编写一个 SQL 查询，查找 email 表中所有重复的电子邮箱。<br>根据以上输入，你的查询应返回以下结果：</p>
+<pre><code>+---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+</code></pre><p>说明：所有电子邮箱都是小写字母。</p>
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><p>SELECT Email FROM email_table GROUP BY Email HAVING COUNT(Email) &gt;= 2;</p>
+<p><img src="https://i.imgur.com/kbS2Knh.png" alt=""></p>
+<h3 id="项目二：查找大国（难度：简单）"><a href="#项目二：查找大国（难度：简单）" class="headerlink" title="项目二：查找大国（难度：简单）"></a>项目二：查找大国（难度：简单）</h3><p>创建如下 World 表</p>
+<pre><code>+-----------------+------------+------------+--------------+---------------+
+| name            | continent  | area       | population   | gdp           |
++-----------------+------------+------------+--------------+---------------+
+| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
+| Albania         | Europe     | 28748      | 2831741      | 12960000      |
+| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |
+| Andorra         | Europe     | 468        | 78115        | 3712000       |
+| Angola          | Africa     | 1246700    | 20609294     | 100990000     |
++-----------------+------------+------------+--------------+---------------+
+</code></pre><p>如果一个国家的面积超过300万平方公里，或者(人口超过2500万并且gdp超过2000万)，那么这个国家就是大国家。<br>编写一个SQL查询，输出表中所有大国家的名称、人口和面积。<br>例如，根据上表，我们应该输出:</p>
+<pre><code>+--------------+-------------+--------------+
+| name         | population  | area         |
++--------------+-------------+--------------+
+| Afghanistan  | 25500100    | 652230       |
+| Algeria      | 37100000    | 2381741      |
++--------------+-------------+--------------+
+</code></pre><h3 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h3><pre><code>SELECT name, population, area
+FROM World
+WHERE area &gt; 3000000 OR (population &gt; 25000000 AND gdp &gt; 20000000);
+</code></pre><p><img src="https://i.imgur.com/YLS5jZU.png" alt=""></p>
+<p>附作业创建表代码：</p>
+<pre><code>--项目一
+-- 创建表
+CREATE TABLE email (
+ID INT NOT NULL PRIMARY KEY,
+Email VARCHAR(255)
+)
 
-        } 
-        location /static/ {
-            alias /data/wwwroot/mysite/static/; #静态资源路径
-        }
-    }
-}
-</code></pre><p>要留意备注的地方，要和UWSGI配置文件mysite.xml，还有项目路径对应上。 </p>
-<p>进入/usr/local/nginx/sbin/目录执行<code>./nginx -t</code>命令先检查配置文件是否有错，没有错就执行以下命令：</p>
-<pre><code>./nginx
-</code></pre><p>终端没有任何提示就证明nginx启动成功。可以使用你的服务器地址查看，成功之后就会看到一个nginx欢迎页面。</p>
-<p>之后，在settings.py里设置：</p>
-<p>1、关闭DEBUG模式。</p>
-<pre><code>DEBUG = False  
-</code></pre><p>2、ALLOWED_HOSTS设置为* 表示任何IP都可以访问网站。</p>
-<pre><code>ALLOWED_HOSTS = [&apos;*&apos;]
-</code></pre><h2 id="十五、访问项目的页面"><a href="#十五、访问项目的页面" class="headerlink" title="十五、访问项目的页面"></a>十五、访问项目的页面</h2><p>进入网站项目目录</p>
-<pre><code>cd /data/wwwroot/mysite/
-</code></pre><p>执行下面命令：</p>
-<pre><code>uwsgi -x mysite.xml
-</code></pre><p>以上步骤都没有出错的话。<br>进入/usr/local/nginx/sbin/目录<br>执行：</p>
-<pre><code>cd /usr/local/nginx/sbin/
-./nginx -s reload
-</code></pre><p>重启nginx 。</p>
-<p>然后在浏览器里访问你的项目地址！</p>
-<pre><code>111.230.111.81/blog/
-</code></pre><p><img src="https://i.imgur.com/67uezFD.png" alt=""></p>
-<h2 id="Mysql数据库安装和配置"><a href="#Mysql数据库安装和配置" class="headerlink" title="Mysql数据库安装和配置"></a>Mysql数据库安装和配置</h2><p><a href="https://www.django.cn/article/show-2.html" target="_blank" rel="noopener">https://www.django.cn/article/show-2.html</a></p>
-<p>安装好数据库后还需要安装mysqlclient：</p>
-<pre><code>sudo yum install python3-devel
+-- 插入数据
+INSERT INTO email VALUES(&apos;1&apos;,&apos;a@b.com&apos;);
+INSERT INTO email VALUES(&apos;2&apos;,&apos;c@d.com&apos;);
+INSERT INTO email VALUES(&apos;3&apos;,&apos;a@b.com&apos;);
 
-pip3 install mysqlclient
-</code></pre><p>安装好Mysql后，进入创建数据库<code>mysite</code></p>
-<p>在setting.py设置文件中DATABASE参数修改为如下内容：</p>
-<pre><code>DATABASES = {
-&apos;default&apos;: {
-     &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
-     &apos;NAME&apos;: &apos;mysite&apos;,
-     &apos;HOST&apos;: &apos;localhost&apos;,
-     &apos;PASSWORD&apos;: &apos;密码填这里&apos;,
-     &apos;read_default_file&apos;: &apos;/path/to/my.cnf&apos;,
-     &apos;init_command&apos;: &apos;SET default_storage_engine=INNODB&apos;,
-       }
-}
-</code></pre><p>注意：必须提前进入mysql，创建一个数据库名字为<code>mysite</code></p>
-<p>转自：<a href="https://www.django.cn/article/show-4.html" target="_blank" rel="noopener">www.django.cn</a></p>
 
+--项目二
+-- 创建表
+CREATE TABLE World (
+name VARCHAR(50) NOT NULL,
+continent VARCHAR(50) NOT NULL,
+area INT NOT NULL,
+population INT NOT NULL,
+gdp INT NOT NULL
+);
+
+
+-- 插入数据
+INSERT INTO World VALUES( &apos;Afghanistan&apos;, &apos;Asia&apos;,652230,25500100,20343000);
+INSERT INTO World VALUES( &apos;Albania&apos;, &apos;Europe&apos; ,28748,2831741,12960000);
+INSERT INTO World VALUES( &apos;Algeria&apos;, &apos;Africa&apos; ,2381741,37100000,188681000);
+INSERT INTO World VALUES( &apos;Andorra&apos; , &apos;Europe&apos; ,468,78115,3712000);
+INSERT INTO World VALUES( &apos;Angola&apos; , &apos;Africa&apos; ,1246700,20609294,100990000);
+</code></pre>
       
     </div>
     
@@ -661,7 +913,7 @@ pip3 install mysqlclient
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/" title="Centos7上Django+Mysql+Nginx+nwsgi环境搭建">https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</a>
+    <a href="https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/" title="廖雪峰SQL教程--查询数据(三)">https://zxpgo.github.io/2019/02/26/廖雪峰SQL教程--查询数据(三)/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -676,7 +928,7 @@ pip3 install mysqlclient
       
         <div class="post-tags">
           
-            <a href="/tag/APP开发/" rel="tag"># APP开发</a>
+            <a href="/tag/SQL/" rel="tag"># SQL</a>
           
         </div>
       
@@ -704,8 +956,8 @@ pip3 install mysqlclient
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/15/android绘图系列之三(Paint常用函数介绍)/" rel="next" title="android绘图系列之三(Paint常用函数介绍)">
-                <i class="fa fa-chevron-left"></i> android绘图系列之三(Paint常用函数介绍)
+              <a href="/2019/02/21/C++ Primer Plus--C++中的代码重用（十四）/" rel="next" title="C++ Primer Plus--C++中的代码重用（十四）">
+                <i class="fa fa-chevron-left"></i> C++ Primer Plus--C++中的代码重用（十四）
               </a>
             
           </div>
@@ -713,10 +965,6 @@ pip3 install mysqlclient
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/" rel="prev" title="Centos7上Django+Mysql+Appach环境搭建">
-                Centos7上Django+Mysql+Appach环境搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -934,7 +1182,7 @@ pip3 install mysqlclient
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、更新系统软件包"><span class="nav-number">1.</span> <span class="nav-text">一、更新系统软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装软件管理包和可能使用的依赖"><span class="nav-number">2.</span> <span class="nav-text">二、安装软件管理包和可能使用的依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、下载Pyhton3到-usr-local-目录"><span class="nav-number">3.</span> <span class="nav-text">三、下载Pyhton3到/usr/local 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、查看Python3和pip3安装情况"><span class="nav-number">4.</span> <span class="nav-text">四、查看Python3和pip3安装情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、安装virtualenv-，建议大家都安装一个virtualenv，方便不同版本项目管理。"><span class="nav-number">5.</span> <span class="nav-text">五、安装virtualenv ，建议大家都安装一个virtualenv，方便不同版本项目管理。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、切换到-data-env-下，创建指定版本的虚拟环境。"><span class="nav-number">6.</span> <span class="nav-text">六、切换到/data/env/下，创建指定版本的虚拟环境。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、虚拟环境里用python3安django和uwsgi"><span class="nav-number">7.</span> <span class="nav-text">七、虚拟环境里用python3安django和uwsgi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、切换到网站目录-data-wwwroot-创建Django项目"><span class="nav-number">8.</span> <span class="nav-text">八、切换到网站目录/data/wwwroot,创建Django项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、在templates下添加index-html文件，输入下面内容。"><span class="nav-number">9.</span> <span class="nav-text">九、在templates下添加index.html文件，输入下面内容。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、配置URL"><span class="nav-number">10.</span> <span class="nav-text">十、配置URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、编辑blog-APP下的views-py"><span class="nav-number">11.</span> <span class="nav-text">十一、编辑blog APP下的views.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、启动项目"><span class="nav-number">12.</span> <span class="nav-text">十二、启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、Django正常运行之后我们就开始配置一下uwsgi"><span class="nav-number">13.</span> <span class="nav-text">十三、Django正常运行之后我们就开始配置一下uwsgi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、安装nginx和配置nginx-conf文件"><span class="nav-number">14.</span> <span class="nav-text">十四、安装nginx和配置nginx.conf文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、访问项目的页面"><span class="nav-number">15.</span> <span class="nav-text">十五、访问项目的页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql数据库安装和配置"><span class="nav-number">16.</span> <span class="nav-text">Mysql数据库安装和配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备数据"><span class="nav-number">1.</span> <span class="nav-text">准备数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本查询"><span class="nav-number">2.</span> <span class="nav-text">基本查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件查询"><span class="nav-number">3.</span> <span class="nav-text">条件查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AND"><span class="nav-number">3.0.1.</span> <span class="nav-text">AND</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OR"><span class="nav-number">3.1.</span> <span class="nav-text">OR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NOT"><span class="nav-number">3.2.</span> <span class="nav-text">NOT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的条件表达式"><span class="nav-number">3.3.</span> <span class="nav-text">常用的条件表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询分数在60分-含-～90分-含-之间的学生可以使用的WHERE语句"><span class="nav-number">3.4.</span> <span class="nav-text">查询分数在60分(含)～90分(含)之间的学生可以使用的WHERE语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询前N条数据"><span class="nav-number">3.5.</span> <span class="nav-text">查询前N条数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#投影查询"><span class="nav-number">4.</span> <span class="nav-text">投影查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序-ORDER-BY"><span class="nav-number">5.</span> <span class="nav-text">排序 ORDER BY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页查询"><span class="nav-number">6.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合查询"><span class="nav-number">7.</span> <span class="nav-text">聚合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合函数"><span class="nav-number">7.1.</span> <span class="nav-text">聚合函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-number">8.</span> <span class="nav-text">分组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HAVING"><span class="nav-number">8.1.</span> <span class="nav-text">HAVING</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表查询"><span class="nav-number">9.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接查询"><span class="nav-number">10.</span> <span class="nav-text">连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">10.1.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断语句"><span class="nav-number">11.</span> <span class="nav-text">判断语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">12.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">13.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式规范"><span class="nav-number">14.</span> <span class="nav-text">格式规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料："><span class="nav-number">15.</span> <span class="nav-text">参考资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业"><span class="nav-number">16.</span> <span class="nav-text">作业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目一：查找重复的电子邮箱（难度：简单）"><span class="nav-number">16.1.</span> <span class="nav-text">项目一：查找重复的电子邮箱（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案"><span class="nav-number">16.2.</span> <span class="nav-text">答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目二：查找大国（难度：简单）"><span class="nav-number">16.3.</span> <span class="nav-text">项目二：查找大国（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案-1"><span class="nav-number">16.4.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1642,6 +1890,26 @@ pip3 install mysqlclient
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
