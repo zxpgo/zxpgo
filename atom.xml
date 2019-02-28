@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-02-27T03:19:23.841Z</updated>
+  <updated>2019-02-28T15:19:05.544Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>廖雪峰SQL教程--表操作(四)</title>
+    <link href="https://zxpgo.github.io/2019/02/28/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL%E6%95%99%E7%A8%8B--%E8%A1%A8%E6%93%8D%E4%BD%9C(%E5%9B%9B)/"/>
+    <id>https://zxpgo.github.io/2019/02/28/廖雪峰SQL教程--表操作(四)/</id>
+    <published>2019-02-28T14:09:50.000Z</published>
+    <updated>2019-02-28T15:19:05.544Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关系数据库的基本操作就是增删改查，即CRUD：Create、Retrieve、Update、Delete。其中，对于查询，前面已经详细讲述了SELECT语句的详细用法。
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
+    
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>廖雪峰SQL教程--查询数据(三)</title>
@@ -227,15 +247,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
+    <title>Centos7上Django+Mysql+Appach环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2018-12-22T11:47:32.790Z</updated>
+    <updated>2019-01-23T01:29:21.378Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
+      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
     
     </summary>
     
@@ -247,15 +267,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Appach环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
+    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2019-01-23T01:29:21.378Z</updated>
+    <updated>2018-12-22T11:47:32.790Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
+      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
     
     </summary>
     
@@ -396,27 +416,6 @@
     <summary type="html">
     
       &lt;p&gt;创建存储数据的变量，当屏幕旋转时，Activity被销毁，存储的数据就会消失。因此需要一个更永久的方式来存储用户数据，当关闭应用并重新打开时，用户数据依然存在，这一概念叫做数据持久性。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线程与并行</title>
-    <link href="https://zxpgo.github.io/2018/11/28/%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E8%A1%8C/"/>
-    <id>https://zxpgo.github.io/2018/11/28/线程与并行/</id>
-    <published>2018-11-28T00:40:14.000Z</published>
-    <updated>2018-12-08T04:58:00.161Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Android 系统能够同时运行多个线程， 因此可以相互独立的处理 两组或多组任务。如果有多个线程需要运行， Android 还会&lt;br&gt;就何时运行哪些线程进行优先级排序， 并确定各线程的运行时长。&lt;/p&gt;
-&lt;p&gt;线程也知道如何保存其位置。它不仅会记录所有变量的值， 还会记住完成当前正在执行的指令 会调用的函数系列： 即能够重新完成工作所需的一切内容。
     
     </summary>
     
