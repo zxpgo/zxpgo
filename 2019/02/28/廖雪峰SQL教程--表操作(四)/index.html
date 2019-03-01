@@ -103,7 +103,12 @@
 <meta property="og:image" content="https://i.imgur.com/FTdrolN.png">
 <meta property="og:image" content="https://i.imgur.com/kyIjX3D.png">
 <meta property="og:image" content="https://i.imgur.com/6U5hHDo.png">
-<meta property="og:updated_time" content="2019-02-28T15:19:05.544Z">
+<meta property="og:image" content="https://i.imgur.com/JQhLz4d.png">
+<meta property="og:image" content="https://i.imgur.com/mVw4wtS.png">
+<meta property="og:image" content="https://i.imgur.com/b3dS9dC.png">
+<meta property="og:image" content="https://i.imgur.com/bSpDOb1.png">
+<meta property="og:image" content="https://i.imgur.com/YVVksom.png">
+<meta property="og:updated_time" content="2019-03-01T13:19:27.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰SQL教程--表操作(四)">
 <meta name="twitter:description" content="关系数据库的基本操作就是增删改查，即CRUD：Create、Retrieve、Update、Delete。其中，对于查询，前面已经详细讲述了SELECT语句的详细用法。">
@@ -615,7 +620,28 @@ MODIFY j BIGINT NOT NULL DEFAULT 100;
 | Math    |
 +---------+
 </code></pre><p>Note: 学生在每个课中不应被重复计算。</p>
-<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><h3 id="项目四：交换工资（难度：简单）"><a href="#项目四：交换工资（难度：简单）" class="headerlink" title="项目四：交换工资（难度：简单）"></a>项目四：交换工资（难度：简单）</h3><p>创建一个 salary表，如下所示，有m=男性 和 f=女性的值 。<br>例如:</p>
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><p>创建表：</p>
+<pre><code>CREATE TABLE courses (student VARCHAR(10), class VARCHAR(20));
+</code></pre><p><img src="https://i.imgur.com/JQhLz4d.png" alt=""></p>
+<p>插入数据：</p>
+<pre><code>INSERT INTO courses (student, class) VALUES
+    (&apos;A&apos;, &apos;Math&apos;),
+    (&apos;B&apos;, &apos;English&apos;),
+    (&apos;C&apos;, &apos;Math&apos;),
+    (&apos;D&apos;, &apos;Biology&apos;),
+    (&apos;E&apos;, &apos;Math&apos;),
+    (&apos;F&apos;, &apos;Computer&apos;),
+    (&apos;G&apos;, &apos;Math&apos;),
+    (&apos;H&apos;, &apos;Math&apos;),
+    (&apos;I&apos;, &apos;Math&apos;),
+    (&apos;A&apos;, &apos;Math&apos;);
+</code></pre><p><img src="https://i.imgur.com/mVw4wtS.png" alt=""></p>
+<p>查询操作：</p>
+<pre><code>SELECT class FROM 
+(SELECT DISTINCT student, class FROM courses) as cour
+GROUP BY class HAVING COUNT(class) &gt;=5;
+</code></pre><p><img src="https://i.imgur.com/b3dS9dC.png" alt=""></p>
+<h3 id="项目四：交换工资（难度：简单）"><a href="#项目四：交换工资（难度：简单）" class="headerlink" title="项目四：交换工资（难度：简单）"></a>项目四：交换工资（难度：简单）</h3><p>创建一个 salary表，如下所示，有m=男性 和 f=女性的值 。<br>例如:</p>
 <pre><code>| id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | m   | 2500   |
@@ -629,7 +655,27 @@ MODIFY j BIGINT NOT NULL DEFAULT 100;
 | 2  | B    | m   | 1500   |
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
-</code></pre><h3 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h3>
+</code></pre><h3 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h3><p>创建表：</p>
+<pre><code> CREATE TABLE salary (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(10) NOT NULL, 
+sex CHAR(1) NOT NULL, 
+salary BIGINT);
+</code></pre><p>插入数据：</p>
+<pre><code>INSERT INTO salary (name, sex, salary) VALUES
+(&apos;A&apos;, &apos;m&apos;, 2500),
+(&apos;B&apos;, &apos;f&apos;, 1500),
+(&apos;C&apos;, &apos;m&apos;, 5500),
+(&apos;D&apos;, &apos;f&apos;, 500);
+</code></pre><p><img src="https://i.imgur.com/bSpDOb1.png" alt=""></p>
+<p>查询</p>
+<pre><code>SELECT id, name, case
+    WHEN sex = &apos;f&apos; THEN &apos;m&apos;
+    ELSE &apos;f&apos;
+    END AS sex
+    , salary
+ FROM salary;
+</code></pre><p><img src="https://i.imgur.com/YVVksom.png" alt=""></p>
+
       
     </div>
     
@@ -823,7 +869,7 @@ MODIFY j BIGINT NOT NULL DEFAULT 100;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
