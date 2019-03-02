@@ -107,8 +107,8 @@
 <meta property="og:image" content="https://i.imgur.com/mVw4wtS.png">
 <meta property="og:image" content="https://i.imgur.com/b3dS9dC.png">
 <meta property="og:image" content="https://i.imgur.com/bSpDOb1.png">
-<meta property="og:image" content="https://i.imgur.com/YVVksom.png">
-<meta property="og:updated_time" content="2019-03-01T13:19:27.727Z">
+<meta property="og:image" content="https://i.imgur.com/bGsLcR9.png">
+<meta property="og:updated_time" content="2019-03-02T14:49:48.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="廖雪峰SQL教程--表操作(四)">
 <meta name="twitter:description" content="关系数据库的基本操作就是增删改查，即CRUD：Create、Retrieve、Update、Delete。其中，对于查询，前面已经详细讲述了SELECT语句的详细用法。">
@@ -568,7 +568,18 @@ VALUES (2, &apos;大牛&apos;, &apos;M&apos;, 80);
 <p>3、通过使用事务复制或合并复制发布的表。</p>
 <p>4、对于具有以上一个或多个特征的表，请使用 DELETE 语句。</p>
 <p>5、TRUNCATE TABLE 不能激活触发器，因为该操作不记录各个行删除。</p>
-<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL <code>ALTER</code>命令。</p>
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><p>语法：</p>
+<pre><code>UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;
+--例子
+UPDATE students SET name=&apos;大牛&apos;, score=66 WHERE id=1;
+</code></pre><p>交换数据中的值：</p>
+<pre><code>UPDATE salary
+       SET sex = CASE
+       WHEN sex = &apos;f&apos; THEN &apos;m&apos;
+       ELSE &apos;f&apos;
+       END;
+   SELECT * FROM salary;
+</code></pre><h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL <code>ALTER</code>命令。</p>
 <h3 id="删除、修改或添加字段"><a href="#删除、修改或添加字段" class="headerlink" title="删除、修改或添加字段"></a>删除、修改或添加字段</h3><p>首先创建一张表，表明testalter_tbl:</p>
 <pre><code>create table testalter_tbl
     (
@@ -668,13 +679,13 @@ salary BIGINT);
 (&apos;D&apos;, &apos;f&apos;, 500);
 </code></pre><p><img src="https://i.imgur.com/bSpDOb1.png" alt=""></p>
 <p>查询</p>
-<pre><code>SELECT id, name, case
+<pre><code> UPDATE salary
+    SET sex = CASE
     WHEN sex = &apos;f&apos; THEN &apos;m&apos;
     ELSE &apos;f&apos;
-    END AS sex
-    , salary
- FROM salary;
-</code></pre><p><img src="https://i.imgur.com/YVVksom.png" alt=""></p>
+    END;
+SELECT * FROM salary;
+</code></pre><p><img src="https://i.imgur.com/bGsLcR9.png" alt=""></p>
 
       
     </div>
@@ -785,6 +796,10 @@ salary BIGINT);
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/01/表联结/" rel="prev" title="表联结">
+                表联结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -869,7 +884,7 @@ salary BIGINT);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1001,7 +1016,7 @@ salary BIGINT);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表数据类型"><span class="nav-number">1.</span> <span class="nav-text">MySQL表数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表CREATE"><span class="nav-number">2.</span> <span class="nav-text">创建表CREATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据INSERT"><span class="nav-number">3.</span> <span class="nav-text">插入数据INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表和数据"><span class="nav-number">4.</span> <span class="nav-text">删除表和数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不能使用TRUNCAATE的情况"><span class="nav-number">4.1.</span> <span class="nav-text">不能使用TRUNCAATE的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表"><span class="nav-number">5.</span> <span class="nav-text">修改表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除、修改或添加字段"><span class="nav-number">5.1.</span> <span class="nav-text">删除、修改或添加字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段类型及名称"><span class="nav-number">5.2.</span> <span class="nav-text">修改字段类型及名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段默认值"><span class="nav-number">5.3.</span> <span class="nav-text">修改字段默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业"><span class="nav-number">6.</span> <span class="nav-text">作业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目三：超过5名学生的课（难度：简单）"><span class="nav-number">6.1.</span> <span class="nav-text">项目三：超过5名学生的课（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案"><span class="nav-number">6.2.</span> <span class="nav-text">答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目四：交换工资（难度：简单）"><span class="nav-number">6.3.</span> <span class="nav-text">项目四：交换工资（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案-1"><span class="nav-number">6.4.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表数据类型"><span class="nav-number">1.</span> <span class="nav-text">MySQL表数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表CREATE"><span class="nav-number">2.</span> <span class="nav-text">创建表CREATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据INSERT"><span class="nav-number">3.</span> <span class="nav-text">插入数据INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表和数据"><span class="nav-number">4.</span> <span class="nav-text">删除表和数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不能使用TRUNCAATE的情况"><span class="nav-number">4.1.</span> <span class="nav-text">不能使用TRUNCAATE的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改数据"><span class="nav-number">5.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表"><span class="nav-number">6.</span> <span class="nav-text">修改表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除、修改或添加字段"><span class="nav-number">6.1.</span> <span class="nav-text">删除、修改或添加字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段类型及名称"><span class="nav-number">6.2.</span> <span class="nav-text">修改字段类型及名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字段默认值"><span class="nav-number">6.3.</span> <span class="nav-text">修改字段默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业"><span class="nav-number">7.</span> <span class="nav-text">作业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目三：超过5名学生的课（难度：简单）"><span class="nav-number">7.1.</span> <span class="nav-text">项目三：超过5名学生的课（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案"><span class="nav-number">7.2.</span> <span class="nav-text">答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目四：交换工资（难度：简单）"><span class="nav-number">7.3.</span> <span class="nav-text">项目四：交换工资（难度：简单）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案-1"><span class="nav-number">7.4.</span> <span class="nav-text">答案</span></a></li></ol></li></ol></div>
             
 
           </div>

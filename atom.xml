@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-01T13:19:27.727Z</updated>
+  <updated>2019-03-02T14:41:21.474Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>表联结</title>
+    <link href="https://zxpgo.github.io/2019/03/01/%E8%A1%A8%E8%81%94%E7%BB%93/"/>
+    <id>https://zxpgo.github.io/2019/03/01/表联结/</id>
+    <published>2019-03-01T14:09:50.000Z</published>
+    <updated>2019-03-02T14:41:21.474Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这节介绍如何使用 MySQL 的 JOIN 在两个或多个表中查询数据。可以在 SELECT, UPDATE 和 DELETE 语句中使用 Mysql 的 JOIN 来联合多表查询。
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
+    
+    
+      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>廖雪峰SQL教程--表操作(四)</title>
     <link href="https://zxpgo.github.io/2019/02/28/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL%E6%95%99%E7%A8%8B--%E8%A1%A8%E6%93%8D%E4%BD%9C(%E5%9B%9B)/"/>
     <id>https://zxpgo.github.io/2019/02/28/廖雪峰SQL教程--表操作(四)/</id>
     <published>2019-02-28T14:09:50.000Z</published>
-    <updated>2019-03-01T13:19:27.727Z</updated>
+    <updated>2019-03-02T14:49:48.670Z</updated>
     
     <summary type="html">
     
@@ -367,26 +387,6 @@
   </entry>
   
   <entry>
-    <title>使用CurosrLoader加载数据</title>
-    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
-    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
-    <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2018-12-09T11:36:22.465Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Malware Propagations in Wireless Ad Hoc Networks</title>
     <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
     <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
@@ -407,15 +407,15 @@
   </entry>
   
   <entry>
-    <title>Content Providers简介</title>
-    <link href="https://zxpgo.github.io/2018/12/04/Content%20Providers%E7%AE%80%E4%BB%8B/"/>
-    <id>https://zxpgo.github.io/2018/12/04/Content Providers简介/</id>
-    <published>2018-12-04T10:52:14.000Z</published>
-    <updated>2018-12-08T04:37:08.267Z</updated>
+    <title>使用CurosrLoader加载数据</title>
+    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
+    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
+    <published>2018-12-09T10:52:14.000Z</published>
+    <updated>2018-12-09T11:36:22.465Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;如果直接调用SQLite数据库，很容易引入错误，假如Activity中有错别字，就会将无效输入插入到数据库中。可以通过引入一个名为Content Provider的概念，作为数据库和活动之间的一个层。使用其有很多好处，可以用它确保输入数据库中的数据是有效的。介绍它，必须介绍URI、UriMatcher、Content Resolver。
+      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
     
     </summary>
     
