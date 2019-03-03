@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-03T11:24:14.282Z</updated>
+  <updated>2019-03-03T11:30:04.683Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://zxpgo.github.io/2019/03/03/Excel%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E5%92%8C%E7%BB%83%E4%B9%A0%E9%A2%98/"/>
     <id>https://zxpgo.github.io/2019/03/03/Excel文件导入导出和练习题/</id>
     <published>2019-03-03T05:44:14.000Z</published>
-    <updated>2019-03-03T11:24:14.282Z</updated>
+    <updated>2019-03-03T11:30:04.683Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;p&gt;Excel文件导入到Mysql，以及Mysql导出到本地文件中。最后附加三个练习题！
     
     </summary>
     
@@ -313,15 +307,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
+    <title>Centos7上Django+Mysql+Appach环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2018-12-22T11:47:32.790Z</updated>
+    <updated>2019-01-23T01:29:21.378Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
+      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
     
     </summary>
     
@@ -333,15 +327,15 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Appach环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
+    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
     <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2019-01-23T01:29:21.378Z</updated>
+    <updated>2018-12-22T11:47:32.790Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
+      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
     
     </summary>
     
@@ -413,22 +407,22 @@
   </entry>
   
   <entry>
-    <title>使用CurosrLoader加载数据</title>
-    <link href="https://zxpgo.github.io/2018/12/09/%E4%BD%BF%E7%94%A8CurosrLoader%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE/"/>
-    <id>https://zxpgo.github.io/2018/12/09/使用CurosrLoader加载数据/</id>
+    <title>Malware Propagations in Wireless Ad Hoc Networks</title>
+    <link href="https://zxpgo.github.io/2018/12/09/Malware%20Propagations%20in%20Wireless%20Ad%20Hoc%20Networks/"/>
+    <id>https://zxpgo.github.io/2018/12/09/Malware Propagations in Wireless Ad Hoc Networks/</id>
     <published>2018-12-09T10:52:14.000Z</published>
-    <updated>2018-12-09T11:36:22.465Z</updated>
+    <updated>2019-02-18T15:08:03.445Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;使用CursorLoader在一个后台线程上从数据库中加载数据，这将保持我们应用的响应性。
+      &lt;p&gt;无线Ad hoc网络中恶意软件传播研究。
     
     </summary>
     
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
+      <category term="论文" scheme="https://zxpgo.github.io/categories/%E8%AE%BA%E6%96%87/"/>
     
     
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
+      <category term="论文" scheme="https://zxpgo.github.io/tag/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
