@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-04T07:55:19.433Z</updated>
+  <updated>2019-03-16T13:10:18.537Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Primer Plus--输入、输出和文件（十七）</title>
+    <link href="https://zxpgo.github.io/2019/03/08/C++%20Primer%20Plus--%E8%BE%93%E5%85%A5%E3%80%81%E8%BE%93%E5%87%BA%E5%92%8C%E6%96%87%E4%BB%B6%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/03/08/C++ Primer Plus--输入、输出和文件（十七）/</id>
+    <published>2019-03-08T05:44:14.000Z</published>
+    <updated>2019-03-16T13:10:18.537Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对C++输入和输出（简称I/O）的讨论提出了一个问题。一方面，几乎每个程序都要使用输入和输出，因此了解如何使用它们是每个学习计算机语言的人面临的首要任务；另一个方面，C++使用了很多较为高级的语言特性来实现输入和输出，其中包括：类、派生类、函数重载、模板和多重继承。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL实战</title>
@@ -347,26 +367,6 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Appach环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
-    <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2019-01-23T01:29:21.378Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
     <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
@@ -387,15 +387,15 @@
   </entry>
   
   <entry>
-    <title>android绘图系列之三(Paint常用函数介绍)</title>
-    <link href="https://zxpgo.github.io/2018/12/15/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%89(Paint%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D)/"/>
-    <id>https://zxpgo.github.io/2018/12/15/android绘图系列之三(Paint常用函数介绍)/</id>
-    <published>2018-12-15T12:57:14.000Z</published>
-    <updated>2018-12-15T13:08:21.215Z</updated>
+    <title>Centos7上Django+Mysql+Appach环境搭建</title>
+    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
+    <published>2018-12-21T12:57:14.000Z</published>
+    <updated>2019-01-23T01:29:21.378Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面介绍了基本的paint和canvas的基本用法，这里汇总paint常用函数。
+      &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
     
     </summary>
     
@@ -407,15 +407,15 @@
   </entry>
   
   <entry>
-    <title>android绘图系列之二(Canvas绘制文本drawText)</title>
-    <link href="https://zxpgo.github.io/2018/12/13/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C(Canvas%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%ACdrawText)/"/>
-    <id>https://zxpgo.github.io/2018/12/13/android绘图系列之二(Canvas绘制文本drawText)/</id>
-    <published>2018-12-13T06:44:14.000Z</published>
-    <updated>2018-12-13T11:14:17.537Z</updated>
+    <title>android绘图系列之三(Paint常用函数介绍)</title>
+    <link href="https://zxpgo.github.io/2018/12/15/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%89(Paint%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D)/"/>
+    <id>https://zxpgo.github.io/2018/12/15/android绘图系列之三(Paint常用函数介绍)/</id>
+    <published>2018-12-15T12:57:14.000Z</published>
+    <updated>2018-12-15T13:08:21.215Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;系列之一介绍了绘制基本图形，比如矩形、直线、圆等。Canvas除了这些操作，还有两个重量级的绘制能力:Text(文本)和Path(路径),这里介绍Text的绘制。
+      &lt;p&gt;前面介绍了基本的paint和canvas的基本用法，这里汇总paint常用函数。
     
     </summary>
     
