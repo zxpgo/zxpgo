@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-16T13:10:18.537Z</updated>
+  <updated>2019-03-24T14:26:01.151Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Primer Plus--探讨C++新标准（十八）</title>
+    <link href="https://zxpgo.github.io/2019/03/15/C++%20Primer%20Plus--%E6%8E%A2%E8%AE%A8C++%E6%96%B0%E6%A0%87%E5%87%86%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/03/15/C++ Primer Plus--探讨C++新标准（十八）/</id>
+    <published>2019-03-15T05:44:14.000Z</published>
+    <updated>2019-03-24T14:26:01.151Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先介绍前面提高过的C++11新功能，并详细介绍其他一些功能。最后，简要地探讨BOOST库。
+    
+    </summary>
+    
+      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ Primer Plus--输入、输出和文件（十七）</title>
@@ -30,6 +50,24 @@
     </summary>
     
       <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>牛客网C/C++错题集</title>
+    <link href="https://zxpgo.github.io/2019/03/05/%E7%89%9B%E5%AE%A2%E7%BD%91C++%E9%94%99%E9%A2%98%E9%9B%86/"/>
+    <id>https://zxpgo.github.io/2019/03/05/牛客网C++错题集/</id>
+    <published>2019-03-05T05:44:14.000Z</published>
+    <updated>2019-03-24T14:26:05.392Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;牛客网C/C++每天练习十题，记录重要知识点和错题。
+    
+    </summary>
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
@@ -137,15 +175,15 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--string类和标准模板库（十六）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--string类和标准模板库（十六）/</id>
+    <title>C++ Primer Plus--友元、异常和其他（十五）</title>
+    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--%E5%8F%8B%E5%85%83%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96%EF%BC%88%E5%8D%81%E4%BA%94)/"/>
+    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--友元、异常和其他（十五)/</id>
     <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-11T05:58:32.745Z</updated>
+    <updated>2019-03-01T13:22:19.142Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面学习了C++的代码重用，这样做一个很大的回报是可以重用别人编写的代码，这正是类库的用武之地。有很多商业C++类库，也有一些库是C++程序包自带的。本章介绍一些其他可重用代码，它们将给编程工作带来快乐！本章将更深入讨论string类；然后介绍“智能指针”模板类，它们让管理动态内存更容易；接下来介绍标准模板库（STL）,它是一组用于处理各种容器对象的模板。
+      &lt;p&gt;首先介绍一些C++语言最初的特性，然后介绍C++语言新增的一些特定。前者包括友元类、友元成员函数和嵌套类，它们是在其他类种声明的类；后者包括异常、运行阶段类型识别(RTTI)和改进后的类型转换控制。
     
     </summary>
     
@@ -157,15 +195,15 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--友元、异常和其他（十五）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--%E5%8F%8B%E5%85%83%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96%EF%BC%88%E5%8D%81%E4%BA%94)/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--友元、异常和其他（十五)/</id>
+    <title>C++ Primer Plus--string类和标准模板库（十六）</title>
+    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--string类和标准模板库（十六）/</id>
     <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-01T13:22:19.142Z</updated>
+    <updated>2019-03-11T05:58:32.745Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;首先介绍一些C++语言最初的特性，然后介绍C++语言新增的一些特定。前者包括友元类、友元成员函数和嵌套类，它们是在其他类种声明的类；后者包括异常、运行阶段类型识别(RTTI)和改进后的类型转换控制。
+      &lt;p&gt;前面学习了C++的代码重用，这样做一个很大的回报是可以重用别人编写的代码，这正是类库的用武之地。有很多商业C++类库，也有一些库是C++程序包自带的。本章介绍一些其他可重用代码，它们将给编程工作带来快乐！本章将更深入讨论string类；然后介绍“智能指针”模板类，它们让管理动态内存更容易；接下来介绍标准模板库（STL）,它是一组用于处理各种容器对象的模板。
     
     </summary>
     
@@ -367,26 +405,6 @@
   </entry>
   
   <entry>
-    <title>Centos7上Django+Mysql+Nginx+nwsgi环境搭建</title>
-    <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Nginx+nwsgi%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Nginx+nwsgi环境搭建/</id>
-    <published>2018-12-21T12:57:14.000Z</published>
-    <updated>2018-12-22T11:47:32.790Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面用Appache+mod_wsgi搭建时，遇到问题没有解决，所以转移到Nginx+nwsgi。这里主要介绍如何配置nginx。
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Centos7上Django+Mysql+Appach环境搭建</title>
     <link href="https://zxpgo.github.io/2018/12/21/Centos7%E4%B8%8ADjango+Mysql+Appach%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://zxpgo.github.io/2018/12/21/Centos7上Django+Mysql+Appach环境搭建/</id>
@@ -396,26 +414,6 @@
     <summary type="html">
     
       &lt;p&gt;网上的教程都比较乱，结合Django官方文档搭建后台，在这里总结一下以备后用！
-    
-    </summary>
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/categories/APP%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="APP开发" scheme="https://zxpgo.github.io/tag/APP%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>android绘图系列之三(Paint常用函数介绍)</title>
-    <link href="https://zxpgo.github.io/2018/12/15/android%E7%BB%98%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E4%B8%89(Paint%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D)/"/>
-    <id>https://zxpgo.github.io/2018/12/15/android绘图系列之三(Paint常用函数介绍)/</id>
-    <published>2018-12-15T12:57:14.000Z</published>
-    <updated>2018-12-15T13:08:21.215Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面介绍了基本的paint和canvas的基本用法，这里汇总paint常用函数。
     
     </summary>
     
