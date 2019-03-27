@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-27T14:30:25.081Z</updated>
+  <updated>2019-03-27T14:34:59.401Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -17,22 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Shell编程-输出命令echo和printf(四)</title>
-    <link href="https://zxpgo.github.io/2019/03/27/Shell%E7%BC%96%E7%A8%8B-echo%E5%91%BD%E4%BB%A4(%E5%9B%9B)/"/>
-    <id>https://zxpgo.github.io/2019/03/27/Shell编程-echo命令(四)/</id>
-    <published>2019-03-27T12:18:14.000Z</published>
-    <updated>2019-03-27T14:30:25.081Z</updated>
+    <title>公告</title>
+    <link href="https://zxpgo.github.io/2100/03/27/%E5%85%AC%E5%91%8A/"/>
+    <id>https://zxpgo.github.io/2100/03/27/公告/</id>
+    <published>2100-03-27T12:18:14.000Z</published>
+    <updated>2019-03-27T14:34:59.401Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Shell的echo指令与PHP的echo指令类似，都是用于字符串的输出，命令格式：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;echo string
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;您可以使用echo实现复杂的输出格式控制。
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
-    
-      <category term="Shell" scheme="https://zxpgo.github.io/tag/Shell/"/>
     
   </entry>
   
@@ -46,6 +48,26 @@
     <summary type="html">
     
       &lt;p&gt;Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="https://zxpgo.github.io/tag/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell编程-输出命令echo和printf(四)</title>
+    <link href="https://zxpgo.github.io/2019/03/27/Shell%E7%BC%96%E7%A8%8B-echo%E5%91%BD%E4%BB%A4(%E5%9B%9B)/"/>
+    <id>https://zxpgo.github.io/2019/03/27/Shell编程-echo命令(四)/</id>
+    <published>2019-03-27T12:18:14.000Z</published>
+    <updated>2019-03-27T14:30:25.081Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Shell的echo指令与PHP的echo指令类似，都是用于字符串的输出，命令格式：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo string
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;您可以使用echo实现复杂的输出格式控制。
     
     </summary>
     
@@ -269,15 +291,15 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--string类和标准模板库（十六）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--string类和标准模板库（十六）/</id>
+    <title>C++ Primer Plus--友元、异常和其他（十五）</title>
+    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--%E5%8F%8B%E5%85%83%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96%EF%BC%88%E5%8D%81%E4%BA%94)/"/>
+    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--友元、异常和其他（十五)/</id>
     <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-11T05:58:32.745Z</updated>
+    <updated>2019-03-01T13:22:19.142Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;前面学习了C++的代码重用，这样做一个很大的回报是可以重用别人编写的代码，这正是类库的用武之地。有很多商业C++类库，也有一些库是C++程序包自带的。本章介绍一些其他可重用代码，它们将给编程工作带来快乐！本章将更深入讨论string类；然后介绍“智能指针”模板类，它们让管理动态内存更容易；接下来介绍标准模板库（STL）,它是一组用于处理各种容器对象的模板。
+      &lt;p&gt;首先介绍一些C++语言最初的特性，然后介绍C++语言新增的一些特定。前者包括友元类、友元成员函数和嵌套类，它们是在其他类种声明的类；后者包括异常、运行阶段类型识别(RTTI)和改进后的类型转换控制。
     
     </summary>
     
@@ -289,15 +311,15 @@
   </entry>
   
   <entry>
-    <title>C++ Primer Plus--友元、异常和其他（十五）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--%E5%8F%8B%E5%85%83%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96%EF%BC%88%E5%8D%81%E4%BA%94)/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--友元、异常和其他（十五)/</id>
+    <title>C++ Primer Plus--string类和标准模板库（十六）</title>
+    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/"/>
+    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--string类和标准模板库（十六）/</id>
     <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-01T13:22:19.142Z</updated>
+    <updated>2019-03-11T05:58:32.745Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;首先介绍一些C++语言最初的特性，然后介绍C++语言新增的一些特定。前者包括友元类、友元成员函数和嵌套类，它们是在其他类种声明的类；后者包括异常、运行阶段类型识别(RTTI)和改进后的类型转换控制。
+      &lt;p&gt;前面学习了C++的代码重用，这样做一个很大的回报是可以重用别人编写的代码，这正是类库的用武之地。有很多商业C++类库，也有一些库是C++程序包自带的。本章介绍一些其他可重用代码，它们将给编程工作带来快乐！本章将更深入讨论string类；然后介绍“智能指针”模板类，它们让管理动态内存更容易；接下来介绍标准模板库（STL）,它是一组用于处理各种容器对象的模板。
     
     </summary>
     
@@ -387,26 +409,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7使用yum安装提示cannot find a valid baseurl for repo:base/7/x86_64 的解决方法</title>
-    <link href="https://zxpgo.github.io/2019/02/12/Centos7%E7%94%A8yum%E5%AE%89%E8%A3%85%E6%8F%90%E7%A4%BAcannot%20find%20a%20valid%20baseurl%20for%20rep/"/>
-    <id>https://zxpgo.github.io/2019/02/12/Centos7用yum安装提示cannot find a valid baseurl for rep/</id>
-    <published>2019-02-12T05:08:14.000Z</published>
-    <updated>2019-02-18T13:54:54.259Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;*无法联网的明显表现会有：&lt;/p&gt;
-&lt;p&gt;　　1、yum install出现 Error: cannot find a valid baseurl or repo:base&lt;/p&gt;
-&lt;p&gt;　　2、ping host会提示unknown host&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
     
   </entry>
   
