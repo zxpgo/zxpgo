@@ -39,6 +39,66 @@
   </entry>
   
   <entry>
+    <title>C语言实现发送邮件</title>
+    <link href="https://zxpgo.github.io/2019/03/31/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>https://zxpgo.github.io/2019/03/31/C语言实现发送邮件/</id>
+    <published>2019-03-31T03:44:14.000Z</published>
+    <updated>2019-03-31T14:18:18.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Socket编程</title>
+    <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
+    <published>2019-03-31T03:44:14.000Z</published>
+    <updated>2019-03-31T14:18:17.762Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VS2017 socket新函数代替旧函数引起的编译错误</title>
+    <link href="https://zxpgo.github.io/2019/03/31/VS2017%20socket%E6%96%B0%E5%87%BD%E6%95%B0%E4%BB%A3%E6%9B%BF%E6%97%A7%E5%87%BD%E6%95%B0%E5%BC%95%E8%B5%B7%E7%9A%84%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/"/>
+    <id>https://zxpgo.github.io/2019/03/31/VS2017 socket新函数代替旧函数引起的编译错误/</id>
+    <published>2019-03-31T02:44:14.000Z</published>
+    <updated>2019-03-31T14:18:16.827Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;错误描述：error C4996: ‘inet_addr’: Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Shell编程-输入/输出重定向(七)</title>
     <link href="https://zxpgo.github.io/2019/03/28/Shell%E7%BC%96%E7%A8%8B-%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91(%E4%B8%83)/"/>
     <id>https://zxpgo.github.io/2019/03/28/Shell编程-输入-输出重定向(七)/</id>
@@ -341,66 +401,6 @@
     
     
       <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--string类和标准模板库（十六）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--string类和标准模板库（十六）/</id>
-    <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-11T05:58:32.745Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面学习了C++的代码重用，这样做一个很大的回报是可以重用别人编写的代码，这正是类库的用武之地。有很多商业C++类库，也有一些库是C++程序包自带的。本章介绍一些其他可重用代码，它们将给编程工作带来快乐！本章将更深入讨论string类；然后介绍“智能指针”模板类，它们让管理动态内存更容易；接下来介绍标准模板库（STL）,它是一组用于处理各种容器对象的模板。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--友元、异常和其他（十五）</title>
-    <link href="https://zxpgo.github.io/2019/02/24/C++%20Primer%20Plus--%E5%8F%8B%E5%85%83%E3%80%81%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96%EF%BC%88%E5%8D%81%E4%BA%94)/"/>
-    <id>https://zxpgo.github.io/2019/02/24/C++ Primer Plus--友元、异常和其他（十五)/</id>
-    <published>2019-02-24T05:44:14.000Z</published>
-    <updated>2019-03-01T13:22:19.142Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先介绍一些C++语言最初的特性，然后介绍C++语言新增的一些特定。前者包括友元类、友元成员函数和嵌套类，它们是在其他类种声明的类；后者包括异常、运行阶段类型识别(RTTI)和改进后的类型转换控制。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Primer Plus--C++中的代码重用（十四）</title>
-    <link href="https://zxpgo.github.io/2019/02/21/C++%20Primer%20Plus--C++%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/"/>
-    <id>https://zxpgo.github.io/2019/02/21/C++ Primer Plus--C++中的代码重用（十四）/</id>
-    <published>2019-02-21T02:58:14.000Z</published>
-    <updated>2019-02-23T14:35:53.569Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;C++的一个主要目的是促进代码重用。公有继承是实现这种目标的机制之一，但并不是唯一的机制。本章将介绍其他方法，其一就是本身是另一个类的对象，称为包含、组合或层次化。另一种方法是使用私有或保护继承。最后，还包括类模板。
-    
-    </summary>
-    
-      <category term="C++ Primer Plus学习笔记" scheme="https://zxpgo.github.io/categories/C-Primer-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
     
   </entry>
   

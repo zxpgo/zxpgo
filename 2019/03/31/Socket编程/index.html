@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="socket," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。">
+<meta name="keywords" content="socket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Socket编程">
+<meta property="og:url" content="https://zxpgo.github.io/2019/03/31/Socket编程/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/d000baa1cd11728b45647b06cafcc3cec3fd2c4c.jpg">
+<meta property="og:updated_time" content="2019-03-31T14:18:17.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Socket编程">
+<meta name="twitter:description" content="socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。">
+<meta name="twitter:image" content="http://pp0km9u5d.bkt.clouddn.com/d000baa1cd11728b45647b06cafcc3cec3fd2c4c.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/03/31/Socket编程/"/>
+
+
+
+
+
+  <title>Socket编程 | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/03/31/Socket编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Socket编程</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T11:44:14+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/31/Socket编程/" class="leancloud_visitors" data-flag-title="Socket编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。<a id="more"></a></p>
+<h2 id="socket原理"><a href="#socket原理" class="headerlink" title="socket原理"></a>socket原理</h2><p>Socket（套接字）只是一个概念，并不是存在实体。协议栈内部有一块用于存储控制信息的内存空间，这里记录了用于控制通信操作的控制信息，例如通信对象的IP地址、端口号、通信操作的进行状态等，这就是套接字。</p>
+<p>Socket通信流程：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/d000baa1cd11728b45647b06cafcc3cec3fd2c4c.jpg" alt=""></p>
+<p>收发数据的操作分为如下4个阶段：</p>
+<ul>
+<li>创建套套接字</li>
+<li>将管理连接到服务器的套接字上</li>
+<li>收发数据</li>
+<li>断开管理并删除套接字</li>
+</ul>
+<h1 id="C-中Socket通信函数"><a href="#C-中Socket通信函数" class="headerlink" title="C++中Socket通信函数"></a>C++中Socket通信函数</h1><p>头文件和库加载</p>
+<pre><code>#include &lt;WinSock2.h&gt; //socket头文件
+#pragma comment(lib, &quot;ws2_32.lib&quot;) //socket库
+</code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="第一步：-加载Socket库"><a href="#第一步：-加载Socket库" class="headerlink" title="第一步： 加载Socket库"></a>第一步： 加载Socket库</h3><p>WSAStartup()</p>
+<p>使用Socket之前需要调用此函数</p>
+<pre><code>int
+WSAAPI
+WSAStartup(
+    _In_ WORD wVersionRequested,
+    _Out_ LPWSADATA lpWSAData
+    );
+</code></pre><p>第一个参数是：Socket版本；第二个参数：操作系统通过它返回请求Socket版本信息</p>
+<p>MAKEEORD(a, b)是一个宏定义，第一个参数是主版本号，第二个参数是副版本号</p>
+<p>示例代码：</p>
+<pre><code>WSADATA wsaData;//获取版本信息
+WSAStartup(MAKEWORD(2, 2), &amp;wsaData); //MAKEWORD(主版本号，副版本号)
+</code></pre><h3 id="第二步：创建socket"><a href="#第二步：创建socket" class="headerlink" title="第二步：创建socket"></a>第二步：创建socket</h3><p>socket()</p>
+<pre><code>SOCKET
+WSAAPI
+socket(
+    _In_ int af,
+    _In_ int type,
+    _In_ int protocol
+    );
+</code></pre><ul>
+<li>af: 一个地址描述符。目前仅支持AF_INET，即ARPA_Internet地址格式。</li>
+<li>teype: 指定socket类型。新套接口的类型描述类型，如TCP(SOCK_STREAM)和UDP(SOCK_DGRAM)。常用的socket类型有：SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET等等。</li>
+<li>protocol:指定协议。套接口所用的协议。如调用者不想指定，可用0。常用的协议有：IPPROTO_TCP、IPPROTO_UDP、IPPROTO_STCP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议。、</li>
+</ul>
+<p>返回一个套接字</p>
+<p>示例代码：</p>
+<pre><code>SOCKET cliSock = socket(AF_INET, SOCK_STREAM, 0); //流式套接字,第三个参数0代表自动选择协议
+</code></pre><h3 id="第三步：打包服务端地址"><a href="#第三步：打包服务端地址" class="headerlink" title="第三步：打包服务端地址"></a>第三步：打包服务端地址</h3><p>SOCKADDR_IN结构体</p>
+<pre><code>typedef struct sockaddr_in {
+
+#if(_WIN32_WINNT &lt; 0x0600)
+    short   sin_family;
+#else //(_WIN32_WINNT &lt; 0x0600)
+    ADDRESS_FAMILY sin_family;
+#endif //(_WIN32_WINNT &lt; 0x0600)
+
+    USHORT sin_port;
+    IN_ADDR sin_addr;
+    CHAR sin_zero[8];
+} SOCKADDR_IN, *PSOCKADDR_IN;
+</code></pre><ul>
+<li>sin_port:端口</li>
+<li>sin_adr:IP地址</li>
+<li>sin_family: 协议族</li>
+</ul>
+<p>示例：</p>
+<pre><code>SOCKADDR_IN servAddr;
+char servIP[] = &quot;192.168.136.1&quot;; //服务器IP
+servAddr.sin_family = AF_INET;
+servAddr.sin_addr.S_un.S_addr = inet_addr(servIP); //服务器地址设置为回传地址
+servAddr.sin_port = htons(port); //host to net shrot, 设置端口号为port
+</code></pre><h3 id="第四步：连接服务端"><a href="#第四步：连接服务端" class="headerlink" title="第四步：连接服务端"></a>第四步：连接服务端</h3><p>connect()</p>
+<pre><code>int
+WSAAPI
+connect(
+    _In_ SOCKET s,
+    _In_reads_bytes_(namelen) const struct sockaddr FAR * name,
+    _In_ int namelen
+    );
+</code></pre><p>-s 客户端套接字</p>
+<ul>
+<li>name: 指向要连接套接字的sockaddr结构体指针，注意必须转换成SOCKADDR*类型。</li>
+<li>namelen: sockaddr结构体的字节长度</li>
+</ul>
+<p>客户端程序调用，使客户的socket 与监听于name所指定的计算机特定端口上的服务socket进行连接，连接成功返回0，否则返回SOCKET_ERROR。</p>
+<p>本函数用于创建与指定外部端口的连接。s参数指定一个未连接的数据报或流类套接字。</p>
+<p>示例代码：</p>
+<pre><code>connect(cliSock, (SOCKADDR*)&amp;servAddr, sizeof(SOCKADDR));
+</code></pre><h3 id="第五步：-发送消息给服务端"><a href="#第五步：-发送消息给服务端" class="headerlink" title="第五步： 发送消息给服务端"></a>第五步： 发送消息给服务端</h3><p>连接服务端成功后，可以向服务端发送消息</p>
+<p>send()</p>
+<pre><code>int
+WSAAPI
+send(
+    _In_ SOCKET s,
+    _In_reads_bytes_(len) const char FAR * buf,
+    _In_ int len,
+    _In_ int flags
+    );
+</code></pre><ul>
+<li>s: 一个用于标识已连接套接口的描述字，是目的地的套接字</li>
+<li>buf: 需要发送的消息的缓冲区</li>
+<li>len: 发送消息的字节数</li>
+<li>flags: 调用执行方式，一般设置为0</li>
+</ul>
+<p>示例：</p>
+<pre><code>//发送客户端的名称给服务端
+const int NICKNAME_SIZE = 20;//名称长度
+char client_name[NICKNAME_SIZE] = &quot;travaler&quot;; //用户名
+send(cliSock, client_name, sizeof(client_name), 0);
+</code></pre><h3 id="第六步：-接收消息"><a href="#第六步：-接收消息" class="headerlink" title="第六步： 接收消息"></a>第六步： 接收消息</h3><p>服务端向客户端发送消息时，需要客户端进行消息接收</p>
+<p>recv()</p>
+<pre><code>int
+WSAAPI
+recv(
+    _In_ SOCKET s,
+    _Out_writes_bytes_to_(len, return) __out_data_source(NETWORK) char FAR * buf,
+    _In_ int len,
+    _In_ int flags
+    );
+</code></pre><p>不论是客户端还是服务端应用程序都用recv函数从TCP连接的另一端接收数据。</p>
+<ul>
+<li>s: 指定接收端套接字描述符</li>
+<li>buf: 指明一个缓冲区，该缓冲区用来存放recv函数接收的数据；</li>
+<li>len: 指明buf的长度；</li>
+<li>flags: flags一般设置为0</li>
+</ul>
+<p>示例：</p>
+<pre><code>char buffer[BUFFER_SIZE] = { 0 };
+int nrecv = recv(cliSock, buffer, sizeof(buffer), 0); // nrecv是接收到的数据字节数
+</code></pre><h3 id="获取本地IP"><a href="#获取本地IP" class="headerlink" title="获取本地IP"></a>获取本地IP</h3><p>自己设计的函数：</p>
+<pre><code>//获取本地IP
+void getLocalIP(char localIp[], int n)
+{
+    gethostname(localIp, n);
+    HOSTENT *host = gethostbyname(localIp);
+    in_addr PcAddr;
+    for (int i = 0; ; i++)
+    {
+        char *p = host-&gt;h_addr_list[i];
+        if (NULL == p)
+        {
+            break;
+        }
+        memcpy(&amp;(PcAddr.S_un.S_addr), p, host-&gt;h_length);
+        strcpy(localIp, inet_ntoa(PcAddr));
+    }
+}
+</code></pre><p>函数调用</p>
+<pre><code>char localIP[BUFFER_SIZE]; //本地IP
+getLocalIP(localIP, sizeof(localIP) / sizeof(char));
+</code></pre><h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>前三步（加载socket库、创建socket和服务端地址打包）跟客户端相同，然后接收消息和发送消息也跟客户端相同。</p>
+<p>不同的是：客户端是将客户端socket与服务端地址包连接，而服务端是将服务端的socket与服务端地址包绑定，还有服务端需要接收客户端的请求。</p>
+<h3 id="第一步：加载socket库"><a href="#第一步：加载socket库" class="headerlink" title="第一步：加载socket库"></a>第一步：加载socket库</h3><pre><code>WSADATA wsaData;//获取版本信息
+WSAStartup(MAKEWORD(2, 2), &amp;wsaData); //MAKEWORD(主版本号，副版本号)
+</code></pre><h3 id="第二步：-创建socket"><a href="#第二步：-创建socket" class="headerlink" title="第二步： 创建socket"></a>第二步： 创建socket</h3><pre><code>SOCKET servSock = socket(AF_INET, SOCK_STREAM, 0); //流式套接字
+</code></pre><h3 id="第三步：-服务端地址打包"><a href="#第三步：-服务端地址打包" class="headerlink" title="第三步： 服务端地址打包"></a>第三步： 服务端地址打包</h3><pre><code>SOCKADDR_IN servAddr;
+servAddr.sin_family = AF_INET;
+servAddr.sin_addr.S_un.S_addr = inet_addr(&quot;192.168.136.1&quot;); //服务器地址设置为回传地址
+servAddr.sin_port = htons(port); //host to net shrot, 设置端口号为port
+</code></pre><h3 id="第四步：-绑定服务端的socket和打包号的地址"><a href="#第四步：-绑定服务端的socket和打包号的地址" class="headerlink" title="第四步： 绑定服务端的socket和打包号的地址"></a>第四步： 绑定服务端的socket和打包号的地址</h3><p>bind()</p>
+<pre><code>int
+WSAAPI
+bind(
+    _In_ SOCKET s,
+    _In_reads_bytes_(namelen) const struct sockaddr FAR * name,
+    _In_ int namelen
+    );
+</code></pre><ul>
+<li>s: 指定绑定的Socket描述符</li>
+<li>name: 指向要绑定的套接字的sockaddr结构体指针，注意必须转换成SOCKADDR*类型。</li>
+<li>namelen: 指定sockaddr结构体长度</li>
+</ul>
+<p>示例：</p>
+<pre><code>bind(servSock, (SOCKADDR*)&amp;servAddr, sizeof(servAddr));
+</code></pre><h3 id="第五步：-监听"><a href="#第五步：-监听" class="headerlink" title="第五步： 监听"></a>第五步： 监听</h3><p>listen()</p>
+<pre><code>int
+WSAAPI
+listen(
+    _In_ SOCKET s,
+    _In_ int backlog
+    );
+</code></pre><ul>
+<li>s: 用于标识一个已捆绑未连接套接字的描述字。</li>
+<li>backlog: 等待连接队列的最大长度。</li>
+</ul>
+<p>功能：监听通过socket发起的连接请求，将其加入等待队列，等待accept函数的接收。</p>
+<p>示例：</p>
+<pre><code>listen(socket_Server, 10);
+</code></pre><h3 id="第六步：-接收连接请求"><a href="#第六步：-接收连接请求" class="headerlink" title="第六步： 接收连接请求"></a>第六步： 接收连接请求</h3><p>accept()</p>
+<pre><code>SOCKET
+WSAAPI
+accept(
+    _In_ SOCKET s,
+    _Out_writes_bytes_opt_(*addrlen) struct sockaddr FAR * addr,
+    _Inout_opt_ int FAR * addrlen
+    );
+</code></pre><ul>
+<li>s: 套接字描述符，该套接字在listen()后监听连接。</li>
+<li>addr： 指向一个缓冲区，其中接受为通讯层所知的连接实体的地址。Addr参数的实际格式由套接字创建时所产生的地址族确定。</li>
+<li>addrlne: 指针，输入参数，配合addr一起使用，指向存有addr地址长度的整型数。</li>
+</ul>
+<p>示例：</p>
+<pre><code>//接收连接的请求，服务器创建一个socket副本用来处理接收到的请求
+socket_Client = accept(socket_Server, (SOCKADDR*)&amp;addrCli, &amp;naddr); //指针类型参数,接收accept的返回值
+</code></pre><h3 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h3><p>同客户端</p>
+<pre><code>const int BUF_SIZE = 2048;//缓冲区大小
+char sendbuf[BUF_SIZE];  //发送缓冲区
+strcpy(sendbuf, &quot;hello!&quot;); //设置缓冲区内容
+send(socket_Client, sendbuf, sizeof(sendbuf), 0);
+</code></pre><h3 id="发送消息给客户端"><a href="#发送消息给客户端" class="headerlink" title="发送消息给客户端"></a>发送消息给客户端</h3><p>同客户端</p>
+<h2 id="清理内存"><a href="#清理内存" class="headerlink" title="清理内存"></a>清理内存</h2><p>最后都需要关闭scoket，以及清除socket库。</p>
+<p>closesocket()</p>
+<pre><code>int
+WSAAPI
+closesocket(
+    _In_ SOCKET s
+    );
+</code></pre><p>关闭一个描述符为s的套接字，执行成功返回0，否则返回SOCKET_ERROR。</p>
+<p>WSACleanup()</p>
+<pre><code>int
+WSAAPI
+WSACleanup(
+    void
+    );
+</code></pre><p>应用程序在完成对请求的Socket库使用之后，要调用此函数来解除与Socket库的绑定并且释放Socket库所占用的系统资源。</p>
+<p>示例：</p>
+<pre><code>closesocket(socket_Client);
+closesocket(socket_Server);
+WSACleanup();
+</code></pre><h2 id="IP处理函数"><a href="#IP处理函数" class="headerlink" title="IP处理函数"></a>IP处理函数</h2><h3 id="gethostname"><a href="#gethostname" class="headerlink" title="gethostname()"></a>gethostname()</h3><p>返回本地主机的标准主机名</p>
+<pre><code>#include &lt;Winsock2.h&gt;
+int PASCAL FAR gethostname(char FAR *name, int namelne);
+name: 一个指向要存放主机名的缓冲区指针
+namelen: 缓冲区的长度
+</code></pre><h3 id="inet-aton"><a href="#inet-aton" class="headerlink" title="inet_aton()"></a>inet_aton()</h3><h3 id="inet-addr"><a href="#inet-addr" class="headerlink" title="inet_addr()"></a>inet_addr()</h3><pre><code>unsigned long
+WSAAPI
+inet_addr(
+    _In_z_ const char FAR * cp
+    );
+</code></pre><p>inet_ addr函数转换<strong>网络主机</strong>(如192.168.1.10)地址为网络字节二进制值。如果参数char $\ast$cp无效，函数返回-1（INADDR_NONE），这个函数在处理地址为255.255.255.255时也返回-1,255.255.255.255是一个有效地址，不过inet _addr无法处理。</p>
+<p>示例：</p>
+<pre><code>cliAddr.sin_addr.S_un.S_addr = inet_addr(&quot;192.168.136.1&quot;);
+</code></pre><h3 id="inet-ntoa"><a href="#inet-ntoa" class="headerlink" title="inet_ntoa()"></a>inet_ntoa()</h3><pre><code>char FAR *
+WSAAPI
+inet_ntoa(
+    _In_ struct in_addr in
+    );
+</code></pre><p>inet_ ntoa函数转换<strong>网络字节排序的地址</strong>为<strong>标准的ASCII以点分开的地址</strong>。该函数返回指向点分开的字符串地址（如192.168.1.10）的指针，该字符串的空间为静态分配的，这意味着在第二次调用该函数时，上一次条用将会被重写（覆盖），所以如果需要保存该串最后复制处理自己管理。</p>
+<p>示例：</p>
+<pre><code>inet_ntoa(cliAddr[nextIndex].sin_addr);
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/03/31/Socket编程/" title="Socket编程">https://zxpgo.github.io/2019/03/31/Socket编程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/socket/" rel="tag"># socket</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/VS2017 socket新函数代替旧函数引起的编译错误/" rel="next" title="VS2017 socket新函数代替旧函数引起的编译错误">
+                <i class="fa fa-chevron-left"></i> VS2017 socket新函数代替旧函数引起的编译错误
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/31/C语言实现发送邮件/" rel="prev" title="C语言实现发送邮件">
+                C语言实现发送邮件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#socket原理"><span class="nav-number">1.</span> <span class="nav-text">socket原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-中Socket通信函数"><span class="nav-number"></span> <span class="nav-text">C++中Socket通信函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">1.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：-加载Socket库"><span class="nav-number">1.1.</span> <span class="nav-text">第一步： 加载Socket库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：创建socket"><span class="nav-number">1.2.</span> <span class="nav-text">第二步：创建socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：打包服务端地址"><span class="nav-number">1.3.</span> <span class="nav-text">第三步：打包服务端地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：连接服务端"><span class="nav-number">1.4.</span> <span class="nav-text">第四步：连接服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步：-发送消息给服务端"><span class="nav-number">1.5.</span> <span class="nav-text">第五步： 发送消息给服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步：-接收消息"><span class="nav-number">1.6.</span> <span class="nav-text">第六步： 接收消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取本地IP"><span class="nav-number">1.7.</span> <span class="nav-text">获取本地IP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端"><span class="nav-number"></span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：加载socket库"><span class="nav-number">0.1.</span> <span class="nav-text">第一步：加载socket库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：-创建socket"><span class="nav-number">0.2.</span> <span class="nav-text">第二步： 创建socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：-服务端地址打包"><span class="nav-number">0.3.</span> <span class="nav-text">第三步： 服务端地址打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：-绑定服务端的socket和打包号的地址"><span class="nav-number">0.4.</span> <span class="nav-text">第四步： 绑定服务端的socket和打包号的地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步：-监听"><span class="nav-number">0.5.</span> <span class="nav-text">第五步： 监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步：-接收连接请求"><span class="nav-number">0.6.</span> <span class="nav-text">第六步： 接收连接请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送消息"><span class="nav-number">0.7.</span> <span class="nav-text">发送消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送消息给客户端"><span class="nav-number">0.8.</span> <span class="nav-text">发送消息给客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清理内存"><span class="nav-number">1.</span> <span class="nav-text">清理内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP处理函数"><span class="nav-number">2.</span> <span class="nav-text">IP处理函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gethostname"><span class="nav-number">2.1.</span> <span class="nav-text">gethostname()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inet-aton"><span class="nav-number">2.2.</span> <span class="nav-text">inet_aton()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inet-addr"><span class="nav-number">2.3.</span> <span class="nav-text">inet_addr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inet-ntoa"><span class="nav-number">2.4.</span> <span class="nav-text">inet_ntoa()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>
