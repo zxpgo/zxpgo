@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="多进程视图和文件视图，包括进程管理、内存管理、IO设备和磁盘管理。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="https://zxpgo.github.io/2019/04/21/操作系统/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="多进程视图和文件视图，包括进程管理、内存管理、IO设备和磁盘管理。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/PY@J_1P1PZ$%7DEM%25_OL3YIQI.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/81MHNWIF%290BVI0%29DB0%5BRO~8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/6SHZG2DJ%60B988X@MP_%5B_6$V.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/WGY%60GT%7BHSHL%28S%5D%5BG1LTN%254H.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/@3~0RXKGV1N%5BP%5BQV9%7DOBW4O.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7B%7D4$O9V%5BLE%60TOUVTO2WYPSX.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/10U2Q48G0WE%7BC_M66RU~N5N.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/WLS%29%7DN1232@9@6RWKHVBQ84.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%60TIZA18ZO53O9%28LNSBJ_6BA.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/W%29%7DOK4D%29SHEJJ7%25B%5D4H_64E.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/M%25BC36J6VR_KS%29IK9FGD%25HD.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/KG@36N44%5BO%7DEXD3%7DA9DFR%28R.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/ajflkdsjfl.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/7768_7%284F4SP01CC8JPLJRG.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/R%28JFD720_L%5BG6I%25MQX089A8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/0R%5BYJ0CZN9SW59~~I4%291MOL.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/5~%7BHVX_D%25%28WW%60~_9KTKCPWF.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/E2ABUI%5BJPW4T%25A%5B808OP%7DK8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/A7%25P1@LH%60UF0VGS3ZQKTTP0.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/CWTYF56YJ%7D5H7E1_@XM~S13.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/RF4@48ZB%7BCZJCUG%609XK3BY6.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/P6NJ9%5DWPWW$6E1JE6@W%7B%5BJF.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/@178N%60~XB67H570D444Z3R8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%29%25C2YA2A3APA%5D%29RY@Z1%5BZ38.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/BZY~47N1LHT6998IL_O3%7BTK.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/S%29DVD%5BBGBLG%5B22%5BW~85DM%7D1.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%60XS8LLJYM5%25JMGO4$KLI2%298.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555400541%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555400555%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555400729%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555400829%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/X3HK%29V0JFB5UH@U%29MAA%7D86S.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/Z$X53J3%7D7OF%60%7B%5DPXC%7DO2HB7.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/FZKU@_~%5B1%25XJ_EMBL$E8%25UY.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/N%60~UKZ00BJLP0C%7BY1FD%7D%2846.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/$7FP%25VF$GD9K%7BA5WHJW%25YVR.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/3~6S%60OT9HO%29MS0%5BH0TG0GKY.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/X8JJZMPERSOXW%28W%28%7D4R2C$U.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/W0VK%295R%7D8P%7D2$%25B2S2%5DZU%5DL.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/O%7DQ$Z$%7D%29O9TNAF%29%7BU%5B@XR$R.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4LASTQIYP4_5NV%7DTLCV%25ZXN.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/SACM%25KZ%60%5BO7N%7D0BP949MDXD.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%28@%5DKL~KD%29XNS%5BT2IHXMUN%606.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1%29ULOXTQD%29V$CD%5D2$0W%5DG46.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4P6NYZ4$3XRT%60C%5B1JOLSD64.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/9LX8Q_06Y97MPKQ%5D~EFP0HT.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/X47TWLCF4%60X7MMKCVXB%29R8B.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/P%28S@K9U$%5B%7DTBG%283I6CZ4K5N.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/0%5BG%255MKQV3%28JF%28TLMZ%7D8M30.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/OXCJJ__%7D%25S9%7D$C%29X@EBA817.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%60H%7DP%7D01RB5_O~JFTJX8JT%5B6.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/K93_LS%5D$%29_BOJHWD8%60%25A%5DKM.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7DBF%7DIR5%25LW%600F%7D4PS6W%5BV_3.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/G%285_2AIS%5D3M%5DYI8DJM6_%5BU5.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/9AA~UJ6FFAE%25F3TW4EVB%7BOM.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/S%28%29CE%60%5BC%7BB1%2510LF%28OSOQ%5DE.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/Y%7B6T%7D2D%25$6MA6J1N%5DWJJOEA.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/2HHCE%7D3EFB7Y3%257AVLKTJLN.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/FO0BCEV%7B%60WZD%7BN%7B%7BR4FLKRU.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4C7T%7D3YOQMWBUTDP99%7BXCAI.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/8OMQK4XUG1%25LH9WP8%5D8EJ~X.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/5USU5BHH7XP0X%5D%289UH2R%5D%5DD.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7DLH%5BP0%5DW%29%7BA%7D5MU5EQN%60%7DEP.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/C~W%7DZ3V6$ASVD3N5LH0L35U.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/B~9_Z%25SRB8%294YB4%28%2592H7A6.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/C@%28~%7D%5BWVTX104F@IJ%7DUEAFS.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/_3JXPO1Y19$I$$26JNBU0%5DT.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%25@%28QL$3H6BAIVY%25SW0R%7DU%5B6.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/_58%5DZEP6YX%60L%5D7PDB74P1DF.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/D7%60ZJT$%7DDQ%60__72F%2827JH3F.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1F8%7B%7BS%5B$N%7BNPTQ%28MA7A%60EWD.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/AJOXQ9F%292%29$6@7C_O9D%5DVIO.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/F%25%5B2%290J9Y%28@%7BU$YUYX%7B%5B%7DIO.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/$~7ZS~70Q%28%29%605KO9%5B%25S%5DVNG.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/R8WP2B6%29%292GVBUJE%28400F49.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%60I%5B7%7DO_C0%29H3GNCHM%256WL%29K.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/~~_X%5B$_RXHTFOUM97TXBW%25V.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/LWL~AF_1M4H$F@UJD6N%7D7~0.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/O%7BJ%5B%5DR4%5B3W%5DE%28%7B7N2%5BTWL3J.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7D4MEF%5D%5DP8Q%5DW%28LE1Z_QW%7BDK.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/ZPJ6%7DE6SQZI$8I%60%7B@SOTQ%5DM.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/E7HJ0%60%29POZD%29KPHO0O$TR%7B8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/$Y%25%28RM8~S6@390$4LNXX87I.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/8QM33X%7D$PF~1IP%25Z19%5BUSPN.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/8_FY1MMJL2%5B1%5DZW%7D_PUC%7DOM.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/GD9V6_MO4C%25WC9%5BYE%7D%60H~DE.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/V%604HDQKNKUTI1~ZKO17T9M0.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4AI8%7DIY%7BH1JSFQXCNXUWYLS.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/_%259~TRSI8W~$X%25WQTMINX18.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/CHP%604FYH%253%29P4~QW~6OQEI1.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/6Z6AU%5D4J%5DG8L%5DBQ%7B%29~RC%290L.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/~%7B6%28%25MY8Q%7B%290~VAPB4SJ%28VN.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/ID2~JKQBJMG%5DRJ~%7DE%28%28Q2%255.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%29ZIP2RNDP7J994OG@~758%5DP.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%28IFNTGG%29LKI$%7BP7N%5BX%5B9MKW.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/R$%7BSRPWNG6PN@Q5C%7DY%5DM%287S.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/WG$A6KMLND$P~W0Z$@Z%251M8.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/C16ZHJV8%5D%7D@S%25T9P%7DH76_X4.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/0IKBQ%5D%7BJW%7DGN_%6025N5KT8NT.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%5BJZ%28R1WR%25WRL%2862S%7BRUDF15.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/H4W22DP_%28O0G8YQXVZR7H15.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/7L490_@MY%60TX7S36M8FBZ$O.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/$K%5DTA@930%60%5B8V_1%7DWIWAZDG.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/FEA6GU%25J@%5B_D%60%29MI8ETEGTY.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4HB80%7B4HG%7BG%5BX~6125VA8%5BH.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555744830%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555747234%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555747305%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555747650%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555747710%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555748178%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555748627%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555748873%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555756096%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555756882%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555757258%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555757423%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/UF40LWRA9%7BFSM$UE2N%2860G4.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/RS7KZH~O6$%28XD7~5AU_U80D.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/1555758029%281%29.jpg">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/MP~_UXHNA_0QD%60MEUNI%25D5O.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/2K5%29YMVAHK9X4%257QU_ZXT%29E.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%5DG%7B~E5TDCH6Y@D~%7BR~%5B~%7DWP.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/SSL%5BMH16JKF$905VAF05O7Q.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/@OGDO%25KVUSC%25MWT7ETLU@$Y.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/DVR%25_H7JKB~%7DGAE_UJ84QUW.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7BZM5%604@KRC%5D$%605HBZFH%60~HX.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%29W%29D7LRXPNLHRY%25%5DO5%605%5DB7.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/TLDD$82P%7B%7BG~_~N8K%25K9NRO.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/F%25J4W2ODOV%5BJUDQO6H8%5DT%7DI.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%7DWGCGB%60TI1I3XZGEPMJK4KT.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/K0A~QXFVG%5DL5FZ$@Q%25_%7BGQ3.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/4F%5DV7$H%602@SQ55UCRA~7DWQ.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/FT6N5A4S%255_QR%5DI1YF0SMPU.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/AAG~$ZO%7B3@6%5BN@KRRZX2W%29E.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%282GW@5N~%28T%5DX%5BKE3BF@%5B99R.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%602J$%29X@ZDJXR_OXMGJW%5D4WQ.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%5DP@X7FEGOPP_C_Y0CIC%5BOKV.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/3ZW6M%60E7KLQ1QX%6024@TBG~6.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/8V%25D%7B%5DC9_O%7BZZIG74@%609%25VE.png">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/%288UK0JPY%5B80P%28W%29N58WQLH3.png">
+<meta property="og:updated_time" content="2019-04-21T15:13:33.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统">
+<meta name="twitter:description" content="多进程视图和文件视图，包括进程管理、内存管理、IO设备和磁盘管理。">
+<meta name="twitter:image" content="http://pp0km9u5d.bkt.clouddn.com/PY@J_1P1PZ$%7DEM%25_OL3YIQI.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/04/21/操作系统/"/>
+
+
+
+
+
+  <title>操作系统 | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/04/21/操作系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">操作系统</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-21T13:44:14+08:00">
+                2019-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/21/操作系统/" class="leancloud_visitors" data-flag-title="操作系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>多进程视图和文件视图，包括进程管理、内存管理、IO设备和磁盘管理。<a id="more"></a></p>
+<h2 id="操作系统介绍"><a href="#操作系统介绍" class="headerlink" title="操作系统介绍"></a>操作系统介绍</h2><p>boot ： 取值执行</p>
+<pre><code>bootsect.s（汇编）
+
+    从磁盘将操作系统读取到内存中，操作系统的引导扇区完成该项工作。boosect.s从操作系统的代码读取到内存中，并打印开机画面。并将操作系统后面的，system读入。
+
+setup.s(汇编)
+
+    初始化，知道硬件的信息。
+
+    读取光标位置
+
+    读取内存大小，方便管理内存
+
+    读取显卡参数
+
+    移动到0地址处，执行系统
+
+
+system模块
+
+    head.s是system的第一个文件
+
+    Makefile: 编写Makefile来对程序进行编译
+
+    head.s初始化GDT表，进入main函数
+</code></pre><p>多进程视图：</p>
+<pre><code>CPU管理
+
+内存管理
+</code></pre><p>文件视图：</p>
+<pre><code>IO设备
+
+磁盘文件
+</code></pre><h2 id="CPU管理"><a href="#CPU管理" class="headerlink" title="CPU管理"></a>CPU管理</h2><p>如何使用CPU</p>
+<p><strong>CPU工作原理：（取址执行）</strong></p>
+<p>程序存放在内存中，CPU设置一个PC指针，CPU根据PC指针通过总线发送取指令给内存，内存将PC指针处的指令通过总线传送给CPU。</p>
+<p>CPU得到指令，解释执行指令。</p>
+<p>CPU不断的取址执行。PC指针不断递增。</p>
+<p>PC设置一个初始值，CPU就不断取址执行，一直工作。</p>
+<p>管理CPU的最直观的方法：设置好一个PC初值</p>
+<p>如果执行计算指令，等待I/O，再执行下面的指令。这样，CPU利用率非常低，接近0。注意：I/O消耗的时间是一条计算指令的10^6倍。</p>
+<p>解决办法：当执行不下去的时候，切换执行其他程序继续去执行。这样，就会来回切换来切换去，CPU的利用率就高了。</p>
+<p><strong>多道程序、交替执行</strong>提供了CPU利用率。</p>
+<p>一个CPU上交替的执行多个程序：<strong>并发</strong></p>
+<p>怎么做到并发： 切换寄存器PC指针，还需要记录切换出去之前的程序的信息。</p>
+<p>运行的程序和静态程序不一样！</p>
+<p>引入“进程”概念，描述运行中的程序！</p>
+<ul>
+<li>进程有开始、结束，程序没有</li>
+<li>进程会停止和继续，程序没有</li>
+<li>进程需要记录程序运行的信息，而程序不要</li>
+</ul>
+<p>CPU管理和运行多个进程，交替执行多个进程。</p>
+<h3 id="操作系统如何支持多进程"><a href="#操作系统如何支持多进程" class="headerlink" title="操作系统如何支持多进程"></a>操作系统如何支持多进程</h3><p>多个进程如何使用CPU</p>
+<ul>
+<li><p>如何使用CPU: 让程序执行起来</p>
+</li>
+<li><p>如何充分利用CPU: 启动多个程序，交替执行</p>
+</li>
+<li><p>启动了的程序就是进程，所以是多个进程推进： 操作系统只需要把这些进程记录好、要按照合理的次序推荐（分配资源、进行调度）</p>
+</li>
+</ul>
+<p>多进程图像从启动开始到关机结束：</p>
+<ul>
+<li><p>main中的fork()创建了第一个进程： init执行了shell</p>
+</li>
+<li><p>shell再启动其他程序： 在shell输入一个命令，再创建一个进程</p>
+</li>
+</ul>
+<p>启动计算机，就是启动一堆进程。管理计算机，就是管理一堆进程。</p>
+<h3 id="多进程如何组织"><a href="#多进程如何组织" class="headerlink" title="多进程如何组织"></a>多进程如何组织</h3><p>Process Control Block(PCB): 用来记录进程信息的数据结构</p>
+<p>有一个进程在执行，有一些进行等待执行，有一些进程在等待某事件。</p>
+<h4 id="多进程的组织：-PCB-状态-队列"><a href="#多进程的组织：-PCB-状态-队列" class="headerlink" title="多进程的组织： PCB+状态+队列"></a>多进程的组织： PCB+状态+队列</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/PY@J_1P1PZ$%7DEM%25_OL3YIQI.png" alt=""></p>
+<p>操作系统根据状态图让进行进程的转换。</p>
+<p>阻塞态：等待某事件是，转换为阻塞态。</p>
+<h4 id="多进程的交替"><a href="#多进程的交替" class="headerlink" title="多进程的交替"></a>多进程的交替</h4><p>例子：</p>
+<pre><code>启动磁盘读写
+
+切换为阻塞态
+
+加入阻塞等待队列
+
+schedule()《重点》
+
+
+schedule()
+{
+    pNew = getNext(ReadyQueue);  //调度： 从等待队列中找出下一个进程
+    switch_to(pCur, PNew);
+}
+//pCur、PNew是PCB
+</code></pre><h4 id="交替的三个部分-队列操作-调度-切换"><a href="#交替的三个部分-队列操作-调度-切换" class="headerlink" title="交替的三个部分: 队列操作+调度+切换"></a>交替的三个部分: 队列操作+调度+切换</h4><p>进程调度算法： FIFO(先进先出)、Priority(设置优先级)</p>
+<p>切换： switch_to(pCur, pNew)</p>
+<h4 id="多进程如何影响"><a href="#多进程如何影响" class="headerlink" title="多进程如何影响"></a>多进程如何影响</h4><p>多个进程同时存在于内存会导致访问同一个地址，并对其修改。</p>
+<p>解决办法：限制对地址的读写</p>
+<p>多进程的地址空间分离：内存管理的主要内容</p>
+<p>基本思想：映射表</p>
+<p>每个进程有自己的映射表，进程使用虚拟内存，然后通过映射表查找出物理内存。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/81MHNWIF%290BVI0%29DB0%5BRO~8.png" alt=""></p>
+<h4 id="多进程如何合作"><a href="#多进程如何合作" class="headerlink" title="多进程如何合作"></a>多进程如何合作</h4><p>打印过程：</p>
+<ul>
+<li><p>应用程序提交打印任务</p>
+</li>
+<li><p>打印任务被放进打印队列</p>
+</li>
+<li><p>打印进程从队列中取出任务</p>
+</li>
+<li><p>打印进程控制打印机打印</p>
+</li>
+</ul>
+<p>生产者-消耗者模型： 有进程往共享缓冲区存入内容（生产者），有进程从共享缓冲区读取内容（消费者）。</p>
+<p>进程同步： </p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/6SHZG2DJ%60B988X@MP_%5B_6$V.png" alt=""></p>
+<h3 id="用户级线程"><a href="#用户级线程" class="headerlink" title="用户级线程"></a>用户级线程</h3><p>线程： 只有指令切换，资源不变，多个线程共享资源。速度变快。保留了并发的特点，避免了进程切换代价。</p>
+<p>核心是： Yield, 用户自动释放</p>
+<p>Create就是制造出第一次切换时应该的样子。</p>
+<p>每个线程都有一个栈和TCB。切换线程时，需要切换TCB和栈。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/WGY%60GT%7BHSHL%28S%5D%5BG1LTN%254H.png" alt=""></p>
+<h3 id="内核级线程"><a href="#内核级线程" class="headerlink" title="内核级线程"></a>内核级线程</h3><p>如果进程的某个线程进入内核并阻塞了，导致切换到其他进程。</p>
+<p>比如，发起URL请求，等待网卡IO，会导致进程阻塞，直接切换到其他进程，这时浏览器还是一堆空白。</p>
+<p>内核中阻塞，线程的并发将无效果。</p>
+<p>而内核级线程，在内核中阻塞了，可以切换到其他线程，并发性更好。</p>
+<p>核心： Schedule，内核调度</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/@3~0RXKGV1N%5BP%5BQV9%7DOBW4O.png" alt=""></p>
+<p>多处理器：</p>
+<p>多核： 只有支持核心级线程，才有作用</p>
+<p>MMU: 内存映射， 用一个内存映射，就是使用相同的地址，即线程</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%7B%7D4$O9V%5BLE%60TOUVTO2WYPSX.png" alt=""></p>
+<p>并发： 同时出发，交替执行</p>
+<p>并行： 同时执行</p>
+<p>多核有操作系统管理，用户级线程无法给其分配硬件。所以核心级线程才有意义。</p>
+<p>TreadCreate是系统调用，内核管理TCB，内核负责切换线程。</p>
+<p>两套栈：既要在用户态跑，也不要在内核跑，所以需要两套栈（用户栈和内核栈），一个TCB关联一套栈，切换的时候，根据TCB切换一套栈。</p>
+<p>用户级线程： 两个栈关联两个TCB（用户栈）。切换的时候，根据TCB切换一个栈。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/10U2Q48G0WE%7BC_M66RU~N5N.png" alt=""></p>
+<p>所有中断（实战、外设、INT指令）都引起上述切换。</p>
+<p>INT指令中断，就启用内核栈。</p>
+<p>源SS、源SP： 用户态运行的栈</p>
+<p>源PC、源CS： 用户态运行到的指令，即用户态程序执行的地址</p>
+<p>IRET: 根据内核栈找到用户态执行的地方</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/WLS%29%7DN1232@9@6RWKHVBQ84.png" alt=""></p>
+<p>????:包含iret的代码，返回到用户态</p>
+<p>??: 线程用户态的代码</p>
+<p>???: 中断处</p>
+<p>一个线程从用户态到内核态，根据TCB切换内核栈，找到切换后的内核态，并关联到对应的用户态。</p>
+<p>通过中断进入内核态， irect返回到用户态。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%60TIZA18ZO53O9%28LNSBJ_6BA.png" alt=""></p>
+<p>五段论： 线程1用户栈 -&gt; 线程1内核栈 -&gt; 线程1TCB切换到线程2TCB -&gt; 线程2内核栈 -&gt; 线程2用户栈</p>
+<p>创建线程：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/W%29%7DOK4D%29SHEJJ7%25B%5D4H_64E.png" alt=""></p>
+<p>用户级线程和核心级线程的对比：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/M%25BC36J6VR_KS%29IK9FGD%25HD.png" alt=""></p>
+<h3 id="内核级线程实现"><a href="#内核级线程实现" class="headerlink" title="内核级线程实现"></a>内核级线程实现</h3><p><strong>五段论</strong>： 线程1用户栈 -&gt; 线程1内核栈 -&gt; 线程1TCB切换到线程2TCB -&gt; 线程2内核栈 -&gt; 线程2用户栈</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/KG@36N44%5BO%7DEXD3%7DA9DFR%28R.png" alt=""></p>
+<p>fork()是系统调用，会引起中断。fork()是创建进程的系统的调用。fork() 转换为： INT 0X80</p>
+<p>ThreadCreate</p>
+<p>copy_process的细节： 创建栈</p>
+<p>get_ free _page()内核代码，申请内存</p>
+<p>malloc: 是用户态代码</p>
+<p>创建核心级线程：</p>
+<pre><code>创建TCB
+
+创建内核 栈和用户栈
+
+关联栈和TCB
+</code></pre><h2 id="CPU调度策略"><a href="#CPU调度策略" class="headerlink" title="CPU调度策略"></a>CPU调度策略</h2><p>调度算法的设计目标：</p>
+<ul>
+<li>尽快结束任务：周转时间（从任务进入到任务结束）短</li>
+<li>用户操作尽快响应： 响应时间（从操作发送到响应）短</li>
+<li>系统内耗时间少： 吞吐量（完成的任务量）</li>
+</ul>
+<p>吞吐量和响应时间之间的矛盾： 响应时间小 -&gt; 切换次数多 -&gt; 系统内耗大 -&gt; 吞吐量小</p>
+<p>前台任务和后台任务的关注点不同： 前台任务关注响应时间； 后台任务关注周转时间</p>
+<p>IO约束型任务（写磁盘的次数多）和CPU约束型任务（长时间没有磁盘读写）有各自的特点。</p>
+<p>IO约束型任务大多是前台任务，其优先级应该高一些，这样能提高IO和CPU的并行。</p>
+<p><strong>调度需要折中和综合，使得操作系统变得复杂。调度算法应该非常简单，不然调度算法没有价值。</strong></p>
+<h3 id="各种CPU调度算法"><a href="#各种CPU调度算法" class="headerlink" title="各种CPU调度算法"></a>各种CPU调度算法</h3><h4 id="SJF-短作业优先"><a href="#SJF-短作业优先" class="headerlink" title="SJF: 短作业优先"></a>SJF: 短作业优先</h4><p>FCFS： 先来先服务</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/ajflkdsjfl.png" alt=""></p>
+<p>FCFS太简单</p>
+<p>考虑短作业优先，这样周转时间会最短。具体分析如下图：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/7768_7%284F4SP01CC8JPLJRG.png" alt=""></p>
+<p>SJF的周转时间最短。</p>
+<p>此时没法保证响应时间。</p>
+<h4 id="RR-按时间来轮转调度（Round-Robin）"><a href="#RR-按时间来轮转调度（Round-Robin）" class="headerlink" title="RR: 按时间来轮转调度（Round Robin）"></a>RR: 按时间来轮转调度（Round Robin）</h4><p>时间片大：响应时间太长；时间片小吞吐量小</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/R%28JFD720_L%5BG6I%25MQX089A8.png" alt=""></p>
+<p>折衷： 时间片10~100ms，切换时间0.1~1ms(1%)</p>
+<h4 id="Priority-优先级"><a href="#Priority-优先级" class="headerlink" title="Priority: 优先级"></a>Priority: 优先级</h4><p>word很关心响应时间，而gcc更关心周转时间，两类任务同时存在怎么办？</p>
+<p>直观想法：定义前台任务和后台任务两个队列，前台RR，后台SJF，只有前台任务没有时才调度后台任务。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/0R%5BYJ0CZN9SW59~~I4%291MOL.png" alt="http://pp0km9u5d.bkt.clouddn.com/0R%5BYJ0CZN9SW59~~I4%291MOL.png"></p>
+<p>如果前台任务绝对优先，这样会导致后台任务可能一直无法执行。</p>
+<p>显然这样是不合适的，因此后台任务优先级动态升高，但后台任务一旦执行，前台的响应时间就没有处理。</p>
+<p>前后台任务都用时间片，但又退化为了RR，后台任务的SJF如何体现？前台任务如何照顾？</p>
+<p>这样会导致折衷非常复杂。</p>
+<p>其他问题：</p>
+<ul>
+<li>无法知道是前台任务还是后台任务?通过学习机制，认识任务</li>
+<li>gcc如果交互，算前台任务还是后台任务？</li>
+</ul>
+<h4 id="一个实际的schedule函数"><a href="#一个实际的schedule函数" class="headerlink" title="一个实际的schedule函数"></a>一个实际的schedule函数</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/5~%7BHVX_D%25%28WW%60~_9KTKCPWF.png" alt=""></p>
+<p>counter有两个作用：</p>
+<ul>
+<li>时间片</li>
+<li>优先级</li>
+</ul>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/E2ABUI%5BJPW4T%25A%5B808OP%7DK8.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/A7%25P1@LH%60UF0VGS3ZQKTTP0.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/CWTYF56YJ%7D5H7E1_@XM~S13.png" alt=""></p>
+<h3 id="进程同步与信号量"><a href="#进程同步与信号量" class="headerlink" title="进程同步与信号量"></a>进程同步与信号量</h3><p>进程合作：多进程共同完成一个任务</p>
+<p>多个进程合理有序地向前推进，同步可以实现多个进程合理有序运行，而信号是多个进程之间通信，即告诉进程可以继续执行。</p>
+<p>等待是进程同步的核心。</p>
+<p>生产者-消费者实例就是一个多进程同步的例子。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/RF4@48ZB%7BCZJCUG%609XK3BY6.png" alt=""></p>
+<p>生成者进程中当<code>counter==BUFFER_SIZE</code> 表示缓冲区已满，此时无法再往里面添加数据。而当销毁者进程执行，消耗缓冲区，这是发送信号给生产者进程，可以继续执行往缓冲区添加数据。具体如下图：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/P6NJ9%5DWPWW$6E1JE6@W%7B%5BJF.png" alt=""></p>
+<p>依靠counter来进行语义判断，无法解决问题：</p>
+<p>还需要知道有多少个睡眠生产者进程在等待。仅仅发一个信号不够，还需要另一个量来判断是否要发送信号，而不是根据counter。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/@178N%60~XB67H570D444Z3R8.png" alt=""></p>
+<p>引入信号量，解决睡眠生产者进程等待问题：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%29%25C2YA2A3APA%5D%29RY@Z1%5BZ38.png" alt=""></p>
+<p>信号量sem的具体工作原理：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/BZY~47N1LHT6998IL_O3%7BTK.png" alt=""></p>
+<p>sem=-1表示有一个睡眠生产者进程在等待；sem=1时表示还有一个空闲缓冲区，接下来的生产者进程进来可以直接执行。</p>
+<p>根据信号量来表示等待和唤醒。生产者：信号量为负表示睡眠等待；消费者：信号量为负表示唤醒生产者进程。</p>
+<p><strong>信号量的定义以及函数调用：</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/S%29DVD%5BBGBLG%5B22%5BW~85DM%7D1.png" alt=""></p>
+<p>生产者进程进入时，执行P(sem)，value减1，如果value小于零，表示缓冲区已满，这该进程睡眠等待。</p>
+<p>消费者进程消耗资源时，执行V(sem)，V的代码如下：</p>
+<pre><code>V(semaphore s)
+{
+    s.value++;    
+    if(s.value &lt;= 0)
+        wakeup(s.queue);
+}
+</code></pre><p>信号量解决生产者-消费者问题：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%60XS8LLJYM5%25JMGO4$KLI2%298.png" alt=""></p>
+<p>empty表示信号量，即空闲的缓冲区数量，负数表示缓冲区已满，并且有多少个进程在等待。P(empty)empty减1，并判断是否缓冲区已满；V(empty)empty加1，并判断是否有等待生产者进程。</p>
+<p>full表示缓冲区中内容数量。P(full),消费者判断缓冲区中是否有内容，如果有则执行，否则阻塞。V(full)，生产者增加缓冲区中的内容。</p>
+<p>往文件中写内容，只能有一个进程在读写文件，因此定义了一个互斥信号量muter，表示一次只有一个进程进行文件读写。P(mutex)判断是否为1，如果为1，进行文件读写，并将mutex置为0。V(mutex)表示将mutex重新置为1。只有重新置为1了，其他进程才能进行文件读写。</p>
+<h4 id="信号量临界区保护"><a href="#信号量临界区保护" class="headerlink" title="信号量临界区保护"></a>信号量临界区保护</h4><p>多个进程共同修改信号量可能引发的问题：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555400541%281%29.jpg" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555400555%281%29.jpg" alt=""></p>
+<p>解决竞争条件的直观想法：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555400729%281%29.jpg" alt=""></p>
+<p>临界区（Critical Section）：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555400829%281%29.jpg" alt=""></p>
+<h4 id="三种解决方法"><a href="#三种解决方法" class="headerlink" title="三种解决方法"></a>三种解决方法</h4><p>临界区代码的保护原则：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/X3HK%29V0JFB5UH@U%29MAA%7D86S.png" alt=""></p>
+<p><strong>轮换法</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/Z$X53J3%7D7OF%60%7B%5DPXC%7DO2HB7.png" alt=""></p>
+<p>无法满足有限等待。轮换法类似于值日。</p>
+<p><strong>标记法</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/FZKU@_~%5B1%25XJ_EMBL$E8%25UY.png" alt=""></p>
+<p>每个想进入临界区的进程都打一个标记，然后判断另一个进程是否标记，如果另一个进程进行了标记，那么该进程就等待，直到另一个进程撤销掉标记。</p>
+<p>满足互斥进入要求，但是无法满足有空进入。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/N%60~UKZ00BJLP0C%7BY1FD%7D%2846.png" alt=""></p>
+<p><strong>非对称标记</strong></p>
+<p><strong>Peterson算法</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/$7FP%25VF$GD9K%7BA5WHJW%25YVR.png" alt=""></p>
+<p>Peterson算法正确性：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/3~6S%60OT9HO%29MS0%5BH0TG0GKY.png" alt=""></p>
+<p><strong>1. 面包算法</strong></p>
+<p>以上算法针对两个进程时，如果多个进程时，采用面包店算法。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/X8JJZMPERSOXW%28W%28%7D4R2C$U.png" alt=""></p>
+<p>面包算法正确性分析：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/W0VK%295R%7D8P%7D2$%25B2S2%5DZU%5DL.png" alt=""></p>
+<p>面包算法太复杂，以上都是软件实现。如果考虑采用硬件实现，将变得简单。</p>
+<p><strong>2. 硬件上关闭中断</strong></p>
+<p>通过关闭时间中断来阻止调度。不进行调度，就不会切换到别的进程。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/O%7DQ$Z$%7D%29O9TNAF%29%7BU%5B@XR$R.png" alt=""></p>
+<p>多CPU时，无法控制别的CPU的时间中断。</p>
+<p><strong>3. 硬件原子指令法</strong></p>
+<p>通过设计一个原子指令(即一次执行完成)来保证修改一个整型变量时，一次完成该变量的修改，而不会切换到别的进程。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/4LASTQIYP4_5NV%7DTLCV%25ZXN.png" alt=""></p>
+<p>上图右侧代码，一次执行完成，而不会在中途切换到其他进程。</p>
+<p><strong>用临界区保护信号量，用信号量实现多进程同步。</strong></p>
+<h4 id="信号量代码实现"><a href="#信号量代码实现" class="headerlink" title="信号量代码实现"></a>信号量代码实现</h4><p>左边是伪代码，右边为实际程序。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/SACM%25KZ%60%5BO7N%7D0BP949MDXD.png" alt=""></p>
+<p>信号量需要多个进程可见，所以信号量存储在内核中。（1）首先申请信号量，此时进入内核，调用sem.c程序；(2)生产者代码，向文件写入内容，在写之前需要判断是否有空闲缓冲区，通过调用sem_waite()。采用开关中断cli()、 sti()保护共享的值，比如value和队列。</p>
+<p>Linux内部读磁盘时，需要使用信号量来保证多进程同步。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%28@%5DKL~KD%29XNS%5BT2IHXMUN%606.png" alt=""></p>
+<p>bread()读磁盘，首先申请一块空闲缓冲区，然后，启动读的命令，启动后就进行阻塞。缓冲区带有一个信号量b_ lock，b_ lock=1表示上锁，一旦上锁表示有进程在读写当前缓冲区，后面进来的进程都进入睡眠。通过中断来进行解锁。通过开关终端cli和sti来保护临界区。</p>
+<p>sleep_on()中阻塞队列的形成方式:</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1%29ULOXTQD%29V$CD%5D2$0W%5DG46.png" alt=""></p>
+<p>tep局部变量存放在当前进程的内核栈，task_ struct能够找到tmp，切换栈的时候temp也能切换。根据task_ struct能够找到当前进程的内核栈，在当前进程的内核栈中就能找到tmp，而tmp指向下一个进程的PCB。下一个进程的PCB再指向下一个进程的内核栈，从当前进程的内核栈找到tmp。temp指向下下一个进程的PCB。这样就形成了一个阻塞队列。</p>
+<p>然后就是如何唤醒队列。下面的方法将阻塞态中的所有进程都唤醒为就绪态，然后由schedule()来调度优先级最高的进程执行，优先级最高的进程执行后，会见b_ lock置为1，然后通过while(bh-&gt;b_lock)将其他进程重新置为阻塞态。具体工作原理如下：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/4P6NYZ4$3XRT%60C%5B1JOLSD64.png" alt=""></p>
+<h3 id="死锁处理"><a href="#死锁处理" class="headerlink" title="死锁处理"></a>死锁处理</h3><p>多进程产生的问题：死锁。多个进程内存中同时出发、交替执行，如果控制不好，就会出现互相死锁的情况。</p>
+<p>看一下生产者-消费者的信号量解法，来发现死锁问题：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/9LX8Q_06Y97MPKQ%5D~EFP0HT.png" alt=""></p>
+<p>如果先申请mutex，再申请empty。这样会导致死锁。</p>
+<p>假设当前缓冲区满了，则empty=0，并且设mutex=1。P(mutex)将mutex从1置为0，然后P(empty)将empty从0置为-1，生产者进程置为阻塞态。切换到消费者进程，P(mutex)将0置为-1，同样消费者进程为阻塞态。这样生产者进程和消费者进程都变成了阻塞态，无法继续执行。</p>
+<p>生产者的P(empty)要执行，必须依赖于V(empty)将empty置为正数，而V(empty)的执行依赖于消费者进程中的P(mutex)执行，而P(mutex)得执行依赖于生产者进程中的V(mutex)将mutex置为1，而V(mutex)得执行以来于生产者进程中的P(empty)，这样就形成了一个环。即形成了死锁。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/X47TWLCF4%60X7MMKCVXB%29R8B.png" alt=""></p>
+<p>将这种多个进程由于相互等待对方持有的资源而造成的谁都无法执行的情况叫死锁。死锁导致资源进程死锁越来越多，浪费的资源越来越多，CPU没有进程执行，CPU利用率极低，到最后计算机停止工作。上述生产者-消费者进程一旦死锁，那么mutex就一直占用无法释放，下一个使用mutex的进程使用mutex的时候，也会导致死锁。这样一直继续下去。</p>
+<p>死锁的成因：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/P%28S@K9U$%5B%7DTBG%283I6CZ4K5N.png" alt=""></p>
+<p>死锁的4个必要条件：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/0%5BG%255MKQV3%28JF%28TLMZ%7D8M30.png" alt=""></p>
+<h4 id="死锁处理方法"><a href="#死锁处理方法" class="headerlink" title="死锁处理方法"></a>死锁处理方法</h4><p>跟火灾做类比</p>
+<ul>
+<li>死锁预防：破坏死锁出现的必要条件，就像预防火灾，禁止吸烟</li>
+<li>死锁避免：检测每个资源请求，如果造成死锁就拒绝，就像检测到煤气超标，自动切换电源；</li>
+<li>死锁检查和恢复：检测到死锁出现时，让一些进程回滚，让出资源，就像发现火灾时，立刻拿起灭火器</li>
+<li>死锁忽略：就好像没有出现死锁一样，就像太阳上可以对火灾全然不顾</li>
+</ul>
+<p>死锁预防：</p>
+<ul>
+<li><p>在进程执行前，一次性申请所有需要的资源，不会占有资源再去申请其他资源</p>
+<ul>
+<li>缺点1： 需要预知未来，编程困难；</li>
+<li>缺点2：需要资源分配很长时间后才使用，资源利用率低</li>
+</ul>
+</li>
+<li><p>对资源类型进行排序，自然也申请必须按序进行，不会出现环路等待</p>
+<ul>
+<li>缺点： 仍然造成资源浪费</li>
+</ul>
+</li>
+</ul>
+<p>死锁避免： 判断此次请求是否会引起死锁？</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/OXCJJ__%7D%25S9%7D$C%29X@EBA817.png" alt=""></p>
+<p>序列A时安全的。 Alloaction表示占用的资源，Need表示进程执行需要的资源，Avaiable表示当前可用的资源。</p>
+<p>可以利用算法来至少安全序列。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%60H%7DP%7D01RB5_O~JFTJX8JT%5B6.png" alt=""></p>
+<p>银行家算法代价比较大。m表示资源，n表示进程数量。系统中资源和进程数量都是巨大的。</p>
+<p>在实际中，通过向假装分配，分配利用银行家算法判断是否会造成死锁，如果造成死锁则对申请拒绝。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/K93_LS%5D$%29_BOJHWD8%60%25A%5DKM.png" alt=""></p>
+<p>死锁检查和恢复：发现问题再处理</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%7DBF%7DIR5%25LW%600F%7D4PS6W%5BV_3.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/G%285_2AIS%5D3M%5DYI8DJM6_%5BU5.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/9AA~UJ6FFAE%25F3TW4EVB%7BOM.png" alt=""></p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><h3 id="内存使用与分段"><a href="#内存使用与分段" class="headerlink" title="内存使用与分段"></a>内存使用与分段</h3><h4 id="内存如何使用"><a href="#内存如何使用" class="headerlink" title="内存如何使用"></a>内存如何使用</h4><p>将程序放入内存中，PC指向开始地址，CPU从内存中取值执行。</p>
+<p>如何让程序放入内存中？程序编译完成，放在磁盘中。从磁盘读一下，将01代码放入内存中。但是放入内存中的什么位置呢？</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/S%28%29CE%60%5BC%7BB1%2510LF%28OSOQ%5DE.png" alt=""></p>
+<p>上图中是一个main()函数，main函数应该放到地址40处。所以从磁盘读取的代码应该放入内存中地址为40的地方。</p>
+<p>这样内存就可以使用了，但是编写的程序的要求main()必须放到内存中地址40处。问题是，内存中的地址可能被占用，哪怎么办呢？</p>
+<p>应该是从内存找一块空闲的地址。一个程序放到内存中一个空间的地方，程序还是无法执行。比如上面的IP指向1000，而call 40不是程序的地址，程序的地址是1040。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/Y%7B6T%7D2D%25$6MA6J1N%5DWJJOEA.png" alt=""></p>
+<p>40是逻辑地址，要使用内存必须修改成物理地址。即将40修改成1040，这种修改叫做重定位。这样才能正确执行程序。</p>
+<p>在什么时候进行重定位呢？</p>
+<p>一种在编译时，编译时给地址加上基地址；缺点是在编译时需要知道内存中哪块地址是空闲的，在实际中，系统无法知道。另一种是在载入时，找到内存中空闲的地址，载入的时候发现1000空闲，将程序中的地址统统加上1000；这样比较灵活。一旦载入后，程序就不能移动。</p>
+<p>实际中，程序载入后还需要移动。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/2HHCE%7D3EFB7Y3%257AVLKTJLN.png" alt=""></p>
+<p>载入后重定位还是无法满足要求。应该是<strong>运行时重定位</strong>，也叫做地址翻译。每次运行时给程序中所有地址加上基地址（base）,base放在PCB（描述进程的数据结构）中。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/FO0BCEV%7B%60WZD%7BN%7B%7BR4FLKRU.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/4C7T%7D3YOQMWBUTDP99%7BXCAI.png" alt=""></p>
+<p>首先到内存中找一块空闲内存，得到基地址，将程序载入空闲内存中，然后将基地址写入进程的PCB中，最后，在执行程序的过程中，每取出一条指令的时候加上基地址进行重定位。</p>
+<h4 id="引入分段"><a href="#引入分段" class="headerlink" title="引入分段"></a>引入分段</h4><p>每一部分都是从零开始。变量集中的偏移300，是偏移变量段中300。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/8OMQK4XUG1%25LH9WP8%5D8EJ~X.png" alt=""></p>
+<p>采用分治，用户可以独立考虑每个部分。因为每个部分都有各自的特点。主程序只读，变量集可写。如果两个放在一起处理，操作变量的时候，可能修改程序段，这样是不合适的，所以分开考虑是必要的。同时，有些函数库可以不载入，比如动态链接库；有些库需要载入。如果所有程序一起考虑，那么所有库都要载入。</p>
+<p>分段放入内存中，还有一个好处就是，但某段的内存不足时，只要复制该段到一个更大的空闲内存中。如果不进行分段，首先将内存不足的段扩大，然后需要将整个程序复制到一个更大的空闲内存中，这样效率低。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/5USU5BHH7XP0X%5D%289UH2R%5D%5DD.png" alt=""></p>
+<p>其中DS=1表示段号为1，CS=0表示段号为1。</p>
+<p>每个进程都有一套段表，叫做LDT，LDT放在进程的PCB中。操作系统的段表就是GDT表。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%7DLH%5BP0%5DW%29%7BA%7D5MU5EQN%60%7DEP.png" alt=""></p>
+<h3 id="内存分区与分页"><a href="#内存分区与分页" class="headerlink" title="内存分区与分页"></a>内存分区与分页</h3><p>如何在内存中找到一块空闲的内存块。说到内存块，就有内存分区的概念。</p>
+<p>内存管理三个步骤： 程序分段（编译） -&gt;  在内存中划分空闲区域 -&gt;  通过磁盘读写载入到内存，建立LDT表</p>
+<p>如何在内存找出一段空闲的区域？</p>
+<p>内存是怎么分割的？</p>
+<h4 id="内存分区"><a href="#内存分区" class="headerlink" title="内存分区"></a>内存分区</h4><p><strong>固定分区和可变分区</strong></p>
+<p>给你一个面包，一堆孩子来吃，怎么办？</p>
+<ul>
+<li>等分，操作系统初始化时将内存等分成k个分区</li>
+<li>但孩子有大有小，段也有大有小，需求不一定。</li>
+</ul>
+<p>实际中采用可变分区，根据段请求，在空闲分区中割一段分配给该段。</p>
+<p>通过一些数据结构来管理可变分区。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/C~W%7DZ3V6$ASVD3N5LH0L35U.png" alt=""></p>
+<p>处理一个段请求如下：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/B~9_Z%25SRB8%294YB4%28%2592H7A6.png" alt=""></p>
+<p>空闲分区表需要改变，已分配分区表添加一行。空闲分区表中的始址变为350K，长度标为150K。</p>
+<p>进程退出，则使用的内存都会释放。这样空闲内存将不再是一块，而是一块一块的。如下：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/C@%28~%7D%5BWVTX104F@IJ%7DUEAFS.png" alt=""></p>
+<p>此时，如果进程再次进来进行申请，选择哪个空闲块分配给进程呢？这就需要使用算法来进行分配：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/_3JXPO1Y19$I$$26JNBU0%5DT.png" alt=""></p>
+<ul>
+<li>最佳适配： 选择最接近请求空闲内存大小的空闲内存，这样会导致生成一堆细小的空闲内存 o(n)</li>
+<li>最差适配： 选择空闲内存中最大的空闲块分配给请求， 得到一些比较均匀的空闲内存  o(n)</li>
+<li><p>首先适配： 速度块 o(1)</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%25@%28QL$3H6BAIVY%25SW0R%7DU%5B6.png" alt=""></p>
+</li>
+</ul>
+<p>答案是 B  最佳适配会产生一堆细小的空闲内存块，而题目中刚好有这样的q;qq</p>
+<p>在实际系统中，并不是用内存分区来进行物理内存的分割。而是通过分页来进行物理内存进行分割。内存分区是对虚拟内存的处理，后面讲解。</p>
+<h4 id="内存分页"><a href="#内存分页" class="headerlink" title="内存分页"></a>内存分页</h4><p>引入分页：解决内存分区导致的内存效率问题</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/_58%5DZEP6YX%60L%5D7PDB74P1DF.png" alt=""></p>
+<p>存在内存碎片问题，内存紧缩方法花费时间太长，不可行。</p>
+<p>另一个方法是：将160打碎，分成100K和40K，这样就可以请求空闲内存了，这就是分页。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/D7%60ZJT$%7DDQ%60__72F%2827JH3F.png" alt=""></p>
+<p>此时不再需要内存紧缩，因为最多浪费一页内存，而一页内存非常小，所以物理内存浪费少。</p>
+<p>程序分段，物理内存分页。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1F8%7B%7BS%5B$N%7BNPTQ%28MA7A%60EWD.png" alt=""></p>
+<p>对于一个逻辑地址，首先除以页面尺寸大小，此处为4K，表示将逻辑地址右移12位，得到2，即表示页号为2，找到内存中对应的页框号为3；然后将地址除以页面尺寸大小得到的余数（240）加上页框号乘以页面尺寸（3左移动12位）就可以得到物理地址（0x3240）。</p>
+<h3 id="多级页表与快表"><a href="#多级页表与快表" class="headerlink" title="多级页表与快表"></a>多级页表与快表</h3><p>分页机制还存在问题。就需要多级页表与快表进行解决。意思是，分页、多级页表和快表结合在一起就能形成一套高效的完整的机制。</p>
+<p>分页的问题：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/AJOXQ9F%292%29$6@7C_O9D%5DVIO.png" alt=""></p>
+<p>页小（比如4K）页表就大了。页大了就会浪费内存。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/F%25%5B2%290J9Y%28@%7BU$YUYX%7B%5B%7DIO.png" alt=""></p>
+<p>不使用的逻辑页号从页表中去掉。只存放用到的页。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/$~7ZS~70Q%28%29%605KO9%5B%25S%5DVNG.png" alt=""></p>
+<p>只存储用到的页，这样会导致表不连续。就需要对表进行查找，而查找非常耗时，是不可行的。比如，4G的内存，对半查找需要20次，这样导致一次内存访问附带了20的内存访问查找表，而CPU的执行非常快，对于CPU访问内存本来就慢，还一次内存访问，还附带了20次的内存访问查找，这样速度就更慢。</p>
+<p>而如果是连续的，就不需要查找，直接将表的起始地址加上偏移就找到了对应的页号。这样只要查一次，速度就快。缺点就算没有使用的页号也要存储在页表中，这样才能连续，造成页表的表项特别多。页表很大，造成浪费。</p>
+<p>需要找到一种方法使得页表小，而且连续。可以类比书的章目录和节目录来思考。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/R8WP2B6%29%292GVBUJE%28400F49.png" alt=""></p>
+<p>多级页表仍然是连续的，不需要进行比较查找。内存中存储的表项大大变小。</p>
+<p>多级页表的问题：</p>
+<p>空间利用率高，但是时间消耗大。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%60I%5B7%7DO_C0%29H3GNCHM%256WL%29K.png" alt=""></p>
+<p>利用快表解决时间问题。首先在TLB中查找，没有查找到再去查找多级页表。最近经常使用的页表项放入快表TLB中。</p>
+<p>TLB发挥作用的原因：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/~~_X%5B$_RXHTFOUM97TXBW%25V.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/LWL~AF_1M4H$F@UJD6N%7D7~0.png" alt=""></p>
+<h3 id="段页结合的实际内存管理"><a href="#段页结合的实际内存管理" class="headerlink" title="段页结合的实际内存管理"></a>段页结合的实际内存管理</h3><p>段页结合：程序员希望用段，物理内存希望用页</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/O%7BJ%5B%5DR4%5B3W%5DE%28%7B7N2%5BTWL3J.png" alt=""></p>
+<p>在虚拟内存中割出一个区域分配给应用程序。在虚拟内存中的段分成一页一页，然后跟物理内存关联在一起。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%7D4MEF%5D%5DP8Q%5DW%28LE1Z_QW%7BDK.png" alt=""></p>
+<p><strong>逻辑地址（段号+偏移）</strong>根据段表找到基址，基址加上段内偏移产生出一个<strong>虚拟地址</strong> 。根据虚拟地址算出页号和偏移，再根据分页机制，找到页号对应的页框号，页框号乘以页面大小加上偏移得到<strong>物理地址</strong>。</p>
+<h4 id="一个实际的段、页式内存管理"><a href="#一个实际的段、页式内存管理" class="headerlink" title="一个实际的段、页式内存管理"></a>一个实际的段、页式内存管理</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/ZPJ6%7DE6SQZI$8I%60%7B@SOTQ%5DM.png" alt=""></p>
+<p>程序载入内存：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/E7HJ0%60%29POZD%29KPHO0O$TR%7B8.png" alt=""></p>
+<p>整个过程分为3步：第一步：在虚拟内存分割一快空闲区域；第二步：将程序段假装放入虚拟内存；第三步：在物理内存中查找空闲页；第四步：建立页表，实现虚拟内存到物理内存。第五步：重定位使用内存。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/$Y%25%28RM8~S6@390$4LNXX87I.png" alt=""></p>
+<p>P是PCB。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/8QM33X%7D$PF~1IP%25Z19%5BUSPN.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/8_FY1MMJL2%5B1%5DZW%7D_PUC%7DOM.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/GD9V6_MO4C%25WC9%5BYE%7D%60H~DE.png" alt=""></p>
+<h3 id="内存换入——请求调页"><a href="#内存换入——请求调页" class="headerlink" title="内存换入——请求调页"></a>内存换入——请求调页</h3><p>实现分段和分页，需要使用虚拟内存，而使用虚拟内存必须有换入换出。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/V%604HDQKNKUTI1~ZKO17T9M0.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/4AI8%7DIY%7BH1JSFQXCNXUWYLS.png" alt=""></p>
+<p>请求的时候才换入并建立映射。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/_%259~TRSI8W~$X%25WQTMINX18.png" alt=""></p>
+<p>一旦发现当前的虚拟在页表中没必要映射，即缺页，就会发起中断，然后页错误处理程序去磁盘读取对应页放入空闲物理内存页，然后虚拟内存建立映射。这样，就可以正常执行了。</p>
+<p>一个实际系统的请求调页：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/CHP%604FYH%253%29P4~QW~6OQEI1.png" alt=""></p>
+<h3 id="内存换出"><a href="#内存换出" class="headerlink" title="内存换出"></a>内存换出</h3><p>如果一直换入，则物理内存总会满。所以，需要将物理内存页换出到磁盘中。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/6Z6AU%5D4J%5DG8L%5DBQ%7B%29~RC%290L.png" alt=""></p>
+<p>接下来，主要是分析算法换出哪一页？</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/~%7B6%28%25MY8Q%7B%290~VAPB4SJ%28VN.png" alt=""></p>
+<p>缺页次数较少时，采用FIFO。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/ID2~JKQBJMG%5DRJ~%7DE%28%28Q2%255.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%29ZIP2RNDP7J994OG@~758%5DP.png" alt=""></p>
+<p>LRU利用程序的局部性特点。</p>
+<p>LRU的准确实现的两种方法：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%28IFNTGG%29LKI$%7BP7N%5BX%5B9MKW.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/R$%7BSRPWNG6PN@Q5C%7DY%5DM%287S.png" alt=""></p>
+<p>LRU的准确实现，代价太大。LRU的近似实现：</p>
+<p>二次机会算法SCR也称Clock算法。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/WG$A6KMLND$P~W0Z$@Z%251M8.png" alt=""></p>
+<p>R=0表示最近没被使用。R=1表示最近被使用了。</p>
+<p>如果缺页很少，则所有的R都会等于1。如果再出现缺页，会将所有的R置为0，并将第一个置为1的页换出。再次缺页，就换出第二个置为1的页，依次类推，这就退化成了FIFO。原因是，R转的太慢，没法反映最近的概念。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/C16ZHJV8%5D%7D@S%25T9P%7DH76_X4.png" alt=""></p>
+<p>扫描指针将R从1置为0。</p>
+<p>置换策略解决了，还需要知道给一个进程分配多少个页框。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/0IKBQ%5D%7BJW%7DGN_%6025N5KT8NT.png" alt=""></p>
+<p>多道升序程度表示进程数量。</p>
+<p>如果一个进程需要4页，而只分配3页，就会出现颠簸。解决方法经常求出局部需要的页数量，通过求工作集的方法来实现。</p>
+<p><strong>总结</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%5BJZ%28R1WR%25WRL%2862S%7BRUDF15.png" alt=""></p>
+<h2 id="IO系统"><a href="#IO系统" class="headerlink" title="IO系统"></a>IO系统</h2><p><img src="http://pp0km9u5d.bkt.clouddn.com/H4W22DP_%28O0G8YQXVZR7H15.png" alt=""></p>
+<p>显示器、键盘、磁盘（文件、文件系统）</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/7L490_@MY%60TX7S36M8FBZ$O.png" alt=""></p>
+<p>给相应的外设的寄存器或控制器发送指令，然后通过文件形成文件视图；最后向CPU发送中断。</p>
+<p>使用外设，向设备控制器的寄存器写内容就可以了。但是需要查寄存器地址、内容的格式和语义，操作系统要给用户提供一个简单视图——文件视图，这样方便。</p>
+<p>一段操作外设的程序：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/$K%5DTA@930%60%5B8V_1%7DWIWAZDG.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/FEA6GU%25J@%5B_D%60%29MI8ETEGTY.png" alt=""></p>
+<h3 id="显示器"><a href="#显示器" class="headerlink" title="显示器"></a>显示器</h3><p><img src="http://pp0km9u5d.bkt.clouddn.com/4HB80%7B4HG%7BG%5BX~6125VA8%5BH.png" alt=""></p>
+<p>在显示器打印内容的整个过程：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555744830%281%29.jpg" alt=""></p>
+<h3 id="键盘"><a href="#键盘" class="headerlink" title="键盘"></a>键盘</h3><p>按下键盘，就发起了中断。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555747234%281%29.jpg" alt=""></p>
+<p>键盘和显示器结合在一起：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555747305%281%29.jpg" alt=""></p>
+<h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><h4 id="生磁盘的使用"><a href="#生磁盘的使用" class="headerlink" title="生磁盘的使用"></a>生磁盘的使用</h4><p>CPU向IDE控制器写一些指令，读写磁盘，读写完成向CPU发起中断。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555747650%281%29.jpg" alt=""></p>
+<p>磁盘中有磁，磁头里面有电，磁和电相互转换，最后磁信号变成了电信号，从而读出了磁盘。读写磁盘的单位是扇区，即一个扇区一个扇区读写。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555747710%281%29.jpg" alt=""></p>
+<p>磁盘如何读写一个字节：首先，磁头移动到指定的磁道上，磁盘开始旋转，转到对应的扇区后，再一转就磁生电，磁信号变成电信号，读入内存缓存区。然后再内存中修改一个字节，最后将电信号转为磁信号，写入磁盘。</p>
+<p>三个步骤： 移动磁头到相应磁道上-&gt;旋转磁盘到对应的扇区-&gt;与内存进行读写</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555748178%281%29.jpg" alt=""></p>
+<p>最直接使用磁盘：只要往磁盘控制中写柱面、磁头、扇区、缓冲区位置。</p>
+<ul>
+<li>柱面：确定磁道</li>
+<li>磁头：确定盘面</li>
+<li>扇区：柱面和磁头确定一个圆，通过扇区确定圆中的哪个部分。</li>
+</ul>
+<p>有了这三个量就知道在磁盘什么位置读写数据。然后将磁盘中的数据读入缓冲区或从缓冲区读取数据写入磁盘。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555748627%281%29.jpg" alt=""></p>
+<p>上面方法对于用户使用而言，太困难，需要知道的量太多。于是考虑通过一个量来定位磁盘中的数据，中间的计算柱面、磁头和扇区交给磁盘驱动去计算。这个量就是盘块号。</p>
+<p><strong>第一层抽象</strong></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555748873%281%29.jpg" alt=""></p>
+<p>可将，寻道的时间是最长的。所以，相邻的盘块号存在一个磁道上，可以节省大量时间。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555756096%281%29.jpg" alt=""></p>
+<p>注意： block = C×(Heads×Sectors)+H×Sectors+S -&gt; S=block%Sectors。</p>
+<p>每次访问磁盘，希望多读取内容，因此每次磁盘访问都要花费比较多的时间，特别是寻道和旋转实现。而磁盘的最小读取单位是扇区，引进盘块，可以增加每次磁盘读取的内容，这样就能提高磁盘读取的时间效率。但是这样会导致磁盘空间利用率会降低，因为如果一个盘块存储了内容，没有填满，但是不能再填充内容。通过降低磁盘利用率来提供时间效率。 </p>
+<p>一个盘块包含多个连续扇区。Linux的盘块是2个扇区（sector）。</p>
+<p><strong>第二层抽象</strong></p>
+<p>多个进程请求访问磁盘时，就需要请求队列。每做完一件事，发生中断，磁盘驱动从请求队列中取出。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555756882%281%29.jpg" alt=""></p>
+<p>根据盘块号来访问磁盘，是生磁盘。如果通过文件来访问磁盘，就变成了熟磁盘。</p>
+<p>先来先服务FCFS：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555757258%281%29.jpg" alt=""></p>
+<p>最短寻道优先SSTF</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555757423%281%29.jpg" alt=""></p>
+<p>电梯算法SCAN:</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/UF40LWRA9%7BFSM$UE2N%2860G4.png" alt=""></p>
+<p>电梯算法C-SCAN</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/RS7KZH~O6$%28XD7~5AU_U80D.png" alt=""></p>
+<p>生磁盘使用总结：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/1555758029%281%29.jpg" alt=""></p>
+<p>第一步中的扇区号，是盘块号中多个连续扇区的起始扇区号。</p>
+<h4 id="从生磁盘到文件"><a href="#从生磁盘到文件" class="headerlink" title="从生磁盘到文件"></a>从生磁盘到文件</h4><p>核心：如何从文件到盘块号？反过来怎么从盘块号抽象出文件？</p>
+<p>引入文件，对磁盘使用的第三层抽象：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/MP~_UXHNA_0QD%60MEUNI%25D5O.png" alt=""></p>
+<p>用户眼中的文件是字符序列。磁盘上的文件是由一堆盘块连接在一起组成的。</p>
+<p>文件核心在于：建立字符流到盘块集合的映射关系。</p>
+<p>映射的作用：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/2K5%29YMVAHK9X4%257QU_ZXT%29E.png" alt=""></p>
+<ul>
+<li>连续结构来实现文件：</li>
+</ul>
+<p>在test.c中，假设0-99字节的文件存放在第6个盘块，100-199存放在第7个盘块上，200-299存放在第8个盘块上。这样，根据200-212就可以算出在哪个盘块上，即第8号盘块上。计算公式： 200/100+6=8，所以test.c的FCB表格中需要存放起始盘块号（这里是6）和连续的块数（这里是3）。</p>
+<p>这样读写磁盘就变成了读写文件中的第几个字符。 文件中的字符-&gt;盘块号-&gt;扇区、磁头、柱面-&gt;磁盘中的文件</p>
+<p>在这种情况下，如果testc文件增加到14块时，就需要覆盖第14块，于是考虑将文件移动到更大的连续空间，但是这样非常耗时。所以这种结构，对于<strong>文件动态增长不适合</strong>。这种结构类似于数组。对于词典文件基本不变适合采用这种方式存储。</p>
+<p>对于动态文件考虑采用链式结构来存储。</p>
+<ul>
+<li>链式结构实现文件</li>
+</ul>
+<p>类似于链表数据结构。这时文件的FCB表格只需要存储起始块，而不要存储连续的块数量。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%5DG%7B~E5TDCH6Y@D~%7BR~%5B~%7DWP.png" alt=""></p>
+<p>适用于动态增长文件。但是读写速度慢。</p>
+<ul>
+<li>索引结构实现文件</li>
+</ul>
+<p>需要一个盘块来做索引。这样只要做索引的盘块存储到文件的FCB表格中。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/SSL%5BMH16JKF$905VAF05O7Q.png" alt=""></p>
+<p>适用于动态增长文件，读写速度块。</p>
+<ul>
+<li>多级索引结构实现文件</li>
+</ul>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/@OGDO%25KVUSC%25MWT7ETLU@$Y.png" alt=""></p>
+<p>小文件直接对应盘块，直接读写。中间大小文件采用一级索引。大文件采用二级索引。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/DVR%25_H7JKB~%7DGAE_UJ84QUW.png" alt=""></p>
+<p>答案： A</p>
+<h4 id="文件使用磁盘的实现"><a href="#文件使用磁盘的实现" class="headerlink" title="文件使用磁盘的实现"></a>文件使用磁盘的实现</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/%7BZM5%604@KRC%5D$%605HBZFH%60~HX.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%29W%29D7LRXPNLHRY%25%5DO5%605%5DB7.png" alt=""></p>
+<p>根据file，count确定200-212，然后根据inode表格中的索引表确定盘块号。其中file是一个指针，指向文件的开始，count表示读取文件的字符数量。</p>
+<p>利用盘块号、buf形成请求，利用电梯算法放入请求队列。</p>
+<p>file_write实现：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/TLDD$82P%7B%7BG~_~N8K%25K9NRO.png" alt=""></p>
+<p>create_block实现：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/F%25J4W2ODOV%5BJUDQO6H8%5DT%7DI.png" alt=""></p>
+<p>首先根据一个盘块中存储的字符数量，算出需要读的字符位于第几个盘块，然后在索引表中找到对应盘块。</p>
+<p>Linux中，一个盘块包括2个扇区，占1K=0124个字节。一个盘块号占2个字节，所以一个索引表可以索引到512个盘块。</p>
+<p>inode除了作为一个映射表从文件对应到盘块号为，还是文件抽象。文件还包括设备文件，设备文件应包括主设备号、次设备号等信息，而不需要映射表。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%7DWGCGB%60TI1I3XZGEPMJK4KT.png" alt=""></p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/K0A~QXFVG%5DL5FZ$@Q%25_%7BGQ3.png" alt=""></p>
+<p>文件名-&gt; inode -&gt; 盘块号 -&gt; CHS -&gt; 磁盘控制器 -&gt; 磁生电电生磁读写文件</p>
+<h4 id="目录与文件系统"><a href="#目录与文件系统" class="headerlink" title="目录与文件系统"></a>目录与文件系统</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/4F%5DV7$H%602@SQ55UCRA~7DWQ.png" alt=""></p>
+<p>文件系统是一堆文件到盘块集合。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/FT6N5A4S%255_QR%5DI1YF0SMPU.png" alt=""></p>
+<p>文件系统按照树结构存储多文件。文件系统将磁盘上所有盘块抽象成一个目录树结构。</p>
+<p>前面是研究一个文件怎么映射到磁盘中的盘块。而这里研究一堆文件对应到磁盘中的盘块。</p>
+<p>所有文件放在一个层：用户查找文件非常困难</p>
+<p>每个用户放在一个集合： 还是比较复制</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/AAG~$ZO%7B3@6%5BN@KRRZX2W%29E.png" alt=""></p>
+<p>引入目录树： （分治的思想）</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%282GW@5N~%28T%5DX%5BKE3BF@%5B99R.png" alt=""></p>
+<p>路径名：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%602J$%29X@ZDJXR_OXMGJW%5D4WQ.png" alt=""></p>
+<p>根据FCB就能找到盘块号，这样就接上了单文件情形。</p>
+<p>第四层抽象的核心就是：路径名映射到FCB。</p>
+<p>磁盘块中存放什么信息来实现目录？</p>
+<p>每个目录存放目录下所有文件名和对应的FCB的”地址”（编号）。如果读取整个FCB表格，而不是编号，这样读写磁盘的时间将大大增长。</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/%5DP@X7FEGOPP_C_Y0CIC%5BOKV.png" alt=""></p>
+<p>磁盘中存放的信息：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/3ZW6M%60E7KLQ1QX%6024@TBG~6.png" alt=""></p>
+<p>盘块位图能够表示空闲的盘块，inode位图表示可以存放多少个文件，哪些文件被占用。超级块记录两个位图有多大等信息。</p>
+<p>总结：</p>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/8V%25D%7B%5DC9_O%7BZZIG74@%609%25VE.png" alt=""></p>
+<h4 id="目录解析代码实现"><a href="#目录解析代码实现" class="headerlink" title="目录解析代码实现"></a>目录解析代码实现</h4><p><img src="http://pp0km9u5d.bkt.clouddn.com/%288UK0JPY%5B80P%28W%29N58WQLH3.png" alt=""></p>
+<h2 id="操作系统全图"><a href="#操作系统全图" class="headerlink" title="操作系统全图"></a>操作系统全图</h2><p>多进程视图：CPU取值执行，多个程序交替执行，让CPU充分忙碌。</p>
+<p>内存：分段、分页，段页合作，换入换出</p>
+<p>文件视图：磁盘读写、IO设备</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/04/21/操作系统/" title="操作系统">https://zxpgo.github.io/2019/04/21/操作系统/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/C语言实现发送邮件/" rel="next" title="C语言实现发送邮件">
+                <i class="fa fa-chevron-left"></i> C语言实现发送邮件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2100/03/27/公告/" rel="prev" title="公告">
+                公告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">125</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统介绍"><span class="nav-number">1.</span> <span class="nav-text">操作系统介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU管理"><span class="nav-number">2.</span> <span class="nav-text">CPU管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统如何支持多进程"><span class="nav-number">2.1.</span> <span class="nav-text">操作系统如何支持多进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程如何组织"><span class="nav-number">2.2.</span> <span class="nav-text">多进程如何组织</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程的组织：-PCB-状态-队列"><span class="nav-number">2.2.1.</span> <span class="nav-text">多进程的组织： PCB+状态+队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程的交替"><span class="nav-number">2.2.2.</span> <span class="nav-text">多进程的交替</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交替的三个部分-队列操作-调度-切换"><span class="nav-number">2.2.3.</span> <span class="nav-text">交替的三个部分: 队列操作+调度+切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程如何影响"><span class="nav-number">2.2.4.</span> <span class="nav-text">多进程如何影响</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程如何合作"><span class="nav-number">2.2.5.</span> <span class="nav-text">多进程如何合作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户级线程"><span class="nav-number">2.3.</span> <span class="nav-text">用户级线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核级线程"><span class="nav-number">2.4.</span> <span class="nav-text">内核级线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核级线程实现"><span class="nav-number">2.5.</span> <span class="nav-text">内核级线程实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU调度策略"><span class="nav-number">3.</span> <span class="nav-text">CPU调度策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#各种CPU调度算法"><span class="nav-number">3.1.</span> <span class="nav-text">各种CPU调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SJF-短作业优先"><span class="nav-number">3.1.1.</span> <span class="nav-text">SJF: 短作业优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RR-按时间来轮转调度（Round-Robin）"><span class="nav-number">3.1.2.</span> <span class="nav-text">RR: 按时间来轮转调度（Round Robin）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Priority-优先级"><span class="nav-number">3.1.3.</span> <span class="nav-text">Priority: 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个实际的schedule函数"><span class="nav-number">3.1.4.</span> <span class="nav-text">一个实际的schedule函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程同步与信号量"><span class="nav-number">3.2.</span> <span class="nav-text">进程同步与信号量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信号量临界区保护"><span class="nav-number">3.2.1.</span> <span class="nav-text">信号量临界区保护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种解决方法"><span class="nav-number">3.2.2.</span> <span class="nav-text">三种解决方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号量代码实现"><span class="nav-number">3.2.3.</span> <span class="nav-text">信号量代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁处理"><span class="nav-number">3.3.</span> <span class="nav-text">死锁处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁处理方法"><span class="nav-number">3.3.1.</span> <span class="nav-text">死锁处理方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">4.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存使用与分段"><span class="nav-number">4.1.</span> <span class="nav-text">内存使用与分段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存如何使用"><span class="nav-number">4.1.1.</span> <span class="nav-text">内存如何使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入分段"><span class="nav-number">4.1.2.</span> <span class="nav-text">引入分段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存分区与分页"><span class="nav-number">4.2.</span> <span class="nav-text">内存分区与分页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存分区"><span class="nav-number">4.2.1.</span> <span class="nav-text">内存分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存分页"><span class="nav-number">4.2.2.</span> <span class="nav-text">内存分页</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多级页表与快表"><span class="nav-number">4.3.</span> <span class="nav-text">多级页表与快表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段页结合的实际内存管理"><span class="nav-number">4.4.</span> <span class="nav-text">段页结合的实际内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个实际的段、页式内存管理"><span class="nav-number">4.4.1.</span> <span class="nav-text">一个实际的段、页式内存管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存换入——请求调页"><span class="nav-number">4.5.</span> <span class="nav-text">内存换入——请求调页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存换出"><span class="nav-number">4.6.</span> <span class="nav-text">内存换出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO系统"><span class="nav-number">5.</span> <span class="nav-text">IO系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示器"><span class="nav-number">5.1.</span> <span class="nav-text">显示器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘"><span class="nav-number">5.2.</span> <span class="nav-text">键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘"><span class="nav-number">5.3.</span> <span class="nav-text">磁盘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生磁盘的使用"><span class="nav-number">5.3.1.</span> <span class="nav-text">生磁盘的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从生磁盘到文件"><span class="nav-number">5.3.2.</span> <span class="nav-text">从生磁盘到文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件使用磁盘的实现"><span class="nav-number">5.3.3.</span> <span class="nav-text">文件使用磁盘的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录与文件系统"><span class="nav-number">5.3.4.</span> <span class="nav-text">目录与文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录解析代码实现"><span class="nav-number">5.3.5.</span> <span class="nav-text">目录解析代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统全图"><span class="nav-number">6.</span> <span class="nav-text">操作系统全图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>

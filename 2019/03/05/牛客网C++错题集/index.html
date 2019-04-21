@@ -93,10 +93,13 @@
 <meta property="og:site_name" content="平步青云win">
 <meta property="og:description" content="牛客网C/C++每天练习十题，记录重要知识点和错题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T14:26:05.392Z">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20170809/4155837_1502268982824_583B0E3AECF1C1D9AF11E0919965FDBA">
+<meta property="og:image" content="http://pp0km9u5d.bkt.clouddn.com/~IG%29SSU1TPU6N%7B09NHA9%7DDJ.png">
+<meta property="og:updated_time" content="2019-04-21T15:11:25.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛客网C&#x2F;C++错题集">
 <meta name="twitter:description" content="牛客网C/C++每天练习十题，记录重要知识点和错题。">
+<meta name="twitter:image" content="https://uploadfiles.nowcoder.com/images/20170809/4155837_1502268982824_583B0E3AECF1C1D9AF11E0919965FDBA">
 
 
 
@@ -597,6 +600,342 @@ string
 <p>按关键字有序保存元素：set(关键字即值，即只保存关键字的容器)；multiset(关键字可重复出现的set)；</p>
 <p>无序集合：unordered_set(用哈希函数组织的set)；unordered _multiset(哈希组织的set，关键字可以重复出现)。</p>
 <p>set就是关键字的简单集合。当只是想知道一个值是否存在时，set是最有用的。</p>
+<h2 id="字符串和字符"><a href="#字符串和字符" class="headerlink" title="字符串和字符"></a>字符串和字符</h2><pre><code>&quot;&quot; 表示字符串
+&apos;&apos; 表示字符
+</code></pre><p>字符数组不能表示字符串：     </p>
+<pre><code>char str[] = {&quot;a&quot;, &quot;b&quot;}; //错误
+</code></pre><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><p>以下关于STL的描述中，____是错的。<br>正确答案: C  </p>
+<pre><code>STL容器是线程不安全的
+当容量不够时，vector内部内存扩展方式是翻倍
+std::sort是稳定排序
+std::bitset不是一个STL容器
+std::stack默认是用deque实现的
+std::string中可以存储多个’\0’字符
+</code></pre><p>A：“很多程序员希望STL实现是完全线程安全的“。所以不安全。</p>
+<p>B：vector的存在可以使开发者不必关心内存的申请和释放。但是，vector的一个缺点就是它的内存分配是按照2的倍数分配内存的。</p>
+<p>C：错误。要知道 std::sort 不是稳定的排序算法，它不保证“相等”元素的相对位置，使用 std::stable_sort 来保证这一点</p>
+<p>D：STL的容器可以分为以下几个大类:<br>一：序列容器，　有vector, list, deque, string.<br>二 : 关联容器,     有set, multiset, map, mulmap, hash_set, hash_map, hash_multiset, hash_multimap<br>三: 其他的杂项： stack, queue, valarray, bitset</p>
+<p>E：正确。堆栈是一个线性表，插入删除操作都在一端进行，deque是先进先出的，操作原理和stack是一样的</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>下面这段代码会打印出什么？</p>
+<pre><code>class A
+{
+public:
+    A()
+    {
+        printf(&quot;A &quot;);
+    }
+
+    ~A()
+    {
+        printf(&quot;deA &quot;);
+    }
+};
+
+class B
+{
+public:
+    B()
+    {
+        printf(&quot;B &quot;);
+    }
+    ~B()
+    {
+        printf(&quot;deB &quot;);
+    }
+};
+
+class C: public A, public B
+{
+public:
+    C()
+    {
+        printf(&quot;C &quot;);
+    }
+    ~C()
+    {
+        printf(&quot;deC &quot;);
+    }
+};
+int main()
+{
+    A *a = new C();
+    delete a;
+    return 0;
+}
+</code></pre><p>正确答案: A  </p>
+<pre><code>A B C deA
+C A B deA
+A B C deC
+C A B deC
+</code></pre><p>如果按题中所说 加入virtual，那么输出的顺序是ABC deC deB deA。由于析构函数是虚函数，动态调用，那么会调用C的析构函数，由于C继承与A和B，所以先调用A B的析构，最后调用自己的。<br>如果A的析构函数不是虚函数，那么只会调用A的析构函数。</p>
+<h2 id="二维数组赋值"><a href="#二维数组赋值" class="headerlink" title="二维数组赋值"></a>二维数组赋值</h2><pre><code>int a[][2] = { 0 };
+int b[][2] = { { 1, 2 }, { 3, 4 } };
+int c[][2] = { { 1, 2,}, { 3, 4 }, {0} };
+都是可以的。
+但是int array[][2];不行
+</code></pre><p>如果对全部元素都赋初值，则定义数组时第一维可以忽略，但是第二维必须存在。 同时：在定义的时候也可以对部分元素赋初值而忽略第一维的长度，但应该分行赋初值。</p>
+<p>可见：可以忽略第一维的长度，但是是有条件的：要么你把全部元素都写出来，或者你分行写出元素（可以不全），但是不可以不赋值</p>
+<h2 id="构造函数调用顺序"><a href="#构造函数调用顺序" class="headerlink" title="构造函数调用顺序"></a>构造函数调用顺序</h2><p>建立派生类对象时,3种构造函数分别是a(基类的构造函数)、b(成员对象的构造函数)、c(派生类的构造函数)这3种构造函数的调用顺序为: </p>
+<pre><code>abc
+</code></pre><p>先父母，再客人，后自己。</p>
+<p>在继承中派生类的对象调用构造函数的顺序，应该是先调用基类的构造函数，然后是成员中的对象对应类的构造函数，最后是派生类自己的构造函数.</p>
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p>在linux+gcc下,关于以下代码,正确的是()</p>
+<pre><code>std::string&amp; test_str()
+{
+   std::string str=&quot;test&quot;;
+   return str;
+}
+int main()
+{
+   std::string&amp; str_ref=test_str();
+   std::cout&lt;&lt;str_ref&lt;&lt;std::endl;
+   return 0;
+}
+</code></pre><p>编译警告、返回局部变量的引用，运行时出现未知错误、把代码里的&amp;去掉之后，程序可以运行</p>
+<p>返回局部变量引用或地址时，调用程序后，局部变量被销毁，所以会出现未知错误</p>
+<p>引用返回的是局部变量本身，而不是复制一份再返回，所以结果难以预料；其次返回局部自动变量是可以的，只要不是地址或引用就可以，否则需要将变量声明成static类型。</p>
+<h2 id="字符转换"><a href="#字符转换" class="headerlink" title="字符转换"></a>字符转换</h2><p>有如下程序段：</p>
+<pre><code>char ch=-1;
+printf(“%02x,%02x”,ch,(unsigned char)ch);
+</code></pre><p>则输出：</p>
+<pre><code>ffffffff,ff
+</code></pre><p>%02x表示输出最少2位，不足补0.</p>
+<p>%x以十六进制无符号形式输出，-1转成二进制全是1，所以第一个输出8个f,第二个转换成unsigned char发生截断只有8位，所以输出ff</p>
+<p> %x 默认的输出大小就是4个字节</p>
+<p>短数据类型扩展为长数据类型：①要扩展的数据类型为有符号类型，用短数据的符号位填充长数据多出来的高字节 ，-1 （11111111）扩展为int（方便转换为十六进制）即（符号位是1）11111111 11111111 11111111 11111111（ffffffff）②要扩展的数据类型为无符号的（unsigned char） ，用0来填充长数据类型的高字节，此时-1在内存的二进制存储（11111111 ）扩展为int即00000000 00000000 00000000 11111111（ff）。</p>
+<h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p>C++中规定，在建立对象前就可以为静态数据成员赋值。同时规定在静态成员函数中不能使用this指针；静态成员函数在类外定义时，不需要用static前缀；静态成员函数既可以在类内定义也可以在类外定义。</p>
+<h2 id="二维数组和指针"><a href="#二维数组和指针" class="headerlink" title="二维数组和指针"></a>二维数组和指针</h2><p>若有以下定义和赋值语句，则与&amp;s[i][j]等价的是（）</p>
+<pre><code>int s[2][3] = {0}, (*p)[3], i, j;
+p = s;
+i = j = 1;
+</code></pre><p>答案：</p>
+<pre><code>*(p+i)+j
+
+int (*p)[3] 表示一个指针，指向一个含有三个元素的数组；
+
+p=s，表示p指向了数组s的第一行，
+
+p+1 表示现在指针指向了数组s的第二行；
+
+*(p+1)表示数组s第二行第一个元素的地址；
+
+*(p+1)+1 表示数组s第二行第二个元素的地址；
+</code></pre><h2 id="与运算"><a href="#与运算" class="headerlink" title="与运算"></a>与运算</h2><p>求函数返回值，输入x=9999</p>
+<pre><code>int func(int x){
+    int count=0;
+    while (x)
+    {
+        count++;
+        x=x&amp;(x-1);//与运算
+    }
+    return count;
+}
+</code></pre><p>一个数与这个数减1的结果进行’&amp;’按位与运算，结果为：这个数二进制数最右边的1变为0；<br>举例说明如下：</p>
+<pre><code>X=5；  
+5&amp;（5-1） = 0101 &amp; （0100） = 0100
+</code></pre><p>经过上述计算，5的二进制最右边的1变为了0，由此可知，题目中count是用以统计x的二进制中1的个数的<br>9999的二进制表示为：10011100001111 共有8个1，显然，答案为8.</p>
+<h2 id="输出显示十六进制"><a href="#输出显示十六进制" class="headerlink" title="输出显示十六进制"></a>输出显示十六进制</h2><p>hex: 表示十六进制</p>
+<p>oct： 表示八进制</p>
+<p>dec： 表示十进制</p>
+<p>cout.setf(ios::hex);</p>
+<p>或者</p>
+<p>cout &lt;&lt; hex &lt;&lt; 100;</p>
+<h2 id="C语言程序的组成"><a href="#C语言程序的组成" class="headerlink" title="C语言程序的组成"></a>C语言程序的组成</h2><p>函数组成</p>
+<p>注意主程序和主函数的区别，我把主程序理解为主函数了</p>
+<h2 id="与的截断"><a href="#与的截断" class="headerlink" title="与的截断"></a>与的截断</h2><p>设a、b、c、d、m、n均为int型变量，且a=5、b=6、c=7、d=8、m=2、n=2,则逻辑表达式（m=a&gt;b）&amp;&amp;(n=c&gt;d)运算后，n的值为：</p>
+<pre><code>2
+</code></pre><p>由于m=a&gt;b的值为零，所以，表达式为假，&amp;&amp;后半部分不会操作，因此n为初始值2</p>
+<h2 id="初始化地址"><a href="#初始化地址" class="headerlink" title="初始化地址"></a>初始化地址</h2><pre><code>int* pint = 0; 
+pint += 6; 
+cout &lt;&lt; pint &lt;&lt; endl;
+</code></pre><p>以上程序的运行结果是： 24</p>
+<p>两个点：</p>
+<p>1.在初始化中只有地址才能赋值给指针，因此*int p=0是指p指向地址0x00。</p>
+<p>2.int型数占4个字节，因此加6表示偏移了24个字节，结果的地址应为0x18，即是24.</p>
+<p>0x18转换成十进制为24</p>
+<h2 id="数组与指针的区别"><a href="#数组与指针的区别" class="headerlink" title="数组与指针的区别"></a>数组与指针的区别</h2><p>下列关于数组与指针的区别描述正确的是？</p>
+<p>正确答案: B  </p>
+<pre><code>数组要么在静态存储区被创建（如全局数组），要么在栈上被创建。
+用运算符sizeof 可以计算出数组的容量（字节数）
+指针可以随时指向任意类型的内存块。
+用运算符sizeof 可以计算出指针所指向内容的容量（字节数）
+</code></pre><p>A.堆上创建动态数组</p>
+<p>B.sizeof(数组名)就是数组的容量</p>
+<p>C.const指针不可以</p>
+<p>D. char* str = “hello”; sizeof(str)不能计算出内容的容量，只是指针的容量。</p>
+<h2 id="数组名"><a href="#数组名" class="headerlink" title="数组名"></a>数组名</h2><p>数组名为指针常量，不能更改</p>
+<pre><code>char str[80];
+str = &quot;abcedf&quot;;
+</code></pre><p>上述代码是错误的。</p>
+<h2 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h2><p>以下程序的输出结果是?</p>
+<pre><code>#include &lt;stdio.h&gt;
+main()
+{
+  char a[10]={ ‘1’,‘2’,‘3’,‘4’,‘5’,‘6’,‘7’,‘8’,‘9’,0},*p;
+  int i;
+  i=8;
+  p=a+i;
+  printf(&quot;%s\n&quot;,p-3);
+}
+</code></pre><p>输出为： 6789</p>
+<p>因为输出%s,结果是6789;</p>
+<p>如果输出%c,结果是6；</p>
+<p>参数是头地址时，会把剩下的全部输出！！！！ *p,传参，参数是首地址，所以会把剩下的全部输出</p>
+<h2 id="析构函数调用顺序"><a href="#析构函数调用顺序" class="headerlink" title="析构函数调用顺序"></a>析构函数调用顺序</h2><p>下面程序的运行结果为（        ）</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std；
+class A{
+public：A(){cout&lt;&lt;&quot;1&quot;;}
+~A(){cout&lt;&lt;&quot;2&quot;;1}
+};
+class B:public A{
+public:B(){cout&lt;&lt;&quot;3&quot;;}
+~B(){cout&lt;&lt;&quot;4&quot;;}
+};
+void main(){B b;}
+</code></pre><p>输出： 1342</p>
+<p>在C++中：</p>
+<p>（1）对于构造函数，先调用基类的构造函数，再调用派生类的构造函数，就像盖楼房一样，从地基开始，一层两层往上盖。。</p>
+<p>（2）对于析构函数，先是调用派生类的析构函数，再调用基类的析构函数，就像拆楼房一样，从上面开始拆。。。</p>
+<p>注：先构造的后析构。</p>
+<p>实例化子类对象构造函数调用顺序：父类，成员对象，子类；</p>
+<p>析构顺序：子类，成员对象，父类。</p>
+<h2 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h2><p>下面程序会输出什么：</p>
+<pre><code>static int a=1;
+void fun1(void)
+{
+    a=2;
+}
+void fun2(void)
+{
+    int a=3;
+}
+void fun3(void)
+{
+    static int a=4;
+}
+int main()
+{
+  printf(“%d”,a);
+  fun1( );
+  printf(“%d”,a);
+  fun2( );
+  printf(“%d”，a）；   
+  fun3( )
+  printf(“%d”,a); 
+}
+</code></pre><p>答案：</p>
+<pre><code>1 2 2 2
+</code></pre><p>首先声明了一个静态全局变量i，首次输出我就不说了，妥妥的1。第二次输出，访问到了早已定义的全局变量i，并改写值，第二次为2。第三次输出，内部定义了一个同名的变量， 它并没有返回值或者被该次执行程序以外任何程序读取a值，所以第三次输出仍然是a。第四次输出，定义了一个静态的局部变量，静态局部变量在函数调用结束后仍然存在，及它的内存空间不会被释放，但其他函数是不能引用它的，所以，两个静态变量虽然同名，但是并不是一样的东西，为2。</p>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><p><img src="https://uploadfiles.nowcoder.com/images/20170809/4155837_1502268982824_583B0E3AECF1C1D9AF11E0919965FDBA" alt=""></p>
+<p>以上程序中，下列哪个函数调用会有问题（）</p>
+<pre><code>b-&gt;FunctionB();
+</code></pre><p>因为虚函数本质上是通过类对象的虚表进行访问，而且类的成员函数除了虚函数，其他都不存储在类当中，因此类对象不存在的情况下，无法使用虚函数，其他函数都可以正常访问（前提是这些函数都没有存取类对象的成员变量）</p>
+<h2 id="类声明"><a href="#类声明" class="headerlink" title="类声明"></a>类声明</h2><p>如果MyClass为一个类，执行”MyClass a[5], *b[6]”语言会自动调用该类构造函数的次数是()</p>
+<pre><code>5
+</code></pre><p>MyClass a[5]，会创建5个对象，所以会自动调用5次构造函数，但是MyClass *b[6],这不会自动调用构造函数，因为这是声明一个指向6个元素的数组的指针，指针声明的时候是不分配空间的，所以不会调用构造函数，没有指向一个有效的内存空间。</p>
+<p>MyClass <em>b[6]表示一个指针数组，数组里面存放的是指向MyClass类型的指针，即存放的地址，故不会调用该类的构造函数；<br>MyClass (</em>p)[6]表示一个数组指针，也不会调用该类的构造函数；</p>
+<h2 id="数组指针和指针数组"><a href="#数组指针和指针数组" class="headerlink" title="数组指针和指针数组"></a>数组指针和指针数组</h2><p>数组指针（也称行指针）</p>
+<pre><code>定义 int (*p)[n];
+</code></pre><p>()优先级高，首先说明p是一个指针，指向一个整型的一维数组，这个一维数组的长度是n，也可以说是p的步长。也就是说执行p+1时，p要跨过n个整型数据的长度。</p>
+<p>如要将二维数组赋给一指针，应这样赋值：</p>
+<pre><code>int a[3][4];
+int (*p)[4]; //该语句是定义一个数组指针，指向含4个元素的一维数组。
+ p=a;        //将该二维数组的首地址赋给p，也就是a[0]或&amp;a[0][0]
+ p++;       //该语句执行过后，也就是p=p+1;p跨过行a[0][]指向了行a[1][]
+</code></pre><p>指针数组    </p>
+<pre><code>定义 int *p[n];
+</code></pre><p>[]优先级高，先与p结合成为一个数组，再由int<em>说明这是一个整型指针数组，它有n个指针类型的数组元素。这里执行p+1时，则p指向下一个数组元素，这样赋值是错误的：p=a；因为p是个不可知的表示，只存在p[0]、p[1]、p[2]…p[n-1],而且它们分别是指针变量可以用来存放变量地址。但可以这样 </em>p=a; 这里*p表示指针数组第一个元素的值，a的首地址的值。<br>如要将二维数组赋给一指针数组:</p>
+<pre><code>int *p[3];
+int a[3][4];
+p++; //该语句表示p数组指向下一个数组元素。注：此数组每一个元素都是一个指针
+for(i=0;i&lt;3;i++)
+p[i]=a[i]
+</code></pre><p>这里int *p[3] 表示一个一维数组内存放着三个指针变量，分别是p[0]、p[1]、p[2]<br>所以要分别赋值。</p>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2><p>重载之后的运算符不能改变运算符的优先级和结合性，也不能改变运算符操作数的个数及语法结构。</p>
+<p>运算符重载不能改变该运算符用于内部类型对象的含义。</p>
+<h2 id="指向常量的指针和指向常量的应用"><a href="#指向常量的指针和指向常量的应用" class="headerlink" title="指向常量的指针和指向常量的应用"></a>指向常量的指针和指向常量的应用</h2><pre><code>const int * p1;
+</code></pre><p>x是指向常量的指针，指针指向一个常量，无需初始化，指针本身可以改变，但是指针指向的值不能改变。</p>
+<p>如：</p>
+<pre><code>const int x=10;
+const int *p1=&amp;x;
+p1++;//ok
+(*p1)++;//error
+</code></pre><p>指向常量的引用</p>
+<pre><code>const int &amp; x;
+</code></pre><p>const int &amp;i是指向常量的引用，使用时必须初始化，而且初始化后，引用值不可以改变,引用的常量也不能改变。<br>如：</p>
+<pre><code>const int &amp;p2;//error
+const int &amp;p2=x;//ok
+const int y=20;
+p2=y;//error
+p2++;//error
+</code></pre><p>int const &amp; x和const int &amp; x效果相同。</p>
+<p>对于指针来说, const出现在*号的左边还是右边或是左右都有才有区别, 具体的:</p>
+<pre><code>const type *p; // 一个不能修改其指向对象的type型指针
+// 其实和type const *p等效
+type * const p; // 一个不能修改其自身指向位置的type型指针
+const type * const p;
+// 一个既不能修改其指向对象也不能修改其自身指向位置的type型指针
+</code></pre><p>对于除指针以外的其他常量声明句法来说，</p>
+<pre><code>const type name
+和
+type const name
+</code></pre><p>的效果是相同的, 即都声明一个类型为type名为name的常量，如:</p>
+<pre><code>const int x = 1;
+和
+int const x = 1;
+还有
+int x = 1;
+const int &amp;y = x;
+和
+int const &amp;y = x;
+</code></pre><p>都是等效的, 只是写法的风格不同而已,</p>
+<h3 id="int-x-int-amp-x-int-x的区别"><a href="#int-x-int-amp-x-int-x的区别" class="headerlink" title="(int)x, (int &amp;)x, (int*) x的区别"></a>(int)x, (int &amp;)x, (int*) x的区别</h3><ul>
+<li>(int)x 强制类型转换，是将浮点数x为参数构造整数（即float转换为int）</li>
+<li>(int &amp;)y 则是告诉编译器将y看成int对待（内存里的数据不做任何转换)</li>
+<li>(int*)就是强制转换成整型指针，一般人们容易混淆的是(int)和(int&amp;)这两个。</li>
+</ul>
+<p><img src="http://pp0km9u5d.bkt.clouddn.com/~IG%29SSU1TPU6N%7B09NHA9%7DDJ.png" alt=""></p>
+<p>对于(int &amp;)x，是直接将存储的二进制转换为int。所以(int &amp;)x的值是1071 644 672，即将0011 1111 1110 0000 0000 0000 0000转化为二进制。</p>
+<h3 id="auto和decltype类型声明"><a href="#auto和decltype类型声明" class="headerlink" title="auto和decltype类型声明"></a>auto和decltype类型声明</h3><pre><code>int i=0;
+const int ci=i;
+auto b=ci; //(1)
+int *p=&amp;i;
+decltype(*p) c=i;//(2)
+</code></pre><p>以上（1）（2）中变量b，c类型为： int, int&amp;</p>
+<ul>
+<li>(1) auto会忽略顶层const，所以b的类型为int</li>
+<li>(2) 如果表达式的内容是解引用操作，则decltype将得到引用类型</li>
+</ul>
+<h3 id="字符串输出"><a href="#字符串输出" class="headerlink" title="字符串输出"></a>字符串输出</h3><p>printf 函数中用到格式符%5s，其中数字5表示输出的字符串占用5列，如果字符串长度大于5，则输出按方式（）。</p>
+<p>按原字符长从左向右全部输出</p>
+<p>分情况看待：</p>
+<ul>
+<li>1：字符串长度比设定长度大就按字符串实际长度输出；</li>
+<li>2：字符串长度比设定长度小就按右对齐输出该字串,左补空格。</li>
+</ul>
+<h3 id="内存中声明类对象的数量"><a href="#内存中声明类对象的数量" class="headerlink" title="内存中声明类对象的数量"></a>内存中声明类对象的数量</h3><p>假定Qiniuome是一个类，执行下面这些语句之后，内存里创建了几个Qiniuome对象。</p>
+<pre><code>Qiniuome a();
+Qiniuome b(2);
+Qiniuome c[3];
+Qiniuome &amp;ra = b;
+Qiniuome *pA = c;
+Qiniuome *p = new Qiniuome(4);
+</code></pre><p>答案是： 5</p>
+<pre><code>CSomething a();//只是定义一个方法，方法返回一个CSomething对象
+CSomething b（2）;//增加1个对象
+CSomething c[3];//对象数组，增加3个对象
+CSomething &amp;ra=b;//引用不增加对象
+
+CSomething *pA=c;//地址赋值，不增加对象
+CSomething *p=new CSomething;//在堆上构造一个对象，增加1个对象
+</code></pre><p>所以最后一共有： 1+3+1 =5个对象。</p>
+<p>需要注意的是a()是一个函数声明。</p>
+<h3 id="switch注意点"><a href="#switch注意点" class="headerlink" title="switch注意点"></a>switch注意点</h3><ul>
+<li>default的位置可以位于开头</li>
+<li>case的值必须为常量, 例如 case: 1，而case : a是错误的</li>
+<li>switch后面必须有括号，例如switch(a * b)</li>
+</ul>
 
       
     </div>
@@ -795,7 +1134,7 @@ string
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -927,7 +1266,7 @@ string
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析器用于识别：单词"><span class="nav-number">1.</span> <span class="nav-text">词法分析器用于识别：单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体地址："><span class="nav-number">2.</span> <span class="nav-text">结构体地址：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举定义合法性"><span class="nav-number">3.</span> <span class="nav-text">枚举定义合法性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include和import"><span class="nav-number">4.</span> <span class="nav-text">include和import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每个C语言程序文件的编译错误分为（-）类"><span class="nav-number">5.</span> <span class="nav-text">每个C语言程序文件的编译错误分为（ ）类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typedef"><span class="nav-number">6.</span> <span class="nav-text">typedef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针占几个字节"><span class="nav-number">7.</span> <span class="nav-text">指针占几个字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为定义行为"><span class="nav-number">8.</span> <span class="nav-text">为定义行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2e0-5错误"><span class="nav-number">9.</span> <span class="nav-text">1.2e0.5错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">10.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内联函数"><span class="nav-number">11.</span> <span class="nav-text">内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strlen-和sizeof"><span class="nav-number">12.</span> <span class="nav-text">strlen 和sizeof</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number"></span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理命令"><span class="nav-number"></span> <span class="nav-text">预处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符优先级"><span class="nav-number"></span> <span class="nav-text">运算符优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不能被重载的运算符只有五个，分别是"><span class="nav-number"></span> <span class="nav-text">不能被重载的运算符只有五个，分别是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字节对齐"><span class="nav-number"></span> <span class="nav-text">字节对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C-C-Java-都是严格区分大小写的计算机语言"><span class="nav-number"></span> <span class="nav-text">C/C++/C#/Java 都是严格区分大小写的计算机语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number"></span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-源程序文件编译而成的目标文件的缺省扩展名为-obj"><span class="nav-number"></span> <span class="nav-text">C++源程序文件编译而成的目标文件的缺省扩展名为 .obj</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数默认返回类型-int"><span class="nav-number"></span> <span class="nav-text">函数默认返回类型 int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number"></span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-a"><span class="nav-number"></span> <span class="nav-text">&amp;a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化输出"><span class="nav-number"></span> <span class="nav-text">格式化输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#或和与的短路问题"><span class="nav-number"></span> <span class="nav-text">或和与的短路问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#define和typedef"><span class="nav-number"></span> <span class="nav-text">define和typedef</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器和类型"><span class="nav-number"></span> <span class="nav-text">容器和类型</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法分析器用于识别：单词"><span class="nav-number">1.</span> <span class="nav-text">词法分析器用于识别：单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体地址："><span class="nav-number">2.</span> <span class="nav-text">结构体地址：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举定义合法性"><span class="nav-number">3.</span> <span class="nav-text">枚举定义合法性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include和import"><span class="nav-number">4.</span> <span class="nav-text">include和import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每个C语言程序文件的编译错误分为（-）类"><span class="nav-number">5.</span> <span class="nav-text">每个C语言程序文件的编译错误分为（ ）类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typedef"><span class="nav-number">6.</span> <span class="nav-text">typedef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针占几个字节"><span class="nav-number">7.</span> <span class="nav-text">指针占几个字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为定义行为"><span class="nav-number">8.</span> <span class="nav-text">为定义行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2e0-5错误"><span class="nav-number">9.</span> <span class="nav-text">1.2e0.5错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">10.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内联函数"><span class="nav-number">11.</span> <span class="nav-text">内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strlen-和sizeof"><span class="nav-number">12.</span> <span class="nav-text">strlen 和sizeof</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number"></span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理命令"><span class="nav-number"></span> <span class="nav-text">预处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符优先级"><span class="nav-number"></span> <span class="nav-text">运算符优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不能被重载的运算符只有五个，分别是"><span class="nav-number"></span> <span class="nav-text">不能被重载的运算符只有五个，分别是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字节对齐"><span class="nav-number"></span> <span class="nav-text">字节对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C-C-Java-都是严格区分大小写的计算机语言"><span class="nav-number"></span> <span class="nav-text">C/C++/C#/Java 都是严格区分大小写的计算机语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number"></span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-源程序文件编译而成的目标文件的缺省扩展名为-obj"><span class="nav-number"></span> <span class="nav-text">C++源程序文件编译而成的目标文件的缺省扩展名为 .obj</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数默认返回类型-int"><span class="nav-number"></span> <span class="nav-text">函数默认返回类型 int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number"></span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-a"><span class="nav-number"></span> <span class="nav-text">&amp;a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化输出"><span class="nav-number"></span> <span class="nav-text">格式化输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#或和与的短路问题"><span class="nav-number"></span> <span class="nav-text">或和与的短路问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#define和typedef"><span class="nav-number"></span> <span class="nav-text">define和typedef</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器和类型"><span class="nav-number"></span> <span class="nav-text">容器和类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串和字符"><span class="nav-number"></span> <span class="nav-text">字符串和字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STL"><span class="nav-number"></span> <span class="nav-text">STL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#析构函数"><span class="nav-number"></span> <span class="nav-text">析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组赋值"><span class="nav-number"></span> <span class="nav-text">二维数组赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数调用顺序"><span class="nav-number"></span> <span class="nav-text">构造函数调用顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量"><span class="nav-number"></span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符转换"><span class="nav-number"></span> <span class="nav-text">字符转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态成员函数"><span class="nav-number"></span> <span class="nav-text">静态成员函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组和指针"><span class="nav-number"></span> <span class="nav-text">二维数组和指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与运算"><span class="nav-number"></span> <span class="nav-text">与运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出显示十六进制"><span class="nav-number"></span> <span class="nav-text">输出显示十六进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言程序的组成"><span class="nav-number"></span> <span class="nav-text">C语言程序的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与的截断"><span class="nav-number"></span> <span class="nav-text">与的截断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化地址"><span class="nav-number"></span> <span class="nav-text">初始化地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组与指针的区别"><span class="nav-number"></span> <span class="nav-text">数组与指针的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组名"><span class="nav-number"></span> <span class="nav-text">数组名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符数组"><span class="nav-number"></span> <span class="nav-text">字符数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#析构函数调用顺序"><span class="nav-number"></span> <span class="nav-text">析构函数调用顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量和局部变量"><span class="nav-number"></span> <span class="nav-text">全局变量和局部变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数"><span class="nav-number"></span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类声明"><span class="nav-number"></span> <span class="nav-text">类声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组指针和指针数组"><span class="nav-number"></span> <span class="nav-text">数组指针和指针数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符重载"><span class="nav-number"></span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指向常量的指针和指向常量的应用"><span class="nav-number"></span> <span class="nav-text">指向常量的指针和指向常量的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#int-x-int-amp-x-int-x的区别"><span class="nav-number">1.</span> <span class="nav-text">(int)x, (int &amp;)x, (int*) x的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto和decltype类型声明"><span class="nav-number">2.</span> <span class="nav-text">auto和decltype类型声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串输出"><span class="nav-number">3.</span> <span class="nav-text">字符串输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存中声明类对象的数量"><span class="nav-number">4.</span> <span class="nav-text">内存中声明类对象的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch注意点"><span class="nav-number">5.</span> <span class="nav-text">switch注意点</span></a></li></ol></div>
             
 
           </div>
