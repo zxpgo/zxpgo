@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://i.imgur.com/jHjngyT.png">
 <meta property="og:image" content="https://i.imgur.com/0WndMNt.png">
 <meta property="og:image" content="https://i.imgur.com/CltcdzI.png">
-<meta property="og:image" content="https://i.imgur.com/qpA8O3u.png">
+<meta property="og:image" content="https://i.imgur.com/K06PKHk.png">
 <meta property="og:image" content="https://i.imgur.com/LRqeZ5m.png">
 <meta property="og:image" content="https://i.imgur.com/qlievWm.png">
 <meta property="og:image" content="https://i.imgur.com/V6p1y9A.png">
@@ -225,7 +225,7 @@
 <meta property="og:image" content="https://i.imgur.com/xVLJHaE.png">
 <meta property="og:image" content="https://i.imgur.com/LXAFBsq.png">
 <meta property="og:image" content="https://i.imgur.com/SwPyIUl.png">
-<meta property="og:updated_time" content="2019-05-26T11:21:17.145Z">
+<meta property="og:updated_time" content="2019-05-26T11:45:53.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="多进程视图和文件视图，包括进程管理、内存管理、IO设备和磁盘管理。">
@@ -723,7 +723,7 @@ schedule()
 <p>折衷： 时间片10~100ms，切换时间0.1~1ms(1%)</p>
 <h4 id="Priority-优先级"><a href="#Priority-优先级" class="headerlink" title="Priority: 优先级"></a>Priority: 优先级</h4><p>word很关心响应时间，而gcc更关心周转时间，两类任务同时存在怎么办？</p>
 <p>直观想法：定义前台任务和后台任务两个队列，前台RR，后台SJF，只有前台任务没有时才调度后台任务。</p>
-<p><img src="https://i.imgur.com/qpA8O3u.png" alt=""></p>
+<p><img src="https://i.imgur.com/K06PKHk.png" alt=""></p>
 <p>如果前台任务绝对优先，这样会导致后台任务可能一直无法执行。</p>
 <p>显然这样是不合适的，因此后台任务优先级动态升高，但后台任务一旦执行，前台的响应时间就没有处理。</p>
 <p>前后台任务都用时间片，但又退化为了RR，后台任务的SJF如何体现？前台任务如何照顾？</p>
@@ -1207,8 +1207,8 @@ schedule()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/31/Socket编程/" rel="next" title="Socket编程">
-                <i class="fa fa-chevron-left"></i> Socket编程
+              <a href="/2019/03/31/C语言实现发送邮件/" rel="next" title="C语言实现发送邮件">
+                <i class="fa fa-chevron-left"></i> C语言实现发送邮件
               </a>
             
           </div>
