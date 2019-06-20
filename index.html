@@ -4057,6 +4057,1233 @@ int dfs(TreeNode * root, int sum)
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/05/20/STL学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/20/STL学习/" itemprop="url">标准模板库STL</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T22:28:50+08:00">
+                2019-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/20/STL学习/" class="leancloud_visitors" data-flag-title="标准模板库STL">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="STL概论"><a href="#STL概论" class="headerlink" title="STL概论"></a>STL概论</h2><p>C++ Standard Library (C++标准库)：可以看到所有的源代码</p>
+<p>Standard Template Libraay(STL 标准模板库)</p>
+<p>标准库包含标准模板库，标准模板库包含六大部件。</p>
+<p>STL是为了建立数据结构和算法的一套标准，并且降低其间的耦合关系以及提升各自的独立性、弹性、交互操作性而诞生的。</p>
+<p>STL是依据泛型思维架设起来的一个概念结构。</p>
+<p>STL六大组件功能与运用：</p>
+<ul>
+<li>容器(containers)：各种数据结构：vector、list、map、deque、set</li>
+<li>算法(algorithms)：各种常用算法：sort、search、copy、erase</li>
+<li>迭代器(iterators)：扮演容器和算法之间的桥梁</li>
+<li>仿函式(functors)：行为类似函数，可做算法的某种策略</li>
+<li>配接器(adapters)：一种用来修饰容器或仿函式或迭代器接口的东西</li>
+<li>配置器(allocators)：负责空间配置和管理</li>
+</ul>
+<p><img src="https://i.imgur.com/8n0rfmV.png" alt=""></p>
+<p>STL是一种模板编程。跟面对对象思想有些不同，STL将数据放在类中，而将函数独立出来。</p>
+<p>分配器支持容器，容器是一个模板类，有些操作再容器中完成，有些独立出来成为一个个函数，组成了算法。迭代器就一种泛化的指针。仿函数作用类似于函数，类对象的相加相减都是通过仿函数实现。适配器转换一些东西。比如将容器进行转换，对仿函数进行转换，对迭代器进行转换。</p>
+<p>六大组件使用实例：</p>
+<pre><code>#include &lt;vector&gt;
+...
+int ia[6] = {11,22,33,44,53,61};
+vector&lt;int, allocator&lt;int&gt; &gt; vi(ia, ia+6);
+cout &lt;&lt; count_if(vi.begin(), vi.end(), not1(bind2nd(less&lt;int&gt;(), 40)));//条件小于40的元素个数
+</code></pre><p>vector是容器，allocator<int>是分配器，存在默认值。注意容器类型和分配器的类型必须相配。</int></p>
+<p>count_if是一个函数（算法），计算符合给定条件的元素个数；算法操作的元素范围由迭代器指定，vi.begin()和vi.end()是迭代器。每个元素跟40比较，less是一个仿函数，即小于；bind2nd是一个适配器，绑定第二参数，即将less的第二个参数绑定为40；not1表示否定的意思，即大于等于40。 not1(bind2nd(less<int>(), 40))表示判断大于等于40的条件式。</int></p>
+<p><img src="https://i.imgur.com/o5j1FJO.png" alt=""></p>
+<p>算法已经固定，没有可选的。而容器不同，可以根据实际情况，数据情况和分布，来选择适合的容器。说到容器和算法就要提到复杂度（complexity, Big-oh）。</p>
+<ul>
+<li>常数时间o(1)或o(c)</li>
+<li>线性时间o(n)</li>
+<li>指数时间o(2^n)<br>等等。</li>
+</ul>
+<h3 id="STL版本："><a href="#STL版本：" class="headerlink" title="STL版本："></a>STL版本：</h3><p>GNU（GNU is not Unix）宣言来反对封锁源码。GNU以GPL(广泛开放授权)来保护其成员：使用者可以自由阅读和修改GPL软件的源码，但如果使用者要传布借助GPL软件而完成的软件，他们必须也同意GPL规范。</p>
+<ul>
+<li>HP版本的STL:允许任何人免费使用、拷贝、修改、传布、贩卖这份软件及其说明文件，并不属于GNU GPL范畴。</li>
+<li>PJ版本的STL，继承自HP版本，不属于open source范畴，更不属于GNU GPL。因为HP的版本声明并发GPL，并没有强迫其衍生产品必须开放源码。PJ版本被Visual采用，所以可以在visualc++的“include”子目录下找到所有STL头文件，但是不能公开或修改它。</li>
+<li>RW(Rouge Wave)版本的STL(RW STL)同样继承了HP版本，也不属于open source范畴，更不是GNU GPL。RW STL被C++ Builder采用，所以在C++Builder的“include”子目录下找到所有的STL头文件。</li>
+<li>STLport</li>
+<li>SGI STL继承了HP版本，SGI版本被GCC采用，可以在GCC的“include”子目录下找到所有的STL头文件，并且获准自由公开它或修改它甚至贩卖它。<strong>与前面所有版本相比，这个版本的可读性非常高。</strong></li>
+</ul>
+<h3 id="GNU-c-headers文件分布："><a href="#GNU-c-headers文件分布：" class="headerlink" title="GNU c++headers文件分布："></a>GNU c++headers文件分布：</h3><ul>
+<li>C++标准规范下的C头文件（无扩展名），例如cstdio, cstirng</li>
+<li>C++标准链接库中不属于STL范畴者，例如，string,stream等</li>
+<li>STL标准头文件（无扩展名），例如vector,deque,list,map,algorithm,functional</li>
+<li>C++ standard定案前，HP所规范的STL头文件，例如vector.h,deque.h,list.h,map.h,function.h</li>
+<li>SGI STL内部文件（STL起作用的部分），例如stl_vector, stl _deque.h,stl _list.h,stl _map.h等</li>
+</ul>
+<p>SGI STL准备了一个环境组态文件&lt;stl_config.h&gt;，其中定义许多常数，表示某些状态的成立与否。所有STL头文件都会直接或间接含入这个组态文件，并以条件式写法，让前处理器根据各个常数决定取舍哪一段程序码。</p>
+<p>所有新式的headers内的组件被封装到namespace std。C中旧式头文件（带.h）不被封装到namespace std。</p>
+<h3 id="令人困惑的C-语法"><a href="#令人困惑的C-语法" class="headerlink" title="令人困惑的C++语法"></a>令人困惑的C++语法</h3><p>暂时（临时）对象，就是一种无名的对象。例如，int(8)，其意义相当于使用响应的构造函数生成对象且不指定对象的名称。</p>
+<p>静态常数整数成员在class内部直接初始化</p>
+<pre><code>class testClass
+{
+public:
+    static cosnt int  _datai = 5;
+    static const long _datal = 3L;
+    static const char _datac = &apos;c&apos;;
+};
+</code></pre><p>静态类成员，需要在类外部初始化：</p>
+<pre><code>class testClass
+{
+    static int _datai;
+};
+
+testClass::_datai = 3;
+</code></pre><p>而且对于静态类成员，所有对象都共享一种静态类成员。</p>
+<h4 id="前闭后开区间表示法"><a href="#前闭后开区间表示法" class="headerlink" title="前闭后开区间表示法[)"></a>前闭后开区间表示法[)</h4><p>任何一个STL算法，都需要获得一对迭代器所标示的区间，用以表示操作范围。这一对迭代器所表示的是个所谓的前闭后开区间，以[begin, end)表示，即，整个实际范围从begin开始，直到end-1。迭代器end所指的是最后一个元素的下一个位置。</p>
+<p>注意，容器不一定是连续空间，比如链表，树等。</p>
+<p><img src="https://i.imgur.com/djeYwXH.png" alt=""></p>
+<p>定义迭代器：vector<int>::iterator ite = c.being();所有指针的操作，都可以使用到迭代器上，比如++，–, *，-&gt;等。</int></p>
+<p>c++11中基于范围的for循环：</p>
+<pre><code>for (int i: {2,3,4,5,6,7})
+    std::cout &lt;&lt; i &lt;&lt; std::endl;
+
+std::vector&lt;double&gt; vec;
+...
+for(auto elem: vec)
+    std::cout &lt;&lt; elem &lt;&lt; std::endl;
+for (auto&amp; elem : vec) //如果不使用引用，值将不会变
+    elem *= 3;
+</code></pre><p>auto:</p>
+<pre><code>list&lt;string&gt; c;
+    ....
+lsit&lt;string&gt;::iterator ite;
+ite = ::find(c.begin(), c.end(), target);
+
+//使用auto
+list&lt;string&gt; c;
+    ...
+auto ite = ::find(c.begin, c.end, targe);
+</code></pre><h4 id="function-call运算子"><a href="#function-call运算子" class="headerlink" title="function call运算子"></a>function call运算子</h4><p>函数呼叫动作也可以被多载化。许多STL算法提供两个版本，一个用于一般请情况，例如排序时以递增方式排列；一个用于特殊状况，例如排序时有使用者指定以何种特殊关系进行排序。</p>
+<p>像这种情况，需要使用者指定某个条件或某个策略，而条件或策略的背后由一整组动作构成，便需要某种特殊的东西来代表这一整组动作。代表这一整组动作的当然是函数。过去，C语言时代，欲将函数当作参数传递，唯有通过函数指针才能达成。但是函数指针优缺点，最重要的是它无法持有自己的状态（所谓区域状态），无法再将某些修饰条件加诸于其上而改变其状态。</p>
+<p>为此，STL算法的特殊版本所接收的所谓条件或策略或一整组动作，都以仿函数形式呈现。所谓仿函数（functor）就是使用起来像函数一样的东西。如果你针对某个类进行operator()多载化，它就成为了一个仿函数。</p>
+<h2 id="空间配置器allocator"><a href="#空间配置器allocator" class="headerlink" title="空间配置器allocator"></a>空间配置器allocator</h2><p>整个STL的操作对象都存放在容器之内，而容器一定需要配置空间以置放数据。</p>
+<p>alocator是空间配置器而不是内存配置器。因为，空间不一定是内存，空间也可以是磁盘或其他辅助存储媒体。例如，可以写一个allocatro直接向磁盘取空间。</p>
+<h3 id="空间配置器的标准接口"><a href="#空间配置器的标准接口" class="headerlink" title="空间配置器的标准接口"></a>空间配置器的标准接口</h3><h3 id="具备次配置力-sub-allocation-的SGI空间配置器"><a href="#具备次配置力-sub-allocation-的SGI空间配置器" class="headerlink" title="具备次配置力(sub-allocation)的SGI空间配置器"></a>具备次配置力(sub-allocation)的SGI空间配置器</h3><p>SGI STL的配置器与众不同，也与标准规范不同，其名称为alloc而非allocator。</p>
+<p>不能采用标准的写法：</p>
+<pre><code>vector&lt;int, std::allocator&lt;int&gt;&gt; iv; //in VC or CB
+</code></pre><p>必须这么写：</p>
+<pre><code>vector&lt;int, std::alloc&gt; iv; //in GCC
+</code></pre><p>但是SGI STL的每一个容器都已经指定其预设的空间配置器alloc。例如下面的vector声明：</p>
+<pre><code>template&lt;class T, classAlloc = alloc&gt; //预设使用alloc为配置器
+class vector {...};
+</code></pre><h4 id="SGI标准的空间配置器std-allocator"><a href="#SGI标准的空间配置器std-allocator" class="headerlink" title="SGI标准的空间配置器std::allocator"></a>SGI标准的空间配置器std::allocator</h4><p>虽然SGI也定义有一个符合部分标准、名为allocator的配置器，但SGI自己从未使用过它，也不建议使用。主要原因是效率太差，只把C++的::operator new和::operator delete做一层薄薄的包装而已。。</p>
+<h4 id="SGI特殊的空间配置器std-alloc"><a href="#SGI特殊的空间配置器std-alloc" class="headerlink" title="SGI特殊的空间配置器std::alloc"></a>SGI特殊的空间配置器std::alloc</h4><p>前面所讲的allocator只是基层内存配置/释放行为（也就是说::operator new和::operator delete）的一层薄薄包装，并没有考虑任何效率上的强化。</p>
+<p>一般而言，C++内存配置和释放动作是这样：</p>
+<pre><code>class Foo{...};
+Foo * pf = new Foo;
+delete pf;
+</code></pre><p>这其中的new算式内含两阶段动作：调用::operator new配置内存； 调用Foo::Foo()构建对象内容。delete算式也内含两阶段动作：调用Foo::~FOO()将对象析构；调用::operator delete释放内存。</p>
+<p>为了精密分工，STL allocator决定将这两阶段动作区分开来。内存配置动作由alloc::alllocate()负责，内存释放动作由alloc::deallocate()负责；对象构造动作由::construct()负责，对象析构动作由::destroy()负责。</p>
+<p>STL标准规格告诉我们，配置器定义于<memory>之中，SGI<memeory>内含一下两个文件：</memeory></memory></p>
+<pre><code>#include&lt;stl_alloc.h&gt; //负责内存空间的配置和释放
+#include&lt;stl_construct.h&gt; //负责对象内容的构造和析构
+</code></pre><p> <img src="https://i.imgur.com/mT8eu7w.png" alt=""></p>
+<h2 id="迭代器概念与traits编程技法"><a href="#迭代器概念与traits编程技法" class="headerlink" title="迭代器概念与traits编程技法"></a>迭代器概念与traits编程技法</h2><p>STL的中心思想在于，将数据容器和算法分开，彼此独立设计，最后再以一帖胶着剂将他们撮合在一起。容器和算法的泛型并不困难，C++的类模板和函数模板课分别达成目标。设计两者之间的胶着剂才是难题。</p>
+<h3 id="迭代器是一种smart-pointer"><a href="#迭代器是一种smart-pointer" class="headerlink" title="迭代器是一种smart pointer"></a>迭代器是一种smart pointer</h3><p>迭代器是一种行为类似指针的对象，而指针的各种行为中最常见的也最重要的就是解除引用(dereference)和成员提取（member access）。因此迭代器最重要的编程工作就是对operator *和operator-&gt;进行重载。</p>
+<h3 id="容器分类"><a href="#容器分类" class="headerlink" title="容器分类"></a>容器分类</h3><ul>
+<li>序列式容器： 固定数组Array, 可变数组Vector, 双队列Deque， 双向链表List， 单向链表Forward-List。 </li>
+</ul>
+<p>分配器负责vector的自动扩充。</p>
+<ul>
+<li>关联式容器： Set:红黑树, Map  ;适用于需要大量查找的数据结构</li>
+</ul>
+<p>红黑树一种特殊的二叉树，高度平横的二叉树，左右差不多，自动完成。并没有要求使用哪个</p>
+<ul>
+<li>不定序容器：就是一种关联式容器 </li>
+</ul>
+<p>lsit使用示例：</p>
+<pre><code>namespace STL_List{
+    woid test_list(long value)
+    {
+        list&lt;string&gt; c;
+        char buf[10];
+        for (long i = 0; i &lt; value; i++)
+        {
+            try{
+                snprintf(buf, 10, &quot;%d&quot;, rand());
+                c.push_back(string(buf));
+            }
+            catch(exception &amp;p)
+            {
+                cout &lt;&lt; &quot;i=&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; p.what() &lt;&lt; endl;
+                abort();
+             }
+        }
+        cout &lt;&lt; &quot;list.size()=&quot; &lt;&lt; c.size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;list.max_size()&quot; &lt;&lt; c.max_size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;list.front()&quot;  &lt;&lt; c.front() &lt;&lt; endl;
+        cout &lt;&lt; &quot;list.back()&quot; &lt;&lt; c.back() &lt;&lt; endl;
+
+        string target = c[value/2];
+        auto pItem = find(c.begin(), c.end(), target); //查找
+        if (pItem != c.end())
+            cout &lt;&lt; &quot;found, &quot; &lt;&lt; *pItem &lt;&lt; endl;;
+        else
+            cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl; 
+
+        c.sort();  //list自带sort，所以使用自带的sort，而不使用全局sort
+
+    }
+
+}
+</code></pre><p>froward_list使用示例：</p>
+<pre><code>namespace STL_forward_list{
+    void test_forward_list(long value)
+    {
+        forward_list&lt;string&gt; c;
+        char buf[10];
+        for (long i = 0; i &lt; value; i++)
+        try{
+                snprintf(buf, 10, &quot;%d&quot;, rand());
+                c.push_front(string(buf));  //注意单向链表没有push_back
+            }
+            catch(exception &amp;p)
+            {
+                cout &lt;&lt; &quot;i=&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; p.what() &lt;&lt; endl;
+                abort();
+             }
+
+        //cout &lt;&lt; &quot;forward_list.size()=&quot; &lt;&lt; c.size() &lt;&lt; endl;  //不提供
+        cout &lt;&lt; &quot;forward_list.max_size()&quot; &lt;&lt; c.max_size() &lt;&lt; endl; 
+        //cout &lt;&lt; &quot;forward_list.front()&quot;  &lt;&lt; c.front() &lt;&lt; endl;  
+        cout &lt;&lt; &quot;forward_list.back()&quot; &lt;&lt; c.back() &lt;&lt; endl;  //不提供back()
+
+        string target = c[value/2];
+        auto pItem = find(c.begin(), c.end(), target); //查找
+        if (pItem != c.end())
+            cout &lt;&lt; &quot;found, &quot; &lt;&lt; *pItem &lt;&lt; endl;;
+        else
+            cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl; 
+
+        c.sort();  //排序
+
+    }
+}
+</code></pre><p>slist使用示例：</p>
+<p>slist是GNU g++自带的，是一种非标准的。</p>
+<p>用法跟forward_list相同。</p>
+<p><img src="https://i.imgur.com/5aYs6Lj.png" alt=""></p>
+<p>deque使用示例：</p>
+<p>deque是分段连续的，但是对用户来说是完全连续的。如果空间不足，deque在两端都可以扩充一个buffer，这样就实现了双向队列。</p>
+<p><img src="https://i.imgur.com/u82baSj.png" alt=""></p>
+<pre><code>namespace STL_deque
+{
+    void test_deque(long value)
+    {
+        deque&lt;string&gt; c;
+        char buf[10];
+        for (long i = 0; i &lt; value; i++)
+            {
+                try{
+                    snprintf(buf, 10, &quot;%d&quot;, rand());
+                    c.push_back(string(buf));
+                }
+                catch(exception &amp;p)
+                {
+                    cout &lt;&lt; &quot;i=&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; p.what() &lt;&lt; endl;
+                    abort();
+                 }
+            }
+
+        cout &lt;&lt; &quot;deque.size()=&quot; &lt;&lt; c.size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;deque.max_size()&quot; &lt;&lt; c.max_size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;deque.front()&quot;  &lt;&lt; c.front() &lt;&lt; endl;
+        cout &lt;&lt; &quot;deque.back()&quot; &lt;&lt; c.back() &lt;&lt; endl;
+
+        string target = c[value/2];
+        auto pItem = find(c.begin(), c.end(), target); //查找
+        if (pItem != c.end())
+            cout &lt;&lt; &quot;found, &quot; &lt;&lt; *pItem &lt;&lt; endl;;
+        else
+            cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl; 
+
+        sort(c.begin(), c.end());  //deque不自带排序函数，所以需要调用全局的sort
+    }
+}
+</code></pre><p>stack使用示例:</p>
+<p><img src="https://i.imgur.com/7u4ols8.png" alt=""></p>
+<p>一个deque涵盖了stack的功能，stack内部使用deque实现。</p>
+<pre><code>namespace STL_stack
+{
+    void test_stack(long value)
+    {
+        stack&lt;string&gt; c;
+        char buf[10];
+        for (long i = 0; i &lt; value; i++)
+            {
+                try{
+                    snprintf(buf, 10, &quot;%d&quot;, rand());
+                    c.push(string(buf));
+                }
+                catch(exception &amp;p)
+                {
+                    cout &lt;&lt; &quot;i=&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; p.what() &lt;&lt; endl;
+                    abort();
+                 }
+            }
+
+        cout &lt;&lt; &quot;stack.size()=&quot; &lt;&lt; c.size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;stack.top()&quot; &lt;&lt; c.top() &lt;&lt; endl;
+        c.pop();
+        cout &lt;&lt; &quot;stack.size()&quot;  &lt;&lt;  &lt;&lt; endl;
+        cout &lt;&lt; &quot;stack.top()&quot; &lt;&lt; c.top() &lt;&lt; endl;
+    }
+}
+</code></pre><p>queue使用示例：</p>
+<p><img src="https://i.imgur.com/yi0GvGY.png" alt=""></p>
+<p>一个deque涵盖了queue的功能，queue内部使用deque实现。</p>
+<pre><code>namespace STL_queue
+{
+    void test_queue(long value)
+    {
+        queue&lt;string&gt; c;
+        char buf[10];
+        for (long i = 0; i &lt; value; i++)
+            {
+                try{
+                    snprintf(buf, 10, &quot;%d&quot;, rand());
+                    c.push(string(buf));
+                }
+                catch(exception &amp;p)
+                {
+                    cout &lt;&lt; &quot;i=&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; p.what() &lt;&lt; endl;
+                    abort();
+                 }
+            }
+
+        cout &lt;&lt; &quot;queue.size()=&quot; &lt;&lt; c.size() &lt;&lt; endl;
+        cout &lt;&lt; &quot;queue.front()&quot; &lt;&lt; c.front() &lt;&lt; endl;
+        cout &lt;&lt; &quot;queue.back()&quot; &lt;&lt; c.back() &lt;&lt; endl;
+        c.pop();
+        cout &lt;&lt; &quot;queue.size()&quot;  &lt;&lt;  &lt;&lt; endl;
+        cout &lt;&lt; &quot;queue.front()&quot; &lt;&lt; c.front() &lt;&lt; endl;
+        cout &lt;&lt; &quot;queue.back()&quot; &lt;&lt; c.back() &lt;&lt; endl;
+
+    }
+}
+</code></pre><h2 id="分配器"><a href="#分配器" class="headerlink" title="分配器"></a>分配器</h2><p>这里仅仅适用于GNU C编译器。</p>
+<p><img src="https://i.imgur.com/dcMvf1W.png" alt=""></p>
+<p>默认都是使用std::allocator分配器。</p>
+<p>其他分配器使用方法（仅适用于GNU C）：</p>
+<p><img src="https://i.imgur.com/ZeUNAi7.png" alt=""></p>
+<p>以上都是在在容器上使用分配器来分配内存。也可以单独使用分配器，但是没有必要。</p>
+<pre><code>int *p;
+allocator&lt;int&gt; alloc1;
+p = alloc1.allocate(1); //1表示分配一个int元素
+alloc1.deallocate(p,1); //释放内存，1表示释放内存的大小
+
+__gnu_cxx::malloc_allocator&lt;int&gt; alloc2;
+p = alloc2.allocate(1);
+alloc2.deallocate(p,1);
+</code></pre><p>一般使用new，delete或malloc或free。new和delete最终也是调用malloc和free。</p>
+<p>malloc分配内存，使用free释放内存时，不需要告诉free需要释放的内存大小。而分配器释放内存时，需要告知其需要释放的内存大小，这样太麻烦。</p>
+<h2 id="体系结构与内核分析"><a href="#体系结构与内核分析" class="headerlink" title="体系结构与内核分析"></a>体系结构与内核分析</h2><p>源码之前，了无秘密</p>
+<p>GNU C 2.9</p>
+<p>标准库主要使泛型编程（Generic Programming, GP）实现的。</p>
+<p>OOP概念：将datas和methods关联在一起</p>
+<pre><code>template &lt;class T, class Alloc = alloc&gt;
+class list{
+    ...
+    void sort();
+};
+</code></pre><p>list内部定义了一个sort函数，而不是用全局的sort函数。</p>
+<p><img src="https://i.imgur.com/ZNzJ5BI.png" alt=""></p>
+<p>list所具备的迭代器，只能逐个访问，而不能向vector等其他容器一样直接进行跳转。全局sort需要的迭代器要满足一定的条件：迭代器是可以连续访问的，而list无法满足，list是双向链表，在内存中存储是不连续的。所以需要定义私有的sort函数。</p>
+<p>GP概念：将datas和methods分开来</p>
+<p>数据结构（容器）:</p>
+<pre><code>template&lt;class T, class Alloc = alloc&gt;
+class vector{
+...
+};
+</code></pre><p>中间通过迭代器将容器和算法连起来。</p>
+<pre><code>sort(c.being(),c.end());
+</code></pre><p>算法：</p>
+<pre><code>template&lt;typename _RandomAccessIterator&gt;
+inline void
+sort(_RandomAccessIterator __first,
+        _RandomAccessIterator __last)
+{
+    ...
+}
+</code></pre><p>min和max的源代码：</p>
+<pre><code>template&lt;class T&gt;
+inline const T &amp; min(const T &amp; a, const T &amp;  b){
+    return b &lt; a ? b:a;
+}
+
+template&lt;class T&gt;
+inline const T &amp; max(cosnt T &amp; a, const T &amp; b){
+    return a &lt; b ? b:a;
+}
+</code></pre><p>所有算法，其实最终涉及元素本身的操作，无非就是比大小。</p>
+<pre><code>bool strLonger(const string &amp; s1, const string &amp; s2)
+{ return s1.size() &gt; s2.size(); }
+
+cout &lt;&lt; &quot;max of zoo and hello: &quot; &lt;&lt; max(string(&quot;zoo&quot;), string(&quot;hello&quot;)) &lt;&lt; endl; //zoo
+cout &lt;&lt; &quot;max of zoo and hello: &quot; &lt;&lt; max(string(&quot;zoo&quot;), string(&quot;hello&quot;), strLonger) &lt;&lt; endl; //hello
+
+template&lt;class T&gt;
+inline const T &amp; max(const T &amp; a, const T &amp; b)
+{ return a &gt; b ? a : b; }
+
+template&lt;class T, class Compare&gt;
+inline const T &amp; max(const T &amp; a, const T &amp; b, Compare comp)
+{ return comp(a, b) ? a : b; }
+</code></pre><p>模板：</p>
+<ul>
+<li>类模板</li>
+<li>函数模板</li>
+<li>成员模板：比较复杂</li>
+</ul>
+<p>泛化与特化：</p>
+<p>对于一类问题，提供一种泛化的做法，但是对于某些特定的问题，有更优的做法，所以特定为其再定义一种做法。</p>
+<p><img src="https://i.imgur.com/HfCnlFQ.png" alt=""></p>
+<p>template&lt;&gt;的出现，就表示特化。</p>
+<p><img src="https://i.imgur.com/blTyLj2.png" alt=""></p>
+<p>特化（全特化），偏特化（局部特化）</p>
+<p><img src="https://i.imgur.com/GUDOeEX.png" alt=""></p>
+<p>其中类型具体化位bool，但是分配器还是模板参数。</p>
+<p>左侧是个数的偏特化。</p>
+<p>右侧是范围的偏特化，第一种偏特化是指向一个任意类型的指针，第二种偏特化是指向一个常量指针。</p>
+<h3 id="分配器allocators"><a href="#分配器allocators" class="headerlink" title="分配器allocators"></a>分配器allocators</h3><p>operator new()和malloc()</p>
+<p><img src="https://i.imgur.com/4wvYbhI.png" alt=""></p>
+<p>operator new()会调用malloc()，malloc所申请的内存比你提供的size大，需要附加一些内容（开销）。小块内存，开销比例大，大块内存，开销比例小。</p>
+<ul>
+<li>VC版本：</li>
+</ul>
+<p><img src="https://i.imgur.com/8AjRbsM.png" alt=""></p>
+<p>申请512的内存：</p>
+<pre><code>int *p = allocator&lt;int&gt;().allocate(512, (int*)0); //allocator&lt;int&gt;() 创建一个临时对象，没有名称
+allocator&lt;int&gt;().deallocate(p, 512); //释放内存
+</code></pre><p>分配器最终调用malloc和free申请和释放内存。</p>
+<ul>
+<li>BC5版本</li>
+</ul>
+<p><img src="https://i.imgur.com/Vmta3PO.png" alt=""></p>
+<p>申请512内存：</p>
+<pre><code>int *p = allocator&lt;int&gt;().allocate(512);
+allocator&lt;int&gt;().deallocate(p,512);
+</code></pre><ul>
+<li>GNU C2.9版本</li>
+</ul>
+<p><img src="https://i.imgur.com/rZDymea.png" alt=""></p>
+<p>三者都是一样，使用malloc和free来申请和释放内存，这样会带来很大的开销，因为每申请一个内存需要附带一些内容，而申请的内存都比较小，会导致附带的开销比例大，不能接收。</p>
+<p>GNU C上述标准分配器没有被使用到任何容器中。而是使用别的分配器alloc。</p>
+<p><img src="https://i.imgur.com/Zduzw3S.png" alt=""></p>
+<p>具体形式如下：</p>
+<p><img src="https://i.imgur.com/rUBbzqR.png" alt=""></p>
+<p>alloc尽量减少调用malloc的次数，这样可以降低额外开销。malloc每次申请时，需要在内存中记录申请的内存块大小。容器中的元素大小是一样的，所以没必要每次申请都记录内存块大小，不要cookies。</p>
+<p>alloc设计了16条链表，每条链表负责某一种特定大小的内存块，用链表串起来。</p>
+<p>0号链表负责8字节的大小，7号链表负责64个字节的大小，15号链表负责128个字节的内存大小。</p>
+<p>所有的容器当它需要内存的时候，容器元素的大小会调整到8的倍数，如50调整到56，然后在链表中查找。找到对应编号的链表。如果链表中挂有内存，则直接使用。如果没有，再跟操作系统malloc要一大块来做切割，然后用链表串起来。其中每一块不用记录内存块大小，即不要带cookies。注意，每次用malloc去申请一大块内存时，还是需要cookies，只是每一个小块不需要。</p>
+<p>比如，如果容器申请100 0000个元素，则可以省掉800 0000个字节，这只是一个概念上的估计，实际上大块内存需要附带记录信息cookies。</p>
+<ul>
+<li>GNU C4.9版本</li>
+</ul>
+<p>4.9版不再使用分配器alloc，而是使用allocator。</p>
+<p><img src="https://i.imgur.com/A2V4kSc.png" alt=""></p>
+<p>这种没有特殊设计，没有使用优化的alloc。但是alloc还在，只是更改了名字<code>__pool_alloc</code>。</p>
+<p><img src="https://i.imgur.com/7wIs9CV.png" alt=""></p>
+<p>使用方法： </p>
+<pre><code>vector&lt;string, __gnu_cxx::__pool_alloc&lt;string&gt; &gt; vec; 
+</code></pre><h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p><img src="https://i.imgur.com/WyLgOgE.png" alt=""></p>
+<p>容器之间没有继承关系。</p>
+<p>heap是一个特殊的容器，heap里面有一个vector做底部支撑。</p>
+<p>rb_tree是红黑树。set里面有一个红黑树做底部的支撑。</p>
+<p>sizeof()表示控制一个容器的所需的大小。</p>
+<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p><img src="https://i.imgur.com/ytXA96s.png" alt=""></p>
+<p>list_node是一个节点，node就是一个指向节点的指针。list _node中的指针指向void，后面需要进行转型，2.9版就是如此，但是4.9中进行了改善。放入1000个元素，所耗费的内存，不仅仅是1000个元素的大小，因为每个元素还要包括两个指针的大小。</p>
+<p>除了vector和array外，所有的容器有一个iterator类。list中，iterator类：对应<code>__list_iterator</code></p>
+<p>iterator类里面有大量的操作符重载，iterator模拟指针，实现指针的各种操作。</p>
+<p><img src="https://i.imgur.com/kJpqeJx.png" alt=""></p>
+<p>所有的迭代器开始有一堆的typedef(至少5个)，然后一堆function实现操作符重载。</p>
+<p>list中迭代器的++实现：iterator中有两个++，一个带参数一个不带参数。</p>
+<p>为了区分前++和后++，前++没有参数，后++带参数，但是参数没有意义，只是形式上的。</p>
+<p>前++的实现：</p>
+<pre><code>node = (link_type)((*node).next);
+return *this;
+</code></pre><p>后++的实现：</p>
+<p>后++需要把原来的内容记录下来，然后再++。比如： a = i++，首先将原值记录，进行前++操作，然后将原值返回给a。</p>
+<pre><code>self tmp = *this;  //记录原值
+++*this;           //进行操作
+returm tmp;        //原值返回
+</code></pre><p><img src="https://i.imgur.com/LIrHFZG.png" alt=""></p>
+<p>$\ast$this不会调用<code>operator*()</code>，在<code>*</code>之前有一个等于号，表示调用拷贝构造函数，所以<code>*this</code>变成了拷贝构造函数的参数。</p>
+<p>还需要注意，前++和后++重载函数的返回值。前++的返回值是self &amp;，而后++的返回值为self。</p>
+<pre><code>int i(6);
++++++i; -&gt; (++)++i;  //这是允许的
+i+++++; -&gt; (i++)++; //这是不允许的，不准后加加两次
+</code></pre><p>所以后++的返回值是self，没有引用，这样就不允许后++两次。而前++允许两次，所以前++的返回值为self &amp;。</p>
+<p>解引用，即提取值。包括两种操作：*和-&gt;</p>
+<p><img src="https://i.imgur.com/9G6tbBw.png" alt=""></p>
+<p>list容器的迭代器使用实例：</p>
+<pre><code>list&lt;Foo&gt;::iterator ite;
+*ite; //获得一个Foo对象
+ite-&gt;method();
+</code></pre><p>2.9版和4.9版对比：</p>
+<p><img src="https://i.imgur.com/5Jw7QaT.png" alt=""></p>
+<p>4.9版本对2.9版本进行了改进，迭代器类中模板传递的类型有3个变成了1个，原来是T，T&amp;和T*，4.9版本变成了一个T，然后在迭代器类中实现了T&amp;，T$\ast$。</p>
+<p>还有一个点在2.9中，节点的设计开始是void类型的指针，而在4.9版本中，节点中的指针的类型是节点本身。</p>
+<p>4.9版本中，list继承了<code>_List_base</code>父类，父类内含<code>_List_impl</code>类，….</p>
+<p>而在2.9版本中，只有一个类list。</p>
+<p>2.9版中只有一个指针，而4.9版本中有两个指针。</p>
+<p><img src="https://i.imgur.com/vRizhOP.png" alt=""></p>
+<p>Iterator需要遵循的原则：</p>
+<p>rotate函数调用<code>__rotate</code>函数。</p>
+<p>iterator_category:表示迭代器的移动性质，有些迭代器只能向前移动，有些迭代器可以先后移动，有些迭代器只能移动一步，有些迭代器可以跳着走，一次条多步。</p>
+<p>iterator的value_type: iterator所指的元素类型</p>
+<p>iteartor的difference_type:两个iterator之间的距离，用什么类型表示，比如unsigned int的距离不超过2^32，如果一个迭代器的范围不超过2^32，就可以用unsinged int来表示两iterator之间的距离。</p>
+<p><img src="https://i.imgur.com/K1p13tR.png" alt=""></p>
+<p>算法提出问题，迭代器能够回答问题。图中提出了3个问题。一共有5种问题。其中还有reference和pointer，但是在所有算法中从来没有使用过。</p>
+<p>Iterator一定需要写出来的5个assocated types:</p>
+<p><img src="https://i.imgur.com/JZTRbwL.png" alt=""></p>
+<p>算法中提问的方式：</p>
+<pre><code>I::iterator_category;
+I::pointer;
+...
+</code></pre><p>iterator中必须声明出5个associated types。对于difference_type，Iterator直接使用的某个文件中的<code>ptrdiff_t</code>。<code>bidirectional_iterator_tag</code>表示双向。</p>
+<p>如果iterator并不是class类？只有class可以做typedef。可以使用指针，指针是一个中退化的iterator。在调用算法是可能传入的是一个指针，而不是迭代器iterator。这个时候算法提问，获取某些属性，就无法成功。</p>
+<p>这个时候需要Traits。</p>
+<p>Traits能够区分class形式的iterator和普通指针。</p>
+<p><img src="https://i.imgur.com/pUULLlS.png" alt=""></p>
+<p>trats的具体做法：</p>
+<p><img src="https://i.imgur.com/bDel2pd.png" alt=""></p>
+<p>算法想要直到I的5种相关类型，算法向<code>iterator_traits</code>提问，<code>iterator_traits</code>转问I。设置一个中间层<code>iterator_traits</code>，如果传入的是指针，调用分出的两种偏特化。如果是class iterator，则会进入<code>iterator_traits</code>。</p>
+<p>不是采用直接的问法，而是间接的：</p>
+<pre><code>typename iterator_traits&lt;I&gt;::value_type v1;
+</code></pre><p>完整的iterator_traits：</p>
+<p><img src="https://i.imgur.com/e3NhvJi.png" alt=""></p>
+<p>各式各样的Traits:</p>
+<ul>
+<li>type traits</li>
+<li>iterator traits</li>
+<li>char traits</li>
+<li>allocator traits</li>
+<li>pointer traits</li>
+<li>array traits</li>
+</ul>
+<h3 id="容器vector"><a href="#容器vector" class="headerlink" title="容器vector"></a>容器vector</h3><p>vector中有3个指针：start指向开头，finish表示存储元素的结尾，<code>end_of_storage</code>表示容器的结尾。</p>
+<p><img src="https://i.imgur.com/5FVTJ6L.png" alt=""></p>
+<p>如果存储的元素个数超过capacity，vector需要在内存中找一个块两倍的空间。</p>
+<p>GNU C 2.9版本中，vector使用默认的分配器alloc。vector的大小实际是3个指针的大小(12字节)：start,finish,<code>end_of_storage</code>。</p>
+<p>vector提供begin()和end()两个函数，以及size()函数，capacity()函数，empty()函数，operator[]重载，front()函数和back()函数。</p>
+<p>提供连续空间的容器，都会提供operator[]重载。</p>
+<p>二倍增长的过程：</p>
+<p><img src="https://i.imgur.com/6w1P7tN.png" alt=""></p>
+<p><code>push_back()</code>向容器末尾添加元素。首先，通过finish和<code>end_of_storage</code>判断是否有足够的空间存放元素，如果有直接添加即可。如果没有，调用<code>insert_aus</code>辅助函数。<code>insert_aus</code>再做一次检查，主要原因是其他函数也调用它，所以需要做检查。</p>
+<p>如果没有空间存储元素，则执行下面的代码：</p>
+<p><img src="https://i.imgur.com/cLnpSRz.png" alt=""></p>
+<p>首先判断原来的vector大小，如果开始是0，就分配一个元素大小的空间。如果不等于是，则直接是原来的两倍。然后是绿色allocate()分配内存。分配足够空间后，在try模块中，将原来的vector内容拷贝到新vector中，为新的元素设置初值（即将新来的元素插入），然后安插点后的内容拷贝过来（这是由于insert也需要调用该函数，insert可以在中间插入，这样需要将插入点之后的元素通用拷贝到新的vector）。  最后，释放原来的vecotr。</p>
+<p>vector的iterator</p>
+<p>list的迭代器是一个类，而vector的迭代器是一个指针。</p>
+<p><img src="https://i.imgur.com/56qkS1u.png" alt=""></p>
+<p>使用vector的迭代器：</p>
+<pre><code>vector&lt;int&gt; vec;
+vector&lt;int&gt;::iterator ite = vec.begin();
+
+iterator_traits&lt;ite&gt;::iterator_category; //ite给iterator_traits，由于ite是一个指针，则会调用偏特化的iterator_traits&lt;T *&gt;，对于指针，指针指向T，所以value_type是T，ponter是T *，reference是T &amp;。
+</code></pre><p>G4.9版本中，vector变得非常复杂。存在类的继承关系：</p>
+<p><img src="https://i.imgur.com/DfDex3b.png" alt=""></p>
+<p>vector继承<code>_Vector_base</code>父类，父类包含<code>_Vector_impl</code>，而<code>Vector_impl</code>包含三个指针，<code>_Vector_impl</code>继承<code>std::allocator</code>父类。<code>_Vector_base</code>中有一个数据成员，该数据成员包含三个指针，所以vector的大小为12。</p>
+<p>4.9版本中，迭代器采用类实现，变得非常复杂，但是最终目的跟2.9相同。</p>
+<p><img src="https://i.imgur.com/fJVDezc.png" alt=""></p>
+<p>抽象后，变成：</p>
+<p><img src="https://i.imgur.com/t7DCZxm.png" alt=""></p>
+<h3 id="容器array"><a href="#容器array" class="headerlink" title="容器array"></a>容器array</h3><p>array比vector更简单。array在C++本来就存在，将其封装成容器，以便于可以使用算法和仿函数等。</p>
+<p>TR1（技术报告1）是介于C++1.0和C+++2.0之间一个过度版本。C++1.0是1998版本，C++2.0是2011版本。由于TR1技术比较容器读。</p>
+<p><img src="https://i.imgur.com/ZL75d18.png" alt=""></p>
+<p>struct和class地位等同，不过有些一些小差别。</p>
+<pre><code>_M_instance[_Nm, ? _Nm : 1]; //声明一个数组，如果_Nm为0，则表示申请一个元素。
+</code></pre><p>array没有析构函数和构造函数。</p>
+<p>array的迭代器是一个指针，G2.9版中的vector也是如此。此时调用<code>iterator_traits</code>偏特化类。</p>
+<p>array使用：</p>
+<pre><code>array&lt;int, 10&gt; myArray; //必须指定大小
+auto ite = myArray.begin();
+</code></pre><p>G4.9版本中的array:</p>
+<p><img src="https://i.imgur.com/GZdWQCa.png" alt=""></p>
+<p>声明数组的方法：</p>
+<pre><code>int c[100];   //OK
+typedef int T[100];
+T c;           //OK
+</code></pre><p>这样变得复杂，但是作用跟G2.9一样。</p>
+<h3 id="容器forward-list"><a href="#容器forward-list" class="headerlink" title="容器forward_list"></a>容器forward_list</h3><p><img src="https://i.imgur.com/qilVlQV.png" alt=""></p>
+<p>跟list相似，只不过list是双向的，forward_list是单向的。</p>
+<h3 id="容器deque"><a href="#容器deque" class="headerlink" title="容器deque"></a>容器deque</h3><p>deque采用分段的形式，</p>
+<p><img src="https://i.imgur.com/d35IkhG.png" alt=""></p>
+<p>迭代器包含4个元素：cur,first,last,node。</p>
+<p><img src="https://i.imgur.com/LDqwLqy.png" alt=""></p>
+<p>map指向的内容是控制中心，控制中心按二倍成长。如果当前map指向的控制中心内存已经使用完，则map在内存中申请二倍的内存，并将当前的内容复制到新内存中。</p>
+<p>对于一个缓冲区，其默认</p>
+<p>map的类型是指向指针的指针。deque的大小为40字节。包含两个迭代器，一个指针和一个sizetype(4个字节)。</p>
+<p>deque的迭代器包含4个指针，大小为16个字节。</p>
+<p><img src="https://i.imgur.com/HonJ1I4.png" alt=""></p>
+<p>deque的insert()</p>
+<p>有两个参数：迭代器，新元素值</p>
+<p>如果插在偏前面的位置，则将元素往前面推；反之往后面推。</p>
+<p><img src="https://i.imgur.com/SXotVqV.png" alt=""></p>
+<p>如果在前端，调用<code>push_front()</code>函数，如果在尾端，调用<code>push_back()</code>函数。如果都不是，则调用<code>insert_aux()</code>函数。</p>
+<p><img src="https://i.imgur.com/ohKVzGF.png" alt=""></p>
+<p><code>insert_aux()</code>首先判断插入的位置跟中点的位置关系，如果位于中点左侧，将前面的元素往前推动一个位置；如果位于右侧，执行，将后面的庸俗往后推动一个位置。</p>
+<p>deque如何模拟连续空间的？</p>
+<p><img src="https://i.imgur.com/xpmIWTE.png" alt=""></p>
+<p>start指向最头的元素，finish指向最后一个元素的下一个位置。front()返回start，back()返回finish后退一个位置的元素。</p>
+<p><img src="https://i.imgur.com/xVq9yHr.png" alt=""></p>
+<p>实现连续空间都是迭代器的功能，通过迭代器操作符重载实现的。</p>
+<p>++和–运算符重载：</p>
+<p><img src="https://i.imgur.com/10GFtHl.png" alt=""></p>
+<p>cur++后，看是否到达一个缓冲区的边界，如果到达边界，则跳到下一个缓冲区（<code>set_node(node+1)</code>），并指向最开头的元素。</p>
+<p>cur–后，看是否到达一个缓冲区的开头边界，如果到达开头，则调跳到前一个缓冲区(<code>set_node(node-1)</code>)，并指向最后一个元素。</p>
+<p>+=和+运算符重载：</p>
+<p><img src="https://i.imgur.com/0IN7A0X.png" alt=""></p>
+<p>对于-=和+运算符重载，直接利用+=和+来表现。</p>
+<p><img src="https://i.imgur.com/7QMJXfs.png" alt=""></p>
+<p>G4.9版本</p>
+<p><img src="https://i.imgur.com/YeWcXEQ.png" alt=""></p>
+<h3 id="容器queue"><a href="#容器queue" class="headerlink" title="容器queue"></a>容器queue</h3><p>queue底层实现是deque，只是将deque的某些功能关闭，就得到了queue。</p>
+<p><img src="https://i.imgur.com/BBAWOlE.png" alt=""></p>
+<h3 id="容器stack"><a href="#容器stack" class="headerlink" title="容器stack"></a>容器stack</h3><p>跟queue一样，stack内含一个deque，全部功能都是转调用。</p>
+<p><img src="https://i.imgur.com/f1DHLxT.png" alt=""></p>
+<p>stack和queue都不允许遍历，也不提供iterator。</p>
+<p>stack和queue都可选择list或deque做为底部结构。但是deque做底部结构速度更快。</p>
+<p><img src="https://i.imgur.com/7p04AGw.png" alt=""></p>
+<p>queue不可选择vector做为底层结构，但是stack可以选择vector做为底部结构。</p>
+<p><img src="https://i.imgur.com/Epmcpqo.png" alt=""></p>
+<p>stack和queue都不可选择set或map做为底部结构。</p>
+<p><img src="https://i.imgur.com/7CisDIQ.png" alt=""></p>
+<h3 id="容器-rb-tree"><a href="#容器-rb-tree" class="headerlink" title="容器 rb_tree"></a>容器 rb_tree</h3><p>Red-Black tree(红黑树)是平衡二叉搜索树中常被使用的一种。平衡二叉搜索树的特性：排列规则有利于search和insert，并保持高度平衡——无任何节点特深。</p>
+<p>红黑树提供遍历操作及iterators，按照正常规则（++ite）遍历，便能获得排序的序列。</p>
+<p>我们<strong>不应该</strong>使用红黑树的iterators改变元素值（因为元素有其严谨的排列规则）。编程层面并未阻止此事。如此设计是正确的，因为红黑树将为set和map服务（做为其底部数据结构），而map允许元素的data被修改，只有元素的key才是不可被修改的。</p>
+<p>红黑树提供两种插入操作：<code>insert_unique()</code>和<code>insert_equal()</code>。前者表示节点的key一定在整个tree中独一无二，否则安插失败；后者表示节点的key可重复。</p>
+<p><img src="https://i.imgur.com/B1cokni.png" alt=""></p>
+<p>红黑树实现：</p>
+<p><img src="https://i.imgur.com/bG7DYOd.png" alt=""></p>
+<p>第一个模板参数是Key的类型，第二个模板参数是（key，value）整体的类型，第三个模板参数告诉怎么从（key,value）整体中取出key，第四个参数是告诉两个Key如何比较大小。第五个参数是分配器。</p>
+<p>黑红树有三个数据成员，node_count表示节点数量（4个字节），header指向红黑树的头节点（4个字节）。<code>key_compare</code>是一个类（这个类没有数据成员，所以默认是1个字节）。9个接字，按照内存对齐规则，必须是最大数据成员的整数倍，即12。</p>
+<p>红黑树中，为了实现的方便，在头节点之上添加了一个空节点，然后header指向该节点，这样实现上方便很多。在，双向链表中也有同样的设计。</p>
+<p>红黑树使用：</p>
+<pre><code>rb_tree&lt;int, //Key的类型
+        int, //表示只有Key，没有data
+        identity&lt;int&gt;, //采用标准库的identity类，传入一个参数，返回该参数 
+        less&lt;int&gt;,  //key怎么比较大小，使用标准库提供的仿函数less 
+        alloc&gt; myTree;
+</code></pre><p><img src="https://i.imgur.com/yJdMP6r.png" alt=""></p>
+<p>红黑树用例 ：</p>
+<p><img src="https://i.imgur.com/kaM9dyg.png" alt=""></p>
+<p>G4.9版本中红黑树的用例：</p>
+<p><img src="https://i.imgur.com/dbvDQsW.png" alt=""></p>
+<p><img src="https://i.imgur.com/hu3rVwL.png" alt=""></p>
+<p><code>_Rb_tree</code>类中内含一个<code>_Rb_tree_impl</code>，<code>_Rb_tree_impl</code>继承<code>_Node_allocator</code>，并内含<code>_Rb_tree_node_base</code>。</p>
+<p>采用这种做法，为了遵循handle和body规则（OO思想中的概念）。<code>_Rb_tree</code>中有一个指针（<code>_M_impl</code>,即handle）来表示它的实现手法。</p>
+<h3 id="容器set和mulitset"><a href="#容器set和mulitset" class="headerlink" title="容器set和mulitset"></a>容器set和mulitset</h3><p>set/mulitset以红黑树为底层结构，因此有元素自动排序的特性。排序的依据是key，而set/multiset元素的value和key相同，value就是key。</p>
+<p>set/multiset提供遍历的操作，及iterators。按正常规则（++ite）遍历，便能获得排序后的状态。</p>
+<p>我们无法使用set和multiset的迭代器改变元素的值。set/multiset的iterator是其底部的红黑树的const-iterator，就是为了禁止用户对元素赋值。</p>
+<p>set元素的key必须独一无二，因此其insert()用的是红黑树的insert_unique()。</p>
+<p>multiset元素的key可以重复，因此其insert()用的是红黑树的insert_equal()。</p>
+<p>set的源代码：</p>
+<p><img src="https://i.imgur.com/uBqyuzZ.png" alt=""></p>
+<p>set包含3个模板参数，第一个参数是Key的类型，第二参数告诉怎么比较key的大小。在使用的时候，只需要指定一个key的类型，后面两个参数都要默认值：</p>
+<pre><code>set&lt;int&gt; iset;
+</code></pre><p>set中内含一个红黑树。set的迭代器实际上是红黑树的迭代器：<code>const_iterator</code>，而这个迭代器是一个常量迭代器，无法修改对应的值。</p>
+<p>set的所有操作，都是转调用底层红黑树t的操作。set可以当作一个容器的适配器，其不做任何操作，全部都是转调用红黑树的操作。跟stack和queue一样，这两个都是转调用deque的操作。</p>
+<p>GNU下有identity函数，但是在VC下没有，所以VC6在内部定义了一个类实现相同的功能，该类重载operator()，所以可以当作函数使用。</p>
+<p><img src="https://i.imgur.com/CMKbIHy.png" alt=""></p>
+<h3 id="容器map和multimap"><a href="#容器map和multimap" class="headerlink" title="容器map和multimap"></a>容器map和multimap</h3><p>map/multimap也是以红黑树为底部数据结构，因此有元素自动排序特性，排序的依据是key。</p>
+<p>map/multimap提供遍历的操作及iterator。按正常规则（++ite）遍历，便能获得排序状态的序列。</p>
+<p>我们无法使用map/multimap的iterators改变元素的key，但可以十三亿它来改变元素的data。因此map/multimap内部自动将用户指定的key类型为const，如果便能禁止用户对元素的key赋值。</p>
+<p>map元素的key必须独一无二，因此insert()用的是红黑树的insert_unique()。</p>
+<p>multimap元素的key可以重复，因此其insert()用的是红黑树的insert_equal()。</p>
+<p><img src="https://i.imgur.com/s0dD3I5.png" alt=""></p>
+<p>map包含4个模板参数，后两个有默认值。前两个是指定key和data的类型。map的迭代器就是红黑树的迭代器，并没有规定key不能赋值，而是在包装成pair时，指定key的类型为const，即<code>pair&lt;const Key, T&gt;</code>。</p>
+<p>select1st取出map元素的第一个值，即key。select1st是GNU C特有的，所以对于其他版本，它们必须自己定义一个功能相同的函数。在map类中，定义了内部类，并给类重载()运算符操作，这样类可以当作函数使用。</p>
+<p><img src="https://i.imgur.com/oa73mmd.png" alt=""></p>
+<p>pair是标准库的结构，pair&lt;fisrtType, secondType&gt; p; p.first即p中的第一个元素，p.seconde即第二个元素。</p>
+<p>map独有的operator[]:</p>
+<pre><code>map&lt;int, string&gt; m;
+m[1] = &quot;abc&quot;;
+</code></pre><p>[]返回key对应的value，如果key不存在，就会创建一个元素&lt;key, value&gt;放入map中。</p>
+<p><img src="https://i.imgur.com/QkE4qoi.png" alt=""></p>
+<p><code>_k</code>表示key，<code>lower_bound</code>标准库中的一个算法，该算法的作用是：从排序好中序列中查找对应的key，如果找到，返回迭代器指向其中的第一个车元素。如果没有找到，就会传会最适合插入查找的key的位置。如果即没有找到，就调用insert函数。</p>
+<p>使用[]和insert两个进行元素插入，insert的效率更高，因为[]还需要调用<code>lower_bound</code>函数进行判断。</p>
+<h3 id="容器hashtable"><a href="#容器hashtable" class="headerlink" title="容器hashtable"></a>容器hashtable</h3><p>散列表或者哈希表。</p>
+<p>unsigned int有2^32种变化，如果每个情况都申请内存，由于内存大小有限，内存是无法存储所有情况。</p>
+<p><img src="https://i.imgur.com/9cb0AP0.png" alt=""></p>
+<p>但内存不足时，将编号除以空间的大小，得到余数。将元素放到余数对应的位置。</p>
+<p>比如内存大小为100，5存放在5的位置，8存放在8的位置，105存放在5的位置。这样就存在碰撞。</p>
+<p>防止碰撞的方法有多种：一次函数和二次函数分开。</p>
+<p>还有就是拉链法（sepearate chaining）:</p>
+<p><img src="https://i.imgur.com/WlFgFZm.png" alt=""></p>
+<p>一般篮子的数量都是素数。如果篮子数量小于元素数量，找到篮子数量离翻倍后最近的素数，将其当作更新的篮子数量，重新打散所有元素重新分配到篮子中。</p>
+<p>GNU C中将篮子的数量提前分配好，存放在一个数组。</p>
+<p>GNU C中hashtable内部实现:</p>
+<p><img src="https://i.imgur.com/ADifuYu.png" alt=""></p>
+<p>6个模板参数：Value和Key分别表示两者的类型，HashFcn是一个函数：将元素映射到一个编号，ExtractKey是提取key的函数，EqualKey是判断两个key相等的函数，最后是一个分配器。</p>
+<p>一个hashtable包含5个数据成员，前三个是函数对象（每一个函数对象实际上的大小是0，但是实际上无法做到0，而是做成1个字节），第四个是一个vector容器（即篮子）（一个vector里面有3个指针，所以是12字节），最后一个是元素的数量（4个字节）。大小为19，由于对齐规则，所以调整为20个字节。</p>
+<p>一个hashtable迭代器包含两个指针，cur指向链表中的某个元素，而ht指向某个篮子。</p>
+<p>hashtable的使用：</p>
+<p><img src="https://i.imgur.com/fAhxVsU.png" alt=""></p>
+<p>hash-function传回的值就是hash-code。</p>
+<p><img src="https://i.imgur.com/uGwXOX4.png" alt=""></p>
+<p><img src="https://i.imgur.com/EmwGr8v.png" alt=""></p>
+<p>hashtable中许多函数最后会归结到<code>hash(key)%n</code>：</p>
+<p><img src="https://i.imgur.com/UZXpXCZ.png" alt=""></p>
+<h3 id="unordered"><a href="#unordered" class="headerlink" title="unordered"></a>unordered</h3><p><img src="https://i.imgur.com/RZjy5kb.png" alt=""></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>容器、迭代器、仿函数、适配器和分配器都是类模板（class template)；</p>
+<p>算法是函数模板（function template）。</p>
+<p>算法的形式：</p>
+<pre><code>template&lt;typename Iterator&gt;
+Algorithm(Iteraotor ite1, Iterator ite2)
+{...}
+
+template&lt;typename Iterator, typename Cmp&gt;
+Algorithm(Iterator itr1, Iterator itr2, Cmp comp)
+{...}
+</code></pre><p>算法看不见容器，对容器一无所知，算法只能看到迭代器，算法所需的一切信息都必须从Iterators取得，而迭代器必须能够回答算法的所有提问，才能搭配该算法的所有操作。</p>
+<h3 id="迭代器分类"><a href="#迭代器分类" class="headerlink" title="迭代器分类"></a>迭代器分类</h3><p>5种迭代器分类：</p>
+<pre><code>struct input_iterator_tag{};
+struct output_iterator_tag{};
+struct farward_iterator_tag : public input_iterator_tag{};
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+struct random_access_iterator_tag : public bidirectional_iterator_tag{};
+</code></pre><p><img src="https://i.imgur.com/qV7XdQs.png" alt=""></p>
+<p>Array、Vector、Deque：在用户层面都是连续的，可以随机跳(<code>random_access_iterator_tag</code>)</p>
+<p>list：双向(<code>random_access_iterator_tag</code>)</p>
+<p>Forward=list：单向(<code>farword_iterator_tag</code>)</p>
+<p>红黑树：双向（<code>bidirectional_iterator_tag</code>）</p>
+<p>Hashtable: 单向或者双向（取决于底部链表是双向还是单向）</p>
+<p>打印各种容器的迭代器：</p>
+<p><img src="https://i.imgur.com/zDvQ7MH.png" alt=""></p>
+<p>typename()这样生成一个临时对象，比如<code>int()</code>。</p>
+<p><code>istream_iterator</code>和<code>ostream_iterator</code>分别是<code>input_iterator</code>和<code>output_isterator</code>。</p>
+<p><img src="https://i.imgur.com/Ujzp3RV.png" alt=""></p>
+<p>typeid(itr).name()：itr是一个类型，返回类型的名字。</p>
+<p>istream_iterator的iterator类型</p>
+<p><img src="https://i.imgur.com/q6lDN4Z.png" alt=""></p>
+<p>所有版本接口都一样，虽然模板参数不同，但是不同的部分都给出了默认的值。所有版本都是规定<code>istream_iterator</code>的类型为<code>input_iterator</code>。</p>
+<p>ostream_iterator的iterator类型</p>
+<p><img src="https://i.imgur.com/eXd5ABX.png" alt=""></p>
+<p>其与istream_iterator类似。</p>
+<h4 id="迭代器分类对算法的影响"><a href="#迭代器分类对算法的影响" class="headerlink" title="迭代器分类对算法的影响"></a>迭代器分类对算法的影响</h4><p><strong>distance</strong>有两个版本：一个对于连续空间，直接用尾指针减去头指针（效率高）；另一个对于非连续空间，通过将指针往后移动，并进行计数（效率低）。</p>
+<p>distance的返回类型：两个指针的距离类型，通过<code>iterator_traits</code>获取迭代器的difference_type。</p>
+<p><img src="https://i.imgur.com/M9daKWJ.png" alt=""></p>
+<p>首先将迭代器给<code>iterator_traits</code>得到迭代器的类型，然后利用迭代器类型名建立临时对象，放入<code>_distance</code>，根据临时对象调用不同的版本。</p>
+<p>很多算法都会有一个主函数，然后根据迭代器类型，调用不同的次函数，类似于distance。</p>
+<p><strong>advance</strong>有三个版本：一个是前进，另一个是后退，最后一个是可前进也可以后退（双向迭代器）。</p>
+<p>前进和移动可以是一步一步移动（效率低），也可以直接跳转（效率高）。</p>
+<p><img src="https://i.imgur.com/xneK9aO.png" alt=""></p>
+<p><code>iterator_category(i)</code>根据迭代器i获取迭代器的类型（分类），并以此类型创建一个临时对象返回。</p>
+<p>迭代器有5种类型，但是为什么这里只考虑了两种情况或三种情况呢？</p>
+<p>如果类型是<code>farward_iterator_tag</code>，distance会调用<code>input_iterator_tag</code>版本，因为<code>farward_iterator_tag</code>是一个种<code>input_iterator_tag</code>类型，这是根据类的继承是一个种is-a的关系。</p>
+<p><strong>copy</strong>：复制一个容器中的所有元素到一个新容器中。</p>
+<p><img src="https://i.imgur.com/pQma4mi.png" alt=""></p>
+<p>copy不断的做迭代器类型判断，对不同的迭代器采用不同的做法。</p>
+<p>首先，如果迭代器类型是<code>const char *</code>和<code>const wchar_t*</code>，则调用mememove()(是一个底层的系统函数)；如果是迭代器类型不是上述两种类型，调用一个泛化版本<code>_copy_dispatch()</code>函数。然后，<code>_copy_dispatch()</code>在进行迭代器类型判断，如果是指针，则调用<code>_copy_t()</code>函数，如果不是指针，则调用泛化版本<code>__copy()</code>。最后，<code>__copy()</code>判断迭代器类型，如果<code>input_iterator</code>类型调用for-loop，这样从头指针开始一个一个复制；如果是<code>random_access_iterator</code>，调用<code>_copy_d()</code>函数，直接last-first得到循环的次数，这样速度更快。</p>
+<p>注意，<code>__copy_t()</code>函数会使用type traits来判断执行一个动作重不重要（比如拷贝赋值重不重要，对于一个含有指针的类是重要的），如果它是不重要的（trivial），就会调用<code>memmove()</code>函数，如果它重要，就会调用<code>__copy_d()</code>一个一个进行赋值，就会调用拷贝赋值函数。比如，如果一个对象里面没有指针，调用复制构造函数和拷贝赋值函数是不重要的。</p>
+<p>type traits不属于STL，但属于标准库。</p>
+<p><strong>destroy</strong>：调用析构函数</p>
+<p><img src="https://i.imgur.com/5cxT7al.png" alt=""></p>
+<p>其也要调用type traits，如果摧毁的元素的析构函数不重要，就不需要调用析构函数；如果析构函数重要，就调用析构函数destroy函数。</p>
+<p>destroy的详细实现：</p>
+<p><img src="https://i.imgur.com/TEucOpM.png" alt=""></p>
+<p><strong>算法的效率主要看算法能不能判断迭代器的分类。</strong></p>
+<p><code>unique_copy()</code>只复制不重复的元素</p>
+<p><img src="https://i.imgur.com/k8l0J5i.png" alt=""></p>
+<p>如果目的端是一个outputiterator，不能读取其中的值(<code>*result</code>)，所以不能采用forwarditerator。</p>
+<p>算法的接口不会规定只接受某种迭代器，而是会接收所有迭代器。因为使用的是模板函数，所以对迭代器类型没有规定。但是如果传入的迭代器类型不符合算法要求的类型，到迭代器跳转的时候会失败。</p>
+<p><img src="https://i.imgur.com/whWRE1K.png" alt=""></p>
+<p>distance接收的迭代器类型是input iterator，所以除了output iterator，其他迭代器都可以正确放入distance函数。</p>
+<p>比如，sort中的模板类型名称是randomAccessIterator，告诉我们迭代器类型是<code>randmo_access_iterator</code>，如果是其他类型，执行到迭代器跳转的地方会失败。</p>
+<h4 id="具体算法分析"><a href="#具体算法分析" class="headerlink" title="具体算法分析"></a>具体算法分析</h4><p>C函数：</p>
+<ul>
+<li>qsort(c.data, ASIZE, sizeof(long), compareLongs)</li>
+<li>bsearch(&amp;target, c.data(), ASIZE, sizeof(long), compareLongs)</li>
+</ul>
+<p>标准库提供的算法：</p>
+<ul>
+<li>count_if(vi.begin(), vi.end(), not1(bind2nd(less<int>(),40)))</int></li>
+<li>find(c.begin(), c.end(), target)</li>
+<li>sort(c.begin(), c.end())</li>
+</ul>
+<p>标准库的算法需要符合：</p>
+<pre><code>template &lt;typename Iterator&gt;
+std::Algorithm(Iterator itr1, Iterator itr2 ..)
+{}
+</code></pre><ul>
+<li>算法accumulate:</li>
+</ul>
+<p>有两个版本：第一个版本接收头尾两个指针和一个初值；另一个版本接收头尾两个指针，一个初值和一个函数（操作）。</p>
+<p><img src="https://i.imgur.com/nrX44WF.png" alt=""></p>
+<p>第一个版本，执行累加操作。而第二个版本，要根据给定的函数才能知道执行了什么操作。</p>
+<p>右侧示例中，在accumulate中给出不同的函数，得到了不同的结果。不同的函数是可被调用的对象包括：函数和函数对象。</p>
+<ul>
+<li>算法for_each</li>
+</ul>
+<p>对每个元素执行相同的操作。</p>
+<p>接收头尾两个迭代器，和一个函数对象。</p>
+<p><img src="https://i.imgur.com/cfgsCxs.png" alt=""></p>
+<p>基于范围的for循环：</p>
+<pre><code>for(decl : coll)
+    statement;
+
+for (int i : {1,3,4,6,5,7})
+    cout &lt;&lt; i &lt;&lt; endl;
+</code></pre><ul>
+<li>算法replace, replace_ if, replace_copy</li>
+</ul>
+<p><img src="https://i.imgur.com/TMwqGJh.png" alt=""></p>
+<p>replace：如果元素跟旧值(<code>old_value</code>)相同，就替换为新值(<code>new_value</code>)。</p>
+<p>replace_if：满足某条件（pred）的元素，替换为新值。</p>
+<p>replace_copy: 如果元素跟旧值相同，不是取代，而是复制到内的地方并替换为新值。</p>
+<ul>
+<li>算法count，count_if</li>
+</ul>
+<p><img src="https://i.imgur.com/EQUojmx.png" alt=""></p>
+<p>count：对所有元素进行计数</p>
+<p>count_if: 对满足某个条件的元素，进行计数</p>
+<p>带成员函数count()的容器：set/mulitset，map/multimap…。这些容器调用count()时，调用其成员函数速度将更快。这8个容器中有key，有其更快速的做法，所以这8个容器每个都定义了一个count成员函数。</p>
+<p>但是对于容器不带成员函数count()，那么只能调用标准库中的算法count()。</p>
+<ul>
+<li>算法find，find_if</li>
+</ul>
+<p><img src="https://i.imgur.com/9Np9TVU.png" alt=""></p>
+<p>跟count类似。</p>
+<ul>
+<li>算法sort</li>
+</ul>
+<p><img src="https://i.imgur.com/zkkUMzU.png" alt=""></p>
+<pre><code>bool myfunc(int i, int j) { return (i &lt; j);}
+struct myclass{
+    bool operator()(int i, int j) {return (i &lt; j);}
+} myobj;
+
+int myints[] = {32, 17, 12, 45, 26, 80, 53, 33};
+vector&lt;int&gt; myvec(myints, myints+8);
+
+sort(myvec.begin(), myvec.begin()+4);
+
+sort(myvec.begin()+4, myvec.end(), myfunc);
+
+sort(myvec.begin(), myvec.end(), myobj); 
+
+sort(myvec.rbegin(), myvec.rend());  //rbegin()=end(), rend()=begin()  得到的排序跟前面相反
+</code></pre><p>8种关联式容器中所有元素已经排序好，所有不再需要使用sort进行排序，所以其没有定义成员函数sort。</p>
+<p>list和forward_list无法调用sort，因为这两者的迭代器无法跳转，所以其自身带有sort成员函数。</p>
+<p>rbegin()和rend()</p>
+<p><img src="https://i.imgur.com/VRQMFTt.png" alt=""></p>
+<p>reverset_iterator是一个适配器，将end()的取值方式反过来。</p>
+<ul>
+<li>算法binary_search</li>
+</ul>
+<p>二分查找：前提条件是，容器已经排序好</p>
+<p><img src="https://i.imgur.com/B1ry9gk.png" alt=""></p>
+<p><code>lower_bound</code>返回能够插入某个元素的最低点，<code>upper_bound</code>返回能够插入某个元素的最高点。前提条件是元素已经排序好。</p>
+<h2 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h2><p>仿函数，又称函数对象</p>
+<p>仿函数根据用户的要求进行设计，然后使用到算法中。</p>
+<p><img src="https://i.imgur.com/nKgp29E.png" alt=""></p>
+<p>仿函数三大类：</p>
+<ul>
+<li>算术类</li>
+</ul>
+<p>计算两个数的加减乘除等。</p>
+<pre><code>template &lt;class T&gt;    
+struct plus : public binary_function&lt;T,T,T&gt;
+{ T operator()(const T&amp;x, const T&amp; y) const
+    {return x + y; }
+};
+
+template&lt;class T&gt;
+struct minus : public binary_function&lt;T,T,T&gt;
+{ T operator()(const T&amp;x, const T&amp; y) const
+    {return x - y; }
+};
+</code></pre><ul>
+<li>逻辑运算类</li>
+</ul>
+<p>计算两个元素的或、与。</p>
+<pre><code>template&lt;class T&gt;
+struct logical_and : public binary_function&lt;T,T,bool&gt;{
+    bool operator()(const T&amp; x, const T&amp; y) const
+    { return x &amp;&amp; y;}
+};
+</code></pre><ul>
+<li>相对关系类</li>
+</ul>
+<p>比较两个元素的大小关系</p>
+<pre><code>template&lt;class T&gt;
+struct equal_to : pulbic binary_function&lt;T, T, bool&gt;
+{    
+    bool operator()(const T&amp; x, const T&amp; y)const    
+    {    return x == y; }
+};
+</code></pre><p>GNU C++独有的仿函数，非标准的</p>
+<pre><code>template &lt;class T&gt;
+struct identity : public unary_function&lt;T,T&gt;
+{
+    const T&amp; operator()(const T&amp; x) const 
+    { return x;}
+}
+
+template&lt;class Pair&gt;
+struct select1st: public unary_fucntion&lt;Pair, typenmae Pair::first_type&gt;{
+    const typename Pair::first_type &amp; operator()(const Pair &amp; x) const
+    { return x.first; }
+}
+
+...
+</code></pre><p>sort中仿函数的使用：</p>
+<p><img src="https://i.imgur.com/sGaXjR7.png" alt=""></p>
+<p>标准库提供的仿函数继承自<code>binary_function</code>或<code>unary_function</code>。而我们写的继承关系，可以运行，但是这样就没有容器STL中，在执行某些动作时可能会失败。</p>
+<p>仿函数可适配的条件是：仿函数需要继承<code>binary_function</code>或<code>unary_function</code>。这是因为适配器可能需要访问仿函数的一些参数（即问问题），如果不继承自这两个函数，将无法进行回答。</p>
+<p><img src="https://i.imgur.com/JtGlxi0.png" alt=""></p>
+<p><code>unary_function</code>针对于运算符!(not)等,只有一个操作数。<code>binary_function</code>针对两个操作数的运算符。</p>
+<p>这两个类都没有数据成员和成员函数，大小理论值为0，实际上大小为1。如果有子类继承自它，那它的大小是0。所以less的大小，理论上为0，实际上为1。</p>
+<h2 id="适配器adapter"><a href="#适配器adapter" class="headerlink" title="适配器adapter"></a>适配器adapter</h2><p>多种适配器： </p>
+<ul>
+<li>容器适配器</li>
+<li>迭代器适配器</li>
+<li>仿函数适配器</li>
+</ul>
+<p><img src="https://i.imgur.com/bWw6TUP.png" alt=""></p>
+<p>A改造了B，就可以用A代替B，用户是使用A，但幕后还是B在起作用。</p>
+<p>适配器都是内含的方式，而不是继承。</p>
+<p>容器适配器就是内含一个容器，迭代器适配器就是内含一个迭代器，仿函数适配器内含一个适配器。</p>
+<p>算法不知道容器，只能看到迭代器，而迭代器有容器提供。迭代器必须拥有5个typedef。</p>
+<p>仿函数主要是跟算法合作，比如算法比较大小的准则等都是由仿函数提供，可以把仿函数包成一个适配器，然后给算法使用。算法可能需要直到某些信息，或者适配器需要直到仿函数的性质，通过3个或2个typedef实现。</p>
+<h3 id="容器适配器-stack-queue"><a href="#容器适配器-stack-queue" class="headerlink" title="容器适配器 stack, queue"></a>容器适配器 stack, queue</h3><p><img src="https://i.imgur.com/XSM9tgN.png" alt=""></p>
+<p>Stack内含一个容器deque，对其进行了改造，其开放了deque的某些函数。</p>
+<p>queue内含一个容器deque，对其进行了改造，函数的实现都是转调用deque的函数。</p>
+<h3 id="函数适配器"><a href="#函数适配器" class="headerlink" title="函数适配器"></a>函数适配器</h3><p>binder2nd：将仿函数绑定第二参数。</p>
+<pre><code>count_if(vi.begin(), vi.end, 
+            not1(bind2nd(less&lt;int&gt;(), 40)));
+</code></pre><p><img src="https://i.imgur.com/JsCMx7x.png" alt=""></p>
+<p>bind2nd只是一个接口，内部实现交给binder2nd。bind2nd会根据仿函数，得到仿函数的类型，然后当作binder2nd的模板参数。比如，less<int>放入的时候，编译器会启动推导出类型。</int></p>
+<p>binder2nd类中有两个数据成员op和value，一个表示函数，另一个表示需要绑定的参数。</p>
+<p>binder2nd重载了()运算符，所以binder2nd是一个函数对象，可以像函数一样使用它。</p>
+<p><code>operation::second_argument_type</code>得到less的第二个参数的类型，然后在调用binder2nd时进行强制类型转换(<code>arg2_type(x)</code>)。</p>
+<p>在binder2nd中，<code>operation::second_argument_type</code>得到less的第二个参数的类型，第二个参数的类型应该是该类型；<code>operation::result_type</code>得到less的返回类型，bind2nd的返回类型应该也是该类型。</p>
+<p>在<code>count_if</code>中，放入的参数是第一实参，第二个参数已经绑定为40。</p>
+<p>typename的作用：在编译时，Operation的类型无法知道，也无法知道Operation能否回答这个问题，这是编译器可能无法通过编译；使用typenam就可以让编译器通过编译。</p>
+<p>binder2nd再一次继承了<code>unary_function</code>，使其变成可适配的，可以被其他适配器改造。</p>
+<p><strong>适配器就是将参数的类型记录下来，以便后面使用。</strong></p>
+<p>not1: 取否定，<code>bind2nd(less&lt;int&gt;(), 40)</code>表示大于40的条件，加上not1修饰，表示小于40的条件。</p>
+<p><img src="https://i.imgur.com/cv6PyrY.png" alt=""></p>
+<p>not1同样有一个主函数和一个次函数，主函数相当于一个接口，主要的内容有次函数完成。主函数完成实参推导，即得到pred的类型Predicate。然后，利用该类型创建临时对象<code>unary_negate</code>，调用构造函数。</p>
+<p>在<code>count_if</code>中，利用创建的临时对象<code>unary_negate</code>，调用重载的()运算符。</p>
+<h3 id="新型适配器-bind"><a href="#新型适配器-bind" class="headerlink" title="新型适配器 bind"></a>新型适配器 bind</h3><p><img src="https://i.imgur.com/UzzPyDH.png" alt=""></p>
+<p>表明binder1st,bind1st,binder2st,bind2st等都是过时的，已经替换成bind。</p>
+<p><img src="https://i.imgur.com/QDbh0Z9.png" alt=""></p>
+<p>bind可以绑定：</p>
+<ul>
+<li>函数</li>
+<li>函数对象</li>
+<li>成员函数</li>
+<li>数据成员 </li>
+</ul>
+<p>绑定成员函数和数据成员时，<code>_1</code>必须是某个对象地址。</p>
+<p>绑定函数：</p>
+<p><code>_1</code>表示占位符，即空着这个位。必须添加命名空间：<code>using namespace std::placeholders;</code></p>
+<pre><code>auto fn_invert = bind(my_divide,_2,_1);
+cout &lt;&lt; fn_invert(10,2) &lt;&lt; endl; // 输出0.2
+</code></pre><p>其中<code>_1</code>绑定fn_invert(10,2)的第一个实参10，<code>_2</code>绑定第二实参2。</p>
+<p>bind可以指定一个模板参数，绑定的是函数的返回类型。</p>
+<pre><code>auto fn_rounding = bind&lt;int&gt;(my_divide, _1,_2);
+cout &lt;&lt; fn_rounding(10, 3) &lt;&lt; endl; //输出3
+</code></pre><p>由于指定返回类型为3，会将原来的返回类型double覆盖，所以返回值是3。</p>
+<p>绑定函数对象：</p>
+<p>跟绑定函数一样，只是将函数声明换出了函数对象：</p>
+<pre><code>先定义divides对象，并重载operator()
+std::divides&lt;double&gt; my_divide;
+</code></pre><p>绑定成员函数：</p>
+<pre><code>MyPair ten_two {10,2}; //创建对象，并给数据成员给初值
+
+auto bound_memfn = bind(&amp;MyPair::multiply, _1); //_1表示对象的this指针 
+cout &lt;&lt; bound_memfn(ten_two);   
+</code></pre><p>绑定数据成员：</p>
+<pre><code>auto bound_memdata = bind(&amp;MyPair::a, ten_two);
+cout &lt;&lt; bound_memdata() &lt;&lt; endl;
+
+auto bound_memdata2 = bind(&amp;MyPair::b, _1);
+cout &lt;&lt; bound_memedata2(ten_two) &lt;&lt; endl;
+</code></pre><p>bind的使用：</p>
+<pre><code>vector&lt;int&gt; v {15,23,56,34,67,24, 14};
+int n = count_if(v.cbegin(), v.cend(), not1(bind2nd(less&lt;int&gt;(), 30)));
+cout &lt;&lt; &quot;n = &quot; &lt;&lt; n &lt;&lt; endl;
+
+auto fn_ = bind(less&lt;int&gt;(), _10, 30);
+cout &lt;&lt; count_if(v.cbegin(), v.cend(), fn_) &lt;&lt; endl;
+cout &lt;&lt; count_if(v.begin(), v.end(), bind(less&lt;int&gt;(), _1, 30)) &lt;&lt; endl;
+</code></pre><p>cbegin()和cend()表示迭代器是const类型，无法修改它。</p>
+<h3 id="迭代器适配器"><a href="#迭代器适配器" class="headerlink" title="迭代器适配器"></a>迭代器适配器</h3><p>对迭代器进行改造。</p>
+<p>reverse_iterator:</p>
+<p>排序的默认情况，从小到大。如果传给其的迭代器是两个逆向迭代器（rbegin()和rend()），得到的是从大到小。</p>
+<p><img src="https://i.imgur.com/4M3nfs8.png" alt=""></p>
+<p><code>reverse_iterator</code>逆向迭代器也需要5个typedef，跟正向迭代器一致。</p>
+<p>关键的取值动作，逆向迭代器是反向取值，逆向迭代器取值，就是对正向迭代器退一位取值。逆向的++就是正向的–，所有操作都是逆向的。</p>
+<p>迭代器适配器inserter</p>
+<p><img src="https://i.imgur.com/r2vwbc4.png" alt=""></p>
+<p>复制：</p>
+<pre><code>int myints[] = {}10,20,30,40,50,60,70};
+vector&lt;int&gt; myvec(7); //如果给出vector的大小不足，复制的时候，如果构造这个范围，vector不会自动增长
+copy(myints, myints+7, myvec.begin());
+</code></pre><p>正常的迭代器，copy会进行赋值动作，会见后面的内容覆盖。</p>
+<p>而如果想在中间插入多个元素，而不覆盖后面的元素，可以使用inserter实现。</p>
+<p>inserter每插入一个元素，会在迭代器后向安排一个新的空间以便元素插入。</p>
+<p>但是copy已经写死，无法修改，就考虑对赋值=进行重载。就是对copy中的第三参数进行=操作符重载。</p>
+<p>执行<code>*restult=*first;</code>，会进入<code>insert_iterator</code>中的重载operator=函数中，执行插入操作。</p>
+<p>inserter</p>
+<pre><code>list&lt;int&gt; foo, bar;
+for (int i = 1; i &lt;= 5; i++)
+{
+    foo.push_back(i);
+    bar.push_back(i*10);
+}
+
+list&lt;int&gt;::iterator it = foo.begin();
+advance(it, 3);
+copy(bar.begin(), bar.end(), inserter(foo, it));
+</code></pre><h3 id="X适配器：-ostream-iterator"><a href="#X适配器：-ostream-iterator" class="headerlink" title="X适配器： ostream_iterator"></a>X适配器： ostream_iterator</h3><p><img src="https://i.imgur.com/oGTFvBG.png" alt=""></p>
+<p>ostream_iterator使用：</p>
+<pre><code>std::ostream_iterator&lt;int&gt; out_it(std::cout, &quot;,&quot;);
+std::copy(myvector.begin(), myvector.end(), out_it);
+</code></pre><p><code>out_it(std::cout,&quot;,&quot;)</code>调用<code>ostrem_iterator</code>的构造函数，在copy函数中执行<code>*result=*first;</code>是调用<code>ostream_iterator</code>重载的=运算符。</p>
+<h3 id="x适配器：istream-iterator"><a href="#x适配器：istream-iterator" class="headerlink" title="x适配器：istream_iterator"></a>x适配器：istream_iterator</h3><p><img src="https://i.imgur.com/nfx5Fql.png" alt=""></p>
+<p>如果<code>istream_iterator</code>不带参数，就是一个<code>end-of-stream</code>迭代器，代表一个标兵。</p>
+<p><code>istream_iterator</code>重载++操作符，可以读取值到value，然后通过重载*运算符来返回value值。对<code>istream_iterator</code>进行++，就是进行读取值操作。</p>
+<p><img src="https://i.imgur.com/ryOpEZT.png" alt=""></p>
+<p>先创造两个<code>istream_iterator</code>迭代器，然后将这两个迭代器当作copy的来源端，inserter()将复制操作变成插入操作。</p>
+<h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><p>勿在浮沙筑高台</p>
+<h3 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h3><p>为自己的hashtable写一个hash function，来设置每个元素的位置。</p>
+<p>写一个hash function的形式：</p>
+<p>如果将Cunstomer放入hashtable，需要为其设置一个hash function（Customerhash）。</p>
+<p><img src="https://i.imgur.com/dL9mDGz.png" alt=""></p>
+<p>有两种定义hash function的形式：</p>
+<ul>
+<li>函数对象</li>
+<li>普通函数</li>
+</ul>
+<p>两种形式使用的方式不同：</p>
+<pre><code>unordered_set&lt;Customer, CustomerHash&gt; custset;
+unordered_set&lt;Customer, size_t(*)(const Customer&amp;)&gt; custset(20, customer_hash_func);
+                     //指明函数返回类型和参数类型                   //实际的函数地址
+</code></pre><p><img src="https://i.imgur.com/lE9sm91.jpg" alt=""></p>
+<p>对于直接用类的所有成员的哈希值相加当作函数函数，这样太天真。实际上可以运行，但是出现碰撞的几率高，导致查找速度慢。</p>
+<p>TR1给出了hash function实现，比直接相加好。</p>
+<p>直接调用<code>hash_val</code>函数，将类的所有成员当作参数。第一个版本的<code>hash_val</code>，template可以接收任意个数的模板参数；第二版本的<code>hash_val</code>，第一个参数是<code>size_t</code>，模板参数个数是任意多个；第三个版本的<code>hash_val</code>，只有两个模板参数。</p>
+<p>首先调用的第一个版本<code>hash_val</code>，然后第一个版本<code>hash_val</code>调用第二个版本的<code>hash_val</code>，第二个版本里面有递归，直到递归到最后一个时(只有两个参数)，调用第三个版本的<code>hash_val</code>。</p>
+<p>除了前面两种形式,还有另一种形式,写一个偏特化的hash版本.</p>
+<p><img src="https://i.imgur.com/Rr0Su8s.png" alt=""></p>
+<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>tuple在TR1开始加入的.</p>
+<p>在声明的时候,允许放入的任意的元素类型和个数.</p>
+<p>使用示例:</p>
+<pre><code>cout &lt;&lt; &quot;string sizeof=&quot; &lt;&lt; sizeof(string) &lt;&lt; endl;
+cout &lt;&lt; &quot;double sizeof=&quot; &lt;&lt; sizeof(double) &lt;&lt; endl;
+cout &lt;&lt; &quot;float sizeof=&quot; &lt;&lt; sizefo(float) &lt;&lt; endl;
+cout &lt;&lt; &quot;int sizeof=&quot; &lt;&lt; sizeof(int) &lt;&lt; enld;
+cout &lt;&lt; &quot;complex&lt;double&gt; sizeof=&quot; &lt;&lt; sizeof(complex&lt;double&gt;) &lt;&lt; endl;
+
+tuple&lt;string, int, int, complex&lt;double&gt; &gt; t;
+cout &lt;&lt; &quot;sizeof=&quot; &lt;&lt; sizeof(t) &lt;&lt; endl;   //32
+
+tuple&lt;int, float, string&gt; t1(41, 6.3, &quot;nico&quot;);
+cout &lt;&lt; &quot;tuple&lt;int, float, string&gt; sizeof=&quot; &lt;&lt; sizeof(t1) &lt;&lt; endl; //12
+
+cout &lt;&lt; &quot;t1: &quot; &lt;&lt; get&lt;0&gt;(t1) &lt;&lt; &quot; &quot; &lt;&lt; get&lt;1&gt;(t1) &lt;&lt; &quot; &quot; &lt;&lt; get&lt;2&gt;(t1) &lt;&lt; endl;
+
+auto t2 = make_tuple(22, 444, &quot;stacy&quot;);
+get&lt;1&gt;(t1) = get&lt;1&gt;(t2);
+
+if (t1 &lt; t2)
+    cout &lt;&lt; &quot;t1 &lt; t2&quot; &lt;&lt; endl;
+else
+    cout &lt;&lt; &quot;t1 &gt;= t2&quot; &lt;&lt; endl;
+t1 = t2;
+cout &lt;&lt; &quot;t1: &quot; &lt;&lt; t1 &lt;&lt; endl;
+
+tuple&lt;int, float, string&gt; t3(77, 1.1, &quot;more light&quot;);
+int i1;
+float f1;
+string s1;
+tie(s1, f1, s1) = t3;  //分配值给值给i1,f1,s1
+
+
+typedef tuple&lt;int, float, string&gt; TuepleType;
+cout &lt;&lt; tuple_size&lt;TupleType&gt;::value &lt;&lt; endl;
+tuple_element&lt;1, TupleType&gt;::type fl = 1.0;
+typedef tuple_element&lt;1, TupleType&gt;::type T;
+</code></pre><p>tuple实现:</p>
+<p><img src="https://i.imgur.com/Q4eIMBy.png" alt=""></p>
+<p>如果tuple包含n个元素,则它会继承一个n-1个元素的tuple。 第一个元素成为类中的一个变量。如果到达0个元素时，调用偏特化偏特化版本（即一个空的模板类）。</p>
+<p>tuple有两个函数head()和tail()。head()传回第一个值，tail()获得父类的成员起点。</p>
+<h3 id="type-traits"><a href="#type-traits" class="headerlink" title="type traits"></a>type traits</h3><p><img src="https://i.imgur.com/VZ6ouo0.png" alt=""></p>
+<p>默认情况下，默认构造函数、拷贝构造函数，拷贝赋值函数，析构函数是重要的，那就需要在实现这些函数时，需要将对象一个一个赋值。</p>
+<p>对于基本类型，这些函数都是不重要的。也对可以对自己定义的类，设置特化版本。</p>
+<pre><code>template&lt;&gt; struct __tyep_traits&lt;Foo&gt;{
+    teypdef __true_type has_trivial_default_constructor; //这些值可以设定
+    ....
+};
+</code></pre><p>如果不给自己定义的类设置特化版本，将会使用默认的版本。普通的类都没有必要设置特化版本，除非类中使用了指针，文件等，这样使用特化版本来设置是有必要的。</p>
+<p>POD是C中的struct，只有数据成员，没有函数成员。</p>
+<p>c++11里面的type_traits:</p>
+<p><img src="https://i.imgur.com/UPvk6hh.png" alt=""></p>
+<p><img src="https://i.imgur.com/x78fuvh.png" alt=""></p>
+<p>type_traits使用方式：</p>
+<pre><code>template&lt;typename T&gt;
+void type_traits_output(const T&amp; x)    
+{
+    cout &lt;&lt; is_void&lt;T&gt;::value &lt;&lt; endl;
+    cout &lt;&lt; is_integrial&lt;T&gt;::value &lt;&lt; endl;
+....
+}
+</code></pre><p>类中指针时，需要析构函数。类当成是父类时，才有必要将析构函数写成虚函数。</p>
+<p><img src="https://i.imgur.com/wH0tPav.png" alt=""></p>
+<p>string不能被当作父类，所以它的析构函数不是虚函数。</p>
+<p>对于自己定义的类，分析type_traits:</p>
+<p><img src="https://i.imgur.com/n7nd4I1.png" alt=""></p>
+<p>自己定义的类Zoo:</p>
+<p><img src="https://i.imgur.com/IbdF21a.png" alt=""></p>
+<pre><code>Zoo(const Zoo &amp;)=delete; //表示不要拷贝构造函数，编译器不要生成默认的拷贝构造函数
+Zoo(Zoo &amp;&amp;) = default; //移动构造函数，使用编译器给的默认版本
+</code></pre><p>complex复数：没有指针，没有构造函数函数和析构函数，但是编译器会给出默认的模板。</p>
+<p><img src="https://i.imgur.com/zD09TGE.png" alt=""></p>
+<p>c++11 type_traits实现：</p>
+<p>is_void实现：</p>
+<p><img src="https://i.imgur.com/6LfmiHD.png" alt=""></p>
+<p><code>is_void</code>首先调用<code>remove_cv</code>去掉变量的const和volatile，然后调用<code>__is_void_helper</code>来得到是否为void。这里，每一个步骤都是通过声明泛化和偏特化来实现功能。</p>
+<p>is_integral实现：</p>
+<p>integral包括：int,long,long long, char，bool,signed char, unsigned char, unsigned int, signed int, …</p>
+<p><img src="https://i.imgur.com/U537C8c.png" alt=""></p>
+<p>首先去掉const和voliate，然后给<code>__is_ingegral_helper</code>去实现，实现也是采用泛化和偏特化实现的。</p>
+<p><code>is_class</code>,<code>is_union</code>,<code>is_enum</code>,<code>is_pod</code>的实现：</p>
+<p><img src="https://i.imgur.com/vziWV98.png" alt=""></p>
+<p>这些实现都找不到具体的原始实现，认为是交给编译器实现的，所以看不到源码。</p>
+<p><code>is_move_assignable</code>:同样找不到源代码</p>
+<h3 id="cout"><a href="#cout" class="headerlink" title="cout"></a>cout</h3><p>cout是标准库的一部分，cout是一个对象，而不是类，类不能被直接使用。</p>
+<p><img src="https://i.imgur.com/PsU6tUq.png" alt=""></p>
+<p>extern表示cout可以被其他文件使用。</p>
+<p><img src="https://i.imgur.com/kfjp9d9.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/05/05/最大公约数和最小公倍数求法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -4449,141 +5676,6 @@ int dfs(TreeNode * root, int sum)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/03/31/Socket编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zxp">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="平步青云win">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/31/Socket编程/" itemprop="url">Socket编程</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T11:44:14+08:00">
-                2019-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/31/Socket编程/" class="leancloud_visitors" data-flag-title="Socket编程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/31/Socket编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -4638,7 +5730,7 @@ int dfs(TreeNode * root, int sum)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">133</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
