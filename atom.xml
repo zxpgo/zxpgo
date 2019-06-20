@@ -39,6 +39,28 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="https://zxpgo.github.io/2019/06/18/HTTP%E5%92%8CHTTPS/"/>
+    <id>https://zxpgo.github.io/2019/06/18/HTTP和HTTPS/</id>
+    <published>2019-06-18T13:11:26.391Z</published>
+    <updated>2019-05-27T09:13:20.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>最大公约数和最小公倍数求法</title>
     <link href="https://zxpgo.github.io/2019/05/05/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E6%B1%82%E6%B3%95/"/>
     <id>https://zxpgo.github.io/2019/05/05/最大公约数和最小公倍数求法/</id>
@@ -75,24 +97,6 @@
   </entry>
   
   <entry>
-    <title>C语言实现发送邮件</title>
-    <link href="https://zxpgo.github.io/2019/03/31/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
-    <id>https://zxpgo.github.io/2019/03/31/C语言实现发送邮件/</id>
-    <published>2019-03-31T03:44:14.000Z</published>
-    <updated>2019-05-04T13:30:03.949Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;telent模拟发送邮件，并利用C语言进行实现。
-    
-    </summary>
-    
-    
-      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Socket编程</title>
     <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
     <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
@@ -102,6 +106,24 @@
     <summary type="html">
     
       &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言实现发送邮件</title>
+    <link href="https://zxpgo.github.io/2019/03/31/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>https://zxpgo.github.io/2019/03/31/C语言实现发送邮件/</id>
+    <published>2019-03-31T03:44:14.000Z</published>
+    <updated>2019-05-04T13:30:03.949Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;telent模拟发送邮件，并利用C语言进行实现。
     
     </summary>
     
@@ -368,26 +390,6 @@
     <summary type="html">
     
       &lt;p&gt;MySQL实战：行程和用户、工资排名前N、分数排名。
-    
-    </summary>
-    
-      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
-    
-    
-      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Excel文件导入导出和实战</title>
-    <link href="https://zxpgo.github.io/2019/03/03/Excel%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E5%92%8C%E7%BB%83%E4%B9%A0%E9%A2%98/"/>
-    <id>https://zxpgo.github.io/2019/03/03/Excel文件导入导出和练习题/</id>
-    <published>2019-03-03T05:44:14.000Z</published>
-    <updated>2019-03-04T07:54:06.758Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Excel文件导入到Mysql，以及Mysql导出到本地文件中。最后附加三个练习题！
     
     </summary>
     
