@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="内核开发特点无libc库或无标准头文件Linux内核无法使用C语言的库函数，但是Linux内核实现了这些库函数，实现的文件(即.c文件)包含在lib目录下，头文件(即.h文件)在include\linux目录下。 基本的头文件位于include\linux目录下；体系结构相关的头文件位于内核源代码数的arch//include/asm目录下。比如如果编译的是x86体系结构，则体系结构相关的头文件就">
+<meta name="description" content="Linux内核介绍，以及内核中C语言的特点！">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux内核分析">
 <meta property="og:url" content="https://zxpgo.github.io/2019/06/11/Linux内核阅读问题/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="内核开发特点无libc库或无标准头文件Linux内核无法使用C语言的库函数，但是Linux内核实现了这些库函数，实现的文件(即.c文件)包含在lib目录下，头文件(即.h文件)在include\linux目录下。 基本的头文件位于include\linux目录下；体系结构相关的头文件位于内核源代码数的arch//include/asm目录下。比如如果编译的是x86体系结构，则体系结构相关的头文件就">
+<meta property="og:description" content="Linux内核介绍，以及内核中C语言的特点！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-20T14:32:55.323Z">
+<meta property="og:updated_time" content="2019-06-20T14:39:10.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux内核分析">
-<meta name="twitter:description" content="内核开发特点无libc库或无标准头文件Linux内核无法使用C语言的库函数，但是Linux内核实现了这些库函数，实现的文件(即.c文件)包含在lib目录下，头文件(即.h文件)在include\linux目录下。 基本的头文件位于include\linux目录下；体系结构相关的头文件位于内核源代码数的arch//include/asm目录下。比如如果编译的是x86体系结构，则体系结构相关的头文件就">
+<meta name="twitter:description" content="Linux内核介绍，以及内核中C语言的特点！">
 
 
 
@@ -402,7 +402,8 @@
       
 
       
-        <h2 id="内核开发特点"><a href="#内核开发特点" class="headerlink" title="内核开发特点"></a>内核开发特点</h2><h3 id="无libc库或无标准头文件"><a href="#无libc库或无标准头文件" class="headerlink" title="无libc库或无标准头文件"></a>无libc库或无标准头文件</h3><p>Linux内核无法使用C语言的库函数，但是Linux内核实现了这些库函数，实现的文件(即.c文件)包含在lib目录下，头文件(即.h文件)在include\linux目录下。</p>
+        <p>Linux内核介绍，以及内核中C语言的特点！<a id="more"></a></p>
+<h2 id="内核开发特点"><a href="#内核开发特点" class="headerlink" title="内核开发特点"></a>内核开发特点</h2><h3 id="无libc库或无标准头文件"><a href="#无libc库或无标准头文件" class="headerlink" title="无libc库或无标准头文件"></a>无libc库或无标准头文件</h3><p>Linux内核无法使用C语言的库函数，但是Linux内核实现了这些库函数，实现的文件(即.c文件)包含在lib目录下，头文件(即.h文件)在include\linux目录下。</p>
 <p>基本的头文件位于include\linux目录下；体系结构相关的头文件位于内核源代码数的arch/<architecture>/include/asm目录下。比如如果编译的是x86体系结构，则体系结构相关的头文件就是arch/x86/include/asm</architecture></p>
 <p>使用的时候包含如下头文件：</p>
 <pre><code>//包含基本头文件
