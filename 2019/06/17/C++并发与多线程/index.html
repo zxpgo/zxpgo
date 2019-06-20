@@ -1,0 +1,4567 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="C++多线程编程视频课程学习笔记，适用于具有C++11基础的学者，开发环境VS2017。">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11并发与多线程">
+<meta property="og:url" content="https://zxpgo.github.io/2019/06/17/C++并发与多线程/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="C++多线程编程视频课程学习笔记，适用于具有C++11基础的学者，开发环境VS2017。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-20T14:30:43.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11并发与多线程">
+<meta name="twitter:description" content="C++多线程编程视频课程学习笔记，适用于具有C++11基础的学者，开发环境VS2017。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/06/17/C++并发与多线程/"/>
+
+
+
+
+
+  <title>C++11并发与多线程 | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/06/17/C++并发与多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C++11并发与多线程</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T20:18:14+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/17/C++并发与多线程/" class="leancloud_visitors" data-flag-title="C++11并发与多线程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.bilibili.com/video/av39171692?from=search&amp;seid=7663928812674265445" target="_blank" rel="noopener">C++多线程编程视频课程学习</a>笔记，适用于具有C++11基础的学者，开发环境VS2017。<a id="more"></a></p>
+<h2 id="1-并发基本概念及实现，进程和线程基本概念"><a href="#1-并发基本概念及实现，进程和线程基本概念" class="headerlink" title="1. 并发基本概念及实现，进程和线程基本概念"></a>1. 并发基本概念及实现，进程和线程基本概念</h2><h3 id="1-1-并发、进程、线程的基本概念和综述"><a href="#1-1-并发、进程、线程的基本概念和综述" class="headerlink" title="1.1 并发、进程、线程的基本概念和综述"></a>1.1 并发、进程、线程的基本概念和综述</h3><p>并发，线程和进程是必须知道的知识点！</p>
+<h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><p>并发：两个或多个的任务（独立的活动）同时发生（进行）；一个程序同时执行多个独立的任务。</p>
+<p>以往计算机，单核CPU某一个时刻只能执行一个任务，由操作系统调度，每秒钟进行多次所谓的“任务切换”。这是一个中并发的假象（不是真正的并发），这种切换也称为上下文切换，是要有时间开销的，比如操作系统保存切换时的各种状态，执行进度等信息，都需要时间，一会还需切换回来的时间复原这些信息。</p>
+<p>硬件发展，出现了多处理器计算机，用户服务器和高性能计算机领域。台式机：在一块芯片上有多核（多个）CPU：双核、4核、8核、10核…，能够实现真正的并行执行多个任务（硬件并发）。</p>
+<p>对于任务多于CPU核数，如果有4个任务，当时CPU只有2个核，这样还需要切换任务。</p>
+<p>使用并发的原因：同时可以做多个事情，提高性能。</p>
+<p><strong>并行：</strong>当系统有一个以上CPU时,则线程的操作有可能非并发。当一个CPU执行一个线程时，另一个CPU可以执行另一个线程，两个线程互不抢占CPU资源，可以同时进行，这种方式我们称之为并行</p>
+<h4 id="可执行文件"><a href="#可执行文件" class="headerlink" title="可执行文件"></a>可执行文件</h4><p>磁盘上的一个文件，windows下，一个扩展名为.exe的文件，linux下，文件权限带x的文件（rwxrwxrwx,x为执行权限）。</p>
+<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>可执行程序能够运行，window下，直接双击可执行程序来运行；linux下，./文件名就可以执行程序。</p>
+<p>进程，就是一个可执行程序运行起来了，就创建了一个进程。</p>
+<p>进程就是运行起来的可执行程序。</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>每个进程（执行起来的可执行程序），都有一个主线程，这个主线程是唯一的，也就是一个进程中只能有一个主线程。</p>
+<p>当你执行可执行该程序，产生一个进程后，这个主线程就随这个进程默默的启动起来。</p>
+<p>ctrl+f5运行测试程序时 ，实际上是进程的主线程来执行（调用）这个main函数中的代码，main中的代码执行完，主线程也就执行了，整个进程也运行结束了。主线程执行网main中return后，表示整个进程执行完毕。</p>
+<p>进程和主线程唇齿相依，有你必然有我，有我必然有你，没有我必然没有你。主线程结束，进程同样也结束；进程结束，主线程同样也结束。</p>
+<p>线程：是用来执行代码的。可以理解成一条代码的执行道路：从main开始到main结束。</p>
+<p>除了主线程外，我们可以通过自己写代码来创建其他线程，其他线程走的是别的道路，甚至去不同的地方。</p>
+<p>每创建一个新线程，我就可以在同一个时刻，多干一个不同的事（多走一条不同的代码执行路径）。</p>
+<p>线程并不是越多越好，每个线程，都需要一个独立的堆栈空间（大约1M），线程之间的切换要保存很多中间状态，切换会耗费本该属于程序运行的时间。总之，线程太多会浪费内存并且线程上下文切换会浪费本该执行任务的时间。</p>
+<p>多线程（并发）。</p>
+<p>实际中，必须使用多线程的案例。开发一个游戏服务器。游戏服务器需要给多个玩家提供服务，多个玩家同时连到服务器上。就如玩家一需要充值，游戏服务器要请求充值服务器来完成充值任务，在一个过程中需要耗费10s左右。在这10s内，玩家二发起了抽卡的操作，不可能让玩家二等待10s。所以需要多线程，一个线程处理充值服务，一个线程处理抽卡服务。玩家一般多于线程数，但是某些线程执行非常快。</p>
+<p>总结：</p>
+<ul>
+<li>线程是用来执行代码的。</li>
+<li>线程可以理解成一条代码执行的道路，一个新线程代表一条新的通道。</li>
+<li>一个进程自动包含一个主线程，主线程随着进程默默的启动并运行，我们可以通过编码来创建多个其他线程（非主线程）。</li>
+<li>创建进程的数量最大不建议超过200~300，至于到底多少个合适 ，大家在实际的项目中可以不断调整和优化。</li>
+<li>有时候太多的线程，效率反而会降低，上下文切换会占用太多没有意义的时间。</li>
+<li>因为主线程是自动启动的，所以一个进程最少有一个线程（主线程）。</li>
+<li>多线程程序可以同时做多件事，所以运行效率高。但是到底有多高，并不是一个很容易评估和量化的东西。大家仍旧需要在实际编程中，进行体会和调整优化。</li>
+<li>有时候，多个线程访问同一个资源，多线程效率的提升不明显。</li>
+</ul>
+<p>学习心得：</p>
+<ul>
+<li>开发多线程程序：实力的体现，一个是商用的必须需求；</li>
+<li>线程开发有一定难度，实现代码更复杂，理解更困难，需要一定的学习时间。</li>
+<li>C++线程会涉及很多新概念，对于C++道路上的成长特别关键，不要急于求成。</li>
+<li>网络通讯，网络服务器，网线方向必须学习多线程，</li>
+</ul>
+<h3 id="1-2-并发的实现方法"><a href="#1-2-并发的实现方法" class="headerlink" title="1.2 并发的实现方法"></a>1.2 并发的实现方法</h3><p>实现并发的手段：</p>
+<ul>
+<li>通过多个进程实现并发。</li>
+<li>在单独的进程中，创建多个线程来实现并发，通过自己写带amll创建除主线程之外的其他线程。</li>
+</ul>
+<h4 id="多进程并发"><a href="#多进程并发" class="headerlink" title="多进程并发"></a>多进程并发</h4><p>word启动后就是一个进程，ie浏览器启动后就是一个进程。</p>
+<p>进程之间需要通信：</p>
+<ul>
+<li>同一个电脑上： 管道，文件，消息队列，共享内存</li>
+<li>不在同一个电脑上：socket通信技术</li>
+</ul>
+<h4 id="多线程并发"><a href="#多线程并发" class="headerlink" title="多线程并发"></a>多线程并发</h4><p>单个进程中，创建了多个线程。</p>
+<p>线程：类似于轻量级的进程，每个线程都有自己独立的运行路径，但是一个进程中的所有线程共享地址空间（共享内存）。</p>
+<p>全局变量，指针，引用可以在线程之间传递，所以使用多线程的开销远远小于多进程。</p>
+<p>共享内存带来了新问题：数据一致性问题。比如有两个线程：线程A和线程B可能同时往一个内存块中写数据，这样将会出现问题。</p>
+<p>多进程和多线程并发虽然可以混合使用，但是建议优先考虑多线程技术手段，而不是多进程。</p>
+<p><strong>注意：</strong>本课程只讲多线程开发技术，后续所讲的并发，都是多线程并发。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>和进程相比，线程有如下优点：</p>
+<ul>
+<li>线程启动速度更快，更轻量级；</li>
+<li>系统资源开销更少，执行速度更快，比如共享内存这种通信方式比任何其他的通信方式都快。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>使用有一定的难度，要更小心处理数据的一致性问题。</li>
+</ul>
+<h3 id="1-3-C-新标准线程库"><a href="#1-3-C-新标准线程库" class="headerlink" title="1.3 C++新标准线程库"></a>1.3 C++新标准线程库</h3><p>windows: <code>CreateThread()</code>，<code>_beginthread()</code>,<code>_beginthreadexe()</code>创建线程</p>
+<p>Linux: <code>pthread_create()</code>创建线程</p>
+<p>以往的多线程代码不能跨平台。</p>
+<p>有人使用POSIX thread(pthread)库，这是一个跨平台的库，但是需要做配置，比较复杂，用起来不方便。</p>
+<p>C++11新标准，C++本身增加了多线程的支持，意味着可移植性（跨平台），这就大大减少开发人员工作量了。以前都是使用操作系统提供的一些接口来创建多线程。</p>
+<h2 id="2-线程启动、结束、创建线程多种方法、join、detach"><a href="#2-线程启动、结束、创建线程多种方法、join、detach" class="headerlink" title="2. 线程启动、结束、创建线程多种方法、join、detach"></a>2. 线程启动、结束、创建线程多种方法、join、detach</h2><h3 id="2-1-范例演示线程运行的开始和结束"><a href="#2-1-范例演示线程运行的开始和结束" class="headerlink" title="2.1 范例演示线程运行的开始和结束"></a>2.1 范例演示线程运行的开始和结束</h3><p>程序运行起来，生成一个进程。同时进程的运行，该进程所属的主线程开始主动运行。</p>
+<p>主线程从main()开始执行，那么自己创建的线程，也需要从一个函数开始执行（初始函数）。一旦初始函数运行完毕，表示创建的线程运行结束。</p>
+<p>整个进程是否执行完毕的标志是：主线程是否执行完毕，如果主线程执行完毕了，就代表整个进程执行完毕了。</p>
+<p>此时，<strong>一般情况</strong>，如果其他子线程还没有执行完毕，那么这些子线程也会被操作系统强行终止。</p>
+<p>所以，一般情况下，我们得到一个结论，如果我们想保持子线程（自己用代码创建的线程）的运行状态的话，那么必须让主线程一直保持运行，不要让主线程运行完毕（有特殊情况，后面讲解）。</p>
+<h4 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h4><p>thread是一个标准库里面的类，用于创建线程，并且线程开始执行。线程执行的起点是可执行函数。</p>
+<pre><code>thrad mythread(myfun);  //myfun是定义的初始函数
+</code></pre><h4 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h4><p>join()就是阻塞主线程，让主线程等待子线程执行完毕，然后子线程和主线程汇合，然后主线程往后执行。</p>
+<p>如果主线程执行完毕了，但子线程没有执行完毕，这种程序是不合格的，写出来的程序也是不稳定的。所以需要使用join()来阻塞主线程，等待子线程执行完成。</p>
+<p>一个良好的程序，应该是主线程等待子线程执行完毕后，主线程才能最终退出。</p>
+<h4 id="detach"><a href="#detach" class="headerlink" title="detach()"></a>detach()</h4><p>传统的多线程程序主线程需要等待子线程执行完毕，然后自己再最后退出。detach()实现主线程和子线程不汇合（分离），主线程执行自己的，子线程执行自己的，主线程也不必要等待子线程执行完毕。</p>
+<p>我们创建了很多子线程，让主线程逐个等待子线程结束，这种编程方法不太好，所以引入了detach()。（其实不然，了解就可以）</p>
+<p>一旦使用detach()之后，与这个主线程关联的thread对象就会失去与这个主线程的关联，此时这个子线程就会驻留在后台执行（主线程与该子线程失去联系）。这个子线程就相当于被C++运行时库接管，当这个子线程执行完成后，由运行时库负责清理该线程相关的资源（守护线程）。</p>
+<p>detach()使子线程失去我们的控制。一旦调用detach()，子线程就会进入后台执行，就不能再用join()，否则系统会报告异常。</p>
+<h4 id="joinable"><a href="#joinable" class="headerlink" title="joinable()"></a>joinable()</h4><p>joinable()判断是否可以成功使用join()或者detach()。joinable()返回true或false，true表示可以使用join或detach；false表示不能使用join或detach。</p>
+<h4 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h4><p>创建线程的步骤：</p>
+<ul>
+<li>a) 包含一个头文件thread</li>
+<li>b) 创建初始函数</li>
+<li>c) main中开始写代码，创建线程和执行线程</li>
+<li>d) join阻塞主线程，等待子线程执行完毕</li>
+</ul>
+<p>代码：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//线程的初始函数
+void myprint()
+{
+    cout &lt;&lt; &quot;我的线程开始执行&quot; &lt;&lt; endl;
+
+    cout &lt;&lt; &quot;我的线程执行结束了&quot; &lt;&lt; endl;
+}
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    thread mytobj(myprint); //创建线程
+    mytobj.join();//主线程阻塞，当子线程执行完毕，join()执行完毕。
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+
+    return 0;
+} 
+</code></pre><p>这个代码有两个线程在跑，相当于整个程序的执行有两条线同时走，所以可以同时执行两个事。即使一条线被堵住了，另外一条线还可以执行。</p>
+<p>join导致线程阻塞，主线程得等它执行完才能继续。</p>
+<p>删除join后，执行程序后的输出：</p>
+<pre><code>Hello World!
+我的线程开始执行I love China!
+
+我的线程执行结束了
+</code></pre><p>可以看出输出比较混乱，而且会出现异常。</p>
+<p>原因主要是：主线程执行完成，但是创建的子线程还没有执行完成，这样就会出现异常。</p>
+<p>使用detach()示例</p>
+<p>代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//线程的初始函数
+void myprint()
+{
+    cout &lt;&lt; &quot;我的线程开始执行&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行1&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行2&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行3&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行4&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行5&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行6&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程执行结束了&quot; &lt;&lt; endl;
+}
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    thread mytobj(myprint);
+    mytobj.detach();
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Hello World!
+我的线程开始执行I love China1!
+
+I love China2!我的线程开始执行1
+
+I love China3!我的线程开始执行2
+
+我的线程开始执行3I love China4!
+
+我的线程开始执行4I love China5!
+
+我的线程开始执行5
+</code></pre><p>不会出现异常，但是发现子线程的内容还没有全部输出，就结束了。这是由于主线程执行完毕，进程就结束了，子线程后面的信息就无法输出。一开始（detach()），子线程会转入后台执行，由C++运行时库接管，使用cout就会往屏幕打印信息，但是主线程结束了，就无法显示打印的信息。</p>
+<p>joinable()使用示例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//线程的初始函数
+void myprint()
+{
+    cout &lt;&lt; &quot;我的线程开始执行&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行1&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行2&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行3&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行4&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行5&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程开始执行6&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;我的线程执行结束了&quot; &lt;&lt; endl;
+}
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    thread mytobj(myprint);
+    if (mytobj.joinable())
+    {
+        mytobj.join();
+    }
+
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Hello World!
+我的线程开始执行
+我的线程开始执行1
+我的线程开始执行2
+我的线程开始执行3
+我的线程开始执行4
+我的线程开始执行5
+我的线程开始执行6
+我的线程执行结束了
+I love China1!
+I love China2!
+I love China3!
+I love China4!
+I love China5!
+</code></pre><h3 id="2-2-其他创建线程的手法"><a href="#2-2-其他创建线程的手法" class="headerlink" title="2.2 其他创建线程的手法"></a>2.2 其他创建线程的手法</h3><p>thread接收一个可调用对象，来创建线程。可调用对象包括：函数、类对象（重载()）和lambda。</p>
+<h4 id="类对象"><a href="#类对象" class="headerlink" title="类对象"></a>类对象</h4><p>创建一个类，重载()。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//类
+class TA
+{
+public:
+    void operator()()
+    {
+        cout &lt;&lt; &quot;我的线程operator()开始执行&quot; &lt;&lt; endl;
+
+        cout &lt;&lt; &quot;我的线程operator()执行结束&quot; &lt;&lt; endl;
+    }
+
+};
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    TA ta;
+    thread mytobj(ta);
+    if (mytobj.joinable())
+    {
+        mytobj.join();
+    }
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p><strong>问题分析</strong>:</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//线程的初始函数
+class TA
+{
+public:
+    int &amp; m_i;
+    TA(int &amp;i) : m_i(i) {}
+    void operator()()
+    {
+        cout &lt;&lt; &quot;我的线程operator()开始执行&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i1的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i2的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i3的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i4的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i5的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;我的线程operator()执行结束&quot; &lt;&lt; endl;
+    }
+
+};
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    int myi = 6;
+    TA ta(myi);
+    thread mytobj(ta);
+    if (mytobj.joinable())
+    {
+        mytobj.detach();
+    }
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>子线程中的对象的引用变量<code>m_i</code>绑定了i，而i绑定的是主线程中的myi局部变量。如果使用detach，主线程结束了，myi局部变量就在内存中被销毁了，子线程没有执行完成，<code>m_i</code>找不到对应的值了，而还在打印内容，就会产生不可预料的结果。</p>
+<p>如果使用join()就不会出现这种情况，因为主线程必须等待子线程执行完毕就会结束，所以myi局部变量在内存空间中一直存在。</p>
+<p>还有一个问题，使用detach()时，主线程结束，ta对象也是一个局部变量，但是子线程还可以执行。</p>
+<p>一旦调用了detach()，那主线程执行结束了，这里用的ta对象还在吗？</p>
+<p>这个对象不在了。但是没有关系。</p>
+<p>这个对象实际上是被<strong>复制</strong>到线程中去。所以执行完主线程后，ta被销毁，但是所复制的TA对象依旧存在。所以，只要这个TA类对象里没有引用，或指针，那么就不会产生问题。</p>
+<p>分析对象如何被复制到线程中入的：</p>
+<p>通过调用对象的拷贝构造函数实现的，具体看如下代码。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+//线程的初始函数
+class TA
+{
+public:
+    int &amp; m_i;
+    TA(int &amp;i) : m_i(i) 
+    {
+        cout &lt;&lt; &quot;TA构造函数被执行&quot; &lt;&lt; endl;
+    }
+    TA(const TA &amp; ta) : m_i(ta.m_i) 
+    {
+        cout &lt;&lt; &quot;TA拷贝构造函数被执行&quot; &lt;&lt; endl;
+    }
+    ~TA()
+    {
+        cout &lt;&lt; &quot;TA析构函数被执行&quot; &lt;&lt; endl;
+    }
+    void operator()()
+    {
+        cout &lt;&lt; &quot;我的线程operator()开始执行&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i1的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i2的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i3的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i4的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;m_i5的值为：&quot; &lt;&lt; m_i &lt;&lt; endl;
+        cout &lt;&lt; &quot;我的线程operator()执行结束&quot; &lt;&lt; endl;
+    }
+
+};
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World!\n&quot;;
+    int myi = 6;
+    TA ta(myi);
+    thread mytobj(ta);
+    if (mytobj.joinable())
+    {
+        mytobj.detach();
+    }
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>Hello World!
+TA构造函数被执行
+TA拷贝构造函数被执行
+I love China1!
+I love China2!
+I love China3!我的线程operator()开始执行
+m_i1的值为：
+I love China4!
+6
+I love China5!
+TA析构函数被执行m_i2的值为：6
+</code></pre><p>在创建ta对象后，马上就会出现一次拷贝构造函数调用，将主线程中的ta对象复制到子线程中。</p>
+<p>通过输出可以看出，这里只有一次析构函数调用，该次析构函数调用是主线程中的ta被析构，而子线程中的析构没有显示出来，因为主线程已经提前结束了，没有显示，在后台执行。</p>
+<p>将detach()改为join()时，输出为：</p>
+<pre><code>Hello World!
+TA构造函数被执行
+TA拷贝构造函数被执行
+我的线程operator()开始执行
+m_i1的值为：6
+m_i2的值为：6
+m_i3的值为：6
+m_i4的值为：6
+m_i5的值为：6
+我的线程operator()执行结束
+TA析构函数被执行
+I love China1!
+I love China2!
+I love China3!
+I love China4!
+I love China5!
+TA析构函数被执行
+</code></pre><p>注意第一次调用析构函数，是子线程中复制进入的那个TA对象调用的。而第二次是主线程中的ta调用的析构函数。</p>
+<h3 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h3><pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+
+int main()
+{
+    auto mylamthread = [] {
+        cout &lt;&lt; &quot;我的线程开始执行&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;我的线程结束执行&quot; &lt;&lt; endl;
+    };
+    thread mytobj(mylamthread);
+    if (mytobj.joinable())
+    {
+        mytobj.join();
+    }
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h2 id="3-线程传参详解，detach-大坑，成员函数做线程函数"><a href="#3-线程传参详解，detach-大坑，成员函数做线程函数" class="headerlink" title="3. 线程传参详解，detach()大坑，成员函数做线程函数"></a>3. 线程传参详解，detach()大坑，成员函数做线程函数</h2><h3 id="3-1-传递临时对象作为线程参数"><a href="#3-1-传递临时对象作为线程参数" class="headerlink" title="3.1 传递临时对象作为线程参数"></a>3.1 传递临时对象作为线程参数</h3><pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+void myprint(const int &amp;i, char * pmybuf)
+{
+    cout &lt;&lt; i &lt;&lt; endl;
+    cout &lt;&lt; pmybuf &lt;&lt; endl;
+    return;
+}
+int main()
+{
+
+    int mvar = 1;
+    int &amp; mvary = mvar;
+    char mybuf[] = &quot;this it a test1&quot;;
+    thread mytobj(myprint, mvar, mybuf);
+    if (mytobj.joinable())
+    {
+        mytobj.join();
+    }
+    cout &lt;&lt; &quot;I love China1!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China2!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China3!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China4!&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China5!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h4 id="陷阱一"><a href="#陷阱一" class="headerlink" title="陷阱一"></a>陷阱一</h4><p>myprint函数中的i虽然是引用，但实际上是值传递，并不是mvar的引用，即使主线程detach了子线程，那么子线程中用i值仍是安全的。</p>
+<p>通过调式发现，mvar和i的地址是不同的：</p>
+<pre><code>0x008ff9e4 {1}
+0x006ade64 {1}
+</code></pre><p>所以，子线程传输参数是引用时，实际上是值传递。这样是安全的，但是不推荐使用。</p>
+<p>通过调式发现，pmybuf和mybuf的地址相同：</p>
+<pre><code>0x005af814 &quot;this it a test1&quot;
+
+0x005af814 &quot;this it a test1&quot;
+</code></pre><p>所以在使用detach()是不安全的，主线程结束了，子线程找不对对应地址的值。</p>
+<p>而对于传递指针参数时，detach子线程时，绝对会出现问题。</p>
+<p>所以不推荐使用引用，绝对不能使用指针。</p>
+<p>将<code>char * pmybuf</code>改成<code>const string &amp;pmybuf</code>，pmybuf的地址和mybuf的地址不相同：</p>
+<pre><code>0x001dfe54 &quot;this it a test1&quot;
+0x0054f45c &quot;this it a test1&quot;
+</code></pre><p>所以目前来看是安全的。</p>
+<h4 id="陷阱二"><a href="#陷阱二" class="headerlink" title="陷阱二"></a>陷阱二</h4><pre><code>thread mytobj(myprint, mvar, mybuf);
+</code></pre><p>mybuf在什么时候转换成string的呢？</p>
+<p>如果主线程执行完成了，mybuf都被回收了，系统再将mybuf字符数组转换成string，这样就会存在问题。实际上是存在这种可能性的。</p>
+<p>在创建线程时，直接将mybuf转换成string对象，这是一个保证在线程肯定有效的对象。</p>
+<pre><code>thread mytobj(myprint, mvar, string(mybuf));
+</code></pre><p>为什么这样写就不会有问题呢？难道就不会再没有转换之前，主线程结束，mybuf被回收吗？下面来证明，这样是一定安全的。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+class A
+{
+public:
+    int m_i;
+    A(int a) : m_i(a) {//类型转换构造函数，可以将一个int整型转换成一个A类对象
+        cout &lt;&lt; &quot;[A::A(int a)构造函数执行]&quot; &lt;&lt; this &lt;&lt; endl;
+    }
+    A(const A &amp; a) : m_i(a.m_i) {
+        cout &lt;&lt; &quot;[A::A(int a)拷贝构造函数执行]&quot; &lt;&lt; this &lt;&lt; endl;
+    }
+    ~A(){
+        cout &lt;&lt; &quot;[~A::A()析构函数执行]&quot; &lt;&lt; this &lt;&lt; endl;
+    }
+};
+void myprint(const int &amp;i, const A &amp;pmybuf)
+{
+    cout &lt;&lt; &amp;pmybuf &lt;&lt; endl;  //打印pmybuf对象的地址
+
+    return;
+}
+int main()
+{
+
+    int mvar = 1;
+    int mysecondpar = 12;
+    //thread mytobj(myprint, mvar, mysecondpar); //希望mysecondpar转换成A类型对象传递给myprint的第二个参数
+    thread mytobj(myprint, mvar, A(mysecondpar)); //创建临时对象作为参数传递参数
+    if (mytobj.joinable())
+    {
+        mytobj.detach();
+        //mytobj.join();
+    }
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>[A::A(int a)构造函数执行]012FFD34
+[A::A(int a)拷贝构造函数执行]0146E2F0
+0146E2F0
+[~A::A()析构函数执行]012FFD34
+[~A::A()析构函数执行]0
+</code></pre><p>创建线程的同时，构造临时对象的方法传递参是可行的。临时对象的构造一定会在主线程(main函数)执行完之前，构造出来。</p>
+<p>只要用临时构造的对象作为参数传递给子线程，那么就一定能够在主线程执行完毕之前把线程函数的第二个参数构建出来，从而确保即便detach()了，子线程也安全运行。</p>
+<p>如果不构造临时对象，而是使用隐式类型转换，这是不安全的。</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>若传递int这种简单的类型，建议都是值传递，不要使用引用</li>
+<li>如果传递类对象，避免隐式类型转换，应该全部在创建线程时，构造出临时对象，然后在函数参数中用引用来接收，否则系统还会构建临时对象，浪费，即构造三个对象。</li>
+<li>终极结论：建议不使用detach()，只使用join()，这样就不存局部变量失效导致线程对内存的非法引用问题。</li>
+</ul>
+<h3 id="3-2-临时对象作为线程参数详解"><a href="#3-2-临时对象作为线程参数详解" class="headerlink" title="3.2 临时对象作为线程参数详解"></a>3.2 临时对象作为线程参数详解</h3><h4 id="线程id概念"><a href="#线程id概念" class="headerlink" title="线程id概念"></a>线程id概念</h4><p>id是一个数字，每个线程（不管是主线程，还是子线程）实际上都对应着一个id，而且每个id都是不同的。即，不同的线程，它的线程id必然不同。</p>
+<p>线程id可以使用C++标准库里面的函数来获取：std::this_thread::get_id()来获取。</p>
+<h4 id="临时对象构造时机摸索"><a href="#临时对象构造时机摸索" class="headerlink" title="临时对象构造时机摸索"></a>临时对象构造时机摸索</h4><pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+class A
+{
+public:
+    int m_i;
+    A(int a) : m_i(a) {//类型转换构造函数，可以将一个int整型转换成一个A类对象
+        cout &lt;&lt; &quot;[A::A(int a)构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    A(const A &amp; a) : m_i(a.m_i) {
+        cout &lt;&lt; &quot;[A::A(int a)拷贝构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    ~A(){
+        cout &lt;&lt; &quot;[~A::A()析构函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+};
+void myprint( const A &amp;pmybuf)
+{
+    cout &lt;&lt; &quot;子线程myprint2的参数地址是&quot; &lt;&lt; &amp;pmybuf &lt;&lt; &quot;threadid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    return;
+}
+int main()
+{
+    int mvar = 12;
+    cout &lt;&lt; &quot;主线程id是&quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    thread mytobj(myprint, mvar); //希望mysecondpar转换成A类型对象传递给myprint的第二个参数
+    if (mytobj.joinable())
+    {
+        //mytobj.detach();
+        mytobj.join();
+    }
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>主线程id是13572
+[A::A(int a)构造函数执行]00E3F74Cthradid = 15000
+子线程myprint2的参数地址是00E3F74Cthreadid = 15000
+[~A::A()析构函数执行]00E3F74Cthradid = 15000
+</code></pre><p>从输出可以发现，对象A的构造是在子线程中进行的。所以，如果使用detach()就会出现问题，即主线程已经结束了，mvar变量已经被回收，将无法进行对象A的构造。</p>
+<p>致命的问题是在子线程中构造的A类对象。</p>
+<p>使用临时对象来作为参数传递给线程：</p>
+<pre><code>thread mytobj(myprint, A(mvar)); //希望mysecondpar转换成A类型对象传递给myprint的参数
+</code></pre><p>输出：</p>
+<pre><code>主线程id是16836
+[A::A(int a)构造函数执行]00BAFA38thradid = 16836
+[A::A(int a)拷贝构造函数执行]0061E2A0thradid = 16836
+子线程myprint2的参数地址是[~A::A()析构函数执行]00BAFA380061E2A0thradid = 16836
+threadid = 10444
+[~A::A()析构函数执行]0061E2A0thradid = 10444
+</code></pre><p>从输出可以看出，使用临时对象，所有的A类对象都在main()函数中就已经构建完毕了。所以这是安全的。即使使用detach()，子线程也能正常运行。</p>
+<h3 id="3-2-传递类对象、智能指针作为线程参数"><a href="#3-2-传递类对象、智能指针作为线程参数" class="headerlink" title="3.2 传递类对象、智能指针作为线程参数"></a>3.2 传递类对象、智能指针作为线程参数</h3><p>下面程序，判断子线程对一个变量值进行修改，会不会影响到主线程中对应的值。答案是：不会。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+class A
+{
+public:
+    mutable int m_i; //m_i是可以修改的，即使在常量对象中
+    A(int a) : m_i(a) {//类型转换构造函数，可以将一个int整型转换成一个A类对象
+        cout &lt;&lt; &quot;[A::A(int a)构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    A(const A &amp; a) : m_i(a.m_i) {
+        cout &lt;&lt; &quot;[A::A(int a)拷贝构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    ~A(){
+        cout &lt;&lt; &quot;[~A::A()析构函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+};
+void myprint( const A &amp;pmybuf)
+{
+    pmybuf.m_i = 199;  //修改该值不会影响main函数
+    cout &lt;&lt; &quot;子线程myprint2的参数地址是&quot; &lt;&lt; &amp;pmybuf &lt;&lt; &quot;threadid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    return;
+}
+int main()
+{
+    int mvar = 12;
+    A myobj(10);
+
+    cout &lt;&lt; &quot;主线程id是&quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    thread mytobj(myprint, myobj); //将类对象作为线程参数
+    if (mytobj.joinable())
+    {
+        //mytobj.detach();
+        mytobj.join();
+    }
+
+    return 0;
+}
+</code></pre><p>mutable修饰一个变量，表明该变量是可以改变的，即使该变量位于const对象中。通过调式上面程序发现，子线程和主线程中的两个对象地址不相同，所以修改子线程中对象不会影响主线程中的对象。</p>
+<pre><code>0x006ffbb0 {m_i=10 }
+0x009ade28 {m_i=199 }
+</code></pre><p>两者的地址不同。</p>
+<p>如果想做到，子线程中对象的修改影响主线程中的对象，需要使用<code>std::ref()</code>函数，使用方式：</p>
+<pre><code>thread mytobj(myprint, std::ref(myobj)); //将类对象作为线程参数
+</code></pre><p>表示子线程对myobj对象的修改将会影响主线程。所有代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+class A
+{
+public:
+    mutable int m_i; //m_i是可以修改的，即使在常量对象中
+    A(int a) : m_i(a) {//类型转换构造函数，可以将一个int整型转换成一个A类对象
+        cout &lt;&lt; &quot;[A::A(int a)构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    A(const A &amp; a) : m_i(a.m_i) {
+        cout &lt;&lt; &quot;[A::A(int a)拷贝构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    ~A(){
+        cout &lt;&lt; &quot;[~A::A()析构函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+};
+void myprint( const A &amp;pmybuf)
+{
+    pmybuf.m_i = 199;  //修改该值不会影响main函数
+    cout &lt;&lt; &quot;子线程myprint2的参数地址是&quot; &lt;&lt; &amp;pmybuf &lt;&lt; &quot;threadid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    return;
+}
+int main()
+{
+    int mvar = 12;
+    A myobj(10);
+
+    cout &lt;&lt; &quot;主线程id是&quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    thread mytobj(myprint, std::ref(myobj)); //将类对象作为线程参数
+    if (mytobj.joinable())
+    {
+        //mytobj.detach();
+        mytobj.join();
+    }
+
+    return 0;
+}
+</code></pre><p>使用std::ref来作用到类对象，这样就不会调用拷贝构造函数，这样可以做到子线程和主线程中作用的对象是同一个对象。</p>
+<p>输出：</p>
+<pre><code>[A::A(int a)构造函数执行]009FFA88thradid = 5080
+主线程id是5080
+子线程myprint2的参数地址是009FFA88threadid = 12584
+[~A::A()析构函数执行]009FFA88thradid = 5080
+</code></pre><p>输出中没有调用拷贝构造函数。而且根据调式，子线程和主线程中对象地址相同：</p>
+<pre><code>0x001ef960 {m_i=10 }  //主线程
+
+0x001ef960 {m_i=199 } //子线程
+
+0x001ef960 {m_i=199 } //主线程
+</code></pre><p>传递智能指针：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+
+void myprint(unique_ptr&lt;int&gt; pzn)
+{
+    cout &lt;&lt; *pzn &lt;&lt; endl;
+}
+int main()
+{
+    unique_ptr&lt;int&gt; myp(new int(100));
+    thread mytobj(myprint, std::move(myp)); //智能指针当作参数
+    if (mytobj.joinable())
+    {
+        mytobj.join();
+    }
+    return 0;
+}
+</code></pre><p><code>std::move()</code>将独占式智能指针转换到另一个独占式智能指针。</p>
+<p>调式发现：pzn和myp的地址相同。</p>
+<pre><code>0x009bf1a8 {100}
+0x009bf1a8 {100}
+</code></pre><p>而且执行子线程后，发现myp为空指针，也是因为std::move将智能指针转换给子线程中的pzn，子线程执行完毕，智能指针被释放，myp成为一个空指针。</p>
+<p>注意这里不能使用detach()，只能使用join()。因为使用detach()，main()函数执行完成了，子线程还在执行中，main()执行完成会将myp的内存被系统回收，而此时子线程中的智能指针指向被系统回收的内存，会导致内存泄露。</p>
+<h3 id="3-4-成员函数指针做线程函数"><a href="#3-4-成员函数指针做线程函数" class="headerlink" title="3.4 成员函数指针做线程函数"></a>3.4 成员函数指针做线程函数</h3><p>使用成员函数指针做线程函数时，需要至少两个参数：</p>
+<pre><code>thread mytobj(&amp;A::thread_work, myobj, 15);
+</code></pre><p>第一个参数是类的成员函数的地址，第二个参数是类对象，第三个参数是类的成员函数的参数。 其中可以使用std::ref()作用myobj，这样就不会调用拷贝拷贝函数，但是这样不能使用detach()，因为这是不安全的。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+using namespace std;
+class A
+{
+public:
+    mutable int m_i; //m_i是可以修改的，即使在常量对象中
+    A(int a) : m_i(a) {//类型转换构造函数，可以将一个int整型转换成一个A类对象
+        cout &lt;&lt; &quot;[A::A(int a)构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    A(const A &amp; a) : m_i(a.m_i) {
+        cout &lt;&lt; &quot;[A::A(int a)拷贝构造函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    ~A() {
+        cout &lt;&lt; &quot;[~A::A()析构函数执行]&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    void thread_work(int num) //成员函数形式创建子线程
+    {
+        cout &lt;&lt; &quot;子线程thread_work执行了&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+    void operator()(int num) //类对象创建子线程
+    {
+        cout &lt;&lt; &quot;子线程()执行了&quot; &lt;&lt; this &lt;&lt; &quot;thradid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    }
+};
+int main()
+{
+    int mvar = 12;
+    A myobj(10);
+    thread mytobj(&amp;A::thread_work, myobj, 15); //类成员函数指针当作线程函数
+    thread mytobj(&amp;A::thread_work, std::ref(myobj), 15); //不调用拷贝构造函数
+    //thread mytobj(std::ref(myobj), mvar); //不调用拷贝构造函数，这样使用detach()就不安全了
+    if (mytobj.joinable())
+    {
+        //mytobj.detach();
+        mytobj.join();
+    }
+
+    return 0;
+}
+</code></pre><h2 id="4-创建多个线程、数据共享问题分析、案例代码"><a href="#4-创建多个线程、数据共享问题分析、案例代码" class="headerlink" title="4 创建多个线程、数据共享问题分析、案例代码"></a>4 创建多个线程、数据共享问题分析、案例代码</h2><h3 id="4-1-创建和等待多个线程"><a href="#4-1-创建和等待多个线程" class="headerlink" title="4.1 创建和等待多个线程"></a>4.1 创建和等待多个线程</h3><p>创建多个线程的代码示例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+void myprint(int inum) //线程入口函数
+{
+    cout &lt;&lt; &quot;myprint线程开始执行了，线程编号=&quot; &lt;&lt; inum &lt;&lt; endl;
+    cout &lt;&lt; &quot;myprint线程结束执行了，线程编号=&quot; &lt;&lt; inum &lt;&lt; endl;
+}
+int main()
+{
+    int mvar = 12;
+    vector&lt;thread&gt; mythreads;
+    for (int i = 0; i &lt; 10; i++)
+    {
+        mythreads.push_back(thread(myprint, i)); //创建了10个线程，并开始执行
+    }
+    for (auto iter = mythreads.begin(); iter != mythreads.end(); iter++)
+    {
+        iter-&gt;join(); //等待10个线程都返回
+    }
+    cout &lt;&lt; &quot;I love china!&quot; &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>myprint线程开始执行了，线程编号=0
+myprint线程结束执行了，线程编号=0
+myprint线程开始执行了，线程编号=1
+myprint线程结束执行了，线程编号=1
+myprint线程开始执行了，线程编号=2
+myprint线程开始执行了，线程编号=myprint线程结束执行了，线程编号=2myprint线程开始执行了，线程编号=34
+myprint线程结束执行了，线程编号=myprint线程开始执行了，线程编号=3
+
+5
+myprint线程结束执行了，线程编号=
+5myprint线程结束执行了，线程编号=4
+myprint线程开始执行了，线程编号=
+6
+myprint线程结束执行了，线程编号=6
+myprint线程开始执行了，线程编号=7
+myprint线程开始执行了，线程编号=8myprint线程结束执行了，线程编号=
+myprint线程结束执行了，线程编号=myprint线程开始执行了，线程编号=97
+8
+
+myprint线程结束执行了，线程编号=9
+I love china!
+</code></pre><p>从输出可知，多个线程执行顺序是乱的，跟操作系统内部对线程的运行调度机制有关；主线程等待所有子线程运行结束，最后主线程结束。推荐使用join写法，这样程序更稳定。</p>
+<p>将thread对象放入到容器里管理，看起来像个thread对象数组，这对我们一次创建大量的线程并对大量线程进行管理很方便。</p>
+<h3 id="4-2-数据共享问题分析"><a href="#4-2-数据共享问题分析" class="headerlink" title="4.2 数据共享问题分析"></a>4.2 数据共享问题分析</h3><h4 id="只读数据"><a href="#只读数据" class="headerlink" title="只读数据"></a>只读数据</h4><p>只读数据是安全稳定的，不需要特别的处理手段，直接读就可以。</p>
+<h4 id="有读有写"><a href="#有读有写" class="headerlink" title="有读有写"></a>有读有写</h4><p>一个共享容器，2个线程写，8个线程读。如果没有特别的处理，那程序肯定崩溃。</p>
+<p>最简单的不崩溃处理，读的时候不能写，写的时候不能读。2个线程不能同时写，8个线程不能同时读。</p>
+<p>假设写的动作分10小步，由于任务切换，导致各种诡异事情发生（最可能的诡异事情是崩溃）。</p>
+<h4 id="其他案例"><a href="#其他案例" class="headerlink" title="其他案例"></a>其他案例</h4><p>北京-深圳的火车票，10个售票窗口，同时都要订同一个座位。</p>
+<h3 id="4-3-共享数据的保护案例代码"><a href="#4-3-共享数据的保护案例代码" class="headerlink" title="4.3 共享数据的保护案例代码"></a>4.3 共享数据的保护案例代码</h3><p>网络游戏服务器，两个自己创建的线程，一个线程收集玩家命令，并把命令数据写到一个队列中。另外一个线程用来从队列中取出玩家发送来的命令，执行玩家需要的动作。假定玩家发送的命令是一个数字。</p>
+<p>list用链表实现，频繁的顺序插入数据和删除数据时效率高。vector对于随机插入和删除数据效率高。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100000; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        }
+    }
+    //线程二，把数据从消息队列取出
+    void outMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100000; ++i)
+        {
+            if (!msgRecvQueue.empty())
+            {
+                //消息队列不为空
+                command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+                msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+                //这里就考虑数据处理
+                //....
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; i &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><p>程序运行时崩溃。</p>
+<p>保护共享数据，操作时，某个线程用代码把共享数据锁住，其他想操作共享数据的线程必须等待解锁。</p>
+<p>为了解决多线程保护共享数据问题，引入互斥量概念。</p>
+<h2 id="5-互斥量概念、用法、死锁演示及解决详解"><a href="#5-互斥量概念、用法、死锁演示及解决详解" class="headerlink" title="5 互斥量概念、用法、死锁演示及解决详解"></a>5 互斥量概念、用法、死锁演示及解决详解</h2><h3 id="5-1-互斥量-mutex-的基本概念"><a href="#5-1-互斥量-mutex-的基本概念" class="headerlink" title="5.1 互斥量(mutex)的基本概念"></a>5.1 互斥量(mutex)的基本概念</h3><p>互斥量就是一个类对象，理解成一个锁。多个线程尝试用lock()成员函数来加锁，只有一个线程可以锁成功（成功的标志是lock()函数返回），如果没有锁成功，那么流程会卡在lock()这里不断的尝试去加锁。</p>
+<p>解锁unlock()。</p>
+<p>互斥量使用要小心，保护数据不多也不少，少了没有到达保护效果，多了影响效率。</p>
+<h3 id="5-2-互斥量的使用"><a href="#5-2-互斥量的使用" class="headerlink" title="5.2 互斥量的使用"></a>5.2 互斥量的使用</h3><h4 id="lock-和unlock"><a href="#lock-和unlock" class="headerlink" title="lock()和unlock()"></a>lock()和unlock()</h4><p>步骤：先lock()，操作共享数据，unlock()。</p>
+<p>lock()和unlock()必须成对使用，有lock()必然有unlock()。调用一个lock()，必然应该只调用一次unlock()。否则会导致程序崩溃。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100; ++i)
+        {        
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            my_mutex.lock();
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            my_mutex.unlock();
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+        my_mutex.lock();
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex.unlock();
+            return true;
+        }
+        my_mutex.unlock();
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex; //创建一个互斥量
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><p>为了防止大家忘记unlock()，引入了一个叫<code>std::lock_guard</code>的类模板，如果忘记unlock，其会自动替我们unlock()（跟智能指针unique_ptr&lt;&gt;类似）。</p>
+<h4 id="std-lock-guard类模板：直接取代lock-和unlock"><a href="#std-lock-guard类模板：直接取代lock-和unlock" class="headerlink" title="std::lock_guard类模板：直接取代lock()和unlock()"></a>std::lock_guard类模板：直接取代lock()和unlock()</h4><p>如果使用了lock_gurad之后，再不能使用lock和unlock()。</p>
+<pre><code>bool outMsgLULProc(int &amp; command)
+{
+    std::lock_guard&lt;std::mutex&gt; sbguard(my_mutex);
+    if (!msgRecvQueue.empty())
+    {
+        command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+        msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+        return true;
+    }
+    return false;
+}
+</code></pre><p>原理：<code>lock_guard</code>的构造函数中执行了mymutex.lock()，而在析构函数中执行了mymutex.unlock()。在创建对象时，自动调用构造函数。这是一个局部变量，return的时候自动调用析构函数。</p>
+<p>可以通过给代码段加{}，达到解锁的目的，即退出代码段，就会调用析构函数。</p>
+<pre><code>void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 100; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::lock_guard&lt;std::mutex&gt; sbguard(my_mutex);
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        }
+    }
+}
+</code></pre><h3 id="5-3-死锁"><a href="#5-3-死锁" class="headerlink" title="5.3 死锁"></a>5.3 死锁</h3><p>张三：站在北京等李四，不挪窝</p>
+<p>李四：站在深圳等张三，不挪窝</p>
+<p>C++中：</p>
+<p>一个互斥量是一个把锁。</p>
+<p>比如我有两把锁（死锁这个问题前提条件是：由至少两个锁头也就是两个互斥量才能产生）；金锁（JinLock），银锁(YinLock)；</p>
+<p>两个线程A、B</p>
+<p>(1) 线程A执行的时候，这个线程先锁金锁，把金锁lock()成功了，它然后去lock银锁；出现了上下文切换</p>
+<p>(2) 线程B执行了，这个线程先锁银锁，因为银锁没有被锁，所以银锁会lock()成功，线程B要去lock银锁</p>
+<p>此时此刻，死锁产生了</p>
+<p>(3) 线程A因为拿不到银锁头，流程走不下去（所有后边代码有解锁金锁头的但是流程走不下去了，所以金锁头解不开）</p>
+<p>(4) 线程B因为拿不到金锁头，流程走不下去（所有后边代码有解锁银锁头的但是流程走不下去了，所以银锁头解不开）</p>
+<p>线程A、B相互等待。</p>
+<h4 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h4><p>死锁示例代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100; ++i)
+        {        
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            {
+                my_mutex1.lock();
+                my_mutex2.lock();//实际工程中，这两个锁头不一定挨着的，可能他们需要保护不同的数据共享块
+                msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+                my_mutex2.unlock();
+                my_mutex1.unlock();
+            }
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+        my_mutex2.lock();
+        my_mutex1.lock();
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex1.unlock();
+            my_mutex2.unlock();
+            return true;
+        }
+        my_mutex1.unlock();
+        my_mutex2.unlock();
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex1; //创建一个互斥量
+    std::mutex my_mutex2;
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><p>程序执行一段时候后，卡死，即出现死锁。</p>
+<p>使用lock_gurad的方式类似：</p>
+<pre><code>std::lock_guard&lt;std::mutex&gt; subguard1(my_mutex2);
+std::lock_guard&lt;std::mutex&gt; subguard2(my_mutex1);
+</code></pre><h4 id="死锁的一般解决方案"><a href="#死锁的一般解决方案" class="headerlink" title="死锁的一般解决方案"></a>死锁的一般解决方案</h4><p>只要保证两个互斥量上锁的顺序一致，就不会出现死锁。解锁的顺序可以随意。</p>
+<h4 id="std-lock-函数模板"><a href="#std-lock-函数模板" class="headerlink" title="std::lock()函数模板"></a>std::lock()函数模板</h4><p>作用：一次锁住两个或者两个以上的互斥量（至少两个）；它不存在因为多个线程中锁顺序的问题，而引起死锁风险。</p>
+<p>std::lock()：如果互斥量中有一个没锁住，它就在那里等着，等所有的互斥量锁住，它才能往下走。</p>
+<p>要么两个互斥量都锁住，要么两个互斥量都没锁住。如果一个锁住失败，就会将其他锁住成功解锁（释放）。</p>
+<p><code>my_mutex1</code>被锁住了，<code>my_mutex2</code>而锁住失败，则会将<code>my_mutex1</code>释放。</p>
+<p>使用范例：</p>
+<pre><code>void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 100; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::lock(my_mutex1,my_mutex2);//相当于每个互斥量都调用了.lock()，两个参数顺序随意
+            //实际工程中，这两个锁头不一定挨着的，可能他们需要保护不同的数据共享块
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            my_mutex1.unlock();
+            my_mutex2.unlock();
+        }
+    }
+}
+</code></pre><h4 id="std-lock-guard-和std-adopt-lock"><a href="#std-lock-guard-和std-adopt-lock" class="headerlink" title="std::lock_guard()和std::adopt_lock"></a><code>std::lock_guard()</code>和<code>std::adopt_lock</code></h4><p>使用范例：</p>
+<pre><code>//线程二，把数据从消息队列取出
+bool outMsgLULProc(int &amp; command)
+{
+
+    std::lock(my_mutex1, my_mutex2);//相当于每个互斥量都调用了.lock()
+    std::lock_guard&lt;std::mutex&gt; subguard1(my_mutex1, std::adopt_lock);
+    std::lock_guard&lt;std::mutex&gt; subguard2(my_mutex2, std::adopt_lock);
+
+    if (!msgRecvQueue.empty())
+    {
+        command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+        msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+        return true;
+    }
+    return false;
+}
+void outMsgRecvQueue()
+{
+    int command = 0;
+    for (int i = 0; i &lt; 100; ++i)
+    {
+        bool result = outMsgLULProc(command);
+        if (result == true)
+        {
+            cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+        }
+        else
+        {
+            cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+        }
+    }
+    cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+}
+</code></pre><p><code>std::adopt_lock</code>是个结构体，起一个标记作用：就是表示这个不吃两已经lock(),不需要在<code>std::lock_guad&lt;std::mutex&gt;</code>构造函数里面不再对mutex对象进行lock()了。</p>
+<p>总结： std::lock()一次锁住多个互斥量，谨慎使用（建议一个一个锁）；</p>
+<h2 id="6-unique-lock详解"><a href="#6-unique-lock详解" class="headerlink" title="6. unique_lock详解"></a>6. unique_lock详解</h2><p><code>unique_lock</code>是一个类模板，可以取代<code>lock_guard</code>，在实际中，推荐使用<code>lock_guard</code>。<code>lock_guard</code>取代了mutex的lock()和unlock()。</p>
+<p><code>unique_lock</code>也是对mutex对象进行加锁和解锁，但是比<code>lock_guard</code>灵活，但是效率低，占用内存大。</p>
+<p>通常使用，<code>unique_lock</code>可以直接替代<code>lock_guard</code>，如下代码：</p>
+<pre><code>bool outMsgLULProc(int &amp; command)
+{
+
+    std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1);
+    if (!msgRecvQueue.empty())
+    {
+        command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+        msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+        return true;
+    }
+    return false;
+}
+</code></pre><h4 id="unique-lock第二个参数"><a href="#unique-lock第二个参数" class="headerlink" title="unique_lock第二个参数"></a><code>unique_lock</code>第二个参数</h4><pre><code>std::lock_guard&lt;std::mutex&gt; subguard1(my_mutex1, std::adopt_lock);
+</code></pre><p><code>std::adopt_lock</code>:表示这个互斥量已经被lock了（你必须要将互斥量提前lock，否则会报异常），通知<code>lock_guard</code>不需要在构造函数中lock互斥量了。</p>
+<ul>
+<li>std::adopt_lock</li>
+</ul>
+<p><code>unique_lock</code>也可以带<code>std::adopt_lock</code>标记，作用相同，就是不希望在<code>unique_lock</code>的构造函数中lock互斥量。</p>
+<pre><code>void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 100; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            my_mutex1.lock(); //先将互斥量lock，后面才能使用unique_lock的std::adopt_lock参数
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1,std::adopt_lock);
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        }
+    }
+}
+</code></pre><ul>
+<li><code>std::try_to_lock</code></li>
+</ul>
+<p><code>std::try_to_lock</code>：尝试用mutex的lock()去锁定mutex，但如果没有锁定成功，也会立即返回，并不会阻塞在那里。使用<code>std::try_to_lock</code>参数时，不能使用lock()。</p>
+<p>当一个进程睡眠等待时，而且该进程已经锁住了，此时另一个进程需要等待上一个进程解锁才能往下执行。如果使用<code>std::try_to_lock</code>，另一个进程就不会阻塞了，而是可以去做别的事。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 1000; ++i)
+        {        
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            {
+                std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1,std::try_to_lock);
+                if (subguard.owns_lock()) //拿到了锁
+                    msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+                else
+                    cout &lt;&lt; &quot;inMsgRecvQueue()执行，但没有拿到锁头，只能干点别的事&quot; &lt;&lt; i &lt;&lt; endl;
+            }
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+        std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1);
+
+        std::chrono::milliseconds dura(200); //1s = 10000ms 
+        std::this_thread::sleep_for(dura); //让程序休息200ms
+
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            return true;
+        }
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 1000; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex1; //创建一个互斥量
+    //std::mutex my_mutex2;
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><ul>
+<li>std::defer_lock</li>
+</ul>
+<p>前提不能提前自己lock互斥量，跟<code>try_to_lock</code>的前提相同。作用就是，并没有给mutex加锁，初始化了一个没有加锁的mutex。</p>
+<p>我们借着<code>defer_lock</code>的话题，引出<code>unique_lock</code>的重要成员函数</p>
+<pre><code>//线程一，把收到的消息放入到一个队列的线程
+void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 1000; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1,std::defer_lock); //拿到一个没有加锁的my_mutex1
+            subguard.lock(); //调用的是unique_lock对象的成员函数lock()，不用自己unlock，unique_lock能自动解锁
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        }
+    }
+}
+</code></pre><h4 id="unique-lock的成员函数"><a href="#unique-lock的成员函数" class="headerlink" title="unique_lock的成员函数"></a>unique_lock的成员函数</h4><ul>
+<li>lock()</li>
+<li>unlock()：有时候需要解锁，处理非共享代码，处理完共享代码，再加锁，处理共享代码</li>
+</ul>
+<pre><code>//线程一，把收到的消息放入到一个队列的线程
+void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 1000; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1,std::defer_lock); //拿到一个没有加锁的my_mutex1
+
+            subguard.lock(); //调用的是unique_lock对象的成员函数lock()，不用自己unlock，unique_lock能自动解锁
+            //处理共享代码
+            subguard.unlock();
+            //非共享代码处理，不许希望一直锁住，希望先解锁，
+            subguard.lock();
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        }
+    }
+}
+</code></pre><ul>
+<li><p>try_lock():尝试给互斥量加锁，如果拿不到锁，则返回false, 如果拿到锁，返回true，该函数不阻塞。</p>
+<p>  void inMsgRecvQueue()<br>  {</p>
+<pre><code>for (int i = 0; i &lt; 1000; ++i)
+{        
+    cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+    {
+        std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1,std::defer_lock); //拿到一个没有加锁的my_mutex1
+        if (subguard.try_lock() == true) //拿到锁了
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+        else
+            cout &lt;&lt; &quot;inMsgRecvQueue执行，没有拿到锁&quot; &lt;&lt; i &lt;&lt; endl;
+
+    }
+}
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>为什么有时候需要unlock()?</p>
+<p>因为lock()锁住的代码段越少，执行越快，整个程序运行效率越高。有人将把锁头锁住的代码行数，称为锁的粒度，力度一般用粗细来描述。</p>
+<pre><code>- 锁住的代码少，粒度细，执行效率高。
+- 锁住的代码多，粒度粗，执行效率低。
+</code></pre><p>要学会尽量选择合适粒度的代码进行保护，粒度太细，可能漏掉共享数据的保护；粒度太粗，影响效率。</p>
+<ul>
+<li>release() ：返回它所管理的mutex对象指针，并释放所有权；即<code>unique_lock</code>和mutex不再有关系。</li>
+</ul>
+<p>如果原来mutex对象处于加锁状态，有责任接管过来，并解锁。release()返回原始的mutex指针。</p>
+<pre><code>//线程一，把收到的消息放入到一个队列的线程
+void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 1000; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1); //拿到一个没有加锁的my_mutex1
+            std::mutex * ptr = subguard.release(); //现在需要自己解锁
+
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            ptr-&gt;unlock(); //解锁
+        }
+    }
+}
+</code></pre><h4 id="unique-lock所有权的传递"><a href="#unique-lock所有权的传递" class="headerlink" title="unique_lock所有权的传递"></a>unique_lock所有权的传递</h4><p>所有权概念：</p>
+<pre><code>std::unique_lock&lt;std::mutex&gt; subguard1(my_mutex1);
+</code></pre><p>subguard1拥有<code>my_mutex1</code>的所有权。subguard1可以把自己拥有的mutex（<code>my_mutex1</code>）的所有权转移给其他的<code>unique_lock</code>对象。 与智能指针<code>unique_ptr</code>类似。</p>
+<p>所有权不能进行复制，只能进行转移。</p>
+<pre><code>std::unique_lock&lt;std::mutex&gt; subguard2(std::move(subguard1)); //移动语义，现在相等于subguard2和my_mutex1绑定在一起，subguard1指向空，subguard2指向了my_mutex1
+</code></pre><p>std::move()返回的右值（左值转右值），这样就会调用移动构造函数，所以就是转移，而不是复制。</p>
+<pre><code>//线程一，把收到的消息放入到一个队列的线程
+void inMsgRecvQueue()
+{
+    for (int i = 0; i &lt; 1000; ++i)
+    {        
+        cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1); //拿到一个没有加锁的my_mutex1
+            std::unique_lock&lt;std::mutex&gt; subguard2(std::move(subguard));
+            std::mutex * ptr = subguard2.release(); //现在需要自己解锁
+
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            ptr-&gt;unlock(); //解锁
+
+        }
+    }
+}
+</code></pre><p>所有权转移的方法：</p>
+<ul>
+<li><p>std::move</p>
+</li>
+<li><p>return std::unique_lock<a href="std::mutex" target="_blank" rel="noopener">std::mutex</a> : 通过函数返回<code>std::unique_lock</code>对象。</p>
+</li>
+</ul>
+<p>代码实现：    </p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    std::unique_lock&lt;std::mutex&gt; rtn_unique_lock()
+    {
+        std::unique_lock&lt;std::mutex&gt; tmpguard(my_mutex1);
+        return tmpguard; //从函数返回一个局部的unique_lock对象是可以的，移动构造函数，返回这种局部
+        //对象tempguard会导致系统生成临时unique_lock, 并调用unique_lock的移动构造函数
+    }
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 1000; ++i)
+        {        
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            {
+                std::unique_lock&lt;std::mutex&gt; subguard = rtn_unique_lock();
+                msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            }
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+        std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1);
+
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            return true;
+        }
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 1000; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex1; //创建一个互斥量
+    //std::mutex my_mutex2;
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><h2 id="7-单例设计模式共享数据分析、解决，call-once"><a href="#7-单例设计模式共享数据分析、解决，call-once" class="headerlink" title="7 单例设计模式共享数据分析、解决，call_once"></a>7 单例设计模式共享数据分析、解决，call_once</h2><h3 id="7-1-设计模式讨论"><a href="#7-1-设计模式讨论" class="headerlink" title="7.1 设计模式讨论"></a>7.1 设计模式讨论</h3><p>设计模式：开发中，代码的一些写法，程序灵活，维护起来可能方便，但是别人接管、阅读比较困难。</p>
+<p>用设计模式理念，写出来的代码比较晦涩的。</p>
+<p>老外为了应付特别大的项目时，把项目的开发经验、模块划分经验总结整理成设计模式（现有开发需求，后有理论总结和整理）。设计模式被应用到中国，不太一样，拿着一个程序（项目）往设计模式上套。导致一个小小的项目，非要弄几个设计模式进去，本末倒置。</p>
+<p>设计模式肯定有它独特的优点，要活学活用，不要深陷其中，生搬硬套。</p>
+<h3 id="7-2-单例设计模式"><a href="#7-2-单例设计模式" class="headerlink" title="7.2 单例设计模式"></a>7.2 单例设计模式</h3><p>单例设计模式使用频率比较高。</p>
+<p>单例：整个项目中，有某个或者某些特殊的类，属于该类的对象，我们只能创建1个，创建多个时编译器报错。</p>
+<p>单例类：保证只生成一个对象。</p>
+<p>单例类范例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+//声明一个单例类
+class MyCAS {
+private:
+    MyCAS() {} //私有化构造函数
+
+private:
+    static MyCAS *m_instance; //静态成员变量
+
+public:
+    static MyCAS * GetInstance()
+    {
+        if (m_instance == nullptr)
+        {
+            m_instance = new MyCAS();
+            static CGar cl; //静态变量的生成周期到程序结束，所以程序结束时会调用该对象的析构函数
+        }
+        return m_instance;
+    }
+    class CGar //类中套类，用来释放对象MyCAS
+    {
+    public:
+        ~CGar() {
+            if (MyCAS::m_instance != nullptr)
+            {
+                delete m_instance;
+                MyCAS::m_instance = nullptr;
+            }
+        }
+    };
+    void func()
+    {
+        cout &lt;&lt; &quot;测试...&quot; &lt;&lt; endl;
+    }
+};
+
+//类静态变量初始化
+MyCAS *MyCAS::m_instance = nullptr;
+
+int main()
+{
+    MyCAS * p_a = MyCAS::GetInstance(); //创建一个对象，返回该类(MyCAS)对象的指针
+    MyCAS * p_b = MyCAS::GetInstance(); //跟p_a是同一个对象
+    p_a-&gt;func();
+    return 0;
+}
+</code></pre><h3 id="7-3-单例设计模式共享数据问题分析、解决"><a href="#7-3-单例设计模式共享数据问题分析、解决" class="headerlink" title="7.3 单例设计模式共享数据问题分析、解决"></a>7.3 单例设计模式共享数据问题分析、解决</h3><p>面临的问题：需要在自己创建的线程中创建单例类对象，这种线程可能不止一个。</p>
+<p>我们可能会面临GetInstance()这种成员函数要互斥。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+//互斥量
+std::mutex resource_mutex;
+//声明一个单例类
+class MyCAS {
+private:
+    MyCAS() {} //私有化构造函数
+
+private:
+    static MyCAS *m_instance; //静态成员变量
+
+public:
+    static MyCAS * GetInstance()
+    {
+        //a)如果if(m_instance != nullptr)条件成立，则肯定表示m_instance已经被new过了；
+        //b)如果if(m_instance == nullptr)条件成立，则不表示m_instance一定没有被new过。（没有添加互斥量）
+        //因为没有互斥量的话，可能刚要new MyCAS()时，被切换出去，进程二还是new MyCAS()，
+        //然后第一个进程被切换回去，又new MyCAS()
+        if (m_instance == nullptr)  //双重锁定（双重检查），提高效率，
+            //除了第一创建对象时，会进入互斥量，其他时候都不会进入互斥量
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard(resource_mutex); //自动加锁和解锁
+            if (m_instance == nullptr)
+            {
+                m_instance = new MyCAS();
+                static CGar cl;
+                //静态变量的生成周期到程序结束，所以程序结束时会调用该对象的析构函数
+            }
+        }
+        return m_instance;
+    }
+    class CGar //类中套类，用来释放对象MyCAS
+    {
+    public:
+        ~CGar() {
+            if (MyCAS::m_instance != nullptr)
+            {
+                delete m_instance;
+                MyCAS::m_instance = nullptr;
+            }
+        }
+    };
+    void func()
+    {
+        cout &lt;&lt; &quot;测试...&quot; &lt;&lt; endl;
+    }
+};
+
+//类静态变量初始化
+MyCAS *MyCAS::m_instance = nullptr;
+
+void mythread()
+{
+    cout &lt;&lt; &quot;我的线程开始执行了&quot; &lt;&lt; endl;
+    MyCAS * p_a = MyCAS::GetInstance();
+    p_a-&gt;func();
+    cout &lt;&lt; &quot;我的线程执行完了&quot; &lt;&lt; endl;
+}
+
+int main()
+{
+    std::thread mytobj1(mythread);
+    std::thread mytobj2(mythread);
+    //虽然这两个线程同一个入口函数，但千万要技术，这是两个线程，
+    //所以这里会有两个流程同时执行mythread函数
+    mytobj1.join();
+    mytobj2.join();
+    return 0;
+}
+</code></pre><p>为什么需要两个if?</p>
+<pre><code>static MyCAS * GetInstance()
+{
+    if (m_instance == nullptr)  //双重锁定（双重检查），提高效率，
+        //除了第一创建对象时，会进入互斥量，其他时候都不会进入互斥量
+    {
+        std::unique_lock&lt;std::mutex&gt; subguard(resource_mutex); //自动加锁和解锁
+        if (m_instance == nullptr)
+        {
+            m_instance = new MyCAS();
+            static CGar cl;
+            //静态变量的生成周期到程序结束，所以程序结束时会调用该对象的析构函数
+        }
+    }
+    return m_instance;
+}
+</code></pre><p>有人会提问为什么需要两个if，里层的if可以删除啊。</p>
+<p>其实一定需要两个if，才能提高效率，保证对象创建一次。因为第一次创建时，进程一可能执行到创建刚要创建对象时，被切换出去。此时，进程二被切换进来，此时判断m_instance仍然为nullptr，但是发现被加锁了，所以会阻塞。等待线程一执行完毕，此时对象已经创建完成。如果没有里层的if，进程二切换进来时，仍然会再次创建一个对象。这样就出现了问题。</p>
+<h3 id="7-4-std-call-once"><a href="#7-4-std-call-once" class="headerlink" title="7.4 std::call_once()"></a>7.4 std::call_once()</h3><p><code>call_once()</code>是C++11引入的函数，该函数的第二个参数是一个函数名，<code>call_once()</code>能够保证第二个参数对应的函数只被调用一次。</p>
+<p><code>call_once()</code>具有互斥量这种更耐穿，而且效率上，比互斥量消耗的资源更少。<code>call_once()</code>需要与一个标记结合使用，这个标记是<code>std::once_flat</code>，其中<code>once_flag</code>是一个结构。<code>call_once()</code>就是通过这个标记来决定对应的函数是否执行，调用<code>call_once()</code>成功后，<code>call_once()</code>就把这个标记设置成为一种已调用的状态。后续再次调用<code>call_once()</code>，只要<code>once_flag</code>被设置为了“已调用”状态，那么对应的函数就不会再被执行了。</p>
+<p>能够解决单例对象在多线程下初始化时，需要使用互斥量。</p>
+<p>使用<code>call_once()</code>来修改上面的代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+//互斥量
+std::mutex resource_mutex;
+std::once_flag g_flag; //这个一个系统定义的标记
+
+
+//声明一个单例类
+class MyCAS {
+    static void CreateInstance() //只被调用一次的函数
+    {
+        std::chrono::milliseconds dura(2000);
+        std::this_thread::sleep_for(dura); //休息2s
+        cout &lt;&lt; &quot;CreateInstance()执行完毕&quot; &lt;&lt; endl;
+        m_instance = new MyCAS();
+        static CGar cl;
+    }
+private:
+    MyCAS() {} //私有化构造函数
+
+private:
+    static MyCAS *m_instance; //静态成员变量
+
+public:
+    static MyCAS * GetInstance()
+    {
+        std::call_once(g_flag, CreateInstance);
+        //假设两种线程同时执行到上行代码，其中一个线程要等待另一个线程执行完毕CreateInstance()，
+        //才会判断是否能够再次执行
+        cout &lt;&lt; &quot;call_once执行完毕&quot; &lt;&lt; endl;
+        return m_instance;
+    }
+    class CGar //类中套类，用来释放对象MyCAS
+    {
+    public:
+        ~CGar() {
+            if (MyCAS::m_instance != nullptr)
+            {
+                delete m_instance;
+                MyCAS::m_instance = nullptr;
+            }
+        }
+    };
+    void func()
+    {
+        cout &lt;&lt; &quot;测试...&quot; &lt;&lt; endl;
+    }
+};
+
+//类静态变量初始化
+MyCAS *MyCAS::m_instance = nullptr;
+
+void mythread()
+{
+    cout &lt;&lt; &quot;我的线程开始执行了&quot; &lt;&lt; endl;
+    MyCAS * p_a = MyCAS::GetInstance();
+    p_a-&gt;func();
+    cout &lt;&lt; &quot;我的线程执行完了&quot; &lt;&lt; endl;
+}
+
+int main()
+{
+    std::thread mytobj1(mythread);
+    std::thread mytobj2(mythread);
+    //虽然这两个线程同一个入口函数，但千万要技术，这是两个线程，
+    //所以这里会有两个流程同时执行mythread函数
+    mytobj1.join();
+    mytobj2.join();
+    return 0;
+}
+</code></pre><h2 id="8-condition-variable-waite-notify-one-notify-all"><a href="#8-condition-variable-waite-notify-one-notify-all" class="headerlink" title="8 condition_variable, waite=, notify_one, notify_all"></a>8 <code>condition_variable</code>, <code>waite=</code>, <code>notify_one</code>, <code>notify_all</code></h2><h3 id="8-1-条件变量std-condition-variable-wait-nofity-one"><a href="#8-1-条件变量std-condition-variable-wait-nofity-one" class="headerlink" title="8.1 条件变量std::condition_variable, wait(), nofity_one()"></a>8.1 条件变量<code>std::condition_variable</code>, <code>wait()</code>, <code>nofity_one()</code></h3><p>线程A和线程B</p>
+<p>在线程A等待一个条件满足，比如消息队列中有消息，线程B专门往消息队列中添加消息，此时触发线程A，这就是条件变量。</p>
+<p><code>std::condition_variable</code>是一个类，和一个条件相关的一个类，即就是等待一个条件满足，这个类需要和互斥量配合工作。使用的时候，需要生成这个类的对象。</p>
+<p>wait()是成员函数，第一个参数是互斥量(被unique_lock绑定的互斥量)，第二参数的为可调用对象(这里使用lambda表达式)。如果lambda表达式返回是false，那么wait()将解锁互斥量，并堵塞在本行。如果lambda表达式返回true，wait()直接返回，向下执行。</p>
+<pre><code>std::unique_lock&lt;std::mutex&gt; subguard1(my_mutex1);
+my_cond.wait(subguard1, [this] { //一个lambda就是一个可调用对象(函数)
+    if (!msgRecvQueue.empty())
+        return true;
+    else
+        eturn false;
+});
+</code></pre><p>堵塞到什么时候呢？堵塞到其他某个线程调用notify_one()成员函数。</p>
+<p>如果wait()没有第二个参数，那么就跟第二个参数lambda表达式返回false效果一样（即wait()解锁互斥量，并堵塞在本行，堵塞到其他某个线程调用<code>notify_one()</code>）。</p>
+<p><code>my_cond.notify_one()</code>尝试把wait()的线程唤醒，执行完该代码，那么outMsgRecvQueue()里边的wait就会被唤醒。</p>
+<p>当其他线程用<code>notify_one()</code>将本线程中wait()（原来是阻塞的）唤醒后，wait()将恢复执行：</p>
+<p>a) 首先wait()不断尝试重新获取互斥量锁（阻塞之前将锁解开了），如果获取不到，那么线程还是会阻塞在wait()处，等着获取互斥量锁（获取互斥量锁，就等于上锁了）。如果获取到，wait()就继续执行b)。 </p>
+<p>b) 如果wait()有第二个参数（lambda表达式,或者其他函数），就判断lambda表达，如果表达式为false，那么wait()又对互斥量进行解锁，然后继续阻塞，等待再一次被<code>notify_one</code>唤醒。如果表达式为true，则wait()返回true，继续往下执行其他代码（此时互斥量被上锁）。</p>
+<p>如果waite()没有第二个参数，就wait返回，继续往下执行其他代码。</p>
+<p>示例代码</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 1000; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1);
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            my_cond.notify_one();//尝试把wait()的线程唤醒，执行完这行，那么outMsgRecvQueue()里边的wait就会被唤醒
+        }
+    }
+    //线程二，把数据从消息队列取出
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        while (true)
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard1(my_mutex1);
+            my_cond.wait(subguard1, [this] { //一个lambda就是一个可调用对象(函数)
+                if (!msgRecvQueue.empty())
+                    return true;
+                else
+                    return false;
+            });
+            command = msgRecvQueue.front();
+            msgRecvQueue.pop_front();
+            subguard1.unlock(); //因为unique_lock的灵活性，可以随时的unlock()，以免锁住太长时间
+            cout &lt;&lt; &quot;outMsgRecvQueue执行，取出一个元素&quot; &lt;&lt; command &lt;&lt; endl;
+        }
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex1; //创建一个互斥量
+    std::condition_variable my_cond; //生成一个条件变量对象
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><p> 如果没有阻塞在wait()时，<code>notify_one()</code>尝试去欢迎wait()时，不会有任何反应。</p>
+<p>假如outMsgRecvQueue()正在处理一个事务，需要一段时间，而不是正卡在wait()那里等待<code>notify_one()</code>唤醒，那么此时<code>notify_one()</code>将不会有任何效果。</p>
+<pre><code>void outMsgRecvQueue()
+{
+    int command = 0;
+    while (true)
+    {
+        std::unique_lock&lt;std::mutex&gt; subguard1(my_mutex1);
+        my_cond.wait(subguard1, [this] { //一个lambda就是一个可调用对象(函数)
+            if (!msgRecvQueue.empty())
+                return true;
+            else
+                return false;
+        });
+        command = msgRecvQueue.front();
+        msgRecvQueue.pop_front();
+        subguard1.unlock(); //因为unique_lock的灵活性，可以随时的unlock()，以免锁住太长时间
+        cout &lt;&lt; &quot;outMsgRecvQueue执行，取出一个元素&quot; &lt;&lt; command &lt;&lt; endl;
+
+        //需要处理的事务
+        //程序执行到这里，另一个线程调用notify_one()时，不会有效果
+        //需要一段时间
+    }
+}
+</code></pre><p>上述的程序还不完美，存在一些问题。</p>
+<h3 id="8-2-上述代码的深入思考"><a href="#8-2-上述代码的深入思考" class="headerlink" title="8.2 上述代码的深入思考"></a>8.2 上述代码的深入思考</h3><p>(1) msgRecvQueue队列中数据可能不止一条，这样outMsgRecvQueue()来不及处理，所以应该考虑对inMsgRecvQueue往队列中添加消息时，进行限制。</p>
+<p>(2) <code>notify_one()</code>所在的线程可能先执行，那么此时它没有wait()可以唤醒，所以执行<code>notify_one()</code>不会有任何效果，等于没有执行。</p>
+<p>(3) 如果没有理解清除<code>condition_variable()</code>的工作原理，不建议使用，宁愿使用效率差点，但是有把握是稳定的代码。</p>
+<h3 id="8-3-notify-all"><a href="#8-3-notify-all" class="headerlink" title="8.3 notify_all()"></a>8.3 <code>notify_all()</code></h3><p><code>notify_one()</code>只能通知一个线程，即只能唤醒一个线程的wait()。</p>
+<p><code>notify_all()</code>同时能够唤醒多个线程。</p>
+<p>本范例中使<code>notify_one()</code>和<code>notify_all()</code>的作用一样：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+using namespace std;
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 1000; ++i)
+        {
+
+            std::unique_lock&lt;std::mutex&gt; subguard(my_mutex1);
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            my_cond.notify_all();//尝试把wait()的线程唤醒，执行完这行，那么outMsgRecvQueue()里边的wait就会被唤醒
+        }
+    }
+    //线程二，把数据从消息队列取出
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        while (true)
+        {
+            std::unique_lock&lt;std::mutex&gt; subguard1(my_mutex1);
+            my_cond.wait(subguard1, [this] { //一个lambda就是一个可调用对象(函数)
+                if (!msgRecvQueue.empty())
+                    return true;
+                else
+                    return false;
+            });
+            command = msgRecvQueue.front();
+            msgRecvQueue.pop_front();
+            cout &lt;&lt; &quot;outMsgRecvQueue执行，取出一个元素&quot; &lt;&lt; command &lt;&lt; &quot;threadid = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+            subguard1.unlock(); //因为unique_lock的灵活性，可以随时的unlock()，以免锁住太长时间
+        }
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex1; //创建一个互斥量
+    std::condition_variable my_cond; //生成一个条件变量对象
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myOutMsgObj2(&amp;A::outMsgRecvQueue, &amp;myobja);
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myOutMsgObj2.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><h2 id="9-async、future、package-task、promise"><a href="#9-async、future、package-task、promise" class="headerlink" title="9 async、future、package_task、promise"></a>9 async、future、package_task、promise</h2><h3 id="9-1-std-async、std-future创建后台任务并返回值"><a href="#9-1-std-async、std-future创建后台任务并返回值" class="headerlink" title="9.1 std::async、std::future创建后台任务并返回值"></a>9.1 std::async、std::future创建后台任务并返回值</h3><p>希望线程返回一个结果。</p>
+<p>std::async是一个函数模板，是用来启动一个异步任务，启动一个异步任务后，返回一个std::future对象，std::future是一个类模板。</p>
+<p>启动一个异步任务，就是自动创建一个线程，并开始执行对应的线程入口函数，返回一个std::future对象。std::future对象中包含线程入口函数所返回的结果（线程返回的结果）。我们可以通过调用一个future对象的成员函数get来获取结果。</p>
+<p>std::future提供了一种访问异步操作结果的机制。即这个结果没有办法马上得到，但是在不就的将来线程执行完毕的时候，就能得到结果。所以大家可以这么理解，future对象里会保存一个值，在将来的某个时刻拿到这个值。</p>
+<p>具体实现代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数
+int mythread()
+{
+    cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //程序休息
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    return 5;
+}
+
+int main()
+{
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    std::future&lt;int&gt; result = std::async(mythread);
+    cout &lt;&lt; &quot;continue.... !&quot; &lt;&lt; endl;
+    cout &lt;&lt; result.get() &lt;&lt; endl; //主线程阻塞在本行，等待mythread()执行完毕，并返回结果
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>main 10288
+continue.... !
+mythread() start threadid 19484
+mythread() end threadid 19484
+5
+I love China!
+</code></pre><p>程序通过std::future对象的get()成员函数等待线程执行结束并返回结果。如果线程没有执行完毕，得不到返回值，主线程将会阻塞在get()代码处。</p>
+<p>std::future对象还有一个wait()成员函数，其只能等待线程执行结束，但是无法获取线程的返回值。</p>
+<p>注意get成员函数只能调用一次，调用多次会报异常。</p>
+<p>使用成员函数当作线程的入口函数，代码如下：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+
+
+class A {
+public:
+    //线程入口函数
+    int mythread(int mypara)
+    {
+        cout &lt;&lt; mypara &lt;&lt; endl;
+        cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+        //程序休息
+        std::chrono::milliseconds dura(5000);
+        std::this_thread::sleep_for(dura);
+        cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+        return 5;
+    }
+};
+
+int main()
+{
+    A myobj;
+    int mypara = 12;
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    std::future&lt;int&gt; result = std::async(&amp;A::mythread, &amp;myobj, mypara); //成员函数当作线程入口函数
+    //第二参数是对象引用，才能保证线程中使用同一个对象
+    cout &lt;&lt; &quot;continue.... !&quot; &lt;&lt; endl;
+    cout &lt;&lt; result.get() &lt;&lt; endl; //主线程阻塞在本行，等待mythread()执行完毕，并返回结果
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>还可以额外先std:async传递一个参数，该参数类型为std::launch类型（枚举类型）来达到一些特殊目的。比如：</p>
+<p>1) std::launch::deferred 表示线程入口函数调用被延迟到std::future的wait()或者get()被调用时才执行。如果wait()或者get()没有被调用，那么线程会执行吗？不会执行，实际上线程都没有被创建。</p>
+<pre><code>std::future&lt;int&gt; result = std::async(std::launch::deferred, &amp;A::mythread, &amp;myobj, mypara);
+</code></pre><p>输出：</p>
+<pre><code>main 14200
+continue.... !
+12
+mythread() start threadid 14200
+mythread() end threadid 14200
+5
+I love China!
+</code></pre><p>我们发现，主线程和子线程id相同，所以根本就没有创建子线程。延迟调用，没有创建子线程，是在主线程中调用的线程入口函数。</p>
+<p>2） std::launch::async 表示在调用async时就创建线程，不需要等到调用get()，子线程就开始执行了。（通过加断定进行调式可以发现子线程执行的过程）</p>
+<pre><code>std::future&lt;int&gt; result = std::async(std::launch::async, &amp;A::mythread, &amp;myobj, mypara);
+</code></pre><p>std:async()系统默认使用std::launch::async | std::launch::defered标记，它可以异步运行或不运行，这取决于系统的负载，但我们无法控制它。</p>
+<h3 id="9-2-std-packaged-task"><a href="#9-2-std-packaged-task" class="headerlink" title="9.2 std::packaged_task"></a>9.2 std::packaged_task</h3><p><code>std::packaged_task</code>是一个类模板，模板参数是各种可调用对象。通过std::packaged_task将各种可调用对象包装起来，方便将来作为线程入口函数使用。</p>
+<p><code>packaged_task</code>包装起来的可调用对象还是可以直接调用，所以从这个角度来讲，<code>packaged_task</code>对象，也是一个可调用对象。</p>
+<pre><code>std::packaged_task&lt;int(int)&gt; mypt([](int mypara) {
+    cout &lt;&lt; mypara &lt;&lt; endl;
+    cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //程序休息
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    return 5;
+});
+mypt(105); //直接调用
+</code></pre><p>lambda表达式做可用对象，并将<code>packaged_task</code>对象放入容器中，然后从容器中取出，并直接调用<code>packaged_task</code>对象。代码如下：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+vector&lt;std::packaged_task&lt;int(int)&gt; &gt; mytasks; //容器
+
+
+int main()
+{
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    /*lambd表达式做入口函数*/
+    std::packaged_task&lt;int(int)&gt; mypt([](int mypara) {
+        cout &lt;&lt; mypara &lt;&lt; endl;
+        cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+        //程序休息
+        std::chrono::milliseconds dura(5000);
+        std::this_thread::sleep_for(dura);
+        cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+        return 5;
+    });
+    mytasks.push_back(std::move(mypt)); //需要使用移动语义，放入容器后，mypt变成空
+    std::packaged_task&lt;int(int)&gt; mypt2;
+    auto iter = mytasks.begin();
+    mypt2 = std::move(*iter); //移动语义
+    mytasks.erase(iter); //删除第一个元素，迭代器已经失效，后续代码不可以再使用iter
+    mypt2(123);
+    std::future&lt;int&gt; result = mypt2.get_future();
+    cout &lt;&lt; result.get() &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>main 10048
+123
+mythread() start threadid 10048
+mythread() end threadid 10048
+5
+</code></pre><h3 id="9-3-std-promise"><a href="#9-3-std-promise" class="headerlink" title="9.3 std::promise"></a>9.3 std::promise</h3><p>std::promise是一个类模板。我们能够在某个线程中给它（std::promise）赋值时，然后我们可以在其他线程中将这个值取出来使用。</p>
+<p>通过promise保存一个值，在将来某个时刻，可以通过将一个future绑定到这个promise，然后通过future就可以这个得到promise中保存的值。具体代码如下：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数    
+void mythread(std::promise&lt;int&gt; &amp;tmpp, int calc) //注意第一个参数
+{
+    //执行一系列计算
+    calc++;
+    calc *= 5;
+    //让程序休息5s，来代替其中一系列复杂的计算
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    int result = calc; //假设通过一系列计算得到一个结果result
+    tmpp.set_value(result); //将结果保证到tmmp对象中
+}
+
+
+int main()
+{
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    std::promise&lt;int&gt; myprom; //声明一个std::promise对象，该对象可以保存值得类型为int
+    std::thread t1(mythread, std::ref(myprom), 10);
+    t1.join();
+    //获取结果
+    std::future&lt;int&gt; result = myprom.get_future(); //promise和future绑定，用于获取线程返回值
+    cout &lt;&lt; &quot;result = &quot; &lt;&lt; result.get() &lt;&lt; endl;
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>main 10600
+result = 55
+I love China!
+</code></pre><p>通过两个子线程来处理，即将一个子线程的值传递给另一个子线程。即实现了两个线程之间的通信。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数
+void mythread(std::promise&lt;int&gt; &amp;tmpp, int calc) //注意第一个参数
+{
+    //执行一系列计算
+    calc++;
+    calc *= 5;
+    //让程序休息5s，来代替其中一系列复杂的计算
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    int result = calc; //假设通过一系列计算得到一个结果result
+    tmpp.set_value(result); //将结果保证到tmmp对象中
+}
+
+void mythread2(std::future&lt;int&gt; &amp;tmpf)
+{
+    auto result = tmpf.get();
+    cout &lt;&lt; &quot;mythread2 result &quot; &lt;&lt; result &lt;&lt; endl;
+
+}
+
+int main()
+{
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+
+
+    std::promise&lt;int&gt; myprom; //声明一个std::promise对象，该对象可以保存值得类型为int
+    std::thread t1(mythread, std::ref(myprom), 10);
+    t1.join();
+    //获取结果
+    std::future&lt;int&gt; result = myprom.get_future(); //promise和future绑定，用于获取线程返回值
+
+    std::thread t2(mythread2, std::ref(result));
+    t2.join();
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>main 12916
+mythread2 result 55
+I love China!
+</code></pre><p>总结：</p>
+<p>到底怎么用？什么时候用？</p>
+<p>学习这些内容的目的，并不是要把它们用在实际开发中。相反，如果我们能够用最少的内容，写出一个稳定高效的多线程程序，更佳。</p>
+<p>为了成长，必须要阅读高手的代码，从而实现自己代码的积累。现在的学习，是为了更好的看懂高手的代码，而不是要在开发中使用。</p>
+<h2 id="10-future其他成员函数、shared-future、atomic"><a href="#10-future其他成员函数、shared-future、atomic" class="headerlink" title="10. future其他成员函数、shared_future、atomic"></a>10. future其他成员函数、shared_future、atomic</h2><h3 id="10-1-std-future的其他成员函数"><a href="#10-1-std-future的其他成员函数" class="headerlink" title="10.1 std::future的其他成员函数"></a>10.1 std::future的其他成员函数</h3><p><code>wait_for</code>成员函数表示等待子线程执行一段时间。</p>
+<pre><code>std::future_status status = result.wait_for(std::chrono::seconds(6)); 
+</code></pre><p>上面代码表示等在子线程执行6s，此时会在此行代码处阻塞6s，如果子线程6s之内执行完成，则返回<code>std::future_status::ready</code>；如果子线程在6s内未执行完毕，则返回<code>std::future_stauts::timeout</code>，即子线程执行时间超时了。</p>
+<p>还有一种情况就是，将async()的第一个参数设置为<code>std::launch::deferred</code>，此时子线程会延迟执行。</p>
+<pre><code>std::future&lt;int&gt; result = std::async(std::launch::deferred, mythread);
+</code></pre><p>执行到<code>wait_for()</code>时，直接过去，不会等待一段时间(6s)，因为此时线程还没有开始执行，并且<code>wait_for()</code>返回<code>std::future_status::deferred</code>。注意使用std::launch::deferred时，不会创建子线程，而是在主线程中执行线程的入口函数代码（前面已经介绍），而且需要调用result.get()，才会执行。</p>
+<p>范例代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数
+int mythread()
+{
+    cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //程序休息
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    return 5;
+}
+
+int main()
+{
+    cout &lt;&lt; &quot;main threadid = &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    std::future&lt;int&gt; result = std::async(std::launch::deferred, mythread);
+    //std::future&lt;int&gt; result = std::async(mythread);
+    cout &lt;&lt; &quot;continue.... !&quot; &lt;&lt; endl;
+    //cout &lt;&lt; result.get() &lt;&lt; endl; //主线程阻塞在本行，等待mythread()执行完毕，并返回结果
+    std::future_status status = result.wait_for(std::chrono::seconds(6)); //等待1/6s
+    //futrue_status是一个枚举类型
+    if (status == std::future_status::timeout)//超时表示线程还没有执行完,等待1s，希望线程返回
+    {
+        cout &lt;&lt; &quot;超时了，线程还没有执行完！&quot; &lt;&lt; endl;
+    }
+    else if (status == std::future_status::ready)//表示线程成功返回
+    {
+        cout &lt;&lt; &quot;线程执行完毕，成功返回！&quot; &lt;&lt; endl;
+        cout &lt;&lt; result.get() &lt;&lt; endl;
+    }
+    else if (status == std::future_status::deferred)//延迟
+    {//如果将async的第一个参数被设置为std::launch::deferred时，则本条件成立
+        cout &lt;&lt; &quot;线程被延迟执行！&quot; &lt;&lt; endl;
+        cout &lt;&lt; result.get() &lt;&lt; endl; //如果使用deferred,则此处调用子线程中的代码，但是不会创建子线程
+    }
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h3 id="10-2-std-shared-future"><a href="#10-2-std-shared-future" class="headerlink" title="10.2 std::shared_future"></a>10.2 std::shared_future</h3><p>注意future对象result不能两次调用get()，只能调用一次。</p>
+<pre><code>auto result = tmpf.get();
+</code></pre><p>原因是：get()的设计是一个移动语义，相等于将tmpf中的内容移动到result中，tmpf变为空，所以不能再次调用get()。</p>
+<p>但是如果有多个线程都需要获取某个线程中的结果，那怎么解决呢？</p>
+<p>这是出现了<code>std::shared_future</code>类模板。该对象的get()函数不是使用移动语义实现，而是使用复制实现的。所以可以多次调用get()来获取值。</p>
+<p><code>shared_future</code>类模板的使用范例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数
+
+int mythread(int mypara)
+{
+    cout &lt;&lt; mypara &lt;&lt; endl;
+    cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //程序休息
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    return 5;
+}
+
+
+void mythread2(std::shared_future&lt;int&gt; &amp;tmpf)
+{
+    cout &lt;&lt; &quot;mythread2() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    auto result = tmpf.get();
+    cout &lt;&lt; &quot;mythread2 result &quot; &lt;&lt; result &lt;&lt; endl;
+}
+
+int main()
+{
+    cout &lt;&lt; &quot;main &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+
+    /*普通函数做入口函数*/
+    std::packaged_task&lt;int(int)&gt; mypt(mythread);
+
+
+    //将mythread函数通过packaged_task包装起来
+    std::thread t1(std::ref(mypt), 1); //线程直接开始执行，第二参数是线程入口函数的参数
+    t1.join(); //等待线程执行完毕
+#if 0
+    /*通过future转换成shared_future对象*/
+    std::future&lt;int&gt;  result = mypt.get_future(); //线程的返回值赋给result
+
+    //std::shared_future&lt;int&gt; result_s(std::move(result));
+    bool ifcanget = result.valid(); //判断result是否为一个有效值
+    cout &lt;&lt; ifcanget &lt;&lt; endl;
+    std::shared_future&lt;int&gt; result_s(result.share()); //执行后reuslt为空
+    ifcanget = result.valid();
+    cout &lt;&lt; ifcanget &lt;&lt; endl;
+#endif 
+    /*通过get_future返回值直接构造一个shared_future对象*/
+    std::shared_future&lt;int&gt; result_s(mypt.get_future()); 
+
+    /*多次调用get()*/
+    auto mythreadresult = result_s.get();
+    mythreadresult = result_s.get();
+
+    std::thread t2(mythread2, std::ref(result_s));
+    t2.join();
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><h3 id="10-3-原子操作std-atomic"><a href="#10-3-原子操作std-atomic" class="headerlink" title="10.3 原子操作std::atomic"></a>10.3 原子操作std::atomic</h3><h4 id="原子操作概念引出范例"><a href="#原子操作概念引出范例" class="headerlink" title="原子操作概念引出范例"></a>原子操作概念引出范例</h4><p>互斥量：多线程编程中，保护共享数据。首先上锁，操作共享数据，然后开锁。</p>
+<p>两个线程，对一个变量进行操作，一个线程往变量中写值，另一个线程读取变量值。</p>
+<p>注意C++的一行代码，在汇编中可能是多行代码。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+int g_mycount = 0; //定义一个全局变量
+//线程入口函数
+void mythread()
+{
+    for (int i = 0; i &lt; 1000000; i++)
+    {
+        g_mycount++;
+    }
+    return;
+}
+
+int main()
+{
+    std::thread mytobj1(mythread);
+    std::thread mytobj2(mythread);
+
+    mytobj1.join();
+    mytobj2.join();
+
+    cout &lt;&lt; &quot;两个线程执行完毕，最终的g_mycount的结果是： &quot; &lt;&lt; g_mycount &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>两个线程执行完毕，最终的g_mycount的结果是： 1893868
+</code></pre><p>发现多次执行后会出现结果小于200 0000，这是由于多线程处理时，一个线程在执行加法时，可能被切换到另一个线程执行另外的加法，这样程序就混乱了。可以通过添加互斥量来进行临界区保护，以及使用原子操作来实现。</p>
+<p>原子操作可以理解成一种不需要使用互斥量来加锁（无锁）技术的多线程并发编程方式。原子操作是在多线程中不会被打断的程序执行片段。</p>
+<p>原子操作是一种无锁技术，所以原子操作的效率比互斥量的效率高。原子操作的局限性在于其针对的一般是一个变量，而互斥量针对的一段代码。</p>
+<p>原子操作，一般指不可分隔的操作，即这种操作只存在两种状态，已执行完毕和未开始执行，不可能出现执行一半。</p>
+<p>C++11中引入std::atomic来代表原子操作，std::atomic是一个类模板。std::atomic用来封装某个类型的值。</p>
+<h4 id="std-atomic用法"><a href="#std-atomic用法" class="headerlink" title="std::atomic用法"></a>std::atomic用法</h4><p>原子操作范例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+std::atomic&lt;int&gt; g_mycount = 0; //类对象，封装了一个类型为int的atomic对象
+//可以先操作一个int变量一样，操作g_mycount
+//线程入口函数
+void mythread()
+{
+    for (int i = 0; i &lt; 10000000; i++)
+    {
+        /*原子操作*/
+        g_mycount++; //对应的操作是一个原子操作，不会被打断
+    }
+    return;
+}
+
+int main()
+{
+    std::thread mytobj1(mythread);
+    std::thread mytobj2(mythread);
+
+    mytobj1.join();
+    mytobj2.join();
+
+    cout &lt;&lt; &quot;两个线程执行完毕，最终的g_mycount的结果是： &quot; &lt;&lt; g_mycount &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>两个线程执行完毕，最终的g_mycount的结果是： 20000000
+</code></pre><p>这样输出结果一定是 200 0000。</p>
+<p>bool类型的原子操作范例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+std::atomic&lt;bool&gt; g_ifend = false; //判断线程是否退出，线程退出标记
+
+void mythread()
+{
+    std::chrono::milliseconds dura(1000);
+    while (g_ifend == false)
+    {
+        cout &lt;&lt; &quot;thread id = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+        cout &lt;&lt; &quot;运行中.....&quot; &lt;&lt; endl;
+        std::this_thread::sleep_for(dura);
+    }
+    cout &lt;&lt; &quot;thread id = &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; endl;
+    cout &lt;&lt; &quot;运行结束.....&quot; &lt;&lt; endl;
+    return;
+}
+
+
+int main()
+{
+    thread mytobj1(mythread);
+    thread mytobj2(mythread);
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    g_ifend = true;
+    mytobj1.join();
+    mytobj2.join();
+    cout &lt;&lt; &quot;线程执行完毕，退出！&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出：</p>
+<pre><code>thread id = 4924
+thread id = 780运行中.....
+运行中.....
+
+thread id = 4924thread id =
+780
+运行中.....运行中.....
+
+thread id = thread id = 4924
+780
+运行中.....运行中.....
+
+thread id = thread id = 780
+4924
+运行中.....运行中.....
+
+thread id = thread id = 780
+4924
+运行中.....运行中.....
+
+thread id = thread id = 4924
+780
+运行结束.....运行结束.....
+
+线程执行完毕，退出！
+</code></pre><h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p>原子操作只能针对一个变量进行操作，包括变量的读写。</p>
+<p>原子操作一般用<strong>计数或统计</strong>，比如累计发出了多少数据包和接收了数据包等等问题。</p>
+<h2 id="11-std-atomic续谈、std-async深入谈"><a href="#11-std-atomic续谈、std-async深入谈" class="headerlink" title="11 std::atomic续谈、std::async深入谈"></a>11 std::atomic续谈、std::async深入谈</h2><h3 id="11-1-std-atomic续谈"><a href="#11-1-std-atomic续谈" class="headerlink" title="11.1 std::atomic续谈"></a>11.1 std::atomic续谈</h3><p>atomic原子操作，针对++、–、+=、&amp;=、|=是支持的，其他的操作符可能不支持。</p>
+<p>比如： </p>
+<pre><code>g_mycount = 1 + g_mycount;
+</code></pre><p>上述操作是不支持的。程序如下：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+std::atomic&lt;int&gt; g_mycount = 0; //类对象，封装了一个类型为int的atomic对象
+//可以先操作一个int变量一样，操作g_mycount
+//线程入口函数
+void mythread()
+{
+    for (int i = 0; i &lt; 10000000; i++)
+    {
+        /*原子操作*/
+        //g_mycount++; //对应的操作是一个原子操作，不会被打断
+        g_mycount = 1 + g_mycount;
+    }
+    return;
+}
+
+int main()
+{
+    std::thread mytobj1(mythread);
+    std::thread mytobj2(mythread);
+
+    mytobj1.join();
+    mytobj2.join();
+
+    cout &lt;&lt; &quot;两个线程执行完毕，最终的g_mycount的结果是： &quot; &lt;&lt; g_mycount &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>输出的结果不是2000 0000。</p>
+<p>atomic还有许多复杂用法，可以自行研究。</p>
+<h3 id="std-async深入谈"><a href="#std-async深入谈" class="headerlink" title="std::async深入谈"></a>std::async深入谈</h3><h4 id="std-async参数详述"><a href="#std-async参数详述" class="headerlink" title="std::async参数详述"></a>std::async参数详述</h4><p>如果系统资源紧张，那么可能创建线程就会失败，那么执行std::thread()时整个程序可能崩溃。</p>
+<p>std::async()一般不叫创建线程，而一般称之为创建一个异步任务。</p>
+<p>std::async()与std::thread()的最明显区别：就是async有时候可能并不创建线程。</p>
+<p>如果用std::launch::deferred来调用async会怎么样？</p>
+<ol>
+<li><p>std::launch::deferred： 延迟调用，并且不会创建线程，延迟到调用get()或wait()的时候才执行mythread()，如果没有调用get()或wait()，就不会执行mythread()。</p>
+</li>
+<li><p>std::launch::async: 强制异步任务在新线程上执行，这意味着系统必须创建一个新线程来运行mythread()函数。</p>
+</li>
+<li><p>std::launch::async | std::launch::deferred : 这里<code>|</code>关系意味着，调用async()的行为可能是“创建新线程并立即执行入口函数”，或者“不创建新线程并延迟到调用get()才开始执行入口函数”，是两种行为中的一种，但是为那一种是不确定的，由系统确定。</p>
+</li>
+<li><p>不带额外参数，只给async()函数一个入口函数名：默认值是std::launch::async | std::launch::deferred。系统会自动决定异步（创建新线程）还是同步（不创建新线程）。</p>
+</li>
+</ol>
+<p>但是系统是如何决定是异步还是同步执行呢？</p>
+<h4 id="std-async和std-thread的区别"><a href="#std-async和std-thread的区别" class="headerlink" title="std::async和std::thread的区别"></a>std::async和std::thread的区别</h4><p>std::thread创建线程，如果系统资源紧张，创建线程失败，那么整个程序会报异常并崩溃。</p>
+<p>std::thread创建线程的方式，如果线程返回值，不是很容易，需要考虑全局量或引用。</p>
+<p>std::async创建异步任务，可能创建线程也可能不创建线程，并且async调用方法可以容易得到线程入口函数的返回值。</p>
+<p>由于系统资源限制：</p>
+<p>(1) 如果用std::thread创建的线程太多，则可能创建失败，系统报告异常并崩溃。</p>
+<p>(2) 如果用std::async，一般就不会报异常崩溃。因为如果系统资源紧张导致无法创建线程的时候，std::async这种不加额外参数的调用就不会创建新线程。而是后续谁调用了get()来请求结果，那么这个异步任务就运行在执行这条get()语句所在的线程上。</p>
+<p>如果强制std::async创建新线程，那么就必须使用std::launch::async参数。此时，如果系统资源紧张时，程序崩溃。</p>
+<p>(3) 经验：一个程序里面，线程数量不易超多100-200。</p>
+<h4 id="std-async不确定性问题解决"><a href="#std-async不确定性问题解决" class="headerlink" title="std::async不确定性问题解决"></a>std::async不确定性问题解决</h4><p>不加额外参数的std::async的调用，让系统自行决定是否创建新线程。</p>
+<p>问题焦点在于：<code>std::future&lt;int&gt; result = std::async(mythread)</code>写法，这个异步任务到底有没有被延迟执行。</p>
+<p>通过std::future对象的<code>wait_for()</code>函数来判断是否创建了新线程，具体代码如下。</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;future&gt;
+
+using namespace std;
+
+//线程入口函数
+int mythread()
+{
+    cout &lt;&lt; &quot;mythread() start threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //程序休息
+    std::chrono::milliseconds dura(5000);
+    std::this_thread::sleep_for(dura);
+    cout &lt;&lt; &quot;mythread() end threadid &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    return 5;
+}
+
+int main()
+{
+    cout &lt;&lt; &quot;main threadid = &quot; &lt;&lt; this_thread::get_id() &lt;&lt; endl;
+    //std::future&lt;int&gt; result = std::async(std::launch::deferred, mythread);
+    std::future&lt;int&gt; result = std::async(mythread);
+
+    std::future_status status = result.wait_for(0s);//(std::chrono::seconds(0)); //0S
+    //futrue_status是一个枚举类型
+    if (status == std::future_status::deferred)//延迟
+    {/*系统资源紧张，延迟执行*/
+        cout &lt;&lt; &quot;线程被延迟执行！&quot; &lt;&lt; endl;
+        cout &lt;&lt; result.get() &lt;&lt; endl; //如果使用deferred,则此处调用子线程中的代码，但是不会创建子线程
+    }
+    else
+    {
+        if (status == std::future_status::timeout)
+        {
+            cout &lt;&lt; &quot;超时，线程没有执行完！&quot; &lt;&lt; endl;
+            cout &lt;&lt; result.get() &lt;&lt; endl;
+        }
+        else if (status == std::future_status::ready)
+        {
+            /*创建了新线程*/
+            cout &lt;&lt; &quot;线程成功执行完毕并返回&quot; &lt;&lt; endl;
+            cout &lt;&lt; result.get() &lt;&lt; endl;
+        }
+    }
+
+    cout &lt;&lt; &quot;I love China!&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h2 id="12-windows临界区、其他各种mutex互斥量"><a href="#12-windows临界区、其他各种mutex互斥量" class="headerlink" title="12 windows临界区、其他各种mutex互斥量"></a>12 windows临界区、其他各种mutex互斥量</h2><h3 id="12-1-windows临界区"><a href="#12-1-windows临界区" class="headerlink" title="12.1 windows临界区"></a>12.1 windows临界区</h3><p>windows临界区跟mutex相似。具体用法：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+#include &lt;windows.h&gt;
+using namespace std;
+
+#define __WINDOWSJQ_
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+#ifdef __WINDOWSJQ_
+            EnterCriticalSection(&amp;my_winsec);
+            msgRecvQueue.push_back(i);
+            LeaveCriticalSection(&amp;my_winsec);        
+#else
+            my_mutex.lock();
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            my_mutex.unlock();
+#endif
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+#ifdef __WINDOWSJQ_
+        EnterCriticalSection(&amp;my_winsec);
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            LeaveCriticalSection(&amp;my_winsec);
+            return true;
+        }
+        LeaveCriticalSection(&amp;my_winsec);
+#else
+        my_mutex.lock();
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex.unlock();
+            return true;
+        }
+        my_mutex.unlock();
+#endif
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+    A()
+    {
+#ifdef __WINDOWSJQ_
+        InitializeCriticalSection(&amp;my_winsec);
+#endif
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex; //创建一个互斥量
+
+#ifdef __WINDOWSJQ_
+    CRITICAL_SECTION my_winsec;
+#endif
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><h3 id="12-2-多次进入临界区试验"><a href="#12-2-多次进入临界区试验" class="headerlink" title="12.2 多次进入临界区试验"></a>12.2 多次进入临界区试验</h3><p>在同一个线程中，windows中的“相同临界区变量”代表的临界区进入（EnterCriticalSection）可以被多次调用，但是调用几次临界区进入(EnterCriticalSectoin)，必须调用几次临界区离开（LeaveCriticalSection）。</p>
+<p>而在同一个线程中，C++11的互斥量不允许lock多次，否则报异常。</p>
+<h3 id="12-3-自动析构技术"><a href="#12-3-自动析构技术" class="headerlink" title="12.3 自动析构技术"></a>12.3 自动析构技术</h3><p>容器和智能指针就是RAII类。RAII类（Resource Acquistion is initialization）“资源获取及初始化”。</p>
+<p>自动析构技术的核心就是设计一个CwinLock类，可以实现自动进入临界区和离开临界区，功能和C++11中的<code>std::lock_guard&lt;std::mutex&gt;</code>相似。这样的类称为RAII类。</p>
+<p>具体代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+#include &lt;windows.h&gt;
+using namespace std;
+
+#define __WINDOWSJQ_
+
+//用于自动释放windows下的临界区，防止忘记LeaveCriticalSection导致死锁情况的发生
+//功能类似于C++11中的lock_guard
+class CWinLock {//RAII类（Resource Acquistion is initialization）“资源获取及初始化”
+public:
+    CWinLock(CRITICAL_SECTION * pCritmp)
+    {
+        m_pCritical = pCritmp;
+        EnterCriticalSection(m_pCritical);
+    }
+    ~CWinLock()
+    {
+        LeaveCriticalSection(m_pCritical);
+    }
+private:
+    CRITICAL_SECTION * m_pCritical;
+};
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+#ifdef __WINDOWSJQ_
+            //EnterCriticalSection(&amp;my_winsec);//进入临界区
+            //EnterCriticalSection(&amp;my_winsec);
+            CWinLock wlock(&amp;my_winsec);
+            CWinLock wlock2(&amp;my_winsec);
+            msgRecvQueue.push_back(i);
+            //LeaveCriticalSection(&amp;my_winsec);
+            //LeaveCriticalSection(&amp;my_winsec);//离开临界区
+#else
+            //my_mutex.lock();
+            //my_mutex.lock();
+            std::lock_guard&lt;std::mutex&gt; subguard(my_mutex);
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            //my_mutex.unlock();
+            //my_mutex.unlock();
+#endif
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+#ifdef __WINDOWSJQ_
+        EnterCriticalSection(&amp;my_winsec);
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            LeaveCriticalSection(&amp;my_winsec);
+            return true;
+        }
+        LeaveCriticalSection(&amp;my_winsec);
+#else
+        my_mutex.lock();
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex.unlock();
+            return true;
+        }
+        my_mutex.unlock();
+#endif
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+    A()
+    {
+#ifdef __WINDOWSJQ_
+        InitializeCriticalSection(&amp;my_winsec);
+#endif
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    std::mutex my_mutex; //创建一个互斥量
+
+#ifdef __WINDOWSJQ_
+    CRITICAL_SECTION my_winsec;
+#endif
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><h3 id="12-4-recursive-mutex递归的独占互斥量"><a href="#12-4-recursive-mutex递归的独占互斥量" class="headerlink" title="12.4 recursive_mutex递归的独占互斥量"></a>12.4 recursive_mutex递归的独占互斥量</h3><p>在实际中，可能出现如下代码：</p>
+<pre><code>void testfunc1()
+{
+    std::lock_guard&lt;std::mutex&gt; subguard(my_mutex);
+    //执行各种工作
+    testfunc2();
+}
+
+void testfunc2()
+{
+    std::lock_guard&lt;std::mutex&gt; subguard(my_mutex);
+    //执行各种工作
+}
+</code></pre><p>这样就会出现异常，程序崩溃。</p>
+<p>为了避免这种情况，就出现了<code>recursive_mutex</code>。</p>
+<p>std::mutex是独占式互斥量，一个线程lock后，其他线程无法lock。</p>
+<p><code>recursive_mutex</code>是一个递归的独占互斥量，递归的意思是同一个线程中，同一个互斥量可以进行多次lock。</p>
+<p><code>recursive_mutex</code>使用范例：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+#include &lt;windows.h&gt;
+using namespace std;
+
+//#define __WINDOWSJQ_
+
+//用于自动释放windows下的临界区，防止忘记LeaveCriticalSection导致死锁情况的发生
+//功能类似于C++11中的lock_guard
+class CWinLock {//RAII类（Resource Acquistion is initialization）“资源获取及初始化”
+public:
+    CWinLock(CRITICAL_SECTION * pCritmp)
+    {
+        m_pCritical = pCritmp;
+        EnterCriticalSection(m_pCritical);
+    }
+    ~CWinLock()
+    {
+        LeaveCriticalSection(m_pCritical);
+    }
+private:
+    CRITICAL_SECTION * m_pCritical;
+};
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+#ifdef __WINDOWSJQ_
+            //EnterCriticalSection(&amp;my_winsec);//进入临界区
+            //EnterCriticalSection(&amp;my_winsec);
+            CWinLock wlock(&amp;my_winsec);
+            CWinLock wlock2(&amp;my_winsec);
+            msgRecvQueue.push_back(i);
+            //LeaveCriticalSection(&amp;my_winsec);
+            //LeaveCriticalSection(&amp;my_winsec);//离开临界区
+#else
+            //my_mutex.lock();
+            //my_mutex.lock();
+            std::lock_guard&lt;std::recursive_mutex&gt; subguard(my_mutex);
+            testfunc1();
+            msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            //my_mutex.unlock();
+            //my_mutex.unlock();
+#endif
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+#ifdef __WINDOWSJQ_
+        EnterCriticalSection(&amp;my_winsec);
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            LeaveCriticalSection(&amp;my_winsec);
+            return true;
+        }
+        LeaveCriticalSection(&amp;my_winsec);
+#else
+        my_mutex.lock();
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex.unlock();
+            return true;
+        }
+        my_mutex.unlock();
+#endif
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+    A()
+    {
+#ifdef __WINDOWSJQ_
+        InitializeCriticalSection(&amp;my_winsec);
+#endif
+    }
+
+    void testfunc1()
+    {
+        std::lock_guard&lt;std::recursive_mutex&gt; subguard(my_mutex);
+        //执行各种工作
+        testfunc2();
+    }
+
+    void testfunc2()
+    {
+        std::lock_guard&lt;std::recursive_mutex&gt; subguard(my_mutex);
+        //执行各种工作
+    }
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    //std::mutex my_mutex; //创建一个互斥量
+
+    std::recursive_mutex  my_mutex;
+
+#ifdef __WINDOWSJQ_
+    CRITICAL_SECTION my_winsec;
+#endif
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><p>使用<code>recursive_mutex</code>时，是否有优化空间？</p>
+<p><code>recursive_mutex</code>的效率上比mutex低。</p>
+<p>递归次数有限制，递归太多可能报出异常。</p>
+<h3 id="12-5-带超时的互斥量std-timed-mutex和std-recursive-timed-mutex"><a href="#12-5-带超时的互斥量std-timed-mutex和std-recursive-timed-mutex" class="headerlink" title="12.5 带超时的互斥量std::timed_mutex和std::recursive_timed_mutex"></a>12.5 带超时的互斥量<code>std::timed_mutex</code>和<code>std::recursive_timed_mutex</code></h3><p><code>std::timed_mutex</code>带超时功能的独占互斥量。</p>
+<p><code>std::recursive_timed_mutex</code>带超时功能的递归独占互斥量。其的使用和<code>std::timed_mutex</code>一样。允许同一个线程，多次获取同一个互斥量。</p>
+<p><code>try_lock_for()</code>: 等待一段时间，如果等待超时没有拿到锁头，流程就走下去。参数是一段时间。</p>
+<pre><code>std::timed_mutex my_mutex;
+
+std::chrono::milliseconds timeout(100);
+if (my_mutex.try_lock_for(timeout)) //等待100毫秒来尝试获取锁
+{
+    //在100毫秒之内拿到了锁
+    msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+    my_mutex.unlock(); 
+}
+else
+{
+    //100毫秒内没有拿到锁
+    std::chrono::milliseconds sleeptime(100);
+    std::this_thread::sleep_for(sleeptime);
+}
+</code></pre><p><code>try_lock_for()</code>如果返回true，则表示在一段时间内拿到了锁，如果返回false，则表示没有拿到锁。</p>
+<p><code>try_lock_until()</code>：参数是未来一个时间点。在这个未来的时间没到的时间那，如果拿到了锁，那么往下执行；如果没有拿到锁，也能往下执行。</p>
+<pre><code>std::chrono::milliseconds timeout(100);
+if (my_mutex.try_lock_until(chrono::steady_clock::now()+timeout)) //等待100毫秒来尝试获取锁
+{
+    //在100毫秒之内拿到了锁
+    msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+    my_mutex.unlock(); 
+}
+else
+{
+    //100毫秒内没有拿到锁
+    std::chrono::milliseconds sleeptime(100);
+    std::this_thread::sleep_for(sleeptime);
+}
+</code></pre><p>测试代码：</p>
+<pre><code>#include &quot;pch.h&quot;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;list&gt;
+#include &lt;mutex&gt;
+
+#include &lt;windows.h&gt;
+using namespace std;
+
+//#define __WINDOWSJQ_
+
+//用于自动释放windows下的临界区，防止忘记LeaveCriticalSection导致死锁情况的发生
+//功能类似于C++11中的lock_guard
+class CWinLock {//RAII类（Resource Acquistion is initialization）“资源获取及初始化”
+public:
+    CWinLock(CRITICAL_SECTION * pCritmp)
+    {
+        m_pCritical = pCritmp;
+        EnterCriticalSection(m_pCritical);
+    }
+    ~CWinLock()
+    {
+        LeaveCriticalSection(m_pCritical);
+    }
+private:
+    CRITICAL_SECTION * m_pCritical;
+};
+
+class A
+{
+public:
+    //线程一，把收到的消息放入到一个队列的线程
+    void inMsgRecvQueue()
+    {
+
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            cout &lt;&lt; &quot;inMsgRecvQueue()执行，插入一个元素&quot; &lt;&lt; i &lt;&lt; endl;
+#ifdef __WINDOWSJQ_
+            //EnterCriticalSection(&amp;my_winsec);//进入临界区
+            //EnterCriticalSection(&amp;my_winsec);
+            CWinLock wlock(&amp;my_winsec);
+            CWinLock wlock2(&amp;my_winsec);
+            msgRecvQueue.push_back(i);
+            //LeaveCriticalSection(&amp;my_winsec);
+            //LeaveCriticalSection(&amp;my_winsec);//离开临界区
+#else
+            //my_mutex.lock();
+            //my_mutex.lock();
+            //std::lock_guard&lt;std::recursive_mutex&gt; subguard(my_mutex);
+            std::chrono::milliseconds timeout(100);
+            if (my_mutex.try_lock_until(chrono::steady_clock::now()+timeout)) //等待100毫秒来尝试获取锁
+            {
+                //在100毫秒之内拿到了锁
+                msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+                my_mutex.unlock(); 
+            }
+            else
+            {
+                //100毫秒内没有拿到锁
+                std::chrono::milliseconds sleeptime(100);
+                std::this_thread::sleep_for(sleeptime);
+            }
+            //testfunc1();
+            //msgRecvQueue.push_back(i); //假设i就是收到的命令，直接将其放入消息队列中
+            //my_mutex.unlock();
+            //my_mutex.unlock();
+#endif
+        }
+    }
+    //线程二，把数据从消息队列取出
+    bool outMsgLULProc(int &amp; command)
+    {
+#ifdef __WINDOWSJQ_
+        EnterCriticalSection(&amp;my_winsec);
+        if (!msgRecvQueue.empty())
+        {
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            LeaveCriticalSection(&amp;my_winsec);
+            return true;
+        }
+        LeaveCriticalSection(&amp;my_winsec);
+#else
+        my_mutex.lock();
+        if (!msgRecvQueue.empty())
+        {
+            std::chrono::milliseconds sleeptime(1000000000000);
+            std::this_thread::sleep_for(sleeptime);
+
+            command = msgRecvQueue.front();//返回第一个元素，但不检查元素是否存在
+            msgRecvQueue.pop_front(); //移除第一个元素，但不返回
+            my_mutex.unlock();
+            return true;
+        }
+        my_mutex.unlock();
+#endif
+        return false;
+    }
+    void outMsgRecvQueue()
+    {
+        int command = 0;
+        for (int i = 0; i &lt; 100; ++i)
+        {
+            bool result = outMsgLULProc(command);
+            if (result == true)
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+            else
+            {
+                cout &lt;&lt; &quot;outMsgRecvQueue()执行，但目前消息队列为空！&quot; &lt;&lt; command &lt;&lt; endl;
+            }
+        }
+        cout &lt;&lt; &quot;end&quot; &lt;&lt; endl;
+    }
+    A()
+    {
+#ifdef __WINDOWSJQ_
+        InitializeCriticalSection(&amp;my_winsec);
+#endif
+    }
+
+
+private:
+    std::list&lt;int&gt; msgRecvQueue; //容器代表玩家发送过来的命令
+    //std::mutex my_mutex; //创建一个互斥量
+
+    //std::recursive_mutex  my_mutex;
+    std::timed_mutex my_mutex;
+
+#ifdef __WINDOWSJQ_
+    CRITICAL_SECTION my_winsec;
+#endif
+};
+
+
+int main()
+{
+    A myobja;
+    std::thread  myOutMsgObj(&amp;A::outMsgRecvQueue, &amp;myobja);  //第二个参数是引用，才能保证线程里用的是同一个线程
+    std::thread  myInMsgObj(&amp;A::inMsgRecvQueue, &amp;myobja);
+    myOutMsgObj.join();
+    myInMsgObj.join();
+
+    return 0;
+}
+</code></pre><h2 id="13-补充知识、线程池浅谈、数量谈、总结"><a href="#13-补充知识、线程池浅谈、数量谈、总结" class="headerlink" title="13 补充知识、线程池浅谈、数量谈、总结"></a>13 补充知识、线程池浅谈、数量谈、总结</h2><h3 id="13-1-虚假唤醒"><a href="#13-1-虚假唤醒" class="headerlink" title="13.1 虚假唤醒"></a>13.1 虚假唤醒</h3><p>虚假唤醒是针对条件变量<code>condition_variable</code>的，可能存在唤醒wait时，处理的无数据无效，这就导致虚假唤醒。</p>
+<p>虚假唤醒的情形：</p>
+<p>(1) <code>notify_one</code>多次调用；</p>
+<p>(2) 存在多个线程处理数据，使用<code>notify_all</code>唤醒时，可能存在虚假唤醒。</p>
+<p>处理虚假唤醒的措施：</p>
+<p>wait()第二个参数(lambda表达)需要正确判断数据是否有效。</p>
+<p>比如，第八节就正确避免了虚假唤醒，当多次唤醒wait()时，我们通过判断队列中是否为空，如果为空，就释放锁，继续等待。</p>
+<pre><code>my_cond.wait(subguard1, [this] { //一个lambda就是一个可调用对象(函数)
+    if (!msgRecvQueue.empty())
+        return true;
+    else
+        return false;
+});
+</code></pre><h3 id="13-2-atomic"><a href="#13-2-atomic" class="headerlink" title="13.2 atomic"></a>13.2 atomic</h3><p>第10节和11节有介绍。</p>
+<p>atmoic不允许定义时初始化操作，显示“尝试引用已删除的函数”，这是因为编译器内部没有声明拷贝构造函数，而不声明的原因这种赋值操作操作系统不好做成原子操作。</p>
+<pre><code>atomic&lt;int&gt; atm2 = atm;//不允许
+</code></pre><p>同时，也不允许赋值操作：</p>
+<pre><code>atomic&lt;int&gt; atm2;
+atm2 = atm;
+</code></pre><p>同样因为尝试引用已删除的函数，拷贝赋值函数也没有声明。</p>
+<p>但是原子操作atomic给出了load()函数，以原子方式读atomic对象的值。</p>
+<pre><code>atomic&lt;int&gt; atm;
+atm    = 0;
+atomic&lt;int&gt; atm2(atm.load());
+auto atm2(atm.load());
+</code></pre><p>同时atomic也给出了以原子方式写入内容，即store()函数：</p>
+<pre><code>atm2.store(12);
+</code></pre><h3 id="13-4-线程池"><a href="#13-4-线程池" class="headerlink" title="13.4 线程池"></a>13.4 线程池</h3><h4 id="场景设想"><a href="#场景设想" class="headerlink" title="场景设想"></a>场景设想</h4><p>开发一个服务器程序，每来一个客户端，就创建一个新线程，为该客户提供服务。</p>
+<p>网络游戏，玩家数量比较多，不可能给每个玩家创建个新线程，此程序写法在这种场景下不适合。</p>
+<p>程序稳定性问题：编写的代码中，偶尔创建一个线程，这种写法，就让人感到不安。不知何时创建一个线程，创建失败。</p>
+<p>线程池：把一堆线程放到一起，统一管理。这种统一管理调度，循环利用线程的方式，就称之为线程池。</p>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>在程序启动时，一次性创建好一定数量的线程。这样更让人放心，觉得程序更稳定。</p>
+<h3 id="13-5-线程创建数量谈"><a href="#13-5-线程创建数量谈" class="headerlink" title="13.5 线程创建数量谈"></a>13.5 线程创建数量谈</h3><p>线程数量的极限问题： 2000个线程是极限，再创建线程程序会崩溃。</p>
+<p>线程创建的数量建议: </p>
+<p>a) 采用某些技术开发程序；接口提供商建议你创建线程数量= cpu数量， cpu数量 * 2等等；遵照专业建议ehe指示，确保程序高效执行。</p>
+<p>b) 创建线程是为了完成一些业务，一个线程等于一条执行通路。如果100个业务堵塞充值线程，这里开110个线程，那是合适的。</p>
+<p>c) 线程数量不是越多越好，线程之间需要切换，如果线程数量太多，切换消耗的内存和时间太大。建议，线程的数量不要超过500，控制在200个之内比较理想，具体通过实验来确定线程数量。</p>
+<h3 id="13-6-C-11多线程总结"><a href="#13-6-C-11多线程总结" class="headerlink" title="13.6 C++11多线程总结"></a>13.6 C++11多线程总结</h3><p>windows，Linux都有自己的多线程开发接口。 不跨平台，所以C++11在语言层面提供了跨平台的多线程开发。</p>
+<p>thread</p>
+<p>join</p>
+<p>detach: 参数的传递问题</p>
+<p>mutex</p>
+<p>lock_guard</p>
+<p>unique_lock</p>
+<p>call_one()</p>
+<p>coindition_variable</p>
+<p>windows临界区 EnterCriticalSection, LeaveCriticalSection</p>
+<p>wait</p>
+<p>notify_one</p>
+<p>notify_all</p>
+<p>packged_task</p>
+<p>promise</p>
+<p>async</p>
+<p>future</p>
+<p>future_shared</p>
+<p>timed_mutex</p>
+<p>recuresive_mutex</p>
+<p>recuresive_timed_mutex</p>
+<p>atomic</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/06/17/C++并发与多线程/" title="C++11并发与多线程">https://zxpgo.github.io/2019/06/17/C++并发与多线程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/15/HTTP和HTTPS/" rel="next" title="HTTP和HTTPS">
+                <i class="fa fa-chevron-left"></i> HTTP和HTTPS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2100/03/27/公告/" rel="prev" title="公告">
+                公告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-并发基本概念及实现，进程和线程基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 并发基本概念及实现，进程和线程基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-并发、进程、线程的基本概念和综述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 并发、进程、线程的基本概念和综述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并发"><span class="nav-number">1.1.1.</span> <span class="nav-text">并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可执行文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">可执行文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">1.1.3.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程"><span class="nav-number">1.1.4.</span> <span class="nav-text">线程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-并发的实现方法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 并发的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程并发"><span class="nav-number">1.2.1.</span> <span class="nav-text">多进程并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程并发"><span class="nav-number">1.2.2.</span> <span class="nav-text">多线程并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-C-新标准线程库"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 C++新标准线程库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-线程启动、结束、创建线程多种方法、join、detach"><span class="nav-number">2.</span> <span class="nav-text">2. 线程启动、结束、创建线程多种方法、join、detach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-范例演示线程运行的开始和结束"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 范例演示线程运行的开始和结束</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#thread"><span class="nav-number">2.1.1.</span> <span class="nav-text">thread</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join"><span class="nav-number">2.1.2.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#detach"><span class="nav-number">2.1.3.</span> <span class="nav-text">detach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#joinable"><span class="nav-number">2.1.4.</span> <span class="nav-text">joinable()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程"><span class="nav-number">2.1.5.</span> <span class="nav-text">创建线程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-其他创建线程的手法"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 其他创建线程的手法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类对象"><span class="nav-number">2.2.1.</span> <span class="nav-text">类对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda表达式"><span class="nav-number">2.3.</span> <span class="nav-text">lambda表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-线程传参详解，detach-大坑，成员函数做线程函数"><span class="nav-number">3.</span> <span class="nav-text">3. 线程传参详解，detach()大坑，成员函数做线程函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-传递临时对象作为线程参数"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 传递临时对象作为线程参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#陷阱一"><span class="nav-number">3.1.1.</span> <span class="nav-text">陷阱一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#陷阱二"><span class="nav-number">3.1.2.</span> <span class="nav-text">陷阱二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-1"><span class="nav-number">3.1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-临时对象作为线程参数详解"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 临时对象作为线程参数详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程id概念"><span class="nav-number">3.2.1.</span> <span class="nav-text">线程id概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#临时对象构造时机摸索"><span class="nav-number">3.2.2.</span> <span class="nav-text">临时对象构造时机摸索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-传递类对象、智能指针作为线程参数"><span class="nav-number">3.3.</span> <span class="nav-text">3.2 传递类对象、智能指针作为线程参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-成员函数指针做线程函数"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 成员函数指针做线程函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-创建多个线程、数据共享问题分析、案例代码"><span class="nav-number">4.</span> <span class="nav-text">4 创建多个线程、数据共享问题分析、案例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-创建和等待多个线程"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 创建和等待多个线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-数据共享问题分析"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 数据共享问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#只读数据"><span class="nav-number">4.2.1.</span> <span class="nav-text">只读数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有读有写"><span class="nav-number">4.2.2.</span> <span class="nav-text">有读有写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他案例"><span class="nav-number">4.2.3.</span> <span class="nav-text">其他案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-共享数据的保护案例代码"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 共享数据的保护案例代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-互斥量概念、用法、死锁演示及解决详解"><span class="nav-number">5.</span> <span class="nav-text">5 互斥量概念、用法、死锁演示及解决详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-互斥量-mutex-的基本概念"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 互斥量(mutex)的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-互斥量的使用"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 互斥量的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lock-和unlock"><span class="nav-number">5.2.1.</span> <span class="nav-text">lock()和unlock()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-lock-guard类模板：直接取代lock-和unlock"><span class="nav-number">5.2.2.</span> <span class="nav-text">std::lock_guard类模板：直接取代lock()和unlock()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-死锁"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#演示"><span class="nav-number">5.3.1.</span> <span class="nav-text">演示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁的一般解决方案"><span class="nav-number">5.3.2.</span> <span class="nav-text">死锁的一般解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-lock-函数模板"><span class="nav-number">5.3.3.</span> <span class="nav-text">std::lock()函数模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-lock-guard-和std-adopt-lock"><span class="nav-number">5.3.4.</span> <span class="nav-text">std::lock_guard()和std::adopt_lock</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-unique-lock详解"><span class="nav-number">6.</span> <span class="nav-text">6. unique_lock详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-lock第二个参数"><span class="nav-number">6.0.1.</span> <span class="nav-text">unique_lock第二个参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-lock的成员函数"><span class="nav-number">6.0.2.</span> <span class="nav-text">unique_lock的成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unique-lock所有权的传递"><span class="nav-number">6.0.3.</span> <span class="nav-text">unique_lock所有权的传递</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-单例设计模式共享数据分析、解决，call-once"><span class="nav-number">7.</span> <span class="nav-text">7 单例设计模式共享数据分析、解决，call_once</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-设计模式讨论"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 设计模式讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-单例设计模式"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 单例设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-单例设计模式共享数据问题分析、解决"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 单例设计模式共享数据问题分析、解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-std-call-once"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 std::call_once()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-condition-variable-waite-notify-one-notify-all"><span class="nav-number">8.</span> <span class="nav-text">8 condition_variable, waite=, notify_one, notify_all</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-条件变量std-condition-variable-wait-nofity-one"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 条件变量std::condition_variable, wait(), nofity_one()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-上述代码的深入思考"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 上述代码的深入思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-notify-all"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 notify_all()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-async、future、package-task、promise"><span class="nav-number">9.</span> <span class="nav-text">9 async、future、package_task、promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-std-async、std-future创建后台任务并返回值"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 std::async、std::future创建后台任务并返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-std-packaged-task"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 std::packaged_task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-std-promise"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 std::promise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-future其他成员函数、shared-future、atomic"><span class="nav-number">10.</span> <span class="nav-text">10. future其他成员函数、shared_future、atomic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-std-future的其他成员函数"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 std::future的其他成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-std-shared-future"><span class="nav-number">10.2.</span> <span class="nav-text">10.2 std::shared_future</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-原子操作std-atomic"><span class="nav-number">10.3.</span> <span class="nav-text">10.3 原子操作std::atomic</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子操作概念引出范例"><span class="nav-number">10.3.1.</span> <span class="nav-text">原子操作概念引出范例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-atomic用法"><span class="nav-number">10.3.2.</span> <span class="nav-text">std::atomic用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-2"><span class="nav-number">10.3.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-std-atomic续谈、std-async深入谈"><span class="nav-number">11.</span> <span class="nav-text">11 std::atomic续谈、std::async深入谈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-std-atomic续谈"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 std::atomic续谈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-async深入谈"><span class="nav-number">11.2.</span> <span class="nav-text">std::async深入谈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#std-async参数详述"><span class="nav-number">11.2.1.</span> <span class="nav-text">std::async参数详述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-async和std-thread的区别"><span class="nav-number">11.2.2.</span> <span class="nav-text">std::async和std::thread的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-async不确定性问题解决"><span class="nav-number">11.2.3.</span> <span class="nav-text">std::async不确定性问题解决</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-windows临界区、其他各种mutex互斥量"><span class="nav-number">12.</span> <span class="nav-text">12 windows临界区、其他各种mutex互斥量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-1-windows临界区"><span class="nav-number">12.1.</span> <span class="nav-text">12.1 windows临界区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-2-多次进入临界区试验"><span class="nav-number">12.2.</span> <span class="nav-text">12.2 多次进入临界区试验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-3-自动析构技术"><span class="nav-number">12.3.</span> <span class="nav-text">12.3 自动析构技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-recursive-mutex递归的独占互斥量"><span class="nav-number">12.4.</span> <span class="nav-text">12.4 recursive_mutex递归的独占互斥量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-带超时的互斥量std-timed-mutex和std-recursive-timed-mutex"><span class="nav-number">12.5.</span> <span class="nav-text">12.5 带超时的互斥量std::timed_mutex和std::recursive_timed_mutex</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-补充知识、线程池浅谈、数量谈、总结"><span class="nav-number">13.</span> <span class="nav-text">13 补充知识、线程池浅谈、数量谈、总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-虚假唤醒"><span class="nav-number">13.1.</span> <span class="nav-text">13.1 虚假唤醒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-atomic"><span class="nav-number">13.2.</span> <span class="nav-text">13.2 atomic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-4-线程池"><span class="nav-number">13.3.</span> <span class="nav-text">13.4 线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景设想"><span class="nav-number">13.3.1.</span> <span class="nav-text">场景设想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现方式"><span class="nav-number">13.3.2.</span> <span class="nav-text">实现方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-5-线程创建数量谈"><span class="nav-number">13.4.</span> <span class="nav-text">13.5 线程创建数量谈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-6-C-11多线程总结"><span class="nav-number">13.5.</span> <span class="nav-text">13.6 C++11多线程总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>

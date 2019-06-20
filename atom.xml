@@ -39,11 +39,29 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://zxpgo.github.io/2019/06/18/HTTP%E5%92%8CHTTPS/"/>
-    <id>https://zxpgo.github.io/2019/06/18/HTTP和HTTPS/</id>
-    <published>2019-06-18T13:11:26.391Z</published>
-    <updated>2019-05-27T09:13:20.000Z</updated>
+    <title>C++11并发与多线程</title>
+    <link href="https://zxpgo.github.io/2019/06/17/C++%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/06/17/C++并发与多线程/</id>
+    <published>2019-06-17T12:18:14.000Z</published>
+    <updated>2019-06-20T14:30:43.413Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av39171692?from=search&amp;amp;seid=7663928812674265445&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;C++多线程编程视频课程学习&lt;/a&gt;笔记，适用于具有C++11基础的学者，开发环境VS2017。
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP和HTTPS</title>
+    <link href="https://zxpgo.github.io/2019/06/15/HTTP%E5%92%8CHTTPS/"/>
+    <id>https://zxpgo.github.io/2019/06/15/HTTP和HTTPS/</id>
+    <published>2019-06-15T05:44:14.000Z</published>
+    <updated>2019-06-20T14:29:17.607Z</updated>
     
     <summary type="html">
     
@@ -57,6 +75,8 @@
     
     </summary>
     
+    
+      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -97,24 +117,6 @@
   </entry>
   
   <entry>
-    <title>Socket编程</title>
-    <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
-    <published>2019-03-31T03:44:14.000Z</published>
-    <updated>2019-05-04T13:27:49.750Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
-    
-    </summary>
-    
-    
-      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C语言实现发送邮件</title>
     <link href="https://zxpgo.github.io/2019/03/31/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>https://zxpgo.github.io/2019/03/31/C语言实现发送邮件/</id>
@@ -124,6 +126,24 @@
     <summary type="html">
     
       &lt;p&gt;telent模拟发送邮件，并利用C语言进行实现。
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Socket编程</title>
+    <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
+    <published>2019-03-31T03:44:14.000Z</published>
+    <updated>2019-05-04T13:27:49.750Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
     
     </summary>
     
@@ -205,6 +225,24 @@
   </entry>
   
   <entry>
+    <title>Shell编程-test命令和流程控制(五)</title>
+    <link href="https://zxpgo.github.io/2019/03/27/Shell%E7%BC%96%E7%A8%8B-test%E5%91%BD%E4%BB%A4%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6(%E4%BA%94)/"/>
+    <id>https://zxpgo.github.io/2019/03/27/Shell编程-test命令和流程控制(五)/</id>
+    <published>2019-03-27T12:18:14.000Z</published>
+    <updated>2019-03-28T13:45:40.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="https://zxpgo.github.io/tag/Shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Shell编程-输出命令echo和printf(四)</title>
     <link href="https://zxpgo.github.io/2019/03/27/Shell%E7%BC%96%E7%A8%8B-echo%E5%91%BD%E4%BB%A4(%E5%9B%9B)/"/>
     <id>https://zxpgo.github.io/2019/03/27/Shell编程-echo命令(四)/</id>
@@ -216,24 +254,6 @@
       &lt;p&gt;Shell的echo指令与PHP的echo指令类似，都是用于字符串的输出，命令格式：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;echo string
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;您可以使用echo实现复杂的输出格式控制。
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="https://zxpgo.github.io/tag/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell编程-test命令和流程控制(五)</title>
-    <link href="https://zxpgo.github.io/2019/03/27/Shell%E7%BC%96%E7%A8%8B-test%E5%91%BD%E4%BB%A4%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6(%E4%BA%94)/"/>
-    <id>https://zxpgo.github.io/2019/03/27/Shell编程-test命令和流程控制(五)/</id>
-    <published>2019-03-27T12:18:14.000Z</published>
-    <updated>2019-03-28T13:45:40.634Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。
     
     </summary>
     
@@ -377,26 +397,6 @@
     
     
       <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL实战</title>
-    <link href="https://zxpgo.github.io/2019/03/04/MySQL%E5%AE%9E%E6%88%98/"/>
-    <id>https://zxpgo.github.io/2019/03/04/MySQL实战/</id>
-    <published>2019-03-04T05:44:14.000Z</published>
-    <updated>2019-03-04T07:55:19.433Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MySQL实战：行程和用户、工资排名前N、分数排名。
-    
-    </summary>
-    
-      <category term="SQL" scheme="https://zxpgo.github.io/categories/SQL/"/>
-    
-    
-      <category term="SQL" scheme="https://zxpgo.github.io/tag/SQL/"/>
     
   </entry>
   
