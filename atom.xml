@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zxpgo.github.io/"/>
-  <updated>2019-03-28T13:50:26.265Z</updated>
+  <updated>2019-08-13T14:21:50.823Z</updated>
   <id>https://zxpgo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zxpgo.github.io/2100/03/27/%E5%85%AC%E5%91%8A/"/>
     <id>https://zxpgo.github.io/2100/03/27/公告/</id>
     <published>2100-03-27T12:18:14.000Z</published>
-    <updated>2019-03-28T13:50:26.265Z</updated>
+    <updated>2019-08-13T14:21:50.823Z</updated>
     
     <summary type="html">
     
@@ -330,24 +330,6 @@
   </entry>
   
   <entry>
-    <title>Socket编程</title>
-    <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
-    <published>2019-03-31T03:44:14.000Z</published>
-    <updated>2019-05-04T13:27:49.750Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
-    
-    </summary>
-    
-    
-      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
-    
-  </entry>
-  
-  <entry>
     <title>C语言实现发送邮件</title>
     <link href="https://zxpgo.github.io/2019/03/31/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>https://zxpgo.github.io/2019/03/31/C语言实现发送邮件/</id>
@@ -357,6 +339,24 @@
     <summary type="html">
     
       &lt;p&gt;telent模拟发送邮件，并利用C语言进行实现。
+    
+    </summary>
+    
+    
+      <category term="socket" scheme="https://zxpgo.github.io/tag/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Socket编程</title>
+    <link href="https://zxpgo.github.io/2019/03/31/Socket%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/03/31/Socket编程/</id>
+    <published>2019-03-31T03:44:14.000Z</published>
+    <updated>2019-05-04T13:27:49.750Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;socket编程用于实现两个实体之间的通信，比如客户端和服务器之间，客户端先服务器发送请求消息，服务器对请求进行相应。
     
     </summary>
     
