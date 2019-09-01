@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试题目," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="剑指offer第二章的题目练习和重要知识点。">
+<meta name="keywords" content="面试题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer-面试需要的基础知识">
+<meta property="og:url" content="https://zxpgo.github.io/2019/08/22/剑指offer之基础知识/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="剑指offer第二章的题目练习和重要知识点。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-01T12:48:31.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer-面试需要的基础知识">
+<meta name="twitter:description" content="剑指offer第二章的题目练习和重要知识点。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/08/22/剑指offer之基础知识/"/>
+
+
+
+
+
+  <title>剑指offer-面试需要的基础知识 | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/08/22/剑指offer之基础知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">剑指offer-面试需要的基础知识</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T13:28:50+08:00">
+                2019-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/22/剑指offer之基础知识/" class="leancloud_visitors" data-flag-title="剑指offer-面试需要的基础知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>剑指offer第二章的题目练习和重要知识点。<a id="more"></a></p>
+<h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><p>编程语言的题目分为三种：</p>
+<ul>
+<li>语言中的关键字理解</li>
+<li>分析一段代码，释放出错或者结果多少</li>
+<li>编写一个重要的函数：比如构造函数、赋值构造函数、复制构造函数、析构函数、重载运算符等等</li>
+</ul>
+<p>面试中经常会问到C++一些关键字，比如类型转换关键字，sizeof。</p>
+<ul>
+<li><p><code>static_const</code>: 主要用于C++内置类型之间的转换，没有运行时类型的检测来保证转换的安全性。</p>
+<ul>
+<li>用于子类和基类之间的指针或引用之间的转换，这种转换把子类转的指针或引用转换为基类是安全的；进行向下转换，把基类的指针或引用转换为子类时，由于没有动态类型检测，所以是不安全的。</li>
+<li>把void类型的指针转换成目标类型的指针，同样不安全</li>
+<li>不能用于两个不相关的类型转换</li>
+<li>不能把<code>const</code>对象转换成非<code>const</code>对象</li>
+</ul>
+</li>
+<li><p><code>const_cast</code>: 编译时执行，作用：可以使一个本来不是const类型的数据转换成const类型，或者把const属性去掉；不能用于不同的类型间转换。</p>
+</li>
+<li><code>reinterpret_cast</code>: 可以把任何的内置数据类型转换为其他的类型，同时也可以把任何类型的指针转换其他在新的指针；它的机理是对二进制进行重新解释，不会改变原来的格式。</li>
+<li><code>dynamic_cast&lt;type&gt;(expression)</code>: 该运算符间expresssion转换成type类型的对象，type类型必须是类的指针、类型的引用或者空类型的指针。<ul>
+<li>如果type是一个指针类型，那么expression也必须是指针类型，如果type是一个引用类型，那么expression也必须是一个引用类型。</li>
+<li>type是一个空类型的指针，在运行的时候，就会检测expression的实际类型，结果是一个由expression决定的指针类型。</li>
+<li>在运行的时候决定真正的类型，如果向下转换是安全的，就会返回一个转换后的指针，若不安全，就会返回一个空指针。</li>
+<li>主要用于上下之间的转换，也可以用于类型之间的转换。上行转换时和static_cast效果一样，下行转换时，具有检测功能，比<code>static_cast</code>安全。   </li>
+</ul>
+</li>
+</ul>
+<h2 id="赋值运算符函数"><a href="#赋值运算符函数" class="headerlink" title="赋值运算符函数"></a>赋值运算符函数</h2><p>如下为类型CMyString的声明，为该类型添加赋值运算符。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CMyString</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CMyString(<span class="keyword">char</span> * pData=<span class="literal">nullptr</span>);</span><br><span class="line">    CMyString(<span class="keyword">const</span> CMyString &amp; str);</span><br><span class="line">    ~CMyString();</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span> * m_pData;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>初级程序员解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CMyString &amp; CMyString::<span class="keyword">operator</span>=(<span class="keyword">const</span> CMyString &amp; str)&#123;</span><br><span class="line">      	<span class="keyword">if</span> (<span class="keyword">this</span> != &amp;str)&#123;</span><br><span class="line">       	<span class="keyword">delete</span> []m_pData;</span><br><span class="line">           m_pData = <span class="literal">nullptr</span>;</span><br><span class="line">           m_pData = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.m_pData)+<span class="number">1</span>];</span><br><span class="line">           <span class="built_in">strcpy</span>(m_pData, str.m_pData);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>高级程序员：</p>
+<p>如果赋值过程中内存不足，导致new char抛出异常，则m_pData将是一个空指针，这样非常容易导致程序崩溃。一旦赋值运算符内部出现异常，CMString的实例就不再有效。</p>
+<p>有两种办法接近，一种是在delete之前先用new分配一块内存。另一种就是先创建一个临时变量，再交换临时变量与原来的实例。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CMyString &amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> CMyString &amp; str)&#123;</span><br><span class="line">     	<span class="keyword">if</span> (<span class="keyword">this</span> != &amp;str)&#123;</span><br><span class="line">      	CMyString strTemp(str);</span><br><span class="line">          </span><br><span class="line">          <span class="keyword">char</span> *pTemp = strTemp.m_pData;</span><br><span class="line">          strTemp.m_pData = m_pData;</span><br><span class="line">          m_pData= pTemp;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现单例模式"><a href="#实现单例模式" class="headerlink" title="实现单例模式"></a>实现单例模式</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Singleton()&#123;&#125;</span><br><span class="line">    <span class="keyword">static</span> Singleton * instance;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> Singleton * <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">Singleton * Singleton::instance = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+<p>上述实现版本，线程不安全。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Singleton * Singleton::get() &#123;</span><br><span class="line">	Lock lock;</span><br><span class="line">	<span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">		instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述版本版本实现了线程安全，但是锁的代价太大。于是考虑采用双检查锁</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Singleton * Singleton::get() &#123;</span><br><span class="line">	<span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) &#123; <span class="comment">//双检查锁</span></span><br><span class="line">		Lock lock;</span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是双检查锁存在问题：m_instancee= new Singleton();在指令级别，可以分为三个步骤： 分配内存空间，调用构造函数初始化内存空间，将内存地址赋给m_instance。而reorder的顺序可能是：分配内存空间，将内存地址赋给m_instance,调用构造函数初始化内存空间。线程A执行到将内存空间赋给m_instance,切换到线程B，此时m_instance不为nullptr，所以可以返回m_instance，但此时还是无效的。于是出现了如下版本（采用原子操作）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++ 11版本之后的跨平台的实现(volatile)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::atomic&lt;Singleton*&gt; Singleton::m_instance;</span><br><span class="line"><span class="built_in">std</span>::mutex Singleton::m_mutex;</span><br><span class="line"></span><br><span class="line">Singleton * Singleton::getInstance() &#123;</span><br><span class="line">	Singleton * tmp = m_instance.load(<span class="built_in">std</span>::memory_order_relaxed);</span><br><span class="line">	<span class="built_in">std</span>::atomic_thread_fence(<span class="built_in">std</span>::memory_order_acquire);</span><br><span class="line">	<span class="keyword">if</span> (tmp == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">		tmp = <span class="keyword">new</span> Singleton;</span><br><span class="line">		<span class="built_in">std</span>::atomic_thread_fence(<span class="built_in">std</span>::memory_order_release);</span><br><span class="line">		m_instance.store(tmp, <span class="built_in">std</span>::memory_order_relaxed);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组名是一个指针，指向数组的第一个车元素。我们可以用一个指针来访问数组，但是C/C++没有记录数组的大小，因此再用指针访问数组时，要确保没有超出边界。下面是一个例子来了解数组和指针的区别。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetSize</span><span class="params">(<span class="keyword">int</span> data[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">sizeof</span>(data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data1[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> size1 = <span class="keyword">sizeof</span>(data1);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> * data2 = data1;</span><br><span class="line">    <span class="keyword">int</span> size2 = <span class="keyword">sizeof</span>(data2);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> size3 = GetSize(data1);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %d, %d"</span>, size1, size2, size3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为： 20，4，4。data1是一个数组名，sizeof(data1)是求数组大小。data2是一个指针，所以sizeof(data2)是4个字节。在C++中，<strong>当数组作为函数的参数进行传递时，数组就自动退化为同类型的指针。</strong>因此尽管GetSize窜参数data被声明为数组，但它退化为指针，所以size3的结果是4。</p>
+<p>对于C++中，为了节省数组开销，可以使用STL的vector容器。但是由于vector的实现，如果数组的大小经常变动的话，会来时间性能上的影响。vector当大小不够时，会成倍增长，并将原来的元素复制到新的内存中。</p>
+<h3 id="数组中重复得数字"><a href="#数组中重复得数字" class="headerlink" title="数组中重复得数字"></a>数组中重复得数字</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。</p>
+<h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><p>看到题目，可能想到的是通过一个set容器来记录出现过的元素，每次判断元素是否在set中，如果发现实现在set中，就直接返回true。</p>
+<p>上面是最基本的方法，一个更好的方法是：根据数组的特点，数组长度为n，元素在0到n-1之间，所以可以利用现有数组设置标志，当一个数字被访问过后，可以设置对应位上的数 + n，之后再遇到相同的数时，会发现对应位上的数已经大于等于n了，那么直接返回这个数即可。</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基础版本</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Parameters:</span></span><br><span class="line">    <span class="comment">//        numbers:     an array of integers</span></span><br><span class="line">    <span class="comment">//        length:      the length of array numbers</span></span><br><span class="line">    <span class="comment">//        duplication: (Output) the duplicated number in the array number</span></span><br><span class="line">    <span class="comment">// Return value:       true if the input is valid, and there are some duplications in the array number</span></span><br><span class="line">    <span class="comment">//                     otherwise false</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> length, <span class="keyword">int</span>* duplication)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//map&lt;int, int&gt; map_ii;</span></span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; set_i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (set_i.find(numbers[i]) != set_i.end())</span><br><span class="line">            &#123;</span><br><span class="line">                *duplication = numbers[i];</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                set_i.insert(numbers[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//进阶版本</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Parameters:</span></span><br><span class="line">    <span class="comment">//        numbers:     an array of integers</span></span><br><span class="line">    <span class="comment">//        length:      the length of array numbers</span></span><br><span class="line">    <span class="comment">//        duplication: (Output) the duplicated number in the array number</span></span><br><span class="line">    <span class="comment">// Return value:       true if the input is valid, and there are some duplications in the array number</span></span><br><span class="line">    <span class="comment">//                     otherwise false</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> length, <span class="keyword">int</span>* duplication)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> index = numbers[i];</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= length)</span><br><span class="line">                index -= length;</span><br><span class="line">            <span class="keyword">if</span> (numbers[index] &gt;= length)&#123;</span><br><span class="line">                *duplication = index;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            numbers[index] = length + numbers[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="二维数组的查找"><a href="#二维数组的查找" class="headerlink" title="二维数组的查找"></a>二维数组的查找</h3><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<h4 id="思路分析-1"><a href="#思路分析-1" class="headerlink" title="思路分析"></a>思路分析</h4><p><code>i=0,j=column-1</code> 对于选定的元素<code>array[i][j]</code>，如果大于target，则最后一列中不可能存在target元素，此时<code>j--</code>；</p>
+<p>如果小于target，则第一行中不可能存在target元素，<code>i++</code>；</p>
+<p>继续判断<code>array[i][j]</code>与target的大小，重复以上步骤。</p>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> row = <span class="built_in">array</span>.size();</span><br><span class="line">        <span class="keyword">int</span> column = <span class="built_in">array</span>[<span class="number">0</span>].size();</span><br><span class="line">       <span class="keyword">if</span> (row &gt; <span class="number">0</span> &amp;&amp; column &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">array</span>[row<span class="number">-1</span>][column<span class="number">-1</span>] &gt;= target)&#123;</span><br><span class="line">           <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">int</span> j = column<span class="number">-1</span>;</span><br><span class="line">           <span class="keyword">while</span> (i &lt; row &amp;&amp; j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">array</span>[i][j] == target)&#123;</span><br><span class="line">                   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">               &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i][j] &gt; target)&#123;</span><br><span class="line">                   --j;</span><br><span class="line">               &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                   ++i;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>C/C++中每个自身都以’\0’作为结尾，这样方便找到字符串尾部。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">strcpy</span>(str, <span class="string">"0123456789"</span>);<span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
+<p>先声明了一个长度为10的字符数组，然后把字符串”0123456789”复制到数组中。而”0123456789”这个字符串看上去只有10个字节，但实际上它的末尾有一个’\0’字符，因此它的实际长度为11字节。要正确复制该字符串，至少需要一个长度11字节的数组。</p>
+<p>还有一点需要注意，为了节省内存，C/C++把常量字符串放到单独的一个内存区域。当几个指针赋值给相同的常量字符串时，它们实际上会指向相同的内存地址。但是用常量内存初始化数组，情况却有所不同。下面是一个例子说明了这一点：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str1[] = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="keyword">char</span> str1[] = <span class="string">"hello world"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> * str3 = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="keyword">char</span> * str4 = <span class="string">"hello world"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; (str1 == str2) &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">//false</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; (str3 == str4) &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>str1和str2是两个字符串数组，会为它们分配两个长度为12字节的空间，并把”hello world”的内容分别复制到数组中去。这两个初始化地址不同的数组，因此str1和str2的值也不同。</p>
+<p>str3和str4是两个指针，无须为它们分配内存已存储字符串的内存，而只需要把它们指向”hello world”在内存中的地址就可以了。因为”hello world”是字符串常量，它在内存中就一个拷贝，因此str3和str4指向的是同一个地址。</p>
+<h3 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h3><h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<h4 id="思路分析-2"><a href="#思路分析-2" class="headerlink" title="思路分析"></a>思路分析</h4><p>看到题目，想到直接通过一个for循环和一个string字符串实现，如果遇到空格将<code>%20</code>加入到string中，否则将字符直接加到string字符串中，最后将string转换为char *。</p>
+<p>第二种方法，在牛客网上看到的（也是剑指offer书上给出的答案），首先通过一个while循环，得到原有字符串的长度和空格的个数。然后将空格的数量乘以2加上原有字符串的长度得到最后结果字符串的长度。最后，将原有字符串从尾部开始，一个一个判断，如果遇到空给将’0’,’2’,’%’添加到结果字符串中（注意从尾部开始往字符串头部）。</p>
+<h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">replaceSpace</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span>  temp;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>, i;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (str[i] == <span class="string">' '</span>) &#123;</span><br><span class="line">                temp += <span class="string">"%20"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                temp += str[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">strcpy</span>(str, temp.c_str());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//进阶版本</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">replaceSpace</span><span class="params">(<span class="keyword">char</span> *str,<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">nullptr</span> || length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> oldLength = <span class="number">0</span>;   <span class="comment">//str字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> placementLength = <span class="number">0</span>;<span class="comment">//空格数量</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    	<span class="comment">//计算字符串和空格数量</span></span><br><span class="line">        <span class="keyword">while</span>(str[i] != <span class="string">'\0'</span>)&#123;</span><br><span class="line">            oldLength++;</span><br><span class="line">            <span class="keyword">if</span> (str[i] == <span class="string">' '</span>)</span><br><span class="line">                placementLength++;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">//新字符串长度，注意不要减一，因为最后有一个'\0'</span></span><br><span class="line">        <span class="keyword">int</span> newLength = oldLength + placementLength * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (newLength &gt; length) <span class="comment">//如果length长度小于结果字符串长度，则直接结束</span></span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">while</span>(oldLength &gt;=<span class="number">0</span> &amp;&amp; newLength &gt; oldLength)&#123;</span><br><span class="line">            <span class="keyword">if</span> (str[oldLength] == <span class="string">' '</span>)&#123;</span><br><span class="line">                str[newLength--] = <span class="string">'0'</span>;</span><br><span class="line">                str[newLength--] = <span class="string">'2'</span>;</span><br><span class="line">                str[newLength--] = <span class="string">'%'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                str[newLength--] = str[oldLength];</span><br><span class="line">            oldLength--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>链表的操作包括：创建、插入节点、删除节点、判断是否有环等等。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> m_nValue;</span><br><span class="line">	ListNode * m_pNext;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在链表的末尾添加一个节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddToTail</span><span class="params">(ListNode **pHead, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	ListNode * pNew = <span class="keyword">new</span> ListNode();</span><br><span class="line">	pNew-&gt;m_nValue = value;</span><br><span class="line">	pNew-&gt;m_pNext = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (*pHead == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">		*pHead = pNew;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		ListNode * pNode = *pHead;</span><br><span class="line">		<span class="keyword">while</span> (pNode-&gt;m_pNext != <span class="literal">nullptr</span>)</span><br><span class="line">			pNode = pNode-&gt;m_pNext;</span><br><span class="line">		pNode-&gt;m_pNext = pNew;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，函数的第一个参数pHead是一个指向的指针。当我们往第一个空链表插入一个节点时，新插入的节点就是链表的头指针。由于此时会改动头指针，因此需要把pHead参数设为指向指针的指针，否则出了这个函数pHead仍然是一个空指针。</p>
+<p>由于链表中的内存不是一次性分配的，因为我们无法保证链表的内存和数组一样是连续的。因此，如果现在链表中找到第i个节点，那么我们需要从头节点开始，沿着指向下一个节点的指针遍历链表，它的时间效率为o(n)。下面是在链表中找到第一个含有某值得节点并删除该节点的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> m_nValue;</span><br><span class="line">	ListNode * m_pNext;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RemoveNode</span><span class="params">(ListNode ** pHead, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pHead == <span class="literal">nullptr</span> || *pHead == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	ListNode * pToBeDeleted = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">if</span> ((*pHead)-&gt;m_nValue == value) &#123;</span><br><span class="line">		pToBeDeleted = *pHead;</span><br><span class="line">		*pHead = (*pHead)-&gt;m_pNext;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		ListNode * pNode = *pHead;</span><br><span class="line">		<span class="keyword">while</span> (pNode-&gt;m_pNext != <span class="literal">nullptr</span> &amp;&amp; pNode-&gt;m_pNext-&gt;m_nValue != value) &#123;</span><br><span class="line">			pNode = pNode-&gt;m_pNext;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (pNode-&gt;m_pNext != <span class="literal">nullptr</span> &amp;&amp; pNode-&gt;m_pNext-&gt;m_nValue == value) &#123;</span><br><span class="line">			pToBeDeleted = pNode-&gt;m_pNext;</span><br><span class="line">			pNode-&gt;m_pNext = pNode-&gt;m_pNext-&gt;m_pNext;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (pToBeDeleted != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">		<span class="keyword">delete</span> pToBeDeleted;</span><br><span class="line">		pToBeDeleted = <span class="literal">nullptr</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="从头到尾打印链表"><a href="#从头到尾打印链表" class="headerlink" title="从头到尾打印链表"></a>从头到尾打印链表</h3><h4 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</p>
+<h4 id="思路分析-3"><a href="#思路分析-3" class="headerlink" title="思路分析"></a>思路分析</h4><p>在C++中的vector容器，允许从开头插入元素，所以从头遍历链表，然后每次将元素在vector的头部插入。</p>
+<p>如果不借助vector，还可以使用容器stack，从头到尾把元素放入栈中，最后从栈顶开始读取元素，这样就实现了从尾到头的遍历。</p>
+<h4 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  struct ListNode &#123;</span></span><br><span class="line"><span class="comment">*        int val;</span></span><br><span class="line"><span class="comment">*        struct ListNode *next;</span></span><br><span class="line"><span class="comment">*        ListNode(int x) :</span></span><br><span class="line"><span class="comment">*              val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">*        &#125;</span></span><br><span class="line"><span class="comment">*  &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="keyword">while</span>(head != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            vec.insert(vec.begin(), head-&gt;val);</span><br><span class="line">        	head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//栈实现</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  struct ListNode &#123;</span></span><br><span class="line"><span class="comment">*        int val;</span></span><br><span class="line"><span class="comment">*        struct ListNode *next;</span></span><br><span class="line"><span class="comment">*        ListNode(int x) :</span></span><br><span class="line"><span class="comment">*              val(x), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">*        &#125;</span></span><br><span class="line"><span class="comment">*  &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; sta;</span><br><span class="line">        <span class="keyword">while</span>(head != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            sta.push(head-&gt;val);</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!sta.empty())&#123;</span><br><span class="line">            vec.insert(vec.end(),sta.top());</span><br><span class="line">            sta.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树的几种遍历： </p>
+<ul>
+<li>前序遍历：先访问根节点，再访问左子节点，最后访问右子节点。</li>
+<li>中序遍历：先访问左子节点，再访问根节点，最后访问右子节点。</li>
+<li>后序遍历：先访问左子节点，再访问右子节点，最后访问根节点。</li>
+</ul>
+<p>这三种遍历都有递归实现和循环实现。</p>
+<ul>
+<li>宽度优先遍历：先访问树的第一层节点，再访问树的第二层节点……一直到访问最下面一层节点。</li>
+</ul>
+<p>二叉树中有很多特例：</p>
+<ul>
+<li>二叉搜索树：左子节点总是小于或等于根节点，而右子节点总是大于或冬雨根节点。我们可以评价在O(longn)的时间内根据数值在二叉搜索树中找到一个节点。</li>
+<li>堆：堆分为最大堆和最小堆。在最大堆中根节点的值最大，在最小堆中根节点的值最小。快速找到最小值或最大值的问题都可以用堆来解决。</li>
+<li>红黑树：红黑树把树中的节点定义为红、黑两种颜色，并通过规则确保从根节点到叶节点的最长路径的长度不超过最短路径的两倍。在C++的STL中，set,map,multiset,multimap等数据结构都是基于红黑树实现的。</li>
+</ul>
+<h3 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h3><h4 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<h4 id="思路分析-4"><a href="#思路分析-4" class="headerlink" title="思路分析"></a>思路分析</h4><p>本题的实现可以采用递归实现，每次前序遍历的第一个元素为根节点，然后从中序遍历找到根节点所在的位置，该位置前面的元素位于左子树，而右边的元素位于右子树。将位于根节点之前的元素放入一个左子树的中序遍历的数组中，同时将对应的前序遍历的元素放入左子树的前序遍历的数组中；右子树的数组同样处理，不过是在根节点的之后的元素。然后通过递归构造左子树和右子树。</p>
+<h4 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for binary tree</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">reConstructBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vin)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (vin.size() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        TreeNode * pTreeNode = <span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vin.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (vin[i] == pre[<span class="number">0</span>])&#123;</span><br><span class="line">                j = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_left, pre_right, vin_left, vin_right;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; j; i++)&#123;</span><br><span class="line">            pre_left.push_back(pre[i+<span class="number">1</span>]);</span><br><span class="line">            vin_left.push_back(vin[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = j + <span class="number">1</span>; i &lt; vin.size(); i++)&#123;</span><br><span class="line">            pre_right.push_back(pre[i]);</span><br><span class="line">            vin_right.push_back(vin[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        pTreeNode-&gt;left = reConstructBinaryTree(pre_left, vin_left);</span><br><span class="line">        pTreeNode-&gt;right = reConstructBinaryTree(pre_right, vin_right);</span><br><span class="line">        <span class="keyword">return</span> pTreeNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="二叉树的下一个节点"><a href="#二叉树的下一个节点" class="headerlink" title="二叉树的下一个节点"></a>二叉树的下一个节点</h3><h4 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+<h4 id="思路分析-5"><a href="#思路分析-5" class="headerlink" title="思路分析"></a>思路分析</h4><p>分三种情况讨论：</p>
+<ul>
+<li>节点有右子树，则它的下一个节点就是右子树的最左子节点；</li>
+<li>节点没有右子树，并且节点是其父节点的左子节点，则它的下一个节点就是它的父节点；</li>
+<li>节点没有右子树，并且节点是其父节点的右子节点，这种情形比较复杂。我们可以沿着指向父节点的指针一直向上遍历，直到找到一个是它父节点的左子节点的节点。如果这样的节点存在，那么这个节点的父节点就是我们要找的下一个节点。</li>
+</ul>
+<h4 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">struct TreeLinkNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    struct TreeLinkNode *left;</span></span><br><span class="line"><span class="comment">    struct TreeLinkNode *right;</span></span><br><span class="line"><span class="comment">    struct TreeLinkNode *next;</span></span><br><span class="line"><span class="comment">    TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) &#123;</span></span><br><span class="line"><span class="comment">        </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeLinkNode* <span class="title">GetNext</span><span class="params">(TreeLinkNode* pNode)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pNode == <span class="literal">nullptr</span>) </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        TreeLinkNode * pNextNode = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">if</span>(pNode-&gt;right != <span class="literal">nullptr</span>)&#123;<span class="comment">//节点有右子树的情形</span></span><br><span class="line">            TreeLinkNode * pRightNode = pNode-&gt;right;</span><br><span class="line">            <span class="keyword">while</span>(pRightNode-&gt;left != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                pRightNode = pRightNode-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            pNextNode = pRightNode;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pNode-&gt;next != <span class="literal">nullptr</span>)&#123;<span class="comment">//节点没有右子树的情形，包括在父节点的左子树和不在父节点的左子树上两种情形</span></span><br><span class="line">            TreeLinkNode * pCurrentNode = pNode;</span><br><span class="line">            TreeLinkNode * pParentNode = pNode-&gt;next;</span><br><span class="line">            <span class="keyword">while</span>(pParentNode != <span class="literal">nullptr</span> &amp;&amp;  pCurrentNode == pParentNode-&gt;right)&#123; <span class="comment">//如果节点是父节点的右子节点</span></span><br><span class="line">                pCurrentNode = pParentNode;</span><br><span class="line">                pParentNode = pParentNode-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            pNextNode = pParentNode;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pNextNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><p>栈：后进先出</p>
+<p>队列：先进先出</p>
+<p>操作系统会给每个线程创建一个栈用来存储函数调用时各个函数的参数、返回地址及临时变量。</p>
+<h3 id="用两个栈实现队列"><a href="#用两个栈实现队列" class="headerlink" title="用两个栈实现队列"></a>用两个栈实现队列</h3><h4 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a>题目描述</h4><p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<h4 id="思路分析-6"><a href="#思路分析-6" class="headerlink" title="思路分析"></a>思路分析</h4><p>对于Push动作，直接将元素插入stack1即可。</p>
+<p>对于Pop操作，我们需要删除stack1栈底的元素，此时需要将所有元素移动到stack2中，这样stack1栈底的元素变成了stack2栈顶的元素，直接删除stack2栈顶的元素即可，为了保证下一次可以继续进行插入或删除，所以重新将stack2中的元素放入到stack1中，并清空stack2。</p>
+<h4 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        stack1.push(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty())&#123;</span><br><span class="line">            stack2.push(stack1.top());</span><br><span class="line">            stack1.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (!stack2.empty())&#123;</span><br><span class="line">            res = stack2.top();</span><br><span class="line">            stack2.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!stack2.empty())&#123;</span><br><span class="line">            stack1.push(stack2.top());</span><br><span class="line">            stack2.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack1;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="用两个队列实现栈"><a href="#用两个队列实现栈" class="headerlink" title="用两个队列实现栈"></a>用两个队列实现栈</h3><p>方式跟用两个栈实现队列相似，记住栈是后进先出，队列是先进先出就行。</p>
+<h1 id="算法和数据操作"><a href="#算法和数据操作" class="headerlink" title="算法和数据操作"></a>算法和数据操作</h1><p>很多算法都有递归和循环两种不同得实现方式。通常基于递归得实现方法代码比较简洁，但性能不如基于循环的实现方法。</p>
+<p>通常排序和查找是面试时考察的算法重点。我们应该掌握二分查找、归并排序和快速查找。</p>
+<p>如果面试题要求在二维数组（具体表现为迷宫或者棋盘等）删搜索路径，那么我们可以尝试回溯法。通常回溯法很适合用递归的代码实现。只有当面试官限定不能使用递归实现时，再考虑用栈来模拟递归的过程。</p>
+<p>如果面试题是求某个问题的最优解，并且该问题可以分为多个子问题，那么我们可以尝试用动态规划。在用自上而下的递归思路去分析动态规划问题的时候，我们会发现子问题之间存在重叠的更小的子问题。为了避免不必要的重复计算，我们用自下而上的循环代码来实现，也就是把子问题的最优解先算出来并用数组保存下来，接下来基于子问题的解计算大问题的解。</p>
+<p>如果我们告诉面试官动态规划的思路之后，面试官还在提醒说在分解子问题的时候是不是存在某个特殊的选择，如果采用这个特殊的选择将一定能得到最优解，那么通常面试官这样的提示意味着该面试题可能适用于贪婪算法。</p>
+<p>位运算可以看成一类特殊的算法，它是把数字表示成二进制之后对0和1的操作。由于位运算的对象位二进制数字，所以不是很值观，但掌握不难，因为总共只有与、或、异或、左移和右移5种位运算。</p>
+<h2 id="递归和循环"><a href="#递归和循环" class="headerlink" title="递归和循环"></a>递归和循环</h2><p>递归是在一个函数的内部调用这个函数自身。而循环则是通过设置计算的初始值及终止条件，在一个范围内重复运算。比如求1+2+…+n，对应代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">AddFrom1ToN_Recursive</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">0</span> ? <span class="number">0</span> : n + AddFrom1ToN(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">AddFrom1ToN_Iterative</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        result += i;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归的代码简洁，面试中如果没有特别的要求，则应聘者可以尽量采用递归的方法编程。</p>
+<p>递归由于是函数的自身调用，而函数调用是有时间和空间的消耗的：每次函数调用，都需要在内存栈种分配空间以保存蚕食、返回地址和临时变量，而且往栈里压入数据和弹出数据都需要时间。这就不难理解递归实现的效率不如循环。</p>
+<p>另外，<strong>递归中有可能很多计算都是重复的</strong>，从而对性能带来很大的负面影响 。递归的本质是把一个问题分解为两个或者多个小问题。如果多个小问题存在相互重叠的部分，就存在重复的计算。</p>
+<p>通常应用动态规划解决问题时我们都是用递归的思路分析问题，但是由于递归分解的子问题存在大量的重复，因此我们总是用自下而上的循环来实现代码。</p>
+<p>除了效率之外，递归还有可能引发更严重的问题：<strong>调用栈溢出。</strong>每一次函数调用在内存栈中分配空间，而每个进程栈的容量是有限的。当递归调用的层级太多时，就会超出栈的容量，从而导致调用栈溢出。</p>
+<h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h3><h4 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a>题目描述</h4><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。</p>
+<p>n&lt;=39</p>
+<h4 id="思路分析-7"><a href="#思路分析-7" class="headerlink" title="思路分析"></a>思路分析</h4><ul>
+<li>循环实现</li>
+<li>递归实现</li>
+</ul>
+<h4 id="代码实现-7"><a href="#代码实现-7" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//循环实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            temp = a + b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Fibonacci(n<span class="number">-1</span>) + Fibonacci(n<span class="number">-2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>除了斐波那契数列的编程实现，不少面试题还可以看成斐波那契数列的应用。比如青蛙跳台阶的数量问题。</p>
+<h3 id="青蛙跳台阶问题"><a href="#青蛙跳台阶问题" class="headerlink" title="青蛙跳台阶问题"></a>青蛙跳台阶问题</h3><h4 id="题目描述-8"><a href="#题目描述-8" class="headerlink" title="题目描述"></a>题目描述</h4><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</p>
+<h4 id="思路分析-8"><a href="#思路分析-8" class="headerlink" title="思路分析"></a>思路分析</h4><ul>
+<li>递归实现</li>
+<li>动态规划实现</li>
+</ul>
+<h4 id="代码实现-8"><a href="#代码实现-8" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloor</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (number &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (number == <span class="number">1</span> || number == <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> number;</span><br><span class="line">        <span class="keyword">return</span> jumpFloor(number<span class="number">-1</span>) + jumpFloor(number<span class="number">-2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//DP</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloor</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (number == <span class="number">1</span> || number == <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> number;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp;</span><br><span class="line">        dp.push_back(<span class="number">1</span>);</span><br><span class="line">        dp.push_back(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; number; i++)</span><br><span class="line">            dp.push_back(dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">return</span> dp[number<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>扩展：如果一只青蛙可以跳1级台阶，也可以跳两级台阶，……它也可以跳上n级台阶。此时该青蛙跳上一个n级的台阶有多少种跳法？</p>
+<p>我们用数学归纳法可以证明：f(n)=2^(n-1)。</p>
+<h3 id="变态跳台阶"><a href="#变态跳台阶" class="headerlink" title="变态跳台阶"></a>变态跳台阶</h3><h4 id="题目描述-9"><a href="#题目描述-9" class="headerlink" title="题目描述"></a>题目描述</h4><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<h4 id="代码实现-9"><a href="#代码实现-9" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jumpFloorII</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//return pow(2, number-1);</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>&lt;&lt;(number<span class="number">-1</span>); <span class="comment">//右移操作速度更快</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="矩形覆盖"><a href="#矩形覆盖" class="headerlink" title="矩形覆盖"></a>矩形覆盖</h3><h4 id="题目描述-10"><a href="#题目描述-10" class="headerlink" title="题目描述"></a>题目描述</h4><p>我们可以用2×1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2×1的小矩形无重叠地覆盖一个2×n的大矩形，总共有多少种方法？</p>
+<h4 id="思路分析-9"><a href="#思路分析-9" class="headerlink" title="思路分析"></a>思路分析</h4><p>我们先把2×n的覆盖方法记为f(n)。用第一个车2×1的小矩形去覆盖大矩形的最左边时有两种选择：竖着放和横着放。当竖着放的时候，右边剩下2×(n-1)的区域，这种情形下的覆盖方法记为f(n-1)。接下来考虑横着放的情形，当2×1的小矩形放在左上角的时候，右下角必须和横着放一个2×1的小矩形，右边剩下2×(n-2)的区域，这种情形下的覆盖方法记为f(n-2)。因此f(n)=f(n-1)+f(n-2)。</p>
+<h4 id="代码实现-10"><a href="#代码实现-10" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rectCover</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (number == <span class="number">1</span> || number == <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> number;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp;</span><br><span class="line">        dp.push_back(<span class="number">1</span>);</span><br><span class="line">        dp.push_back(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; number; i++)</span><br><span class="line">            dp.push_back(dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]);</span><br><span class="line">        <span class="keyword">return</span> dp[number<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="查找和排序"><a href="#查找和排序" class="headerlink" title="查找和排序"></a>查找和排序</h2><p>查找相对而言简单，不外乎顺序查找、二分查找、哈希表查找和二叉排序树 查找。在面试的时候，不管是用递归和循环，面试官都期待应聘者信手拈来写出完整正确的二分查找。</p>
+<p><strong>提示：</strong>如果面试题中要求在排序的数组（或者部分排序的数组）中查找一个数字或者统计某个数字出现的次数，那么我们都可以尝试用二分查找算法。</p>
+<p>哈希表和二叉排序树查找的重点在于考察对应的数据结构而不是算法。哈希表最主要的优点是我们利用它能够在O(1)时间内找到某一元素，是效率最高的查找方式；当其缺点就是需要额外的空间来实现哈希表。与二叉排序树查找算法对应的数据结构是二叉搜索树。</p>
+<p>排序要比查找更复杂一下。需要掌握的比较插入排序、冒泡排序、归并排序、快速排序等不同算法的优劣。一定要对各种排序算法的特定烂熟于胸，能够从存储空间、平均时间复杂度和最差时间复杂度等方法去比较它们的优缺点。需要特别强调的是，很多公司的面试需要应聘者写出快速排序的代码。</p>
+<p>实现快速排序算法的关键点在于先在数组中选择一个数字，接下来吧数组中的数字分为两部分，比选择的数字小的数字移动到数组的左边，比选择的数字大的数字移动到数组的右边。函数Partition实现如下。接下来可以用递归的思想分别对每次选中的数字的左右两边进行排序。QuickSort函数就是递归实现<strong>快速排序</strong>的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pch.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">RandomInRange</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> rand() % (end - start) + start;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> length, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (data == <span class="literal">nullptr</span> || length &lt;= <span class="number">0</span> || start &lt; <span class="number">0</span> || end &gt;= length)</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">std</span>::exception(<span class="string">"Invalid Parameters"</span>);</span><br><span class="line">	<span class="keyword">int</span> index = RandomInRange(start, end);</span><br><span class="line">	swap(data[index], data[end]);</span><br><span class="line">	<span class="keyword">int</span> small = start - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (index = start; index &lt; end; ++index) &#123;</span><br><span class="line">		<span class="keyword">if</span> (data[index] &lt; data[end]) &#123;</span><br><span class="line">			++small;</span><br><span class="line">			<span class="keyword">if</span> (small != index)</span><br><span class="line">				swap(data[index], data[small]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	++small;</span><br><span class="line">	swap(data[small], data[end]);</span><br><span class="line">	<span class="keyword">return</span> small;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> length, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (start == end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> index = Partition(data, length, start, end);</span><br><span class="line">	<span class="keyword">if</span> (index &gt; start) </span><br><span class="line">		QuickSort(data, length, start, index - <span class="number">1</span>);	</span><br><span class="line">	<span class="keyword">if</span> (index &lt; end)</span><br><span class="line">		QuickSort(data,length, index + <span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> length = <span class="number">6</span>;</span><br><span class="line">	<span class="keyword">int</span> data[length] = &#123; <span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">10</span>,<span class="number">4</span> &#125;;</span><br><span class="line">	QuickSort(data, length, <span class="number">0</span>, length<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; data[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数RandomInRange用来生成一个在start和end之间的随机数，函数swap是用来交换两个数字。</p>
+<p>不同的排序算法适用的场合也不尽相同。快速排序虽然总体的平均效率最好的，但也不是任何实话都是最优的算法。比如数组本身已经排好序，而每一轮的时候都以最后一个数字作为比较的标准，此时快速排序的效率只有$O(n^2)$。</p>
+<h3 id="旋转数组的最小数字"><a href="#旋转数组的最小数字" class="headerlink" title="旋转数组的最小数字"></a>旋转数组的最小数字</h3><h4 id="题目描述-11"><a href="#题目描述-11" class="headerlink" title="题目描述"></a>题目描述</h4><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<h4 id="思路分析-10"><a href="#思路分析-10" class="headerlink" title="思路分析"></a>思路分析</h4><p>二分查找法。按照题目中旋转的规则，第一个元素大于或者等于最后一个元素。接着找到数组中间的元素，如果该中间元素位于前面的递增子数组，那么它应该大于或者等于第一个指针指向的元素。此时数组中最小的元素应该位于该中间元素的后面。我们可以把第一个指针指向该中间元素，这样可以缩小范围。移动之后的第一个指针仍然位于前面的递增子数组。</p>
+<p>同样，如果中间元素位于后面的递增子数组，那么它应该小于或者等于第二个指针指向的元素。此时该数组中最小的元素应该位于该中间元素的前面。我们可以把第二个指针指向该中间元素，这样也可以缩小寻找的范围。</p>
+<h4 id="代码实现-11"><a href="#代码实现-11" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rotateArray)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rotateArray.size() &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = rotateArray.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(rotateArray[start] &gt;= rotateArray[end])&#123;</span><br><span class="line">            <span class="keyword">if</span> (end - start == <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> rotateArray[end];</span><br><span class="line">            <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (rotateArray[mid] &gt;= rotateArray[start])</span><br><span class="line">                start = mid;</span><br><span class="line">            <span class="keyword">if</span> (rotateArray[mid] &lt;= rotateArray[end])</span><br><span class="line">                end = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rotateArray[<span class="number">0</span>];<span class="comment">//处理将前面的0个元素搬到后面的情形</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>还有一种特殊情况需要讨论，比如数组为{0,1,1,1,1}，这样{1,0,1,1,1}和{1,1,1,0,1}都是数组的旋转数组。那么这两种情况下中间元素和最前面和最后面元素都相等，此时无法判断是将第一个指针还是最后一个指针移动的中间元素。此时就需要采用顺序查找来实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rotateArray)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rotateArray.size() &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = rotateArray.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(rotateArray[start] &gt;= rotateArray[end])&#123;</span><br><span class="line">            <span class="keyword">if</span> (end - start == <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> rotateArray[end];</span><br><span class="line">            <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (rotateArray[mid] == rotateArray[start] &amp;&amp; rotateArray[mid] == rotateArray[end])</span><br><span class="line">                <span class="keyword">return</span> MinInOrder(rotateArray, start, end);</span><br><span class="line">            <span class="keyword">if</span> (rotateArray[mid] &gt;= rotateArray[start])</span><br><span class="line">                start = mid;</span><br><span class="line">            <span class="keyword">if</span> (rotateArray[mid] &lt;= rotateArray[end])</span><br><span class="line">                end = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rotateArray[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//顺序查找</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">MinInOrder</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rotateArray, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = rotateArray[start];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++)</span><br><span class="line">            <span class="keyword">if</span> (result &gt; rotateArray[i])&#123;</span><br><span class="line">                result = rotateArray[i];</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h2><p>回溯法可以看成蛮力方法的升级版，它从解决问题每一步的所有可能选项里系统地选择出一个可行的解决方案。回溯法非常适合由多个步骤组成的问题，并且每个步骤都有多个选项。当我们在某一步选择了其中一个选项时，就进入下一步，然后又面临新的选项。就这样重复选择，直到到达最终的状态。</p>
+<p>用回溯法解决的问题的所有选项可以形象地用树状结构表示。</p>
+<p>如果在叶节点的状态不满足约束条件，那么只好回溯到它的上一个节点再尝试其他的选项。如果上一个节点所有可能的选项都已经试过，并且不能满足约束条件的终结状态，则再次回溯到上一个节点。</p>
+<h3 id="矩阵中的路径"><a href="#矩阵中的路径" class="headerlink" title="矩阵中的路径"></a>矩阵中的路径</h3><h4 id="题目描述-12"><a href="#题目描述-12" class="headerlink" title="题目描述"></a>题目描述</h4><p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 a b c e s f c s a d e e 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</p>
+<h4 id="思路分析-11"><a href="#思路分析-11" class="headerlink" title="思路分析"></a>思路分析</h4><p>​        第i个位置。如果路径上的第i个字符正好是ch，那么往相邻的格子寻找路径上的第i+1个字符。除在矩阵边界上的格子之外，其他格子都有4个相邻的格子。<br>重复这个过程直到路径上的所有字符都在矩阵中找到相应的位置。<br>　　由于回朔法的递归特性，路径可以被开成一个栈。当在矩阵中定位了路径中前n个字符的位置之后，在与第n个字符对应的格子的周围都没有找到第n+1个字符，这个时候只要在路径上回到第n-1个字符，重新定位第n个字符。<br>　　由于路径不能重复进入矩阵的格子，还需要定义和字符矩阵大小一样的布尔值矩阵，用来标识路径是否已经进入每个格子。 当矩阵中坐标为（row,col）的格子和路径字符串中相应的字符一样时，从4个相邻的格子(row,col-1),(row-1,col),(row,col+1)以及(row+1,col)中去定位路径字符串中下一个字符如果4个相邻的格子都没有匹配字符串中下一个的字符，表明当前路径字符串中字符在矩阵中的定位不正确，我们需要回到前一个，然后重新定位。<br>　　一直重复这个过程，直到路径字符串上所有字符都在矩阵中找到合适的位置</p>
+<h4 id="代码实现-12"><a href="#代码实现-12" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">hasPath</span><span class="params">(<span class="keyword">char</span>* matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">char</span>* str)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (matrix == <span class="literal">nullptr</span> || rows &lt; <span class="number">1</span> || cols &lt; <span class="number">1</span> || str == <span class="literal">nullptr</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">bool</span> * isOk = <span class="keyword">new</span> <span class="keyword">bool</span>[rows*cols]();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (isHasPath(matrix, rows, cols, str, isOk, i, j)) &#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isHasPath</span><span class="params">(<span class="keyword">char</span> * matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">char</span> * str, <span class="keyword">bool</span> * isOk, <span class="keyword">int</span> curx, <span class="keyword">int</span> cury)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (*str == <span class="string">'\0'</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span> (curx &lt; <span class="number">0</span> || curx &gt;= rows || cury &lt; <span class="number">0</span> || cury &gt;= cols)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span> (isOk[curx * cols + cury] || *str != matrix[curx * cols + cury]) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		isOk[curx * cols + cury] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">bool</span> sign = isHasPath(matrix, rows, cols, str + <span class="number">1</span>, isOk, curx - <span class="number">1</span>, cury)</span><br><span class="line">			|| isHasPath(matrix, rows, cols, str + <span class="number">1</span>, isOk, curx + <span class="number">1</span>, cury)</span><br><span class="line">			|| isHasPath(matrix, rows, cols, str + <span class="number">1</span>, isOk, curx, cury - <span class="number">1</span>)</span><br><span class="line">			|| isHasPath(matrix, rows, cols, str + <span class="number">1</span>, isOk, curx, cury + <span class="number">1</span>);</span><br><span class="line">		isOk[curx*cols + cury] = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">return</span> sign;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="机器人的运动范围"><a href="#机器人的运动范围" class="headerlink" title="机器人的运动范围"></a>机器人的运动范围</h3><h4 id="题目描述-13"><a href="#题目描述-13" class="headerlink" title="题目描述"></a>题目描述</h4><p>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？</p>
+<h4 id="思路分析-12"><a href="#思路分析-12" class="headerlink" title="思路分析"></a>思路分析</h4><p>类似矩阵中的路径问题。</p>
+<h4 id="代码实现-13"><a href="#代码实现-13" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (threshold &lt; <span class="number">0</span> || rows &lt;= <span class="number">0</span> || cols &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">bool</span> * isOk = <span class="keyword">new</span> <span class="keyword">bool</span>[rows * cols]();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        movingCount(threshold, rows, cols, <span class="number">0</span>, <span class="number">0</span>, count, isOk);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> &amp; count, <span class="keyword">bool</span> * isOk)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        sum += sumij(i);</span><br><span class="line">        sum += sumij(j);</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= rows || j &gt;= cols)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(sum &gt; threshold || isOk[i * cols + j])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        count += <span class="number">1</span>;</span><br><span class="line">        isOk[i*cols + j] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">bool</span> sign = movingCount(threshold, rows, cols, i+<span class="number">1</span>, j, count, isOk) || </span><br><span class="line">            movingCount(threshold, rows, cols, i, j+<span class="number">1</span>, count, isOk); </span><br><span class="line">        <span class="keyword">return</span> sign;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumij</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i)&#123;</span><br><span class="line">            sum += i % <span class="number">10</span>;</span><br><span class="line">            i = i/<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="动态规划与贪婪算法"><a href="#动态规划与贪婪算法" class="headerlink" title="动态规划与贪婪算法"></a>动态规划与贪婪算法</h2><p>动态规划现在是编程面试题中的热门问题。如果面试题是求一个问题的最优解（通常是求最大值或最小值），而且该问题能够分解成若干子问题，并且子问题之间还有重叠的更小的子问题，就可以考虑用动态规划来解决这个问题。</p>
+<p>在引用动态规划之前，要分析能否把大问题分解成小问题，分解后的每个小问题也存在最优解。</p>
+<h3 id="剪绳子"><a href="#剪绳子" class="headerlink" title="剪绳子"></a>剪绳子</h3><h4 id="题目描述-14"><a href="#题目描述-14" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一根长度为n绳子，请把绳子剪成m段（m、n都是整数，n&gt;1并且m≥1）。每段的绳子的长度记为k[0]，k[1]，…，k[m]。k[0]×k[1]×……×k[m]可能的最大乘积是多少？例如当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到最大的乘积18。</p>
+<h4 id="思路分析-13"><a href="#思路分析-13" class="headerlink" title="思路分析"></a>思路分析</h4><p>对于长度为n的绳子，设f(n)为最优剪法。则f(n)=max(f(i)×f(n-i))。</p>
+<h4 id="代码实现-14"><a href="#代码实现-14" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求剪完绳子之后的最大乘积</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxProductAfterCutting_Solution</span><span class="params">(<span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//定义当绳长小于2时，最大的乘积</span></span><br><span class="line">	<span class="keyword">if</span> (length &lt; <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//当绳长等于2时，最大的乘积</span></span><br><span class="line">	<span class="keyword">if</span> (length == <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//当绳长等于3时，最大的乘积</span></span><br><span class="line">	<span class="keyword">if</span> (length == <span class="number">3</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*********下面考虑的是，剩下绳长的最大乘积***********/</span></span><br><span class="line">	<span class="comment">//当剩下的绳长分别是0/1/2的时候，最大乘积就是本身的长度，不需要再去剪,因为一刀没有不剪的乘积大</span></span><br><span class="line">	<span class="keyword">int</span>* product = <span class="keyword">new</span> <span class="keyword">int</span>[length + <span class="number">1</span>];</span><br><span class="line">	product[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	product[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	product[<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">	product[<span class="number">3</span>] = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//绳长的最大乘积</span></span><br><span class="line">	<span class="keyword">int</span> Max_Value = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**********下面考虑的是当绳长大于等于4的时候，绳子的最大乘积***********/</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">4</span>; i &lt;= length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//每次将最大乘积清空</span></span><br><span class="line">		Max_Value = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//计算绳长为i时的最大乘积</span></span><br><span class="line">		<span class="comment">//因为要计算f(i)乘以f(i-j)的最大值，j超过一般是就重复</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i / <span class="number">2</span>; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> products = product[j] * product[i - j];</span><br><span class="line"></span><br><span class="line">			<span class="comment">//如果最大乘积比当前的最大值还要大</span></span><br><span class="line">			<span class="keyword">if</span> (Max_Value &lt; products)</span><br><span class="line">				<span class="comment">//将绳长为i的最大乘积记录下来</span></span><br><span class="line">				Max_Value = products;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//更新记录表中的最大乘积</span></span><br><span class="line">		product[i] = Max_Value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将绳长的最大的乘积记录下来</span></span><br><span class="line">	Max_Value = product[length];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//删除辅助空间</span></span><br><span class="line">	<span class="keyword">delete</span>[] product;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//返回绳长最大的乘积</span></span><br><span class="line">	<span class="keyword">return</span> Max_Value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另一种动态规划的方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">maxProductAfterCutting</span><span class="params">(<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">3</span>)</span><br><span class="line">		<span class="keyword">return</span> length - <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; dp;</span><br><span class="line">	dp.push_back(<span class="number">1</span>);</span><br><span class="line">	dp.push_back(<span class="number">2</span>);</span><br><span class="line">	dp.push_back(<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; length; i++) &#123;</span><br><span class="line">		dp.push_back(max(max(<span class="number">2</span> * dp[i - <span class="number">2</span>], dp[i - <span class="number">1</span>]), dp[i<span class="number">-3</span>] * <span class="number">3</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="贪婪算法"><a href="#贪婪算法" class="headerlink" title="贪婪算法"></a>贪婪算法</h3><h4 id="题目描述-15"><a href="#题目描述-15" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一根长度为n绳子，请把绳子剪成m段（m、n都是整数，n&gt;1并且m≥1）。每段的绳子的长度记为k[0]，k[1]，…，k[m]。k[0]×k[1]×……×k[m]可能的最大乘积是多少？例如当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到最大的乘积18。</p>
+<h4 id="思路分析-14"><a href="#思路分析-14" class="headerlink" title="思路分析"></a>思路分析</h4><p>如果我们按照如下的策略来剪绳子，则得到的各段绳子的长度的乘积将最大：当n≥5时，我们尽可能多地剪长度为3的绳子，当剩下的绳子长度为4时，把绳子剪成两段长度为2的绳子。</p>
+<h4 id="代码实现-15"><a href="#代码实现-15" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProductAfterCutting</span><span class="params">(<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">3</span>)</span><br><span class="line">		<span class="keyword">return</span> length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> timesOf3 = length / <span class="number">3</span>; <span class="comment">//长度为3的绳子段数</span></span><br><span class="line">	<span class="keyword">if</span> (length - timesOf3 * <span class="number">3</span> == <span class="number">1</span>) <span class="comment">//剩余的绳子长度为1，此时最优的剪法是2*2，因为2*2 &gt; 3 *1</span></span><br><span class="line">		timesOf3--;</span><br><span class="line">	<span class="keyword">int</span> timesOf2 = (length - timesOf3 * <span class="number">3</span>) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">return</span> (<span class="keyword">int</span>)(<span class="built_in">pow</span>(<span class="number">3</span>, timesOf3) * (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">2</span>, timesOf2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p>位运算把数字用二进制表示之后，对每一位上0或者1的运算。</p>
+<p>在微软产品excel中，用A表示第1列，B表示第2列，……，AA表示第27列，AB表示第28列……以此类推。请写出一个函数输入字母表示的列号编码，输出它是第几列。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">excelCloum</span><span class="params">(<span class="keyword">char</span> * str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> length = <span class="built_in">strlen</span>(str);</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(*str) &#123;</span><br><span class="line">		sum += (*str - <span class="string">'A'</span> + <span class="number">1</span>) * <span class="built_in">pow</span>(<span class="number">26</span>, length<span class="number">-1</span>);</span><br><span class="line">		length--;</span><br><span class="line">		str++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">与(&amp;)</th>
+<th style="text-align:center">0 &amp; 0 = 0</th>
+<th style="text-align:center">1 &amp; 0 = 0</th>
+<th style="text-align:center">0 &amp; 1 =  0</th>
+<th style="text-align:center">1 &amp; 1 = 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">或(\</td>
+<td style="text-align:center">)</td>
+<td style="text-align:center">0 \</td>
+<td style="text-align:center">0 = 0</td>
+<td style="text-align:center">1 \</td>
+<td>0 = 1</td>
+<td>0 \</td>
+<td>1 = 1</td>
+<td>1 \</td>
+<td>1 =1</td>
+</tr>
+<tr>
+<td style="text-align:center">异或(^)</td>
+<td style="text-align:center">0 ^ 0 = 0</td>
+<td style="text-align:center">1 ^ 0  =1</td>
+<td style="text-align:center">0 ^ 1 = 1</td>
+<td style="text-align:center">1 ^ 1 = 0</td>
+</tr>
+</tbody>
+</table>
+<p>左移运算符m&lt;&lt;n表示把m左移n位。在左移n位的适合，最左边的n位丢弃，同时在最右边补上0。</p>
+<p>右移运算符类似。</p>
+<p> <strong>负数的补码是在原码的基础上除符号位外其余位取反后+1</strong></p>
+<p>正数在计算机中源码表示。而负数在计算机中用补码的形式表示。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-5</span>的原码： <span class="number">1000</span> <span class="number">0101</span></span><br><span class="line">    反码： <span class="number">1111</span> <span class="number">1010</span></span><br><span class="line">    补码： <span class="number">1111</span> <span class="number">1011</span></span><br></pre></td></tr></table></figure>
+<h3 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h3><h4 id="题目描述-16"><a href="#题目描述-16" class="headerlink" title="题目描述"></a>题目描述</h4><p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
+<h4 id="思路分析-15"><a href="#思路分析-15" class="headerlink" title="思路分析"></a>思路分析</h4><p>第一种方法，是每次把整数n右移一位，每次判断最低位是否为1。这种方法对于负数会出现死循环，因为符数的最高位必须保证是1，所以每次右移一位后，还要将最高位设置为1来保证是一个负数，这样数字的所有位全部变成了1。</p>
+<p>第二种方法，不是移动整数n，而是将1每次左移一位，然后跟n与，这样来判断n的每一位是否为1。该方法，对于一个32位的整数需要循环32次。</p>
+<p>第三种方法，利用把一个整数减去1，再和原整数做与运算，会把该整数最右边的1变成0。那么一个整数的二进制表示中有多少个1，就可以进行多少次这样的操作。这样就在第二种方法的基础上提高了效率。</p>
+<h4 id="代码实现-16"><a href="#代码实现-16" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可能陷入死循环</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 该解法如果输入时负数会陷入死循环,因为负数右移时，在最高位补得是1</span></span><br><span class="line"><span class="comment">    * 而最终目的是求1的个数，那么会有无数个1了。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">int</span>  <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n)&#123;</span><br><span class="line">             <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">                 count++;</span><br><span class="line">             n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> count;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//正确解法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">int</span>  <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (flag)&#123;</span><br><span class="line">             <span class="keyword">if</span> (n &amp; flag)</span><br><span class="line">                 count++;</span><br><span class="line">             flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> count;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//最优解法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">int</span>  <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            ++count;</span><br><span class="line">            n = n &amp; (n<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/08/22/剑指offer之基础知识/" title="剑指offer-面试需要的基础知识">https://zxpgo.github.io/2019/08/22/剑指offer之基础知识/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/面试题目/" rel="tag"># 面试题目</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/06/内存管理(C++)/" rel="next" title="内存管理(C++)">
+                <i class="fa fa-chevron-left"></i> 内存管理(C++)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/01/堆和栈分析/" rel="prev" title="堆和栈分析">
+                堆和栈分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">145</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编程语言"><span class="nav-number">1.</span> <span class="nav-text">编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值运算符函数"><span class="nav-number">1.1.</span> <span class="nav-text">赋值运算符函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现单例模式"><span class="nav-number">1.2.</span> <span class="nav-text">实现单例模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">2.1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组中重复得数字"><span class="nav-number">2.1.1.</span> <span class="nav-text">数组中重复得数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的查找"><span class="nav-number">2.1.2.</span> <span class="nav-text">二维数组的查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#替换空格"><span class="nav-number">2.2.1.</span> <span class="nav-text">替换空格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-2"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-2"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-2"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">2.3.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从头到尾打印链表"><span class="nav-number">2.3.1.</span> <span class="nav-text">从头到尾打印链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-3"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-3"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-3"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">2.4.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重建二叉树"><span class="nav-number">2.4.1.</span> <span class="nav-text">重建二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-4"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-4"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-4"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的下一个节点"><span class="nav-number">2.4.2.</span> <span class="nav-text">二叉树的下一个节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-5"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-5"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-5"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈和队列"><span class="nav-number">2.5.</span> <span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用两个栈实现队列"><span class="nav-number">2.5.1.</span> <span class="nav-text">用两个栈实现队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-6"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-6"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-6"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用两个队列实现栈"><span class="nav-number">2.5.2.</span> <span class="nav-text">用两个队列实现栈</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法和数据操作"><span class="nav-number">3.</span> <span class="nav-text">算法和数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归和循环"><span class="nav-number">3.1.</span> <span class="nav-text">递归和循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">3.1.1.</span> <span class="nav-text">斐波那契数列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-7"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-7"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-7"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#青蛙跳台阶问题"><span class="nav-number">3.1.2.</span> <span class="nav-text">青蛙跳台阶问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-8"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-8"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-8"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变态跳台阶"><span class="nav-number">3.1.3.</span> <span class="nav-text">变态跳台阶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-9"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-9"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩形覆盖"><span class="nav-number">3.1.4.</span> <span class="nav-text">矩形覆盖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-10"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-9"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-10"><span class="nav-number">3.1.4.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找和排序"><span class="nav-number">3.2.</span> <span class="nav-text">查找和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#旋转数组的最小数字"><span class="nav-number">3.2.1.</span> <span class="nav-text">旋转数组的最小数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-11"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-10"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-11"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯法"><span class="nav-number">3.3.</span> <span class="nav-text">回溯法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵中的路径"><span class="nav-number">3.3.1.</span> <span class="nav-text">矩阵中的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-12"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-11"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-12"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器人的运动范围"><span class="nav-number">3.3.2.</span> <span class="nav-text">机器人的运动范围</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-13"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-12"><span class="nav-number">3.3.2.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-13"><span class="nav-number">3.3.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划与贪婪算法"><span class="nav-number">3.4.</span> <span class="nav-text">动态规划与贪婪算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#剪绳子"><span class="nav-number">3.4.1.</span> <span class="nav-text">剪绳子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-14"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-13"><span class="nav-number">3.4.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-14"><span class="nav-number">3.4.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪算法"><span class="nav-number">3.4.2.</span> <span class="nav-text">贪婪算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-15"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-14"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-15"><span class="nav-number">3.4.2.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number">3.5.</span> <span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制中1的个数"><span class="nav-number">3.5.1.</span> <span class="nav-text">二进制中1的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述-16"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析-15"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-16"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>
