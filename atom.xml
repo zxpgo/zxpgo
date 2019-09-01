@@ -39,28 +39,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://zxpgo.github.io/2019/09/01/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAK8S%E9%9B%86%E7%BE%A4%E6%95%99%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/09/01/使用kubeadm快速部署一个K8S集群教程/</id>
-    <published>2019-09-01T12:49:29.197Z</published>
-    <updated>2019-09-01T12:48:35.540Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>堆和栈分析</title>
     <link href="https://zxpgo.github.io/2019/09/01/%E5%A0%86%E5%92%8C%E6%A0%88%E5%88%86%E6%9E%90/"/>
     <id>https://zxpgo.github.io/2019/09/01/堆和栈分析/</id>
@@ -102,6 +80,69 @@
   </entry>
   
   <entry>
+    <title>使用kubeadm快速部署一个k8s集群</title>
+    <link href="https://zxpgo.github.io/2019/08/18/%E4%BD%BF%E7%94%A8kubeadm%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAK8S%E9%9B%86%E7%BE%A4%E6%95%99%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/08/18/使用kubeadm快速部署一个K8S集群教程/</id>
+    <published>2019-08-18T14:28:50.000Z</published>
+    <updated>2019-09-01T12:57:07.051Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;h4 id=&quot;作者：李振良&quot;&gt;&lt;a href=&quot;#作者：李振良&quot; class=&quot;headerlink&quot; title=&quot;作者：李振良&quot;&gt;&lt;/a&gt;作者：李振良&lt;/h4&gt;&lt;/blockquote&gt;
+&lt;p&gt;kubeadm是官方社区推出的一个用于快速部署kubernetes集群的工具。
+    
+    </summary>
+    
+    
+      <category term="k8s" scheme="https://zxpgo.github.io/tag/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k8s中jenkins的部署以及jenkins的配置和使用(C++)</title>
+    <link href="https://zxpgo.github.io/2019/08/06/k8s%E4%B8%ADjenkins%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
+    <id>https://zxpgo.github.io/2019/08/06/k8s中jenkins的部署/</id>
+    <published>2019-08-06T03:44:14.000Z</published>
+    <updated>2019-08-29T12:42:24.538Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转自： &lt;a href=&quot;https://www.kancloud.cn/huyipow/kubernetes/716441&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.kancloud.cn/huyipow/kubernetes/716441&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文将讨论和探索两个令人惊奇和相当有趣的技术。一个是Jenkins，一个流行的持续集成/发布的工具，另一个是Kubernetes，一个流行的容器编排引擎。
+    
+    </summary>
+    
+    
+      <category term="k8s" scheme="https://zxpgo.github.io/tag/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++面向对象高级编程</title>
+    <link href="https://zxpgo.github.io/2019/08/06/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/08/06/C++面向对象高级编程/</id>
+    <published>2019-08-06T03:44:14.000Z</published>
+    <updated>2019-09-01T12:58:42.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
+    
+  </entry>
+  
+  <entry>
     <title>内存管理(C++)</title>
     <link href="https://zxpgo.github.io/2019/08/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86(C++)/"/>
     <id>https://zxpgo.github.io/2019/08/06/内存管理(C++)/</id>
@@ -134,49 +175,6 @@
     
     
       <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++面向对象高级编程</title>
-    <link href="https://zxpgo.github.io/2019/08/06/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/08/06/C++面向对象高级编程/</id>
-    <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-09-01T12:48:32.447Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k8s中jenkins的部署以及jenkins的配置和使用(C++)</title>
-    <link href="https://zxpgo.github.io/2019/08/06/k8s%E4%B8%ADjenkins%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
-    <id>https://zxpgo.github.io/2019/08/06/k8s中jenkins的部署/</id>
-    <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-08-29T12:42:24.538Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;转自： &lt;a href=&quot;https://www.kancloud.cn/huyipow/kubernetes/716441&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.kancloud.cn/huyipow/kubernetes/716441&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本文将讨论和探索两个令人惊奇和相当有趣的技术。一个是Jenkins，一个流行的持续集成/发布的工具，另一个是Kubernetes，一个流行的容器编排引擎。
-    
-    </summary>
-    
-    
-      <category term="k8s" scheme="https://zxpgo.github.io/tag/k8s/"/>
     
   </entry>
   
