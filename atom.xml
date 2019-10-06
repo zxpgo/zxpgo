@@ -39,6 +39,78 @@
   </entry>
   
   <entry>
+    <title>剑指offer-解决面试题的思路</title>
+    <link href="https://zxpgo.github.io/2019/09/30/%E5%89%91%E6%8C%87offer%E4%B9%8B%E8%A7%A3%E5%86%B3%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
+    <id>https://zxpgo.github.io/2019/09/30/剑指offer之解决面试题的思路/</id>
+    <published>2019-09-30T05:28:50.000Z</published>
+    <updated>2019-10-02T01:59:12.948Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;剑指offer第四章的题目练习和重要知识点。
+    
+    </summary>
+    
+    
+      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本</title>
+    <link href="https://zxpgo.github.io/2019/09/27/shell%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/"/>
+    <id>https://zxpgo.github.io/2019/09/27/shell常用脚本/</id>
+    <published>2019-09-27T03:44:14.000Z</published>
+    <updated>2019-10-06T13:39:08.393Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一些经常用到的脚本，小工具。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="https://zxpgo.github.io/tag/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer-面试需要的基础知识</title>
+    <link href="https://zxpgo.github.io/2019/09/20/%E5%89%91%E6%8C%87offer%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/"/>
+    <id>https://zxpgo.github.io/2019/09/20/剑指offer之基础高质量代码/</id>
+    <published>2019-09-20T05:28:50.000Z</published>
+    <updated>2019-09-23T07:41:12.104Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;剑指offer第三章的题目练习和重要知识点。
+    
+    </summary>
+    
+    
+      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell基本语法</title>
+    <link href="https://zxpgo.github.io/2019/09/20/shell/"/>
+    <id>https://zxpgo.github.io/2019/09/20/shell/</id>
+    <published>2019-09-20T03:44:14.000Z</published>
+    <updated>2019-10-06T13:38:55.395Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;shell基本语法，包括变量，条件语句，分支，输入输出以及awk等等。
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="https://zxpgo.github.io/tag/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>堆和栈分析</title>
     <link href="https://zxpgo.github.io/2019/09/01/%E5%A0%86%E5%92%8C%E6%A0%88%E5%88%86%E6%9E%90/"/>
     <id>https://zxpgo.github.io/2019/09/01/堆和栈分析/</id>
@@ -100,6 +172,24 @@
   </entry>
   
   <entry>
+    <title>C++对象模型</title>
+    <link href="https://zxpgo.github.io/2019/08/06/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://zxpgo.github.io/2019/08/06/C++对象模型/</id>
+    <published>2019-08-06T03:44:14.000Z</published>
+    <updated>2019-09-01T12:48:27.494Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;泛型编程，深入探索面向对象之继承关系所形成的对象模型，包含this指针，虚指针，虚表，虚极至以及虚函数造成的多样效果
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
+    
+  </entry>
+  
+  <entry>
     <title>k8s中jenkins的部署以及jenkins的配置和使用(C++)</title>
     <link href="https://zxpgo.github.io/2019/08/06/k8s%E4%B8%ADjenkins%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>https://zxpgo.github.io/2019/08/06/k8s中jenkins的部署/</id>
@@ -119,33 +209,23 @@
   </entry>
   
   <entry>
-    <title>C++面向对象高级编程</title>
-    <link href="https://zxpgo.github.io/2019/08/06/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/08/06/C++面向对象高级编程/</id>
+    <title>以逗号为分隔符输入一个整型数组</title>
+    <link href="https://zxpgo.github.io/2019/08/06/%E4%BB%A5%E9%80%97%E5%8F%B7%E4%B8%BA%E5%88%86%E5%89%B2%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B4%E5%9E%8B%E6%95%B0%E7%BB%84/"/>
+    <id>https://zxpgo.github.io/2019/08/06/以逗号为分割输入一个整型数组/</id>
     <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-09-01T13:06:36.288Z</updated>
+    <updated>2019-09-20T02:15:58.884Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;介绍C++类之间的关系，以及C++类的一些重要知识点。
-    
-    </summary>
-    
-    
-      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++对象模型</title>
-    <link href="https://zxpgo.github.io/2019/08/06/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://zxpgo.github.io/2019/08/06/C++对象模型/</id>
-    <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-09-01T12:48:27.494Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;泛型编程，深入探索面向对象之继承关系所形成的对象模型，包含this指针，虚指针，虚表，虚极至以及虚函数造成的多样效果
+      &lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class=&quot;headerlink&quot; title=&quot;题目描述：&quot;&gt;&lt;/a&gt;题目描述：&lt;/h2&gt;&lt;p&gt;假如一个数组中存储股票在一天交易窗口各时间点的股票价格（正整数）。允许任意次数买入卖出，请提供一个算法，计算通过买卖可能导致的最大亏损。&lt;/p&gt;
+&lt;p&gt;输入描述：&lt;/p&gt;
+&lt;p&gt;​    股票价格序列，序列长度不超过100，请用逗号隔开。&lt;/p&gt;
+&lt;p&gt;输出描述：&lt;/p&gt;
+&lt;p&gt;​    最大的可能损失。&lt;/p&gt;
+&lt;p&gt;示例1：&lt;/p&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;,180,310,40,535,695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;270&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;示例2：&lt;/p&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;，180，0，310，40，535，695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;450&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;说明：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;180&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;买入，0卖出；310买入，40卖出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -164,6 +244,24 @@
     <summary type="html">
     
       &lt;p&gt;C++内存管理，万丈高楼平地起，源码之前，了无秘密！
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++面向对象高级编程</title>
+    <link href="https://zxpgo.github.io/2019/08/06/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zxpgo.github.io/2019/08/06/C++面向对象高级编程/</id>
+    <published>2019-08-06T03:44:14.000Z</published>
+    <updated>2019-09-01T13:06:36.288Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;介绍C++类之间的关系，以及C++类的一些重要知识点。
     
     </summary>
     
@@ -308,96 +406,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av39171692?from=search&amp;amp;seid=7663928812674265445&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;C++多线程编程视频课程学习&lt;/a&gt;笔记，适用于具有C++11基础的学者，开发环境VS2017。
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP和HTTPS</title>
-    <link href="https://zxpgo.github.io/2019/06/15/HTTP%E5%92%8CHTTPS/"/>
-    <id>https://zxpgo.github.io/2019/06/15/HTTP和HTTPS/</id>
-    <published>2019-06-15T05:44:14.000Z</published>
-    <updated>2019-06-20T14:36:33.143Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HTTP和HTTPS的原理介绍，以及两者区别！
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="https://zxpgo.github.io/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试常考问题</title>
-    <link href="https://zxpgo.github.io/2019/06/14/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%80%83%E9%A2%98/"/>
-    <id>https://zxpgo.github.io/2019/06/14/面试常考题/</id>
-    <published>2019-06-14T05:44:14.000Z</published>
-    <updated>2019-06-20T14:39:49.073Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结最近几次面试中经常被问到的题目！
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux内核分析</title>
-    <link href="https://zxpgo.github.io/2019/06/11/Linux%E5%86%85%E6%A0%B8%E9%98%85%E8%AF%BB%E9%97%AE%E9%A2%98/"/>
-    <id>https://zxpgo.github.io/2019/06/11/Linux内核阅读问题/</id>
-    <published>2019-06-11T05:44:14.000Z</published>
-    <updated>2019-06-20T14:39:10.453Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux内核介绍，以及内核中C语言的特点！
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://zxpgo.github.io/tag/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>标准模板库STL</title>
-    <link href="https://zxpgo.github.io/2019/05/20/STL%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://zxpgo.github.io/2019/05/20/STL学习/</id>
-    <published>2019-05-20T14:28:50.000Z</published>
-    <updated>2019-06-20T14:37:46.064Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;标准模板库介绍，包括六个部件的分析。所有内容学习自侯捷老师STL模板库介绍学习教程！
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大公约数和最小公倍数求法</title>
-    <link href="https://zxpgo.github.io/2019/05/05/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E6%B1%82%E6%B3%95/"/>
-    <id>https://zxpgo.github.io/2019/05/05/最大公约数和最小公倍数求法/</id>
-    <published>2019-05-05T05:44:14.000Z</published>
-    <updated>2019-05-26T11:20:59.847Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最大公约数可以通过辗转相除法求出，而最小公倍数可以通过最大公约数求出。
     
     </summary>
     
