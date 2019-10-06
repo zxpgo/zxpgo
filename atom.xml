@@ -39,6 +39,25 @@
   </entry>
   
   <entry>
+    <title>22装良心Windows软件装机必备</title>
+    <link href="https://zxpgo.github.io/2019/10/06/22%E6%AC%BEwindows%E8%BD%AF%E4%BB%B6%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/"/>
+    <id>https://zxpgo.github.io/2019/10/06/22款windows软件装机必备/</id>
+    <published>2019-10-06T03:44:14.000Z</published>
+    <updated>2019-10-06T14:51:33.713Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;22款良心windows软件装机必备，转自：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av64061368&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;登二爷&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="https://zxpgo.github.io/tag/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指offer-解决面试题的思路</title>
     <link href="https://zxpgo.github.io/2019/09/30/%E5%89%91%E6%8C%87offer%E4%B9%8B%E8%A7%A3%E5%86%B3%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E6%80%9D%E8%B7%AF/"/>
     <id>https://zxpgo.github.io/2019/09/30/剑指offer之解决面试题的思路/</id>
@@ -172,24 +191,6 @@
   </entry>
   
   <entry>
-    <title>C++对象模型</title>
-    <link href="https://zxpgo.github.io/2019/08/06/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://zxpgo.github.io/2019/08/06/C++对象模型/</id>
-    <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-09-01T12:48:27.494Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;泛型编程，深入探索面向对象之继承关系所形成的对象模型，包含this指针，虚指针，虚表，虚极至以及虚函数造成的多样效果
-    
-    </summary>
-    
-    
-      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
-    
-  </entry>
-  
-  <entry>
     <title>k8s中jenkins的部署以及jenkins的配置和使用(C++)</title>
     <link href="https://zxpgo.github.io/2019/08/06/k8s%E4%B8%ADjenkins%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>https://zxpgo.github.io/2019/08/06/k8s中jenkins的部署/</id>
@@ -209,23 +210,15 @@
   </entry>
   
   <entry>
-    <title>以逗号为分隔符输入一个整型数组</title>
-    <link href="https://zxpgo.github.io/2019/08/06/%E4%BB%A5%E9%80%97%E5%8F%B7%E4%B8%BA%E5%88%86%E5%89%B2%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B4%E5%9E%8B%E6%95%B0%E7%BB%84/"/>
-    <id>https://zxpgo.github.io/2019/08/06/以逗号为分割输入一个整型数组/</id>
+    <title>C++对象模型</title>
+    <link href="https://zxpgo.github.io/2019/08/06/C++%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://zxpgo.github.io/2019/08/06/C++对象模型/</id>
     <published>2019-08-06T03:44:14.000Z</published>
-    <updated>2019-09-20T02:15:58.884Z</updated>
+    <updated>2019-09-01T12:48:27.494Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class=&quot;headerlink&quot; title=&quot;题目描述：&quot;&gt;&lt;/a&gt;题目描述：&lt;/h2&gt;&lt;p&gt;假如一个数组中存储股票在一天交易窗口各时间点的股票价格（正整数）。允许任意次数买入卖出，请提供一个算法，计算通过买卖可能导致的最大亏损。&lt;/p&gt;
-&lt;p&gt;输入描述：&lt;/p&gt;
-&lt;p&gt;​    股票价格序列，序列长度不超过100，请用逗号隔开。&lt;/p&gt;
-&lt;p&gt;输出描述：&lt;/p&gt;
-&lt;p&gt;​    最大的可能损失。&lt;/p&gt;
-&lt;p&gt;示例1：&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;,180,310,40,535,695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;270&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;示例2：&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;，180，0，310，40，535，695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;450&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;说明：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;180&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;买入，0卖出；310买入，40卖出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;泛型编程，深入探索面向对象之继承关系所形成的对象模型，包含this指针，虚指针，虚表，虚极至以及虚函数造成的多样效果
     
     </summary>
     
@@ -262,6 +255,32 @@
     <summary type="html">
     
       &lt;p&gt;介绍C++类之间的关系，以及C++类的一些重要知识点。
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="https://zxpgo.github.io/tag/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以逗号为分隔符输入一个整型数组</title>
+    <link href="https://zxpgo.github.io/2019/08/06/%E4%BB%A5%E9%80%97%E5%8F%B7%E4%B8%BA%E5%88%86%E5%89%B2%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B4%E5%9E%8B%E6%95%B0%E7%BB%84/"/>
+    <id>https://zxpgo.github.io/2019/08/06/以逗号为分割输入一个整型数组/</id>
+    <published>2019-08-06T03:44:14.000Z</published>
+    <updated>2019-09-20T02:15:58.884Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class=&quot;headerlink&quot; title=&quot;题目描述：&quot;&gt;&lt;/a&gt;题目描述：&lt;/h2&gt;&lt;p&gt;假如一个数组中存储股票在一天交易窗口各时间点的股票价格（正整数）。允许任意次数买入卖出，请提供一个算法，计算通过买卖可能导致的最大亏损。&lt;/p&gt;
+&lt;p&gt;输入描述：&lt;/p&gt;
+&lt;p&gt;​    股票价格序列，序列长度不超过100，请用逗号隔开。&lt;/p&gt;
+&lt;p&gt;输出描述：&lt;/p&gt;
+&lt;p&gt;​    最大的可能损失。&lt;/p&gt;
+&lt;p&gt;示例1：&lt;/p&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;,180,310,40,535,695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;270&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;示例2：&lt;/p&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输入：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;，180，0，310，40，535，695&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;450&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;说明：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;180&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;买入，0卖出；310买入，40卖出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -353,24 +372,6 @@
   </entry>
   
   <entry>
-    <title>LeetCode算法题目C++</title>
-    <link href="https://zxpgo.github.io/2019/06/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AEC++/"/>
-    <id>https://zxpgo.github.io/2019/06/22/LeetCode算法题目C++/</id>
-    <published>2019-06-22T14:28:50.000Z</published>
-    <updated>2019-06-20T14:38:21.071Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;LeetCode刷起来！
-    
-    </summary>
-    
-    
-      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>滑动窗口解决子串问题(LeetCode)</title>
     <link href="https://zxpgo.github.io/2019/06/22/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
     <id>https://zxpgo.github.io/2019/06/22/滑动窗口/</id>
@@ -397,20 +398,20 @@
   </entry>
   
   <entry>
-    <title>C++11并发与多线程</title>
-    <link href="https://zxpgo.github.io/2019/06/17/C++%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>https://zxpgo.github.io/2019/06/17/C++并发与多线程/</id>
-    <published>2019-06-17T12:18:14.000Z</published>
-    <updated>2019-06-20T14:30:43.413Z</updated>
+    <title>LeetCode算法题目C++</title>
+    <link href="https://zxpgo.github.io/2019/06/22/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AEC++/"/>
+    <id>https://zxpgo.github.io/2019/06/22/LeetCode算法题目C++/</id>
+    <published>2019-06-22T14:28:50.000Z</published>
+    <updated>2019-06-20T14:38:21.071Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/av39171692?from=search&amp;amp;seid=7663928812674265445&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;C++多线程编程视频课程学习&lt;/a&gt;笔记，适用于具有C++11基础的学者，开发环境VS2017。
+      &lt;p&gt;LeetCode刷起来！
     
     </summary>
     
     
-      <category term="C++" scheme="https://zxpgo.github.io/tag/C/"/>
+      <category term="面试题目" scheme="https://zxpgo.github.io/tag/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
