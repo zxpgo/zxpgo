@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="论文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="平步青云win" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="云存储中数据的完整性审计方案论文阅读。坚持一天一篇Paper！！！">
+<meta name="keywords" content="论文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Public auditing for cloud storage">
+<meta property="og:url" content="https://zxpgo.github.io/2019/10/27/Public auditing for cloud storage/index.html">
+<meta property="og:site_name" content="平步青云win">
+<meta property="og:description" content="云存储中数据的完整性审计方案论文阅读。坚持一天一篇Paper！！！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/zxpgo/images/master/img/20191101105600.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zxpgo/images/master/img/20191111142223.png">
+<meta property="og:updated_time" content="2019-11-18T13:01:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Public auditing for cloud storage">
+<meta name="twitter:description" content="云存储中数据的完整性审计方案论文阅读。坚持一天一篇Paper！！！">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zxpgo/images/master/img/20191101105600.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'PAO8LM7QB1',
+      apiKey: '',
+      indexName: 'Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zxpgo.github.io/2019/10/27/Public auditing for cloud storage/"/>
+
+
+
+
+
+  <title>Public auditing for cloud storage | 平步青云win</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a4517a3ce6d7c50203655d056f01ac3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平步青云win</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-随笔">
+          <a href="/sui" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+			
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2019/10/27/Public auditing for cloud storage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zxp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平步青云win">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Public auditing for cloud storage</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-27T11:44:14+08:00">
+                2019-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/10/27/Public auditing for cloud storage/" class="leancloud_visitors" data-flag-title="Public auditing for cloud storage">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>云存储中数据的完整性审计方案论文阅读。坚持一天一篇Paper！！！<a id="more"></a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title=" 目录"></a> 目录</h2><p>[TOC]</p>
+<h2 id="Identity-based-public-auditing-for-cloud-storage-systems-against-malicious-auditors-via-blockchain"><a href="#Identity-based-public-auditing-for-cloud-storage-systems-against-malicious-auditors-via-blockchain" class="headerlink" title="Identity-based public auditing for cloud storage systems against malicious auditors via blockchain"></a>Identity-based public auditing for cloud storage systems against malicious auditors via blockchain</h2><p>文章链接： <a href="http://engine.scichina.com/publisher/scp/journal/SCIS/62/3/10.1007/s11432-018-9462-0?slug=fulltext" target="_blank" rel="noopener">http://engine.scichina.com/publisher/scp/journal/SCIS/62/3/10.1007/s11432-018-9462-0?slug=fulltext</a> (Science China Information Sciences, 2019)</p>
+<p>采用BlockChain来防止云服务器和TPA的共谋。</p>
+<p>论文中存在的问题：</p>
+<ul>
+<li>签名的部分，$T_i$没必要放在签名中，这样只会增加了通信开销，完全可以将$T_i$设成$T$当作用户的公钥。因为$T_i$与数据块无关。</li>
+</ul>
+<h2 id="Efficient-ID-based-public-auditing-for-the-outsourced-data-in-cloud-storage"><a href="#Efficient-ID-based-public-auditing-for-the-outsourced-data-in-cloud-storage" class="headerlink" title="Efficient ID-based public auditing for the outsourced data in cloud storage"></a>Efficient ID-based public auditing for the outsourced data in cloud storage</h2><p>文章链接： <a href="https://www.sciencedirect.com/science/article/pii/S0020025516000591" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S0020025516000591</a> (Information Sciences, 2016)</p>
+<p>提出了一种基于身份的完整性审计方案。</p>
+<p>缺点：</p>
+<ul>
+<li>没有解决密钥托管问题（key escrow）</li>
+<li>没有保证用户的数据隐私，TPA可以获取用户的数据</li>
+<li>最严重的问题是该方案是不安全的，论文 <a href="https://www.sciencedirect.com/science/article/pii/S0020025516309847" target="_blank" rel="noopener">Insecurity of an identity-based public auditing protocol for<br>the outsourced data in cloud storage </a>指出了该方案存在的两种攻击，但是没有给出解决方案。</li>
+</ul>
+<h2 id="Efficient-and-Secure-Identity-Based-Public-Auditing-for-Dynamic-Outsourced-Date-with-proxy"><a href="#Efficient-and-Secure-Identity-Based-Public-Auditing-for-Dynamic-Outsourced-Date-with-proxy" class="headerlink" title="Efficient and Secure Identity-Based Public Auditing for Dynamic Outsourced Date with proxy"></a>Efficient and Secure Identity-Based Public Auditing for Dynamic Outsourced Date with proxy</h2><p>文章链接：<a href="http://www.itiis.org/digital-library/manuscript/file/1828/TIIS+Vol+11,+No+10-19.pdf" target="_blank" rel="noopener">http://www.itiis.org/digital-library/manuscript/file/1828/TIIS+Vol+11,+No+10-19.pdf</a> (  KSII TRANSACTIONS ON INTERNET AND INFORMATION SYSTEMS, 2017)</p>
+<p>提出以一种基于代理的公开审计方法，将标签的生成委托给Proxy。</p>
+<ul>
+<li>TPA进行公开审计</li>
+<li>Proxy对用户的数据生成标签</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/zxpgo/images/master/img/20191101105600.png" alt=""></p>
+<p>个人理解：实用性不大，这样大大增加了数据的通信开销。而且标签的计算开销也不是特别大。</p>
+<h2 id="SeShare-Secure-cloud-data-sharing-based-on-blockchain-and-public-auditing"><a href="#SeShare-Secure-cloud-data-sharing-based-on-blockchain-and-public-auditing" class="headerlink" title="SeShare: Secure cloud data sharing based on blockchain and public auditing"></a>SeShare: Secure cloud data sharing based on blockchain and public auditing</h2><p>文章链接： <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/cpe.4359" target="_blank" rel="noopener">https://onlinelibrary.wiley.com/doi/pdf/10.1002/cpe.4359</a> (WILEY, 2017)</p>
+<p>创新点：</p>
+<ul>
+<li>采用区块链来防止多个用户同时更新文件时出错。</li>
+</ul>
+<p>通过区块链中下一个块的指针指向前一个文件，这样如果A、B两个用户同时更新文件，如果A先向云更新数据，这样最后的那个文件指针变了，如果B再来更新文件，因为他拥有的文件指针与当前区块链的文件指针不同，所以无法更新。</p>
+<p>问题：</p>
+<ul>
+<li>作者采用的公开审计方案无法提供隐私保护</li>
+<li>前提条件使用用户和云不能共谋，而且云必须是诚实的，该方案中云也可以计算数据的标签（极其危险）。</li>
+</ul>
+<h2 id="Efficient-Privacy-Preserving-Certificateless-Provable-Data-Possession-Scheme-for-Cloud-Storage"><a href="#Efficient-Privacy-Preserving-Certificateless-Provable-Data-Possession-Scheme-for-Cloud-Storage" class="headerlink" title="Efficient Privacy-Preserving Certificateless Provable Data Possession Scheme for Cloud Storage"></a>Efficient Privacy-Preserving Certificateless Provable Data Possession Scheme for Cloud Storage</h2><p>文章连接： <a href="https://ieeexplore.ieee.org/document/8821311" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8821311</a> (IEEE Access, 2019)</p>
+<p>存在问题：</p>
+<ul>
+<li>无法防止服务器的篡改攻击和伪造攻击</li>
+</ul>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0020025516309847" target="_blank" rel="noopener">Insecurity of an identity-based public auditing protocol for the outsourced data in cloud storage</a>这篇文章的两种攻击方法都可以对该文章中的方案进行攻击。</p>
+<p>创新点：</p>
+<ul>
+<li>提供了隐私保护</li>
+<li>避免了证书管理</li>
+</ul>
+<h2 id="CIPPPA-Conditional-Identity-Privacy-Preserving-Public-Auditing-for-Cloud-Based-WBANs-against-Malicious-Auditors"><a href="#CIPPPA-Conditional-Identity-Privacy-Preserving-Public-Auditing-for-Cloud-Based-WBANs-against-Malicious-Auditors" class="headerlink" title="CIPPPA: Conditional Identity Privacy-Preserving Public Auditing for Cloud-Based WBANs against Malicious Auditors"></a>CIPPPA: Conditional Identity Privacy-Preserving Public Auditing for Cloud-Based WBANs against Malicious Auditors</h2><p>文章链接： <a href="https://ieeexplore.ieee.org/document/8758993" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8758993</a> （ IEEE Transactions on Cloud Computing( Early Access )， 2019 ）</p>
+<p>该论文中的方案针对医院中病人信息存储的场景。将病人信息存储在云端，需要保证数据的隐私以及数据拥有者的隐私，同时还需要可追踪。</p>
+<p>创新：</p>
+<ul>
+<li>对用户的身份进行匿名</li>
+<li>PKG可以追踪和撤回有不良行为的病人的真实身份</li>
+<li>采用以太坊区块链技术来防止TPA共谋，即欺骗用户</li>
+</ul>
+<p>身份匿名和可追踪部分可学习。</p>
+<h2 id="Enabling-Identity-Based-Integrity-Auditing-and-Data-Sharing-With-Sensitive-Information-Hiding-for-Secure-Cloud-Storage"><a href="#Enabling-Identity-Based-Integrity-Auditing-and-Data-Sharing-With-Sensitive-Information-Hiding-for-Secure-Cloud-Storage" class="headerlink" title="Enabling Identity-Based Integrity Auditing and Data Sharing With Sensitive Information Hiding for Secure Cloud Storage"></a>Enabling Identity-Based Integrity Auditing and Data Sharing With Sensitive Information Hiding for Secure Cloud Storage</h2><p>文章链接： <a href="https://ieeexplore.ieee.org/document/8395433" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8395433</a>  (IEEE Transactions on Information Forensics and Security, 2019)</p>
+<p>文章提出了一个针对医院病人信息保护的云存储公开审计方案，主要是保护病人的隐私，以及医院的隐私。</p>
+<p>系统模型：</p>
+<p><img src="https://raw.githubusercontent.com/zxpgo/images/master/img/20191111142223.png" alt=""></p>
+<p>为了保证病人的隐私，User上传给Sanitizer的数据中，对病人个人信息部分进行盲化，而Sanitizer的主要作用是对医院信息进行盲化，将病人的个人信息部分用通配符替换，以及将标签转换成正确的标签。</p>
+<p>创新点：</p>
+<ul>
+<li>提出了一个保证病人个人信息以及医院信息隐私的公开审计方法</li>
+</ul>
+<h2 id="An-Efficient-Public-Auditing-Protocol-With-Novel-Dynamic-Structure-for-Cloud-Data"><a href="#An-Efficient-Public-Auditing-Protocol-With-Novel-Dynamic-Structure-for-Cloud-Data" class="headerlink" title="An Efficient Public Auditing Protocol With Novel Dynamic Structure for Cloud Data"></a>An Efficient Public Auditing Protocol With Novel Dynamic Structure for Cloud Data</h2><p>文章链接： <a href="https://ieeexplore.ieee.org/document/7931714" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/7931714</a> ( IEEE Transactions on Information Forensics and Security ( Volume: 12 , <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7956594" target="_blank" rel="noopener">Issue: 10</a> , Oct. 2017 ) )</p>
+<p>创新点：</p>
+<ul>
+<li>设计了一个双向链信息表和数据块位置矩阵，来进行快速搜索</li>
+<li>全局审计和抽象审计：全局审计可以防止用户和TPA共谋，即TPA审计用户的所有数据并告知结果给云，个人觉得无法实现防止共谋，因为证据还是需要TPA审计，TPA可以伪造结果告诉云。</li>
+<li>支持动态操作</li>
+<li>支持批量审计：多用户和多文件</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>没有考虑隐私保护问题</li>
+</ul>
+<h2 id="Oruta-privacy-preserving-public-auditing-for-shared-data-in-the-cloud"><a href="#Oruta-privacy-preserving-public-auditing-for-shared-data-in-the-cloud" class="headerlink" title="Oruta: privacy-preserving public auditing for shared data in the cloud"></a>Oruta: privacy-preserving public auditing for shared data in the cloud</h2><p>文章链接： <a href="http://ieeexplore.ieee.org/document/6710128/" target="_blank" rel="noopener">http://ieeexplore.ieee.org/document/6710128/</a> (IEEE Transactions on Cloud Computing,  ( Volume: 2 , <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6804708" target="_blank" rel="noopener">Issue: 1</a> , Jan.-March 2014 ) )</p>
+<p>文章实现了群组数据的公开审计方案，可以保护数据隐私，和用户隐私。</p>
+<ul>
+<li>采用一个环签名，可以很好的实现群组公开审计，每个用户上传的数据，TPA都可以审计，而且无需直到数据上传的用户</li>
+<li>提供数据隐私保护，TPA无法获取数据隐私</li>
+<li>支持执行多审计任务</li>
+</ul>
+<h2 id="Public-Integrity-Auditing-for-Dynamic-Data-Sharing-With-Multiuser-Modification"><a href="#Public-Integrity-Auditing-for-Dynamic-Data-Sharing-With-Multiuser-Modification" class="headerlink" title="Public Integrity Auditing for Dynamic Data Sharing With Multiuser Modification"></a>Public Integrity Auditing for Dynamic Data Sharing With Multiuser Modification</h2><p>文章链接： <a href="https://ieeexplore.ieee.org/document/7086294" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/7086294</a>  （ <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206" target="_blank" rel="noopener">IEEE Transactions on Information Forensics and Security</a> ( Volume: 10 , <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7127092" target="_blank" rel="noopener">Issue: 8</a> , Aug. 2015 ) ）</p>
+<p>文章提出了一种针对群组共享数据公开审计方案，支持群组用户修改数据，以及用户撤销。</p>
+<ul>
+<li>支持用户撤销，用户撤销后，主用户生成一个数据发送云更新数据标签</li>
+<li>采用(U,N)Shamir Secret Sharing 方案实现了高级的用户撤销，云中的U个节点生成一个标签的一个部分，然后聚合起来得到完整的标签</li>
+<li>支持多文件审计</li>
+</ul>
+<h2 id="Enabling-Efficient-User-Revocation-in-Identity-based-Cloud-Storage-Auditing-for-Shared-Big-Data"><a href="#Enabling-Efficient-User-Revocation-in-Identity-based-Cloud-Storage-Auditing-for-Shared-Big-Data" class="headerlink" title="Enabling Efficient User Revocation in Identity-based Cloud Storage Auditing for Shared Big Data"></a>Enabling Efficient User Revocation in Identity-based Cloud Storage Auditing for Shared Big Data</h2><p>文章链接： <a href="https://ieeexplore.ieee.org/document/8345742" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/8345742</a>  ( <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8858" target="_blank" rel="noopener">IEEE Transactions on Dependable and Secure Computing</a> ( Early Access ) )</p>
+<p>文章中提出了一种群组用户共享数据公开审计方案，支持用户撤销，而且撤销时不需要更新标签，而只要更新未撤销用户的标签。</p>
+<p>提出的方案基于身份，群组有一个群组密钥，所有未撤销用户可知。改群组密钥由两个密码一起生成，包括：由PKG生成的身份密钥和群组管理员生成的部分私钥，两者相加组成了群组私钥。两者生成的密钥，群组用户都是可以验证的，判断是否合法。</p>
+<p>对于用户撤销，需要群组管理员更新部分私钥，其中需要使用一个变量即群组中撤销用户的数量。</p>
+<h2 id="Efficient-auditing-for-shared-data-in-the-cloud-with-secure-user-revocation-and-computations-outsourcing"><a href="#Efficient-auditing-for-shared-data-in-the-cloud-with-secure-user-revocation-and-computations-outsourcing" class="headerlink" title="Efficient auditing for shared data in the cloud with secure user revocation and computations outsourcing"></a>Efficient auditing for shared data in the cloud with secure user revocation and computations outsourcing</h2><p>文章链接： <a href="https://www.sciencedirect.com/science/article/pii/S0167404817302663" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S0167404817302663</a> (<a href="https://www.sciencedirect.com/science/journal/01674048" target="_blank" rel="noopener">Computers &amp; Security</a></p>
+<p><a href="https://www.sciencedirect.com/science/journal/01674048/73/supp/C" target="_blank" rel="noopener">Volume 73</a>, March 2018, Pages 492-506)</p>
+<p>文章提出了一种共享数据公开审计方案，支持用户撤销。</p>
+<p>采用Shamire secret sharing，当用户撤销后，重签名。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="zxp wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WeChatpay.jpg" alt="zxp 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/Alipay.jpg" alt="zxp 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zxp
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxpgo.github.io/2019/10/27/Public auditing for cloud storage/" title="Public auditing for cloud storage">https://zxpgo.github.io/2019/10/27/Public auditing for cloud storage/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/论文/" rel="tag"># 论文</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/12/算法和数据结构/" rel="next" title="算法和数据结构">
+                <i class="fa fa-chevron-left"></i> 算法和数据结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/27/区块链/" rel="prev" title="区块链(BlockChain)">
+                区块链(BlockChain) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODgxNC8xNTM0Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="zxp" />
+            
+              <p class="site-author-name" itemprop="name">zxp</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">161</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_25774883" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zxpgo/zxpgo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>LinkedIn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1165772354@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://theme-next.iissnan.com" title="Next主题" target="_blank">Next主题</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.rexking6.top" title="青爷博客" target="_blank">青爷博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://me.csdn.net/download/qq_25774883" title="CSDN下载" target="_blank">CSDN下载</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.livere.com/" title="来必力" target="_blank">来必力</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tongji.baidu.com/web/welcome/login" title="百度统计" target="_blank">百度统计</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leancloud.cn/" title="LeanCloud" target="_blank">LeanCloud</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子" target="_blank">不蒜子</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text"> 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Identity-based-public-auditing-for-cloud-storage-systems-against-malicious-auditors-via-blockchain"><span class="nav-number">2.</span> <span class="nav-text">Identity-based public auditing for cloud storage systems against malicious auditors via blockchain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-ID-based-public-auditing-for-the-outsourced-data-in-cloud-storage"><span class="nav-number">3.</span> <span class="nav-text">Efficient ID-based public auditing for the outsourced data in cloud storage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-and-Secure-Identity-Based-Public-Auditing-for-Dynamic-Outsourced-Date-with-proxy"><span class="nav-number">4.</span> <span class="nav-text">Efficient and Secure Identity-Based Public Auditing for Dynamic Outsourced Date with proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SeShare-Secure-cloud-data-sharing-based-on-blockchain-and-public-auditing"><span class="nav-number">5.</span> <span class="nav-text">SeShare: Secure cloud data sharing based on blockchain and public auditing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-Privacy-Preserving-Certificateless-Provable-Data-Possession-Scheme-for-Cloud-Storage"><span class="nav-number">6.</span> <span class="nav-text">Efficient Privacy-Preserving Certificateless Provable Data Possession Scheme for Cloud Storage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CIPPPA-Conditional-Identity-Privacy-Preserving-Public-Auditing-for-Cloud-Based-WBANs-against-Malicious-Auditors"><span class="nav-number">7.</span> <span class="nav-text">CIPPPA: Conditional Identity Privacy-Preserving Public Auditing for Cloud-Based WBANs against Malicious Auditors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enabling-Identity-Based-Integrity-Auditing-and-Data-Sharing-With-Sensitive-Information-Hiding-for-Secure-Cloud-Storage"><span class="nav-number">8.</span> <span class="nav-text">Enabling Identity-Based Integrity Auditing and Data Sharing With Sensitive Information Hiding for Secure Cloud Storage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Efficient-Public-Auditing-Protocol-With-Novel-Dynamic-Structure-for-Cloud-Data"><span class="nav-number">9.</span> <span class="nav-text">An Efficient Public Auditing Protocol With Novel Dynamic Structure for Cloud Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oruta-privacy-preserving-public-auditing-for-shared-data-in-the-cloud"><span class="nav-number">10.</span> <span class="nav-text">Oruta: privacy-preserving public auditing for shared data in the cloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-Integrity-Auditing-for-Dynamic-Data-Sharing-With-Multiuser-Modification"><span class="nav-number">11.</span> <span class="nav-text">Public Integrity Auditing for Dynamic Data Sharing With Multiuser Modification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enabling-Efficient-User-Revocation-in-Identity-based-Cloud-Storage-Auditing-for-Shared-Big-Data"><span class="nav-number">12.</span> <span class="nav-text">Enabling Efficient User Revocation in Identity-based Cloud Storage Auditing for Shared Big Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-auditing-for-shared-data-in-the-cloud-with-secure-user-revocation-and-computations-outsourcing"><span class="nav-number">13.</span> <span class="nav-text">Efficient auditing for shared data in the cloud with secure user revocation and computations outsourcing</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div>
+<script async src="https//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    访问人数 <span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2018-8 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i> Power by 
+  </span>
+  <span class="author" itemprop="copyrightHolder">zxp</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  <div id="lv-container" data-uid="MTAyMC8zODgxNC8xNTM0Mg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+	</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "top";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("2AyV3DKioBSdoryrFLRohzjB-gzGzoHsz", "XynedcHyJCVCrTfbD4yYnodo");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ' 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ' ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			}
+		});
+
+	});
+}
+
+</script>
+  
+</body>
+</html>

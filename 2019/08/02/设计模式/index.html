@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="c++," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -86,7 +86,7 @@
 
 
 <meta name="description" content="学习书籍： 《设计模式：可复用面向对象软件的基础》">
-<meta name="keywords" content="c++">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++版设计模式">
 <meta property="og:url" content="https://zxpgo.github.io/2019/08/02/设计模式/index.html">
@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://i.imgur.com/pRWHiGV.png">
 <meta property="og:image" content="https://i.imgur.com/6pdgMH0.png">
 <meta property="og:image" content="https://i.imgur.com/ucRfqWn.png">
-<meta property="og:updated_time" content="2019-08-04T13:16:09.291Z">
+<meta property="og:updated_time" content="2019-11-25T14:42:34.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++版设计模式">
 <meta name="twitter:description" content="学习书籍： 《设计模式：可复用面向对象软件的基础》">
@@ -865,23 +865,8 @@ public:
         progressBar-&gt;value(value);
     }
 };
-
-
-class IProgress {
-    virtual void DoProgress(float value) = 0;
-    virtual ~IProgress() {}
-};
-class FileSplitter {
-    string m_filePath;
-    int m_fileNumber;
-    //ProgressBar * m_progressBar; //具体通知控件
-    IProgress * m_iprogress; //抽象通知机制
-public:
-    FileSplitter(const string&amp; filePath, int fileNumber, IProgress * iprogress) :
-        m_filePath(filePath), m_fileNumber(fileNumber), m_iprogress(iprogress) {
-    }
-
-    void split() {
+</code></pre><p>​<br>    class IProgress {<br>        virtual void DoProgress(float value) = 0;<br>        virtual ~IProgress() {}<br>    };<br>    class FileSplitter {<br>        string m_filePath;<br>        int m_fileNumber;<br>        //ProgressBar <em> m_progressBar; //具体通知控件<br>        IProgress </em> m_iprogress; //抽象通知机制<br>    public:<br>        FileSplitter(const string&amp; filePath, int fileNumber, IProgress * iprogress) :<br>            m_filePath(filePath), m_fileNumber(fileNumber), m_iprogress(iprogress) {<br>        }</p>
+<pre><code>    void split() {
         //1.读取大文件
 
         //2. 分批次先小文件中写入
@@ -997,15 +982,8 @@ protected:
 </ul>
 <p>场景：流操作。</p>
 <p><img src="https://i.imgur.com/vsCkan9.png" alt=""></p>
-<pre><code>class Stream {
-public:
-    virtual char Read(int number) = 0;
-    virtual void Seek(int position) = 0;
-    virtual void Write(char data) = 0;
-    virtual ~Stream(){}
-};
-
-class FileStream : public Stream
+<p>​<br>    class Stream {<br>    public:<br>        virtual char Read(int number) = 0;<br>        virtual void Seek(int position) = 0;<br>        virtual void Write(char data) = 0;<br>        virtual ~Stream(){}<br>    };</p>
+<pre><code>class FileStream : public Stream
 {
 public:
     virtual char Read(int number) {
@@ -1031,22 +1009,8 @@ public:
         //写网络流
     }
 };
-
-
-class MemoryStream : public Stream {
-public:
-    virtual char Read(int number) {
-        //读内存流
-    }
-    virtual void Seek(int position) {
-        //定位内存流
-    }
-    virtual void Write(char data) {
-        //写内存流
-    }
-};
-
-class CryptoFileStream : public FileStream {
+</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
+<pre><code>class CryptoFileStream : public FileStream {
 public:
     virtual char Read(int number) {
         //额外的加密操作
@@ -1063,27 +1027,8 @@ public:
         //额外的加密操作
     }
 };
-
-
-class CryptoNetWorkStream : public NetWorkStream {
-public:
-    virtual char Read(int number) {
-        //额外的加密操作
-        NetWorkStream::Read(number);//读文件流
-    }
-    virtual void Seek(int position) {
-        //额外的加密操作
-        NetWorkStream::Seek(position);//定位文件流
-        //额外的加密操作
-    }
-    virtual void Write(char data) {
-        //额外的加密操作
-        NetWorkStream::Write(data);//定位文件流
-        //额外的加密操作
-    }
-};
-
-class CryptoMemoryStream : public MemoryStream {
+</code></pre><p>​<br>    class CryptoNetWorkStream : public NetWorkStream {<br>    public:<br>        virtual char Read(int number) {<br>            //额外的加密操作<br>            NetWorkStream::Read(number);//读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //额外的加密操作<br>            NetWorkStream::Seek(position);//定位文件流<br>            //额外的加密操作<br>        }<br>        virtual void Write(char data) {<br>            //额外的加密操作<br>            NetWorkStream::Write(data);//定位文件流<br>            //额外的加密操作<br>        }<br>    };</p>
+<pre><code>class CryptoMemoryStream : public MemoryStream {
 public:
     virtual char Read(int number) {
         //额外的加密操作
@@ -1183,22 +1128,8 @@ public:
         //写网络流
     }
 };
-
-
-class MemoryStream : public Stream {
-public:
-    virtual char Read(int number) {
-        //读内存流
-    }
-    virtual void Seek(int position) {
-        //定位内存流
-    }
-    virtual void Write(char data) {
-        //写内存流
-    }
-};
-
-//扩展操作
+</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
+<pre><code>//扩展操作
 class CryptoStream : public Stream{
     Stream * stream;//...
 public:
@@ -1220,16 +1151,8 @@ public:
         //额外的加密操作
     }
 };
-
-
-//缓冲
-class BufferedStream : public Stream {
-    Stream * stream;
-    //...
-public:
-    BufferedStream(Stream * stm) :stream(stm) {
-
-    }
+</code></pre><p>​<br>    //缓冲<br>    class BufferedStream : public Stream {<br>        Stream <em> stream;<br>        //…<br>    public:<br>        BufferedStream(Stream </em> stm) :stream(stm) {</p>
+<pre><code>    }
 };
 
 void Process() {
@@ -1274,22 +1197,8 @@ public:
         //写网络流
     }
 };
-
-
-class MemoryStream : public Stream {
-public:
-    virtual char Read(int number) {
-        //读内存流
-    }
-    virtual void Seek(int position) {
-        //定位内存流
-    }
-    virtual void Write(char data) {
-        //写内存流
-    }
-};
-
-//扩展操作
+</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
+<pre><code>//扩展操作
 
 class DecoratorStream : public Stream{
 protected:
@@ -1318,12 +1227,8 @@ public:
         //额外的加密操作
     }
 };
-
-
-//缓冲
-class BufferedStream : public DecoratorStream {
-
-    //...
+</code></pre><p>​<br>    //缓冲<br>    class BufferedStream : public DecoratorStream {</p>
+<pre><code>    //...
 public:
     BufferedStream(Stream * stm) :DecoratorStream(stm) {
 
@@ -1802,7 +1707,7 @@ void Process() {
       
         <div class="post-tags">
           
-            <a href="/tag/c/" rel="tag"># c++</a>
+            <a href="/tag/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -1928,7 +1833,7 @@ void Process() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">151</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1950,7 +1855,7 @@ void Process() {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2768,6 +2673,26 @@ void Process() {
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
