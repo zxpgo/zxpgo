@@ -405,10 +405,10 @@
         <p>一些经常用到的脚本，小工具。</p>
 <a id="more"></a>
 <h2 id="文件复制"><a href="#文件复制" class="headerlink" title="文件复制"></a>文件复制</h2><p>从一台linux主机将文件复制到另一台linux主机。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">第一步生成ssh证书</span></span><br><span class="line">ssh-keygen #在root/.ssh目录下生成公私钥对</span><br><span class="line"><span class="meta">#</span><span class="bash">第二步将公钥复制到目标linux服务器上</span></span><br><span class="line">ssh-copy-id root@192.168.80.11 #输入需要登陆的linux服务器密码授权</span><br><span class="line"><span class="meta">#</span><span class="bash">第三步免密码登陆</span></span><br><span class="line">ssh root@192.168.80.111</span><br><span class="line"><span class="meta">#</span><span class="bash">实现文件传输</span></span><br><span class="line">scp /opt/k8s/bin/  root@192.168.80.111:/opt/k8s/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>第一步生成ssh证书</span><br><span class="line">ssh-keygen #在root/.ssh目录下生成公私钥对</span><br><span class="line"><span class="meta">#</span>第二步将公钥复制到目标linux服务器上</span><br><span class="line">ssh-copy-id root@192.168.80.11 #输入需要登陆的linux服务器密码授权</span><br><span class="line"><span class="meta">#</span>第三步免密码登陆</span><br><span class="line">ssh root@192.168.80.111</span><br><span class="line"><span class="meta">#</span>实现文件传输</span><br><span class="line">scp /opt/k8s/bin/  root@192.168.80.111:/opt/k8s/bin</span><br></pre></td></tr></table></figure>
 <p>注意两个命令，主要用来免密登陆。</p>
 <h2 id="文件追加"><a href="#文件追加" class="headerlink" title="文件追加"></a>文件追加</h2><p>将一台linux主机的文件追加到另一台linux主机的文件中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">sh  #重新打开一个shell来编辑文件</span><br><span class="line">scp /root/test1  root@192.168.80.110:/root/download/ #文件复制</span><br><span class="line">ssh root@192.168.80.110 'cat /root/download/test1 &gt; /root/download/test.log' #文件追加</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">sh  #重新打开一个shell来编辑文件</span><br><span class="line">scp /root/test1  root@192.168.80.110:/root/download/ #文件复制</span><br><span class="line">ssh root@192.168.80.110 'cat /root/download/test1 &gt; /root/download/test.log' #文件追加</span><br></pre></td></tr></table></figure>
 <p>同样也可以配置公私钥对来免密登陆。</p>
 
       
@@ -608,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">165</span>
+                  <span class="site-state-item-count">167</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -630,7 +630,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
