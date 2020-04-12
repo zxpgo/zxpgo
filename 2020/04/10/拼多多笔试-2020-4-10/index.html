@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="拼多多2021届暑期实习笔试。 第一题对价格从大到小进行排序，然后对下标取余，如果余数等于2，就不加上对应的值。 1234567891011121314151617181920212223242526struct cmp &amp;#123;	bool operator()(const int &amp;amp; lhs, const int &amp;amp; rhs) &amp;#123;		return lhs &amp;gt;">
+<meta name="description" content="拼多多2021届暑期实习笔试。">
 <meta name="keywords" content="面经">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拼多多笔试-2020.4.10">
 <meta property="og:url" content="https://zxpgo.github.io/2020/04/10/拼多多笔试-2020-4-10/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="拼多多2021届暑期实习笔试。 第一题对价格从大到小进行排序，然后对下标取余，如果余数等于2，就不加上对应的值。 1234567891011121314151617181920212223242526struct cmp &amp;#123;	bool operator()(const int &amp;amp; lhs, const int &amp;amp; rhs) &amp;#123;		return lhs &amp;gt;">
+<meta property="og:description" content="拼多多2021届暑期实习笔试。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-12T03:22:18.476Z">
+<meta property="og:updated_time" content="2020-04-12T03:30:27.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拼多多笔试-2020.4.10">
-<meta name="twitter:description" content="拼多多2021届暑期实习笔试。 第一题对价格从大到小进行排序，然后对下标取余，如果余数等于2，就不加上对应的值。 1234567891011121314151617181920212223242526struct cmp &amp;#123;	bool operator()(const int &amp;amp; lhs, const int &amp;amp; rhs) &amp;#123;		return lhs &amp;gt;">
+<meta name="twitter:description" content="拼多多2021届暑期实习笔试。">
 
 
 
@@ -402,8 +402,7 @@
       
 
       
-        <a id="more"></a>
-<p>拼多多2021届暑期实习笔试。<!--more--></p>
+        <p>拼多多2021届暑期实习笔试。<a id="more"></a></p>
 <h1 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h1><p>对价格从大到小进行排序，然后对下标取余，如果余数等于2，就不加上对应的值。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span> &#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; lhs, <span class="keyword">const</span> <span class="keyword">int</span> &amp; rhs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> lhs &gt; rhs;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">		vec.emplace_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> money = <span class="number">0</span>;</span><br><span class="line">	sort(vec.begin(), vec.end(), cmp());</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (i % <span class="number">3</span> != <span class="number">2</span>) &#123;</span><br><span class="line">			money += vec[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; money &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h1><p>leetcode974原题。</p>
