@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="数据结构," />
 
 
 
@@ -85,20 +85,18 @@
 
 
 
-<meta name="description" content="知识点：zip命令、tar命令、压缩与解压常用组合">
-<meta name="keywords" content="Linux">
+<meta name="description" content="排序算法：选择排序，插入排序，冒泡排序，快速排序，堆排序，归并排序，C++实现!">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux常用的压缩&#x2F;解压工具：zip和tar">
-<meta property="og:url" content="https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/index.html">
+<meta property="og:title" content="排序算法-C++实现">
+<meta property="og:url" content="https://zxpgo.github.io/2020/04/13/排序算法-C++实现/index.html">
 <meta property="og:site_name" content="平步青云win">
-<meta property="og:description" content="知识点：zip命令、tar命令、压缩与解压常用组合">
+<meta property="og:description" content="排序算法：选择排序，插入排序，冒泡排序，快速排序，堆排序，归并排序，C++实现!">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/t43P6f3.png">
-<meta property="og:updated_time" content="2018-08-18T03:59:52.147Z">
+<meta property="og:updated_time" content="2020-04-13T14:59:40.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux常用的压缩&#x2F;解压工具：zip和tar">
-<meta name="twitter:description" content="知识点：zip命令、tar命令、压缩与解压常用组合">
-<meta name="twitter:image" content="https://i.imgur.com/t43P6f3.png">
+<meta name="twitter:title" content="排序算法-C++实现">
+<meta name="twitter:description" content="排序算法：选择排序，插入排序，冒泡排序，快速排序，堆排序，归并排序，C++实现!">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/"/>
+  <link rel="canonical" href="https://zxpgo.github.io/2020/04/13/排序算法-C++实现/"/>
 
 
 
 
 
-  <title>Linux常用的压缩/解压工具：zip和tar | 平步青云win</title>
+  <title>排序算法-C++实现 | 平步青云win</title>
   
 
 
@@ -326,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/">
+    <link itemprop="mainEntityOfPage" href="https://zxpgo.github.io/2020/04/13/排序算法-C++实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zxp">
@@ -343,7 +341,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux常用的压缩/解压工具：zip和tar</h2>
+          <h2 class="post-title" itemprop="name headline">排序算法-C++实现</h2>
         
 
         <div class="post-meta">
@@ -355,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T22:28:50+08:00">
-                2018-08-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-13T22:24:24+08:00">
+                2020-04-13
               </time>
             
 
@@ -366,28 +364,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实验楼学习笔记之Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">实验楼学习笔记之Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -395,7 +371,7 @@
 
           
           
-             <span id="/2018/08/11/Linux常用的压缩解压工具zip和tar/" class="leancloud_visitors" data-flag-title="Linux常用的压缩/解压工具：zip和tar">
+             <span id="/2020/04/13/排序算法-C++实现/" class="leancloud_visitors" data-flag-title="排序算法-C++实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,132 +402,14 @@
       
 
       
-        <p>知识点：zip命令、tar命令、压缩与解压常用组合<a id="more"></a></p>
-<h1 id="常用压缩包格式"><a href="#常用压缩包格式" class="headerlink" title="常用压缩包格式"></a>常用压缩包格式</h1><table>
-<thead>
-<tr>
-<th>文件后缀名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*.zip</td>
-<td>zip 程序打包压缩的文件</td>
-</tr>
-<tr>
-<td>*.rar</td>
-<td>rar 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.7z</td>
-<td>7zip 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.tar</td>
-<td>tar 程序打包，未压缩的文件</td>
-</tr>
-<tr>
-<td>*.gz</td>
-<td>gzip 程序（GNU zip）压缩的文件</td>
-</tr>
-<tr>
-<td>*.xz</td>
-<td>xz 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.bz2</td>
-<td>bzip2 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.tar.gz</td>
-<td>tar 打包，gzip 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.tar.xz</td>
-<td>tar 打包，xz 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*tar.bz2</td>
-<td>tar 打包，bzip2 程序压缩的文件</td>
-</tr>
-<tr>
-<td>*.tar.7z</td>
-<td>tar 打包，7z 程序压缩的文件</td>
-</tr>
-</tbody>
-</table>
-<h1 id="zip压缩"><a href="#zip压缩" class="headerlink" title="zip压缩"></a>zip压缩</h1><pre><code>zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop
-</code></pre><p>将Desktop目录下的子文件打包成shiyanlou.zip压缩文件，<code>-r</code>表示递归打包包含子目录的全部内容，<code>-q</code>表示安静模式，不向屏幕显示内容，<code>-o</code>表示输出文件，须在其后紧跟打包输出文件名（shiyanlou.zip）。</p>
-<pre><code>du -h shiyanlou.zip 
-</code></pre><p><code>du</code>命令查看打包文件的大小。<code>-h</code>表示文件大小可读，<code>-d</code>表示查看所查文件的深度，打印在屏幕上。</p>
-<p>加密创建zip包：<br><br>使用<code>-e</code>参数</p>
-<pre><code>zip -r -e -o shiyanlou_e.zip /home/shiyanlou/Desktop
-</code></pre><p>跟着屏幕提示输入密码</p>
-<p><strong>注意</strong>：： 关于<code>zip</code>命令，因为 Windows 系统与 Linux/Unix 在文本文件格式上的一些兼容问题，比如换行符（为不可见字符），在 Windows 为 CR+LF（Carriage-Return+Line-Feed：回车加换行），而在 Linux/Unix 上为 LF（换行），所以如果在不加处理的情况下，在 Linux 上编辑的文本，在 Windows 系统上打开可能看起来是没有换行的。如果你想让你在 Linux 创建的 zip 压缩文件在 Windows 上解压后没有任何问题，那么你还需要对命令做一些修改：</p>
-<pre><code>zip -r -l -o shiyanlou.zip /home/shiyanlou/Desktop
-</code></pre><h1 id="unzip解压zip文件"><a href="#unzip解压zip文件" class="headerlink" title="unzip解压zip文件"></a>unzip解压zip文件</h1><pre><code>unzip shiyanlou.zip
-</code></pre><p>u使用安静模式,将文件解压到指定目录：</p>
-<pre><code>unzip -q shiyanlou.zip -d ziptest
-</code></pre><p>上述目录不存在，将会自动创建，如果不想解压只想查看压缩包的内容，可以使用<code>-l</code>参数：</p>
-<pre><code>unzip -l shiyanlou.zip
-</code></pre><p><strong>注意</strong>：中文的兼容性问题，windows系统创建的压缩文件，如果有中文文档或文件名为中文，默认采用GBK或其他编码，而Linux上默认使用的是UTF-8编码。</p>
-<p>使用<code>-o</code>参数指定编码类型：</p>
-<pre><code>unzip -o GBK 中文压缩文件.zip
-</code></pre><h1 id="tar打包工具"><a href="#tar打包工具" class="headerlink" title="tar打包工具"></a>tar打包工具</h1><p>tar 原本只是一个打包工具，只是同时还是实现了对 7z、gzip、xz、bzip2 等工具的支持，这些压缩工具本身只能实现对文件或目录（单独压缩目录中的文件）的压缩，没有实现对文件的打包压缩，所以我们也无需再单独去学习其他几个工具，tar 的解压和压缩都是同一个命令，只需参数不同，使用比较方便。</p>
-<p><strong>创建一个tar包：</strong></p>
-<pre><code>tar -cf shiyanlou.tar home/shiyanlou/Desktop
-</code></pre><p><img src="https://i.imgur.com/t43P6f3.png" alt=""><br>不能使用相对路径，不然会提示图中问题</p>
-<p>上面命令中，<code>-c</code>表示创建一个tar包文件，<code>-f</code>用户指定创建的文件，注意文件名必须紧跟在<code>-f</code>参数之后，比如不能写出<code>tar -fc shiiyanlou.tar</code>,可以写成<code>tar -f shiyanlou.tar -c</code>。<br><br><code>-v</code>参数以可视的方式输出打包的文件，</p>
-<p><strong>解压一个tar包：</strong><br><br>解压参数：<code>-x</code><br><br>指定已存在的目录： <code>-C</code><br></p>
-<pre><code>tar -xf shiyanlou.tar -C tardir
-</code></pre><p><strong>只查看不解包文件：</strong><br><br>参数： -t</p>
-<pre><code>tar -tf shiyanlou.tar
-</code></pre><p>保留文件属性和跟随链接（符号链接或软链接），有时候我们使用 tar 备份文件当你在其他主机还原时希望保留文件的属性（<code>-p</code> 参数）和备份链接指向的源文件而不是链接本身（<code>-h</code> 参数）：<br>    tar -cphf etc.tar /etc</p>
-<p><strong>使用gzip来压缩文件</strong></p>
-<p>添加<code>-z</code>参数</p>
-<pre><code>tar -czf shiyanlou.tar.gz home/shiyanlou/Desktop
-</code></pre><p><strong>解压<code>*.tar.gz</code>文件</strong></p>
-<pre><code>tar -xzf shiyanlou.tar.gz
-</code></pre><p>要使用其它的压缩工具创建或解压相应文件只需要更改一个参数即可：</p>
-<table>
-<thead>
-<tr>
-<th>压缩文件格式</th>
-<th>参数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*.tar.gz</td>
-<td>-z</td>
-</tr>
-<tr>
-<td>*.tar.xz</td>
-<td>-J</td>
-</tr>
-<tr>
-<td>*tar.bz2</td>
-<td>-j</td>
-</tr>
-</tbody>
-</table>
-<p>tar 命令的参数很多，不过常用的就是上述这些，需要了解更多你可以查看 man 手册获取帮助。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>常用命令：</p>
-<ul>
-<li>zip：<ul>
-<li>打包 ：zip something.zip something （目录请加 -r 参数）</li>
-<li>解包：unzip something.zip</li>
-<li>指定路径：-d 参数</li>
-</ul>
-</li>
-<li>tar：<ul>
-<li>打包：tar -cf something.tar something</li>
-<li>解包：tar -xf something.tar</li>
-<li>指定路径：-C 参数</li>
-</ul>
-</li>
-</ul>
+        <p>排序算法：选择排序，插入排序，冒泡排序，快速排序，堆排序，归并排序，C++实现!<a id="more"></a></p>
+<p>如果对算法的具体思路不太清楚的，建议去B站看看视频，推荐<a href="https://space.bilibili.com/24014925/video" target="_blank" rel="noopener">正月点灯笼</a>!</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = arr[i];</span><br><span class="line">	arr[i] = arr[j];</span><br><span class="line">	arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxIndex</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> max = arr[<span class="number">0</span>], pos = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (max &lt; arr[i]) &#123;</span><br><span class="line">			pos = i;</span><br><span class="line">			max = arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = arr.size();</span><br><span class="line">	<span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">int</span> pos = findMaxIndex(arr, n);</span><br><span class="line">		swap(arr, pos, n - <span class="number">1</span>);</span><br><span class="line">		--n;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">100</span>,<span class="number">99</span>,<span class="number">10</span>,<span class="number">4</span>&#125;;</span><br><span class="line">	select_sort(arr);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> item : arr) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; item &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; vec)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = vec.size();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; vec[j] &gt; vec[j+<span class="number">1</span>]) &#123;</span><br><span class="line">			vec[j+<span class="number">1</span>] = vec[j];</span><br><span class="line">			--j;</span><br><span class="line">		&#125;</span><br><span class="line">		vec[j+<span class="number">1</span>] = vec[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line">	insert_sort(tree);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree.size(); ++i)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; tree[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &lt; end)&#123;</span><br><span class="line">        <span class="keyword">int</span> index = getIndex(nums, start, end);</span><br><span class="line">        quick_sort(nums, start, index<span class="number">-1</span>);</span><br><span class="line">        quick_sort(nums, index+<span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getIndex</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = nums[start];</span><br><span class="line">    <span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end &amp;&amp; nums[end] &gt; pivot)</span><br><span class="line">            --end;</span><br><span class="line">        nums[start] = nums[end];</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end &amp;&amp; nums[start] &lt; pivot)</span><br><span class="line">            ++start;</span><br><span class="line">       	nums[end] = nums[start];</span><br><span class="line">    &#125;</span><br><span class="line">    nums[left] = pivot;</span><br><span class="line">    <span class="keyword">return</span> start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; tree, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = tree[i];</span><br><span class="line">	tree[i] = tree[j];</span><br><span class="line">	tree[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; tree, <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> child1 = i * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> child2 = i * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">int</span> maxIndex = i;</span><br><span class="line">	<span class="keyword">if</span> (child1 &lt; n &amp;&amp;  tree[maxIndex] &lt; tree[child1]) &#123;</span><br><span class="line">		maxIndex = child1;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (child2 &lt; n &amp;&amp; tree[maxIndex] &lt; tree[child2]) &#123;</span><br><span class="line">		maxIndex = child2;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (i != maxIndex) &#123;</span><br><span class="line">		swap(tree, maxIndex, i);</span><br><span class="line">		heapify(tree, n, maxIndex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; tree, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> last_node = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> parent = (last_node - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = parent; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">		heapify(tree, n, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从小到大排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; tree)</span> </span>&#123;</span><br><span class="line">	build_head(tree, tree.size());</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = tree.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">		swap(tree, i, <span class="number">0</span>);</span><br><span class="line">		build_heap(tree, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree&#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">10</span>,<span class="number">4</span>&#125;;</span><br><span class="line">	heap_sort(tree);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> item : tree) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; item &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = arr[i];</span><br><span class="line">	arr[i] = arr[j];</span><br><span class="line">	arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>])</span><br><span class="line">			swap(arr, i, i + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = arr.size(); i &gt;= <span class="number">1</span>; --i) &#123;</span><br><span class="line">		bubble(arr, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归实现</span></span><br><span class="line"><span class="comment">//void bubble_sort(vector&lt;int&gt; &amp; arr, int n) &#123;</span></span><br><span class="line"><span class="comment">//	if (n == 1)</span></span><br><span class="line"><span class="comment">//		return;</span></span><br><span class="line"><span class="comment">//	int i = 0;</span></span><br><span class="line"><span class="comment">//	while (i &lt; n-1) &#123;</span></span><br><span class="line"><span class="comment">//		while (i &lt; n-1 &amp;&amp; arr[i] &lt;= arr[i + 1])</span></span><br><span class="line"><span class="comment">//			++i;</span></span><br><span class="line"><span class="comment">//		if (i &lt; n -1 &amp;&amp; arr[i] &gt; arr[i+1])</span></span><br><span class="line"><span class="comment">//			swap(arr, i, i + 1);</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"><span class="comment">//	bubble_sort(arr, n - 1);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">100</span>,<span class="number">99</span>,<span class="number">10</span>,<span class="number">4</span>&#125;;</span><br><span class="line">	<span class="comment">//bubble_sort(arr, arr.size());</span></span><br><span class="line">	bubble_sort(arr);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> item : arr) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; item &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> LEFT_SIZE = mid - start + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> RIGHT_SIZE = end - mid;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left(LEFT_SIZE), right(RIGHT_SIZE);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= mid; ++i) &#123;</span><br><span class="line">		left[i - start] = arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = mid + <span class="number">1</span>; i &lt;= end; ++i) &#123;</span><br><span class="line">		right[i - mid - <span class="number">1</span>] = arr[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = start;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; LEFT_SIZE &amp;&amp; j &lt; RIGHT_SIZE) &#123;</span><br><span class="line">		<span class="keyword">if</span> (left[i] &lt; right[j]) &#123;</span><br><span class="line">			arr[k++] = left[i++];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			arr[k++] = right[j++];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; LEFT_SIZE) &#123;</span><br><span class="line">		arr[k++] = left[i++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (j &lt; RIGHT_SIZE) &#123;</span><br><span class="line">		arr[k++] = right[j++];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (start == end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">	merge_sort(arr, start, mid);</span><br><span class="line">	merge_sort(arr, mid + <span class="number">1</span>, end);</span><br><span class="line"></span><br><span class="line">	merge(arr,start, mid, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>&#125;;</span><br><span class="line">	merge_sort(tree,<span class="number">0</span>, tree.size()<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tree.size(); ++i)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; tree[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -609,7 +467,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/" title="Linux常用的压缩/解压工具：zip和tar">https://zxpgo.github.io/2018/08/11/Linux常用的压缩解压工具zip和tar/</a>
+    <a href="https://zxpgo.github.io/2020/04/13/排序算法-C++实现/" title="排序算法-C++实现">https://zxpgo.github.io/2020/04/13/排序算法-C++实现/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -624,7 +482,7 @@
       
         <div class="post-tags">
           
-            <a href="/tag/Linux/" rel="tag"># Linux</a>
+            <a href="/tag/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -652,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/11/Linux介绍/" rel="next" title="Linux介绍">
-                <i class="fa fa-chevron-left"></i> Linux介绍
+              <a href="/2020/04/11/网易互娱笔试-2020-4-11/" rel="next" title="网易互娱笔试-2020.4.11">
+                <i class="fa fa-chevron-left"></i> 网易互娱笔试-2020.4.11
               </a>
             
           </div>
@@ -662,8 +520,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/12/Markdown教程/" rel="prev" title="Markdown教程">
-                Markdown教程 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/08/13/VPN资源md/" rel="prev" title="梯子资源">
+                梯子资源 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -882,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用压缩包格式"><span class="nav-number">1.</span> <span class="nav-text">常用压缩包格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip压缩"><span class="nav-number">2.</span> <span class="nav-text">zip压缩</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unzip解压zip文件"><span class="nav-number">3.</span> <span class="nav-text">unzip解压zip文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar打包工具"><span class="nav-number">4.</span> <span class="nav-text">tar打包工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">1.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">3.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">4.</span> <span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">5.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">6.</span> <span class="nav-text">归并排序</span></a></li></ol></div>
             
 
           </div>
