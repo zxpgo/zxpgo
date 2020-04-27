@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://i.imgur.com/pRWHiGV.png">
 <meta property="og:image" content="https://i.imgur.com/6pdgMH0.png">
 <meta property="og:image" content="https://i.imgur.com/ucRfqWn.png">
-<meta property="og:updated_time" content="2019-11-25T14:42:34.643Z">
+<meta property="og:updated_time" content="2020-04-25T09:35:16.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++版设计模式">
 <meta name="twitter:description" content="学习书籍： 《设计模式：可复用面向对象软件的基础》">
@@ -393,6 +393,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -865,11 +887,8 @@ public:
         progressBar-&gt;value(value);
     }
 };
-</code></pre><p>​<br>    class IProgress {<br>        virtual void DoProgress(float value) = 0;<br>        virtual ~IProgress() {}<br>    };<br>    class FileSplitter {<br>        string m_filePath;<br>        int m_fileNumber;<br>        //ProgressBar <em> m_progressBar; //具体通知控件<br>        IProgress </em> m_iprogress; //抽象通知机制<br>    public:<br>        FileSplitter(const string&amp; filePath, int fileNumber, IProgress * iprogress) :<br>            m_filePath(filePath), m_fileNumber(fileNumber), m_iprogress(iprogress) {<br>        }</p>
-<pre><code>    void split() {
-        //1.读取大文件
-
-        //2. 分批次先小文件中写入
+</code></pre><p>​<br>​    class IProgress {<br>​        virtual void DoProgress(float value) = 0;<br>​        virtual ~IProgress() {}<br>​    };<br>​    class FileSplitter {<br>​        string m_filePath;<br>​        int m_fileNumber;<br>​        //ProgressBar <em> m_progressBar; //具体通知控件<br>​        IProgress </em> m_iprogress; //抽象通知机制<br>​    public:<br>​        FileSplitter(const string&amp; filePath, int fileNumber, IProgress * iprogress) :<br>​            m_filePath(filePath), m_fileNumber(fileNumber), m_iprogress(iprogress) {<br>​        }<br>​<br>        void split() {<br>            //1.读取大文件</p>
+<pre><code>        //2. 分批次先小文件中写入
         for (int i = 0; i &lt; m_fileNumber; i++) {
             //...
             //m_progressBar-&gt;setVaule();
@@ -982,22 +1001,8 @@ protected:
 </ul>
 <p>场景：流操作。</p>
 <p><img src="https://i.imgur.com/vsCkan9.png" alt=""></p>
-<p>​<br>    class Stream {<br>    public:<br>        virtual char Read(int number) = 0;<br>        virtual void Seek(int position) = 0;<br>        virtual void Write(char data) = 0;<br>        virtual ~Stream(){}<br>    };</p>
-<pre><code>class FileStream : public Stream
-{
-public:
-    virtual char Read(int number) {
-        //读文件流
-    }
-    virtual void Seek(int position) {
-        //定位文件流
-    }
-    virtual void Write(char data) {
-        //写文件流
-    }
-};
-
-class NetWorkStream : public Stream {
+<p>​<br>​    class Stream {<br>​    public:<br>​        virtual char Read(int number) = 0;<br>​        virtual void Seek(int position) = 0;<br>​        virtual void Write(char data) = 0;<br>​        virtual ~Stream(){}<br>​    };<br>​<br>    class FileStream : public Stream<br>    {<br>    public:<br>        virtual char Read(int number) {<br>            //读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //定位文件流<br>        }<br>        virtual void Write(char data) {<br>            //写文件流<br>        }<br>    };</p>
+<pre><code>class NetWorkStream : public Stream {
 public:
     virtual char Read(int number) {
         //读网络流
@@ -1009,44 +1014,9 @@ public:
         //写网络流
     }
 };
-</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
-<pre><code>class CryptoFileStream : public FileStream {
-public:
-    virtual char Read(int number) {
-        //额外的加密操作
-        FileStream::Read(number);//读文件流
-    }
-    virtual void Seek(int position) {
-        //额外的加密操作
-        FileStream::Seek(position);//定位文件流
-        //额外的加密操作
-    }
-    virtual void Write(char data) {
-        //额外的加密操作
-        FileStream::Write(data);//定位文件流
-        //额外的加密操作
-    }
-};
-</code></pre><p>​<br>    class CryptoNetWorkStream : public NetWorkStream {<br>    public:<br>        virtual char Read(int number) {<br>            //额外的加密操作<br>            NetWorkStream::Read(number);//读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //额外的加密操作<br>            NetWorkStream::Seek(position);//定位文件流<br>            //额外的加密操作<br>        }<br>        virtual void Write(char data) {<br>            //额外的加密操作<br>            NetWorkStream::Write(data);//定位文件流<br>            //额外的加密操作<br>        }<br>    };</p>
-<pre><code>class CryptoMemoryStream : public MemoryStream {
-public:
-    virtual char Read(int number) {
-        //额外的加密操作
-        MemoryStream::Read(number);//读文件流
-    }
-    virtual void Seek(int position) {
-        //额外的加密操作
-        MemoryStream::Seek(position);//定位文件流
-        //额外的加密操作
-    }
-    virtual void Write(char data) {
-        //额外的加密操作
-        MemoryStream::Write(data);//定位文件流
-        //额外的加密操作
-    }
-};
-
-//缓冲
+</code></pre><p>​<br>​    class MemoryStream : public Stream {<br>​    public:<br>​        virtual char Read(int number) {<br>​            //读内存流<br>​        }<br>​        virtual void Seek(int position) {<br>​            //定位内存流<br>​        }<br>​        virtual void Write(char data) {<br>​            //写内存流<br>​        }<br>​    };<br>​<br>    class CryptoFileStream : public FileStream {<br>    public:<br>        virtual char Read(int number) {<br>            //额外的加密操作<br>            FileStream::Read(number);//读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //额外的加密操作<br>            FileStream::Seek(position);//定位文件流<br>            //额外的加密操作<br>        }<br>        virtual void Write(char data) {<br>            //额外的加密操作<br>            FileStream::Write(data);//定位文件流<br>            //额外的加密操作<br>        }<br>    };</p>
+<p>​<br>​    class CryptoNetWorkStream : public NetWorkStream {<br>​    public:<br>​        virtual char Read(int number) {<br>​            //额外的加密操作<br>​            NetWorkStream::Read(number);//读文件流<br>​        }<br>​        virtual void Seek(int position) {<br>​            //额外的加密操作<br>​            NetWorkStream::Seek(position);//定位文件流<br>​            //额外的加密操作<br>​        }<br>​        virtual void Write(char data) {<br>​            //额外的加密操作<br>​            NetWorkStream::Write(data);//定位文件流<br>​            //额外的加密操作<br>​        }<br>​    };<br>​<br>    class CryptoMemoryStream : public MemoryStream {<br>    public:<br>        virtual char Read(int number) {<br>            //额外的加密操作<br>            MemoryStream::Read(number);//读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //额外的加密操作<br>            MemoryStream::Seek(position);//定位文件流<br>            //额外的加密操作<br>        }<br>        virtual void Write(char data) {<br>            //额外的加密操作<br>            MemoryStream::Write(data);//定位文件流<br>            //额外的加密操作<br>        }<br>    };</p>
+<pre><code>//缓冲
 class BufferedFileStrem : public FileStream {
     //...
 };
@@ -1128,34 +1098,9 @@ public:
         //写网络流
     }
 };
-</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
-<pre><code>//扩展操作
-class CryptoStream : public Stream{
-    Stream * stream;//...
-public:
-    CryptoStream(Stream * stream) {
-        this-&gt;stream = stream;
-    }
-    virtual char Read(int number) {
-        //额外的加密操作
-        stream-&gt;Read(number);//读文件流
-    }
-    virtual void Seek(int position) {
-        //额外的加密操作
-        stream-&gt;Seek(position);//定位文件流
-        //额外的加密操作
-    }
-    virtual void Write(char data) {
-        //额外的加密操作
-        stream-&gt;Write(data);//定位文件流
-        //额外的加密操作
-    }
-};
-</code></pre><p>​<br>    //缓冲<br>    class BufferedStream : public Stream {<br>        Stream <em> stream;<br>        //…<br>    public:<br>        BufferedStream(Stream </em> stm) :stream(stm) {</p>
-<pre><code>    }
-};
-
-void Process() {
+</code></pre><p>​<br>​    class MemoryStream : public Stream {<br>​    public:<br>​        virtual char Read(int number) {<br>​            //读内存流<br>​        }<br>​        virtual void Seek(int position) {<br>​            //定位内存流<br>​        }<br>​        virtual void Write(char data) {<br>​            //写内存流<br>​        }<br>​    };<br>​<br>    //扩展操作<br>    class CryptoStream : public Stream{<br>        Stream <em> stream;//…<br>    public:<br>        CryptoStream(Stream </em> stream) {<br>            this-&gt;stream = stream;<br>        }<br>        virtual char Read(int number) {<br>            //额外的加密操作<br>            stream-&gt;Read(number);//读文件流<br>        }<br>        virtual void Seek(int position) {<br>            //额外的加密操作<br>            stream-&gt;Seek(position);//定位文件流<br>            //额外的加密操作<br>        }<br>        virtual void Write(char data) {<br>            //额外的加密操作<br>            stream-&gt;Write(data);//定位文件流<br>            //额外的加密操作<br>        }<br>    };</p>
+<p>​<br>​    //缓冲<br>​    class BufferedStream : public Stream {<br>​        Stream <em> stream;<br>​        //…<br>​    public:<br>​        BufferedStream(Stream </em> stm) :stream(stm) {<br>​<br>        }<br>    };</p>
+<pre><code>void Process() {
     //运行时装配
     FileStream * s1 = new FileStream();
     CryptoStream * s2 = new CryptoStream(s1); //加密
@@ -1197,10 +1142,8 @@ public:
         //写网络流
     }
 };
-</code></pre><p>​<br>    class MemoryStream : public Stream {<br>    public:<br>        virtual char Read(int number) {<br>            //读内存流<br>        }<br>        virtual void Seek(int position) {<br>            //定位内存流<br>        }<br>        virtual void Write(char data) {<br>            //写内存流<br>        }<br>    };</p>
-<pre><code>//扩展操作
-
-class DecoratorStream : public Stream{
+</code></pre><p>​<br>​    class MemoryStream : public Stream {<br>​    public:<br>​        virtual char Read(int number) {<br>​            //读内存流<br>​        }<br>​        virtual void Seek(int position) {<br>​            //定位内存流<br>​        }<br>​        virtual void Write(char data) {<br>​            //写内存流<br>​        }<br>​    };<br>​<br>    //扩展操作</p>
+<pre><code>class DecoratorStream : public Stream{
 protected:
     Stream * stream;
 public:
@@ -1227,12 +1170,8 @@ public:
         //额外的加密操作
     }
 };
-</code></pre><p>​<br>    //缓冲<br>    class BufferedStream : public DecoratorStream {</p>
-<pre><code>    //...
-public:
-    BufferedStream(Stream * stm) :DecoratorStream(stm) {
-
-    }
+</code></pre><p>​<br>​    //缓冲<br>​    class BufferedStream : public DecoratorStream {<br>​<br>        //…<br>    public:<br>        BufferedStream(Stream * stm) :DecoratorStream(stm) {</p>
+<pre><code>    }
 };
 
 void Process() {
@@ -1844,7 +1783,7 @@ void Process() {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
